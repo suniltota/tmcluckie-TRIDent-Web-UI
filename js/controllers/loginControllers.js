@@ -1,0 +1,63 @@
+'use strict';
+
+loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
+    function ($scope, apiService, loginService) {
+    	
+		$scope.waitingForLoginResponse=false;            
+		var loginSpinnerContainer = angular.element( document.querySelector("#loginSpinner"));
+		loginSpinnerContainer.append('<div class="ion-loading-c" style="font-size:20pt" data-pack="default" data-animation="true"></div>');
+		localStorage.clear();
+		sessionStorage.clear();
+		$scope.submitted=false;
+		$scope.loginFailure=false;
+		$scope.errorMsg=""; 
+
+		$scope.selectedApiServer = "http://52.34.40.35/portal/";
+		$scope.$watch('selectedApiServer', function(newValue, oldValue){
+			apiService.setBasePath(newValue);
+			localStorage.apiBasePath=newValue;            });
+
+		$('#myModal').on('show.bs.modal', function (e) {
+			$('[name="forgotpwusername"]').val("");
+			$('[name="firstname"]').val("");
+			$('[name="lastname"]').val("");
+			$('[name="email"]').val("");
+		})
+
+		$scope.onLoginSubmit = function(){
+
+			$scope.waitingForLoginResponse=true;
+			var username, pwd;
+			if($scope.user){
+			  pwd = $scope.user.pw;
+			  username = $scope.user.username;
+			}
+
+			if(typeof pwd == 'undefined' || pwd == '' || typeof username == 'undefined' || username == '') {
+				//if either username or pw fields are emtpy, short-circuit login process
+			  $scope.submitted=true;
+			  $scope.waitingForLoginResponse=false;
+
+			  return;
+			} else {
+				$scope.submitted=false;
+			}
+			pwd = pwd.replace("%","%25");
+			pwd = pwd.replace("&","%26");
+			//login submission logic here
+			var params={username:username, password:pwd};
+			apiService.request({apiMethod:'services/user/login',params:params,httpMethod:'POST'}).success(function(data, status) {
+				$scope.waitingForLoginResponse=false;
+				$scope.loginFailure=false;
+				localStorage.userDetails = JSON.stringify(data);
+                localStorage.sessionId =  
+				location.href = "index.html";
+			}).
+			error(function(data, status) {
+				$scope.waitingForLoginResponse=false;
+				$scope.errorMsg="There was an error processing the request. Please try again later.";
+				$scope.loginFailure=true;
+			});
+		};
+	}
+])

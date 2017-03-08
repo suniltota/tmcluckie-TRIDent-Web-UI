@@ -1,0 +1,33 @@
+<div class="LoanTermsTable col-sm-12">
+	<span class="col-sm-12">
+		<table class="table">
+		    <thead>
+		      <tr>
+		        <th class="col-sm-3 tableHeadingTitle">Costs at Closing</th>
+		        <th  class="col-sm-2"></th>
+		        <th  class="col-sm-7"></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+		        <td><label>Closing Costs</label></td>
+		        <td><label>{{transformData.pageOne.costsAtClosing.ClosingCosts.amount}}</label></td>
+		        <td>
+		        	<ul class="col-sm-9" >
+		        		<li ng-repeat="detail in transformData.pageOne.costsAtClosing.ClosingCosts.details"><p ng-bind-html="renderHtml(detail)"></p></li>
+		        	</ul>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td><label>Cash To Close</label></td>
+		        <td><label>{{transformData.pageOne.costsAtClosing.CashToClose.amount}} </label></td>
+		        <td>
+		        	<ul class="col-sm-9" >
+		        		<li ng-repeat="detail in transformData.pageOne.costsAtClosing.CashToClose.details"><p ng-bind-html="renderHtml(detail)"></p></li>
+		        	</ul>
+		        </td>
+		      </tr>
+		    </tbody>
+		</table>
+</span>
+</div>

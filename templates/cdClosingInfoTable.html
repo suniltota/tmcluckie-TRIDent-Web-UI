@@ -1,0 +1,160 @@
+<div class="CDHeaderSection col-lg-12">
+			            	<div class="col-sm-4">
+			            	<input type="file" name="ucdXml" id="UCDXMLFILE" ng-hide="true" onchange="angular.element(this).scope().fileNameChanged(this)">
+			            		<h4>Closing Information</h4>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle">Date Issued</div>
+			            			<div class="col-sm-7">
+			            				<span class="col-sm-10 padding0"><input type="text" name="dateIssued" id="dateIssued" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageOne.closingInformation.dateIssued" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Issued"/>
+			            				</span>
+					          			<span class="input-group-btn col-sm-2 padding0">
+					            			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
+					            		</span>
+			            			</div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle">Closing Date</div>
+			            			<div class="col-sm-7">
+			            				<span class="col-sm-10 padding0">
+			            				<input type="text" name="closingDate" id="closingDate" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageOne.closingInformation.closingDate" is-open="isClosingDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Closing Date"/>
+			            				</span>
+					          			<span class="input-group-btn col-sm-2 padding0">
+					            			<button type="button" class="btn btn-default calenderBtn" ng-click="isClosingDate = !isClosingDate"><i class="glyphicon glyphicon-calendar"></i></button>
+					            		</span>
+			            			</div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle">Disbursement Date</div>
+			            			<div class="col-sm-7">
+			            				<span class="col-sm-10 padding0">
+			            				<input type="text" name="disbursementDate" id="disbursementDate" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageOne.closingInformation.disbursementDate" is-open="isDisbursementDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Disbursement Date"/>
+			            				</span>
+					          			<span class="input-group-btn col-sm-2 padding0">
+					            			<button type="button" class="btn btn-default calenderBtn" ng-click="isDisbursementDate = !isDisbursementDate"><i class="glyphicon glyphicon-calendar"></i></button>
+					            		</span>
+			            			</div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle">Settlement Agent</div>
+			            			<div class="col-sm-7">
+			            				<input type="text" ng-model="transformData.pageOne.closingInformation.settlementAgent" class="form-control">
+			            			</div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle">File #</div>
+			            			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.fileNo" class="form-control"></div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle" data-toggle="modal" data-target="#myModal" style="cursor:pointer;">Property <span class="glyphicon glyphicon-edit"></span></div>
+			            			<div class="col-sm-7">
+			            				{{transformData.pageOne.closingInformation.property.addressLineText}}, 
+			            				{{transformData.pageOne.closingInformation.property.cityName}}, 
+			            				{{transformData.pageOne.closingInformation.property.stateCode}} - {{transformData.pageOne.closingInformation.property.postalCode}}
+			            			</div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 padding0">
+										<select class="form-control">
+			            					<option>Appraised Prop. Value</option>
+			            					<option>Estimated Value</option>
+			            				</select>
+									</div>
+			            			<div class="col-sm-7"><input type="text" class="form-control"></div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 padding0">
+										<select class="form-control">
+			            					<option>Sale Price</option>
+			            					<option>Appraised Prop. Value</option>
+			            					<option>Estimated Prop. Value</option>
+			            				</select>
+									</div>
+			            			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.salePrice" class="form-control"></div>
+			            		</div>
+			            	</div>
+			            	<div class="col-sm-4">
+			            		<h4>Transaction Information</h4>
+			            		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isBorrower">
+			            			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#BorrowerTransaction" style="cursor: pointer;">Borrower <span class="glyphicon glyphicon-edit"></span></div>
+			            			<div class="col-sm-7">
+		            					{{transformData.pageOne.transactionInformation.borrowerDisplayName}},
+		            					{{transformData.pageOne.transactionInformation.borrowerAddress.addressLineText}},
+		            					{{transformData.pageOne.transactionInformation.borrowerAddress.cityName}}, 
+		            					{{transformData.pageOne.transactionInformation.borrowerAddress.stateCode}} - {{transformData.pageOne.transactionInformation.borrowerAddress.postalCode}}
+			            			</div>
+			            		</div>
+			            		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isSeller">
+			            			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#SellerTransaction" style="cursor: pointer;">Seller <span class="glyphicon glyphicon-edit"></span></div>
+			            			<div class="col-sm-7">
+			            				{{transformData.pageOne.transactionInformation.sellerDisplayName}},
+		            					{{transformData.pageOne.transactionInformation.sellerAddress.addressLineText}},
+		            					{{transformData.pageOne.transactionInformation.sellerAddress.cityName}}, 
+		            					{{transformData.pageOne.transactionInformation.sellerAddress.stateCode}} - {{transformData.pageOne.transactionInformation.sellerAddress.postalCode}}
+			            			</div>
+			            		</div>
+			            		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isLender">
+			            			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#LenderTransaction" style="cursor: pointer;">Lender <span class="glyphicon glyphicon-edit"></span></div>
+			            			<div class="col-sm-7">
+			            				{{transformData.pageOne.transactionInformation.lenderDisplayName}},
+		            					{{transformData.pageOne.transactionInformation.lenderAddress.addressLineText}},
+		            					{{transformData.pageOne.transactionInformation.lenderAddress.cityName}}, 
+		            					{{transformData.pageOne.transactionInformation.lenderAddress.stateCode}} - {{transformData.pageOne.transactionInformation.lenderAddress.postalCode}}
+			            			</div>
+			            		</div>
+			            	</div>
+			            	<div class="col-sm-4">
+			            		<h4>Loan Information</h4>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle">Loan Term</div>
+			            			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.loanInformation.loanTerm" class="form-control"></div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle">Purpose</div>
+			            			<div class="col-sm-7">
+				            			<select ng-model="transformData.pageOne.loanInformation.purpose"  id="purpose" name="purpose" class="form-control" ng-options="option.displayName for option in purposes track by option.value">
+	        								<option value="">Select purpose</option>
+	        							</select>
+			            			</div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle">Product</div>
+			            			<div class="col-sm-7">
+			            				<select ng-model="transformData.pageOne.loanInformation.product" id="product" name="product" class="form-control" ng-options="option.Product_Description for option in products track by option.Product_Description">
+	        								<option value="">Select product</option>
+	        							</select>
+			            			</div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle">Loan Type</div>
+			            			<div class="col-sm-7">
+			            				<span class="checkboxGroup">
+			            					<input type="checkbox" value="Conventional" ng-model="transformData.pageOne.loanInformation.loanType">
+			            					<label>Conventional</label>
+			            				</span>
+			            				<span class="checkboxGroup" value="FHA" ng-model="transformData.pageOne.loanInformation.loanType">
+			            					<input type="checkbox">
+			            					<label>FHA</label>
+			            				</span><br><br>
+			            				<span class="checkboxGroup" value="VA" ng-model="transformData.pageOne.loanInformation.loanType">
+			            					<input type="checkbox">
+			            					<label>VA</label>
+			            				</span>
+			            				<span class="checkboxGroup">
+			            					<input type="checkbox"  value="Other" ng-model="transformData.pageOne.loanInformation.Other">
+			            					<label>Other</label>
+			            					<div><input type="text" ng-model="transformData.pageOne.loanInformation.Other" class="form-control"></div>
+			            				</span>
+
+			            			</div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle">Loan ID #</div>
+			            			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.loanInformation.loanId" class="form-control"></div>
+			            		</div>
+			            		<div class="FieldGroup">
+			            			<div class="col-sm-5 fieldTitle">MIC #</div>
+			            			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.loanInformation.mic" class="form-control"></div>
+			            		</div>
+			            		
+			            	</div>
+			            </div>

@@ -1,0 +1,129 @@
+/* Global Styles */
+
+html, body {
+    height: 100%;
+}
+body { font-family: Helvetica,Arial,sans-serif; color: #555; font-size: 12px; }
+input:focus,select:focus,textarea:focus,button:focus {outline: none;}
+.vertical_middle{vertical-align: middle !important;}
+.CommonTable .tableHeader{padding: 0px !important;}
+.CommonTable .tableHeader .tableHeadingTitle{height: 40px; vertical-align: middle; padding: 8px;}
+.CommonTable thead tr th{padding: 4px !important;}
+.CommonTable tbody tr td{padding: 0px !important;vertical-align: middle !important;}
+.CommonTable .form-control{border-radius: 0px ; border: 0px;}
+.CommonTable .inputBorder{border: 1px solid #ddd; border-radius: 3px; height:30px; padding-right: 1px 5px;}
+.border_top{border-top:2px solid #bbb;}
+
+
+.padding0{padding: 0px;}
+.margin0{margin: 0px;}
+.padding5{padding: 5px;}
+.padding5lr{padding-left:5px; padding-right: 5px;}
+.fontBold{font-weight: bold;}
+.margin5tb{margin-top: 5px; margin-bottom: 5px;}
+.checkboxGroup input[type="checkbox"]{margin:0 5px; float: left;}
+.checkboxGroup label{float: left;}
+.radioGroup input[type="radio"]{margin:0 5px; float: left;}
+.radioGroup label{float: left;}
+.rowBackground{background: #eee;}
+ul li{list-style: none;}
+
+.notificationIcons{margin:8px 10px; color:#5bb1dc;}
+.notificationIcons > span{cursor: pointer;}
+.notificationIcons > span .glyphicon{margin-bottom:4px;}
+
+.loginContainer{width: 40%; left: 30%; border: 1px solid #ddd; padding: 10px 30px; position: absolute; top: 150px; float: left; box-shadow: 0 0 10px #999;}
+.PageNavigation{width: 100%; background:#5bb1dc; clear: both; float: left; }
+.PageNavigation ul{padding-left: 10px;}
+.PageNavigation li{list-style: none; float: left; padding:5px 10px;}
+.PageNavigation li a{color: #fff; text-decoration: none;}
+.PageNavigation > li{position: relative;}
+.PageNavigation li > ul{position: absolute; z-index: 1; margin:2px 0; background: #fff; box-shadow: 0px 0px 1px #888888; display: none; padding:10px; width: 140px;}
+.PageNavigation li:hover  ul{display: block; transition: width 2s, height 4s; z-index: 15;}
+.PageNavigation li > ul li{clear: both; padding:5px 10px; border-bottom: 1px solid #f5f5f5; width: 100%;}
+.PageNavigation li > ul li:last-child{border-bottom: 0px;}
+.PageNavigation li > ul li a{color: #555; cursor: pointer;}
+.PageNavigation li > ul li a:hover{color: #999;}
+
+
+.PageformHeader{width: 96%; transition: 0.5s;}
+
+.panel-default{border: 0; margin-bottom: 0px;}
+.panel-body{padding: 0;}
+.CDHeaderSection{width: 100%; margin-top: 10px;}
+.PDFview{background: #adadad; float: left;}
+.PDFview > span{width:94%; margin:10px 3%; padding:40px 0; float: left; background: #fff;}
+.CDHeaderSection .fieldTitle{padding:8px; font-weight: bold;}
+.CDHeaderSection .FieldGroup{padding: 5px 0; width: 100%; float: left;}
+
+.home3 .CDHeaderSection .FieldGroup{padding: 2px;}
+.home3 .CDHeaderSection .fieldTitle{padding: 2px;}
+
+
+.LoanTermsTable{margin-top:20px; float: left; width: 100%; }
+.LoanTermsTable table{ border-bottom: 1px solid #ddd; font-size: 12px;}
+.LoanTermsTable>thead>tr>th{padding: 5px;}
+.LoanTermsTable .tableHeadingTitle{background: #5bb1dc; border-radius:7px 7px 0 0; font-size: 16px; color: #fff;}
+.LoanTermsTable tr > td:first-child{border-right: 1px solid #ddd;}
+.tableQuestion{width: 100%; float: left;}
+.tableQuestion span{background:#eee; padding:5px 20px; margin-top: -5px; margin-bottom: -8px; float: left; width:100%;}
+
+.footer{background-color:#555; padding:0px 0px;color:#ffffff; right: 0; width:96%; z-index: 2; position: fixed; bottom: 0px; zoom:;}
+.footer footer{padding:3px 10px;}
+
+.openSlidebtn{background: #aaa; width: 100%; cursor: pointer; padding: 5px; position: absolute; left: 0; top:6px;}
+.openSlidebtn:hover{background: #eee;}
+.SidebarBtns .openSlidebtn.glyphicon{color: #555;}
+.SidebarBtns{width:4%; transition: opacity 0.3s; height:100%; text-align: center; float: left; position: fixed; left: 0; top:82px; border-right: 1px solid #ddd; z-index:1; background: #555; padding: 10px; padding-top: 30px;}
+.SidebarBtns .pageno{font-weight: bold; width: 100%; float: left; padding: 5px; color: #eee;}
+.SidebarBtns .active, .SidebarBtns .active .glyphicon{color: #a0dfff;}
+.SidebarBtns .pageno .noTitle{padding-top:8px; font-size:10px;}
+.SidebarBtns .glyphicon{color: #eee; padding-right: 3px;}
+.SidebarBtns a{cursor: pointer;}
+.sidenav #doctype{background-color: #ddd; font-weight: bold;}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top:82px;
+    left: 0;
+    background-color:#555;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a.active{color: #a0dfff;}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size:14px;
+    color: #ccc;
+    display: block;
+    transition: 0.3s;
+    border-bottom:1px solid #666;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right:5px;
+    font-size:20px;
+    margin-left: 50px;
+    border-bottom: 0px;
+}
+#transparent{position: fixed;width:100%; display: none; height: 100%; transition: 0.5s; background: #000;opacity: 0.5; top:82px; z-index: 1;}
+.modal-body .fieldTitle{padding:8px; font-weight: bold;}
+
+#ClosingDisclosureQ .modal-lg{width: 1100px;}
+#ClosingDisclosureQ .modal-body{float: left;width: 100%;}
+#ClosingDisclosureQ .modal-footer{clear: both; margin-top: 20px;}
+#ClosingInformationQ{margin-top: 15px;}
+#TransactionInformationQ{margin-top: 15px;}
+
+.calenderInput{border-right: 0px;}
+.calenderBtn{height: 34px;}

@@ -1,0 +1,257 @@
+[
+  {
+    "STATE_NAME": "Alabama",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "AL"
+  },
+  {
+    "STATE_NAME": "Alaska",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "AK"
+  },
+  {
+    "STATE_NAME": "Arizona",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "AZ"
+  },
+  {
+    "STATE_NAME": "Arkansas",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "AR"
+  },
+  {
+    "STATE_NAME": "California",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "CA"
+  },
+  {
+    "STATE_NAME": "Colorado",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "CO"
+  },
+  {
+    "STATE_NAME": "Connecticut",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "CT"
+  },
+  {
+    "STATE_NAME": "District of Columbia",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "DC"
+  },
+  {
+    "STATE_NAME": "Delaware",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "DE"
+  },
+  {
+    "STATE_NAME": "Florida",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "FL"
+  },
+  {
+    "STATE_NAME": "Georgia",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "GA"
+  },
+  {
+    "STATE_NAME": "Hawaii",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "HI"
+  },
+  {
+    "STATE_NAME": "Idaho",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "ID"
+  },
+  {
+    "STATE_NAME": "Illinois",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "IL"
+  },
+  {
+    "STATE_NAME": "Indiana",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "IN"
+  },
+  {
+    "STATE_NAME": "Iowa",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "IA"
+  },
+  {
+    "STATE_NAME": "Kansas",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "KS"
+  },
+  {
+    "STATE_NAME": "Kentucky",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "KY"
+  },
+  {
+    "STATE_NAME": "Louisiana",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "LA"
+  },
+  {
+    "STATE_NAME": "Maine",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "ME"
+  },
+  {
+    "STATE_NAME": "Maryland",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "MD"
+  },
+  {
+    "STATE_NAME": "Massachusetts",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "MA"
+  },
+  {
+    "STATE_NAME": "Michigan",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "MI"
+  },
+  {
+    "STATE_NAME": "Minnesota",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "MN"
+  },
+  {
+    "STATE_NAME": "Mississippi",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "MS"
+  },
+  {
+    "STATE_NAME": "Missouri",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "MO"
+  },
+  {
+    "STATE_NAME": "Montana",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "MT"
+  },
+  {
+    "STATE_NAME": "Nebraska",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "NE"
+  },
+  {
+    "STATE_NAME": "Nevada",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "NV"
+  },
+  {
+    "STATE_NAME": "New Hampshire",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "NH"
+  },
+  {
+    "STATE_NAME": "New Jersey",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "NJ"
+  },
+  {
+    "STATE_NAME": "New Mexico",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "NM"
+  },
+  {
+    "STATE_NAME": "New York",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "NY"
+  },
+  {
+    "STATE_NAME": "North Carolina",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "NC"
+  },
+  {
+    "STATE_NAME": "North Dakota",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "ND"
+  },
+  {
+    "STATE_NAME": "Ohio",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "OH"
+  },
+  {
+    "STATE_NAME": "Oklahoma",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "OK"
+  },
+  {
+    "STATE_NAME": "Oregon",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "OR"
+  },
+  {
+    "STATE_NAME": "Pennsylvania",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "PA"
+  },
+  {
+    "STATE_NAME": "Rhode Island",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "RI"
+  },
+  {
+    "STATE_NAME": "South Carolina",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "SC"
+  },
+  {
+    "STATE_NAME": "South Dakota",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "SD"
+  },
+  {
+    "STATE_NAME": "Tennessee",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "TN"
+  },
+  {
+    "STATE_NAME": "Texas",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "TX"
+  },
+  {
+    "STATE_NAME": "Utah",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "UT"
+  },
+  {
+    "STATE_NAME": "Vermont",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "VT"
+  },
+  {
+    "STATE_NAME": "Virginia",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "VA"
+  },
+  {
+    "STATE_NAME": "Washington",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "WA"
+  },
+  {
+    "STATE_NAME": "West Virginia",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "WV"
+  },
+  {
+    "STATE_NAME": "Wisconsin",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "YES",
+    "STATE_CODE": "WI"
+  },
+  {
+    "STATE_NAME": "Wyoming",
+    "LIABILITY_AFTER_FORECLOSURE_FLAG": "NO",
+    "STATE_CODE": "WY"
+  }
+]

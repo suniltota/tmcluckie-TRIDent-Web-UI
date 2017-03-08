@@ -1,0 +1,57 @@
+<div role="navigation" data-ng-controller="menuCtrl">
+        <header class="navbar-header col-sm-12">
+            <div class="pull-left margin5tb">
+			 <img src="images/actualize_logo.png">
+            </div>
+
+            <div class="notificationIcons pull-right">
+                <span class="pull-right text-center">
+                    <span class="glyphicon glyphicon-bell"></span>
+                    <span class="col-sm-12">Notification</span>
+                </span>
+                <span class="pull-right text-center">
+                    <span class="glyphicon glyphicon-flag"></span>
+                    <span class="col-sm-12">Flag</span>
+                </span>
+                <span class="pull-right text-center">
+                    <span class="glyphicon glyphicon-file"></span>
+                    <span class="col-sm-12">Forms</span>
+                </span>
+            </div>
+        </header>
+        <nav class="PageNavigation">
+            <ul>
+                <li>
+                    <a href="./" class="dir">File</a>
+                    <ul>
+                        <li><a href="./">New</a></li>
+                        <li><a href="" ng-click="fileOpen()">Open</a></li>
+                        <li><a href="./">Save</a></li>
+                        <li><a href="./">Save As</a></li>
+                        <li><a href="./">Import</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./" class="dir">Tools</a>
+                    <ul>
+                        <li><a data-toggle="modal" data-target="#ClosingDisclosureQ">Run Wizard</a></li>
+                        <li><a href="./">Validate UCD</a></li>
+                        <li><a href="./">Submit to GSE's</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./" class="dir">View</a>
+                    <ul>
+                        <li><a href="./">PDF</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./" class="dir">Help</a>
+                    <ul>
+                        <li><a href="./">Help</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="pull-right" style="color: #fff; padding-right: 15px; margin-top: -5px; cursor: pointer;" ><a style="color: #fff; text-decoration: none;" href="login.html">Logout</a></div>
+        </nav>
+    </div>
