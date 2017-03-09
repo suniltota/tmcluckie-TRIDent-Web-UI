@@ -56,38 +56,38 @@
 	    </div>
 </div>
 
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="BorrowerTransaction" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Property</h4>
+          <h4 class="modal-title">Borrower</h4>
         </div>
         <div class="modal-body">
           		<div class="row margin5tb">
           			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Borrower Address Street</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.borrowerAddress.addressLineText" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Borrower Address City</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.borrowerAddress.cityName" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Borrower Address State</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.borrowerAddress.stateCode" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Borrower Address Zip</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.borrowerAddress.postalCode" class="form-control"></div>
 	        		</div>
         		</div>
         </div>
@@ -99,7 +99,7 @@
     </div>
   </div>
 
-  <div class="modal fade" id="BorrowerTransaction" role="dialog">
+  <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -111,26 +111,26 @@
         <div class="modal-body">
           		<div class="row margin5tb">
           			<div class=" col-sm-12">
-	        			<div class="col-sm-5 fieldTitle">Borrower Address Street</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-5 fieldTitle">Property Address Street</div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.addressLineText" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
-	        			<div class="col-sm-5 fieldTitle">Borrower Address City</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-5 fieldTitle">Property Address City</div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.cityName" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
-	        			<div class="col-sm-5 fieldTitle">Borrower Address State</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-5 fieldTitle">Property Address State</div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.stateCode" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
-	        			<div class="col-sm-5 fieldTitle">Borrower Address Zip</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-5 fieldTitle">Property Address Zip</div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.postalCode" class="form-control"></div>
 	        		</div>
         		</div>
         </div>
@@ -155,25 +155,25 @@
           		<div class="row margin5tb">
           			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Seller Address Street</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.sellerAddress.addressLineText" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Seller Address City</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.sellerAddress.cityName" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Seller Address State</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.sellerAddress.stateCode" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Seller Address Zip</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.sellerAddress.postalCode" class="form-control"></div>
 	        		</div>
         		</div>
         </div>
@@ -198,25 +198,25 @@
           		<div class="row margin5tb">
           			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Lender Address Street</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.lenderAddress.addressLineText" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Lender Address City</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.lenderAddress.cityName" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Lender Address State</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.lenderAddress.stateCode" class="form-control"></div>
 	        		</div>
         		</div>
         		<div class="row margin5tb">
         			<div class=" col-sm-12">
 	        			<div class="col-sm-5 fieldTitle">Lender Address Zip</div>
-	        			<div class="col-sm-7"><input type="text" class="form-control"></div>
+	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.transactionInformation.lenderAddress.postalCode" class="form-control"></div>
 	        		</div>
         		</div>
         </div>

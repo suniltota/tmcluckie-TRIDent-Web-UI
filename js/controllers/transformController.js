@@ -22,6 +22,9 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     $scope.renderHtml = function(html_code){
     	return $sce.trustAsHtml(html_code);
     }
+    $scope.updatePurpose = function(){
+    	console.log($scope.transformData.pageOne.loanInformation.purpose);
+    }
 
     var loadTransformData = function(fileData){
 		transformService.loadTransformData(fileData).success(function(data){
@@ -81,6 +84,15 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 				}else{
 					$scope.transformData.pageOne.transactionInformation.isSeller = false;
 				}
+				angular.forEach($scope.purposes, function(p){
+					if($scope.transformData.pageOne.loanInformation.purpose == p.value)
+						$scope.transformData.pageOne.loanInformation.purpose = p;	
+				});
+				console.log($scope.transformData.pageOne.loanInformation.product);
+				angular.forEach($scope.products, function(p){
+					if($scope.transformData.pageOne.loanInformation.product == p["CFPB-compliant_name"])
+						$scope.transformData.pageOne.loanInformation.product = p;	
+				});
 			}
 		});
     }
