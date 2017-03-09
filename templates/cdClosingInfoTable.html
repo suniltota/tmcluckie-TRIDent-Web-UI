@@ -46,10 +46,11 @@
 		</div>
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle" data-toggle="modal" data-target="#myModal" style="cursor:pointer;">Property <span class="glyphicon glyphicon-edit"></span></div>
-			<div class="col-sm-7">
-				{{transformData.pageOne.closingInformation.property.addressLineText}}, 
-				{{transformData.pageOne.closingInformation.property.cityName}}, 
-				{{transformData.pageOne.closingInformation.property.stateCode}} - {{transformData.pageOne.closingInformation.property.postalCode}}
+			<div class="col-sm-7"><div ng-show="transformData.pageOne.closingInformation.property.addressLineText!=null">
+					{{transformData.pageOne.closingInformation.property.addressLineText}}, 
+					{{transformData.pageOne.closingInformation.property.cityName}}, 
+					{{transformData.pageOne.closingInformation.property.stateCode}} - {{transformData.pageOne.closingInformation.property.postalCode}}
+				</div>
 			</div>
 		</div>
 		<div class="FieldGroup">
@@ -76,29 +77,29 @@
 		<h4>Transaction Information</h4>
 		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isBorrower">
 			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#BorrowerTransaction" style="cursor: pointer;">Borrower <span class="glyphicon glyphicon-edit"></span></div>
-			<div class="col-sm-7">
+			<div class="col-sm-7"> <div ng-show="transformData.pageOne.transactionInformation.property.borrowerDisplayName!=null">
 				{{transformData.pageOne.transactionInformation.borrowerDisplayName}},
 				{{transformData.pageOne.transactionInformation.borrowerAddress.addressLineText}},
 				{{transformData.pageOne.transactionInformation.borrowerAddress.cityName}}, 
-				{{transformData.pageOne.transactionInformation.borrowerAddress.stateCode}} - {{transformData.pageOne.transactionInformation.borrowerAddress.postalCode}}
+				{{transformData.pageOne.transactionInformation.borrowerAddress.stateCode}} - {{transformData.pageOne.transactionInformation.borrowerAddress.postalCode}}</div>
 			</div>
 		</div>
 		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isSeller">
 			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#SellerTransaction" style="cursor: pointer;">Seller <span class="glyphicon glyphicon-edit"></span></div>
-			<div class="col-sm-7">
+			<div class="col-sm-7"><div ng-show="transformData.pageOne.transactionInformation.property.sellerDisplayName!=null">
 				{{transformData.pageOne.transactionInformation.sellerDisplayName}},
 				{{transformData.pageOne.transactionInformation.sellerAddress.addressLineText}},
 				{{transformData.pageOne.transactionInformation.sellerAddress.cityName}}, 
-				{{transformData.pageOne.transactionInformation.sellerAddress.stateCode}} - {{transformData.pageOne.transactionInformation.sellerAddress.postalCode}}
+				{{transformData.pageOne.transactionInformation.sellerAddress.stateCode}} - {{transformData.pageOne.transactionInformation.sellerAddress.postalCode}}</div>
 			</div>
 		</div>
 		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isLender">
 			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#LenderTransaction" style="cursor: pointer;">Lender <span class="glyphicon glyphicon-edit"></span></div>
-			<div class="col-sm-7">
+			<div class="col-sm-7"><div ng-show="transformData.pageOne.transactionInformation.property.lenderDisplayName!=null">
 				{{transformData.pageOne.transactionInformation.lenderDisplayName}},
 				{{transformData.pageOne.transactionInformation.lenderAddress.addressLineText}},
 				{{transformData.pageOne.transactionInformation.lenderAddress.cityName}}, 
-				{{transformData.pageOne.transactionInformation.lenderAddress.stateCode}} - {{transformData.pageOne.transactionInformation.lenderAddress.postalCode}}
+				{{transformData.pageOne.transactionInformation.lenderAddress.stateCode}} - {{transformData.pageOne.transactionInformation.lenderAddress.postalCode}}</div>
 			</div>
 		</div>
 	</div>
