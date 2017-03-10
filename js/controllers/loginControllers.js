@@ -12,7 +12,7 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 		$scope.loginFailure=false;
 		$scope.errorMsg=""; 
 
-		$scope.selectedApiServer = "http://52.34.40.35/portal/";
+		$scope.selectedApiServer = "http://52.34.40.35/actualize/";
 		$scope.$watch('selectedApiServer', function(newValue, oldValue){
 			apiService.setBasePath(newValue);
 			localStorage.apiBasePath=newValue;            });
