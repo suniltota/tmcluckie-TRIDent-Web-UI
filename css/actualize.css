@@ -6,14 +6,19 @@ html, body {
 body { font-family: Helvetica,Arial,sans-serif; color: #555; font-size: 12px; }
 input:focus,select:focus,textarea:focus,button:focus {outline: none;}
 .vertical_middle{vertical-align: middle !important;}
+.CommonTable{margin-top: 20px;}
 .CommonTable .tableHeader{padding: 0px !important;}
 .CommonTable .tableHeader .tableHeadingTitle{height: 40px; vertical-align: middle; padding: 8px;}
-.CommonTable thead tr th{padding: 4px !important;}
+.CommonTable thead tr th{padding: 4px;}
 .CommonTable tbody tr td{padding: 0px !important;vertical-align: middle !important;}
 .CommonTable .form-control{border-radius: 0px ; border: 0px;}
 .CommonTable .inputBorder{border: 1px solid #ddd; border-radius: 3px; height:30px; padding-right: 1px 5px;}
+.CommonTable .form-control{font-size: 11px; padding: 5px 2px;}
+.CommonTable .FieldWidth{width: 60px;}
 .border_top{border-top:2px solid #bbb;}
 
+.table{font-size: 12px;}
+input, select, textarea, .form-control{font-size: 12px;}
 
 .padding0{padding: 0px;}
 .margin0{margin: 0px;}
@@ -60,11 +65,21 @@ ul li{list-style: none;}
 .home3 .CDHeaderSection .fieldTitle{padding: 2px;}
 
 
-.LoanTermsTable{margin-top:20px; float: left; width: 100%; }
-.LoanTermsTable table{ border-bottom: 1px solid #ddd; font-size: 12px;}
+.LoanTermsTable{margin-top:20px; float: left; }
+.LoanTermsTable table{ border-bottom: 1px solid #ddd;}
 .LoanTermsTable>thead>tr>th{padding: 5px;}
 .LoanTermsTable .tableHeadingTitle{background: #5bb1dc; border-radius:7px 7px 0 0; font-size: 16px; color: #fff;}
 .LoanTermsTable tr > td:first-child{border-right: 1px solid #ddd;}
+
+.LoanCostsRightTable .table{font-size: 11px;}
+.LoanCostsRightTable .table th{padding: 1px 5px;}
+.LoanCostsRightTable .form-control{font-size: 11px;}
+
+.OtherCostsRightTable .table{font-size: 11px;}
+.OtherCostsRightTable .table th{padding: 8px;}
+
+
+
 .tableQuestion{width: 100%; float: left;}
 .tableQuestion span{background:#eee; padding:5px 20px; margin-top: -5px; margin-bottom: -8px; float: left; width:100%;}
 
