@@ -17,6 +17,8 @@ input:focus,select:focus,textarea:focus,button:focus {outline: none;}
 .CommonTable .FieldWidth{width: 60px;}
 .border_top{border-top:2px solid #bbb;}
 
+.pageSpinner{width: 100%; height: 100%; z-index:99999; display: none; position: fixed; background: #222; opacity: 0.5; background-image:url("../images/loading-blue.gif"); background-repeat: no-repeat; background-size:50px; background-position: center;}
+
 .table{font-size: 12px;}
 input, select, textarea, .form-control{font-size: 12px;}
 
