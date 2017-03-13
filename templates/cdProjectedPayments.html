@@ -64,9 +64,9 @@
 		        		<span class="col-sm-6"><label>This estimate includes</label></span> 
 		        		<span class="col-sm-6"><label>In escrow?</label></span>
 		        		<ul class="col-sm-6">
-		        			<li><input type="checkbox" ng-model="transformData.pageOne.projectedPayments.etia.propertyTaxesStatus"> Property Taxes</li>
-		        			<li><input type="checkbox" ng-model="transformData.pageOne.projectedPayments.etia.homeownersInsuranceStatus"> Homeowners Insurance</li>
-		        			<li><input type="checkbox" ng-model="transformData.pageOne.projectedPayments.etia.otherStatus"> Other:</li>
+		        			<li><input type="checkbox" name= "propertyTaxesStatus" ng-model="transformData.pageOne.projectedPayments.etia.propertyTaxesStatus"  ng-true-value="true" ng-false-value="false"> Property Taxes</li>
+		        			<li><input type="checkbox" name= "homeownersInsuranceStatus" ng-model="transformData.pageOne.projectedPayments.etia.homeownersInsuranceStatus"  ng-true-value="true" ng-false-value="false"> Homeowners Insurance</li>
+		        			<li><input type="checkbox" name= "otherStatus" ng-model="transformData.pageOne.projectedPayments.etia.otherStatus"  ng-true-value="true" ng-false-value="false"> Other:</li>
 		        		</ul>
 		        		<ul class="col-sm-6">
 		        			<li>&nbsp;{{transformData.pageOne.projectedPayments.etia.propertyTaxesInEscrow}}</li>

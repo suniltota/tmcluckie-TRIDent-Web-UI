@@ -1,397 +1,221 @@
 <div class="LoanTermsTable CommonTable col-sm-9 ">
-			            	<span class="col-sm-12">
-			            		<table class="table table-bordered" style="border: 0px;">
-								    <thead>
-								      <tr>
-								        <th class="col-sm-12 tableHeader" colspan="7" style="border-left: 0px; border-right:0px;">
-								        	<span class="col-sm-3 tableHeadingTitle">Other Costs</span>
-								        </th>
-								        						        
-								      </tr>
-								     
-								      
-								    </thead>
+	<span class="col-sm-12">
+		<table class="table table-bordered" style="border: 0px;">
+		    <thead>
+		      <tr>
+		        <th class="col-sm-12 tableHeader" colspan="7" style="border-left: 0px; border-right:0px;">
+		        	<span class="col-sm-3 tableHeadingTitle">Other Costs</span>
+		        </th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    	<tr class="border_top">
+		      	<th class="rowBackground col-sm-7" colspan="2">E. Taxes and Other Government Fees</th>
+		      	<th class="rowBackground text-center col-sm-2" colspan="2">{{transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount}}</th>
+		      	<th class="rowBackground text-center col-sm-2" colspan="2"></th>
+		      	<th></th>
+		      </tr>	
+		      <tr ng-repeat="i in 14 | range">
+		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<10">0</span>{{i}}</td>
+		        <td>
+		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType}}</span>
+		        	<!--<span class="padding5 pull-left">Deed:</span>
+		        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></span>
+		        	<span class="padding5 pull-left">Mortgage:</span>
+		        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></span>-->
+		        </td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].paidByOthers"/></td>
+		      </tr>
+		     <tr class="border_top">
+		      	<th class="rowBackground" colspan="2">F. Prepaids</th>
+		      	<th class="rowBackground text-center" colspan="2">{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsTotalAmount}}</th>
+		      	<th class="rowBackground text-center" colspan="2"></th>
+		      	<th></th>
+		      </tr>	
+		      <tr ng-repeat="i in 14 | range">
+		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<10">0</span>{{i}}</td>
+		        <td>
+		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].feeType}}</span>
+		        	<!--<span class="padding5 pull-left">Deed:</span>
+		        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></span>
+		        	<span class="padding5 pull-left">Mortgage:</span>
+		        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></span>-->
+		        </td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers"/></td>
+		      </tr>
+		     <tr class="border_top">
+		      	<th class="rowBackground" colspan="2">G. Initial Escrow Payment at Closing</th>
+		      	<th class="rowBackground text-center" colspan="2"{{transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingTotalAmount}}</th>
+		      	<th class="rowBackground text-center" colspan="2"></th>
+		      	<th></th>
+		      </tr>	
+		      <tr ng-repeat="i in 14 | range">
+		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<10">0</span>{{i}}</td>
+		        <td>
+		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].feeType}}</span>
+		        </td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].bpAtClosing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].bpB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].spAtClosing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].spB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].paidByOthers"/></td>
+		      </tr>
+		      <tr class="border_top">
+		      	<th class="rowBackground" colspan="2">H. Other</th>
+		      	<th class="rowBackground text-center" colspan="2">{{transformData.pageTwo.closingCostDetailsOtherCosts.otherTotalAmount}}</th>
+		      	<th class="rowBackground text-center" colspan="2"></th>
+		      	<th></th>
+		      </tr>	
+		      <tr ng-repeat="i in 14 | range">
+		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<10">0</span>{{i}}</td>
+		        <td>
+		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].feeType}}</span>
+		        </td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers"/></td>
+		      </tr>
+		      <tr class="border_top">
+		      	<th class="rowBackground" colspan="2">I. TOTAL OTHER COSTS (Borrower-Paid)</th>
+		      	<th class="rowBackground text-center" colspan="2">{{transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount}}</th>
+		      	<th class="rowBackground text-center" colspan="2"></th>
+		      	<th></th>
+		      </tr>	
+		      <tr>
+		      	<td class="text-center">01</td>
+		      	<td><span class="padding5 ">{{transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCosts.feeType}}</span></td>
+		      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing"/></td>
+		      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing"/></td>
+		      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCosts.spAtClosing"/></td>
+		      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCosts.spB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCosts.paidByOthers"/></td>
+		      </tr>
+		    </tbody>
+		</table>
+	</span>
 
-								    <tbody>
-								    	<tr class="border_top">
-								      	<th class="rowBackground col-sm-7" colspan="2">E. Taxes and Other Government Fees</th>
-								      	<th class="rowBackground text-center col-sm-2" colspan="2">$0.00</th>
-								      	<th class="rowBackground text-center col-sm-2" colspan="2"></th>
-								      	<th></th>
-								      </tr>	
-								      <tr>
-								      	<td class="text-center"  style="width: 40px;">01</td>
-								        <td>
-								        	<span class="padding5 pull-left">Recording Fees</span>
-								        	<span class="padding5 pull-left">Deed:</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="padding5 pull-left">Mortgage:</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        </td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      <tr>
-								      	<td class="text-center">02</td>
-								        <td>
-								        	<span class="padding5 pull-left">
-									        	Transfer Taxes
-								        	</span>
-								        	<span class="padding5 pull-left"> to </span>
-									        <span class="pull-left">
-									        	<input class="form-control inputBorder FieldWidth" value=""></input>
-									        </span>
-								        </td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      <tr>
-								      	<td class="text-center">03</td>
-								      	<td></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								     <tr>
-								      	<td class="text-center">04</td>
-								      	<td></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								     <tr class="border_top">
-								      	<th class="rowBackground" colspan="2">F. Prepaids</th>
-								      	<th class="rowBackground text-center" colspan="2">$98.00</th>
-								      	<th class="rowBackground text-center" colspan="2"></th>
-								      	<th></th>
-								      </tr>	
-								      <tr>
-								      	<td class="text-center"  style="width: 40px;">01</td>
-								        <td>
-								        	<span class="padding5 pull-left">Homeowner's Insurance (</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">Per month for</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">mo.)</span>
-								        </td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      <tr>
-								      	<td class="text-center">02</td>
-								        <td>
-								        	<span class="padding5 pull-left">Mortgage Insurance (</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">Per month for</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">mo.)</span>
-								        </td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      <tr>
-								      	<td class="text-center">03</td>
-								      	<td>
-								      		<span class="padding5 pull-left">Prepaid Interest (</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">Per day from</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">to</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								      	</td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								     <tr>
-								      	<td class="text-center">04</td>
-								      	<td>
-								      		<span class="padding5 pull-left">Property Taxes (</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">Per month for</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">mo.)</span>
-								      	</td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								     <tr class="border_top">
-								      	<th class="rowBackground" colspan="2">G. Initial Escrow Payment at Closing</th>
-								      	<th class="rowBackground text-center" colspan="2">$0.00</th>
-								      	<th class="rowBackground text-center" colspan="2"></th>
-								      	<th></th>
-								      </tr>	
-								      <tr>
-								      	<td class="text-center"  style="width: 40px;">01</td>
-								        <td>
-								        	<span class="padding5 pull-left">Homeowner's Insurance (</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">Per month for</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">mo.)</span>
-								        </td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      <tr>
-								      	<td class="text-center">02</td>
-								        <td>
-								        	<span class="padding5 pull-left">Mortgage Insurance (</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">Per month for</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">mo.)</span>
-								        </td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      
-								     <tr>
-								      	<td class="text-center">03</td>
-								      	<td>
-								      		<span class="padding5 pull-left">Property Taxes (</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">Per month for</span>
-								        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></input></span>
-								        	<span class="pull-left padding5">mo.)</span>
-								      	</td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      <tr>
-								      	<td class="text-center">04</td>
-								      	<td>
-								      		
-								      	</td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      <tr>
-								      	<td class="text-center">05</td>
-								      	<td>
-								      		<span class="padding5 ">Aggregate Adjustment</span>
-								      	</td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      <tr class="border_top">
-								      	<th class="rowBackground" colspan="2">H. Other</th>
-								      	<th class="rowBackground text-center" colspan="2">$0.00</th>
-								      	<th class="rowBackground text-center" colspan="2"></th>
-								      	<th></th>
-								      </tr>	
-								      
-								      
-								      <tr>
-								      	<td class="text-center">01</td>
-								      	<td></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      <tr>
-								      	<td class="text-center">02</td>
-								      	<td></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      <tr>
-								      	<td class="text-center">03</td>
-								      	<td></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								     <tr>
-								      	<td class="text-center">04</td>
-								      	<td></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								      <tr class="border_top">
-								      	<th class="rowBackground" colspan="2">I. TOTAL OTHER COSTS (Borrower-Paid)</th>
-								      	<th class="rowBackground text-center" colspan="2">$747.00</th>
-								      	<th class="rowBackground text-center" colspan="2"></th>
-								      	<th></th>
-								      </tr>	
-								      <tr>
-								      	<td class="text-center">01</td>
-								      	<td><span class="padding5 ">Other Costs Subtotals (E + F + G + H)</span></td>
-								      	<td><input class="form-control" value="$747.00"></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								      	<td><input class="form-control" value=""></input></td>
-								        <td><input class="form-control" value=""></input></td>
-								      </tr>
-								    </tbody>
-								</table>
-							</span>
+	<span class="TotalClosingCosts col-sm-12">
+		<table  class="table table-bordered" style="border: 0px;">
+			<tr class="border_top">
+		      	<th class="rowBackground col-sm-7" colspan="2">J. TOTAL CLOSING COSTS (Borrower-Paid)</th>
+		      	<th class="rowBackground text-center col-sm-2" colspan="2">{{transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCostsTotalAmount}}</th>
+		      	<th class="rowBackground text-center col-sm-2" colspan="2"></th>
+		      	<th class="col-sm-1"></th>
+		    </tr>
+		    <tr ng-repeat="i in 2 | range">
+		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<10">0</span>{{i}}</td>
+		        <td>
+		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCosts[i].feeType}}</span>
+		        </td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCosts[i].bpAtClosing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCosts[i].bpB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCosts[i].spAtClosing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCosts[i].spB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCosts[i].paidByOthers"/></td>
+		      </tr>	
+			     
+		</table>
+	</span>
+</div>
 
-							<span class="TotalClosingCosts col-sm-12">
-								<table  class="table table-bordered" style="border: 0px;">
-									<tr class="border_top">
-									      	<th class="rowBackground col-sm-7" colspan="2">J. TOTAL CLOSING COSTS (Borrower-Paid)</th>
-									      	<th class="rowBackground text-center col-sm-2" colspan="2">$747.00</th>
-									      	<th class="rowBackground text-center col-sm-2" colspan="2"></th>
-									      	<th class="col-sm-1"></th>
-									      </tr>	
-									      <tr>
-									      	<td class="text-center">01</td>
-									      	<td><span class="padding5 ">Closing Costs Subtotals (D + I)</span></td>
-									      	<td><input class="form-control" value="$747.00"></input></td>
-									      	<td><input class="form-control" value=""></input></td>
-									      	<td><input class="form-control" value=""></input></td>
-									      	<td><input class="form-control" value=""></input></td>
-									        <td><input class="form-control" value=""></input></td>
-									      </tr>
-									      <tr>
-									      	<td class="text-center">02</td>
-									      	<td><span class="padding5 ">Lender Credits</span></td>
-									      	<td><input class="form-control" value="$747.00"></input></td>
-									      	<td><input class="form-control" value=""></input></td>
-									      	<td><input class="form-control" value=""></input></td>
-									      	<td><input class="form-control" value=""></input></td>
-									        <td><input class="form-control" value=""></input></td>
-									      </tr>
-								</table>
-							</span>
-			           	</div>
+<div class="col-sm-3 OtherCostsRightTable">
+	<table class="table table-bordered border_top CommonTable" style="margin-top:62px;font-size: 11px;">
+		   <tbody>
+		   	<tr class="border_top">
+		      	<th class="col-sm-4">APR Flag</th>
+		      </tr>	
+			 <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
 
-	<div class="col-sm-3 OtherCostsRightTable">
-			<table class="table table-bordered border_top CommonTable" style="margin-top:62px;font-size: 11px;">
-					
-					   <tbody>
-					   	<tr class="border_top">
-					      	<th class="col-sm-4">APR Flag</th>
-					      </tr>	
-						 <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
+		      <tr class="border_top">
+		      	<th class="col-sm-4">APR Flag</th>
+		      	<th class="col-sm-4">Regulation Z Flag</th>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="No"></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="No"></td>
+		      	
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
 
-					      <tr class="border_top">
-					      	<th class="col-sm-4">APR Flag</th>
-					      	<th class="col-sm-4">Regulation Z Flag</th>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="No"></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="No"></td>
-					      	
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
+		       <tr class="border_top">
+		      	<th class="col-sm-4">APR Flag</th>
+		      	<th class="col-sm-4">Regulation Z Flag</th>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
+		      <tr class="border_top">
+		      	<th class="col-sm-4">APR Flag</th>
+		      	<th class="col-sm-4">Regulation Z Flag</th>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
+		      	
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
+		      <tr>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
+		      </tr>	
+		   </tbody>
+	</table>
 
-					       <tr class="border_top">
-					      	<th class="col-sm-4">APR Flag</th>
-					      	<th class="col-sm-4">Regulation Z Flag</th>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
-					      <tr class="border_top">
-					      	<th class="col-sm-4">APR Flag</th>
-					      	<th class="col-sm-4">Regulation Z Flag</th>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
-					      	
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
-					      <tr>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      	<td class="col-sm-4"><input type="text" class="form-control" name="" value=""></td>
-					      </tr>	
-					   </tbody>
-			</table>
-
-	</div>
+</div>

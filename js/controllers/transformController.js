@@ -8,6 +8,15 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 		formatYear: 'yy',
 		startingDay: 1
 	};
+	$scope.documentType= {
+      "loanType": "Purchase",
+      "standardView": true,
+      "alternateView": false,
+      "payoffsAndPayments": false,
+      "refinanceTypeLoan": false,
+      "homeEquityLoanIndicator": false,
+      "sellerOnly": false
+    }
 	transformService.getProducts().success(function (result) {
         $scope.products = result;
     });

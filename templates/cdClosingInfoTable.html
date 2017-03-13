@@ -77,7 +77,7 @@
 		<h4>Transaction Information</h4>
 		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isBorrower">
 			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#BorrowerTransaction" style="cursor: pointer;">Borrower <span class="glyphicon glyphicon-edit"></span></div>
-			<div class="col-sm-7"> <div ng-show="transformData.pageOne.transactionInformation.property.borrowerDisplayName!=null">
+			<div class="col-sm-7"> <div ng-show="transformData.pageOne.transactionInformation.borrowerDisplayName">
 				{{transformData.pageOne.transactionInformation.borrowerDisplayName}},
 				{{transformData.pageOne.transactionInformation.borrowerAddress.addressLineText}},
 				{{transformData.pageOne.transactionInformation.borrowerAddress.cityName}}, 
@@ -86,7 +86,7 @@
 		</div>
 		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isSeller">
 			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#SellerTransaction" style="cursor: pointer;">Seller <span class="glyphicon glyphicon-edit"></span></div>
-			<div class="col-sm-7"><div ng-show="transformData.pageOne.transactionInformation.property.sellerDisplayName!=null">
+			<div class="col-sm-7"><div ng-show="transformData.pageOne.transactionInformation.sellerDisplayName">
 				{{transformData.pageOne.transactionInformation.sellerDisplayName}},
 				{{transformData.pageOne.transactionInformation.sellerAddress.addressLineText}},
 				{{transformData.pageOne.transactionInformation.sellerAddress.cityName}}, 
@@ -95,7 +95,7 @@
 		</div>
 		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isLender">
 			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#LenderTransaction" style="cursor: pointer;">Lender <span class="glyphicon glyphicon-edit"></span></div>
-			<div class="col-sm-7"><div ng-show="transformData.pageOne.transactionInformation.property.lenderDisplayName!=null">
+			<div class="col-sm-7"><div ng-show="transformData.pageOne.transactionInformation.lenderDisplayName">
 				{{transformData.pageOne.transactionInformation.lenderDisplayName}},
 				{{transformData.pageOne.transactionInformation.lenderAddress.addressLineText}},
 				{{transformData.pageOne.transactionInformation.lenderAddress.cityName}}, 
