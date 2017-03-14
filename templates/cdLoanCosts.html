@@ -68,10 +68,6 @@
 									<option>Underwriting Fee</option>
 					        	</select>
 				        	</span>
-				        	<span class="col-sm-1 padding0 text-center margin5tb"> to </span>
-				        	<span class="col-sm-5 padding0">
-				        		<input type="text" class="form-control" name="">
-				        	</span>
 				        </td>
 				        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing"></input></td>
 				        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing"></input></td>
@@ -222,7 +218,7 @@
 				        </span>
 				        <span class="col-sm-1" ng-if="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType"> to </span>
 				        <span class="col-sm-5">
-				        	{{transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].toEntity}}
+				        	<input type="text" class="form-control" name="BorrowerDidShopFor" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].toEntity">
 				        </span>
 				        </td>
 			        <td><input class="form-control"  ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing"></input></td>
@@ -337,7 +333,7 @@
 				        </span>
 				        <span class="col-sm-1" ng-if="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType"> to </span>
 				        <span class="col-sm-5">
-				        	{{transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].toEntity}}
+				        	<input type="text" class="form-control" name="BorrowerDidShopFor" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].toEntity">
 				        </span>
 				        </td>
 			        <td><input class="form-control"  ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing"></input></td>

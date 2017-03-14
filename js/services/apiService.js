@@ -51,7 +51,6 @@ httpServiceModule.factory('apiService', ['$http', '$q', function($http, $q) {
 			var dataStr="";
 			var contentType = "application/x-www-form-urlencoded";
 			var firstIteration=true;
-
 			//assemble params into data string format
 			if(typeof bundle.params != "undefined"){
 				for (var key in bundle.params) {

@@ -36,6 +36,7 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     }
 
     var loadTransformData = function(fileData){
+    	$("#spinner").show();
 		transformService.loadTransformData(fileData).success(function(data){
 			if(data != null && data.length>0){
 				$scope.transformData = data[0];
@@ -103,6 +104,7 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 						$scope.transformData.pageOne.loanInformation.product = p;	
 				});
 			}
+			$("#spinner").hide();
 		});
     }
 
