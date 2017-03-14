@@ -16,7 +16,7 @@
 		      	<th></th>
 		      </tr>	
 		      <tr ng-repeat="i in 14 | range">
-		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<10">0</span>{{i}}</td>
+		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
 		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType}}</span>
 		        	<!--<span class="padding5 pull-left">Deed:</span>
@@ -37,13 +37,9 @@
 		      	<th></th>
 		      </tr>	
 		      <tr ng-repeat="i in 14 | range">
-		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<10">0</span>{{i}}</td>
+		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
 		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].feeType}}</span>
-		        	<!--<span class="padding5 pull-left">Deed:</span>
-		        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></span>
-		        	<span class="padding5 pull-left">Mortgage:</span>
-		        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></span>-->
 		        </td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing"/></td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing"/></td>
@@ -58,9 +54,14 @@
 		      	<th></th>
 		      </tr>	
 		      <tr ng-repeat="i in 14 | range">
-		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<10">0</span>{{i}}</td>
-		        <td>
-		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].feeType}}</span>
+		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
+		        <td><span ng-show="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].feeType">
+		        	<span class="padding5 pull-left col-sm-5">{{transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].feeType}}</span>
+					<span class="pull-left padding0 col-sm-2"><input class="form-control inputBorder FieldWidth" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].escrowAmount"></input></span>
+	                <span class="pull-left padding0 col-sm-2">Per month for</span>
+	                <span class="pull-left padding0 col-sm-2"><input class="form-control inputBorder FieldWidth" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].toEntity"></input></span>
+	                <span class="pull-left padding0 col-sm-1">mo.</span>
+	                </span>
 		        </td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].bpAtClosing"/></td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].bpB4Closing"/></td>
@@ -75,7 +76,7 @@
 		      	<th></th>
 		      </tr>	
 		      <tr ng-repeat="i in 14 | range">
-		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<10">0</span>{{i}}</td>
+		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
 		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].feeType}}</span>
 		        </td>
@@ -113,7 +114,7 @@
 		      	<th class="col-sm-1"></th>
 		    </tr>
 		    <tr ng-repeat="i in 2 | range">
-		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<10">0</span>{{i}}</td>
+		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
 		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCosts[i].feeType}}</span>
 		        </td>
