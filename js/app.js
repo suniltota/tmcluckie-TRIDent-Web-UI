@@ -56,7 +56,11 @@ app.controller('validateCtrl', function ($scope, $location, $http) {
 
 
 app.controller('menuCtrl', function ($scope) {
+  
   $scope.fileOpen = function(){
     angular.element($("#UCDXMLFILE")).scope().openUCDXMLFile();
+  }
+  $scope.saveFile = function(){
+    angular.element($("#UCDXMLFILE")).scope().saveFile();
   }
 });

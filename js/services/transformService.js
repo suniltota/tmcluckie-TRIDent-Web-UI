@@ -12,5 +12,12 @@ app.service('transformService', function(apiService){
             httpMethod: 'POST',
             xmlData:xmlData
         });
+    },
+    this.saveUCD = function(data){
+        return apiService.request({
+            apiMethod: "services/actualize/saveUCD",
+            httpMethod: 'POST',
+            formData:data
+        });
     }
 });

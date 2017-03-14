@@ -105,7 +105,9 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 				});
 			}
 			$("#spinner").hide();
-		});
+		}).error( function(data, status){
+    		$("#spinner").hide();
+    	});
     }
 
     $scope.fileNameChanged = function(file){
@@ -116,5 +118,12 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 			loadTransformData(fileData);
 		}
     }
-    
+    $scope.saveFile = function(){
+    	$("#spinner").show();
+    	transformService.saveUCD($scope.transformData).success(function(data){
+    		$("#spinner").hide();
+    	}).error( function(data, status){
+    		$("#spinner").hide();
+    	});
+    }
 });
