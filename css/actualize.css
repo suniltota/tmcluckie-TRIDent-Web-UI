@@ -13,7 +13,7 @@ input:focus,select:focus,textarea:focus,button:focus {outline: none;}
 .CommonTable tbody tr td{padding: 0px !important;vertical-align: middle !important;}
 .CommonTable .form-control{border-radius: 0px ; border: 0px; background:#f4fafd;}
 .CommonTable .inputBorder{border: 1px solid #ddd; border-radius: 3px; height:30px; padding-right: 1px 5px;}
-.CommonTable .form-control{font-size: 11px; padding: 5px 2px;}
+.CommonTable .form-control{font-size: 11px;}
 .CommonTable .FieldWidth{width: 60px;}
 .border_top{border-top:2px solid #bbb;}
 
@@ -74,11 +74,11 @@ ul li{list-style: none;}
 .LoanTermsTable tr > td:first-child{border-right: 1px solid #ddd;}
 
 .LoanCostsRightTable .table{font-size: 11px;}
-.LoanCostsRightTable .table th{padding:0 8px; height: 30px; vertical-align:inherit;}
+.LoanCostsRightTable .table th{padding:0 8px; height: 33px; vertical-align:inherit; text-align: center;}
 .LoanCostsRightTable .form-control{font-size: 11px;}
 
 .OtherCostsRightTable .table{font-size: 11px;}
-.OtherCostsRightTable .table th{padding:0 8px; height: 30px; vertical-align:inherit;}
+.OtherCostsRightTable .table th{padding:0 8px; height: 33px; vertical-align:inherit; text-align: center;}
 
 
 
