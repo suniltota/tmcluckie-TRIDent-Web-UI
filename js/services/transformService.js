@@ -2,7 +2,7 @@ app.service('transformService', function(apiService){
 	this.getProducts = function(){
     	return apiService.request({
             apiMethod: "data/ProductData.json",
-            httpMethod: 'GET',
+            httpMethod: 'POST',
             localData:true
         });
     },
