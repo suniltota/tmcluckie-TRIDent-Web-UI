@@ -20,11 +20,12 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	transformService.getProducts().success(function (result) {
         $scope.products = result;
     });
-	$scope.transformData = {
-		"pageOne":{
-			"transactionInformation":{isBorrower:true,isLender:true,isSeller:true}	
-		}
-	};
+	$scope.transformData = staticData.transformData[0];
+	$scope.transformData.pageOne.closingInformation.dateIssued = new Date();
+	$scope.transformData.pageOne.transactionInformation.isBorrower = true;
+	$scope.transformData.pageOne.transactionInformation.isLender = true;
+	$scope.transformData.pageOne.transactionInformation.isSeller = true;
+
     $scope.openUCDXMLFile = function(){
     	$("#UCDXMLFILE").click();
     }
@@ -40,6 +41,7 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 		transformService.loadTransformData(fileData).success(function(data){
 			if(data != null && data.length>0){
 				$scope.transformData = data[0];
+				$scope.transformData.pageOne.closingInformation.dateIssued = new Date();
 				if($scope.transformData.pageOne.transactionInformation.borrower!=null && $scope.transformData.pageOne.transactionInformation.borrower.length>0){
 					var borrower ={};
 					angular.forEach($scope.transformData.pageOne.transactionInformation.borrower, function(b, index){
