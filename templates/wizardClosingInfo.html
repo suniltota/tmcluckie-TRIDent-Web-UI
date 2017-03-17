@@ -1,70 +1,98 @@
 <div id="ClosingInformationQ">
-			          				<div class="FieldGroup col-sm-12 margin5tb ">
-				            			<div class="fontBold col-sm-2 fieldTitle">Closing Date :</div>
-				            			<div class="col-sm-6 fieldTitle">What is the Proposed closing date for the transaction?</div>
-				            			<div class="col-sm-3"><input type="date" class="form-control"></div>
-				            		</div>
-				            		<div class="FieldGroup col-sm-12 margin5tb ">
-				            			<div class="fontBold col-sm-2 fieldTitle">Disbursement Date :</div>
-				            			<div class="col-sm-6 fieldTitle">What is the proposed disburement date for the transaction?</div>
-				            			<div class="col-sm-3"><input type="text" class="form-control"></div>
-				            		</div>
-				            		<div class="FieldGroup col-sm-12 margin5tb ">
-				            			<div class="fontBold col-sm-2 fieldTitle">Settlement Agent :</div>
-				            			<div class="col-sm-6 fieldTitle">What is the name of the Settlement Agent's Organization?.</div>
-				            			<div class="col-sm-3"><input type="text" class="form-control"></div>
-				            		</div>
-				            		<div class="FieldGroup col-sm-12 margin5tb ">
-				            			<div class="fontBold col-sm-2 fieldTitle">File # :</div>
-				            			<div class="col-sm-6 fieldTitle">Provide the Settlement Agent's File #.</div>
-				            			<div class="col-sm-3">
-				            					<input type="text" class="form-control">
-				            			</div>
-				            		</div>
-				            		<div class="FieldGroup col-sm-12 margin5tb ">
-				            			<div class="fontBold col-sm-2 fieldTitle">Property :</div>
-				            			<div class="col-sm-6 fieldTitle">Does the Property being held for collateral have a street address?</div>
-				            			<div class="col-sm-2">
-				            					<select class="form-control pull-left">
-											        		<option>YES</option>
-											        		<option>NO</option>
-											        	</select>
-				            			</div>
-				            		</div>
-				            		<div class="FieldGroup col-sm-12 margin5tb ">
-				            			<div class="fontBold col-sm-2 fieldTitle"> </div>
-				            			<div class="col-sm-6 fieldTitle">IF No, Does the Address have a Lot Number</div>
-				            			<div class="col-sm-3"><input type="text" class="form-control"></div>
-				            		</div>
-				            		<div class="FieldGroup col-sm-12 margin5tb ">
-				            			<div class="fontBold col-sm-2 fieldTitle"></div>
-				            			<div class="col-sm-6 fieldTitle">Does the Property Being held for collateral have a legal description and the Zip code?</div>
-				            			<div class="col-sm-2">
-				            					<select class="form-control pull-left" >
-											        		<option>YES</option>
-											        		<option>NO</option>
-											        	</select>
-				            			</div>
-				            		</div>
-				            		<div class="FieldGroup col-sm-12 margin5tb ">
-				            			<div class="fontBold col-sm-2 fieldTitle"></div>
-				            			<div class="col-sm-6 fieldTitle">IF Yes, Provide the Legal Description and Zip Code</div>
-				            			<div class="col-sm-2"><input type="text" class="form-control"></div>
-				            			<div class="col-sm-2"><input type="text" class="form-control"></div>
-				            		</div>
-				            		<div class="FieldGroup col-sm-12 margin5tb ">
-				            			<div class="fontBold col-sm-2 fieldTitle"></div>
-				            			<div class="col-sm-6 fieldTitle">IF No,  must Provide the Zip code</div>
-				            			<div class="col-sm-3"><input type="text" class="form-control"></div>
-				            		</div>
-				            		<div class="FieldGroup col-sm-12 margin5tb ">
-				            			<div class="fontBold col-sm-2 fieldTitle"></div>
-				            			<div class="col-sm-6 fieldTitle">Is the transaction a Purchase?</div>
-				            			<div class="col-sm-2">
-				            					<select class="form-control pull-left" >
-											        		<option>YES</option>
-											        		<option>NO</option>
-											        	</select>
-				            			</div>
-				            		</div>
-			            		</div>
+		<div class="FieldGroup col-sm-12 margin2btb">
+		<div class="fontBold col-sm-2 fieldTitle">Closing Date :</div>
+		<div class="col-sm-6 fieldTitle">What is the Proposed closing date for the transaction?</div>
+		<div class="col-sm-3">
+			<span class="col-sm-10 padding0">
+			<input type="text" name="closingDate" id="closingDate" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageOne.closingInformation.closingDate" is-open="isClosingDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Closing Date"/>
+			</span>
+  			<span class="input-group-btn col-sm-2 padding0">
+    			<button type="button" class="btn btn-default calenderBtn" ng-click="isClosingDate = !isClosingDate"><i class="glyphicon glyphicon-calendar"></i></button>
+    		</span>
+		</div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin2btb">
+		<div class="fontBold col-sm-2 fieldTitle">Disbursement Date :</div>
+		<div class="col-sm-6 fieldTitle">What is the proposed disburement date for the transaction?</div>
+		<div class="col-sm-3">
+			<span class="col-sm-10 padding0">
+			<input type="text" name="disbursementDate" id="disbursementDate" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageOne.closingInformation.disbursementDate" is-open="isDisbursementDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Disbursement Date"/>
+			</span>
+  			<span class="input-group-btn col-sm-2 padding0">
+    			<button type="button" class="btn btn-default calenderBtn" ng-click="isDisbursementDate = !isDisbursementDate"><i class="glyphicon glyphicon-calendar"></i></button>
+    		</span>
+		</div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin2btb">
+		<div class="fontBold col-sm-2 fieldTitle">Settlement Agent :</div>
+		<div class="col-sm-6 fieldTitle">What is the name of the Settlement Agent's Organization?.</div>
+		<div class="col-sm-3"><input type="text" ng-model="transformData.pageOne.closingInformation.settlementAgent" class="form-control"></div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin2btb">
+		<div class="fontBold col-sm-2 fieldTitle">File # :</div>
+		<div class="col-sm-6 fieldTitle">Provide the Settlement Agent's File #.</div>
+		<div class="col-sm-3"><input type="text" ng-model="transformData.pageOne.closingInformation.fileNo" class="form-control"></div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin2btb">
+		<div class="fontBold col-sm-2 fieldTitle">Property :</div>
+		<div class="col-sm-6 fieldTitle">Does the Property being held for collateral have a street address?</div>
+		<div class="col-sm-2">
+			<select class="form-control pull-left" ng-model="transformData.pageOne.closingInformation.property.isStreeAddress">
+        		<option>YES</option>
+        		<option>NO</option>
+        	</select>
+		</div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin2btb" ng-show="transformData.pageOne.closingInformation.property.isStreeAddress == 'YES'">
+		<div class="fontBold col-sm-2 fieldTitle"> </div>
+		<div class="col-sm-6 fieldTitle">Street Address</div>
+		<div class="col-sm-3"><input type="text" ng-model="transformData.pageOne.closingInformation.property.addressLineText" class="form-control"></div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin2btb" ng-show="transformData.pageOne.closingInformation.property.isStreeAddress == 'NO'">
+		<div class="fontBold col-sm-2 fieldTitle"> </div>
+		<div class="col-sm-6 fieldTitle">Lot Number</div>
+		<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.closingInformation.property.addressLineText" class="form-control"></div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin2btb">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">City.</div>
+		<div class="col-sm-3"><input type="text" ng-model="transformData.pageOne.closingInformation.cityName" class="form-control"></div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin2btb">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">State.</div>
+		<div class="col-sm-3"><input type="text" ng-model="transformData.pageOne.closingInformation.stateCode" class="form-control"></div>
+	</div>
+
+	<div class="FieldGroup col-sm-12 margin2btb">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Does the Property Being held for collateral have a legal description and the Zip code?</div>
+		<div class="col-sm-2">
+			<select class="form-control pull-left" ng-model="transformData.pageOne.closingInformation.property.isLegalDescription">
+        		<option>YES</option>
+        		<option>NO</option>
+        	</select>
+		</div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin2btb" ng-show="transformData.pageOne.closingInformation.property.isLegalDescription == 'YES'">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Legal Description and Zip Code</div>
+		<div class="col-sm-2"><input type="text" ng-model="transformData.pageOne.closingInformation.property.unparsedLegalDescription" class="form-control"></div>
+		<div class="col-sm-2"><input type="text" ng-model="transformData.pageOne.closingInformation.property.postalCode" class="form-control"></div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin2btb" ng-show="transformData.pageOne.closingInformation.property.isLegalDescription == 'NO'">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Zip Code</div>
+		<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.closingInformation.property.postalCode" class="form-control"></div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin2btb">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Is the transaction a Purchase?</div>
+		<div class="col-sm-2">
+				<select class="form-control pull-left" >
+			        		<option>YES</option>
+			        		<option>NO</option>
+			        	</select>
+		</div>
+	</div>
+</div>

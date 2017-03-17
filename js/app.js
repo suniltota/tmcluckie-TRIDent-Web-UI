@@ -55,7 +55,15 @@ app.controller('validateCtrl', function ($scope, $location, $http) {
 
 
 
-app.controller('menuCtrl', function ($scope) {
+app.controller('menuCtrl', function ($scope, staticData) {
+  $scope.format = staticData.dateDisplayFormat;
+  $scope.dateOptions = {
+    formatYear: 'yy',
+    startingDay: 1
+  };
+  $scope.transformData = staticData.transformData[0];
+  $scope.transformData.pageOne.closingInformation.property.isStreeAddress = "YES";
+  $scope.transformData.pageOne.closingInformation.property.isLegalDescription = "YES";
   
   $scope.fileOpen = function(){
     angular.element($("#UCDXMLFILE")).scope().openUCDXMLFile();

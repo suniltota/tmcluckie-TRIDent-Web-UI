@@ -7,7 +7,7 @@
 		        <th  class="col-sm-2"></th>
 		        <th  class="col-sm-2"></th>
 		        <th  class="col-sm-2"></th>
-		        <th  class="col-sm-3"></th>
+		        <th  class="col-sm-2"></th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -18,15 +18,15 @@
 		      <tr>
 		        <td><label>Principal & Interest</label></td>
 		        <td  ng-repeat="pi in transformData.pageOne.projectedPayments.principalInterest track by $index" >
-		        	<p ng-if="pi.minValue!='$0'">
-		        		<input class="form-control" ng-model="pi.minValue"/>
-		        	</p>
-		        	<p ng-if="pi.maxValue!='$0'">
-		        		<input class="form-control" ng-model="pi.maxValue"/>
-		        	</p>
-		        	<p ng-if="pi.interestOnly != null">
+		        	<div ng-if="pi.minValue!='$0' && $index!=0" class="col-sm-12">
+		        		<div class="col-sm-9"><input class="form-control" ng-model="pi.minValue"/></div><div class="col-sm-2" ng-if="$index!=0">Min</div>
+		        	</div>
+		        	<div ng-if="pi.maxValue && pi.maxValue!='$0'" class="col-sm-12">
+		        		<div class="col-sm-9"><input class="form-control" ng-model="pi.maxValue"/></div><div class="col-sm-2" ng-if="$index!=0">Max</div>
+		        	</div>
+		        	<div ng-if="pi.interestOnly != null">
 		        		<labe>{{pi.interestOnly}}</labe>
-		        	</p>
+		        	</div>
 
 		        </td>
 		      </tr>

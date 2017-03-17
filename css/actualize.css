@@ -144,3 +144,6 @@ ul li{list-style: none;}
 
 .calenderInput{border-right: 0px;}
 .calenderBtn{height: 34px;}
+.modal-header{padding:5px;}
+.margin2btb{margin-bottom: 2px;}
+.form-control{height:30px;padding:6px 6px;}
