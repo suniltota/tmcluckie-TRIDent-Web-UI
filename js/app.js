@@ -64,7 +64,10 @@ app.controller('menuCtrl', function ($scope, staticData) {
   $scope.transformData = staticData.transformData[0];
   $scope.transformData.pageOne.closingInformation.property.isStreeAddress = "YES";
   $scope.transformData.pageOne.closingInformation.property.isLegalDescription = "YES";
-  
+  $scope.transformData.pageOne.closingInformation.isPurchaseTransaction = "NO";
+  $scope.transformData.pageOne.closingInformation.salesContractDetail = {"personalPropertyIndicator" :"NO"}
+  $scope.transformData.pageOne.closingInformation.propertyValuationDetail = {"propertyValuationDetailIndicator":"YES"}
+
   $scope.fileOpen = function(){
     angular.element($("#UCDXMLFILE")).scope().openUCDXMLFile();
   }

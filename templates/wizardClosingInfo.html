@@ -89,10 +89,84 @@
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle">Is the transaction a Purchase?</div>
 		<div class="col-sm-2">
-				<select class="form-control pull-left" >
-			        		<option>YES</option>
-			        		<option>NO</option>
-			        	</select>
+			<select class="form-control pull-left" ng-model="transformData.pageOne.closingInformation.isPurchaseTransaction">
+        		<option>YES</option>
+        		<option>NO</option>
+        	</select>
+		</div>
+	</div>
+	<div ng-show="transformData.pageOne.closingInformation.isPurchaseTransaction == 'YES'">
+		<div class="FieldGroup col-sm-12 margin2btb" >
+			<div class="fontBold col-sm-2 fieldTitle"></div>
+			<div class="col-sm-6 fieldTitle"> Is there Personal Property Itemized in the Sales Contract?</div>
+			<div class="col-sm-2">
+				<select class="form-control pull-left" ng-model="transformData.pageOne.closingInformation.salesContractDetail.personalPropertyIndicator">
+	        		<option>YES</option>
+	        		<option>NO</option>
+	        	</select>
+			</div>
+		</div>
+		<div ng-show="transformData.pageOne.closingInformation.salesContractDetail.personalPropertyIndicator == 'YES'">
+			<div class="FieldGroup col-sm-12 margin2btb">
+				<div class="fontBold col-sm-2 fieldTitle"></div>
+				<div class="col-sm-6 fieldTitle">Real Property Amount</div>
+				<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.closingInformation.salesContractDetail.realPropertyAmount" class="form-control"></div>
+			</div>
+			<div class="FieldGroup col-sm-12 margin2btb">
+				<div class="fontBold col-sm-2 fieldTitle"></div>
+				<div class="col-sm-6 fieldTitle">Personal Property Amount</div>
+				<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.closingInformation.salesContractDetail.personalPropertyAmount" class="form-control"></div>
+			</div>
+		</div>
+		<div class="FieldGroup col-sm-12 margin2btb" ng-show="transformData.pageOne.closingInformation.salesContractDetail.personalPropertyIndicator == 'NO'">
+			<div class="fontBold col-sm-2 fieldTitle"></div>
+			<div class="col-sm-6 fieldTitle">Sale Contract Amount</div>
+			<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.closingInformation.salesContractDetail.saleContractAmount" class="form-control"></div>
+		</div>
+	</div>
+	<div ng-show="transformData.pageOne.closingInformation.isPurchaseTransaction == 'NO'">
+		<div class="FieldGroup col-sm-12 margin2btb" >
+			<div class="fontBold col-sm-2 fieldTitle"></div>
+			<div class="col-sm-6 fieldTitle"> Was an appraisal complete on the subject property?</div>
+			<div class="col-sm-2">
+				<select class="form-control pull-left" ng-model="transformData.pageOne.closingInformation.propertyValuationDetail.propertyValuationDetailIndicator">
+	        		<option>YES</option>
+	        		<option>NO</option>
+	        	</select>
+			</div>
+		</div>
+		<div ng-show="transformData.pageOne.closingInformation.propertyValuationDetail.propertyValuationDetailIndicator == 'YES'">
+			<div class="FieldGroup col-sm-12 margin2btb">
+				<div class="fontBold col-sm-2 fieldTitle"></div>
+				<div class="col-sm-6 fieldTitle">Appraisal Method Type</div>
+				<div  class="col-sm-3">
+					<select class="form-control" ng-model="transformData.pageOne.closingInformation.propertyValuationDetail.PropertyValuationMethodType">
+						<option value="">Pelase Select</option>
+						<option value="AutomatedValuationModel">Automated Valuation Model</option>
+						<option value="DesktopAppraisal">Desktop Appraisal</option>
+						<option value="DriveBy">Drive By</option>
+						<option value="FullAppraisal">Full Appraisal</option>
+						<option value="None">None</option>
+						<option value="Other">Other</option>
+						<option value="PriorAppraisalUsed">Prior Appraisal Used</option>
+					</select>
+				</div>
+			</div>
+			<div class="FieldGroup col-sm-12 margin2btb" ng-show="transformData.pageOne.closingInformation.propertyValuationDetail.PropertyValuationMethodType == 'Other'">
+				<div class="fontBold col-sm-2 fieldTitle"></div>
+				<div class="col-sm-6 fieldTitle">Other Description</div>
+				<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.closingInformation.propertyValuationDetail.propertyValuationMethodTypeOtherDescription" class="form-control"></div>
+			</div>
+			<div class="FieldGroup col-sm-12 margin2btb">
+				<div class="fontBold col-sm-2 fieldTitle"></div>
+				<div class="col-sm-6 fieldTitle">Property Valuation Amount</div>
+				<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.closingInformation.propertyValuationDetail.propertyValuationAmount" class="form-control"></div>
+			</div>
+		</div>
+		<div class="FieldGroup col-sm-12 margin2btb" ng-show="transformData.pageOne.closingInformation.propertyValuationDetail.propertyValuationDetailIndicator == 'NO'">
+			<div class="fontBold col-sm-2 fieldTitle"></div>
+			<div class="col-sm-6 fieldTitle">Sale Contract Amount</div>
+			<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.closingInformation.property.propertyEstimatedValueAmount" class="form-control"></div>
 		</div>
 	</div>
 </div>

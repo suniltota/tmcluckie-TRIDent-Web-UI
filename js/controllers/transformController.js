@@ -25,7 +25,7 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	$scope.transformData.pageOne.transactionInformation.isBorrower = true;
 	$scope.transformData.pageOne.transactionInformation.isLender = true;
 	$scope.transformData.pageOne.transactionInformation.isSeller = true;
-
+	
     $scope.openUCDXMLFile = function(){
     	$("#UCDXMLFILE").click();
     }
