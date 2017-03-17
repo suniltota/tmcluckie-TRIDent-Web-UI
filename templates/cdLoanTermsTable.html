@@ -39,9 +39,22 @@
 		        </td>
 		      </tr>
 		      <tr>
-		        <td><label>Monthly Principal & Interest</label>
+		        <td>
 		        	<p>
-		        		<i>See projected payments below for your Estimated Total Monthly Payment</i>
+			        	<select class="form-control pull-left" ng-model="transformData.pageOne.projectedPayments.estimatedTotalPaymentType" style="width:100px;">
+			        		<option value="Annual">Annual</option>
+			        		<option value="AtMaturity">AtMaturity</option>
+			        		<option value="Biweekly">Biweekly</option>
+			        		<option value="Monthly">Monthly</option>
+			        		<option value="Quarterly">Quarterly</option>
+			        		<option value="Semiannual">Semiannual</option>
+			        		<option value="Semimonthly">Semimonthly</option>
+			        		<option value="Weekly">Weekly</option>
+			        	</select>
+		        	<label class="margin5tb"> &nbsp&nbsp Principal & Interest</label>
+		        	</p>
+		        	<p>
+		        		<i>See projected payments below for your Estimated Total {{transformData.pageOne.projectedPayments.estimatedTotalPaymentType}} Payment</i>
 		        	</p>
 		        </td>
 		        <td><input class="form-control"  ng-model="transformData.pageOne.loanTerms.principalInterest.amount"> </td>
