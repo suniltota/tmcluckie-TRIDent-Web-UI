@@ -73,7 +73,14 @@
 				        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing"></input></td>
 				        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing"></input></td>
 				        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing"></input></td>
-				        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers"></input></td>
+				        <td>
+				        <span class="col-sm-8 padding0">
+				        	<input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers"></input>
+						</span>
+						<span class="col-sm-4 padding0" style="border-left:1px solid #ddd; height:31px; padding:5px 0 5px 7px; ">
+							<input type="checkbox">
+						</span>
+				        </td>
 			      </tr>
 			     <tr class="border_top">
 			      	<th class="rowBackground" colspan="2">B. Services Borrower Did Not Shop For</th>
