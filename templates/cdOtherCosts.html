@@ -18,7 +18,7 @@
 		      <tr ng-repeat="i in 14 | range">
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
-		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType}}</span>
+		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].displayLabel}}</span>
 		        	<!--<span class="padding5 pull-left">Deed:</span>
 		        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></span>
 		        	<span class="padding5 pull-left">Mortgage:</span>
@@ -39,7 +39,7 @@
 		      <tr ng-repeat="i in 14 | range">
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
-		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].feeType}}</span>
+		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel}}</span>
 		        </td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing"/></td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing"/></td>
@@ -55,8 +55,8 @@
 		      </tr>	
 		      <tr ng-repeat="i in 14 | range">
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
-		        <td><span ng-show="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].feeType">
-		        	<span class="padding5 pull-left col-sm-5">{{transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].feeType}}</span>
+		        <td><span ng-show="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel">
+		        	<span class="padding5 pull-left col-sm-5">{{transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel}}</span>
 					<span class="pull-left padding0 col-sm-2"><input class="form-control inputBorder FieldWidth" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].escrowAmount"></input></span>
 	                <span class="pull-left padding0 col-sm-2">Per month for</span>
 	                <span class="pull-left padding0 col-sm-2"><input class="form-control inputBorder FieldWidth" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].toEntity"></input></span>
@@ -78,7 +78,7 @@
 		      <tr ng-repeat="i in 14 | range">
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
-		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].feeType}}</span>
+		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel}}</span>
 		        </td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing"/></td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing"/></td>
@@ -94,7 +94,7 @@
 		      </tr>	
 		      <tr>
 		      	<td class="text-center">01</td>
-		      	<td><span class="padding5 ">{{transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCosts.feeType}}</span></td>
+		      	<td><span class="padding5 ">{{transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCosts.displayLabel}}</span></td>
 		      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing"/></td>
 		      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing"/></td>
 		      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalOtherCosts.spAtClosing"/></td>
@@ -116,7 +116,7 @@
 		    <tr ng-repeat="i in 2 | range">
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
-		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCosts[i].feeType}}</span>
+		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCosts[i].displayLabel}}</span>
 		        </td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCosts[i].bpAtClosing"/></td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.totalClosingCosts[i].bpB4Closing"/></td>

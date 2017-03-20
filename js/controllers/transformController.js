@@ -4,6 +4,7 @@
 app.controller('transformCtrl', function ($scope, $sce, staticData, transformService) {
 	$scope.purposes = staticData.purposes;
 	$scope.format = staticData.dateDisplayFormat;
+	$scope.states = staticData.stateCode;
 	$scope.dateOptions = {
 		formatYear: 'yy',
 		startingDay: 1
@@ -25,6 +26,17 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	$scope.transformData.pageOne.transactionInformation.isBorrower = true;
 	$scope.transformData.pageOne.transactionInformation.isLender = true;
 	$scope.transformData.pageOne.transactionInformation.isSeller = true;
+
+	$scope.transformData = staticData.transformData[0];
+	$scope.transformData.pageOne.closingInformation.property.isStreeAddress = "YES";
+	$scope.transformData.pageOne.closingInformation.property.isLegalDescription = "YES";
+	$scope.transformData.pageOne.closingInformation.isPurchaseTransaction = "YES";
+	$scope.transformData.pageOne.closingInformation.salesContractDetail = {"personalPropertyIndicator" :"NO"}
+	$scope.transformData.pageOne.closingInformation.propertyValuationDetail = {"propertyValuationDetailIndicator":"YES"}
+	$scope.transformData.pageOne.transactionInformation.propertyValuationDetail;
+	//For added dynamic element from UI
+	var borrowerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.borrower[0]);
+	var sellerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.seller[0]);
 	
     $scope.openUCDXMLFile = function(){
     	$("#UCDXMLFILE").click();

@@ -31,7 +31,7 @@
 			      </tr>	
 			      <tr>			    
 			      	<td class="text-center"  style="width: 40px;">01</td>
-			        <td><span class="padding5lr">{{transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].feeType}}</span></td>
+			        <td><span class="padding5lr">{{transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].displayLabel}}</span></td>
 			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].bpAtClosing"/> </td>
 			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].bpB4Closing"/></td>
 			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].spAtClosing"/></td>
@@ -42,7 +42,7 @@
 				      	<td class="text-center"><span ng-if="i<9">0</span>{{i+1}}</td>
 				        <td>
 				        	<span class="col-sm-6 padding0">
-					        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].feeType">
+					        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel">
 					        		<option></option>
 									<option>Administration Fee</option>
 									<option>AM Dream Rehab Disbursement Fee</option>
@@ -91,7 +91,7 @@
 			      <tr ng-repeat="i in 21 | range">
 			      	<td class="text-center"><span ng-if="i<9">0</span>{{i+1}}</td>
 			        <td><span class="col-sm-6 padding0">
-				        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType">
+				        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel">
 				        		<option></option>
 				        		<option>After Final Inspection</option>
 								<option>Appraisal</option>
@@ -224,7 +224,7 @@
 								<option>Well Inspection</option>
 				        	</select>
 				        </span>
-				        <span class="col-sm-1" ng-if="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType"> to </span>
+				        <span class="col-sm-1" ng-if="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel"> to </span>
 				        <span class="col-sm-5">
 				        	<input type="text" class="form-control" name="BorrowerDidShopFor" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].toEntity">
 				        </span>
@@ -244,7 +244,7 @@
 			      <tr ng-repeat="i in 21 | range">
 			      	<td class="text-center"><span ng-if="i<9">0</span>{{i+1}}</td>
 			        <td><span class="col-sm-6 padding0">
-				        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType">
+				        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel">
 				        		<option></option>
 								<option>Asbestos Inspection</option>
 								<option>Attorney Opinion Trust</option>
@@ -339,7 +339,7 @@
 								<option>Well Inspection</option>
 				        	</select>
 				        </span>
-				        <span class="col-sm-1" ng-if="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType"> to </span>
+				        <span class="col-sm-1" ng-if="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel"> to </span>
 				        <span class="col-sm-5">
 				        	<input type="text" class="form-control" name="BorrowerDidShopFor" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].toEntity">
 				        </span>
@@ -358,7 +358,7 @@
 			      </tr>	
 			      <tr>
 			      	<td class="text-center">01</td>
-			      	<td><span class="padding5lr">{{transformData.pageTwo.closingCostDetailsLoanCosts.tlCosts.feeType}}</span></td>
+			      	<td><span class="padding5lr">{{transformData.pageTwo.closingCostDetailsLoanCosts.tlCosts.displayLabel}}</span></td>
 			      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.tlCosts.bpAtClosing"></input></td>
 			      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.tlCosts.bpB4Closing"></input></td>
 			      	<td><input class="form-control" value=""></input></td>

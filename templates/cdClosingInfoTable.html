@@ -53,7 +53,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="FieldGroup">
+		<div class="FieldGroup"  ng-show="transformData.pageOne.loanInformation.purpose.value != 'Purchase'">
 			<div class="col-sm-5 padding0">
 				<select class="form-control">
 					<option>Appraised Prop. Value</option>
@@ -62,14 +62,8 @@
 			</div>
 			<div class="col-sm-7"><input type="text" class="form-control"></div>
 		</div>
-		<div class="FieldGroup">
-			<div class="col-sm-5 padding0">
-				<select class="form-control">
-					<option>Sale Price</option>
-					<option>Appraised Prop. Value</option>
-					<option>Estimated Prop. Value</option>
-				</select>
-			</div>
+		<div class="FieldGroup" ng-show="transformData.pageOne.loanInformation.purpose.value == 'Purchase'">
+			<div class="col-sm-5 fieldTitle">Sale Price</div>
 			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.salePrice" class="form-control"></div>
 		</div>
 	</div>
