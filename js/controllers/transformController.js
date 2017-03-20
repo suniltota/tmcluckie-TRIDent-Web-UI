@@ -140,4 +140,10 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     		$("#spinner").hide();
     	});
     }
+    $scope.addBorrower = function(){
+    	$scope.transformData.pageOne.transactionInformation.borrower.push(angular.copy(borrowerAddress));
+    }
+    $scope.addSeller = function(){
+    	$scope.transformData.pageOne.transactionInformation.seller.push(angular.copy(sellerAddress));
+    }
 });
