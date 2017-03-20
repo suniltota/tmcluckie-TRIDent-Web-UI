@@ -51,7 +51,7 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 				$scope.waitingForLoginResponse=false;
 				$scope.loginFailure=false;
 				localStorage.userDetails = JSON.stringify(data);
-				localStorage.purpose = $scope.purpose;
+				localStorage.purpose = JSON.stringify($scope.purpose);
                 localStorage.sessionId =  
 				location.href = "index.html";
 			}).

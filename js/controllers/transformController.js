@@ -3,6 +3,7 @@
  */
 app.controller('transformCtrl', function ($scope, $sce, staticData, transformService) {
 	$scope.purposes = staticData.purposes;
+
 	$scope.format = staticData.dateDisplayFormat;
 	$scope.states = staticData.stateCode;
 	$scope.dateOptions = {
@@ -38,6 +39,9 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	var borrowerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.borrower[0]);
 	var sellerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.seller[0]);
 	var lenderAddress = angular.copy($scope.transformData.pageOne.transactionInformation.lender[0]);
+
+	$scope.transformData.pageOne.loanInformation.purpose = JSON.parse(localStorage["purpose"]);
+	
     $scope.openUCDXMLFile = function(){
     	$("#UCDXMLFILE").click();
     }
