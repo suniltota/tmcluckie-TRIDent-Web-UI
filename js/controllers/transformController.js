@@ -6,6 +6,10 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 
 	$scope.format = staticData.dateDisplayFormat;
 	$scope.states = staticData.stateCode;
+	$scope.lienPriorityType = staticData.lienPriorityType;
+	$scope.adjustableRate = staticData.adjustableRate;
+	$scope.mortgageType = staticData.mortgageType;
+
 	$scope.dateOptions = {
 		formatYear: 'yy',
 		startingDay: 1
@@ -41,7 +45,9 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	var lenderAddress = angular.copy($scope.transformData.pageOne.transactionInformation.lender[0]);
 
 	$scope.transformData.pageOne.loanInformation.purpose = JSON.parse(localStorage["purpose"]);
-	
+	$scope.transformData.pageOne.loanInformation.purposeType = "YES";
+	$scope.transformData.pageOne.loanInformation.integratedDisclosureHomeEquityLoanIndicator ="NO";
+
     $scope.openUCDXMLFile = function(){
     	$("#UCDXMLFILE").click();
     }
@@ -116,11 +122,13 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 					if($scope.transformData.pageOne.loanInformation.purpose == p.value)
 						$scope.transformData.pageOne.loanInformation.purpose = p;	
 				});
-				console.log($scope.transformData.pageOne.loanInformation.product);
+				
 				angular.forEach($scope.products, function(p){
 					if($scope.transformData.pageOne.loanInformation.product == p["CFPB-compliant_name"])
-						$scope.transformData.pageOne.loanInformation.product = p;	
+						$scope.transformData.pageOne.loanInformation.productL = p;	
 				});
+				if($scope.transformData.pageOne.loanInformation.constructionLoanType == undefined || $scope.transformData.pageOne.loanInformation.constructionLoanType == "")
+					$scope.transformData.pageOne.loanInformation.purposeType = "NO";
 			}
 			$("#spinner").hide();
 		}).error( function(data, status){
@@ -152,5 +160,8 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     }
     $scope.addLender = function(){
     	$scope.transformData.pageOne.transactionInformation.lender.push(angular.copy(lenderAddress));
+    }
+    $scope.updateValue = function(){
+    	console.log($scope.transformData.pageOne.loanInformation.mortgageType);
     }
 });

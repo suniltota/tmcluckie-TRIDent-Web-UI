@@ -1,125 +1,120 @@
 <div id="LoanInformationQ">
-		          				<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle">Purpose :</div>
-			            			<div class="col-sm-6 fieldTitle">Is this loan a construction loan?</div>
-			            			<div class="col-sm-2 padding0">
-			            				<select class="form-control pull-left">
-											        		<option>YES</option>
-											        		<option>NO</option>
-											        	</select>
-			            			</div>
-			            		</div>
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle"></div>
-			            			<div class="col-sm-6 fieldTitle">Indicate if the Transaction is Construction ONLY or Contstruction to Permanent Financing</div>
-			            			<div class="col-sm-3 padding0">
-				            			<select class="form-control pull-left">
-											        		<option>Construction</option>
-											        		<option>Construction to Permanent Financing</option>
-											        	</select>
-				            		</div>
-			            		</div>
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle"></div>
-			            			<div class="col-sm-6 fieldTitle">Provide the construction period in months</div>
-			            			<div class="col-sm-3 padding0">
-				            			<input type="text" class="form-control" name="">
-				            		</div>
-			            		</div>
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle"></div>
-			            			<div class="col-sm-6 fieldTitle">Provide the total term of the construction loan in months</div>
-			            			<div class="col-sm-3 padding0">
-				            			<input type="text" class="form-control" name="">
-				            		</div>
-			            		</div>
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle"></div>
-			            			<div class="col-sm-6 fieldTitle">Provide the Loan Term in months</div>
-			            			<div class="col-sm-3 padding0">
-				            			<input type="text" class="form-control" maxlength="3" name="">
-				            		</div>
-			            		</div>
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle"></div>
-			            			<div class="col-sm-6 fieldTitle">Is this loan a Home Equity Loan?</div>
-			            			<div class="col-sm-2 padding0">
-				            			<select class="form-control pull-left">
-											        		<option>YES</option>
-											        		<option>NO</option>
-											        	</select>
-				            		</div>
-			            		</div>
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle"></div>
-			            			<div class="col-sm-6 fieldTitle">Identify the proposed lien priority of this transaction choose from one of the following: First Lien, Second Lien, Third Lien, Fourth Lien</div>
-			            			<div class="col-sm-4 radioGroup padding0">
-			            				<span class="col-sm-6 padding0"><input type="radio" name="lienPriority"> <label>Individual</label></span>
-			            				<span class="col-sm-6 padding0"><input type="radio" name="lienPriority"> <label>Organization </label></span>
-			            			</div>
-			            		</div>
+	<div class="FieldGroup col-sm-12 margin5tb ">
+		<div class="fontBold col-sm-2 fieldTitle">Purpose :</div>
+		<div class="col-sm-6 fieldTitle">Is this loan a construction loan?</div>
+		<div class="col-sm-2 padding0">
+			<select class="form-control pull-left" ng-model="transformData.pageOne.loanInformation.purposeType">
+        		<option>YES</option>
+        		<option>NO</option>
+        	</select>
+		</div>
+	</div>
+	<div ng-show="transformData.pageOne.loanInformation.purposeType == 'YES'">
+	<div class="FieldGroup col-sm-12 margin5tb ">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Indicate if the Transaction is Construction ONLY or Contstruction to Permanent Financing</div>
+		<div class="col-sm-3 padding0">
+			<select class="form-control pull-left" ng-model="transformData.pageOne.loanInformation.purposeType.constructionLoanType">
+				<option value="">Please select</option>
+        		<option value="Construction">Construction</option>
+        		<option value="Construction to Permanent Financing">Construction to Permanent Financing</option>
+        	</select>
+		</div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin5tb ">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Provide the construction period in months</div>
+		<div class="col-sm-3 padding0">
+			<input type="text" class="form-control" name="constructionPeriodNumberOfMonthsCount" ng-model="transformData.pageOne.loanInformation.constructionPeriodNumberOfMonthsCount">
+		</div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin5tb ">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Provide the total term of the construction loan in months</div>
+		<div class="col-sm-3 padding0">
+			<input type="text" class="form-control" name="constructionLoanTotalTermMonthsCount" ng-model="transformData.pageOne.loanInformation.constructionLoanTotalTermMonthsCount">
+		</div>
+	</div></div>
+	<div class="FieldGroup col-sm-12 margin5tb " ng-show="transformData.pageOne.loanInformation.purposeType == 'NO'">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Provide the Loan Term in months</div>
+		<div class="col-sm-3 padding0">
+			<input type="text" class="form-control" maxlength="3" name="loanMaturityPeriodCount" ng-model="transformData.pageOne.loanInformation.loanMaturityPeriodCount">
+		</div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin5tb ">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Is this loan a Home Equity Loan?</div>
+		<div class="col-sm-2 padding0">
+			<select class="form-control pull-left" ng-model="transformData.pageOne.loanInformation.integratedDisclosureHomeEquityLoanIndicator">
+        		<option>YES</option>
+        		<option>NO</option>
+        	</select>
+		</div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin5tb ">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Proposed lien priority:</div>
+		<div class="col-sm-4 padding0">
+			<span class="col-sm-3 padding0" ng-repeat="lp in lienPriorityType track by $index"><input type="radio" name="lienPriority" ng-model="transformData.pageOne.loanInformation.lienPriorityType" value="{{lp}}"> <label>{{lp}}</label></span>
+		</div>
+	</div>
 
 
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle">Product Type :</div>
-			            			<div class="col-sm-6 fieldTitle">Identify the amortization of the transaction choose from one of the following: Adjustable Rate, Fixed Rate, GEM, GPM, Graduated Payment ARM or Step</div>
-			            			<div class="col-sm-4 radioGroup padding0">
-			            				<span class="col-sm-6 padding0"><input type="radio" name="ProductType"> <label>Individual</label></span>
-			            				<span class="col-sm-6 padding0"><input type="radio" name="ProductType"> <label>Organization</label></span>
-			            			</div>
-			            		</div>
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle"></div>
-			            			<div class="col-sm-6 fieldTitle">Provide the Product Name</div>
-			            			<div class="col-sm-3 padding0">
-				            			<input type="text" placeholder="Product Name" class="form-control">
-				            		</div>
-			            		</div>
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle">Loan Type :</div>
-			            			<div class="col-sm-6 fieldTitle">Provide the Loan Type choose from one of the following: </div>
-			            			<div class="col-sm-4 radioGroup padding0">
-			            				<span class="col-sm-6 padding0"><input type="radio" name="LoanType"> <label>Conventional</label></span>
-			            				<span class="col-sm-6 padding0"><input type="radio" name="LoanType"> <label>FHA</label></span>
-			            				<span class="col-sm-6 padding0"><input type="radio" name="LoanType"> <label>LocalAgency</label></span>
-			            				<span class="col-sm-6 padding0"><input type="radio" name="LoanType"> <label>Other</label></span>
-			            				<span class="col-sm-6 padding0"><input type="radio" name="LoanType"> <label>PublicAndIndianHousing</label></span>
-			            				<span class="col-sm-6 padding0"><input type="radio" name="LoanType"> <label>StateAgency</label></span>
-			            				<span class="col-sm-6 padding0"><input type="radio" name="LoanType"> <label>USDARuralDevelopment</label></span>
-			            				<span class="col-sm-6 padding0"><input type="radio" name="LoanType"> <label>VA</label></span>
-			            				<span class="col-sm-9 padding0"><input type="text" placeholder="Loan Type" class="form-control"></span>
-			            			</div>
-			            		</div>
-			            		
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle">Loan ID :</div>
-			            			<div class="col-sm-6 fieldTitle">Provide the Lender's Loan ID</div>
-			            			<div class="col-sm-3 padding0">
-			            				<input type="text" class="form-control">
-			            			</div>
-			            		</div>
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle">MIC#</div>
-			            			<div class="col-sm-6 fieldTitle">Is there Mortgage Insurance on the Transaction?</div>
-			            			<div class="col-sm-2 padding0">
-				            			<select class="form-control pull-left">
-											        		<option>YES</option>
-											        		<option>NO</option>
-											        	</select>
-				            		</div>
-			            		</div>
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle"></div>
-			            			<div class="col-sm-6 fieldTitle">Provide the Mortgage Insurance Certificate Number</div>
-			            			<div class="col-sm-3 padding0">
-			            				<input type="text" class="form-control">
-			            			</div>
-			            		</div>
-			            		<div class="FieldGroup col-sm-12 margin5tb ">
-			            			<div class="fontBold col-sm-2 fieldTitle"></div>
-			            			<div class="col-sm-6 fieldTitle">Provide the Agency Case Identifier number</div>
-			            			<div class="col-sm-3 padding0">
-			            				<input type="text" class="form-control">
-			            			</div>
-			            		</div>
-		            		</div>
+	<div class="FieldGroup col-sm-12 margin5tb ">
+		<div class="fontBold col-sm-2 fieldTitle">Product Type :</div>
+		<div class="col-sm-6 fieldTitle">Amortization:</div>
+		<div class="col-sm-4 radioGroup padding0">
+			<span class="col-sm-2 padding0" ng-repeat="ar in adjustableRate track by $index"><input type="radio" name="adjustableRate" ng-model="transformData.pageOne.loanInformation.adjustableRate" value="{{ar}}"> <label>{{ar}}</label></span>
+		</div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin5tb ">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Provide the Product Name</div>
+		<div class="col-sm-3 padding0">
+			<input type="text" placeholder="Product Name" class="form-control" ng-model="transformData.pageOne.loanInformation.product">
+		</div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin5tb ">
+		<div class="fontBold col-sm-2 fieldTitle">Loan Type :</div>
+		<div class="col-sm-6 fieldTitle">Provide the Loan Type choose from one of the following: </div>
+		<div class="col-sm-4 radioGroup padding0">
+			<span class="col-sm-6 padding0" ng-repeat="mt in mortgageType track by $index"><input type="radio" name="mortgageType" ng-model="transformData.pageOne.loanInformation.mortgageType" ng-click="updateValue()" value="{{mt}}"> <label>{{mt}}</label></span>
+			<span class="col-sm-9 padding0" ng-show="transformData.pageOne.loanInformation.mortgageType == 'Other'" ><input type="text" placeholder="Other Description" class="form-control"  ng-model="transformData.pageOne.loanInformation.mortgageTypeOtherDescription"></span>
+		</div>
+	</div>
+	
+	<div class="FieldGroup col-sm-12 margin5tb ">
+		<div class="fontBold col-sm-2 fieldTitle">Loan ID :</div>
+		<div class="col-sm-6 fieldTitle">Provide the Lender's Loan ID</div>
+		<div class="col-sm-3 padding0">
+			<input type="text" class="form-control">
+		</div>
+	</div>
+	<div ng-show="transformData.pageOne.loanInformation.mortgageType != 'Conventional'">
+		<div class="FieldGroup col-sm-12 margin5tb ">
+			<div class="fontBold col-sm-2 fieldTitle">MIC#</div>
+			<div class="col-sm-6 fieldTitle">Is there Mortgage Insurance on the Transaction?</div>
+			<div class="col-sm-2 padding0">
+				<select class="form-control pull-left" ng-model="transformData.pageOne.loanInformation.miRequiredIndicator">
+	        		<option>YES</option>
+	        		<option>NO</option>
+	        	</select>
+			</div>
+		</div>
+		<div class="FieldGroup col-sm-12 margin5tb " ng-show="transformData.pageOne.loanInformation.miRequiredIndicator == 'YES'">
+			<div class="fontBold col-sm-2 fieldTitle"></div>
+			<div class="col-sm-6 fieldTitle">Provide the Mortgage Insurance Certificate Number</div>
+			<div class="col-sm-3 padding0">
+				<input type="text" class="form-control">
+			</div>
+		</div>
+	</div>
+	<div class="FieldGroup col-sm-12 margin5tb " ng-show="transformData.pageOne.loanInformation.mortgageType == 'Conventional'">
+		<div class="fontBold col-sm-2 fieldTitle"></div>
+		<div class="col-sm-6 fieldTitle">Provide the Agency Case Identifier number</div>
+		<div class="col-sm-3 padding0">
+			<input type="text" class="form-control">
+		</div>
+	</div>
+</div>

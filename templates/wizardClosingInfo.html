@@ -56,12 +56,12 @@
 	<div class="FieldGroup col-sm-12 margin2btb">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle">City.</div>
-		<div class="col-sm-3"><input type="text" ng-model="transformData.pageOne.closingInformation.cityName" class="form-control"></div>
+		<div class="col-sm-3"><input type="text" ng-model="transformData.pageOne.closingInformation.property.cityName" class="form-control"></div>
 	</div>
 	<div class="FieldGroup col-sm-12 margin2btb">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle">State.</div>
-		<div class="col-sm-3"><select ng-model="transformData.pageOne.closingInformation.stateCode" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by option.STATE_CODE">
+		<div class="col-sm-3"><select ng-model="transformData.pageOne.closingInformation.property.stateCode" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by option.STATE_CODE">
 					<option value="">Select state</option>
 				</select>
 		</div>
