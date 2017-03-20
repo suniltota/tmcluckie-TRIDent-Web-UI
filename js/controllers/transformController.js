@@ -37,7 +37,7 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	//For added dynamic element from UI
 	var borrowerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.borrower[0]);
 	var sellerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.seller[0]);
-	
+	var lenderAddress = angular.copy($scope.transformData.pageOne.transactionInformation.lender[0]);
     $scope.openUCDXMLFile = function(){
     	$("#UCDXMLFILE").click();
     }
@@ -145,5 +145,8 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     }
     $scope.addSeller = function(){
     	$scope.transformData.pageOne.transactionInformation.seller.push(angular.copy(sellerAddress));
+    }
+    $scope.addLender = function(){
+    	$scope.transformData.pageOne.transactionInformation.lender.push(angular.copy(lenderAddress));
     }
 });

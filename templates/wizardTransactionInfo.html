@@ -99,50 +99,43 @@
 		</div>
 	</div>
 	</div>
-	<div class="FieldGroup col-sm-12 margin5tb " style="margin-bottom:15px;">
-		<div class="fontBold col-sm-2 fieldTitle"></div>
-		<div class="col-sm-6 fieldTitle"></div>
-		<div class="col-sm-3 radioGroup">
-			<span class="glyphicon glyphicon-plus"></span> <span style="cursor:pointer;" ng-click="addBorrower()">Add Lender</span>
-		</div>
-	</div></div>
-	<div><div ng-repeat="seller in transformData.pageOne.transactionInformation.seller">
+	<div><div ng-repeat="lender in transformData.pageOne.transactionInformation.lender">
 		<div class="FieldGroup col-sm-12 margin5tb ">
-			<div class="fontBold col-sm-2 fieldTitle">Seller :</div>
+			<div class="fontBold col-sm-2 fieldTitle">Lender :</div>
 			<div class="col-sm-6 fieldTitle">Is the Lender a individual person or an organization?</div>
 			<div class="col-sm-3 radioGroup">
-				<input type="radio" name="seller_org_type_{{$index}}" ng-model="seller.isOrganizer" value="i"> <label>Individual</label>
-				<input type="radio" name="seller_org_type_{{$index}}" ng-model="seller.isOrganizer" value="o"> <label>Organization </label>
+				<input type="radio" name="lender_org_type_{{$index}}" ng-model="lender.isOrganizer" value="i"> <label>Individual</label>
+				<input type="radio" name="lender_org_type_{{$index}}" ng-model="lender.isOrganizer" value="o"> <label>Organization </label>
 
 			</div>
 		</div>
-		<div class="FieldGroup col-sm-12 margin5tb" ng-show="seller.isOrganizer == 'i'">
+		<div class="FieldGroup col-sm-12 margin5tb" ng-show="lender.isOrganizer == 'i'">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle">What is the Lender Name</div>
 			<div class="col-sm-4 padding0">
-				<div class="col-sm-6"><input type="text" placeholder="First Name" ng-model="seller.firstName" class="form-control"></div>
-				<div class="col-sm-6"><input type="text" placeholder="Middle Name" ng-model="seller.middleName" class="form-control"></div>
-				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Last Name" ng-model="seller.lastName" class="form-control"></div>
+				<div class="col-sm-6"><input type="text" placeholder="First Name" ng-model="lender.firstName" class="form-control"></div>
+				<div class="col-sm-6"><input type="text" placeholder="Middle Name" ng-model="lender.middleName" class="form-control"></div>
+				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Last Name" ng-model="lender.lastName" class="form-control"></div>
 			</div>
 		</div>
-		<div class="FieldGroup col-sm-12 margin5tb " ng-show="seller.isOrganizer == 'o'">
+		<div class="FieldGroup col-sm-12 margin5tb " ng-show="lender.isOrganizer == 'o'">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle">What is the Full Name of the Organization?</div>
 			<div class="col-sm-4 padding0">
-				<div class="col-sm-6"><input type="text" placeholder="Organization Name" ng-model="seller.firstName" class="form-control"></div>
+				<div class="col-sm-6"><input type="text" placeholder="Organization Name" ng-model="lender.firstName" class="form-control"></div>
 			</div>
 		</div>
 
 		<div class="FieldGroup col-sm-12 margin5tb ">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
-			<div class="col-sm-6 fieldTitle" ng-if="seller.isOrganizer == 'i'">What is the Lender's Mailing Address?</div>
-			<div class="col-sm-6 fieldTitle" ng-if="seller.isOrganizer == 'o'">What is the Full Mailing Address of th Organization?</div>
+			<div class="col-sm-6 fieldTitle" ng-if="lender.isOrganizer == 'i'">What is the Lender's Mailing Address?</div>
+			<div class="col-sm-6 fieldTitle" ng-if="lender.isOrganizer == 'o'">What is the Full Mailing Address of th Organization?</div>
 			<div class="col-sm-4 padding0">
-				<div class="col-sm-6"><input type="text" placeholder="Address" class="form-control" ng-model="seller.address.addressLineText"></div>
-				<div class="col-sm-6"><input type="text" placeholder="City" class="form-control" ng-model="seller.address.city"></div>
-				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Postal Code" class="form-control" ng-model="seller.address.cityName"></div>
+				<div class="col-sm-6"><input type="text" placeholder="Address" class="form-control" ng-model="lender.address.addressLineText"></div>
+				<div class="col-sm-6"><input type="text" placeholder="City" class="form-control" ng-model="lender.address.city"></div>
+				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Postal Code" class="form-control" ng-model="lender.address.cityName"></div>
 				<div class="col-sm-6 margin5tb">
-					<select ng-model="seller.address.stateCode" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by 	option.STATE_CODE">
+					<select ng-model="lender.address.stateCode" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by 	option.STATE_CODE">
 						<option value="">Select state</option>
 					</select>
 				</div>
@@ -153,7 +146,7 @@
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle"></div>
 		<div class="col-sm-3 radioGroup">
-			<span class="glyphicon glyphicon-plus"></span> <span style="cursor:pointer;" ng-click="addSeller()">Add Seller</span>
+			<span class="glyphicon glyphicon-plus"></span> <span style="cursor:pointer;" ng-click="addLender()">Add Lender</span>
 		</div>
 	</div>
 	</div>
