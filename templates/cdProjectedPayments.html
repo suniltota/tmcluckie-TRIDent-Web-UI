@@ -32,7 +32,7 @@
 		      <tr>
 		        <td><label >Mortgage Insurance</label> 
 			        <span class="col-sm-4 padding0 pull-right">
-			        	<input class="form-control" placeholder="MI Term">
+			        	<input class="form-control" placeholder="MI Term" ng-model="transformData.pageOne.projectedPayments.miTerm">
 			        </span>
 		        </td>
 		        <td  ng-repeat="mi in transformData.pageOne.projectedPayments.mortgageInsurance track by $index" >
