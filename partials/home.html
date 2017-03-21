@@ -1,3 +1,4 @@
+<div class="bodySection col-sm-12 padding0" style="position: relative; ">
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn glyphicon glyphicon-chevron-left" onclick="closeNav()"></a>
   <div class="form-group col-sm-12">
@@ -44,18 +45,22 @@
 			            <div ng-include='"templates/cdLoanTermsTable.html"'></div>
 			            <div ng-include='"templates/cdProjectedPayments.html"'></div>
 			            <div ng-include='"templates/cdCostsatClosing.html"'></div>
-	           	 	<span>
+	           	 	</span>
 	            </div>
               <div class="PDFview Page2">
                 <span>
                   <div ng-include='"templates/cdLoanCosts.html"'></div>
                   <div ng-include='"templates/cdOtherCosts.html"'></div>
-                <span>
+                </span>
               </div>
 		    </div>
 	    </div>
-</div>
 
+</div>
+<div id="carousel" style="display: none;">
+            <object data="CD_6830011016.pdf" type="application/pdf" data-caption="original"></object>
+</div>
+</div>
 <div class="modal fade" id="BorrowerTransaction" role="dialog">
     <div class="modal-dialog">
     
@@ -326,8 +331,16 @@
       </div>
     </div>
   </div>
+
+
   <script type="text/javascript">
   $(document).ready(function(){
 	    $(".pageno").tooltip();   
 	});
+
+
+  function pdfViewer() {
+            $("#carousel").pdfSlider();
+        }
+
   </script>
