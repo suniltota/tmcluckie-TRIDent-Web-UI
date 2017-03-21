@@ -18,11 +18,11 @@
 		      <tr>
 		        <td><label>Principal & Interest</label></td>
 		        <td  ng-repeat="pi in transformData.pageOne.projectedPayments.principalInterest track by $index" >
-		        	<div ng-if="pi.minValue!='$0' && $index!=0" class="col-sm-12">
-		        		<div class="col-sm-9"><input class="form-control" ng-model="pi.minValue"/></div><div class="col-sm-2" ng-show="pi.maxValue && pi.minValue!='$0' && pi.maxValue!='$0' && $index!=0">Min</div>
+		        	<div ng-if="pi.minValue!='$0' && $index!=0" class="col-sm-12 padding0">
+		        		<div class="col-sm-9 padding0"><input class="form-control" ng-model="pi.minValue"/></div><div class="col-sm-2" ng-show="pi.maxValue && pi.minValue!='$0' && pi.maxValue!='$0' && $index!=0">Min</div>
 		        	</div>
-		        	<div ng-if="pi.maxValue && pi.maxValue!='$0'" class="col-sm-12">
-		        		<div class="col-sm-9"><input class="form-control" ng-model="pi.maxValue"/></div><div class="col-sm-2" ng-show="pi.maxValue && pi.minValue!='$0' && pi.maxValue!='$0' && $index!=0">Max</div>
+		        	<div ng-if="pi.maxValue && pi.maxValue!='$0'" class="col-sm-12 padding0">
+		        		<div class="col-sm-9 padding0"><input class="form-control" ng-model="pi.maxValue"/></div><div class="col-sm-2" ng-show="pi.maxValue && pi.minValue!='$0' && pi.maxValue!='$0' && $index!=0">Max</div>
 		        	</div>
 		        	<div ng-if="pi.interestOnly != null">
 		        		<labe>{{pi.interestOnly}}</labe>
