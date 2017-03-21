@@ -9,6 +9,7 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	$scope.lienPriorityType = staticData.lienPriorityType;
 	$scope.adjustableRate = staticData.adjustableRate;
 	$scope.mortgageType = staticData.mortgageType;
+	$scope.paymentFrequencyType = staticData.paymentFrequencyType;
 
 	$scope.dateOptions = {
 		formatYear: 'yy',
@@ -48,11 +49,15 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	$scope.transformData.pageOne.loanInformation.purposeType = "YES";
 	$scope.transformData.pageOne.loanInformation.integratedDisclosureHomeEquityLoanIndicator ="NO";
 	$scope.transformData.pageOne.loanInformation.miRequiredIndicator = "YES";
-	$scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator = "NO";
+	$scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator = "YES";
 	$scope.transformData.pageOne.loanTerms.negativeAmoritzationIndicator = $scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator;
 	$scope.transformData.pageOne.loanTerms.interestRate.buydownTemporarySubsidyFundingIndicator ="YES";
 	$scope.transformData.pageOne.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator = "YES";
-
+	$scope.transformData.pageOne.loanTerms.interestRate.interestRateIncreaseIndicator = "YES";
+	$scope.transformData.pageOne.loanTerms.principalInterest.interestOnlyIndicator = "YES";
+	$scope.transformData.pageOne.loanTerms.principalInterest.paymentIncreaseIndicator = "YES";
+	$scope.transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator = "YES";
+	$scope.transformData.pageOne.loanTerms.balloonPayment.balloonIndicator = "YES";
     $scope.openUCDXMLFile = function(){
     	$("#UCDXMLFILE").click();
     }

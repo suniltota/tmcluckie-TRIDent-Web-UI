@@ -8,4 +8,5 @@ app.service('staticData', function($filter){
 	this.lienPriorityType = ["FirstLien","SecondLien","ThirdLien","FourthLien"];
 	this.adjustableRate = ["Adjustable Rate","Fixed","GEM","GPM","GraduatedPaymentARM","Step"];
 	this.mortgageType = ["Conventional","FHA","LocalAgency","PublicAndIndianHousing","StateAgency","USDARuralDevelopment","VA","Other"];
+	this.paymentFrequencyType =["AtMaturity","Biweekly","Monthly","Quarterly","Semiannual","Semimonthly","Weekly"]
 });

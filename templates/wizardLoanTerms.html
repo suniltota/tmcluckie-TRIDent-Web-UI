@@ -9,8 +9,8 @@
 	<div class="FieldGroup col-sm-12 margin5tb ">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle">Can this amount increase after closing?</div>
-		<div class="col-sm-2 padding0" ng-model="transformData.pageOne.loanTerms.loanAmountIncreaseIndicator">
-			<select class="form-control pull-left">
+		<div class="col-sm-2 padding0">
+			<select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.loanAmountIncreaseIndicator">
         		<option>YES</option>
         		<option>NO</option>
         	</select>
@@ -29,13 +29,6 @@
 			<span class="col-sm-4">
 				<input type="text" class="form-control" name="negativeAmortizationLimitMonthsCount" ng-model="transformData.pageOne.loanTerms.negativeAmortizationLimitMonthsCount">
 			</span>
-		</div>
-	</div>
-	<div class="FieldGroup col-sm-12 margin5tb " ng-show="transformData.pageOne.loanTerms.loanAmountIncreaseIndicator == 'NO'">
-		<div class="fontBold col-sm-2 fieldTitle"></div>
-		<div class="col-sm-6 fieldTitle">If No</div>
-		<div class="col-sm-2 padding0">
-			<input type="button" name="loanAmountIncreaseIndicatorbtn" value="Done"/>
 		</div>
 	</div>
 	<div class="FieldGroup col-sm-12 margin5tb ">
@@ -90,10 +83,15 @@
 			</div>
 		</div>
 		<div class="FieldGroup col-sm-12 margin5tb "  ng-show="transformData.pageOne.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator == 'NO'">
-			<div class="fontBold col-sm-2 fieldTitle"></div>
-			<div class="col-sm-6 fieldTitle">Enter the Interest rate value</div>
-			<div class="col-sm-3 padding0">
-				<input type="text" class="form-control" name="" " ng-model="transformData.pageOne.loanTerms.interestRate.buydownInitialEffectiveInterestRatePercent">
+			<div ng-show="transformData.pageOne.loanInformation.adjustableRate == 'Fixed' || transformData.pageOne.loanInformation.adjustableRate == 'Adjustable Rate'">
+				<div class="fontBold col-sm-2 fieldTitle"></div>
+				<div class="col-sm-6 fieldTitle">Enter the Interest rate value</div>
+				<div class="col-sm-3 padding0" ng-show="transformData.pageOne.loanInformation.adjustableRate == 'Adjustable Rate'">
+					<input type="text" class="form-control" name="disclosedFullyIndexedRatePercent" ng-model="transformData.pageOne.loanTerms.interestRate.disclosedFullyIndexedRatePercent">
+				</div>
+				<div class="col-sm-3 padding0" ng-show="transformData.pageOne.loanInformation.adjustableRate == 'Fixed'">
+					<input type="text" class="form-control" name="noteRatePercent" ng-model="transformData.pageOne.loanTerms.interestRate.noteRatePercent">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -101,110 +99,101 @@
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle">Can this amount increase after closing?</div>
 		<div class="col-sm-2 padding0">
-			<select class="form-control pull-left">
-				        		<option>YES</option>
-				        		<option>NO</option>
-				        	</select>
+			<select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.interestRate.interestRateIncreaseIndicator">
+        		<option>YES</option>
+        		<option>NO</option>
+        	</select>
 		</div>
 	</div>
-	<div class="FieldGroup col-sm-12 margin5tb ">
+	<div class="FieldGroup col-sm-12 margin5tb " ng-show="transformData.pageOne.loanTerms.interestRate.interestRateIncreaseIndicator == 'YES'">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-10 fieldTitle">
 			<div class="col-sm-12 margin5tb padding0">
 				<span class="col-sm-3 margin5tb padding0"> Adjusts every</span>
-				<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+				<span class="col-sm-2"><input type="text" class="form-control" name="adjustmentRuleType" ng-model="transformData.pageOne.loanTerms.interestRate.adjustmentRuleType"></span>
 				<span class="col-sm-3 margin5tb col-sm-offset-1"> years starting in year</span>
-				<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+				<span class="col-sm-2"><input type="text" class="form-control" name="perChangeRateAdjustmentFrequencyMonthsCount" ng-model="transformData.pageOne.loanTerms.interestRate.perChangeRateAdjustmentFrequencyMonthsCount"></span>
 			</div>
 			<div class="col-sm-12 margin5tb padding0">
 				<span class="col-sm-3 margin5tb padding0">Can go as high</span>
-				<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+				<span class="col-sm-2"><input type="text" class="form-control" name="firstRateChangeMonthsCount" ng-model="transformData.pageOne.loanTerms.interestRate.firstRateChangeMonthsCount"></span>
 				<span class="col-sm-3 margin5tb col-sm-offset-1">in year</span>
-				<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+				<span class="col-sm-2"><input type="text" class="form-control" name="ceilingRatePercentEarliestEffectiveMonthsCount" ng-model="transformData.pageOne.loanTerms.interestRate.ceilingRatePercentEarliestEffectiveMonthsCount"></span>
 			</div>
 		</div>
-		
 	</div>
 
 	<div class="FieldGroup col-sm-12 margin5tb ">
 		<div class="fontBold col-sm-2 fieldTitle">P&I Payment :</div>
 		<div class="col-sm-6 fieldTitle">Choose the payment frequency from one of the following</div>
-		<div class="col-sm-4 checkboxGroup padding0">
-			<span class="col-sm-6 padding0"><input type="checkbox" name="lienPriority"> <label>Annual</label></span>
-			<span class="col-sm-6 padding0"><input type="checkbox" name="lienPriority"> <label>AtMaturity </label></span>
-			<span class="col-sm-6 padding0"><input type="checkbox" name="lienPriority"> <label>Biweekly </label></span>
-			<span class="col-sm-6 padding0"><input type="checkbox" name="lienPriority"> <label>Monthly </label></span>
-			<span class="col-sm-6 padding0"><input type="checkbox" name="lienPriority"> <label>Quarterly </label></span>
-			<span class="col-sm-6 padding0"><input type="checkbox" name="lienPriority"> <label>Semiannual </label></span>
-			<span class="col-sm-6 padding0"><input type="checkbox" name="lienPriority"> <label>Semimonthly </label></span>
-			<span class="col-sm-6 padding0"><input type="checkbox" name="lienPriority"> <label>Weekly </label></span>
+		<div class="col-sm-4 padding0">
+			<span class="col-sm-6 padding0" ng-repeat="pft in paymentFrequencyType track by $index"><input type="radio" name="paymentFrequencyType" ng-model="transformData.pageOne.loanTerms.principalInterest.paymentFrequencyType" value="{{pft}}"> <label>{{pft}}</label></span>
 		</div>
 	</div>
 	<div class="FieldGroup col-sm-12 margin5tb ">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle">Is this payment amount Interest Only?</div>
 		<div class="col-sm-2 padding0">
-			<select class="form-control pull-left">
-				        		<option>YES</option>
-				        		<option>NO</option>
-				        	</select>
+			<select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.principalInterest.interestOnlyIndicator">
+        		<option>YES</option>
+        		<option>NO</option>
+        	</select>
 		</div>
 	</div>
-	<div class="FieldGroup col-sm-12 margin5tb ">
+	<div class="FieldGroup col-sm-12 margin5tb" ng-show="transformData.pageOne.loanTerms.principalInterest.interestOnlyIndicator == 'YES'">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle">what is the number of months for the Interest only period.</div>
 		<div class="col-sm-3 padding0">
-			<input type="text" class="form-control" name="">
+			<input type="text" class="form-control" name="interestOnlyTermMonthsCount" ng-model="transformData.pageOne.loanTerms.principalInterest.interestOnlyTermMonthsCount">
 		</div>
 	</div>
 	<div class="FieldGroup col-sm-12 margin5tb ">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle">Can this amount increase after closing?</div>
 		<div class="col-sm-2 padding0">
-			<select class="form-control pull-left">
-				        		<option>YES</option>
-				        		<option>NO</option>
-				        	</select>
+			<select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.principalInterest.paymentIncreaseIndicator">
+        		<option>YES</option>
+        		<option>NO</option>
+        	</select>
 		</div>
 	</div>
-	<div class="FieldGroup col-sm-12 margin5tb ">
+	<div class="FieldGroup col-sm-12 margin5tb " ng-show="transformData.pageOne.loanTerms.principalInterest.paymentIncreaseIndicator == 'YES'">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-10 fieldTitle">
 			<div class="col-sm-12 margin5tb padding0">
 				<span class="col-sm-3 margin5tb padding0"> Adjusts every</span>
-				<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+				<span class="col-sm-2"><input type="text" class="form-control" name="adjustmentRuleType" ng-model="transformData.pageOne.loanTerms.principalInterest.adjustmentRuleType"></span>
 				<span class="col-sm-3 margin5tb col-sm-offset-1"> years starting in year</span>
-				<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+				<span class="col-sm-2"><input type="text" class="form-control" name="perChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" ng-model="transformData.pageOne.loanTerms.principalInterest.perChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount"></span>
 			</div>
 			<div class="col-sm-12 margin5tb padding0">
 				<span class="col-sm-3 margin5tb padding0">Can go as high</span>
-				<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+				<span class="col-sm-2"><input type="text" class="form-control" name="firstPrincipalAndInterestPaymentChangeMonthsCount" ng-model="transformData.pageOne.loanTerms.principalInterest.firstPrincipalAndInterestPaymentChangeMonthsCount"></span>
 				<span class="col-sm-3 margin5tb col-sm-offset-1">in year</span>
-				<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+				<span class="col-sm-2"><input type="text" class="form-control" name="principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount" ng-model="transformData.pageOne.loanTerms.principalInterest.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount"></span>
 			</div>
 		</div>
-		
 	</div>
 	<div class="FieldGroup col-sm-12 margin5tb ">
 		<div class="fontBold col-sm-2 fieldTitle">Prepayment Penalty :</div>
 		<div class="col-sm-6 fieldTitle">Does the transaction have a pre-payment penalty?</div>
 		<div class="col-sm-2 padding0">
-			<select class="form-control pull-left">
-				        		<option>YES</option>
-				        		<option>NO</option>
-				        	</select>
+			<select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator">
+        		<option>YES</option>
+        		<option>NO</option>
+        	</select>
 		</div>
 	</div>
-	<div class="FieldGroup col-sm-12 margin5tb ">
+	<div class="FieldGroup col-sm-12 margin5tb " ng-show="transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator == 'YES'">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-10 fieldTitle">
 			<div class="col-sm-12 margin5tb padding0">
 				<span class="col-sm-7 margin5tb padding0">Provide the prepayment penalty maximum amount of </span>
-				<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+				<span class="col-sm-2"><input type="text" class="form-control" name="prepaymentPenaltyMaximumLifeOfLoanAmount" ng-model="transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyMaximumLifeOfLoanAmount"></span>
 			</div>
 			<div class="col-sm-12 margin5tb padding0">
 				<span class="col-sm-7 margin5tb padding0">IF the loan is paid off within the first </span>
-				<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+				<span class="col-sm-2"><input type="text" class="form-control" name="prepaymentPenaltyExpirationMonthsCount" ng-model="transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount"></span>
 				<span class="pull-left margin5tb">Years</span>
 			</div>
 		</div>
@@ -214,17 +203,17 @@
 		<div class="fontBold col-sm-2 fieldTitle">Balloon Payment :</div>
 		<div class="col-sm-6 fieldTitle">Does the transaction have a balloon payment?</div>
 		<div class="col-sm-2 padding0">
-			<select class="form-control pull-left">
-				        		<option>YES</option>
-				        		<option>NO</option>
-				        	</select>
+			<select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.balloonPayment.balloonIndicator">
+        		<option>YES</option>
+        		<option>NO</option>
+        	</select>
 		</div>
 	</div>
-	<div class="FieldGroup col-sm-12 margin5tb ">
+	<div class="FieldGroup col-sm-12 margin5tb " ng-show="transformData.pageOne.loanTerms.balloonPayment.balloonIndicator == 'YES'">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle">What is the Balloon Payment Amount due at the end of the term?</div>
 		<div class="col-sm-3 padding0">
-			<input type="text" class="form-control" name="">
+			<input type="text" class="form-control" name="BalloonPaymentAmount" ng-model="transformData.pageOne.loanTerms.balloonPayment.balloonPaymentAmount">
 		</div>
 	</div>
 </div>
