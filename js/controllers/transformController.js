@@ -47,6 +47,11 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	$scope.transformData.pageOne.loanInformation.purpose = JSON.parse(localStorage["purpose"]);
 	$scope.transformData.pageOne.loanInformation.purposeType = "YES";
 	$scope.transformData.pageOne.loanInformation.integratedDisclosureHomeEquityLoanIndicator ="NO";
+	$scope.transformData.pageOne.loanInformation.miRequiredIndicator = "YES";
+	$scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator = "NO";
+	$scope.transformData.pageOne.loanTerms.negativeAmoritzationIndicator = $scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator;
+	$scope.transformData.pageOne.loanTerms.interestRate.buydownTemporarySubsidyFundingIndicator ="YES";
+	$scope.transformData.pageOne.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator = "YES";
 
     $scope.openUCDXMLFile = function(){
     	$("#UCDXMLFILE").click();
@@ -163,5 +168,8 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     }
     $scope.updateValue = function(){
     	console.log($scope.transformData.pageOne.loanInformation.mortgageType);
+    }
+    $scope.updateStateValue = function(address){
+    	address.stateCode = address.state.STATE_CODE;
     }
 });

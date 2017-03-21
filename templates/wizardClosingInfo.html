@@ -61,7 +61,7 @@
 	<div class="FieldGroup col-sm-12 margin2btb">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle">State.</div>
-		<div class="col-sm-3"><select ng-model="transformData.pageOne.closingInformation.property.stateCode" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by option.STATE_CODE">
+		<div class="col-sm-3"><select ng-model="transformData.pageOne.closingInformation.property.state" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by option.STATE_CODE" ng-change="updateStateValue(transformData.pageOne.closingInformation.property)">
 					<option value="">Select state</option>
 				</select>
 		</div>
