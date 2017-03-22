@@ -139,6 +139,20 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 				});
 				if($scope.transformData.pageOne.loanInformation.constructionLoanType == undefined || $scope.transformData.pageOne.loanInformation.constructionLoanType == "")
 					$scope.transformData.pageOne.loanInformation.purposeType = "NO";
+				if($scope.transformData.pageTwo.closingCostDetailsLoanCosts!=undefined && $scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges!=null && $scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges.length>0){
+					
+					var orgCharge = angular.copy($scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges);
+					$scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges = [];
+					$scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges.push({});
+
+					angular.forEach(orgCharge, function(orgCharg){
+						if(orgCharg.displayLabel!=null && orgCharg.displayLabel.indexOf("of Loan Amount (Points)") != -1){
+							$scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0]= orgCharg;
+						}else{
+							$scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges.push(orgCharg);							
+						}
+					});
+				}
 			}
 			$("#spinner").hide();
 		}).error( function(data, status){

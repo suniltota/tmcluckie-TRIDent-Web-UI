@@ -4,11 +4,11 @@
 			<div class="fontBold col-sm-2 fieldTitle">Borrower :</div>
 			<div class="col-sm-6 fieldTitle">Is the Borrower a individual person or an organization?</div>
 			<div class="col-sm-3 radioGroup">
-				<input type="radio" name="barrower_org_type_{{$index}}" ng-model="borrower.isOrganizer" value="i"> <label>Individual</label>
-				<input type="radio" name="barrower_org_type_{{$index}}" ng-model="borrower.isOrganizer" value="o"> <label>Organization </label>
+				<input type="radio" name="barrower_org_type_{{$index}}" ng-model="borrower.type" value="I"> <label>Individual</label>
+				<input type="radio" name="barrower_org_type_{{$index}}" ng-model="borrower.type" value="O"> <label>Organization </label>
 			</div>
 		</div>
-		<div class="FieldGroup col-sm-12 margin5tb " ng-show="borrower.isOrganizer == 'i'">
+		<div class="FieldGroup col-sm-12 margin5tb " ng-show="borrower.type == 'I'">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle">What is the Borrower Name?</div>
 			<div class="col-sm-4 padding0">
@@ -17,7 +17,7 @@
 				<div class="col-sm-6 margin5tb"><input type="text" ng-model="borrower.lastName" placeholder="Last Name" class="form-control"></div>
 			</div>
 		</div>
-		<div class="FieldGroup col-sm-12 margin5tb " ng-show="borrower.isOrganizer == 'o'">
+		<div class="FieldGroup col-sm-12 margin5tb " ng-show="borrower.type == 'O'">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle">What is the Full Name of the Organization?</div>
 			<div class="col-sm-4 padding0">
@@ -26,8 +26,8 @@
 		</div>
 		<div class="FieldGroup col-sm-12 margin5tb ">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
-			<div class="col-sm-6 fieldTitle" ng-if="borrower.isOrganizer == 'i'">What is the Borrower's Mailing Address?</div>
-			<div class="col-sm-6 fieldTitle" ng-if="borrower.isOrganizer == 'o'">What is the Full Mailing Address of th Organization?</div>
+			<div class="col-sm-6 fieldTitle" ng-if="borrower.type == 'I'">What is the Borrower's Mailing Address?</div>
+			<div class="col-sm-6 fieldTitle" ng-if="borrower.type == 'O'">What is the Full Mailing Address of th Organization?</div>
 			
 			<div class="col-sm-4 padding0">
 				<div class="col-sm-6"><input type="text" placeholder="Address" ng-model="borrower.address.addressLineText" class="form-control"></div>
@@ -53,12 +53,12 @@
 			<div class="fontBold col-sm-2 fieldTitle">Seller :</div>
 			<div class="col-sm-6 fieldTitle">Is the Seller a individual person or an organization?</div>
 			<div class="col-sm-3 radioGroup">
-				<input type="radio" name="seller_org_type_{{$index}}" ng-model="seller.isOrganizer" value="i"> <label>Individual</label>
-				<input type="radio" name="seller_org_type_{{$index}}" ng-model="seller.isOrganizer" value="o"> <label>Organization </label>
+				<input type="radio" name="seller_org_type_{{$index}}" ng-model="seller.type" value="I"> <label>Individual</label>
+				<input type="radio" name="seller_org_type_{{$index}}" ng-model="seller.type" value="O"> <label>Organization </label>
 
 			</div>
 		</div>
-		<div class="FieldGroup col-sm-12 margin5tb" ng-show="seller.isOrganizer == 'i'">
+		<div class="FieldGroup col-sm-12 margin5tb" ng-show="seller.type == 'I'">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle">What is the Seller Name</div>
 			<div class="col-sm-4 padding0">
@@ -67,7 +67,7 @@
 				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Last Name" ng-model="seller.lastName" class="form-control"></div>
 			</div>
 		</div>
-		<div class="FieldGroup col-sm-12 margin5tb " ng-show="seller.isOrganizer == 'o'">
+		<div class="FieldGroup col-sm-12 margin5tb " ng-show="seller.type == 'O'">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle">What is the Full Name of the Organization?</div>
 			<div class="col-sm-4 padding0">
@@ -77,8 +77,8 @@
 
 		<div class="FieldGroup col-sm-12 margin5tb ">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
-			<div class="col-sm-6 fieldTitle" ng-if="seller.isOrganizer == 'i'">What is the Seller's Mailing Address?</div>
-			<div class="col-sm-6 fieldTitle" ng-if="seller.isOrganizer == 'o'">What is the Full Mailing Address of th Organization?</div>
+			<div class="col-sm-6 fieldTitle" ng-if="seller.type == 'I'">What is the Seller's Mailing Address?</div>
+			<div class="col-sm-6 fieldTitle" ng-if="seller.type == 'O'">What is the Full Mailing Address of th Organization?</div>
 			<div class="col-sm-4 padding0">
 				<div class="col-sm-6"><input type="text" placeholder="Address" class="form-control" ng-model="seller.address.addressLineText"></div>
 				<div class="col-sm-6"><input type="text" placeholder="City" class="form-control" ng-model="seller.address.cityName"></div>
@@ -104,12 +104,12 @@
 			<div class="fontBold col-sm-2 fieldTitle">Lender :</div>
 			<div class="col-sm-6 fieldTitle">Is the Lender a individual person or an organization?</div>
 			<div class="col-sm-3 radioGroup">
-				<input type="radio" name="lender_org_type_{{$index}}" ng-model="lender.isOrganizer" value="i"> <label>Individual</label>
-				<input type="radio" name="lender_org_type_{{$index}}" ng-model="lender.isOrganizer" value="o"> <label>Organization </label>
+				<input type="radio" name="lender_org_type_{{$index}}" ng-model="lender.type" value="I"> <label>Individual</label>
+				<input type="radio" name="lender_org_type_{{$index}}" ng-model="lender.type" value="O"> <label>Organization </label>
 
 			</div>
 		</div>
-		<div class="FieldGroup col-sm-12 margin5tb" ng-show="lender.isOrganizer == 'i'">
+		<div class="FieldGroup col-sm-12 margin5tb" ng-show="lender.type == 'I'">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle">What is the Lender Name</div>
 			<div class="col-sm-4 padding0">
@@ -118,7 +118,7 @@
 				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Last Name" ng-model="lender.lastName" class="form-control"></div>
 			</div>
 		</div>
-		<div class="FieldGroup col-sm-12 margin5tb " ng-show="lender.isOrganizer == 'o'">
+		<div class="FieldGroup col-sm-12 margin5tb " ng-show="lender.type == 'O'">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle">What is the Full Name of the Organization?</div>
 			<div class="col-sm-4 padding0">
@@ -128,8 +128,8 @@
 
 		<div class="FieldGroup col-sm-12 margin5tb ">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
-			<div class="col-sm-6 fieldTitle" ng-if="lender.isOrganizer == 'i'">What is the Lender's Mailing Address?</div>
-			<div class="col-sm-6 fieldTitle" ng-if="lender.isOrganizer == 'o'">What is the Full Mailing Address of th Organization?</div>
+			<div class="col-sm-6 fieldTitle" ng-if="lender.type == 'I'">What is the Lender's Mailing Address?</div>
+			<div class="col-sm-6 fieldTitle" ng-if="lender.type == 'O'">What is the Full Mailing Address of th Organization?</div>
 			<div class="col-sm-4 padding0">
 				<div class="col-sm-6"><input type="text" placeholder="Address" class="form-control" ng-model="lender.address.addressLineText"></div>
 				<div class="col-sm-6"><input type="text" placeholder="City" class="form-control" ng-model="lender.address.cityName"></div>
