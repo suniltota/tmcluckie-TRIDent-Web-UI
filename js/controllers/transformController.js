@@ -191,12 +191,23 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     }
     
     $scope.fileNameChanged = function(file){
-        var reader = new FileReader();
-		reader.readAsText(file.files[0], "UTF-8");
-		reader.onload = function (evt) {
-			var fileData = evt.target.result;
-			loadTransformData(fileData);
-		}
+        $("#spinner").show();
+		var val = file.files[0].type;
+		var regex = new RegExp("(.*?)\.(xml)$");
+		 if(!(regex.test(val))) {
+			//alert("Not Required type "+val);
+			$('#loadfile').modal('show'); 
+			$('#spinner').hide();
+		 }
+		 else{
+	        var reader = new FileReader();
+			reader.readAsText(file.files[0], "UTF-8");
+			reader.onload = function (evt) {
+				var fileData = evt.target.result;
+				loadTransformData(fileData);
+				$("#spinner").hide();
+			}
+	     }
     }
     $scope.saveFile = function(){
     	$("#spinner").show();
