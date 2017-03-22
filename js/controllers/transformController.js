@@ -2,7 +2,7 @@
  * Controller for transform function
  */
 app.controller('transformCtrl', function ($scope, $sce, staticData, transformService) {
-	$scope.purposes = staticData.purposes;
+	//$scope.purposes = staticData.purposes;
 
 	$scope.format = staticData.dateDisplayFormat;
 	$scope.states = staticData.stateCode;
@@ -46,7 +46,7 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	var sellerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.seller[0]);
 	var lenderAddress = angular.copy($scope.transformData.pageOne.transactionInformation.lender[0]);
 
-	$scope.transformData.pageOne.loanInformation.purpose = JSON.parse(localStorage["purpose"]);
+	$scope.transformData.pageOne.loanInformation.purpose = localStorage["purpose"];
 	$scope.transformData.pageOne.loanInformation.purposeType = $scope._YES;
 	$scope.transformData.pageOne.loanInformation.integratedDisclosureHomeEquityLoanIndicator =$scope.NO;
 	$scope.transformData.pageOne.loanInformation.miRequiredIndicator = $scope._YES;
@@ -158,10 +158,10 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 				}else{
 					$scope.transformData.pageOne.transactionInformation.isSeller = false;
 				}
-				angular.forEach($scope.purposes, function(p){
+				/*angular.forEach($scope.purposes, function(p){
 					if($scope.transformData.pageOne.loanInformation.purpose == p.value)
 						$scope.transformData.pageOne.loanInformation.purpose = p;	
-				});
+				});*/
 				
 				angular.forEach($scope.products, function(p){
 					if($scope.transformData.pageOne.loanInformation.product == p["CFPB-compliant_name"])
