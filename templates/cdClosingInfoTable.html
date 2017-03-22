@@ -37,7 +37,9 @@
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle">Settlement Agent</div>
 			<div class="col-sm-7">
-				<input type="text" ng-model="transformData.pageOne.closingInformation.settlementAgent" class="form-control">
+				
+					<input type="text" ng-model="transformData.pageOne.closingInformation.settlementAgent" class="form-control">
+				
 			</div>
 		</div>
 		<div class="FieldGroup">
@@ -64,7 +66,12 @@
 		</div>
 		<div class="FieldGroup" ng-show="transformData.pageOne.loanInformation.purpose.value == 'Purchase'">
 			<div class="col-sm-5 fieldTitle">Sale Price</div>
-			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.salePrice" class="form-control"></div>
+			<div class="col-sm-7">
+				<div class="input-group">
+  					<span class="input-group-addon input-default">$</span>
+					<input type="text" ng-model="transformData.pageOne.closingInformation.salePrice" class="form-control">
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="col-sm-4">

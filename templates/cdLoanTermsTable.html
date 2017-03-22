@@ -15,7 +15,12 @@
 		    <tbody>
 		      <tr>
 		        <td><label>Loan Amount</label></td>
-		        <td><input class="form-control" ng-model="transformData.pageOne.loanTerms.loanAmount.amount"></input></td>
+		        <td>
+		        	<div class="input-group">
+  						<span class="input-group-addon input-default">$</span>
+		        		<input class="form-control" ng-model="transformData.pageOne.loanTerms.loanAmount.amount"></input>
+		        	</div>
+		        </td>
 		        <td>
 		        	<select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.loanAmount.status" style="width:100px;">
 		        		<option value="YES">YES</option>
@@ -28,7 +33,12 @@
 		      </tr>
 		      <tr>
 		        <td><label>Interest Rate</label></td>
-		        <td><input class="form-control" ng-model="transformData.pageOne.loanTerms.interestRate.interest"></td>
+		        <td>
+		        	<div class="input-group">
+  						<span class="input-group-addon input-default">%</span>
+		        		<input class="form-control" ng-model="transformData.pageOne.loanTerms.interestRate.interest">
+		        	</div>
+		        </td>
 		        <td><select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.interestRate.status" style="width:100px;">
 		        		<option value="YES">YES</option>
 		        		<option value="NO">NO</option>
