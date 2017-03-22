@@ -10,6 +10,7 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	$scope.adjustableRate = staticData.adjustableRate;
 	$scope.mortgageType = staticData.mortgageType;
 	$scope.paymentFrequencyType = staticData.paymentFrequencyType;
+	$scope.fileName = "Actualize_XML.xml"
 	$scope._YES = "YES";
 	$scope._NO = "NO";
 	$scope.dateOptions = {
@@ -191,27 +192,25 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     }
     
     $scope.fileNameChanged = function(file){
-        $("#spinner").show();
-		var val = file.files[0].type;
-		var regex = new RegExp("(.*?)\.(xml)$");
-		 if(!(regex.test(val))) {
-			//alert("Not Required type "+val);
-			$('#loadfile').modal('show'); 
-			$('#spinner').hide();
-		 }
-		 else{
-	        var reader = new FileReader();
-			reader.readAsText(file.files[0], "UTF-8");
-			reader.onload = function (evt) {
-				var fileData = evt.target.result;
-				loadTransformData(fileData);
-				$("#spinner").hide();
-			}
-	     }
+    	$scope.fileName = file.files[0].name;
+        var reader = new FileReader();
+		reader.readAsText(file.files[0], "UTF-8");
+		reader.onload = function (evt) {
+			var fileData = evt.target.result;
+			loadTransformData(fileData);
+		}
     }
+
     $scope.saveFile = function(){
     	$("#spinner").show();
     	transformService.saveUCD($scope.transformData).success(function(data){
+			var a = document.createElement('a');
+			var xmlData = vkbeautify.xml(data)
+			var blob = new Blob([xmlData], {'type':'application/octet-stream'});
+			a.href = window.URL.createObjectURL(blob);
+			a.download = $scope.fileName;
+			a.click();
+			document.body.removeChild(a);
     		$("#spinner").hide();
     	}).error( function(data, status){
     		$("#spinner").hide();

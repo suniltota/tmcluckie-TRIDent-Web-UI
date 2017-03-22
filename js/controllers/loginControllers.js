@@ -13,7 +13,7 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 		$scope.errorMsg=""; 
 		$scope.purposes = [{"displayName":"Purchase","value":"Purchase"},{"displayName":"Refinance","value":"Refinance"},{"displayName":"HomeEquity","value":"HomeEquity"}];;
 
-		$scope.selectedApiServer = "http://52.34.40.35/actualize/";
+		$scope.selectedApiServer = "http://localhost:8585/actualize/";
 		$scope.$watch('selectedApiServer', function(newValue, oldValue){
 			apiService.setBasePath(newValue);
 			localStorage.apiBasePath=newValue;            });
@@ -51,7 +51,7 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 				$scope.waitingForLoginResponse=false;
 				$scope.loginFailure=false;
 				localStorage.userDetails = JSON.stringify(data);
-				localStorage.purpose = JSON.stringify($scope.purpose);
+				localStorage.purpose = $scope.purpose.value;
                 localStorage.sessionId =  
 				location.href = "index.html";
 			}).
