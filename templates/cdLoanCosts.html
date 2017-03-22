@@ -2,380 +2,380 @@
 </div>
 
 <div class="LoanTermsTable CommonTable col-sm-9">
-    	<span class="col-sm-12">
-    		<table class="table table-bordered border_top" style="border-left: 0px;">
-			    <thead>
-			      <tr>
-			        <th class="col-sm-7 tableHeader" colspan="2" rowspan="2" style="border-left: 0px;">
-			        	<span class="col-sm-9 tableHeadingTitle">Loan Costs</span>
-			        </th>
-			        <th  class="col-sm-2 text-center rowBackground" colspan="2" >Borrower-Paid</th>
-			        <th  class="col-sm-2 text-center rowBackground" colspan="2">Seller-Paid</th>
-			        <th  class="col-sm-1 text-center vertical_middle rowBackground" rowspan="2">Paid By others</th>								        
-			      </tr>
-			      <tr>								        
-			        <th  class="rowBackground text-center" >At-closing</th>
-			        <th  class="rowBackground text-center" >Before-closing</th>
-			        <th  class="rowBackground text-center">At-closing</th>
-			        <th  class="rowBackground text-center">Before-closing</th>
-			      </tr>
-			      
-			    </thead>
+	<span class="col-sm-12">
+		<table class="table table-bordered border_top" style="border-left: 0px;">
+		    <thead>
+		      <tr>
+		        <th class="col-sm-7 tableHeader" colspan="2" rowspan="2" style="border-left: 0px;">
+		        	<span class="col-sm-9 tableHeadingTitle">Loan Costs</span>
+		        </th>
+		        <th  class="col-sm-2 text-center rowBackground" colspan="2" >Borrower-Paid</th>
+		        <th  class="col-sm-2 text-center rowBackground" colspan="2">Seller-Paid</th>
+		        <th  class="col-sm-1 text-center vertical_middle rowBackground" rowspan="2">Paid By others</th>								        
+		      </tr>
+		      <tr>								        
+		        <th  class="rowBackground text-center" >At-closing</th>
+		        <th  class="rowBackground text-center" >Before-closing</th>
+		        <th  class="rowBackground text-center">At-closing</th>
+		        <th  class="rowBackground text-center">Before-closing</th>
+		      </tr>
+		      
+		    </thead>
 
-			    <tbody>
-		    	  <tr class="border_top">
-			      	<th class="rowBackground" colspan="2">A. Origination charges</th>
-			      	<th class="rowBackground text-center" colspan="2" > {{transformData.pageTwo.closingCostDetailsLoanCosts.ocTotalAmount}} </th>
-			      	<th class="rowBackground text-center" colspan="2"></th>
-			      	<th></th>
-			      </tr>	
-			      <tr>			    
-			      	<td class="text-center"  style="width: 40px;">01</td>
-			        <td><div class="col-sm-2 padding0">
-			        	<input type="text" class="form-control"  name="originationCharge" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].toEntity">
-			        	</div>
-			        	<div class="col-sm-10">
-			        	{{transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].displayLabel}}</div>
+		    <tbody>
+	    	  <tr class="border_top">
+		      	<th class="rowBackground" colspan="2">A. Origination charges</th>
+		      	<th class="rowBackground text-center" colspan="2" > {{transformData.pageTwo.closingCostDetailsLoanCosts.ocTotalAmount}} </th>
+		      	<th class="rowBackground text-center" colspan="2"></th>
+		      	<th></th>
+		      </tr>	
+		      <tr>			    
+		      	<td class="text-center"  style="width: 40px;">01</td>
+		        <td><div class="col-sm-2 padding0">
+		        	<input type="text" class="form-control"  name="originationCharge" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].toEntity">
+		        	</div>
+		        	<div class="col-sm-10">
+		        	{{transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].displayLabel}}</div>
+		        </td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].bpAtClosing"/> </td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].bpB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].spAtClosing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].spB4Closing"/></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].paidByOthers"/></td>
+		      </tr>
+		      <tr ng-repeat="i in 21 | range" ng-if="$index != 0">
+			      	<td class="text-center"><span ng-if="i<9">0</span>{{i+1}}</td>
+			        <td>
+			        	<span class="col-sm-6 padding0">
+				        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel">
+				        		<option></option>
+								<option>Administration Fee</option>
+								<option>AM Dream Rehab Disbursement Fee</option>
+								<option>Application Fee</option>
+								<option>Broker Compensation (Borrower paid)</option>
+								<option>Broker Compensation (Lender paid)</option>
+								<option>Buydown Subsidy</option>
+								<option>Commitment Fee</option>
+								<option>Construction Admin Fee</option>
+								<option>Escrow Account Waiver</option>
+								<option>HFA Funding Fee Paid to USB</option>
+								<option>Lender Escrow Admin Fee</option>
+								<option>Loan Level Price Adjustments</option>
+								<option>MCC Lender Fee</option>
+								<option>NeighborWorks Fee</option>
+								<option>OHFA Administration Fee</option>
+								<option>Origination Fee</option>
+								<option>PRESET Loan Discount Points</option>
+								<option>Processing Fee</option>
+								<option>Rate Lock Extension</option>
+								<option>Subord Agree USB</option>
+								<option>Transfer Fee</option>
+								<option>Underwriting Fee</option>
+				        	</select>
+			        	</span>
 			        </td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].bpAtClosing"/> </td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].bpB4Closing"/></td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].spAtClosing"/></td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].spB4Closing"/></td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[0].paidByOthers"/></td>
-			      </tr>
-			      <tr ng-repeat="i in 21 | range" ng-if="$index != 0">
-				      	<td class="text-center"><span ng-if="i<9">0</span>{{i+1}}</td>
-				        <td>
-				        	<span class="col-sm-6 padding0">
-					        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel">
-					        		<option></option>
-									<option>Administration Fee</option>
-									<option>AM Dream Rehab Disbursement Fee</option>
-									<option>Application Fee</option>
-									<option>Broker Compensation (Borrower paid)</option>
-									<option>Broker Compensation (Lender paid)</option>
-									<option>Buydown Subsidy</option>
-									<option>Commitment Fee</option>
-									<option>Construction Admin Fee</option>
-									<option>Escrow Account Waiver</option>
-									<option>HFA Funding Fee Paid to USB</option>
-									<option>Lender Escrow Admin Fee</option>
-									<option>Loan Level Price Adjustments</option>
-									<option>MCC Lender Fee</option>
-									<option>NeighborWorks Fee</option>
-									<option>OHFA Administration Fee</option>
-									<option>Origination Fee</option>
-									<option>PRESET Loan Discount Points</option>
-									<option>Processing Fee</option>
-									<option>Rate Lock Extension</option>
-									<option>Subord Agree USB</option>
-									<option>Transfer Fee</option>
-									<option>Underwriting Fee</option>
-					        	</select>
-				        	</span>
-				        </td>
-				        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing"></input></td>
-				        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing"></input></td>
-				        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing"></input></td>
-				        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing"></input></td>
-				        <td>
-				        <span class="col-sm-8 padding0">
-				        	<input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers"></input>
-						</span>
-						<span class="col-sm-4 padding0" style="border-left:1px solid #ddd; height:30px; padding:5px 0 5px 7px; ">
-							<input type="checkbox">
-						</span>
-				        </td>
-			      </tr>
-			     <tr class="border_top">
-			      	<th class="rowBackground" colspan="2">B. Services Borrower Did Not Shop For</th>
-			      	<th class="rowBackground text-center" colspan="2" >{{transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount}}</th>
-			      	<th class="rowBackground text-center" colspan="2"></th>
-			      	<th></th>
-			      </tr>	
-			      <tr ng-repeat="i in 21 | range">
-			      	<td class="text-center"><span ng-if="i<9">0</span>{{i+1}}</td>
-			        <td><span class="col-sm-6 padding0">
-				        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel">
-				        		<option></option>
-				        		<option>After Final Inspection</option>
-								<option>Appraisal</option>
-								<option>Appraisal Fee 2</option>
-								<option>Appraisal Progress</option>
-								<option>Asbestos Inspection</option>
-								<option>Attorney Opinion Trust</option>
-								<option>Before Final Inspect</option>
-								<option>Bond Participation Fee</option>
-								<option>Bond Reservation Fee</option>
-								<option>Bond Transfer Fee</option>
-								<option>Builder Credit Report Fee</option>
-								<option>Business Credit Report Fee</option>
-								<option>Chimney Inspection</option>
-								<option>Compliance Inspection</option>
-								<option>Construction Management Fee</option>
-								<option>Construction Mgt-Granite Fee</option>
-								<option>Credit Report Fee</option>
-								<option>Drywall Inspection</option>
-								<option>FHA UFMIP</option>
-								<option>FHA UFMIP Fee Cash</option>
-								<option>Field Waiver FNMA</option>
-								<option>Flood Certification Fee</option>
-								<option>Flood-Life of Loan</option>
-								<option>FMP Value Fee</option>
-								<option>Gas Inspection</option>
-								<option>GRH Funding Fee Cash Amount</option>
-								<option>GRH Funding Fee Financed</option>
-								<option>Heating Cooling Inspection</option>
-								<option>HFA Funding Fee</option>
-								<option>HFA MCC Fee</option>
-								<option>HOA Certification Questionnaire</option>
-								<option>Home Buyer Education</option>
-								<option>Home Inspection</option>
-								<option>Lead Inspection</option>
-								<option>LLC Attorney Doc Prep Fee</option>
-								<option>Manuf Home Structural Eng</option>
-								<option>Mechanical Inspection</option>
-								<option>MI Paid in Cash</option>
-								<option>Mold Inspection</option>
-								<option>Mortgage Insurance</option>
-								<option>Other</option>
-								<option>Other</option>
-								<option>Pest Inspection</option>
-								<option>Plumbing Inspection</option>
-								<option>Purchase Review Fee</option>
-								<option>Radon Inspection</option>
-								<option>Recertification Value</option>
-								<option>Rehab Advisor Fee</option>
-								<option>ReInspection</option>
-								<option>Roof Inspection</option>
-								<option>Scope of Work Fee</option>
-								<option>Septic Inspection</option>
-								<option>Smoke Inspection</option>
-								<option>Structural Inspection</option>
-								<option>Subord Agreement Not USB</option>
-								<option>Survey</option>
-								<option>Tax Service Fee</option>
-								<option>Title - Abstract or Title Search</option>
-								<option>Title - Affidavit Filing</option>
-								<option>Title - Anti Predatory Lending Fee</option>
-								<option>Title - ARM Endorsement</option>
-								<option>Title - Assessment Search</option>
-								<option>Title - Attorney Fees</option>
-								<option>Title - Borrower CPL Cvg/Ltr</option>
-								<option>Title - Chain of Title</option>
-								<option>Title - Condo ALTA 4</option>
-								<option>Title - Courier Express Mail</option>
-								<option>Title - Date Down Endorsement</option>
-								<option>Title - Delivery/Handling Fee</option>
-								<option>Title - Disbursement Admin Fee</option>
-								<option>Title - Doc Prep</option>
-								<option>Title - Document Delivery or Document Retrieval Fee</option>
-								<option>Title - Document Review Fee</option>
-								<option>Title - Document Signing Fee</option>
-								<option>Title - Electronic Document or Electronic Recording Fee</option>
-								<option>Title - Endorsements</option>
-								<option>Title - Escrow Admin Fee</option>
-								<option>Title - Escrow Pad Fee</option>
-								<option>Title - Escrow Service Fee</option>
-								<option>Title - Fax Fee</option>
-								<option>Title - Final Delivery</option>
-								<option>Title - GAP Ins Endors</option>
-								<option>Title - Guaranty Fee</option>
-								<option>Title - Judgement Search</option>
-								<option>Title - Lender CPL Cvg/Ltr</option>
-								<option>Title - Lender's Coverage</option>
-								<option>Title - Lender's Title Insurance</option>
-								<option>Title - Loan Tie In or Loan Fee</option>
-								<option>Title - Location Endorsement</option>
-								<option>Title - Manufactured hm Surrender</option>
-								<option>Title - Municipal, Bankruptcy, Patriot</option>
-								<option>Title - Name Search/Lien Fee</option>
-								<option>Title - Not Yet Due-Payable</option>
-								<option>Title - Notary Fee</option>
-								<option>Title - One Rate Fee</option>
-								<option>Title - Payoff Processing</option>
-								<option>Title - Payoff Service Fee</option>
-								<option>Title - Pick Up Fee</option>
-								<option>Title - Plat Sketch/Drawing</option>
-								<option>Title - Policy Admin</option>
-								<option>Title - PUD ALTA 5 Endorsement</option>
-								<option>Title - Recording Service Fee</option>
-								<option>Title - Scan Fee</option>
-								<option>Title - Search Fee</option>
-								<option>Title - Settlement Closing</option>
-								<option>Title - Signing Service Fee</option>
-								<option>Title - Srv Admin Fee</option>
-								<option>Title - State Policy Fee</option>
-								<option>Title - State Surchg Policy</option>
-								<option>Title - Sub-escrow Fee</option>
-								<option>Title - Subordination Service Fee</option>
-								<option>Title - Survey</option>
-								<option>Title - Tax Cert</option>
-								<option>Title - Tax Delete Maintenance</option>
-								<option>Title - Tax-Title Services</option>
-								<option>Title - TIEFF Fee</option>
-								<option>Title - Title Exam</option>
-								<option>Title - Tracking Release/Reconveyance</option>
-								<option>Title - Well Disclosure Filing</option>
-								<option>Title - Wire Fee</option>
-								<option>Title - Witness Fee</option>
-								<option>Title - Work Fee</option>
-								<option>TX Attorney Doc Review Fee</option>
-								<option>VA Funding Fee</option>
-								<option>VA Funding Fee Cash</option>
-								<option>Verification of Assets</option>
-								<option>Verification of Employment</option>
-								<option>Water Testing Fee</option>
-								<option>Well Inspection</option>
-				        	</select>
-				        </span>
-				        <span class="col-sm-1" ng-if="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel"> to </span>
-				        <span class="col-sm-5">
-				        	<input type="text" class="form-control" name="BorrowerDidShopFor" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].toEntity">
-				        </span>
-				        </td>
-			        <td><input class="form-control"  ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing"></input></td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing"></input></td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing"></input></td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spB4Closing"></input></td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paidByOthers"></input></td>
-			      </tr>
-			      <tr class="border_top">
-			      	<th class="rowBackground" colspan="2">C. Services Borrower Did Shop For</th>
-			      	<th class="rowBackground text-center" colspan="2"  >{{transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopTotalAmount}}</th>
-			      	<th class="rowBackground text-center" colspan="2"></th>
-			      	<th></th>
-			      </tr>	
-			      <tr ng-repeat="i in 21 | range">
-			      	<td class="text-center"><span ng-if="i<9">0</span>{{i+1}}</td>
-			        <td><span class="col-sm-6 padding0">
-				        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel">
-				        		<option></option>
-								<option>Asbestos Inspection</option>
-								<option>Attorney Opinion Trust</option>
-								<option>Chimney Inspection</option>
-								<option>Compliance Inspection</option>
-								<option>Drywall Inspection</option>
-								<option>Gas Inspection</option>
-								<option>Heating Cooling Inspection</option>
-								<option>Home Buyer Education</option>
-								<option>Home Inspection</option>
-								<option>Lead Inspection</option>
-								<option>Manuf Home Structural Eng</option>
-								<option>Mechanical Inspection</option>
-								<option>Mold Inspection</option>
-								<option>Other</option>
-								<option>Pest Inspection</option>
-								<option>Plumbing Inspection</option>
-								<option>Radon Inspection</option>
-								<option>ReInspection</option>
-								<option>Roof Inspection</option>
-								<option>Septic Inspection</option>
-								<option>Smoke Inspection</option>
-								<option>Structural Inspection</option>
-								<option>Survey</option>
-								<option>Title - Abstract or Title Search</option>
-								<option>Title - Affidavit Filing</option>
-								<option>Title - Anti Predatory Lending Fee</option>
-								<option>Title - ARM Endorsement</option>
-								<option>Title - Assessment Search</option>
-								<option>Title - Attorney Fees</option>
-								<option>Title - Borrower CPL Cvg/Ltr</option>
-								<option>Title - Chain of Title</option>
-								<option>Title - Condo ALTA 4</option>
-								<option>Title - Courier Express Mail</option>
-								<option>Title - Date Down Endorsement</option>
-								<option>Title - Delivery/Handling Fee</option>
-								<option>Title - Disbursement Admin Fee</option>
-								<option>Title - Doc Prep</option>
-								<option>Title - Document Delivery or Document Retrieval Fee</option>
-								<option>Title - Document Review Fee</option>
-								<option>Title - Document Signing Fee</option>
-								<option>Title - Electronic Document or Electronic Recording Fee</option>
-								<option>Title - Endorsements</option>
-								<option>Title - Escrow Admin Fee</option>
-								<option>Title - Escrow Pad Fee</option>
-								<option>Title - Escrow Service Fee</option>
-								<option>Title - Fax Fee</option>
-								<option>Title - Final Delivery</option>
-								<option>Title - GAP Ins Endors</option>
-								<option>Title - Guaranty Fee</option>
-								<option>Title - Judgement Search</option>
-								<option>Title - Lender CPL Cvg/Ltr</option>
-								<option>Title - Lender's Coverage</option>
-								<option>Title - Lender's Title Insurance</option>
-								<option>Title - Loan Tie In or Loan Fee</option>
-								<option>Title - Location Endorsement</option>
-								<option>Title - Manufactured hm Surrender</option>
-								<option>Title - Municipal, Bankruptcy, Patriot</option>
-								<option>Title - Name Search/Lien Fee</option>
-								<option>Title - Not Yet Due-Payable</option>
-								<option>Title - Notary Fee</option>
-								<option>Title - One Rate Fee</option>
-								<option>Title - Payoff Processing</option>
-								<option>Title - Payoff Service Fee</option>
-								<option>Title - Pick Up Fee</option>
-								<option>Title - Plat Sketch/Drawing</option>
-								<option>Title - Policy Admin</option>
-								<option>Title - PUD ALTA 5 Endorsement</option>
-								<option>Title - Recording Service Fee</option>
-								<option>Title - Scan Fee</option>
-								<option>Title - Search Fee</option>
-								<option>Title - Settlement Closing</option>
-								<option>Title - Signing Service Fee</option>
-								<option>Title - Srv Admin Fee</option>
-								<option>Title - State Policy Fee</option>
-								<option>Title - State Surchg Policy</option>
-								<option>Title - Sub-escrow Fee</option>
-								<option>Title - Subordination Service Fee</option>
-								<option>Title - Survey</option>
-								<option>Title - Tax Cert</option>
-								<option>Title - Tax Delete Maintenance</option>
-								<option>Title - Tax-Title Services</option>
-								<option>Title - TIEFF Fee</option>
-								<option>Title - Title Exam</option>
-								<option>Title - Tracking Release/Reconveyance</option>
-								<option>Title - Well Disclosure Filing</option>
-								<option>Title - Wire Fee</option>
-								<option>Title - Witness Fee</option>
-								<option>Title - Work Fee</option>
-								<option>Water Testing Fee</option>
-								<option>Well Inspection</option>
-								<option>Well Inspection</option>
-				        	</select>
-				        </span>
-				        <span class="col-sm-1" ng-if="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel"> to </span>
-				        <span class="col-sm-5">
-				        	<input type="text" class="form-control" name="BorrowerDidShopFor" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].toEntity">
-				        </span>
-				        </td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing"></input></td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing"></input></td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].spAtClosing"></input></td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].spB4Closing"></input></td>
-			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].paidByOthers"></input></td>
-			      </tr>
-			      <tr class="border_top">
-			      	<th class="rowBackground" colspan="2">D. TOTAL LOAN COSTS (Borrower-Paid)</th>
-			      	<th class="rowBackground text-center" colspan="2" >{{transformData.pageTwo.closingCostDetailsLoanCosts.tlCostsTotalAmount}}</th>
-			      	<th class="rowBackground text-center" colspan="2"></th>
-			      	<th></th>
-			      </tr>	
-			      <tr>
-			      	<td class="text-center">01</td>
-			      	<td><span class="padding5lr">{{transformData.pageTwo.closingCostDetailsLoanCosts.tlCosts.displayLabel}}</span></td>
-			      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.tlCosts.bpAtClosing"></input></td>
-			      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.tlCosts.bpB4Closing"></input></td>
-			      	<td><input class="form-control" value=""></input></td>
-			      	<td><input class="form-control" value=""></input></td>
-			        <td><input class="form-control" value=""></input></td>
-			      </tr>
-			    </tbody>
-			</table>
-		</span>
-   	</div>
+			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing"></input></td>
+			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing"></input></td>
+			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing"></input></td>
+			        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing"></input></td>
+			        <td>
+			        <span class="col-sm-8 padding0">
+			        	<input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers"></input>
+					</span>
+					<span class="col-sm-4 padding0" style="border-left:1px solid #ddd; height:30px; padding:5px 0 5px 7px; ">
+						<input type="checkbox">
+					</span>
+			        </td>
+		      </tr>
+		     <tr class="border_top">
+		      	<th class="rowBackground" colspan="2">B. Services Borrower Did Not Shop For</th>
+		      	<th class="rowBackground text-center" colspan="2" >{{transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount}}</th>
+		      	<th class="rowBackground text-center" colspan="2"></th>
+		      	<th></th>
+		      </tr>	
+		      <tr ng-repeat="i in 21 | range">
+		      	<td class="text-center"><span ng-if="i<9">0</span>{{i+1}}</td>
+		        <td><span class="col-sm-6 padding0">
+			        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel">
+			        		<option></option>
+			        		<option>After Final Inspection</option>
+							<option>Appraisal</option>
+							<option>Appraisal Fee 2</option>
+							<option>Appraisal Progress</option>
+							<option>Asbestos Inspection</option>
+							<option>Attorney Opinion Trust</option>
+							<option>Before Final Inspect</option>
+							<option>Bond Participation Fee</option>
+							<option>Bond Reservation Fee</option>
+							<option>Bond Transfer Fee</option>
+							<option>Builder Credit Report Fee</option>
+							<option>Business Credit Report Fee</option>
+							<option>Chimney Inspection</option>
+							<option>Compliance Inspection</option>
+							<option>Construction Management Fee</option>
+							<option>Construction Mgt-Granite Fee</option>
+							<option>Credit Report Fee</option>
+							<option>Drywall Inspection</option>
+							<option>FHA UFMIP</option>
+							<option>FHA UFMIP Fee Cash</option>
+							<option>Field Waiver FNMA</option>
+							<option>Flood Certification Fee</option>
+							<option>Flood-Life of Loan</option>
+							<option>FMP Value Fee</option>
+							<option>Gas Inspection</option>
+							<option>GRH Funding Fee Cash Amount</option>
+							<option>GRH Funding Fee Financed</option>
+							<option>Heating Cooling Inspection</option>
+							<option>HFA Funding Fee</option>
+							<option>HFA MCC Fee</option>
+							<option>HOA Certification Questionnaire</option>
+							<option>Home Buyer Education</option>
+							<option>Home Inspection</option>
+							<option>Lead Inspection</option>
+							<option>LLC Attorney Doc Prep Fee</option>
+							<option>Manuf Home Structural Eng</option>
+							<option>Mechanical Inspection</option>
+							<option>MI Paid in Cash</option>
+							<option>Mold Inspection</option>
+							<option>Mortgage Insurance</option>
+							<option>Other</option>
+							<option>Other</option>
+							<option>Pest Inspection</option>
+							<option>Plumbing Inspection</option>
+							<option>Purchase Review Fee</option>
+							<option>Radon Inspection</option>
+							<option>Recertification Value</option>
+							<option>Rehab Advisor Fee</option>
+							<option>ReInspection</option>
+							<option>Roof Inspection</option>
+							<option>Scope of Work Fee</option>
+							<option>Septic Inspection</option>
+							<option>Smoke Inspection</option>
+							<option>Structural Inspection</option>
+							<option>Subord Agreement Not USB</option>
+							<option>Survey</option>
+							<option>Tax Service Fee</option>
+							<option>Title - Abstract or Title Search</option>
+							<option>Title - Affidavit Filing</option>
+							<option>Title - Anti Predatory Lending Fee</option>
+							<option>Title - ARM Endorsement</option>
+							<option>Title - Assessment Search</option>
+							<option>Title - Attorney Fees</option>
+							<option>Title - Borrower CPL Cvg/Ltr</option>
+							<option>Title - Chain of Title</option>
+							<option>Title - Condo ALTA 4</option>
+							<option>Title - Courier Express Mail</option>
+							<option>Title - Date Down Endorsement</option>
+							<option>Title - Delivery/Handling Fee</option>
+							<option>Title - Disbursement Admin Fee</option>
+							<option>Title - Doc Prep</option>
+							<option>Title - Document Delivery or Document Retrieval Fee</option>
+							<option>Title - Document Review Fee</option>
+							<option>Title - Document Signing Fee</option>
+							<option>Title - Electronic Document or Electronic Recording Fee</option>
+							<option>Title - Endorsements</option>
+							<option>Title - Escrow Admin Fee</option>
+							<option>Title - Escrow Pad Fee</option>
+							<option>Title - Escrow Service Fee</option>
+							<option>Title - Fax Fee</option>
+							<option>Title - Final Delivery</option>
+							<option>Title - GAP Ins Endors</option>
+							<option>Title - Guaranty Fee</option>
+							<option>Title - Judgement Search</option>
+							<option>Title - Lender CPL Cvg/Ltr</option>
+							<option>Title - Lender's Coverage</option>
+							<option>Title - Lender's Title Insurance</option>
+							<option>Title - Loan Tie In or Loan Fee</option>
+							<option>Title - Location Endorsement</option>
+							<option>Title - Manufactured hm Surrender</option>
+							<option>Title - Municipal, Bankruptcy, Patriot</option>
+							<option>Title - Name Search/Lien Fee</option>
+							<option>Title - Not Yet Due-Payable</option>
+							<option>Title - Notary Fee</option>
+							<option>Title - One Rate Fee</option>
+							<option>Title - Payoff Processing</option>
+							<option>Title - Payoff Service Fee</option>
+							<option>Title - Pick Up Fee</option>
+							<option>Title - Plat Sketch/Drawing</option>
+							<option>Title - Policy Admin</option>
+							<option>Title - PUD ALTA 5 Endorsement</option>
+							<option>Title - Recording Service Fee</option>
+							<option>Title - Scan Fee</option>
+							<option>Title - Search Fee</option>
+							<option>Title - Settlement Closing</option>
+							<option>Title - Signing Service Fee</option>
+							<option>Title - Srv Admin Fee</option>
+							<option>Title - State Policy Fee</option>
+							<option>Title - State Surchg Policy</option>
+							<option>Title - Sub-escrow Fee</option>
+							<option>Title - Subordination Service Fee</option>
+							<option>Title - Survey</option>
+							<option>Title - Tax Cert</option>
+							<option>Title - Tax Delete Maintenance</option>
+							<option>Title - Tax-Title Services</option>
+							<option>Title - TIEFF Fee</option>
+							<option>Title - Title Exam</option>
+							<option>Title - Tracking Release/Reconveyance</option>
+							<option>Title - Well Disclosure Filing</option>
+							<option>Title - Wire Fee</option>
+							<option>Title - Witness Fee</option>
+							<option>Title - Work Fee</option>
+							<option>TX Attorney Doc Review Fee</option>
+							<option>VA Funding Fee</option>
+							<option>VA Funding Fee Cash</option>
+							<option>Verification of Assets</option>
+							<option>Verification of Employment</option>
+							<option>Water Testing Fee</option>
+							<option>Well Inspection</option>
+			        	</select>
+			        </span>
+			        <span class="col-sm-1" ng-if="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel"> to </span>
+			        <span class="col-sm-5">
+			        	<input type="text" class="form-control" name="BorrowerDidShopFor" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].toEntity">
+			        </span>
+			        </td>
+		        <td><input class="form-control"  ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing"></input></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing"></input></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing"></input></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spB4Closing"></input></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paidByOthers"></input></td>
+		      </tr>
+		      <tr class="border_top">
+		      	<th class="rowBackground" colspan="2">C. Services Borrower Did Shop For</th>
+		      	<th class="rowBackground text-center" colspan="2"  >{{transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopTotalAmount}}</th>
+		      	<th class="rowBackground text-center" colspan="2"></th>
+		      	<th></th>
+		      </tr>	
+		      <tr ng-repeat="i in 21 | range">
+		      	<td class="text-center"><span ng-if="i<9">0</span>{{i+1}}</td>
+		        <td><span class="col-sm-6 padding0">
+			        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel">
+			        		<option></option>
+							<option>Asbestos Inspection</option>
+							<option>Attorney Opinion Trust</option>
+							<option>Chimney Inspection</option>
+							<option>Compliance Inspection</option>
+							<option>Drywall Inspection</option>
+							<option>Gas Inspection</option>
+							<option>Heating Cooling Inspection</option>
+							<option>Home Buyer Education</option>
+							<option>Home Inspection</option>
+							<option>Lead Inspection</option>
+							<option>Manuf Home Structural Eng</option>
+							<option>Mechanical Inspection</option>
+							<option>Mold Inspection</option>
+							<option>Other</option>
+							<option>Pest Inspection</option>
+							<option>Plumbing Inspection</option>
+							<option>Radon Inspection</option>
+							<option>ReInspection</option>
+							<option>Roof Inspection</option>
+							<option>Septic Inspection</option>
+							<option>Smoke Inspection</option>
+							<option>Structural Inspection</option>
+							<option>Survey</option>
+							<option>Title - Abstract or Title Search</option>
+							<option>Title - Affidavit Filing</option>
+							<option>Title - Anti Predatory Lending Fee</option>
+							<option>Title - ARM Endorsement</option>
+							<option>Title - Assessment Search</option>
+							<option>Title - Attorney Fees</option>
+							<option>Title - Borrower CPL Cvg/Ltr</option>
+							<option>Title - Chain of Title</option>
+							<option>Title - Condo ALTA 4</option>
+							<option>Title - Courier Express Mail</option>
+							<option>Title - Date Down Endorsement</option>
+							<option>Title - Delivery/Handling Fee</option>
+							<option>Title - Disbursement Admin Fee</option>
+							<option>Title - Doc Prep</option>
+							<option>Title - Document Delivery or Document Retrieval Fee</option>
+							<option>Title - Document Review Fee</option>
+							<option>Title - Document Signing Fee</option>
+							<option>Title - Electronic Document or Electronic Recording Fee</option>
+							<option>Title - Endorsements</option>
+							<option>Title - Escrow Admin Fee</option>
+							<option>Title - Escrow Pad Fee</option>
+							<option>Title - Escrow Service Fee</option>
+							<option>Title - Fax Fee</option>
+							<option>Title - Final Delivery</option>
+							<option>Title - GAP Ins Endors</option>
+							<option>Title - Guaranty Fee</option>
+							<option>Title - Judgement Search</option>
+							<option>Title - Lender CPL Cvg/Ltr</option>
+							<option>Title - Lender's Coverage</option>
+							<option>Title - Lender's Title Insurance</option>
+							<option>Title - Loan Tie In or Loan Fee</option>
+							<option>Title - Location Endorsement</option>
+							<option>Title - Manufactured hm Surrender</option>
+							<option>Title - Municipal, Bankruptcy, Patriot</option>
+							<option>Title - Name Search/Lien Fee</option>
+							<option>Title - Not Yet Due-Payable</option>
+							<option>Title - Notary Fee</option>
+							<option>Title - One Rate Fee</option>
+							<option>Title - Payoff Processing</option>
+							<option>Title - Payoff Service Fee</option>
+							<option>Title - Pick Up Fee</option>
+							<option>Title - Plat Sketch/Drawing</option>
+							<option>Title - Policy Admin</option>
+							<option>Title - PUD ALTA 5 Endorsement</option>
+							<option>Title - Recording Service Fee</option>
+							<option>Title - Scan Fee</option>
+							<option>Title - Search Fee</option>
+							<option>Title - Settlement Closing</option>
+							<option>Title - Signing Service Fee</option>
+							<option>Title - Srv Admin Fee</option>
+							<option>Title - State Policy Fee</option>
+							<option>Title - State Surchg Policy</option>
+							<option>Title - Sub-escrow Fee</option>
+							<option>Title - Subordination Service Fee</option>
+							<option>Title - Survey</option>
+							<option>Title - Tax Cert</option>
+							<option>Title - Tax Delete Maintenance</option>
+							<option>Title - Tax-Title Services</option>
+							<option>Title - TIEFF Fee</option>
+							<option>Title - Title Exam</option>
+							<option>Title - Tracking Release/Reconveyance</option>
+							<option>Title - Well Disclosure Filing</option>
+							<option>Title - Wire Fee</option>
+							<option>Title - Witness Fee</option>
+							<option>Title - Work Fee</option>
+							<option>Water Testing Fee</option>
+							<option>Well Inspection</option>
+							<option>Well Inspection</option>
+			        	</select>
+			        </span>
+			        <span class="col-sm-1" ng-if="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel"> to </span>
+			        <span class="col-sm-5">
+			        	<input type="text" class="form-control" name="BorrowerDidShopFor" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].toEntity">
+			        </span>
+			        </td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing"></input></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing"></input></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].spAtClosing"></input></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].spB4Closing"></input></td>
+		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].paidByOthers"></input></td>
+		      </tr>
+		      <tr class="border_top">
+		      	<th class="rowBackground" colspan="2">D. TOTAL LOAN COSTS (Borrower-Paid)</th>
+		      	<th class="rowBackground text-center" colspan="2" >{{transformData.pageTwo.closingCostDetailsLoanCosts.tlCostsTotalAmount}}</th>
+		      	<th class="rowBackground text-center" colspan="2"></th>
+		      	<th></th>
+		      </tr>	
+		      <tr>
+		      	<td class="text-center">01</td>
+		      	<td><span class="padding5lr">{{transformData.pageTwo.closingCostDetailsLoanCosts.tlCosts.displayLabel}}</span></td>
+		      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.tlCosts.bpAtClosing"></input></td>
+		      	<td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.tlCosts.bpB4Closing"></input></td>
+		      	<td><input class="form-control" value=""></input></td>
+		      	<td><input class="form-control" value=""></input></td>
+		        <td><input class="form-control" value=""></input></td>
+		      </tr>
+		    </tbody>
+		</table>
+	</span>
+</div>
 
-	<div class="col-sm-3 LoanCostsRightTable">
+<div class="col-sm-3 LoanCostsRightTable">
 	<table class="table table-bordered border_top CommonTable" style="margin-top:93px;font-size: 11px;">
 	   <tbody>
 	   	<tr class="border_top">
@@ -387,8 +387,12 @@
 	      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
 	      </tr>	
 		 <tr ng-repeat="i in 21 | range" ng-if="$index != 0">
-	      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
-	      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
+	      	<td class="col-sm-4">
+	      		<input type="text" class="form-control" name="originationChargesAprFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].aprFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != '' ? 'YES' : 'NO'">
+	      	</td>
+	      	<td class="col-sm-4">
+	      		<input type="text" class="form-control" name="originationChargesRezFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].regulatuibZFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != '' ? 'YES' : 'NO'">
+	      	</td>
 	      </tr>	
 	      
 	      <tr class="border_top">
@@ -397,16 +401,20 @@
 	      	<th  class="col-sm-4">Fee Paid To</th>
 	      </tr>	
 	      <tr ng-repeat="i in 21 | range">
-	      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
-	      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
+	      	<td class="col-sm-4">
+	      		<input type="text" class="form-control" name="sbDidNotShopForsAprFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].aprFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != '' ? 'YES' : 'NO'">
+	      	</td>
+	      	<td class="col-sm-4">
+	      		<input type="text" class="form-control" name="sbDidNotShopForsRezFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].regulatuibZFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != '' ? 'YES' : 'NO'">
+	      	</td>
 	      	<td  class="col-sm-4">
 		      	<select class="form-control">
-		      			<option>ThirdPartyProvider</option>
-		      			<option>Broker</option>
-		      			<option>Broker Affiliate</option>
-		      			<option>Investor</option>
-		      			<option>Lender</option>
-		      			<option>Lender Affiliate</option>
+	      			<option>ThirdPartyProvider</option>
+	      			<option>Broker</option>
+	      			<option>Broker Affiliate</option>
+	      			<option>Investor</option>
+	      			<option>Lender</option>
+	      			<option>Lender Affiliate</option>
 		      	</select> 
 	      	</td>
 	      </tr>	
@@ -417,8 +425,12 @@
 	      	<th  class="col-sm-4">Fee Paid To</th>
 	      </tr>	
 	      <tr  ng-repeat="i in 21 | range">
-	      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
-	      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
+	      	<td class="col-sm-4">
+	      		<input type="text" class="form-control" name="sbDidShopForsAprFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].aprFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != '' ? 'YES' : 'NO'">
+	      	</td>
+	      	<td class="col-sm-4">
+	      		<input type="text" class="form-control" name="sbDidShopForsRezFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].regulatuibZFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != '' ? 'YES' : 'NO'">
+	      	</td>
 	      	<td  class="col-sm-4">
 		      	<select class="form-control">
 		      			<option>ThirdPartyProvider</option>

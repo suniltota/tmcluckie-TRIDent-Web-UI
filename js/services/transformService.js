@@ -15,7 +15,7 @@ app.service('transformService', function(apiService){
     },
     this.saveUCD = function(data){
         return apiService.request({
-            apiMethod: "services/actualize/saveUCD",
+            apiMethod: "services/actualize/saveUCDXML",
             httpMethod: 'POST',
             formData:data
         });
