@@ -17,7 +17,7 @@ app.service('transformService', function(apiService){
         return apiService.request({
             apiMethod: "services/actualize/saveUCDXML",
             httpMethod: 'POST',
-            formData:data
+            formData:[data]
         });
     }
 });

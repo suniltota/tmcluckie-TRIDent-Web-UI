@@ -130,15 +130,15 @@
 			<div class="col-sm-5 fieldTitle">Loan Type</div>
 			<div class="col-sm-7">
 				<span class="checkboxGroup">
-					<input type="checkbox" value="Conventional" ng-checked="transformData.pageOne.loanInformation.loanType == 'Conventional'" ng-model="transformData.pageOne.loanInformation.loanType">
+					<input type="checkbox" value="Conventional" ng-checked="transformData.pageOne.loanInformation.loanType == 'Conventional' ? true : false" ng-model="transformData.pageOne.loanInformation.loanType">
 					<label>Conventional</label>
 				</span>
-				<span class="checkboxGroup" value="FHA" ng-checked="transformData.pageOne.loanInformation.loanType == 'FHA'" ng-model="transformData.pageOne.loanInformation.loanType">
-					<input type="checkbox">
+				<span class="checkboxGroup">
+					<input type="checkbox" value="FHA" ng-checked="transformData.pageOne.loanInformation.loanType == 'FHA'" ng-model="transformData.pageOne.loanInformation.loanType">
 					<label>FHA</label>
 				</span><br><br>
-				<span class="checkboxGroup" value="VA" ng-checked="transformData.pageOne.loanInformation.loanType == 'VA'" ng-model="transformData.pageOne.loanInformation.loanType">
-					<input type="checkbox">
+				<span class="checkboxGroup">
+					<input type="checkbox" value="VA" ng-checked="transformData.pageOne.loanInformation.loanType == 'VA'" ng-model="transformData.pageOne.loanInformation.loanType">
 					<label>VA</label>
 				</span>
 				<span class="checkboxGroup">

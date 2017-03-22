@@ -10,7 +10,8 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	$scope.adjustableRate = staticData.adjustableRate;
 	$scope.mortgageType = staticData.mortgageType;
 	$scope.paymentFrequencyType = staticData.paymentFrequencyType;
-
+	$scope._YES = "YES";
+	$scope._NO = "NO";
 	$scope.dateOptions = {
 		formatYear: 'yy',
 		startingDay: 1
@@ -34,11 +35,11 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	$scope.transformData.pageOne.transactionInformation.isSeller = true;
 
 	$scope.transformData = staticData.transformData[0];
-	$scope.transformData.pageOne.closingInformation.property.isStreeAddress = "YES";
-	$scope.transformData.pageOne.closingInformation.property.isLegalDescription = "YES";
-	$scope.transformData.pageOne.closingInformation.isPurchaseTransaction = "YES";
-	$scope.transformData.pageOne.closingInformation.salesContractDetail = {"personalPropertyIndicator" :"NO"}
-	$scope.transformData.pageOne.closingInformation.propertyValuationDetail = {"propertyValuationDetailIndicator":"YES"}
+	$scope.transformData.pageOne.closingInformation.property.isStreeAddress = $scope._YES;
+	$scope.transformData.pageOne.closingInformation.property.isLegalDescription = $scope._YES;
+	$scope.transformData.pageOne.closingInformation.isPurchaseTransaction = $scope._YES;
+	$scope.transformData.pageOne.closingInformation.salesContractDetail = {"personalPropertyIndicator" :$scope._NO}
+	$scope.transformData.pageOne.closingInformation.propertyValuationDetail = {"propertyValuationDetailIndicator":$scope._YES}
 	$scope.transformData.pageOne.transactionInformation.propertyValuationDetail;
 	//For added dynamic element from UI
 	var borrowerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.borrower[0]);
@@ -46,18 +47,18 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	var lenderAddress = angular.copy($scope.transformData.pageOne.transactionInformation.lender[0]);
 
 	$scope.transformData.pageOne.loanInformation.purpose = JSON.parse(localStorage["purpose"]);
-	$scope.transformData.pageOne.loanInformation.purposeType = "YES";
-	$scope.transformData.pageOne.loanInformation.integratedDisclosureHomeEquityLoanIndicator ="NO";
-	$scope.transformData.pageOne.loanInformation.miRequiredIndicator = "YES";
-	$scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator = "YES";
+	$scope.transformData.pageOne.loanInformation.purposeType = $scope._YES;
+	$scope.transformData.pageOne.loanInformation.integratedDisclosureHomeEquityLoanIndicator =$scope.NO;
+	$scope.transformData.pageOne.loanInformation.miRequiredIndicator = $scope._YES;
+	$scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator = $scope._YES;
 	$scope.transformData.pageOne.loanTerms.negativeAmoritzationIndicator = $scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator;
-	$scope.transformData.pageOne.loanTerms.interestRate.buydownTemporarySubsidyFundingIndicator ="YES";
-	$scope.transformData.pageOne.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator = "YES";
-	$scope.transformData.pageOne.loanTerms.interestRate.interestRateIncreaseIndicator = "YES";
-	$scope.transformData.pageOne.loanTerms.principalInterest.interestOnlyIndicator = "YES";
-	$scope.transformData.pageOne.loanTerms.principalInterest.paymentIncreaseIndicator = "YES";
-	$scope.transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator = "YES";
-	$scope.transformData.pageOne.loanTerms.balloonPayment.balloonIndicator = "YES";
+	$scope.transformData.pageOne.loanTerms.interestRate.buydownTemporarySubsidyFundingIndicator = $scope._YES;
+	$scope.transformData.pageOne.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator = $scope._YES;
+	$scope.transformData.pageOne.loanTerms.interestRate.interestRateIncreaseIndicator = $scope._YES;
+	$scope.transformData.pageOne.loanTerms.principalInterest.interestOnlyIndicator = $scope._YES;
+	$scope.transformData.pageOne.loanTerms.principalInterest.paymentIncreaseIndicator = $scope._YES;
+	$scope.transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator = $scope._YES;
+	$scope.transformData.pageOne.loanTerms.balloonPayment.balloonIndicator = $scope._YES;
     $scope.openUCDXMLFile = function(){
     	$("#UCDXMLFILE").click();
     }
@@ -67,6 +68,14 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     $scope.updatePurpose = function(){
     	console.log($scope.transformData.pageOne.loanInformation.purpose);
     }
+    var getStateByStateCode = function(stateCode){
+    	var state = {};
+    	angular.forEach($scope.states, function(s){
+    		if(s.STATE_CODE == stateCode)
+    			state = s;
+    	});
+    	return state;
+    }
 
     var loadTransformData = function(fileData){
     	$("#spinner").show();
@@ -74,6 +83,24 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 			if(data != null && data.length>0){
 				$scope.transformData = data[0];
 				$scope.transformData.pageOne.closingInformation.dateIssued = new Date();
+				//SET YES or No Values here.
+				$scope.transformData.pageOne.closingInformation.property.isStreeAddress = $scope._YES;
+
+				if($scope.transformData.pageOne.closingInformation.property!=null){
+					if($scope.transformData.pageOne.closingInformation.property.stateCode != null)
+						$scope.transformData.pageOne.closingInformation.property.state = getStateByStateCode($scope.transformData.pageOne.closingInformation.property.stateCode);
+
+					if($scope.transformData.pageOne.closingInformation.property.unparsedLegalDescription == null)
+						$scope.transformData.pageOne.closingInformation.property.isLegalDescription = $scope._NO;
+					else
+						$scope.transformData.pageOne.closingInformation.property.isLegalDescription = $scope._YES;
+
+				}
+				if($scope.transformData.pageOne.loanInformation.purpose == 'Purchase')
+					$scope.transformData.pageOne.closingInformation.isPurchaseTransaction = $scope._YES;
+				else
+					$scope.transformData.pageOne.closingInformation.isPurchaseTransaction = $scope._NO;
+
 				if($scope.transformData.pageOne.transactionInformation.borrower!=null && $scope.transformData.pageOne.transactionInformation.borrower.length>0){
 					var borrower ={};
 					angular.forEach($scope.transformData.pageOne.transactionInformation.borrower, function(b, index){
@@ -138,7 +165,7 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 						$scope.transformData.pageOne.loanInformation.productL = p;	
 				});
 				if($scope.transformData.pageOne.loanInformation.constructionLoanType == undefined || $scope.transformData.pageOne.loanInformation.constructionLoanType == "")
-					$scope.transformData.pageOne.loanInformation.purposeType = "NO";
+					$scope.transformData.pageOne.loanInformation.purposeType = $scope._NO;
 				if($scope.transformData.pageTwo.closingCostDetailsLoanCosts!=undefined && $scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges!=null && $scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges.length>0){
 					
 					var orgCharge = angular.copy($scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges);
@@ -159,7 +186,7 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     		$("#spinner").hide();
     	});
     }
-
+    
     $scope.fileNameChanged = function(file){
         var reader = new FileReader();
 		reader.readAsText(file.files[0], "UTF-8");
