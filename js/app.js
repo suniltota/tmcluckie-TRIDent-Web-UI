@@ -63,4 +63,7 @@ app.controller('menuCtrl', function ($scope, staticData) {
   $scope.saveFile = function(){
     angular.element($("#UCDXMLFILE")).scope().saveFile();
   }
+  $scope.importFile = function(){
+    angular.element($("#UCDXMLFILE")).scope().importFile();
+  }
 });

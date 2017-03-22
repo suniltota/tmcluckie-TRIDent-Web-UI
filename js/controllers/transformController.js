@@ -62,6 +62,9 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     $scope.openUCDXMLFile = function(){
     	$("#UCDXMLFILE").click();
     }
+    $scope.importFile = function(){
+    	$("#UCDXMLFILE").click();
+    }
     $scope.renderHtml = function(html_code){
     	return $sce.trustAsHtml(html_code);
     }
