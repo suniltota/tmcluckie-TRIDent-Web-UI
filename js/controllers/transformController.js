@@ -64,7 +64,7 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     	$("#UCDXMLFILE").click();
     }
     $scope.importFile = function(){
-    	$("#UCDXMLFILE").click();
+    	$("#trid_import_text").click();
     }
     $scope.renderHtml = function(html_code){
     	return $sce.trustAsHtml(html_code);
@@ -189,6 +189,28 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 		}).error( function(data, status){
     		$("#spinner").hide();
     	});
+    }
+    
+    $scope.importTextFile = function(file){
+        $("#spinner").show();
+        var filename = file.files[0].name;
+        var fileType = filename.substr((filename.lastIndexOf('.') + 1));
+		if(fileType!='txt') {
+			//alert("Not Required type "+val);
+			$('#loadfile').modal('show'); 
+			$('#spinner').hide();
+		 }
+		 else{
+	        var reader = new FileReader();
+			reader.readAsText(file.files[0], "UTF-8");
+			reader.onload = function (evt) {
+				var fileData = evt.target.result;
+				transformService.transformText2XML(fileData).success(function(data){
+					loadTransformData(data);
+				});
+				$("#spinner").hide();
+			}
+	     }
     }
     
     $scope.fileNameChanged = function(file){

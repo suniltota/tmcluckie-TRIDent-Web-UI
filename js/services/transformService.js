@@ -19,5 +19,12 @@ app.service('transformService', function(apiService){
             httpMethod: 'POST',
             formData:[data]
         });
+    },
+    this.transformText2XML = function(textData) {
+        return apiService.request({
+            apiMethod: "services/actualize/textToXml",
+            httpMethod: 'POST',
+            formData:textData
+        });
     }
 });
