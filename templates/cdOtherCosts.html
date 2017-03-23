@@ -39,17 +39,38 @@
 		      <tr ng-repeat="i in 14 | range">
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
-		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel}}
-		        	<span ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months && transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate == null">
-		        		(<input type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months">) mo. to {{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].toEntity}}
+		        	<span class="padding5">
+		        		<span class="pull-left margin5tb">
+		        			{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel}}
+		        		</span>
+		        	<span class="pull-left padding0" ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months && transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate == null">
+		        		<span class="pull-left margin5tb"> ( </span>
+		        		<span class="col-sm-2 padding0">
+		        			<input class="form-control" type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months">
+		        		</span>
+		        		<span class="pull-left margin5tb">
+		        			) mo. to {{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].toEntity}}
+		        		</span>
 		        	</span>
 		        	<span ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months && transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate != null">
-		        		(<input type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months">) per day from 
-		        		<input type="text" name="prepardDatefromDate_{{$index}}" id="prepardDatefromDate_{{$index}}" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Issued"/>
-		        		<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
-		        		to
-		        		<input type="text" name="prepardDatefromDate_{{$index}}" id="prepardDatetoDate_{{$index}}" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].toDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Issued"/>
-		        		<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
+		        		<span class="pull-left margin5tb"> ( </span>
+		        		<span class="col-sm-1 padding0">
+		        			<input class="form-control" type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months"> 
+		        		</span>
+		        		<span class="pull-left margin5tb">) per day from</span> 
+		        		<span class="col-sm-2 padding0">
+			        		<input type="text" name="prepardDatefromDate_{{$index}}" id="prepardDatefromDate_{{$index}}" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Issued"/>
+			        	</span>
+			        	<span class="pull-left">
+			        		<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
+		        		</span>
+		        		<span class="pull-left margin5tb"> to </span>
+		        		<span class="col-sm-2 padding0">
+		        			<input type="text" name="prepardDatefromDate_{{$index}}" id="prepardDatetoDate_{{$index}}" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].toDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Issued"/>
+		        		</span>
+		        		<span class="pull-left">
+		        			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
+		        		</span>
 		        	</span>
 		        	</span>
 		        </td>
