@@ -260,4 +260,13 @@ app.controller('transformCtrl', function ($scope, $sce, $location, staticData, t
     	localStorage["purpose"] = $scope.purposeType;
     	refreshData();
     }
+    $scope.otherchange = function(event){
+    	//alert($scope.transformData.pageOne.loanInformation.loanType_o);
+    	if($scope.transformData.pageOne.loanInformation.loanType_o == true){
+    		$("#otherdescription").removeAttr("disabled");
+    	}
+    	else{
+    		$("#otherdescription").attr("disabled","disabled");
+    	}
+    }
 });
