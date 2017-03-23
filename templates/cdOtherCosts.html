@@ -44,7 +44,7 @@
 		        		(<input type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months">) mo. to {{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].toEntity}}
 		        	</span>
 		        	<span ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months && transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate != null">
-		        		(<input type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months">) mo. per day from 
+		        		(<input type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months">) per day from 
 		        		<input type="text" name="prepardDatefromDate_{{$index}}" id="prepardDatefromDate_{{$index}}" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Issued"/>
 		        		<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
 		        		to
