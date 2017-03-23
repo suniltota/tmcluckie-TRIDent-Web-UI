@@ -31,6 +31,11 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
     });
     var refreshData = function(){
 		$scope.transformData = staticData.transformData[0];
+
+		angular.forEach($scope.transformData.pageOne.transactionInformation.lender, function(l){
+			l.type="O";
+		});
+		
 		$scope.transformData.pageOne.closingInformation.dateIssued = new Date();
 		$scope.transformData.pageOne.transactionInformation.isBorrower = true;
 		$scope.transformData.pageOne.transactionInformation.isLender = true;
@@ -61,6 +66,7 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 		$scope.transformData.pageOne.loanTerms.principalInterest.paymentIncreaseIndicator = $scope._YES;
 		$scope.transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator = $scope._YES;
 		$scope.transformData.pageOne.loanTerms.balloonPayment.balloonIndicator = $scope._YES;
+
 	}
 	refreshData();
     $scope.openUCDXMLFile = function(){

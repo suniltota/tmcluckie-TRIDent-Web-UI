@@ -160,7 +160,7 @@
             </div>
           </div>
           <div class="row col-sm-12 margin5tb" ng-show="seller.type == 'I'">
-            <div class="col-sm-5 fieldTitle">Borrower Name</div>
+            <div class="col-sm-5 fieldTitle">Seller Name</div>
             <div class="col-sm-7 padding0">
               <div class="col-sm-6"><input type="text" ng-model="seller.sellerDetails.firstName" placeholder="First Name" class="form-control"></div>
               <div class="col-sm-6"><input type="text" ng-model="seller.sellerDetails.middleName" placeholder="Middle Name" class="form-control"></div>
@@ -172,19 +172,19 @@
             <div class="col-sm-7"><input type="text" placeholder="Organization Name" ng-model="seller.sellerDetails.firstName" class="form-control"></div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower Address Street</div>
+            <div class="col-sm-5 fieldTitle">Seller Address Street</div>
             <div class="col-sm-7"><input type="text" ng-model="seller.address.addressLineText" class="form-control"></div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower Address City</div>
+            <div class="col-sm-5 fieldTitle">Seller Address City</div>
             <div class="col-sm-7"><input type="text" ng-model="seller.address.cityName" class="form-control"></div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower Address State</div>
+            <div class="col-sm-5 fieldTitle">Seller Address State</div>
             <div class="col-sm-7"><input type="text" ng-model="seller.address.stateCode" class="form-control"></div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower Address Zip</div>
+            <div class="col-sm-5 fieldTitle">Seller Address Zip</div>
             <div class="col-sm-7"><input type="text" ng-model="seller.address.postalCode" class="form-control"></div>
           </div>
         </div>
@@ -204,7 +204,7 @@
       </div>
       <div class="modal-body">
          <div ng-repeat="lender in lenders">
-          <div class="row col-sm-12 margin5tb">
+          <!--<div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Lender Type</div>
             <div class="col-sm-7">
               <input type="radio" ng-model="lender.type" value="I" disabled> <label>Individual</label>
@@ -218,8 +218,8 @@
               <div class="col-sm-6"><input type="text" ng-model="lender.lenderDetails.middleName" placeholder="Middle Name" class="form-control"></div>
               <div class="col-sm-6 margin5tb"><input type="text" ng-model="lender.lenderDetails.lastName" placeholder="Last Name" class="form-control"></div>
             </div>
-          </div>
-          <div class="row col-sm-12 margin5tb " ng-show="lender.type == 'O'">
+          </div>-->
+          <div class="row col-sm-12 margin5tb ">
             <div class="col-sm-5 fieldTitle">Organization Full Name</div>
             <div class="col-sm-7"><input type="text" placeholder="Organization Name" ng-model="lender.lenderDetails.firstName" class="form-control"></div>
           </div>
