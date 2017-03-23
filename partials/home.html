@@ -48,8 +48,8 @@
 	    </div>
     </div>
   </div>
-  <div id="carousel" style="display: none;">
-      <object data="CD_6830011016.pdf" type="application/pdf" data-caption="original"></object>
+  <div id="pdfViewerId">
+    <div id="carousel" style="display: none;"><object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="original"></object></div>
   </div>
 </div>
 <div class="modal fade" id="BorrowerTransaction" role="dialog">
@@ -251,12 +251,8 @@
 </div>
   <div class="modal fade" id="ClosingDisclosureQ" role="dialog">
     <div class="modal-dialog modal-lg">
-    
-      <!-- Modal content-->
       <div class="modal-content" ng-include='"templates/closingDisclosureWizard.html"'>
-        
       </div>
-      
     </div>
   </div>
   <div class="modal fade" id="PurposeType" role="dialog">
@@ -314,12 +310,6 @@
   $(document).ready(function(){
 	    $(".pageno").tooltip();   
 	});
-
-
-  function pdfViewer() {
-            $("#carousel").pdfSlider();
-        }
-
   </script>
 
   <script type="text/javascript">

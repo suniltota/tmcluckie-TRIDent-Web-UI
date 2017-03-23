@@ -316,7 +316,12 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
     	$("#spinner").show();
     	transformService.saveUCD($scope.transformData).success(function(data){
     		transformService.generatePDF(data).success(function(pdfData){
-    			console.log(pdfData);
+    			if(pdfData!=null && pdfData.length>0){
+    				$("#pdfViewerId").show();
+    				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
+					$("#carousel").pdfSlider();
+    			}
+    			//console.log(pdfData);
     			$("#spinner").hide();
     		}).error( function(pdfData, status){
     			$("#spinner").hide();

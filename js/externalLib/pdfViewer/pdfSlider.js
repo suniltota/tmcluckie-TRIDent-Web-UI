@@ -177,6 +177,7 @@
                 options.activeSlideIndex = 0;
                 options._slides.css(options._animatedProperty, options._startMargin);
                 options._thumbsContainer.find("a").removeClass(options._activeThumb);
+                $("#pdfViewerId").hide();
             },
 
             //todo remove hard-coded animated property
