@@ -19,10 +19,20 @@
 		        <td><label>Principal & Interest</label></td>
 		        <td  ng-repeat="pi in transformData.pageOne.projectedPayments.principalInterest track by $index" >
 		        	<div ng-if="pi.minValue!='$0' && $index!=0" class="col-sm-12 padding0">
-		        		<div class="col-sm-9 padding0"><input class="form-control" ng-model="pi.minValue"/></div><div class="col-sm-2" ng-show="pi.maxValue && pi.minValue!='$0' && pi.maxValue!='$0' && $index!=0">Min</div>
+		        		<div class="col-sm-9 padding0">
+		        			<div class="input-group">
+  								<span class="input-group-addon input-default">$</span>
+		        				<input class="form-control" ng-model="pi.minValue"/>
+		        			</div>
+		        			</div><div class="col-sm-2" ng-show="pi.maxValue && pi.minValue!='$0' && pi.maxValue!='$0' && $index!=0">Min</div>
 		        	</div>
 		        	<div ng-if="pi.maxValue && pi.maxValue!='$0'" class="col-sm-12 padding0">
-		        		<div class="col-sm-9 padding0"><input class="form-control" ng-model="pi.maxValue"/></div><div class="col-sm-2" ng-show="pi.maxValue && pi.minValue!='$0' && pi.maxValue!='$0' && $index!=0">Max</div>
+		        		<div class="col-sm-9 padding0">
+		        			<div class="input-group">
+  								<span class="input-group-addon input-default">$</span>
+		        				<input class="form-control" ng-model="pi.maxValue"/>
+		        			</div>
+		        			</div><div class="col-sm-2" ng-show="pi.maxValue && pi.minValue!='$0' && pi.maxValue!='$0' && $index!=0">Max</div>
 		        	</div>
 		        	<div ng-if="pi.interestOnly != null">
 		        		<labe>{{pi.interestOnly}}</labe>
@@ -32,11 +42,16 @@
 		      <tr>
 		        <td><label >Mortgage Insurance</label> 
 			        <span class="col-sm-4 padding0 pull-right">
-			        	<input class="form-control" placeholder="MI Term" ng-model="transformData.pageOne.projectedPayments.miTerm">
+			        	
+			        		<input class="form-control" placeholder="MI Term" ng-model="transformData.pageOne.projectedPayments.miTerm">
+			        	
 			        </span>
 		        </td>
 		        <td  ng-repeat="mi in transformData.pageOne.projectedPayments.mortgageInsurance track by $index" >
-		        	<input class="form-control" type="text" ng-model="mi"/>
+		        	<div class="input-group">
+	  					<span class="input-group-addon input-default">$</span>
+			        	<input class="form-control" type="text" ng-model="mi"/>
+			        </div>
 		        </td>
 		      </tr>
 		      <tr>
@@ -44,14 +59,20 @@
 			        <div><i>Amount can increase over time</i></div>
 		        </td>
 		        <td  ng-repeat="ee in transformData.pageOne.projectedPayments.estimatedEscrow track by $index" >
-		        	<input class="form-control" ng-model="ee"/>
+		        	<div class="input-group">
+	  					<span class="input-group-addon input-default">$</span>
+			        	<input class="form-control" ng-model="ee"/>
+			        </div>
 		        </td>
 		      </tr>
 		      <tr>
 		        <td><label class="pull-left margin5tb">Estimated Total {{transformData.pageOne.projectedPayments.estimatedTotalPaymentType}} Payment</label> 
 		        </td>
 		        <td  ng-repeat="etp in transformData.pageOne.projectedPayments.estimatedTotalPayment track by $index" >
-		        	<input class="form-control" ng-model="etp"/>
+		        	<div class="input-group">
+	  					<span class="input-group-addon input-default">$</span>
+			        	<input class="form-control" ng-model="etp"/>
+			        </div>
 		        </td>
 		      </tr>
 		      <tr>

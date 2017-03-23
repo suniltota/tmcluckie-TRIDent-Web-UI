@@ -67,7 +67,12 @@
 		        		<i>See projected payments below for your Estimated Total {{transformData.pageOne.projectedPayments.estimatedTotalPaymentType}} Payment</i>
 		        	</p>
 		        </td>
-		        <td><input class="form-control"  ng-model="transformData.pageOne.loanTerms.principalInterest.amount"> </td>
+		        <td>
+		        	<div class="input-group">
+  						<span class="input-group-addon input-default">$</span>
+  						<input class="form-control"  ng-model="transformData.pageOne.loanTerms.principalInterest.amount"> 
+  					</div>
+		        </td>
 		        <td>
 		        	<select class="form-control pull-left" style="width:100px;" ng-model="transformData.pageOne.loanTerms.principalInterest.status">
 		        		<option value="YES">Yes</option>
