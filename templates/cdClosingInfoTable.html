@@ -50,9 +50,12 @@
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle" data-toggle="modal" data-target="#myModal" ng-click="loadPropertyData(false)" style="cursor:pointer;">Property <span class="glyphicon glyphicon-edit"></span></div>
 			<div class="col-sm-7"><div ng-show="transformData.pageOne.closingInformation.property.addressLineText!=null">
-					{{transformData.pageOne.closingInformation.property.addressLineText}}, 
-					{{transformData.pageOne.closingInformation.property.cityName}}, 
-					{{transformData.pageOne.closingInformation.property.stateCode}} - {{transformData.pageOne.closingInformation.property.postalCode}}
+					{{transformData.pageOne.closingInformation.property.addressLineText!="" ? transformData.pageOne.closingInformation.property.addressLineText+',' : ''}}
+					{{transformData.pageOne.closingInformation.property.cityName!="" ?
+					transformData.pageOne.closingInformation.property.cityName+',' : ''}} 
+					{{transformData.pageOne.closingInformation.property.stateCode!="" ?
+					transformData.pageOne.closingInformation.property.stateCode+'-':''}}
+					{{transformData.pageOne.closingInformation.property.postalCode}}
 				</div>
 			</div>
 		</div>
