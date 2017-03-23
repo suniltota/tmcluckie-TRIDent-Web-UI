@@ -26,9 +26,9 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
       "homeEquityLoanIndicator": false,
       "sellerOnly": false
     }
-	transformService.getProducts().success(function (result) {
+	/*transformService.getProducts().success(function (result) {
         $scope.products = result;
-    });
+    });*/
     var refreshData = function(){
 		$scope.transformData = staticData.transformData[0];
 
@@ -173,10 +173,10 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 
 				updateAddressDetails();
 				
-				angular.forEach($scope.products, function(p){
+				/*angular.forEach($scope.products, function(p){
 					if($scope.transformData.pageOne.loanInformation.product == p["CFPB-compliant_name"])
 						$scope.transformData.pageOne.loanInformation.productL = p;	
-				});
+				});*/
 				if($scope.transformData.pageOne.loanInformation.constructionLoanType == undefined || $scope.transformData.pageOne.loanInformation.constructionLoanType == "")
 					$scope.transformData.pageOne.loanInformation.purposeType = $scope._NO;
 				if($scope.transformData.pageTwo.closingCostDetailsLoanCosts!=undefined && $scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges!=null && $scope.transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges.length>0){
