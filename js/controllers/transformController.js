@@ -1,7 +1,7 @@
 /**
  * Controller for transform function
  */
-app.controller('transformCtrl', function ($scope, $sce, staticData, transformService) {
+app.controller('transformCtrl', function ($scope, $sce, $location, staticData, transformService) {
 	//$scope.purposes = staticData.purposes;
 
 	$scope.format = staticData.dateDisplayFormat;
@@ -29,37 +29,40 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 	transformService.getProducts().success(function (result) {
         $scope.products = result;
     });
-	$scope.transformData = staticData.transformData[0];
-	$scope.transformData.pageOne.closingInformation.dateIssued = new Date();
-	$scope.transformData.pageOne.transactionInformation.isBorrower = true;
-	$scope.transformData.pageOne.transactionInformation.isLender = true;
-	$scope.transformData.pageOne.transactionInformation.isSeller = true;
+    var refreshData = function(){
+		$scope.transformData = staticData.transformData[0];
+		$scope.transformData.pageOne.closingInformation.dateIssued = new Date();
+		$scope.transformData.pageOne.transactionInformation.isBorrower = true;
+		$scope.transformData.pageOne.transactionInformation.isLender = true;
+		$scope.transformData.pageOne.transactionInformation.isSeller = true;
 
-	$scope.transformData = staticData.transformData[0];
-	$scope.transformData.pageOne.closingInformation.property.isStreeAddress = $scope._YES;
-	$scope.transformData.pageOne.closingInformation.property.isLegalDescription = $scope._YES;
-	$scope.transformData.pageOne.closingInformation.isPurchaseTransaction = $scope._YES;
-	$scope.transformData.pageOne.closingInformation.salesContractDetail = {"personalPropertyIndicator" :$scope._NO}
-	$scope.transformData.pageOne.closingInformation.propertyValuationDetail = {"propertyValuationDetailIndicator":$scope._YES}
-	$scope.transformData.pageOne.transactionInformation.propertyValuationDetail;
-	//For added dynamic element from UI
-	var borrowerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.borrower[0]);
-	var sellerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.seller[0]);
-	var lenderAddress = angular.copy($scope.transformData.pageOne.transactionInformation.lender[0]);
+		$scope.transformData = staticData.transformData[0];
+		$scope.transformData.pageOne.closingInformation.property.isStreeAddress = $scope._YES;
+		$scope.transformData.pageOne.closingInformation.property.isLegalDescription = $scope._YES;
+		$scope.transformData.pageOne.closingInformation.isPurchaseTransaction = $scope._YES;
+		$scope.transformData.pageOne.closingInformation.salesContractDetail = {"personalPropertyIndicator" :$scope._NO}
+		$scope.transformData.pageOne.closingInformation.propertyValuationDetail = {"propertyValuationDetailIndicator":$scope._YES}
+		$scope.transformData.pageOne.transactionInformation.propertyValuationDetail;
+		//For added dynamic element from UI
+		var borrowerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.borrower[0]);
+		var sellerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.seller[0]);
+		var lenderAddress = angular.copy($scope.transformData.pageOne.transactionInformation.lender[0]);
 
-	$scope.transformData.pageOne.loanInformation.purpose = localStorage["purpose"];
-	$scope.transformData.pageOne.loanInformation.purposeType = $scope._YES;
-	$scope.transformData.pageOne.loanInformation.integratedDisclosureHomeEquityLoanIndicator =$scope.NO;
-	$scope.transformData.pageOne.loanInformation.miRequiredIndicator = $scope._YES;
-	$scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator = $scope._YES;
-	$scope.transformData.pageOne.loanTerms.negativeAmoritzationIndicator = $scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator;
-	$scope.transformData.pageOne.loanTerms.interestRate.buydownTemporarySubsidyFundingIndicator = $scope._YES;
-	$scope.transformData.pageOne.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator = $scope._YES;
-	$scope.transformData.pageOne.loanTerms.interestRate.interestRateIncreaseIndicator = $scope._YES;
-	$scope.transformData.pageOne.loanTerms.principalInterest.interestOnlyIndicator = $scope._YES;
-	$scope.transformData.pageOne.loanTerms.principalInterest.paymentIncreaseIndicator = $scope._YES;
-	$scope.transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator = $scope._YES;
-	$scope.transformData.pageOne.loanTerms.balloonPayment.balloonIndicator = $scope._YES;
+		$scope.transformData.pageOne.loanInformation.purpose = localStorage["purpose"];
+		$scope.transformData.pageOne.loanInformation.purposeType = $scope._YES;
+		$scope.transformData.pageOne.loanInformation.integratedDisclosureHomeEquityLoanIndicator =$scope.NO;
+		$scope.transformData.pageOne.loanInformation.miRequiredIndicator = $scope._YES;
+		$scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator = $scope._YES;
+		$scope.transformData.pageOne.loanTerms.negativeAmoritzationIndicator = $scope.transformData.pageOne.loanTerms.loanAmountIncreaseIndicator;
+		$scope.transformData.pageOne.loanTerms.interestRate.buydownTemporarySubsidyFundingIndicator = $scope._YES;
+		$scope.transformData.pageOne.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator = $scope._YES;
+		$scope.transformData.pageOne.loanTerms.interestRate.interestRateIncreaseIndicator = $scope._YES;
+		$scope.transformData.pageOne.loanTerms.principalInterest.interestOnlyIndicator = $scope._YES;
+		$scope.transformData.pageOne.loanTerms.principalInterest.paymentIncreaseIndicator = $scope._YES;
+		$scope.transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator = $scope._YES;
+		$scope.transformData.pageOne.loanTerms.balloonPayment.balloonIndicator = $scope._YES;
+	}
+	refreshData();
     $scope.openUCDXMLFile = function(){
     	$("#UCDXMLFILE").click();
     }
@@ -251,5 +254,10 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
     }
     $scope.updateStateValue = function(address){
     	address.stateCode = address.state.STATE_CODE;
+    }
+    $scope.loadNewPage = function(){
+    	console.log($scope.purposeType);
+    	localStorage["purpose"] = $scope.purposeType;
+    	refreshData();
     }
 });
