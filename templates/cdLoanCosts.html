@@ -389,16 +389,13 @@
 	      	<th class="col-sm-4"><span>APR Flag</span></th>
 	      	<th class="col-sm-4"><span>Regulation Z Flag</span></th>
 	      </tr>	
-	      <tr>
-	      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
-	      	<td class="col-sm-4"><input type="text" class="form-control" name="" value="Yes"></td>
-	      </tr>	
-		 <tr ng-repeat="i in 21 | range" ng-if="$index != 0">
+	      
+		 <tr ng-repeat="i in 21 | range">
 	      	<td class="col-sm-4">
-	      		<input type="text" class="form-control" name="originationChargesAprFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].aprFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != '' ? 'YES' : 'NO'">
+	      		<input type="text" class="form-control" name="originationChargesAprFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].aprFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != '' ? 'Yes' : ''">
 	      	</td>
 	      	<td class="col-sm-4">
-	      		<input type="text" class="form-control" name="originationChargesRezFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].regulatuibZFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != '' ? 'YES' : 'NO'">
+	      		<input type="text" class="form-control" name="originationChargesRezFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].regulatuibZFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.originationCharges[i].displayLabel != '' ? 'Yes' : ''">
 	      	</td>
 	      </tr>	
 	      
@@ -409,10 +406,10 @@
 	      </tr>	
 	      <tr ng-repeat="i in 21 | range">
 	      	<td class="col-sm-4">
-	      		<input type="text" class="form-control" name="sbDidNotShopForsAprFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].aprFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != '' ? 'YES' : 'NO'">
+	      		<input type="text" class="form-control" name="sbDidNotShopForsAprFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].aprFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != '' ? 'Yes' : ''">
 	      	</td>
 	      	<td class="col-sm-4">
-	      		<input type="text" class="form-control" name="sbDidNotShopForsRezFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].regulatuibZFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != '' ? 'YES' : 'NO'">
+	      		<input type="text" class="form-control" name="sbDidNotShopForsRezFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].regulatuibZFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidNotShopFors[i].displayLabel != '' ? 'Yes' : ''">
 	      	</td>
 	      	<td  class="col-sm-4">
 		      	<select class="form-control">
@@ -433,10 +430,10 @@
 	      </tr>	
 	      <tr  ng-repeat="i in 21 | range">
 	      	<td class="col-sm-4">
-	      		<input type="text" class="form-control" name="sbDidShopForsAprFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].aprFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != '' ? 'YES' : 'NO'">
+	      		<input type="text" class="form-control" name="sbDidShopForsAprFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].aprFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != '' ? 'Yes' : ''">
 	      	</td>
 	      	<td class="col-sm-4">
-	      		<input type="text" class="form-control" name="sbDidShopForsRezFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].regulatuibZFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != '' ? 'YES' : 'NO'">
+	      		<input type="text" class="form-control" name="sbDidShopForsRezFlag" ng-model="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].regulatuibZFlag" ng-value="transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != null && transformData.pageTwo.closingCostDetailsLoanCosts.sbDidShopFors[i].displayLabel != '' ? 'Yes' : ''">
 	      	</td>
 	      	<td  class="col-sm-4">
 		      	<select class="form-control">
