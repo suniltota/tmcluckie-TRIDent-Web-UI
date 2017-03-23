@@ -26,7 +26,7 @@
 		        		<option value="YES">Yes</option>
 		        		<option value="NO">No</option>
 		        	</select>
-		        	<ul class="col-sm-9 pull-right" >
+		        	<ul class="col-sm-9 pull-right" ng-show="transformData.pageOne.loanTerms.loanAmount.status == 'YES'">
 		        		<li ng-repeat="detail in transformData.pageOne.loanTerms.loanAmount.details"><p ng-bind-html="renderHtml(detail)"></p></li>
 		        	</ul>
 		        </td>
@@ -43,7 +43,7 @@
 		        		<option value="YES">Yes</option>
 		        		<option value="NO">No</option>
 		        	</select>
-		        	<ul class="col-sm-9 pull-right" >
+		        	<ul class="col-sm-9 pull-right" ng-show="transformData.pageOne.loanTerms.interestRate.status == 'YES'">
 		        		<li ng-repeat="detail in transformData.pageOne.loanTerms.interestRate.details"><p ng-bind-html="renderHtml(detail)"></p></li>
 		        	</ul>
 		        </td>
@@ -73,7 +73,7 @@
 		        		<option value="YES">Yes</option>
 		        		<option value="NO">No</option>
 		        	</select>
-		        	<ul class="col-sm-9 pull-right" >
+		        	<ul class="col-sm-9 pull-right" ng-show="transformData.pageOne.loanTerms.principalInterest.status == 'YES'">
 		        		<li ng-repeat="detail in transformData.pageOne.loanTerms.principalInterest.details"><p ng-bind-html="renderHtml(detail)"></p></li>
 		        	</ul>
 		        </td>
