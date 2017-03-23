@@ -110,8 +110,8 @@ ul li{list-style: none;}
     transition: 0.5s;
     padding-top: 60px;
 }
-.sidenav a.active{color: #a0dfff;}
-.sidenav a {
+.sidenav .pagenumber.active{color: #a0dfff;}
+.sidenav .pagenumber {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size:14px;
@@ -121,7 +121,7 @@ ul li{list-style: none;}
     border-bottom:1px solid #666;
 }
 
-.sidenav a:hover, .offcanvas a:focus{
+.sidenav .pagenumber:hover, .offcanvas .pagenumber:focus{
     color: #f1f1f1;
 }
 

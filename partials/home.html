@@ -7,10 +7,8 @@
             <option value="LE">Loan Estimate</option>
         </select>
      </div>
-    <a href="" class="active">Page 1</a>
-    <a href="">Page 2</a>
-    <a href="">Page 3</a>
-    <a href="">Page 4</a>
+    <span href="" class="active pagenumber" data-scroll="Page1" >Page 1</span>
+     <span href="" class="pagenumber" data-scroll="Page2" >Page 2</span>
   </div>
    <div id="transparent"></div>
   <div class="SidebarBtns" id="SidebarBtns" side-bar-width>
@@ -322,6 +320,15 @@
       }, 500);
       return false;
   });
+  $('#mySidenav .pagenumber').on('click', function() {
+      var scrollAnchor = $(this).attr('data-scroll'),
+          scrollPoint = $('.PDFview[data-anchor="' + scrollAnchor + '"]').offset().top - 80;
+   
+      $('#PDFviewContainer').animate({
+          scrollTop: scrollPoint
+      }, 500);
+      return false;
+  });
   $("#PDFviewContainer").scroll(function() {
       var windscroll = $("#PDFviewContainer").scrollTop();
       if (windscroll >= 100) {
@@ -330,12 +337,16 @@
 
                   $('#SidebarBtns .pageicon.active').removeClass('active');
                   $('#SidebarBtns .pageicon').eq(i).addClass('active');
+                  $('#mySidenav .pagenumber.active').removeClass('active');
+                  $('#mySidenav .pagenumber').eq(i).addClass('active');
               }
           });
       } else {
 
           $('#SidebarBtns .pageicon.active').removeClass('active');
           $('#SidebarBtns .pageicon:first').addClass('active');
+          $('#mySidenav .pagenumber.active').removeClass('active');
+          $('#mySidenav .pagenumber:first').addClass('active');
       }
   }).scroll();
 </script>
