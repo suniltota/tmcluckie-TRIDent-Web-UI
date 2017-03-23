@@ -13,32 +13,25 @@
     <a href="">Page 4</a>
   </div>
    <div id="transparent"></div>
-  <div class="SidebarBtns" side-bar-width>
+  <div class="SidebarBtns" id="SidebarBtns" side-bar-width>
   	<div class="glyphicon glyphicon-chevron-right openSlidebtn" onclick="openNav();"></div>
   	<span class="pageno" style="font-size:14px;"  data-toggle="tooltip" data-placement="right" title="Closing Disclosure">
   		<span class="pull-left" >CD</span>
   	</span>
-  	<span class="pageno active" data-toggle="tooltip" data-placement="right" title="Page1">
+  	<span class="pageno active pageicon" data-scroll="Page1" data-toggle="tooltip" data-placement="right" title="Page1">
   		<span class="glyphicon glyphicon-file pull-left"></span> 
   		<span class="pull-left noTitle">1</span>
   	</span>
-  	<span class="pageno" data-toggle="tooltip" data-placement="right" title="Page2">
+  	<span class="pageno pageicon" data-toggle="tooltip" data-scroll="Page2" data-placement="right" title="Page2">
   		<span class="glyphicon glyphicon-file pull-left"></span> 
   		<span class="pull-left noTitle">2</span>
   	</span>
-  	<span class="pageno" data-toggle="tooltip" data-placement="right" title="Page3">
-  		<span class="glyphicon glyphicon-file pull-left"></span> 
-  		<span class="pull-left noTitle">3</span>
-  	</span>
-  	<span class="pageno" data-toggle="tooltip" data-placement="right" title="Page4">
-  		<span class="glyphicon glyphicon-file pull-left"></span> 
-  		<span class="pull-left noTitle">4</span>
-  	</span>
+  	
   </div>
   <div class="col-lg-12 PageformHeader padding0" pdf-width>
     <div class="panel panel-default">
-			<div class="panel-body" dynamic-height style="overflow: auto;">
-        <div class="PDFview Page1">
+			<div class="panel-body" dynamic-height id="PDFviewContainer" style="overflow: auto;">
+        <div class="PDFview" data-anchor="Page1">
         	<span>
             <div ng-include='"templates/cdClosingInfoTable.html"'></div>
             <div ng-include='"templates/cdLoanTermsTable.html"'></div>
@@ -46,7 +39,7 @@
             <div ng-include='"templates/cdCostsatClosing.html"'></div>
        	 	</span>
         </div>
-        <div class="PDFview Page2">
+        <div class="PDFview" data-anchor="Page2">
           <span>
             <div ng-include='"templates/cdLoanCosts.html"'></div>
             <div ng-include='"templates/cdOtherCosts.html"'></div>
@@ -328,3 +321,31 @@
         }
 
   </script>
+
+  <script type="text/javascript">
+  $('#SidebarBtns .pageicon').on('click', function() {
+      var scrollAnchor = $(this).attr('data-scroll'),
+          scrollPoint = $('.PDFview[data-anchor="' + scrollAnchor + '"]').offset().top - 80;
+   
+      $('#PDFviewContainer').animate({
+          scrollTop: scrollPoint
+      }, 500);
+      return false;
+  });
+  $("#PDFviewContainer").scroll(function() {
+      var windscroll = $("#PDFviewContainer").scrollTop();
+      if (windscroll >= 100) {
+          $('#PDFviewContainer .PDFview').each(function(i) {
+              if ($(this).position().top <= windscroll - 600) {
+
+                  $('#SidebarBtns .pageicon.active').removeClass('active');
+                  $('#SidebarBtns .pageicon').eq(i).addClass('active');
+              }
+          });
+      } else {
+
+          $('#SidebarBtns .pageicon.active').removeClass('active');
+          $('#SidebarBtns .pageicon:first').addClass('active');
+      }
+  }).scroll();
+</script>
