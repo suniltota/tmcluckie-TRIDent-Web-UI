@@ -64,3 +64,24 @@ app.directive('decimalPlaces',function(){
         }
     };
 });
+
+app.directive('numberFormat', function ($filter) {
+    return {
+        require: '?ngModel',
+        link: function (scope, elem, attrs, ctrl) {
+            if (!ctrl) {
+                return;
+            }
+
+            ctrl.$parsers.unshift(function (viewValue) {
+                var plainNumber = viewValue.replace(/[\,\.]/g, ''),
+                    b = $filter('number')(plainNumber);
+                    b = b==0 ? '' : b;
+
+                elem.val(b);
+
+                return plainNumber;
+            });
+        }
+    };
+});
