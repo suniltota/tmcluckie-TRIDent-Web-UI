@@ -26,5 +26,12 @@ app.service('transformService', function(apiService){
             httpMethod: 'POST',
             formData:textData
         });
+    },
+    this.generatePDF = function(xml) {
+        return apiService.request({
+            apiMethod: "services/actualize/generatePDF",
+            httpMethod: 'POST',
+            formData:xml
+        });
     }
 });

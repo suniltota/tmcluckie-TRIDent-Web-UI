@@ -1,9 +1,9 @@
 /**
  * Controller for transform function
  */
-app.controller('transformCtrl', function ($scope, $sce, $location, staticData, transformService) {
+app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, transformService) {
 	//$scope.purposes = staticData.purposes;
-
+	var requestDFormat = "MM-dd-yyyy"
 	$scope.format = staticData.dateDisplayFormat;
 	$scope.states = staticData.stateCode;
 	$scope.lienPriorityType = staticData.lienPriorityType;
@@ -228,6 +228,9 @@ app.controller('transformCtrl', function ($scope, $sce, $location, staticData, t
 
     $scope.saveFile = function(){
     	$("#spinner").show();
+    	$scope.transformData.pageOne.closingInformation.dateIssued = $filter('date')($scope.transformData.pageOne.closingInformation.dateIssued,requestDFormat);
+    	$scope.transformData.pageOne.closingInformation.closingDate = $filter('date')($scope.transformData.pageOne.closingInformation.closingDate,requestDFormat);
+    	$scope.transformData.pageOne.closingInformation.disbursementDate = $filter('date')($scope.transformData.pageOne.closingInformation.disbursementDate,requestDFormat);
     	transformService.saveUCD($scope.transformData).success(function(data){
 			var a = document.createElement('a');
 			var xmlData = vkbeautify.xml(data)
@@ -309,5 +312,17 @@ app.controller('transformCtrl', function ($scope, $sce, $location, staticData, t
     		$scope.lenders = angular.copy($scope.transformData.pageOne.transactionInformation.lender);
     	}
     }
-
+    $scope.generatePDF = function(){
+    	$("#spinner").show();
+    	transformService.saveUCD($scope.transformData).success(function(data){
+    		transformService.generatePDF(data).success(function(pdfData){
+    			console.log(pdfData);
+    			$("#spinner").hide();
+    		}).error( function(pdfData, status){
+    			$("#spinner").hide();
+    		});
+    	}).error( function(data, status){
+    		$("#spinner").hide();
+    	});
+    }
 });

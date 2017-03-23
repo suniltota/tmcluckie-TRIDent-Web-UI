@@ -66,4 +66,7 @@ app.controller('menuCtrl', function ($scope, staticData) {
   $scope.importFile = function(){
     angular.element($("#UCDXMLFILE")).scope().importFile();
   }
+  $scope.generatePDF = function(){
+    angular.element($("#UCDXMLFILE")).scope().generatePDF();    
+  }
 });
