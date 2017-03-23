@@ -142,6 +142,8 @@ ul li{list-style: none;}
 #ClosingInformationQ{margin-top: 15px;}
 #TransactionInformationQ{margin-top: 15px;}
 
+.modal-footer{clear: both; margin-top:10px;}
+
 .calenderInput{border-right: 0px;}
 .calenderBtn{height: 30px;}
 /*.modal-header{padding:5px;}*/
