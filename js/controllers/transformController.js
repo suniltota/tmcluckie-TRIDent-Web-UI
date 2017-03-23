@@ -336,4 +336,13 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
     		$("#spinner").hide();
     	});
     }
+    $scope.purposechange = function(){
+    	if($('#purposeType :selected').text() == " Select Purpose "){
+    		$("#loadnewbtn").attr("disabled","disabled");
+    	}
+    	else{
+    		$("#loadnewbtn").removeAttr("disabled","disabled");
+    	}
+    }
+
 });

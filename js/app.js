@@ -69,4 +69,12 @@ app.controller('menuCtrl', function ($scope, staticData) {
   $scope.generatePDF = function(){
     angular.element($("#UCDXMLFILE")).scope().generatePDF();    
   }
+  $scope.newform = function(){
+            if($('#purposeType :selected').text() == " Select Purpose "){
+        $("#loadnewbtn").attr("disabled","disabled");
+      }
+      else{
+        $("#loadnewbtn").removeAttr("disabled","disabled");
+      }
+    }
 });
