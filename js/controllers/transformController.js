@@ -336,26 +336,4 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
     		$("#spinner").hide();
     	});
     }
-    $scope.purposechange = function(){
-    	if($('#purposeType :selected').text() == " Select Purpose "){
-    		$("#loadnewbtn").attr("disabled","disabled");
-    	}
-    	else{
-    		$("#loadnewbtn").removeAttr("disabled","disabled");
-    	}
-    }
-
-});
-
-app.directive('decimalPlaces',function(){
-	return {
-	    link:function(scope,ele,attrs){
-	        ele.bind('keypress',function(e){
-	            var newVal=$(this).val()+(e.charCode!==0?String.fromCharCode(e.charCode):'');
-	            if($(this).val().search(/(.*)\.[0-9][0-9][0-9]/)===0 && newVal.length>$(this).val().length){
-	                e.preventDefault();
-	            }
-	        });
-	    }
-	};
 });

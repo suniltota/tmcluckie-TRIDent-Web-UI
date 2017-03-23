@@ -253,7 +253,7 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="PurposeType" role="dialog">
+  <div class="modal fade" id="PurposeType" role="dialog" >
     <div class="modal-dialog modal-md">
       <div class="modal-content">
        <div class="modal-header">
@@ -261,6 +261,7 @@
           <h4 class="modal-title">Purpose Type</h4>
         </div>
         <div class="modal-body">
+          <form name="newForm" role="form" novalidate>
           <div class="row margin5tb" style="margin-bottom: 10px;">
             <div class=" col-sm-12">
               <div class="col-sm-6  radioGroup"> <input type="radio" name="type" checked> <strong> Closing Disclosure</strong></div>
@@ -270,23 +271,27 @@
           <div class="row margin5tb">
             <div class=" col-sm-12">
               <div class="col-sm-9">
-                  <select class="form-control" ng-model="purposeType" id="purposeType" onchange="angular.element(this).scope().purposechange(this)">
+                <div class="form-group" ng-class="{ 'has-error': submitted && newForm.purpose.$invalid }">
+                  <select class="form-control" ng-model="purposeType" required id="purposeType" >
                     <option value=""> Select Purpose </option>
                     <option >Purchase</option>
                     <option >Refinance</option>
                     <option >HomeEquity</option>
                   </select>
+                  <span ng-show="submitted && newForm.purpose.$error.required">Purpose required</span>
                 </div>
             </div>
           </div>
         </div>
+        </form>
         <div class="modal-footer">          
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="loadNewPage()" id="loadnewbtn">OK</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-disabled="newForm.$invalid" ng-click="loadNewPage()" id="loadnewbtn">OK</button>
         </div>
       </div>
     </div>
   </div>
+</div>
 <div class="modal fade" id="loadfile" role="dialog">
     <div class="modal-dialog modal-md">
       <div class="modal-content">

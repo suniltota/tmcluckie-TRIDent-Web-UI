@@ -58,23 +58,31 @@ app.controller('validateCtrl', function ($scope, $location, $http) {
 app.controller('menuCtrl', function ($scope, staticData) {
 
   $scope.fileOpen = function(){
+    pdfDestroy();
     angular.element($("#UCDXMLFILE")).scope().openUCDXMLFile();
   }
   $scope.saveFile = function(){
+    pdfDestroy();
     angular.element($("#UCDXMLFILE")).scope().saveFile();
   }
   $scope.importFile = function(){
+    pdfDestroy();
     angular.element($("#UCDXMLFILE")).scope().importFile();
   }
   $scope.generatePDF = function(){
+    pdfDestroy();
     angular.element($("#UCDXMLFILE")).scope().generatePDF();    
   }
   $scope.newform = function(){
-            if($('#purposeType :selected').text() == " Select Purpose "){
+      pdfDestroy();
+      if($('#purposeType :selected').text() == " Select Purpose "){
         $("#loadnewbtn").attr("disabled","disabled");
       }
       else{
         $("#loadnewbtn").removeAttr("disabled","disabled");
       }
     }
+  var pdfDestroy = function(){
+    $(".pdfSlider_button").click();
+  }
 });
