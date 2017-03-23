@@ -73,15 +73,10 @@ app.controller('menuCtrl', function ($scope, staticData) {
     pdfDestroy();
     angular.element($("#UCDXMLFILE")).scope().generatePDF();    
   }
-  $scope.newform = function(){
-      pdfDestroy();
-      if($('#purposeType :selected').text() == " Select Purpose "){
-        $("#loadnewbtn").attr("disabled","disabled");
-      }
-      else{
-        $("#loadnewbtn").removeAttr("disabled","disabled");
-      }
-    }
+  $scope.closePdfView = function() {
+    pdfDestroy();
+  }
+  
   var pdfDestroy = function(){
     $(".pdfSlider_button").click();
   }

@@ -24,7 +24,7 @@
                 <li>
                     <a href="" class="dir">File</a>
                     <ul>
-                        <li><a data-toggle="modal" data-target="#PurposeType" ng-click="newform()" >New</a></li>
+                        <li><a data-toggle="modal" data-target="#PurposeType" ng-click="closePdfView()" href="#/home" >New</a></li>
                         <li><a href="" ng-click="fileOpen()">Open</a></li>
                         <li><a href="" ng-click="saveFile()">Save</a></li>
                         <li><a href="" ng-click="importFile()">Import</a></li>
@@ -33,21 +33,15 @@
                 <li>
                     <a href="" class="dir">Tools</a>
                     <ul>
-                        <li><a data-toggle="modal" data-target="#ClosingDisclosureQ">Run Wizard</a></li>
-                        <li><a href="./">Validate UCD</a></li>
-                        <li><a href="./">Submit to GSE's</a></li>
+                        <li><a data-toggle="modal" data-target="#ClosingDisclosureQ" ng-click="closePdfView()">Run Wizard</a></li>
+                        <li><a href="#/home" ng-click="closePdfView()">Validate UCD</a></li>
+                        <li><a href="#/home" ng-click="closePdfView()">Submit to GSE's</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="" class="dir">View</a>
                     <ul>
                         <li><a href="" ng-click="generatePDF()">PDF</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="" class="dir">Help</a>
-                    <ul>
-                        <li><a href="./">Help</a></li>
                     </ul>
                 </li>
             </ul>
