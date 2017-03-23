@@ -1,276 +1,261 @@
 <div class="bodySection col-sm-12 padding0" style="position: relative; ">
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn glyphicon glyphicon-chevron-left" onclick="closeNav()"></a>
-  <div class="form-group col-sm-12">
-                    <select id="doctype" class="form-control">
-                        <option value="CD" selected>Closing Disclosure</option>
-                        <option value="LE">Loan Estimate</option>
-                    </select>
-   </div>
-  <a href="" class="active">Page 1</a>
-  <a href="">Page 2</a>
-  <a href="">Page 3</a>
-  <a href="">Page 4</a>
-</div>
- <div id="transparent"></div>
-<div class="SidebarBtns" side-bar-width>
-	<div class="glyphicon glyphicon-chevron-right openSlidebtn" onclick="openNav();"></div>
-	<span class="pageno" style="font-size:14px;"  data-toggle="tooltip" data-placement="right" title="Closing Disclosure">
-		<span class="pull-left" >CD</span>
-	</span>
-	<span class="pageno active" data-toggle="tooltip" data-placement="right" title="Page1">
-		<span class="glyphicon glyphicon-file pull-left"></span> 
-		<span class="pull-left noTitle">1</span>
-	</span>
-	<span class="pageno" data-toggle="tooltip" data-placement="right" title="Page2">
-		<span class="glyphicon glyphicon-file pull-left"></span> 
-		<span class="pull-left noTitle">2</span>
-	</span>
-	<span class="pageno" data-toggle="tooltip" data-placement="right" title="Page3">
-		<span class="glyphicon glyphicon-file pull-left"></span> 
-		<span class="pull-left noTitle">3</span>
-	</span>
-	<span class="pageno" data-toggle="tooltip" data-placement="right" title="Page4">
-		<span class="glyphicon glyphicon-file pull-left"></span> 
-		<span class="pull-left noTitle">4</span>
-	</span>
-</div>
-<div class="col-lg-12 PageformHeader padding0" pdf-width>
-    
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn glyphicon glyphicon-chevron-left" onclick="closeNav()"></a>
+    <div class="form-group col-sm-12">
+        <select id="doctype" class="form-control">
+            <option value="CD" selected>Closing Disclosure</option>
+            <option value="LE">Loan Estimate</option>
+        </select>
+     </div>
+    <a href="" class="active">Page 1</a>
+    <a href="">Page 2</a>
+    <a href="">Page 3</a>
+    <a href="">Page 4</a>
+  </div>
+   <div id="transparent"></div>
+  <div class="SidebarBtns" side-bar-width>
+  	<div class="glyphicon glyphicon-chevron-right openSlidebtn" onclick="openNav();"></div>
+  	<span class="pageno" style="font-size:14px;"  data-toggle="tooltip" data-placement="right" title="Closing Disclosure">
+  		<span class="pull-left" >CD</span>
+  	</span>
+  	<span class="pageno active" data-toggle="tooltip" data-placement="right" title="Page1">
+  		<span class="glyphicon glyphicon-file pull-left"></span> 
+  		<span class="pull-left noTitle">1</span>
+  	</span>
+  	<span class="pageno" data-toggle="tooltip" data-placement="right" title="Page2">
+  		<span class="glyphicon glyphicon-file pull-left"></span> 
+  		<span class="pull-left noTitle">2</span>
+  	</span>
+  	<span class="pageno" data-toggle="tooltip" data-placement="right" title="Page3">
+  		<span class="glyphicon glyphicon-file pull-left"></span> 
+  		<span class="pull-left noTitle">3</span>
+  	</span>
+  	<span class="pageno" data-toggle="tooltip" data-placement="right" title="Page4">
+  		<span class="glyphicon glyphicon-file pull-left"></span> 
+  		<span class="pull-left noTitle">4</span>
+  	</span>
+  </div>
+  <div class="col-lg-12 PageformHeader padding0" pdf-width>
     <div class="panel panel-default">
 			<div class="panel-body" dynamic-height style="overflow: auto;">
-	            <div class="PDFview Page1">
-	            	<span>
-			            <div ng-include='"templates/cdClosingInfoTable.html"'></div>
-			            <div ng-include='"templates/cdLoanTermsTable.html"'></div>
-			            <div ng-include='"templates/cdProjectedPayments.html"'></div>
-			            <div ng-include='"templates/cdCostsatClosing.html"'></div>
-	           	 	</span>
-	            </div>
-              <div class="PDFview Page2">
-                <span>
-                  <div ng-include='"templates/cdLoanCosts.html"'></div>
-                  <div ng-include='"templates/cdOtherCosts.html"'></div>
-                </span>
-              </div>
-		    </div>
+        <div class="PDFview Page1">
+        	<span>
+            <div ng-include='"templates/cdClosingInfoTable.html"'></div>
+            <div ng-include='"templates/cdLoanTermsTable.html"'></div>
+            <div ng-include='"templates/cdProjectedPayments.html"'></div>
+            <div ng-include='"templates/cdCostsatClosing.html"'></div>
+       	 	</span>
+        </div>
+        <div class="PDFview Page2">
+          <span>
+            <div ng-include='"templates/cdLoanCosts.html"'></div>
+            <div ng-include='"templates/cdOtherCosts.html"'></div>
+          </span>
+        </div>
 	    </div>
-
-</div>
-<div id="carousel" style="display: none;">
-            <object data="CD_6830011016.pdf" type="application/pdf" data-caption="original"></object>
-</div>
+    </div>
+  </div>
+  <div id="carousel" style="display: none;">
+      <object data="CD_6830011016.pdf" type="application/pdf" data-caption="original"></object>
+  </div>
 </div>
 <div class="modal fade" id="BorrowerTransaction" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Borrower</h4>
-        </div>
-        <div class="modal-body">
-          <div ng-repeat="borrower in transformData.pageOne.transactionInformation.borrower">
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Borrower Type</div>
-              <div class="col-sm-7">
-                <input type="radio" ng-model="borrower.type" value="I" disabled> <label>Individual</label>
-                <input type="radio" ng-model="borrower.type" value="O" disabled> <label>Organization </label>
-              </div>
-            </div>
-            <div class="row col-sm-12 margin5tb" ng-show="borrower.type == 'I'">
-              <div class="col-sm-5 fieldTitle">Borrower Name</div>
-              <div class="col-sm-7 padding0">
-                <div class="col-sm-6"><input type="text" ng-model="borrower.borrowerDetails.firstName" placeholder="First Name" class="form-control"></div>
-                <div class="col-sm-6"><input type="text" ng-model="borrower.borrowerDetails.middleName" placeholder="Middle Name" class="form-control"></div>
-                <div class="col-sm-6 margin5tb"><input type="text" ng-model="borrower.borrowerDetails.lastName" placeholder="Last Name" class="form-control"></div>
-              </div>
-            </div>
-            <div class="row col-sm-12 margin5tb " ng-show="borrower.type == 'O'">
-              <div class="col-sm-5 fieldTitle">Organization Full Name</div>
-              <div class="col-sm-7"><input type="text" placeholder="Organization Name" ng-model="borrower.borrowerDetails.firstName" class="form-control"></div>
-            </div>
-          	<div class="row col-sm-12 margin5tb">
-        			<div class="col-sm-5 fieldTitle">Borrower Address Street</div>
-        			<div class="col-sm-7"><input type="text" ng-model="borrower.address.addressLineText" class="form-control"></div>
-        		</div>
-        		<div class="row col-sm-12 margin5tb">
-        			<div class="col-sm-5 fieldTitle">Borrower Address City</div>
-        			<div class="col-sm-7"><input type="text" ng-model="borrower.address.cityName" class="form-control"></div>
-        		</div>
-        		<div class="row col-sm-12 margin5tb">
-        			<div class="col-sm-5 fieldTitle">Borrower Address State</div>
-        			<div class="col-sm-7"><input type="text" ng-model="borrower.address.stateCode" class="form-control"></div>
-        		</div>
-        		<div class="row col-sm-12 margin5tb">
-        			<div class="col-sm-5 fieldTitle">Borrower Address Zip</div>
-        			<div class="col-sm-7"><input type="text" ng-model="borrower.address.postalCode" class="form-control"></div>
-        		</div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
-        </div>
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Borrower</h4>
       </div>
-      
-    </div>
-  </div>
-
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Property</h4>
-        </div>
-        <div class="modal-body">
-          		<div class="row margin5tb">
-          			<div class=" col-sm-12">
-	        			<div class="col-sm-5 fieldTitle">Property Address Street</div>
-	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.addressLineText" class="form-control"></div>
-	        		</div>
-        		</div>
-        		<div class="row margin5tb">
-        			<div class=" col-sm-12">
-	        			<div class="col-sm-5 fieldTitle">Property Address City</div>
-	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.cityName" class="form-control"></div>
-	        		</div>
-        		</div>
-        		<div class="row margin5tb">
-        			<div class=" col-sm-12">
-	        			<div class="col-sm-5 fieldTitle">Property Address State</div>
-	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.stateCode" class="form-control"></div>
-	        		</div>
-        		</div>
-        		<div class="row margin5tb">
-        			<div class=" col-sm-12">
-	        			<div class="col-sm-5 fieldTitle">Property Address Zip</div>
-	        			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.postalCode" class="form-control"></div>
-	        		</div>
-        		</div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-
-  <div class="modal fade" id="SellerTransaction" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Seller</h4>
-        </div>
-        <div class="modal-body">
-          <div ng-repeat="seller in transformData.pageOne.transactionInformation.seller">
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Seller Type</div>
-              <div class="col-sm-7">
-                <input type="radio" ng-model="seller.type" value="I" disabled> <label>Individual</label>
-                <input type="radio" ng-model="seller.type" value="O" disabled> <label>Organization </label>
-              </div>
-            </div>
-            <div class="row col-sm-12 margin5tb" ng-show="seller.type == 'I'">
-              <div class="col-sm-5 fieldTitle">Borrower Name</div>
-              <div class="col-sm-7 padding0">
-                <div class="col-sm-6"><input type="text" ng-model="seller.sellerDetails.firstName" placeholder="First Name" class="form-control"></div>
-                <div class="col-sm-6"><input type="text" ng-model="seller.sellerDetails.middleName" placeholder="Middle Name" class="form-control"></div>
-                <div class="col-sm-6 margin5tb"><input type="text" ng-model="seller.sellerDetails.lastName" placeholder="Last Name" class="form-control"></div>
-              </div>
-            </div>
-            <div class="row col-sm-12 margin5tb " ng-show="seller.type == 'O'">
-              <div class="col-sm-5 fieldTitle">Organization Full Name</div>
-              <div class="col-sm-7"><input type="text" placeholder="Organization Name" ng-model="seller.sellerDetails.firstName" class="form-control"></div>
-            </div>
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Borrower Address Street</div>
-              <div class="col-sm-7"><input type="text" ng-model="seller.address.addressLineText" class="form-control"></div>
-            </div>
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Borrower Address City</div>
-              <div class="col-sm-7"><input type="text" ng-model="seller.address.cityName" class="form-control"></div>
-            </div>
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Borrower Address State</div>
-              <div class="col-sm-7"><input type="text" ng-model="seller.address.stateCode" class="form-control"></div>
-            </div>
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Borrower Address Zip</div>
-              <div class="col-sm-7"><input type="text" ng-model="seller.address.postalCode" class="form-control"></div>
+      <div class="modal-body">
+        <div ng-repeat="borrower in transformData.pageOne.transactionInformation.borrower">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Type</div>
+            <div class="col-sm-7">
+              <input type="radio" ng-model="borrower.type" value="I" disabled> <label>Individual</label>
+              <input type="radio" ng-model="borrower.type" value="O" disabled> <label>Organization </label>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-
-  <div class="modal fade" id="LenderTransaction" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Property</h4>
-        </div>
-        <div class="modal-body">
-           <div ng-repeat="lender in transformData.pageOne.transactionInformation.lender">
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Lender Type</div>
-              <div class="col-sm-7">
-                <input type="radio" ng-model="lender.type" value="I" disabled> <label>Individual</label>
-                <input type="radio" ng-model="lender.type" value="O" disabled> <label>Organization </label>
-              </div>
-            </div>
-            <div class="row col-sm-12 margin5tb" ng-show="seller.type == 'I'">
-              <div class="col-sm-5 fieldTitle">Lender Name</div>
-              <div class="col-sm-7 padding0">
-                <div class="col-sm-6"><input type="text" ng-model="lender.lenderDetails.firstName" placeholder="First Name" class="form-control"></div>
-                <div class="col-sm-6"><input type="text" ng-model="lender.lenderDetails.middleName" placeholder="Middle Name" class="form-control"></div>
-                <div class="col-sm-6 margin5tb"><input type="text" ng-model="lender.lenderDetails.lastName" placeholder="Last Name" class="form-control"></div>
-              </div>
-            </div>
-            <div class="row col-sm-12 margin5tb " ng-show="lender.type == 'O'">
-              <div class="col-sm-5 fieldTitle">Organization Full Name</div>
-              <div class="col-sm-7"><input type="text" placeholder="Organization Name" ng-model="lender.lenderDetails.firstName" class="form-control"></div>
-            </div>
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Lender Address Street</div>
-              <div class="col-sm-7"><input type="text" ng-model="lender.address.addressLineText" class="form-control"></div>
-            </div>
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Lender Address City</div>
-              <div class="col-sm-7"><input type="text" ng-model="lender.address.cityName" class="form-control"></div>
-            </div>
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Lender Address State</div>
-              <div class="col-sm-7"><input type="text" ng-model="lender.address.stateCode" class="form-control"></div>
-            </div>
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Lender Address Zip</div>
-              <div class="col-sm-7"><input type="text" ng-model="lender.address.postalCode" class="form-control"></div>
+          <div class="row col-sm-12 margin5tb" ng-show="borrower.type == 'I'">
+            <div class="col-sm-5 fieldTitle">Borrower Name</div>
+            <div class="col-sm-7 padding0">
+              <div class="col-sm-6"><input type="text" ng-model="borrower.borrowerDetails.firstName" placeholder="First Name" class="form-control"></div>
+              <div class="col-sm-6"><input type="text" ng-model="borrower.borrowerDetails.middleName" placeholder="Middle Name" class="form-control"></div>
+              <div class="col-sm-6 margin5tb"><input type="text" ng-model="borrower.borrowerDetails.lastName" placeholder="Last Name" class="form-control"></div>
             </div>
           </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
+          <div class="row col-sm-12 margin5tb " ng-show="borrower.type == 'O'">
+            <div class="col-sm-5 fieldTitle">Organization Full Name</div>
+            <div class="col-sm-7"><input type="text" placeholder="Organization Name" ng-model="borrower.borrowerDetails.firstName" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Address Street</div>
+            <div class="col-sm-7"><input type="text" ng-model="borrower.address.addressLineText" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Address City</div>
+            <div class="col-sm-7"><input type="text" ng-model="borrower.address.cityName" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Address State</div>
+            <div class="col-sm-7"><input type="text" ng-model="borrower.address.stateCode" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Address Zip</div>
+            <div class="col-sm-7"><input type="text" ng-model="borrower.address.postalCode" class="form-control"></div>
+          </div>
         </div>
       </div>
-      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
+      </div>
+    </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Property</h4>
+      </div>
+      <div class="modal-body">
+          <div class="row margin5tb">
+              <div class=" col-sm-12">
+              <div class="col-sm-5 fieldTitle">Property Address Street</div>
+              <div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.addressLineText" class="form-control"></div>
+            </div>
+          </div>
+          <div class="row margin5tb">
+            <div class=" col-sm-12">
+              <div class="col-sm-5 fieldTitle">Property Address City</div>
+              <div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.cityName" class="form-control"></div>
+            </div>
+          </div>
+          <div class="row margin5tb">
+            <div class=" col-sm-12">
+              <div class="col-sm-5 fieldTitle">Property Address State</div>
+              <div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.stateCode" class="form-control"></div>
+            </div>
+          </div>
+          <div class="row margin5tb">
+            <div class=" col-sm-12">
+              <div class="col-sm-5 fieldTitle">Property Address Zip</div>
+              <div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.postalCode" class="form-control"></div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
+      </div>
     </div>
   </div>
-
+</div>
+<div class="modal fade" id="SellerTransaction" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Seller</h4>
+      </div>
+      <div class="modal-body">
+        <div ng-repeat="seller in transformData.pageOne.transactionInformation.seller">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Seller Type</div>
+            <div class="col-sm-7">
+              <input type="radio" ng-model="seller.type" value="I" disabled> <label>Individual</label>
+              <input type="radio" ng-model="seller.type" value="O" disabled> <label>Organization </label>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb" ng-show="seller.type == 'I'">
+            <div class="col-sm-5 fieldTitle">Borrower Name</div>
+            <div class="col-sm-7 padding0">
+              <div class="col-sm-6"><input type="text" ng-model="seller.sellerDetails.firstName" placeholder="First Name" class="form-control"></div>
+              <div class="col-sm-6"><input type="text" ng-model="seller.sellerDetails.middleName" placeholder="Middle Name" class="form-control"></div>
+              <div class="col-sm-6 margin5tb"><input type="text" ng-model="seller.sellerDetails.lastName" placeholder="Last Name" class="form-control"></div>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb " ng-show="seller.type == 'O'">
+            <div class="col-sm-5 fieldTitle">Organization Full Name</div>
+            <div class="col-sm-7"><input type="text" placeholder="Organization Name" ng-model="seller.sellerDetails.firstName" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Address Street</div>
+            <div class="col-sm-7"><input type="text" ng-model="seller.address.addressLineText" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Address City</div>
+            <div class="col-sm-7"><input type="text" ng-model="seller.address.cityName" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Address State</div>
+            <div class="col-sm-7"><input type="text" ng-model="seller.address.stateCode" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Address Zip</div>
+            <div class="col-sm-7"><input type="text" ng-model="seller.address.postalCode" class="form-control"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="LenderTransaction" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Property</h4>
+      </div>
+      <div class="modal-body">
+         <div ng-repeat="lender in transformData.pageOne.transactionInformation.lender">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Lender Type</div>
+            <div class="col-sm-7">
+              <input type="radio" ng-model="lender.type" value="I" disabled> <label>Individual</label>
+              <input type="radio" ng-model="lender.type" value="O" disabled> <label>Organization </label>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb" ng-show="seller.type == 'I'">
+            <div class="col-sm-5 fieldTitle">Lender Name</div>
+            <div class="col-sm-7 padding0">
+              <div class="col-sm-6"><input type="text" ng-model="lender.lenderDetails.firstName" placeholder="First Name" class="form-control"></div>
+              <div class="col-sm-6"><input type="text" ng-model="lender.lenderDetails.middleName" placeholder="Middle Name" class="form-control"></div>
+              <div class="col-sm-6 margin5tb"><input type="text" ng-model="lender.lenderDetails.lastName" placeholder="Last Name" class="form-control"></div>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb " ng-show="lender.type == 'O'">
+            <div class="col-sm-5 fieldTitle">Organization Full Name</div>
+            <div class="col-sm-7"><input type="text" placeholder="Organization Name" ng-model="lender.lenderDetails.firstName" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Lender Address Street</div>
+            <div class="col-sm-7"><input type="text" ng-model="lender.address.addressLineText" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Lender Address City</div>
+            <div class="col-sm-7"><input type="text" ng-model="lender.address.cityName" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Lender Address State</div>
+            <div class="col-sm-7"><input type="text" ng-model="lender.address.stateCode" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Lender Address Zip</div>
+            <div class="col-sm-7"><input type="text" ng-model="lender.address.postalCode" class="form-control"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="modal fade" id="ClosingDisclosureQ" role="dialog">
     <div class="modal-dialog modal-lg">
     

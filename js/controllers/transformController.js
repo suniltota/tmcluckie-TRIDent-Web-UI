@@ -232,7 +232,6 @@ app.controller('transformCtrl', function ($scope, $sce, staticData, transformSer
 			a.href = window.URL.createObjectURL(blob);
 			a.download = $scope.fileName;
 			a.click();
-			document.body.removeChild(a);
     		$("#spinner").hide();
     	}).error( function(data, status){
     		$("#spinner").hide();
