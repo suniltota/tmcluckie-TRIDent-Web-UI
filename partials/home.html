@@ -68,7 +68,7 @@
         <h4 class="modal-title">Borrower</h4>
       </div>
       <div class="modal-body">
-        <div ng-repeat="borrower in transformData.pageOne.transactionInformation.borrower">
+        <div ng-repeat="borrower in borrowers">
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Borrower Type</div>
             <div class="col-sm-7">
@@ -107,7 +107,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="loadBorrowerData(true)" style="background: #5bb1dc;color:fff;">Save</button>
       </div>
     </div>
     </div>
@@ -124,30 +124,30 @@
           <div class="row margin5tb">
               <div class=" col-sm-12">
               <div class="col-sm-5 fieldTitle">Property Address Street</div>
-              <div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.addressLineText" class="form-control"></div>
+              <div class="col-sm-7"><input type="text" ng-model="property.addressLineText" class="form-control"></div>
             </div>
           </div>
           <div class="row margin5tb">
             <div class=" col-sm-12">
               <div class="col-sm-5 fieldTitle">Property Address City</div>
-              <div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.cityName" class="form-control"></div>
+              <div class="col-sm-7"><input type="text" ng-model="property.cityName" class="form-control"></div>
             </div>
           </div>
           <div class="row margin5tb">
             <div class=" col-sm-12">
               <div class="col-sm-5 fieldTitle">Property Address State</div>
-              <div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.stateCode" class="form-control"></div>
+              <div class="col-sm-7"><input type="text" ng-model="property.stateCode" class="form-control"></div>
             </div>
           </div>
           <div class="row margin5tb">
             <div class=" col-sm-12">
               <div class="col-sm-5 fieldTitle">Property Address Zip</div>
-              <div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.property.postalCode" class="form-control"></div>
+              <div class="col-sm-7"><input type="text" ng-model="property.postalCode" class="form-control"></div>
             </div>
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="loadPropertyData(true)" style="background: #5bb1dc;color:fff;">Save</button>
       </div>
     </div>
   </div>
@@ -160,7 +160,7 @@
         <h4 class="modal-title">Seller</h4>
       </div>
       <div class="modal-body">
-        <div ng-repeat="seller in transformData.pageOne.transactionInformation.seller">
+        <div ng-repeat="seller in sellers">
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Seller Type</div>
             <div class="col-sm-7">
@@ -199,7 +199,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="loadSellerData(true)" style="background: #5bb1dc;color:fff;">Save</button>
       </div>
     </div>
   </div>
@@ -212,7 +212,7 @@
         <h4 class="modal-title">Property</h4>
       </div>
       <div class="modal-body">
-         <div ng-repeat="lender in transformData.pageOne.transactionInformation.lender">
+         <div ng-repeat="lender in lenders">
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Lender Type</div>
             <div class="col-sm-7">
@@ -220,7 +220,7 @@
               <input type="radio" ng-model="lender.type" value="O" disabled> <label>Organization </label>
             </div>
           </div>
-          <div class="row col-sm-12 margin5tb" ng-show="seller.type == 'I'">
+          <div class="row col-sm-12 margin5tb" ng-show="lender.type == 'I'">
             <div class="col-sm-5 fieldTitle">Lender Name</div>
             <div class="col-sm-7 padding0">
               <div class="col-sm-6"><input type="text" ng-model="lender.lenderDetails.firstName" placeholder="First Name" class="form-control"></div>
@@ -251,7 +251,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" style="background: #5bb1dc;color:fff;">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="loadLenderData(true)" style="background: #5bb1dc;color:fff;">Save</button>
       </div>
     </div>
   </div>
