@@ -55,8 +55,10 @@
 	<div class="FieldGroup col-sm-12 margin5tb ">
 		<div class="fontBold col-sm-2 fieldTitle"></div>
 		<div class="col-sm-6 fieldTitle">Proposed lien priority:</div>
-		<div class="col-sm-4 padding0">
-			<span class="col-sm-3 padding0" ng-repeat="lp in lienPriorityType track by $index"><input type="radio" name="lienPriority" ng-model="transformData.pageOne.loanInformation.lienPriorityType" value="{{lp}}"> <label>{{lp}}</label></span>
+		<div class="col-sm-4 radioGroup padding0">
+			<span class="col-sm-6 padding0" ng-repeat="lp in lienPriorityType track by $index">
+			<input type="radio" name="lienPriority" ng-model="transformData.pageOne.loanInformation.lienPriorityType" value="{{lp}}"> 
+			<label>{{lp}}</label></span>
 		</div>
 	</div>
 
@@ -65,7 +67,8 @@
 		<div class="fontBold col-sm-2 fieldTitle">Product Type :</div>
 		<div class="col-sm-6 fieldTitle">Amortization:</div>
 		<div class="col-sm-4 radioGroup padding0">
-			<span class="col-sm-2 padding0" ng-repeat="ar in adjustableRate track by $index"><input type="radio" name="adjustableRate" ng-model="transformData.pageOne.loanInformation.adjustableRate" value="{{ar}}"> <label>{{ar}}</label></span>
+			<span class="col-sm-6 padding0" ng-repeat="ar in adjustableRate track by $index">
+			<input type="radio" name="adjustableRate" ng-model="transformData.pageOne.loanInformation.adjustableRate" value="{{ar}}"> <label>{{ar}}</label></span>
 		</div>
 	</div>
 	<div class="FieldGroup col-sm-12 margin5tb ">

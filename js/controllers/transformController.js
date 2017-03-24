@@ -347,4 +347,12 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
     		$("#spinner").hide();
     	});
     }
+
+    $scope.activeTab = 0;
+	  $scope.next = function() {
+	    $scope.activeTab += 1;
+	  }
+	  $scope.previous = function() {
+	    $scope.activeTab -= 1;
+	  }
 });
