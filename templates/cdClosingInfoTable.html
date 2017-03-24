@@ -1,7 +1,7 @@
 <div class="CDHeaderSection col-lg-12">
 	<div class="col-sm-4">
-	<input type="file" name="ucdXml" id="UCDXMLFILE" ng-hide="true" onchange="angular.element(this).scope().fileNameChanged(this)" accept=".xml">
-	<input type="file" name="trid_import_text" id="trid_import_text" ng-hide="true" onchange="angular.element(this).scope().importTextFile(this)" accept=".txt">
+	<input type="file" name="ucdXml" id="UCDXMLFILE" ng-hide="true" onchange="angular.element(this).scope().fileNameChanged(this);this.value=null; return false;" accept=".xml">
+	<input type="file" name="trid_import_text" id="trid_import_text" ng-hide="true" onchange="angular.element(this).scope().importTextFile(this);this.value=null; return false;" accept=".txt">
 		<h4>Closing Information</h4>
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle">Date Issued</div>
@@ -73,7 +73,7 @@
 			<div class="col-sm-7">
 				<div class="input-group">
   					<span class="input-group-addon input-default">$</span>
-					<input type="text" ng-model="transformData.pageOne.closingInformation.salePrice" class="form-control" number-format>
+					<input type="text" ng-model="transformData.pageOne.closingInformation.salePrice" class="form-control">
 				</div>
 			</div>
 		</div>
