@@ -48,7 +48,7 @@
 			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.fileNo" class="form-control"></div>
 		</div>
 		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle" data-toggle="modal" data-target="#myModal" ng-click="loadPropertyData(false)" style="cursor:pointer;">Property <span class="glyphicon glyphicon-edit"></span></div>
+			<div class="col-sm-5 fieldTitle" data-backdrop="static" data-toggle="modal" data-target="#myModal" ng-click="loadPropertyData(false)" style="cursor:pointer;">Property <span class="glyphicon glyphicon-edit"></span></div>
 			<div class="col-sm-7"><div ng-show="transformData.pageOne.closingInformation.property.addressLineText!=null">
 					{{transformData.pageOne.closingInformation.property.addressLineText!="" ? transformData.pageOne.closingInformation.property.addressLineText+',' : ''}}
 					{{transformData.pageOne.closingInformation.property.cityName!="" ?
@@ -81,7 +81,7 @@
 	<div class="col-sm-4">
 		<h4>Transaction Information</h4>
 		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isBorrower">
-			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#BorrowerTransaction" ng-click="loadBorrowerData(false)" style="cursor: pointer;">Borrower <span class="glyphicon glyphicon-edit"></span></div>
+			<div class="col-sm-5 fieldTitle" data-backdrop="static"  data-toggle="modal" data-target="#BorrowerTransaction" ng-click="loadBorrowerData(false)" style="cursor: pointer;">Borrower <span class="glyphicon glyphicon-edit"></span></div>
 			<div class="col-sm-7"> <div ng-show="transformData.pageOne.transactionInformation.borrowerDisplayName">
 				{{transformData.pageOne.transactionInformation.borrowerDisplayName}},
 				{{transformData.pageOne.transactionInformation.borrowerAddress.addressLineText}},
@@ -90,7 +90,7 @@
 			</div>
 		</div>
 		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isSeller">
-			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#SellerTransaction" ng-click="loadSellerData(false)" style="cursor: pointer;">Seller <span class="glyphicon glyphicon-edit"></span></div>
+			<div class="col-sm-5 fieldTitle" data-backdrop="static"  data-toggle="modal" data-target="#SellerTransaction" ng-click="loadSellerData(false)" style="cursor: pointer;">Seller <span class="glyphicon glyphicon-edit"></span></div>
 			<div class="col-sm-7"><div ng-show="transformData.pageOne.transactionInformation.sellerDisplayName">
 				{{transformData.pageOne.transactionInformation.sellerDisplayName}},
 				{{transformData.pageOne.transactionInformation.sellerAddress.addressLineText}},
@@ -99,7 +99,7 @@
 			</div>
 		</div>
 		<div class="FieldGroup" ng-show="transformData.pageOne.transactionInformation.isLender">
-			<div class="col-sm-5 fieldTitle"  data-toggle="modal" data-target="#LenderTransaction" ng-click="loadLenderData(false)" style="cursor: pointer;">Lender <span class="glyphicon glyphicon-edit"></span></div>
+			<div class="col-sm-5 fieldTitle" data-backdrop="static"  data-toggle="modal" data-target="#LenderTransaction" ng-click="loadLenderData(false)" style="cursor: pointer;">Lender <span class="glyphicon glyphicon-edit"></span></div>
 			<div class="col-sm-7"><div ng-show="transformData.pageOne.transactionInformation.lenderDisplayName">
 				{{transformData.pageOne.transactionInformation.lenderDisplayName}},
 				{{transformData.pageOne.transactionInformation.lenderAddress.addressLineText}},

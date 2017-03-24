@@ -1,17 +1,17 @@
 <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" ng-click="updateActiveTab(0)">&times;</button>
           <h4 class="col-sm-6 pull-left" style="margin:10px 10px;">Closing Disclosure</h4>
         </div>
         <div class="modal-body">
 		<div class="form-group">
-                <uib-tabset active="activeTab">
-                    <uib-tab index="0" href="#ClosingInformationQ" heading="Closing Information">
+                <uib-tabset >
+                    <uib-tab index="0" active="activeTab ==0 ? true : false" ng-click="updateActiveTab(0)" href="#ClosingInformationQ" heading="Closing Information">
                     		<div ng-include='"templates/wizardClosingInfo.html"'></div>
                 	</uib-tab>
-                    <uib-tab index="1"  href="#TransactionInformationQ" heading="Transaction Information">
+                    <uib-tab index="1" active="activeTab ==1 ? true : false" ng-click="updateActiveTab(1)" href="#TransactionInformationQ" heading="Transaction Information">
                     		<div ng-include='"templates/wizardTransactionInfo.html"'></div>
                 	</uib-tab>
-                    <uib-tab index="2" heading="Loan Information">
+                    <uib-tab index="2" active="activeTab ==2 ? true : false" ng-click="updateActiveTab(2)" heading="Loan Information">
                     	<div ng-include='"templates/wizardLoanInfo.html"'></div>
                     </uib-tab>
                     <!--
@@ -32,5 +32,5 @@
         <div class="modal-footer">
           <button class="btn btn-default" ng-click="previous()" ng-hide="activeTab===0">Previous</button>
           <button  ng-click="next()" class="btn btn-default" ng-hide="activeTab===2" >Next</button>
-          <button  data-dismiss="modal" class="btn btn-default" ng-show="activeTab===2" >Done</button>
+          <button  data-dismiss="modal" class="btn btn-default" ng-show="activeTab===2" ng-click="updateActiveTab(0)">Done</button>
         </div>
