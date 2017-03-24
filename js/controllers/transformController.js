@@ -94,14 +94,17 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
     	if($scope.transformData.pageOne.transactionInformation.borrower!=null && $scope.transformData.pageOne.transactionInformation.borrower.length>0){
 			var borrower ={};
 			angular.forEach($scope.transformData.pageOne.transactionInformation.borrower, function(b, index){
+				if(b.stateCode != null)
+					b.state = getStateByStateCode(b.stateCode);
 				if(borrower[b.borrowerDetails.firstName.trim()] == undefined){
 					if(index !=0 ){
 						$scope.transformData.pageOne.transactionInformation.borrowerDisplayName += " & ";
 					}else{
 						$scope.transformData.pageOne.transactionInformation.borrowerDisplayName="";
+						$scope.transformData.pageOne.transactionInformation.borrowerAddress = b.address
 					}
 					$scope.transformData.pageOne.transactionInformation.borrowerDisplayName += b.borrowerDetails.firstName
-					$scope.transformData.pageOne.transactionInformation.borrowerAddress = b.address
+					
 					borrower[b.borrowerDetails.firstName] = b.address;
 				}
 			});
@@ -112,14 +115,17 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 		if($scope.transformData.pageOne.transactionInformation.lender!=null && $scope.transformData.pageOne.transactionInformation.lender.length>0){
 			var lender ={};
 			angular.forEach($scope.transformData.pageOne.transactionInformation.lender, function(l, index){
+				if(l.stateCode != null)
+					l.state = getStateByStateCode(l.stateCode);
 				if(lender[l.lenderDetails.firstName.trim()] == undefined){
 					if(index !=0 ){
 						$scope.transformData.pageOne.transactionInformation.lenderDisplayName += " & ";
 					}else{
 						$scope.transformData.pageOne.transactionInformation.lenderDisplayName="";
+						$scope.transformData.pageOne.transactionInformation.lenderAddress = l.address
 					}
 					$scope.transformData.pageOne.transactionInformation.lenderDisplayName += l.lenderDetails.firstName
-					$scope.transformData.pageOne.transactionInformation.lenderAddress = l.address
+					
 					lender[l.lenderDetails.firstName] = l.address;
 				}
 			});
@@ -130,14 +136,16 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 		if($scope.transformData.pageOne.transactionInformation.seller!=null && $scope.transformData.pageOne.transactionInformation.seller.length>0){
 			var seller ={};
 			angular.forEach($scope.transformData.pageOne.transactionInformation.seller, function(s, index){
+				if(s.stateCode != null)
+					s.state = getStateByStateCode(s.stateCode);
 				if(seller[s.sellerDetails.firstName.trim()] == undefined){
 					if(index !=0 ){
 						$scope.transformData.pageOne.transactionInformation.sellerDisplayName += " & ";
 					}else{
 						$scope.transformData.pageOne.transactionInformation.sellerDisplayName = "";
+						$scope.transformData.pageOne.transactionInformation.sellerAddress = s.address
 					}
 					$scope.transformData.pageOne.transactionInformation.sellerDisplayName += s.sellerDetails.firstName
-					$scope.transformData.pageOne.transactionInformation.sellerAddress = s.address
 					seller[s.sellerDetails.firstName] = s.address;
 				}
 			});
