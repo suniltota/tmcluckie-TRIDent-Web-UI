@@ -34,7 +34,7 @@
 				<div class="col-sm-6"><input type="text" placeholder="City" ng-model="borrower.address.cityName" class="form-control"></div>
 				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Postal Code" ng-model="borrower.address.postalCode" class="form-control"></div>
 				<div class="col-sm-6 margin5tb">
-					<select ng-model="borrower.address.state" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by option.STATE_CODE" ng-change="updateStateValue(borrower.address)">
+					<select ng-model="borrower.state" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by option.STATE_CODE" ng-change="updateStateValue(borrower.address)">
 					<option value="">Select state</option>
 					</select>
 				</div>
@@ -62,16 +62,16 @@
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle">What is the Seller Name</div>
 			<div class="col-sm-4 padding0">
-				<div class="col-sm-6"><input type="text" placeholder="First Name" ng-model="seller.firstName" class="form-control"></div>
-				<div class="col-sm-6"><input type="text" placeholder="Middle Name" ng-model="seller.middleName" class="form-control"></div>
-				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Last Name" ng-model="seller.lastName" class="form-control"></div>
+				<div class="col-sm-6"><input type="text" placeholder="First Name" ng-model="seller.sellerDetails.firstName" class="form-control"></div>
+				<div class="col-sm-6"><input type="text" placeholder="Middle Name" ng-model="seller.sellerDetails.middleName" class="form-control"></div>
+				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Last Name" ng-model="seller.sellerDetails.lastName" class="form-control"></div>
 			</div>
 		</div>
 		<div class="FieldGroup col-sm-12 margin5tb " ng-show="seller.type == 'O'">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle">What is the Full Name of the Organization?</div>
 			<div class="col-sm-4 padding0">
-				<div class="col-sm-6"><input type="text" placeholder="Organization Name" ng-model="seller.firstName" class="form-control"></div>
+				<div class="col-sm-6"><input type="text" placeholder="Organization Name" ng-model="seller.sellerDetails.firstName" class="form-control"></div>
 			</div>
 		</div>
 
@@ -84,7 +84,7 @@
 				<div class="col-sm-6"><input type="text" placeholder="City" class="form-control" ng-model="seller.address.cityName"></div>
 				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Postal Code" class="form-control" ng-model="seller.address.postalCode"></div>
 				<div class="col-sm-6 margin5tb">
-					<select ng-model="seller.address.state" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by 	option.STATE_CODE" ng-change="updateStateValue(seller.address)">
+					<select ng-model="seller.state" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by 	option.STATE_CODE" ng-change="updateStateValue(seller.address)">
 						<option value="">Select state</option>
 					</select>
 				</div>
@@ -104,7 +104,7 @@
 			<div class="fontBold col-sm-2 fieldTitle">Lender</div>
 			<div class="col-sm-6 fieldTitle">What is the Full Name of the Organization?</div>
 			<div class="col-sm-4 padding0">
-				<div class="col-sm-6"><input type="text" placeholder="Organization Name" ng-model="lender.firstName" class="form-control"></div>
+				<div class="col-sm-6"><input type="text" placeholder="Organization Name" ng-model="lender.lenderDetails.firstName" class="form-control"></div>
 			</div>
 		</div>
 
@@ -116,7 +116,7 @@
 				<div class="col-sm-6"><input type="text" placeholder="City" class="form-control" ng-model="lender.address.cityName"></div>
 				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Postal Code" class="form-control" ng-model="lender.address.postalCode"></div>
 				<div class="col-sm-6 margin5tb">
-					<select ng-model="lender.address.state" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by 	option.STATE_CODE" ng-change="updateStateValue(lender.address)">
+					<select ng-model="lender.state" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by 	option.STATE_CODE" ng-change="updateStateValue(lender.address)">
 						<option value="">Select state</option>
 					</select>
 				</div>
