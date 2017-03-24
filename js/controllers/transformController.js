@@ -13,6 +13,9 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 	$scope.fileName = "Actualize_XML.xml"
 	$scope._YES = "YES";
 	$scope._NO = "NO";
+	var borrowerAddress ={};
+	var sellerAddress ={};
+	var lenderAddress ={};
 	$scope.dateOptions = {
 		formatYear: 'yy',
 		startingDay: 1
@@ -49,9 +52,9 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 		$scope.transformData.pageOne.closingInformation.propertyValuationDetail = {"propertyValuationDetailIndicator":$scope._YES}
 		$scope.transformData.pageOne.transactionInformation.propertyValuationDetail;
 		//For added dynamic element from UI
-		var borrowerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.borrower[0]);
-		var sellerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.seller[0]);
-		var lenderAddress = angular.copy($scope.transformData.pageOne.transactionInformation.lender[0]);
+		borrowerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.borrower[0]);
+		sellerAddress  = angular.copy($scope.transformData.pageOne.transactionInformation.seller[0]);
+		lenderAddress = angular.copy($scope.transformData.pageOne.transactionInformation.lender[0]);
 
 		$scope.transformData.pageOne.loanInformation.purpose = localStorage["purpose"];
 		$scope.transformData.pageOne.loanInformation.purposeType = $scope._YES;
