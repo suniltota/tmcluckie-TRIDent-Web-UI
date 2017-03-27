@@ -108,10 +108,87 @@
 		      	<th class="rowBackground text-center" colspan="2"></th>
 		      	<th></th>
 		      </tr>	
-		      <tr ng-repeat="i in 14 | range">
+		      <tr ng-repeat="i in 15 | range">
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
-		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel}}</span>
+		        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel" ng-if="$index < 14">
+		        		<option></option>
+						<option>Asbestos Inspection</option>
+						<option>Chimney Inspection</option>
+						<option>Compliance Inspection</option>
+						<option>Condo Association Dues</option>
+						<option>Condominium Association Special Assessment</option>
+						<option>Construction Funds Holdback</option>
+						<option>Drywall Inspection</option>
+						<option>Foundation Inspection</option>
+						<option>Gas Inspection</option>
+						<option>Heating Cooling Inspection</option>
+						<option>Home Inspection</option>
+						<option>Home Warranty (optional)</option>
+						<option>Homeowners Association Dues</option>
+						<option>Homeowners Association Special Assessment</option>
+						<option>Lead Inspection</option>
+						<option>Mechanical Inspection</option>
+						<option>Mold Inspection</option>
+						<option>Municipal Certificate Fee</option>
+						<option>Natural Hazard Disclosure Report</option>
+						<option>Other</option>
+						<option>Pest Inspection</option>
+						<option>Plumbing Inspection</option>
+						<option>Radon Inspection</option>
+						<option>Real Estate Commission Buyers Broker</option>
+						<option>Real Estate Commission Sellers Broker</option>
+						<option>Rehab Funds</option>
+						<option>ReInspection</option>
+						<option>Repair Completion Escrow Holdback</option>
+						<option>Roof Inspection</option>
+						<option>Septic Inspection</option>
+						<option>Smoke Inspection</option>
+						<option>Structural Inspection</option>
+						<option>Survey Fee</option>
+						<option>Title - Owners Coverage Premium (Optional)</option>
+						<option>Water Inspection</option>
+						<option>Well Inspection</option>
+					</select>
+					<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel" ng-if="$index == 14">
+		        		<option>Aggregate Adjustment</option>
+						<option>Asbestos Inspection</option>
+						<option>Chimney Inspection</option>
+						<option>Compliance Inspection</option>
+						<option>Condo Association Dues</option>
+						<option>Condominium Association Special Assessment</option>
+						<option>Construction Funds Holdback</option>
+						<option>Drywall Inspection</option>
+						<option>Foundation Inspection</option>
+						<option>Gas Inspection</option>
+						<option>Heating Cooling Inspection</option>
+						<option>Home Inspection</option>
+						<option>Home Warranty (optional)</option>
+						<option>Homeowners Association Dues</option>
+						<option>Homeowners Association Special Assessment</option>
+						<option>Lead Inspection</option>
+						<option>Mechanical Inspection</option>
+						<option>Mold Inspection</option>
+						<option>Municipal Certificate Fee</option>
+						<option>Natural Hazard Disclosure Report</option>
+						<option>Other</option>
+						<option>Pest Inspection</option>
+						<option>Plumbing Inspection</option>
+						<option>Radon Inspection</option>
+						<option>Real Estate Commission Buyers Broker</option>
+						<option>Real Estate Commission Sellers Broker</option>
+						<option>Rehab Funds</option>
+						<option>ReInspection</option>
+						<option>Repair Completion Escrow Holdback</option>
+						<option>Roof Inspection</option>
+						<option>Septic Inspection</option>
+						<option>Smoke Inspection</option>
+						<option>Structural Inspection</option>
+						<option>Survey Fee</option>
+						<option>Title - Owners Coverage Premium (Optional)</option>
+						<option>Water Inspection</option>
+						<option>Well Inspection</option>
+					</select>
 		        </td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing"/></td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing"/></td>

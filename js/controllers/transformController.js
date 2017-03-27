@@ -69,7 +69,15 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 		$scope.transformData.pageOne.loanTerms.principalInterest.paymentIncreaseIndicator = $scope._YES;
 		$scope.transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator = $scope._YES;
 		$scope.transformData.pageOne.loanTerms.balloonPayment.balloonIndicator = $scope._YES;
-
+		if($scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList == undefined)
+			$scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList =[];
+		for(i=0;i<15;i++){
+			if($scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i] ==undefined) {
+				$scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i]={"displayLabel":""};
+				if(i==14)
+					$scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel ="Aggregate Adjustment";
+			}
+		}
 	}
 	refreshData();
     $scope.openUCDXMLFile = function(){
@@ -155,6 +163,14 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 			$scope.transformData.pageOne.transactionInformation.isSeller = true;
 		}else{
 			$scope.transformData.pageOne.transactionInformation.isSeller = false;
+		}
+		$scope.transformData.pageOne.projectedPayments.miTerm = 51;
+		for(i=0;i<15;i++){
+			if($scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i] ==undefined) {
+				$scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i]={"displayLabel":""};
+				if(i==14)
+					$scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel ="Aggregate Adjustment";
+			}
 		}
     }
 
