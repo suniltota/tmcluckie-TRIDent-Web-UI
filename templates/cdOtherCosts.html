@@ -17,12 +17,50 @@
 		      </tr>	
 		      <tr ng-repeat="i in 14 | range">
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
-		        <td>
-		        	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].displayLabel}}</span>
-		        	<!--<span class="padding5 pull-left">Deed:</span>
+		      	<td ng-if="i == 0">
+		      	<span class="padding5 pull-left">{{transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType}}</span>
+		        	<span class="padding5 pull-left">Deed:</span>
 		        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></span>
 		        	<span class="padding5 pull-left">Mortgage:</span>
-		        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></span>-->
+		        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></span>
+		        </td>
+		        <td  ng-if="i != 0">
+		        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].displayLabel">
+			        	<option></option>
+						<option>Additional State Recording Fee</option>
+						<option>Amendment Modification Fee Deed</option>
+						<option>Amendment Modification Fee Mortgage</option>
+						<option>Assignment Recording</option>
+						<option>Auditor Transfer Fee</option>
+						<option>City Transfer Tax</option>
+						<option>Conservation Fee</option>
+						<option>Conservation Recording Fee</option>
+						<option>County Transfer Tax</option>
+						<option>Excise/Transfer Tax</option>
+						<option>Form Fee Deed</option>
+						<option>Georgia Per Loan Fee</option>
+						<option>Grantee County Tax</option>
+						<option>Grantee State Tax</option>
+						<option>Grantor County Tax</option>
+						<option>Grantor State Tax</option>
+						<option>Index Fee Assignment</option>
+						<option>Index Fee Deed</option>
+						<option>Index Fee Mortgage</option>
+						<option>Index Fee POA</option>
+						<option>Index Fee Release</option>
+						<option>Intangible Tax</option>
+						<option>Land Bank Tax</option>
+						<option>Mansion Tax</option>
+						<option>Mortgage Registration Recording Fee</option>
+						<option>Notorial Archive Fee Mortgage</option>
+						<option>Other</option>
+						<option>POA Recording Fee</option>
+						<option>POA Tax</option>
+						<option>Release Recording Fee</option>
+						<option>Sales Disclosure Form Fee</option>
+						<option>Sales Tax or Surcharge on Title </option>
+						<option>State Transfer Tax</option>
+					</select>
 		        </td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing"/></td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing"/></td>
@@ -40,38 +78,54 @@
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
 		        	<span class="padding5">
-		        		<span class="pull-left margin5tb">
-		        			{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel}}
-		        		</span>
-		        	<span class="pull-left padding0" ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months && transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate == null">
-		        		<span class="pull-left margin5tb"> ( </span>
-		        		<span class="col-sm-2 padding0">
-		        			<input class="form-control" type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months">
-		        		</span>
-		        		<span class="pull-left margin5tb">
-		        			) mo. to {{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].toEntity}}
-		        		</span>
-		        	</span>
-		        	<span ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months && transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate != null">
-		        		<span class="pull-left margin5tb"> ( </span>
-		        		<span class="col-sm-1 padding0">
-		        			<input class="form-control" type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months"> 
-		        		</span>
-		        		<span class="pull-left margin5tb">) per day from</span> 
-		        		<span class="col-sm-2 padding0">
-			        		<input type="text" name="prepardDatefromDate_{{$index}}" id="prepardDatefromDate_{{$index}}" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Issued"/>
+		        		<span ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months == null" class="pull-left">
+			        		<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel">
+			        			<option></option>
+								<option>City Property Tax</option>
+								<option>County Property Tax</option>
+								<option>Earthquake Insurance Prem</option>
+								<option>Flood Insurance 2 Prem</option>
+								<option>Flood Insurance 3 Prem</option>
+								<option>Flood Insurance 4 Prem</option>
+								<option>Flood Insurance Prem</option>
+								<option>Hazard Insurance Prem</option>
+								<option>Other</option>
+								<option>Other Insurance Premium</option>
+								<option>State Property Tax</option>
+							</select>
+						</span>
+						<span ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months != null" class="pull-left padding5">
+							{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel}}
+						</span>
+			        	<span class="pull-left padding0" ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months && transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate == null">
+			        		<span class="pull-left margin5tb"> ( </span>
+			        		<span class="col-sm-2 padding0">
+			        			<input class="form-control" type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months">
+			        		</span>
+			        		<span class="pull-left margin5tb">
+			        			) mo. to {{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].toEntity}}
+			        		</span>
 			        	</span>
-			        	<span class="pull-left">
-			        		<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
-		        		</span>
-		        		<span class="pull-left margin5tb"> to </span>
-		        		<span class="col-sm-2 padding0">
-		        			<input type="text" name="prepardDatefromDate_{{$index}}" id="prepardDatetoDate_{{$index}}" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].toDate" is-open="isDateIssued2" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Issued"/>
-		        		</span>
-		        		<span class="pull-left">
-		        			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued2 = !isDateIssued2"><i class="glyphicon glyphicon-calendar"></i></button>
-		        		</span>
-		        	</span>
+			        	<span ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months && transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate != null">
+			        		<span class="pull-left margin5tb"> ( </span>
+			        		<span class="col-sm-1 padding0">
+			        			<input class="form-control" type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months"> 
+			        		</span>
+			        		<span class="pull-left margin5tb">) per day from</span> 
+			        		<span class="col-sm-2 padding0">
+				        		<input type="text" name="prepardDatefromDate_{{$index}}" id="prepardDatefromDate_{{$index}}" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Issued"/>
+				        	</span>
+				        	<span class="pull-left">
+				        		<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
+			        		</span>
+			        		<span class="pull-left margin5tb"> to </span>
+			        		<span class="col-sm-2 padding0">
+			        			<input type="text" name="prepardDatefromDate_{{$index}}" id="prepardDatetoDate_{{$index}}" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].toDate" is-open="isDateIssued2" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Issued"/>
+			        		</span>
+			        		<span class="pull-left">
+			        			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued2 = !isDateIssued2"><i class="glyphicon glyphicon-calendar"></i></button>
+			        		</span>
+			        	</span>
 		        	</span>
 		        </td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing"/></td>
@@ -88,12 +142,30 @@
 		      </tr>	
 		      <tr ng-repeat="i in 14 | range">
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
-		        <td><span ng-show="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel">
-		        	<span class="padding5 pull-left col-sm-5">{{transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel}}</span>
-					<span class="pull-left padding0 col-sm-2"><input class="form-control inputBorder FieldWidth" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].escrowAmount"></input></span>
-	                <span class="pull-left padding0 col-sm-2">per month for</span>
-	                <span class="pull-left padding0 col-sm-2"><input class="form-control inputBorder FieldWidth" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].toEntity"></input></span>
-	                <span class="pull-left padding0 col-sm-1">mo.</span>
+		        <td>
+		        	<span class="pull-left col-sm-5" ng-if="i<4">{{transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel}}</span>
+		        	<span class="pull-left col-sm-5" ng-if="i>3">
+		        		<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel">
+			        		<option></option>
+							<option>Annual Assessment Escrows</option>
+							<option>City Tax Escrow</option>
+							<option>County Tax Escrows</option>
+							<option>Earthquake Insurance Escrow</option>
+							<option>Flood Insurance 2 Escrow</option>
+							<option>Flood Insurance 3 Escrow</option>
+							<option>Flood Insurance 4 Escrow</option>
+							<option>Flood Insurance Escrow</option>
+							<option>Other</option>
+							<option>Other Insurance Escrows</option>
+							<option>Other Tax Escrows</option>
+							<option>School Tax Escrows</option>
+						</select>
+					</span>
+					<span ng-show="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel">
+						<span class="pull-left padding0 col-sm-2"><input class="form-control inputBorder FieldWidth" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].escrowAmount"></input></span>
+		                <span class="pull-left padding0 col-sm-2">per month for</span>
+		                <span class="pull-left padding0 col-sm-2"><input class="form-control inputBorder FieldWidth" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].toEntity"></input></span>
+		                <span class="pull-left padding0 col-sm-1">mo.</span>
 	                </span>
 		        </td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].bpAtClosing"/></td>

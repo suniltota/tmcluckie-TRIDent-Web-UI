@@ -78,6 +78,7 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 					$scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel ="Aggregate Adjustment";
 			}
 		}
+		$scope.transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList=[{"feeType":"Recording Fees"}];
 	}
 	refreshData();
     $scope.openUCDXMLFile = function(){
