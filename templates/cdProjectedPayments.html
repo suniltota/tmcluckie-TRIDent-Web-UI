@@ -86,7 +86,7 @@
 		        		<ul class="col-sm-6">
 		        			<li><input type="checkbox" ng-model="transformData.pageOne.projectedPayments.etia.propertyTaxesStatus"  ng-true-value="true" ng-false-value="false" ng-checked="transformData.pageOne.projectedPayments.etia.propertyTaxesStatus=='true'? true : false"> Property Taxes</li>
 		        			<li><input type="checkbox" ng-model="transformData.pageOne.projectedPayments.etia.homeownersInsuranceStatus"  ng-true-value="true" ng-false-value="false" ng-checked="transformData.pageOne.projectedPayments.etia.homeownersInsuranceStatus=='true'? true : false"> Homeowners Insurance</li>
-		        			<li><input type="checkbox" ng-model="transformData.pageOne.projectedPayments.etia.otherStatus"  ng-true-value="true" ng-false-value="false" ng-checked="transformData.pageOne.projectedPayments.etia.otherStatus=='true'? true : false"> Other:</li>
+		        			<li><input type="checkbox" ng-model="transformData.pageOne.projectedPayments.etia.otherStatus"  ng-true-value="true" ng-false-value="false" ng-checked="transformData.pageOne.projectedPayments.etia.otherStatus=='true'? true : false"> Other:<input type="text" ng-model="transformData.pageOne.projectedPayments.etia.otherDescription" ng-show="transformData.pageOne.projectedPayments.etia.otherStatus == 'true' || transformData.pageOne.projectedPayments.etia.otherStatus == true"/></li>
 		        		</ul>
 		        		<ul class="col-sm-6">
 		        			<li>&nbsp;{{transformData.pageOne.projectedPayments.etia.propertyTaxesInEscrow}}</li>
