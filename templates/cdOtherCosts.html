@@ -25,6 +25,7 @@
 		        	<span class="pull-left padding0"><input class="form-control inputBorder FieldWidth" value=""></span>
 		        </td>
 		        <td  ng-if="i != 0">
+		        	<span class="col-sm-6 padding0">
 		        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].displayLabel">
 			        	<option></option>
 						<option>Additional State Recording Fee</option>
@@ -61,6 +62,11 @@
 						<option>Sales Tax or Surcharge on Title </option>
 						<option>State Transfer Tax</option>
 					</select>
+					</span>
+					<span class="col-sm-1" ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].displayLabel" style="margin:7px 0px 0px 0px;"> to </span>
+			        <span class="col-sm-5">
+			        	<input type="text" class="form-control" name="BorrowerDidShopFor" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].toEntity">
+			        </span>
 		        </td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing"/></td>
 		        <td><input class="form-control" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing"/></td>
@@ -78,26 +84,26 @@
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
 		        	<span class="padding5">
-		        		<span ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months == null" class="pull-left">
-			        		<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel">
+		        		<span class="pull-left">
+		        			<span ng-if="i<4" class="pull-left padding5">
+								{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel}}
+							</span>
+			        		<span  ng-if="i>3"><select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel">
 			        			<option></option>
 								<option>City Property Tax</option>
 								<option>County Property Tax</option>
-								<option>Earthquake Insurance Prem</option>
-								<option>Flood Insurance 2 Prem</option>
-								<option>Flood Insurance 3 Prem</option>
-								<option>Flood Insurance 4 Prem</option>
-								<option>Flood Insurance Prem</option>
-								<option>Hazard Insurance Prem</option>
+								<option>Earthquake Insurance Premium</option>
+								<option>Flood Insurance 2 Premium</option>
+								<option>Flood Insurance 3 Premium</option>
+								<option>Flood Insurance 4 Premium</option>
+								<option>Flood Insurance Premium</option>
+								<option>Hazard Insurance Premium</option>
 								<option>Other</option>
 								<option>Other Insurance Premium</option>
 								<option>State Property Tax</option>
-							</select>
+							</select></span>
 						</span>
-						<span ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months != null" class="pull-left padding5">
-							{{transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel}}
-						</span>
-			        	<span class="pull-left padding0" ng-if="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months && transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].fromDate == null">
+			        	<span class="pull-left padding0" ng-if="i>3 && transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel">
 			        		<span class="pull-left margin5tb"> ( </span>
 			        		<span class="col-sm-2 padding0">
 			        			<input class="form-control" type="text" name="months" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.prepaidsList[i].months">
@@ -143,8 +149,8 @@
 		      <tr ng-repeat="i in 14 | range">
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
-		        	<span class="pull-left col-sm-5" ng-if="i<4">{{transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel}}</span>
-		        	<span class="pull-left col-sm-5" ng-if="i>3">
+		        	<span class="pull-left col-sm-5" ng-if="i<3">{{transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel}}</span>
+		        	<span class="pull-left col-sm-5" ng-if="i>2 && i<13">
 		        		<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel">
 			        		<option></option>
 							<option>Annual Assessment Escrows</option>
@@ -161,7 +167,25 @@
 							<option>School Tax Escrows</option>
 						</select>
 					</span>
-					<span ng-show="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel">
+					<span class="pull-left col-sm-5" ng-if="i == 13">
+						<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel">
+			        		<option></option>
+			        		<option>Aggregate Adjustment</option>
+							<option>Annual Assessment Escrows</option>
+							<option>City Tax Escrow</option>
+							<option>County Tax Escrows</option>
+							<option>Earthquake Insurance Escrow</option>
+							<option>Flood Insurance 2 Escrow</option>
+							<option>Flood Insurance 3 Escrow</option>
+							<option>Flood Insurance 4 Escrow</option>
+							<option>Flood Insurance Escrow</option>
+							<option>Other</option>
+							<option>Other Insurance Escrows</option>
+							<option>Other Tax Escrows</option>
+							<option>School Tax Escrows</option>
+						</select>
+					</span>
+					<span ng-show="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel && i<13">
 						<span class="pull-left padding0 col-sm-2"><input class="form-control inputBorder FieldWidth" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].escrowAmount"></input></span>
 		                <span class="pull-left padding0 col-sm-2">per month for</span>
 		                <span class="pull-left padding0 col-sm-2"><input class="form-control inputBorder FieldWidth" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].toEntity"></input></span>
@@ -183,47 +207,8 @@
 		      <tr ng-repeat="i in 15 | range">
 		      	<td class="text-center"  style="width: 40px;"><span ng-if="i<9">0</span>{{i+1}}</td>
 		        <td>
-		        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel" ng-if="$index < 14">
+		        	<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel">
 		        		<option></option>
-						<option>Asbestos Inspection</option>
-						<option>Chimney Inspection</option>
-						<option>Compliance Inspection</option>
-						<option>Condo Association Dues</option>
-						<option>Condominium Association Special Assessment</option>
-						<option>Construction Funds Holdback</option>
-						<option>Drywall Inspection</option>
-						<option>Foundation Inspection</option>
-						<option>Gas Inspection</option>
-						<option>Heating Cooling Inspection</option>
-						<option>Home Inspection</option>
-						<option>Home Warranty (optional)</option>
-						<option>Homeowners Association Dues</option>
-						<option>Homeowners Association Special Assessment</option>
-						<option>Lead Inspection</option>
-						<option>Mechanical Inspection</option>
-						<option>Mold Inspection</option>
-						<option>Municipal Certificate Fee</option>
-						<option>Natural Hazard Disclosure Report</option>
-						<option>Other</option>
-						<option>Pest Inspection</option>
-						<option>Plumbing Inspection</option>
-						<option>Radon Inspection</option>
-						<option>Real Estate Commission Buyers Broker</option>
-						<option>Real Estate Commission Sellers Broker</option>
-						<option>Rehab Funds</option>
-						<option>ReInspection</option>
-						<option>Repair Completion Escrow Holdback</option>
-						<option>Roof Inspection</option>
-						<option>Septic Inspection</option>
-						<option>Smoke Inspection</option>
-						<option>Structural Inspection</option>
-						<option>Survey Fee</option>
-						<option>Title - Owners Coverage Premium (Optional)</option>
-						<option>Water Inspection</option>
-						<option>Well Inspection</option>
-					</select>
-					<select class="form-control pull-left" ng-model="transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel" ng-if="$index == 14">
-		        		<option>Aggregate Adjustment</option>
 						<option>Asbestos Inspection</option>
 						<option>Chimney Inspection</option>
 						<option>Compliance Inspection</option>

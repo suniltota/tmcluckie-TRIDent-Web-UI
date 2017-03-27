@@ -69,13 +69,13 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 		$scope.transformData.pageOne.loanTerms.principalInterest.paymentIncreaseIndicator = $scope._YES;
 		$scope.transformData.pageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator = $scope._YES;
 		$scope.transformData.pageOne.loanTerms.balloonPayment.balloonIndicator = $scope._YES;
-		if($scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList == undefined)
-			$scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList =[];
-		for(i=0;i<15;i++){
-			if($scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i] ==undefined) {
-				$scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i]={"displayLabel":""};
-				if(i==14)
-					$scope.transformData.pageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel ="Aggregate Adjustment";
+		if($scope.transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList == undefined)
+			$scope.transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList =[];
+		for(i=0;i<14;i++){
+			if($scope.transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i] ==undefined) {
+				$scope.transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i]={"displayLabel":""};
+				if(i==13)
+					$scope.transformData.pageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel ="Aggregate Adjustment";
 			}
 		}
 		$scope.transformData.pageTwo.closingCostDetailsOtherCosts.tOGovtFeesList=[{"feeType":"Recording Fees"}];
