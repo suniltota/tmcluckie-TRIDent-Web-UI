@@ -14,23 +14,21 @@
                     <uib-tab index="2" active="activeTab ==2 ? true : false" ng-click="updateActiveTab(2)" heading="Loan Information">
                     	<div ng-include='"templates/wizardLoanInfo.html"'></div>
                     </uib-tab>
-                    <!--
-                    <uib-tab index="3" heading="Loan Terms">
+                    <uib-tab index="3" active="activeTab ==3 ? true : false"  ng-click="updateActiveTab(3)"  heading="Loan Terms">
                     	<div ng-include='"templates/wizardLoanTerms.html"'></div>
                     </uib-tab>
-                    <uib-tab index="4" heading="Closing Cost Details - Loan Costs">
+                    <uib-tab index="4" active="activeTab ==4 ? true : false"  ng-click="updateActiveTab(4)"  heading="Closing Cost Details - Loan Costs">
                     	<div ng-include='"templates/wizardLoanCosts.html"'></div>
                     </uib-tab>
-                    <uib-tab index="5" heading="Closing Cost Details - Other Costs">
-                    		<div ng-include='"templates/wizardOtherCosts.html"'></div>
+                    <uib-tab index="5" active="activeTab ==5 ? true : false"  ng-click="updateActiveTab(5)"  heading="Closing Cost Details - Other Costs">
+                        <div ng-include='"templates/wizardOtherCosts.html"'></div>
                     </uib-tab>
-                    -->
                 </uib-tabset>
             </div>
 		         		
         </div>
         <div class="modal-footer">
           <button class="btn btn-default" ng-click="previous()" ng-hide="activeTab===0">Previous</button>
-          <button  ng-click="next()" class="btn btn-default" ng-hide="activeTab===2" >Next</button>
-          <button  data-dismiss="modal" class="btn btn-default" ng-show="activeTab===2" ng-click="updateActiveTab(0)">Done</button>
+          <button  ng-click="next()" class="btn btn-default" ng-hide="activeTab===5" >Next</button>
+          <button  data-dismiss="modal" class="btn btn-default" ng-show="activeTab===5" ng-click="updateActiveTab(0)">Done</button>
         </div>
