@@ -1,53 +1,62 @@
 <div id="TransactionInformationQ">
-	<div><div ng-repeat="borrower in transformData.pageOne.transactionInformation.borrower">
-		<div class="FieldGroup col-sm-12 margin5tb ">
-			<div class="fontBold col-sm-2 fieldTitle">Borrower :</div>
-			<div class="col-sm-6 fieldTitle">Is the Borrower a individual person or an organization?</div>
-			<div class="col-sm-3 radioGroup">
-				<input type="radio" name="barrower_org_type_{{$index}}" ng-model="borrower.type" value="I"> <label>Individual</label>
-				<input type="radio" name="barrower_org_type_{{$index}}" ng-model="borrower.type" value="O"> <label>Organization </label>
+	<div>
+		<div ng-repeat="borrower in transformData.pageOne.transactionInformation.borrower track by $index">
+			<div class="FieldGroup col-sm-12 margin5tb ">
+				<div class="fontBold col-sm-2 fieldTitle">Borrower : </div>
+				<div class="col-sm-6 fieldTitle">Is the Borrower a individual person or an organization?</div>
+				<div class="col-sm-3 radioGroup">
+					<input type="radio" name="barrower_org_type_{{$index}}" ng-model="borrower.type" value="I"> <label>Individual</label>
+					<input type="radio" name="barrower_org_type_{{$index}}" ng-model="borrower.type" value="O"> <label>Organization </label>
+				</div>
 			</div>
-		</div>
-		<div class="FieldGroup col-sm-12 margin5tb " ng-show="borrower.type == 'I'">
-			<div class="fontBold col-sm-2 fieldTitle"></div>
-			<div class="col-sm-6 fieldTitle">What is the Borrower Name?</div>
-			<div class="col-sm-4 padding0">
-				<div class="col-sm-6"><input type="text" ng-model="borrower.borrowerDetails.firstName" placeholder="First Name" class="form-control"></div>
-				<div class="col-sm-6"><input type="text" ng-model="borrower.borrowerDetails.middleName" placeholder="Middle Name" class="form-control"></div>
-				<div class="col-sm-6 margin5tb"><input type="text" ng-model="borrower.borrowerDetails.lastName" placeholder="Last Name" class="form-control"></div>
+			<div class="FieldGroup col-sm-12 margin5tb " ng-show="borrower.type == 'I'">
+				<div class="fontBold col-sm-2 fieldTitle"></div>
+				<div class="col-sm-6 fieldTitle">What is the Borrower Name?</div>
+				<div class="col-sm-4 padding0">
+					<div class="col-sm-6"><input type="text" ng-model="borrower.borrowerDetails.firstName" placeholder="First Name" class="form-control"></div>
+					<div class="col-sm-6"><input type="text" ng-model="borrower.borrowerDetails.middleName" placeholder="Middle Name" class="form-control"></div>
+					<div class="col-sm-6 margin5tb"><input type="text" ng-model="borrower.borrowerDetails.lastName" placeholder="Last Name" class="form-control"></div>
+				</div>
 			</div>
-		</div>
-		<div class="FieldGroup col-sm-12 margin5tb " ng-show="borrower.type == 'O'">
-			<div class="fontBold col-sm-2 fieldTitle"></div>
-			<div class="col-sm-6 fieldTitle">What is the Full Name of the Organization?</div>
-			<div class="col-sm-4 padding0">
-				<div class="col-sm-6"><input type="text" placeholder="Organization Name" ng-model="borrower.borrowerDetails.firstName" class="form-control"></div>
+			<div class="FieldGroup col-sm-12 margin5tb " ng-show="borrower.type == 'O'">
+				<div class="fontBold col-sm-2 fieldTitle"></div>
+				<div class="col-sm-6 fieldTitle">What is the Full Name of the Organization?</div>
+				<div class="col-sm-4 padding0">
+					<div class="col-sm-6"><input type="text" placeholder="Organization Name" ng-model="borrower.borrowerDetails.firstName" class="form-control"></div>
+				</div>
 			</div>
-		</div>
-		<div class="FieldGroup col-sm-12 margin5tb ">
-			<div class="fontBold col-sm-2 fieldTitle"></div>
-			<div class="col-sm-6 fieldTitle" ng-if="borrower.type == 'I'">What is the Borrower's Mailing Address?</div>
-			<div class="col-sm-6 fieldTitle" ng-if="borrower.type == 'O'">What is the Full Mailing Address of the Organization?</div>
-			
-			<div class="col-sm-4 padding0">
-				<div class="col-sm-6"><input type="text" placeholder="Address" ng-model="borrower.address.addressLineText" class="form-control"></div>
-				<div class="col-sm-6"><input type="text" placeholder="City" ng-model="borrower.address.cityName" class="form-control"></div>
-				<div class="col-sm-6 margin5tb"><input type="text" placeholder="Postal Code" ng-model="borrower.address.postalCode" class="form-control"></div>
-				<div class="col-sm-6 margin5tb">
-					<select ng-model="borrower.state" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by option.STATE_CODE" ng-change="updateStateValue(borrower.address)">
-					<option value="">Select State</option>
-					</select>
+			<div class="FieldGroup col-sm-12 margin5tb ">
+				<div class="fontBold col-sm-2 fieldTitle"></div>
+				<div class="col-sm-6 fieldTitle" ng-if="borrower.type == 'I'">What is the Borrower's Mailing Address?</div>
+				<div class="col-sm-6 fieldTitle" ng-if="borrower.type == 'O'">What is the Full Mailing Address of the Organization?</div>
+				
+				<div class="col-sm-4 padding0" ng-show="borrower.type == 'I' || borrower.type == 'O'">
+					<div class="col-sm-6"><input type="text" placeholder="Address" ng-model="borrower.address.addressLineText" class="form-control"></div>
+					<div class="col-sm-6"><input type="text" placeholder="City" ng-model="borrower.address.cityName" class="form-control"></div>
+					<div class="col-sm-6 margin5tb"><input type="text" placeholder="Postal Code" ng-model="borrower.address.postalCode" class="form-control"></div>
+					<div class="col-sm-6 margin5tb">
+						<select ng-model="borrower.state" id="state" name="state" class="form-control" ng-options="option.STATE_NAME for option in states track by option.STATE_CODE" ng-change="updateStateValue(borrower.address)">
+						<option value="">Select State</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="FieldGroup col-sm-12 margin5tb " style="margin-bottom:15px;" ng-show="$index != 0">
+				<div class="fontBold col-sm-2 fieldTitle"></div>
+				<div class="col-sm-6 fieldTitle"></div>
+				<div class="col-sm-3 radioGroup">
+					<span class="glyphicon glyphicon-minus"></span> <span style="cursor:pointer;" ng-click="removeBorrower($index)">Remove Borrower</span>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="FieldGroup col-sm-12 margin5tb " style="margin-bottom:15px;">
-		<div class="fontBold col-sm-2 fieldTitle"></div>
-		<div class="col-sm-6 fieldTitle"></div>
-		<div class="col-sm-3 radioGroup">
-			<span class="glyphicon glyphicon-plus"></span> <span style="cursor:pointer;" ng-click="addBorrower()">Add Borrower</span>
+		<div class="FieldGroup col-sm-12 margin5tb " style="margin-bottom:15px;">
+			<div class="fontBold col-sm-2 fieldTitle"></div>
+			<div class="col-sm-6 fieldTitle"></div>
+			<div class="col-sm-3 radioGroup">
+				<span class="glyphicon glyphicon-plus"></span> <span style="cursor:pointer;" ng-click="addBorrower()">Add Borrower</span>
+			</div>
 		</div>
-	</div></div>
+	</div>
 	<div><div ng-repeat="seller in transformData.pageOne.transactionInformation.seller">
 		<div class="FieldGroup col-sm-12 margin5tb ">
 			<div class="fontBold col-sm-2 fieldTitle">Seller :</div>
@@ -74,8 +83,7 @@
 				<div class="col-sm-6"><input type="text" placeholder="Organization Name" ng-model="seller.sellerDetails.firstName" class="form-control"></div>
 			</div>
 		</div>
-
-		<div class="FieldGroup col-sm-12 margin5tb ">
+		<div class="FieldGroup col-sm-12 margin5tb " ng-show="seller.type == 'I' || seller.type == 'O'">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle" ng-if="seller.type == 'I'">What is the Seller's Mailing Address?</div>
 			<div class="col-sm-6 fieldTitle" ng-if="seller.type == 'O'">What is the Full Mailing Address of the Organization?</div>
@@ -88,6 +96,13 @@
 						<option value="">Select State</option>
 					</select>
 				</div>
+			</div>
+		</div>
+		<div class="FieldGroup col-sm-12 margin5tb " style="margin-bottom:15px;" ng-show="$index != 0">
+			<div class="fontBold col-sm-2 fieldTitle"></div>
+			<div class="col-sm-6 fieldTitle"></div>
+			<div class="col-sm-3 radioGroup">
+				<span class="glyphicon glyphicon-minus"></span> <span style="cursor:pointer;" ng-click="removeSeller($index)">Remove Seller</span>
 			</div>
 		</div>
 	</div>
@@ -120,6 +135,13 @@
 						<option value="">Select State</option>
 					</select>
 				</div>
+			</div>
+		</div>
+		<div class="FieldGroup col-sm-12 margin5tb " style="margin-bottom:15px;" ng-show = "$index!=0">
+			<div class="fontBold col-sm-2 fieldTitle"></div>
+			<div class="col-sm-6 fieldTitle"></div>
+			<div class="col-sm-3 radioGroup">
+				<span class="glyphicon glyphicon-minus"></span> <span style="cursor:pointer;" ng-click="removeLender($index)">Remove Lender</span>
 			</div>
 		</div>
 	</div>

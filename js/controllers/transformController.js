@@ -280,11 +280,20 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
     $scope.addBorrower = function(){
     	$scope.transformData.pageOne.transactionInformation.borrower.push(angular.copy(borrowerAddress));
     }
+    $scope.removeBorrower = function(index){
+    	$scope.transformData.pageOne.transactionInformation.borrower.splice(index,1);
+    }
     $scope.addSeller = function(){
     	$scope.transformData.pageOne.transactionInformation.seller.push(angular.copy(sellerAddress));
     }
+    $scope.removeSeller = function(index){
+    	$scope.transformData.pageOne.transactionInformation.seller.splice(index,1);
+    }
     $scope.addLender = function(){
     	$scope.transformData.pageOne.transactionInformation.lender.push(angular.copy(lenderAddress));
+    }
+    $scope.removeLender = function(index){
+    	$scope.transformData.pageOne.transactionInformation.lender.splice(index,1);
     }
     $scope.updateValue = function(){
     	console.log($scope.transformData.pageOne.loanInformation.mortgageType);
