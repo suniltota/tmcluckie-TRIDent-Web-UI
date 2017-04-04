@@ -13,6 +13,6 @@
 </div>
 <div class="modal-footer">
   <button class="btn btn-default" ng-click="previous(index)" ng-hide="activeTab[0]=== true">Previous</button>
-  <button  ng-click="next(index)" class="btn btn-default" ng-hide="activeTab[5]===true" >Next</button>
-  <button  data-dismiss="modal" class="btn btn-default" ng-show="activeTab[5]===true" ng-click="updateActiveTab(0)">Done</button>
+  <button  ng-click="next(index)" class="btn btn-default" ng-hide="activeTab[tabs.length-1]===true" >Next</button>
+  <button  data-dismiss="modal" class="btn btn-default" ng-show="activeTab[tabs.length-1]===true" ng-click="updateActiveTab(0)">Done</button>
 </div>
