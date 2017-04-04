@@ -11,19 +11,25 @@
 		    <tbody>
 		      <tr>
 		        <td><label>Closing Costs</label></td>
-		        <td><label>{{transformData.pageOne.costsAtClosing.ClosingCosts.amount}}</label></td>
+		        <td><label>${{transformData.pageOne.costsAtClosing.ClosingCosts.amount}}</label></td>
 		        <td>
 		        	<ul class="col-sm-9" >
-		        		<li ng-repeat="detail in transformData.pageOne.costsAtClosing.ClosingCosts.details"><p ng-bind-html="renderHtml(detail)"></p></li>
+		        		<li><p>Includes <label>${{transformData.pageOne.costsAtClosing.ClosingCosts.totalLoanCosts}}</label> in Loan Costs + <label>${{transformData.pageOne.costsAtClosing.ClosingCosts.totalOtherCosts}}</label> in Other Costs - <label>${{transformData.pageOne.costsAtClosing.ClosingCosts.lenderCredits}}</label> in Lender Credits. See page 2 for details.
+		        		</p></li>
 		        	</ul>
 		        </td>
 		      </tr>
 		      <tr>
 		        <td><label>Cash to Close</label></td>
-		        <td><label>{{transformData.pageOne.costsAtClosing.CashToClose.amount}} </label></td>
+		        <td><label>${{transformData.pageOne.costsAtClosing.CashToClose.amount}} </label></td>
 		        <td>
 		        	<ul class="col-sm-9" >
-		        		<li ng-repeat="detail in transformData.pageOne.costsAtClosing.CashToClose.details"><p ng-bind-html="renderHtml(detail)"></p></li>
+		        		<li>Includes Closing Costs. See Calculating Cash to Close on page 3 for details.</p></li>
+		        		<li><span ng-show="transformData.pageOne.loanInformation.purpose != 'Purchase'">
+		        			<input type="checkbox" ng-model="transformData.pageOne.costsAtClosing.CashToClose.fromType">From  
+		        		    <input type="checkbox" ng-model="transformData.pageOne.costsAtClosing.CashToClose.toType">To Borrower
+		        		    </span>
+		        		</li>
 		        	</ul>
 		        </td>
 		      </tr>

@@ -38,7 +38,11 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 		angular.forEach($scope.transformData.pageOne.transactionInformation.lender, function(l){
 			l.type="O";
 		});
-		
+		$scope.transformData.pageOne.costsAtClosing.ClosingCosts.amount = 0;
+		$scope.transformData.pageOne.costsAtClosing.CashToClose.amount = 0;
+		$scope.transformData.pageOne.costsAtClosing.ClosingCosts.totalLoanCosts = 0;
+		$scope.transformData.pageOne.costsAtClosing.ClosingCosts.totalOtherCosts = 0;
+		$scope.transformData.pageOne.costsAtClosing.ClosingCosts.lenderCredits = 0;
 		$scope.transformData.pageOne.closingInformation.dateIssued = new Date();
 		$scope.transformData.pageOne.transactionInformation.isBorrower = true;
 		$scope.transformData.pageOne.transactionInformation.isLender = true;
