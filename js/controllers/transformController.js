@@ -365,14 +365,24 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
     	});
     }
 
-    $scope.activeTab = 0;
+    $scope.activeTab = [];
+    $scope.tabs = [
+    	{"heading":"Closing Information","template":"templates/wizardClosingInfo.html"},
+    	{"heading":"Transaction Information","template":"templates/wizardTransactionInfo.html"},
+    	{"heading":"Loan Information","template":"templates/wizardLoanInfo.html"},
+    	{"heading":"Loan Terms","template":"templates/wizardLoanTerms.html"},
+    	{"heading":"Closing Cost Details - Loan Costs","template":"templates/wizardLoanCosts.html"},
+    	{"heading":"Closing Cost Details - Other Costs","template":"templates/wizardOtherCosts.html"}
+    	];
+    $scope.index = 0;
 	$scope.next = function() {
-		$scope.activeTab += 1;
+		$scope.activeTab[++$scope.index] = true;
 	}
 	$scope.previous = function() {
-		$scope.activeTab -= 1;
+		$scope.activeTab[--$scope.index] = true;
 	}
 	$scope.updateActiveTab = function(val){
-		$scope.activeTab = val;
+		$scope.activeTab[val] = true;
+		$scope.index = val;
 	}
 });

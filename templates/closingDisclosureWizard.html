@@ -1,34 +1,18 @@
 <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" ng-click="updateActiveTab(0)">&times;</button>
-          <h4 class="col-sm-6 pull-left" style="margin:10px 10px;">Closing Disclosure</h4>
-        </div>
-        <div class="modal-body">
-		<div class="form-group">
-                <uib-tabset >
-                    <uib-tab index="0" active="activeTab ==0 ? true : false" ng-click="updateActiveTab(0)" href="#ClosingInformationQ" heading="Closing Information">
-                    		<div ng-include='"templates/wizardClosingInfo.html"'></div>
-                	</uib-tab>
-                    <uib-tab index="1" active="activeTab ==1 ? true : false" ng-click="updateActiveTab(1)" href="#TransactionInformationQ" heading="Transaction Information">
-                    		<div ng-include='"templates/wizardTransactionInfo.html"'></div>
-                	</uib-tab>
-                    <uib-tab index="2" active="activeTab ==2 ? true : false" ng-click="updateActiveTab(2)" heading="Loan Information">
-                    	<div ng-include='"templates/wizardLoanInfo.html"'></div>
-                    </uib-tab>
-                    <uib-tab index="3" active="activeTab ==3 ? true : false"  ng-click="updateActiveTab(3)"  heading="Loan Terms">
-                    	<div ng-include='"templates/wizardLoanTerms.html"'></div>
-                    </uib-tab>
-                    <uib-tab index="4" active="activeTab ==4 ? true : false"  ng-click="updateActiveTab(4)"  heading="Closing Cost Details - Loan Costs">
-                    	<div ng-include='"templates/wizardLoanCosts.html"'></div>
-                    </uib-tab>
-                    <uib-tab index="5" active="activeTab ==5 ? true : false"  ng-click="updateActiveTab(5)"  heading="Closing Cost Details - Other Costs">
-                        <div ng-include='"templates/wizardOtherCosts.html"'></div>
-                    </uib-tab>
-                </uib-tabset>
-            </div>
-		         		
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-default" ng-click="previous()" ng-hide="activeTab===0">Previous</button>
-          <button  ng-click="next()" class="btn btn-default" ng-hide="activeTab===5" >Next</button>
-          <button  data-dismiss="modal" class="btn btn-default" ng-show="activeTab===5" ng-click="updateActiveTab(0)">Done</button>
-        </div>
+    <button type="button" class="close" data-dismiss="modal" ng-click="updateActiveTab(0)">&times;</button>
+    <h4 class="col-sm-6 pull-left" style="margin:10px 10px;">Closing Disclosure</h4>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <uib-tabset>
+            <uib-tab index="{{$index}}" active="activeTab[$index]" ng-click="updateActiveTab($index)"  heading="{{tab.heading}}" ng-repeat="tab in tabs track by $index">
+            	<div ng-include='tab.template'></div>
+        	</uib-tab>
+        </uib-tabset>
+    </div>	
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" ng-click="previous(index)" ng-hide="activeTab[0]=== true">Previous</button>
+  <button  ng-click="next(index)" class="btn btn-default" ng-hide="activeTab[5]===true" >Next</button>
+  <button  data-dismiss="modal" class="btn btn-default" ng-show="activeTab[5]===true" ng-click="updateActiveTab(0)">Done</button>
+</div>
