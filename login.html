@@ -33,14 +33,6 @@
                 <span ng-show="submitted && loginForm.pw.$error.required">Password required</span>
               </div>
           </div>
-          <div class="form-group" ng-class="{ 'has-error': submitted && loginForm.purpose.$invalid }">
-            <div class="form-group has-feedback">
-                <select ng-model="purpose"  id="purpose" name="purpose" class="form-control" required ng-options="option.displayName for option in purposes track by option.value">
-                <option value="">Select purpose</option>
-              </select>
-              <span ng-show="submitted && loginForm.purpose.$error.required">Purpose required</span>
-            </div>
-          </div>
           <div class="form-group ng-hide" ng-show="loginFailure">
             <div class="alert alert-danger">{{errorMsg}}</div>
           </div>

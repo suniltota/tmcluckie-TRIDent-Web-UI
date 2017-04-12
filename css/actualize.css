@@ -34,7 +34,7 @@ input, select, textarea, .form-control{font-size: 12px;}
 .radioGroup label{float: left;}
 .rowBackground{background: #eee;}
 ul li{list-style: none;}
-
+.popup_innerHeader{background:#eee; padding:7px 10px; margin: 5px 0px;}
 .notificationIcons{margin:8px 10px; color:#5bb1dc;}
 .notificationIcons > span{cursor: pointer;}
 .notificationIcons > span .glyphicon{margin-bottom:4px;}
