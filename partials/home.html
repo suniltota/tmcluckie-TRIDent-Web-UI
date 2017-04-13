@@ -43,11 +43,18 @@
             <div ng-include='"templates/cdOtherCosts.html"'></div>
           </span>
         </div>
+        <div class="PDFview" data-anchor="Page3">
+          <span>
+            <div ng-include='"templates/cdLoanCosts.html"'></div>
+            <div ng-include='"templates/cdOtherCosts.html"'></div>
+          </span>
+        </div>
 	    </div>
     </div>
   </div>
   <div id="pdfViewerId">
-    <div id="carousel" style="display: none;"><object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="original"></object></div>
+    <div id="carousel" style="display: none;"><object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="original"></object>
+    </div>
   </div>
 </div>
 <div class="modal fade" id="BorrowerTransaction" role="dialog">
@@ -111,34 +118,45 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Property</h4>
       </div>
+
       <div class="modal-body">
+          <div class="row">
+              <div class="col-sm-5 radioGroup"><input type="radio" name="property">Street Address</div>
+              <div class="col-sm-7 radioGroup"><input type="radio" name="property">Legal Description</div>
+          </div>
           <div class="row margin5tb">
               <div class=" col-sm-12">
-              <div class="col-sm-5 fieldTitle">Property Address Street</div>
+              <div class="col-sm-5 fieldTitle">Property Street Address</div>
               <div class="col-sm-7"><input type="text" ng-model="property.addressLineText" class="form-control"></div>
             </div>
           </div>
           <div class="row margin5tb">
             <div class=" col-sm-12">
-              <div class="col-sm-5 fieldTitle">Property Address City</div>
+              <div class="col-sm-5 fieldTitle">Property City Name</div>
               <div class="col-sm-7"><input type="text" ng-model="property.cityName" class="form-control"></div>
             </div>
           </div>
           <div class="row margin5tb">
             <div class=" col-sm-12">
-              <div class="col-sm-5 fieldTitle">Property Address State</div>
-              <div class="col-sm-7"><input type="text" ng-model="property.stateCode" class="form-control"></div>
+              <div class="col-sm-5 fieldTitle">Property State Code</div>
+              <div class="col-sm-7">
+                  <select ng-model="property.stateCode" class="form-control">
+                      <option>VA</option>
+                  </select>
+              </div>
             </div>
           </div>
           <div class="row margin5tb">
             <div class=" col-sm-12">
-              <div class="col-sm-5 fieldTitle">Property Address Zip</div>
+              <div class="col-sm-5 fieldTitle">Property Postal Code</div>
               <div class="col-sm-7"><input type="text" ng-model="property.postalCode" class="form-control"></div>
             </div>
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="loadPropertyData(true)" style="background: #5bb1dc;color:fff;">Save</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="loadPropertyData(true)">OK</button>
+        <button type="button" class="btn btn-default">Clear</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
       </div>
     </div>
   </div>
