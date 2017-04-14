@@ -28,6 +28,7 @@ input, select, textarea, .form-control{font-size: 12px;}
 .padding5lr{padding-left:5px; padding-right: 5px;}
 .fontBold{font-weight: bold;}
 .margin5tb{margin-top: 5px; margin-bottom: 5px;}
+.margin5lr{margin-left: 5px; margin-right: 5px;}
 .checkboxGroup input[type="checkbox"]{margin:0 5px; float: left;}
 .checkboxGroup label{float: left;}
 .radioGroup input[type="radio"]{margin:0 5px; float: left;}
