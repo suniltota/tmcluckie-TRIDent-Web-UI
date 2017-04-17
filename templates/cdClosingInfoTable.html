@@ -144,7 +144,7 @@
 			</div>
 		</div>
 		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Product</div>
+			<div class="col-sm-5 fieldTitle">Product <span class="glyphicon glyphicon-star-empty" style="font-size:17px; color:#5bb1dc; "></span></div>
 			<div class="col-sm-7">
 				<input type="text"  name="product" ng-model="transformData.pageOne.loanInformation.product" class="form-control">
 				<!--<select ng-model="transformData.pageOne.loanInformation.productL" id="product" name="product" class="form-control" ng-options="option.Product_Description for option in products track by option.Product_Description">
@@ -170,14 +170,24 @@
 				<span class="checkboxGroup">
 					<input type="checkbox"  value="Other" ng-checked="transformData.pageOne.loanInformation.loanType == 'Other'" ng-model="transformData.pageOne.loanInformation.loanType_o" onchange="angular.element(this).scope().otherchange(this)">
 					<label>Other</label>
-					<div><input type="text" id="otherdescription" ng-model="transformData.pageOne.loanInformation.Other" class="form-control" disabled="disabled"></div>
 				</span>
 
 			</div>
 		</div>
 		<div class="FieldGroup">
+			<div class="col-sm-5 fieldTitle">Lien Position</div>
+			<div class="col-sm-7">
+				<select class="form-control" id="otherdescription" ng-model="transformData.pageOne.loanInformation.Other" disabled="disabled"><option>First Position Lien</option></select>
+			</div>
+		</div>
+		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle">Loan ID #</div>
-			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.loanInformation.loanId" class="form-control"></div>
+			<div class="col-sm-7">
+				<input type="text" ng-model="transformData.pageOne.loanInformation.loanId" class="form-control">
+				<div class="margin5tb">
+					<a href="#">+ Add Additional AUS System and Identifiers</a>
+				</div>
+			</div>
 		</div>
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle">MIC #</div>

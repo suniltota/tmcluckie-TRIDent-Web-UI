@@ -69,18 +69,18 @@
         <div ng-repeat="borrower in borrowers">
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Borrower Classification</div>
-            <div class="col-sm-7">
+            <div class="col-sm-7 radioGroup">
               <input type="radio" ng-model="borrower.type" value="I" disabled> <label>Individual</label>
               <input type="radio" ng-model="borrower.type" value="O" disabled> <label>Organization </label>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-3 fieldTitle">Borrower Name</div>
-            <div class="col-sm-9">
-                <div class="col-sm-2 padding0"><input type="text" placeholder="First Name" class="form-control" name=""></div>
-                <div class="col-sm-2 col-sm-offset-1 padding0"><input type="text" placeholder="Last Name" class="form-control" name=""></div>
-                <div class="col-sm-2 col-sm-offset-1 padding0"><input type="text" placeholder="Middle Name" class="form-control" name=""></div>
-                <div class="col-sm-2 col-sm-offset-1 padding0"><input type="text" placeholder="Suffix Name" class="form-control" name=""></div>
+            <div class="col-sm-5 fieldTitle">Borrower Name</div>
+            <div class="col-sm-7">
+                <div class="col-sm-6 padding0 padding5r"><input type="text" placeholder="First Name" class="form-control" name=""></div>
+                <div class="col-sm-6 padding0"><input type="text" placeholder="Last Name" class="form-control" name=""></div>
+                <div class="col-sm-6 margin5tb padding0 padding5r"><input type="text" placeholder="Middle Name" class="form-control" name=""></div>
+                <div class="col-sm-6 padding0 margin5tb"><input type="text" placeholder="Suffix Name" class="form-control" name=""></div>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
@@ -108,12 +108,14 @@
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Country Code</div>
-            <div class="col-sm-7"><input type="text" class="form-control"></div>
+            <div class="col-sm-7"> <select class="form-control"><option>US</option></select></div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="loadBorrowerData(true)" style="background: #5bb1dc;color:fff;">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="loadBorrowerData(true)" style="background: #5bb1dc;color:fff;">Ok</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal" >Clear</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal" >Add Borrower</button>
       </div>
     </div>
     </div>
@@ -188,35 +190,45 @@
           <div class="row col-sm-12 margin5tb" ng-show="seller.type == 'I'">
             <div class="col-sm-5 fieldTitle">Seller Name</div>
             <div class="col-sm-7 padding0">
-              <div class="col-sm-6"><input type="text" ng-model="seller.sellerDetails.firstName" placeholder="First Name" class="form-control"></div>
-              <div class="col-sm-6"><input type="text" ng-model="seller.sellerDetails.middleName" placeholder="Middle Name" class="form-control"></div>
-              <div class="col-sm-6 margin5tb"><input type="text" ng-model="seller.sellerDetails.lastName" placeholder="Last Name" class="form-control"></div>
+               <div class="col-sm-6 padding0 padding5r"><input type="text" placeholder="First Name" class="form-control" name=""></div>
+                <div class="col-sm-6 padding0"><input type="text" placeholder="Last Name" class="form-control" name=""></div>
+                <div class="col-sm-6 margin5tb padding0 padding5r"><input type="text" placeholder="Middle Name" class="form-control" name=""></div>
+                <div class="col-sm-6 padding0 margin5tb"><input type="text" placeholder="Suffix Name" class="form-control" name=""></div>
             </div>
           </div>
+
           <div class="row col-sm-12 margin5tb " ng-show="seller.type == 'O'">
             <div class="col-sm-5 fieldTitle">Organization Full Name</div>
             <div class="col-sm-7"><input type="text" placeholder="Organization Name" ng-model="seller.sellerDetails.firstName" class="form-control"></div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Seller Address Street</div>
+            <div class="col-sm-5 fieldTitle">seller Street Address</div>
             <div class="col-sm-7"><input type="text" ng-model="seller.address.addressLineText" class="form-control"></div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Seller Address City</div>
+            <div class="col-sm-5 fieldTitle">seller City Name</div>
             <div class="col-sm-7"><input type="text" ng-model="seller.address.cityName" class="form-control"></div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Seller Address State</div>
+            <div class="col-sm-5 fieldTitle">seller State Code</div>
             <div class="col-sm-7"><input type="text" ng-model="seller.address.stateCode" class="form-control"></div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Seller Address Zip</div>
+            <div class="col-sm-5 fieldTitle">seller Postal Code</div>
             <div class="col-sm-7"><input type="text" ng-model="seller.address.postalCode" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">seller Country Code</div>
+            <div class="col-sm-7">
+                <select class="form-control"><option>US</option></select>
+            </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="loadSellerData(true)" style="background: #5bb1dc;color:fff;">Save</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="loadSellerData(true)">OK</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" >Clear</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal" >Add Seller</button>
       </div>
     </div>
   </div>
