@@ -31,29 +31,30 @@
 			<div class="panel-body" dynamic-height id="PDFviewContainer" style="overflow: auto;">
         <div class="PDFview" data-anchor="Page1">
         	<span>
-            <div ng-include='"templates/cdClosingInfoTable.html"'></div>
-            <div ng-include='"templates/cdLoanTermsTable.html"'></div>
-            <div ng-include='"templates/cdProjectedPayments.html"'></div>
-            <div ng-include='"templates/cdCostsatClosing.html"'></div>
+            <div ng-include='"templates/cdforms/cdClosingInfoTable.html"'></div>
+            <div ng-include='"templates/cdforms/cdLoanTermsTable.html"'></div>
+            <div ng-include='"templates/cdforms/cdProjectedPayments.html"'></div>
+            <div ng-include='"templates/cdforms/cdCostsatClosing.html"'></div>
        	 	</span>
         </div>
         <div class="PDFview" data-anchor="Page2">
           <span>
-            <div ng-include='"templates/cdLoanCosts.html"'></div>
-            <div ng-include='"templates/cdOtherCosts.html"'></div>
+            <div ng-include='"templates/cdforms/cdLoanCosts.html"'></div>
+            <div ng-include='"templates/cdforms/cdOtherCosts.html"'></div>
           </span>
         </div>
         <div class="PDFview" data-anchor="Page3">
           <span>
-            <div ng-include='"templates/cdLoanCosts.html"'></div>
-            <div ng-include='"templates/cdOtherCosts.html"'></div>
+            <div ng-include='"templates/cdforms/cdLoanCosts.html"'></div>
+            <div ng-include='"templates/cdforms/cdOtherCosts.html"'></div>
           </span>
         </div>
 	    </div>
     </div>
   </div>
   <div id="pdfViewerId">
-    <div id="carousel" style="display: none;"><object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="original"></object>
+    <div id="carousel" style="display: none;">
+      <object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="original"></object>
     </div>
   </div>
 </div>

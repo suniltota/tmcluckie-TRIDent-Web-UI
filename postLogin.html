@@ -1,0 +1,134 @@
+<html>
+<head>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/actualize.css" rel="stylesheet">
+  <script src="js/externalLib/jQuery/jquery-3.1.1.min.js" type="text/javascript"></script>
+  <script src="js/externalLib/angular/angular.js"></script>
+  <script src="js/externalLib/angular/angular-route.js"></script>
+  <script src="js/externalLib/bootstrap/bootstrap.min.js"></script>
+  <script src="js/externalLib/bootstrap/ui-bootstrap-tpls-0.14.3.min.js"></script>
+  <script src="js/postLoginApp.js"></script>
+    <!-- Services -->
+  <script src="js/services/apiService.js"></script>
+  <script src="js/services/loginService.js"></script>
+
+    <!-- Controllers -->
+  <script src="js/controllers/postLoginController.js"></script>
+
+</head>
+<body class="hold-transition login-page" data-ng-app="postLoginApp">
+    <div class="col-lg-12 col-md-12 col-sm-12" style="padding: 0px;">
+        <div style="z-index:2;" header-width>
+            <div ng-include='"templates/header.html"'></div>
+        </div>
+        <div style="top:80px; clear:both;" ng-controller="postLoginCtrl">
+            <div class="bodySection col-sm-12 padding0" style="position: relative; ">
+              <div id="transparent"></div>
+            </div>
+            <div class="modal fade" id="SelectTransaction" role="dialog"  data-keyboard="false" data-backdrop="static">
+              <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Select transaction</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row margin5tb" style="margin-bottom: 10px;">
+                      <div class=" col-sm-12">
+                        <div class="col-sm-12  radioGroup margin5tb">
+                          <input type="radio" name="transaction" ng-model="transactionType.name" value="new">
+                          <strong>Start New Transaction</strong>
+                        </div>
+                        <div class="col-sm-12  radioGroup  margin5tb">
+                          <input type="radio"  name="transaction" ng-model="transactionType.name" value="old">
+                          <strong>Open Existing Transaction</strong>
+                        </div>
+                        <div class="col-sm-12  radioGroup  margin5tb">
+                          <input type="radio"  name="transaction" ng-model="transactionType.name" value="textFile">
+                          <strong>Upload File</strong>
+                        </div>
+                        <div class="col-sm-12  radioGroup  margin5tb">
+                          <input type="radio"  name="transaction" ng-model="transactionType.name" value="pdfFile">
+                          <strong>Upload Closing Disclosure PDF</strong>
+                        </div>
+                        <!--<div class="col-sm-12  radioGroup  margin5tb">
+                          <input type="radio"  name="transaction" ng-model="transactionType.name" value="search"><strong>Search Transactions</strong>
+                        </div>-->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#ChooseFormType">OK</button>
+                    <button type="button" class="btn btn-default" ng-click="logUserOut();">
+                      Log Out
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="ChooseFormType" role="dialog" data-keyboard="false" data-backdrop="static">
+              <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Choose Form type and Loan purpose Type</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row margin5tb" style="margin-bottom: 10px;">
+                      <div class=" col-sm-12">
+                        <div class="col-sm-12 popup_innerHeader">
+                          <strong>Choose one radio button for the Loan Purpose for the transaction</strong>
+                        </div>
+                        <div class="col-sm-6  radioGroup margin5tb">
+                          <input type="radio" name="purpose" ng-model="purposeType.name" value="purchase">
+                          <strong>Purchase</strong>
+                        </div>
+                        <div class="col-sm-6  radioGroup  margin5tb">
+                          <input type="radio"  name="purpose" ng-model="purposeType.name" value="refinance">
+                          <strong>Refinance</strong>
+                        </div>
+                      </div>
+                      <div class=" col-sm-12">
+                        <div class="col-sm-12 popup_innerHeader">
+                          <strong>Choose one radio button for the Document Type</strong>
+                        </div>
+                        <div class="col-sm-6  radioGroup margin5tb">
+                          <input type="radio" name="Document" ng-model="documentType.name" value="loanestimate">
+                          <strong>Loan Estimate</strong>
+                        </div>
+                        <div class="col-sm-6  radioGroup  margin5tb">
+                          <input type="radio"  name="Document" ng-model="documentType.name" value="closingdisclosure">
+                          <strong>Closing Disclosure</strong>
+                        </div>
+                      </div>
+                      <div class=" col-sm-12">
+                        <div class="col-sm-12 popup_innerHeader">
+                          <strong>Choose one radio button for the Form</strong>
+                        </div>
+                        <div class="col-sm-4  radioGroup margin5tb">
+                          <input type="radio" name="Form" ng-model="formType.name" value="standard">
+                          <strong>Standard</strong>
+                        </div>
+                        <div class="col-sm-4  radioGroup  margin5tb">
+                          <input type="radio"  name="Form" ng-model="formType.name" value="alternate">
+                          <strong>Alternate</strong>
+                        </div>
+                        <div class="col-sm-4  radioGroup  margin5tb">
+                          <input type="radio"  name="Form" ng-model="formType.name" value="selleronly">
+                          <strong>Seller Only</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                      ng-click="submit()">OK</button>
+                    <button type="button" class="btn btn-default" ng-click="clear()">Clear</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="footer" ng-include='"templates/footer.html"'></div>
+    </div>
+    <div class="pageSpinner" id="spinner"></div>
+</body>
+</html>

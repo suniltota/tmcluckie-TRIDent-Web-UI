@@ -19,11 +19,13 @@
 
     <!-- Services -->
     <script src="js/services/apiService.js"></script>
-    <script src="js/services/transformService.js"></script>
+    <script src="js/services/closingdisclosure/cdServices.js"></script>
+    <script src="js/services/loanestimate/leServices.js"></script>
     <script src="js/services/loginService.js"></script>
 
     <!-- Controllers -->
-    <script src="js/controllers/transformController.js"></script>
+    <script src="js/controllers/closingdisclosure/cdcontroller.js"></script>
+    <script src="js/controllers/loanestimate/leController.js"></script>
 
     
     <script>
@@ -43,12 +45,11 @@ function closeNav() {
     $(".PageformHeader").css("left","4%");
 }
 
-
 </script>
 </head>
 <body ng-app="actualizeWebApp">
     <div class="col-lg-12 col-md-12 col-sm-12" style="padding: 0px;">
-        <div style="z-index:2;" header-width>
+        <div style="z-index:2;" header-width data-ng-controller="menuCtrl">
             <div ng-include='"templates/header.html"'></div>
         </div>
         <div style="top:80px; clear:both;">

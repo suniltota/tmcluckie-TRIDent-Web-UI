@@ -14,9 +14,8 @@ var app = angular.module('actualizeWebApp', [
 app.config(function ($routeProvider, $locationProvider) {
   $routeProvider
     // Home
-    .when("/loginProcess", {templateUrl: "partials/loginProcess.html", controller: "transformCtrl"})
-    .when("/home", {templateUrl: "partials/home.html", controller: "transformCtrl"})
-    .otherwise({ redirectTo: '/loginProcess' });
+    .when("/home", {templateUrl: "partials/home.html", controller: "closingDisclosureCtrl"})
+    .otherwise({ redirectTo: '/home' });
   $locationProvider.hashPrefix('');
 }).run(['loginService', 'apiService', '$rootScope', '$window', function(loginService, apiService, $rootScope, $window){
     //executed once, after all modules are loaded
@@ -37,7 +36,7 @@ app.config(function ($routeProvider, $locationProvider) {
         if (!$rootScope.$root.$$phase) {
             $rootScope.$root.$digest();
         }
-    };   
+    };
 
     function logUserOut(){
         loginService.logout();

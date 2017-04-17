@@ -13,17 +13,11 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 		$scope.errorMsg=""; 
 		//$scope.purposes = [{"displayName":"Purchase","value":"Purchase"},{"displayName":"Refinance","value":"Refinance"},{"displayName":"HomeEquity","value":"HomeEquity"}];;
 
-		$scope.selectedApiServer = "http://52.34.40.35/actualize/";
+		$scope.selectedApiServer = "http://localhost:8080/actualize/";
 		$scope.$watch('selectedApiServer', function(newValue, oldValue){
 			apiService.setBasePath(newValue);
-			localStorage.apiBasePath=newValue;            });
-
-		$('#myModal').on('show.bs.modal', function (e) {
-			$('[name="forgotpwusername"]').val("");
-			$('[name="firstname"]').val("");
-			$('[name="lastname"]').val("");
-			$('[name="email"]').val("");
-		})
+			localStorage.apiBasePath=newValue;
+		});
 
 		$scope.onLoginSubmit = function(){
 			
@@ -52,8 +46,8 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 				$scope.loginFailure=false;
 				localStorage.userDetails = JSON.stringify(data);
 				//localStorage.purpose = $scope.purpose.value;
-                localStorage.sessionId =  
-				location.href = "index.html";
+                loginService.setSessionId();  
+				location.href = "postLogin.html";
 			}).
 			error(function(data, status) {
 				$scope.waitingForLoginResponse=false;

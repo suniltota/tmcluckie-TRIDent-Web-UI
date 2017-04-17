@@ -1,7 +1,7 @@
 /**
  * Controller for transform function
  */
-app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, transformService) {
+app.controller('loanEstimateCtrl', function ($scope, $sce, $filter, staticData, leService) {
 	//$scope.purposes = staticData.purposes;
 	var requestDFormat = "MM-dd-yyyy"
 	$scope.format = staticData.dateDisplayFormat;
@@ -29,9 +29,7 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
       "homeEquityLoanIndicator": false,
       "sellerOnly": false
     }
-	/*transformService.getProducts().success(function (result) {
-        $scope.products = result;
-    });*/
+	
     var refreshData = function(){
 		$scope.transformData = staticData.transformData[0];
 
@@ -181,7 +179,7 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 
     var loadTransformData = function(fileData){
     	$("#spinner").show();
-		transformService.loadTransformData(fileData).success(function(data){
+		leService.loadTransformData(fileData).success(function(data){
 			if(data != null && data.length>0){
 				$scope.transformData = data[0];
 				$scope.transformData.pageOne.closingInformation.dateIssued = new Date();
@@ -246,7 +244,7 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
 			reader.readAsText(file.files[0], "UTF-8");
 			reader.onload = function (evt) {
 				var fileData = evt.target.result;
-				transformService.transformText2XML(fileData).success(function(data){
+				leService.transformText2XML(fileData).success(function(data){
 					loadTransformData(data);
 				});
 				$("#spinner").hide();
@@ -269,7 +267,7 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
     	$scope.transformData.pageOne.closingInformation.dateIssued = $filter('date')($scope.transformData.pageOne.closingInformation.dateIssued,requestDFormat);
     	$scope.transformData.pageOne.closingInformation.closingDate = $filter('date')($scope.transformData.pageOne.closingInformation.closingDate,requestDFormat);
     	$scope.transformData.pageOne.closingInformation.disbursementDate = $filter('date')($scope.transformData.pageOne.closingInformation.disbursementDate,requestDFormat);
-    	transformService.saveUCD($scope.transformData).success(function(data){
+    	leService.saveUCD($scope.transformData).success(function(data){
 			var a = document.createElement('a');
 			var xmlData = vkbeautify.xml(data)
 			var blob = new Blob([xmlData], {'type':'application/octet-stream'});
@@ -361,8 +359,8 @@ app.controller('transformCtrl', function ($scope, $sce, $filter, staticData, tra
     }
     $scope.generatePDF = function(){
     	$("#spinner").show();
-    	transformService.saveUCD($scope.transformData).success(function(data){
-    		transformService.generatePDF(data).success(function(pdfData){
+    	leService.saveUCD($scope.transformData).success(function(data){
+    		leService.generatePDF(data).success(function(pdfData){
     			if(pdfData!=null && pdfData.length>0){
     				$("#pdfViewerId").show();
     				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
