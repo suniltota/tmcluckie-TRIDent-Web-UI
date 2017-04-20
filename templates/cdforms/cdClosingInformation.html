@@ -1,8 +1,8 @@
 <div class="col-sm-12">
 	<input type="file" name="ucdXml" id="UCDXMLFILE" ng-hide="true" onchange="angular.element(this).scope().fileNameChanged(this);this.value=null; return false;" accept=".xml">
 	<input type="file" name="trid_import_text" id="trid_import_text" ng-hide="true" onchange="angular.element(this).scope().importTextFile(this);this.value=null; return false;" accept=".txt">
-	<div class="col-sm-4">
-		<h5>General Closing Information</h5>
+	<div class="col-sm-6">
+		<h5 class="innerSectionHeader">General Closing Information</h5>
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle">Date Issued</div>
 			<div class="col-sm-7">
@@ -47,53 +47,108 @@
 			<div class="col-sm-5 fieldTitle">File #</div>
 			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.closingInformation.fileNo" class="form-control"></div>
 		</div>
-		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle" data-backdrop="static" data-toggle="modal" data-target="#myModal" ng-click="loadPropertyData(false)" style="cursor:pointer;">Property <span class="glyphicon glyphicon-edit"></span></div>
-			<div class="col-sm-7"><div ng-show="transformData.pageOne.closingInformation.property.addressLineText!=null">
-					{{transformData.pageOne.closingInformation.property.addressLineText!="" ? transformData.pageOne.closingInformation.property.addressLineText+',' : ''}}
-					{{transformData.pageOne.closingInformation.property.cityName!="" ?
-					transformData.pageOne.closingInformation.property.cityName+',' : ''}} 
-					{{transformData.pageOne.closingInformation.property.stateCode!="" ?
-					transformData.pageOne.closingInformation.property.stateCode+'-':''}}
-					{{transformData.pageOne.closingInformation.property.postalCode}}
-				</div>
-			</div>
-		</div>
-		<div class="FieldGroup"  ng-show="transformData.pageOne.loanInformation.purpose != 'Purchase'">
-			<div class="col-sm-5 padding0">
-				<select class="form-control">
-					<option>Appraised Prop. Value</option>
-					<option>Estimated Value</option>
-				</select>
-			</div>
-			<div class="col-sm-7"><input type="text" class="form-control"></div>
-		</div>
-		<div class="FieldGroup" ng-show="transformData.pageOne.loanInformation.purpose == 'Purchase'">
-			<div class="col-sm-5 fieldTitle">Sale Price</div>
-			<div class="col-sm-7">
-				<div class="input-group">
-  					<span class="input-group-addon input-default">$</span>
-					<input type="text" ng-model="transformData.pageOne.closingInformation.salePrice" class="form-control">
-				</div>
-			</div>
-		</div>
-		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Choose Property Valuation Type</div>
-			<div class="col-sm-7">
-				<select class="form-control">
-					<option>Automated Valuation Model</option>
-				</select>
-			</div>
-		</div>
-		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Personal property Included?</div>
-			<div class="col-sm-7">
-				<select class="form-control">
-					<option>Yes</option>
-					<option>No</option>
-				</select>
-			</div>
-		</div>
+	</div>
 
+		<div class="col-sm-6">
+				<h5 class="innerSectionHeader">Property Information</h5>
+				 <div class="row">
+				 	 <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">Choose One</div>
+		              	<div class="col-sm-7 radioGroup">
+		              		<span class="col-sm-6 padding0"><input type="radio" name="property" checked>Street Address</span>
+		              		<span class="col-sm-6 padding0"><input type="radio" name="property">Legal Description</span>
+		              	</div>
+		             </div>
+		          </div>
+		          <div class="row margin5tb">
+		              <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">Street Address</div>
+		              <div class="col-sm-7"><input type="text" ng-model="property.addressLineText" class="form-control"></div>
+		            </div>
+		          </div>
+		          <div class="row margin5tb">
+		              <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">Legal Description</div>
+		              <div class="col-sm-7">
+		              <textarea ng-model="property.addressLineText" class="form-control"></textarea>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="row margin5tb">
+		            <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">City</div>
+		              <div class="col-sm-7"><input type="text" ng-model="property.cityName" class="form-control"></div>
+		            </div>
+		          </div>
+		          <div class="row margin5tb">
+		            <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">State</div>
+		              <div class="col-sm-7">
+		                  <select ng-model="property.stateCode" class="form-control">
+		                      <option>VA</option>
+		                  </select>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="row margin5tb">
+		            <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">Postal Code</div>
+		              <div class="col-sm-7"><input type="text" ng-model="property.postalCode" class="form-control"></div>
+		            </div>
+		          </div>
+		</div>
+		<div class="col-sm-6">
+				<h5 class="innerSectionHeader">Price Information</h5>
+				 <div class="row">
+				 	 <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">Sales Price</div>
+		              	<div class="col-sm-7 radioGroup">
+		              		<input type="text" class="form-control">
+		              	</div>
+		             </div>
+		          </div>
+		          <div class="row margin5tb">
+		              <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">Personal Property Included?</div>
+		              <div class="col-sm-3">
+		              		<select class="form-control"><option>Yes</option><option>Yes</option></select>
+		              </div>
+		            </div>
+		          </div>
+		          
+		</div>
+		<div class="col-sm-6">
+				<h5 class="innerSectionHeader">Value Information</h5>
+				 <div class="row">
+				 	 <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">Choose either “Appraised Property Value” or “Estimated Property Value”</div>
+		              	<div class="col-sm-7">
+		              		<select class="form-control">
+		              			<option>Appraised Property Value</option>
+		              		</select>
+		              	</div>
+		             </div>
+		          </div>
+		          <div class="row margin5tb">
+		              <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">Property Value Method Used </div>
+		              <div class="col-sm-7">
+		              		<select class="form-control">
+		              			<option>AVM</option>
+		              		</select>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="row margin5tb">
+		              <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">Amount of Value</div>
+		              <div class="col-sm-7">
+		              		<select class="form-control">
+		              			<option>$0</option>
+		              		</select>
+		              </div>
+		            </div>
+		          </div>
+		          
 		</div>
 	</div>
