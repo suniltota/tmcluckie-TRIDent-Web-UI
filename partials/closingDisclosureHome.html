@@ -2,13 +2,11 @@
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn glyphicon glyphicon-chevron-left" onclick="closeNav()"></a>
     <div class="form-group col-sm-12">
-        <select id="doctype" class="form-control">
-            <option value="CD" selected>Closing Disclosure</option>
-            <option value="LE">Loan Estimate</option>
-        </select>
+          <div id="doctype">Closing Disclosure</div>
+        
      </div>
-    <span href="" class="active pagenumber" data-scroll="Page1" >Page 1</span>
-     <span href="" class="pagenumber" data-scroll="Page2" >Page 2</span>
+    <span href="" class="active pagenumber" data-scroll="Page1" >Closing Information</span>
+     <span href="" class="pagenumber" data-scroll="Page2" >Transaction Information</span>
   </div>
    <div id="transparent"></div>
   <div class="SidebarBtns" id="SidebarBtns" side-bar-width>
@@ -29,26 +27,12 @@
   <div class="col-lg-12 PageformHeader padding0" pdf-width>
     <div class="panel panel-default">
 			<div class="panel-body" dynamic-height id="PDFviewContainer" style="overflow: auto;">
-        <div class="PDFview" data-anchor="Page1">
+        <div class="PDFview" data-anchor="Page1" dynamic-height-min >
         	<span>
             <div ng-include='"templates/cdforms/cdInfomationSection.html"'></div>
-            <div ng-include='"templates/cdforms/cdLoanTermsTable.html"'></div>
-            <div ng-include='"templates/cdforms/cdProjectedPayments.html"'></div>
-            <div ng-include='"templates/cdforms/cdCostsatClosing.html"'></div>
        	 	</span>
         </div>
-        <div class="PDFview" data-anchor="Page2">
-          <span>
-            <div ng-include='"templates/cdforms/cdLoanCosts.html"'></div>
-            <div ng-include='"templates/cdforms/cdOtherCosts.html"'></div>
-          </span>
-        </div>
-        <div class="PDFview" data-anchor="Page3">
-          <span>
-            <div ng-include='"templates/cdforms/cdLoanCosts.html"'></div>
-            <div ng-include='"templates/cdforms/cdOtherCosts.html"'></div>
-          </span>
-        </div>
+        
 	    </div>
     </div>
   </div>

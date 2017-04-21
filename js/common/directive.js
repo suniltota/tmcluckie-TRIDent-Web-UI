@@ -12,6 +12,20 @@
     }
 });
 
+app.directive('dynamicHeightMin', function ($window) {
+    return {
+        compile: function (element) {
+            var $e = angular.element(element);
+            var $w = angular.element($window);
+            $e.css("min-height", ($window.innerHeight - 100) + "px");
+            $e.css("padding", 0);
+            $w.on("resize", function () {
+                $e.css("min-height", ($window.innerHeight) - 100 + "px");
+            })
+        }
+    }
+});
+
 app.directive('pdfWidth', function ($window) {
     return {
         compile: function (element) {
