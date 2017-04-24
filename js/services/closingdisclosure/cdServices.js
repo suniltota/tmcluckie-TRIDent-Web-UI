@@ -8,7 +8,7 @@ app.service('cdService', function(apiService){
     },
     this.loadTransformData = function(xmlData){
     	return apiService.request({
-            apiMethod: "services/actualize/ucdxml",
+            apiMethod: "services/trident/closingdisclosure/v1/convertXmlToJson",
             httpMethod: 'POST',
             xmlData:xmlData
         });
