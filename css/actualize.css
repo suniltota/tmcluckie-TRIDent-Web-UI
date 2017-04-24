@@ -96,7 +96,7 @@ ul li{list-style: none;}
 .openSlidebtn:hover{background: #eee;}
 .SidebarBtns .openSlidebtn.glyphicon{color: #555;}
 .SidebarBtns{width:4%; transition: opacity 0.3s; height:100%; text-align: center; float: left; position: fixed; left: 0; top:82px; border-right: 1px solid #ddd; z-index:1; background: #555; padding: 10px; padding-top: 30px;}
-.SidebarBtns .pageno{font-weight: bold; width: 100%; float: left; padding: 5px; color: #eee;}
+.SidebarBtns .pageno{font-weight: bold; width: 100%; float: left; padding: 5px; color: #eee; cursor: pointer;}
 .SidebarBtns .active, .SidebarBtns .active .glyphicon{color: #a0dfff;}
 .SidebarBtns .pageno .noTitle{padding-top:8px; font-size:10px;}
 .SidebarBtns .glyphicon{color: #eee; padding-right: 3px;}
@@ -154,4 +154,4 @@ ul li{list-style: none;}
 .margin2btb{margin-bottom: 2px;}
 .form-control{height:30px;padding:6px 6px;}
 
-.AddSection{width: 100%; float: left;}
+.AddSection{width: 100%; float: left; margin: 10px 0;}

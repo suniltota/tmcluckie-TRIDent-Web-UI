@@ -13,6 +13,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.fileName = "Actualize_XML.xml"
 	$scope._YES = "YES";
 	$scope._NO = "NO";
+	$scope.showTab = 'closingInfo';
 	var borrowerAddress ={};
 	var sellerAddress ={};
 	var lenderAddress ={};
@@ -397,11 +398,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		$scope.index = val;
 	}
 
-	$scope.CDInformationTab = [];
-    $scope.cdinfotabs = [
-    	{"heading":"Closing Information","cdInfotemplate":"templates/cdforms/cdClosingInformation.html"},
-    	{"heading":"Transaction Information","cdInfotemplate":"templates/cdforms/cdTransactionInformation.html"},
-    	{"heading":"Loan Information","cdInfotemplate":"templates/cdforms/cdLoanInformation.html"}
-    	];
+	
 
 });

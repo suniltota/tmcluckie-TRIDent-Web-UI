@@ -14,22 +14,30 @@
   	<span class="pageno" style="font-size:14px;"  data-toggle="tooltip" data-placement="right" title="Closing Disclosure">
   		<span class="pull-left" >CD</span>
   	</span>
-  	<span class="pageno active pageicon" data-scroll="Page1" data-toggle="tooltip" data-placement="right" title="Page1">
+  	<span class="pageno active pageicon"  data-toggle="tooltip" ng-click="showTab = 'closingInfo'" data-placement="right" title="Closing Information">
   		<span class="glyphicon glyphicon-file pull-left"></span> 
   		<span class="pull-left noTitle">1</span>
   	</span>
-  	<span class="pageno pageicon" data-toggle="tooltip" data-scroll="Page2" data-placement="right" title="Page2">
+  	<span class="pageno pageicon" data-toggle="tooltip" ng-click="showTab = 'transInfo'"  data-placement="right" title="Transaction Information">
   		<span class="glyphicon glyphicon-file pull-left"></span> 
   		<span class="pull-left noTitle">2</span>
   	</span>
-  	
+    <span class="pageno pageicon" data-toggle="tooltip" ng-click="showTab = 'loanInfo'"  data-placement="right" title="Loan Information">
+      <span class="glyphicon glyphicon-file pull-left"></span> 
+      <span class="pull-left noTitle">3</span>
+    </span>
   </div>
   <div class="col-lg-12 PageformHeader padding0" pdf-width>
     <div class="panel panel-default">
 			<div class="panel-body" dynamic-height id="PDFviewContainer" style="overflow: auto;">
+
         <div class="PDFview" data-anchor="Page1" dynamic-height-min >
         	<span>
-            <div ng-include='"templates/cdforms/cdInfomationSection.html"'></div>
+          <div class="CDHeaderSection col-lg-12">
+            <div ng-show="showTab == 'closingInfo'" ng-include='"templates/cdforms/cdClosingInformation.html"'></div>
+            <div ng-show="showTab == 'transInfo'" ng-include='"templates/cdforms/cdTransactionInformation.html"'></div>
+            <div ng-show="showTab == 'loanInfo'" ng-include='"templates/cdforms/cdLoanInformation.html"'></div>
+            </div>
        	 	</span>
         </div>
         
@@ -483,44 +491,3 @@
 	    $(".pageno").tooltip();   
 	});
   </script>
-
-  <script type="text/javascript">
-  $('#SidebarBtns .pageicon').on('click', function() {
-      var scrollAnchor = $(this).attr('data-scroll'),
-          scrollPoint = $('.PDFview[data-anchor="' + scrollAnchor + '"]').offset().top - 80;
-   
-      $('#PDFviewContainer').animate({
-          scrollTop: scrollPoint
-      }, 500);
-      return false;
-  });
-  $('#mySidenav .pagenumber').on('click', function() {
-      var scrollAnchor = $(this).attr('data-scroll'),
-          scrollPoint = $('.PDFview[data-anchor="' + scrollAnchor + '"]').offset().top - 80;
-   
-      $('#PDFviewContainer').animate({
-          scrollTop: scrollPoint
-      }, 500);
-      return false;
-  });
-  $("#PDFviewContainer").scroll(function() {
-      var windscroll = $("#PDFviewContainer").scrollTop();
-      if (windscroll >= 100) {
-          $('#PDFviewContainer .PDFview').each(function(i) {
-              if ($(this).position().top <= windscroll - 600) {
-
-                  $('#SidebarBtns .pageicon.active').removeClass('active');
-                  $('#SidebarBtns .pageicon').eq(i).addClass('active');
-                  $('#mySidenav .pagenumber.active').removeClass('active');
-                  $('#mySidenav .pagenumber').eq(i).addClass('active');
-              }
-          });
-      } else {
-
-          $('#SidebarBtns .pageicon.active').removeClass('active');
-          $('#SidebarBtns .pageicon:first').addClass('active');
-          $('#mySidenav .pagenumber.active').removeClass('active');
-          $('#mySidenav .pagenumber:first').addClass('active');
-      }
-  }).scroll();
-</script>

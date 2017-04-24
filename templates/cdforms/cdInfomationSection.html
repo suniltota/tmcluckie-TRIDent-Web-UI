@@ -1,9 +1,0 @@
-<div class="CDHeaderSection col-lg-12">
-
-<uib-tabset>
-    <uib-tab index="{{$index}}" active="CDInformationTab[$index]" ng-click="updateCDInformationTab($index)"  heading="{{cdinfotab.heading}}" ng-repeat="cdinfotab in cdinfotabs track by $index">
-    	<div ng-include='cdinfotab.cdInfotemplate'></div>
-	</uib-tab>
-</uib-tabset>
-	
-</div>
