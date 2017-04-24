@@ -123,6 +123,7 @@ ul li{list-style: none;}
     display: block;
     transition: 0.3s;
     border-bottom:1px solid #666;
+    cursor: pointer;
 }
 
 .sidenav .pagenumber:hover, .offcanvas .pagenumber:focus{
@@ -156,3 +157,4 @@ ul li{list-style: none;}
 
 .AddSection{width: 100%; float: left; margin: 10px 0; cursor: pointer;}
 .required{color:red;}
+.tableInsideHeader{background:#f7f7f7; padding: 5px 10px; color:#337ab7; }
