@@ -17,9 +17,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.options = [{ name: "Yes", id: true }, { name: "No", id: false }];
 	$scope.cdformdata = staticData.cdformdata;
     $scope.formType= $routeParams.formType != undefined ? $routeParams.formType : 'Standard';
+    $scope.purposeType = $routeParams.purposeType != undefined ? $routeParams.purposeType : 'purchase';
 	var borrowerAddress ={};
 	var sellerAddress ={};
-	var lenderAddress ={};
 	$scope.dateOptions = {
 		formatYear: 'yy',
 		startingDay: 1
@@ -61,9 +61,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isLender = true;
 		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isSeller = true;
         $scope.chooseone = "streetAddress";
+        $scope.borrowertype = "I";
+        $scope.sellertype = "I";
         $scope.cdformdata.closingDisclosurePageOne.closingInformation.property.isLegalDescription = $scope._NO;
 
 
+		borrowerAddress  = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails[0]);
+		sellerAddress  = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails[0]);
     /*
 		$scope.cdformdata = staticData.cdformdata;
 
@@ -139,12 +143,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 
     var updateAddressDetails = function() {
-    	if($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrower!=null && $scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrower.length>0){
+    	if($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails!=null && $scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails.length>0){
 			var borrower ={};
-			angular.forEach($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrower, function(b, index){
+			angular.forEach($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails, function(b, index){
 				if(b.address.stateCode != null)
 					b.state = getStateByStateCode(b.address.stateCode);
-				if(borrower[b.borrowerDetails.firstName.trim()] == undefined){
+				if(borrower[b.address.firstName.trim()] == undefined){
 					if(index !=0 ){
 						$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDisplayName += " & ";
 					}else{
@@ -239,7 +243,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 					$scope.cdformdata.closingDisclosurePageOne.closingInformation.isPurchaseTransaction = $scope._NO;
 
 				updateAddressDetails();
-				
+				$scope.borrowertype = $scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails[0].type;
+				$scope.sellertype = $scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails[0].type;
 				/*angular.forEach($scope.products, function(p){
 					if($scope.cdformdata.closingDisclosurePageOne.loanInformation.product == p["CFPB-compliant_name"])
 						$scope.cdformdata.closingDisclosurePageOne.loanInformation.productL = p;	
@@ -317,22 +322,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	});
     }
     $scope.addBorrower = function(){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrower.push(angular.copy(borrowerAddress));
+    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails.push(angular.copy(borrowerAddress));
     }
     $scope.removeBorrower = function(index){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrower.splice(index,1);
+    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails.splice(index,1);
     }
     $scope.addSeller = function(){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.seller.push(angular.copy(sellerAddress));
+    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails.push(angular.copy(sellerAddress));
     }
     $scope.removeSeller = function(index){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.seller.splice(index,1);
+    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails.splice(index,1);
     }
     $scope.addLender = function(){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.lender.push(angular.copy(lenderAddress));
+    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.lenderFullName.push(angular.copy(lenderAddress));
     }
     $scope.removeLender = function(index){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.lender.splice(index,1);
+    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.lenderFullName.splice(index,1);
     }
     $scope.updateValue = function(){
     	console.log($scope.cdformdata.closingDisclosurePageOne.loanInformation.mortgageType);
@@ -353,29 +358,29 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     		$("#otherdescription").attr("disabled","disabled");
     	}
     }
-    $scope.borrowers = [];
+    /*$scope.borrowers = [];
     $scope.property = {};
     $scope.sellers = [];
     $scope.lenders = [];
 
     $scope.loadBorrowerData = function(isUpdate){
     	if(isUpdate){
-    		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrower = $scope.borrowers;
+    		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails = $scope.borrowers;
     		updateAddressDetails();
     	}
     	else{
-    		$scope.borrowers = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrower);
+    		$scope.borrowers = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails);
     	}
     }
     $scope.loadSellerData = function(isUpdate){
     	if(isUpdate){
-    		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.seller = $scope.sellers;
+    		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails = $scope.sellers;
     		updateAddressDetails();
     	}
     	else{
-    		$scope.sellers = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.seller);
+    		$scope.sellers = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails);
     	}
-    }
+    }*/
     $scope.loadPropertyData = function(isUpdate){
     	if(isUpdate){
     		$scope.cdformdata.closingDisclosurePageOne.closingInformation.property = $scope.property;

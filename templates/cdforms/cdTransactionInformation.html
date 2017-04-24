@@ -1,13 +1,14 @@
 <div class="col-sm-12">
 	<h4>Transaction Information</h4>
-	<div class="col-sm-12 padding0">
-		<h5 class="innerSectionHeader">Borrower Information</h5>
+  <div class="">
+	<div class="col-sm-12 padding0" ng-repeat= "borrower in cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails track by $index">
+		<h5 class="innerSectionHeader">Borrower Information <span><div class="col-sm-12 glyphicon-minus RemoveSection" ng-click="removeBorrower($index)" ng-show="$index != 0"><a> Remove Borrower</a></div></span></h5>
 		 <div class="col-sm-6">
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Borrower Classification</div>
-            <div class="col-sm-7 radioGroup">
-              <input type="radio"  value="I" disabled> <label>Individual</label>
-              <input type="radio" value="O" disabled> <label>Organization </label>
+            <div class="col-sm-7 radioGroup" ng-init="borrowertype == 'I'">
+              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrowertype" value="I"> <label>Individual</label>
+              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrowertype" value="O" > <label>Organization </label>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
@@ -16,23 +17,30 @@
                 <select placeholder="Organization Name"  class="form-control"><option>Borrower</option></select>
             </div>
           </div>
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower First Name</div>
-            <div class="col-sm-7"><input type="text" placeholder="First Name"  class="form-control"></div>
+          <div ng-show="borrowertype == 'I'">
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Borrower First Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="First Name"  class="form-control"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Borrower Middle Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="Middle Name"  class="form-control"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Borrower Last Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="Last Name"  class="form-control"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Borrower Suffix</div>
+              <div class="col-sm-7"><input type="text" class="form-control"></div>
+            </div>   
+          </div>     
+          <div ng-show="borrowertype == 'O'">
+              <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Borrower Name</div>
+              <div class="col-sm-7"><input type="text" class="form-control" placeholder="Borrower Name"></div>
+            </div>  
           </div>
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower Middle Name</div>
-            <div class="col-sm-7"><input type="text" placeholder="Middle Name"  class="form-control"></div>
-          </div>
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower Last Name</div>
-            <div class="col-sm-7"><input type="text" placeholder="Last Name"  class="form-control"></div>
-          </div>
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower Suffix</div>
-            <div class="col-sm-7"><input type="text" class="form-control"></div>
-          </div>        
-          
         </div>
         <div class="col-sm-6">
         	<div class="row col-sm-12 margin5tb">
@@ -56,27 +64,93 @@
             <div class="col-sm-7"> <select class="form-control"><option>US</option></select></div>
           </div>
         </div>
-        <div class="AddSection col-sm-12"><a>+ Add Additional Borrowers</a></div>
 	</div>
-	<div class="col-sm-6">
-		<h5 class="innerSectionHeader">Borrower Information</h5>
-		<div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower Classification</div>
-            <div class="col-sm-7 radioGroup">
-              <input type="radio"  value="I" disabled> <label>Individual</label>
-              <input type="radio" value="O" disabled> <label>Organization </label>
+   <div class="AddSection col-sm-12" ng-click="addBorrower()"><a>+ Add Additional Borrowers</a></div>
+   </div>
+   <div class="sellinfo">
+  <div class="col-sm-12 padding0"  ng-repeat= "seller in cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails track by $index">
+    <h5 class="innerSectionHeader">Seller Information  <div class="col-sm-12 glyphicon-minus RemoveSection" ng-click="removeSeller($index)" ng-show="$index != 0"><a> Remove Seller</a></div></h5>
+    
+     <div class="col-sm-6">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Seller Classification</div>
+            <div class="col-sm-7 radioGroup" ng-init="sellertype == 'I'">
+              <input type="radio" name="sellertype_{{$index}}" ng-model="sellertype" value="I"> <label>Individual</label>
+              <input type="radio" name="sellertype_{{$index}}" ng-model="sellertype"  value="O" > <label>Organization </label>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower Type</div>
+            <div class="col-sm-5 fieldTitle">Seller Type</div>
             <div class="col-sm-7">
-                <select placeholder="Organization Name"  class="form-control"><option>Borrower</option></select>
+                <select placeholder="Organization Name"  class="form-control"><option>Seller</option></select>
             </div>
           </div>
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower Name</div>
-            <div class="col-sm-7"><input type="text" placeholder="First Name"  class="form-control"></div>
+          <div ng-show="sellertype == 'I'"> 
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Seller First Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="First Name"  class="form-control"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Seller Middle Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="Middle Name"  class="form-control"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Seller Last Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="Last Name"  class="form-control"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Seller Suffix</div>
+              <div class="col-sm-7"><input type="text" class="form-control"></div>
+            </div>        
           </div>
-	</div>
+          <div class="col-sm-6" ng-show="sellertype == 'O'" > 
+             <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Seller Name</div>
+              <div class="col-sm-7"><input type="text" class="form-control" placeholder="Seller Name"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Street Address</div>
+            <div class="col-sm-7"><input type="text"  class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">City (Mailing)</div>
+            <div class="col-sm-7"><input type="text"  class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">State (Mailing)</div>
+            <div class="col-sm-7"><input type="text"  class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Postal Code (Mailing)</div>
+            <div class="col-sm-7"><input type="text"  class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Country Code (Mailing)</div>
+            <div class="col-sm-7"> <select class="form-control"><option>US</option></select></div>
+          </div>
+        </div>
+       
+        </div>
+   <div class="AddSection col-sm-12" ng-click="addSeller()"><a>+ Add Additional Sellers</a></div>
 
+  </div>
+</div>
+<div class="col-sm-12 padding0">
+    <h5 class="innerSectionHeader">Lender Information</h5>
+     <div class="col-sm-6">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Lender Name</div>
+            <div class="col-sm-7"><input type="text" placeholder="Lender Name"  class="form-control"></div>
+          </div>
+           <div class="row col-sm-12 margin5tb" ng-show="purposeType == 'refinance'">
+            <div class="col-sm-5 fieldTitle">Refinance Same lender?</div>
+            <div class="col-sm-7">
+                <select placeholder="Organization Name"  class="form-control"><option>Yes</option><option>No</option></select>
+            </div>
+          </div>
+        </div>
+</div>
 </div>
