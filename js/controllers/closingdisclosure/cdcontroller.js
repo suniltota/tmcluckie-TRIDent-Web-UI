@@ -16,7 +16,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.showTab = 'closingInfo';
 	$scope.options = [{ name: "Yes", id: true }, { name: "No", id: false }];
 	$scope.cdformdata = staticData.cdformdata;
-
+    $scope.formType= $routeParams.formType != undefined ? $routeParams.formType : 'Standard';
 	var borrowerAddress ={};
 	var sellerAddress ={};
 	var lenderAddress ={};
