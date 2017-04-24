@@ -154,4 +154,4 @@ ul li{list-style: none;}
 .margin2btb{margin-bottom: 2px;}
 .form-control{height:30px;padding:6px 6px;}
 
-.AddSection{width: 100%; float: left; margin: 10px 0;}
+.AddSection{width: 100%; float: left; margin: 10px 0; cursor: pointer;}

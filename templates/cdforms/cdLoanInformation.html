@@ -1,7 +1,8 @@
 <div class="col-sm-12">
 	<h4>Loan Information</h4>
+	<h5 class="innerSectionHeader">Loan Period, Type and Position</h5>
 	<div class="col-sm-4">
-		<h5 class="innerSectionHeader">Loan Period, Type and Position</h5>
+		
 		<div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Loan Term</div>
             <div class="col-sm-7">
@@ -30,70 +31,90 @@
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">AUS Identifier</div>
             <div class="col-sm-7">
-              	<select  class="form-control"><option>Desktop Underwriter</option></select>
+              	<input type="text" class="form-control" name="">
             </div>
           </div>
-
-
-
-
-		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Purpose</div>
-			<div class="col-sm-7">
-				<input type="text"  name="purpose" ng-model="transformData.pageOne.loanInformation.purpose" class="form-control" disabled>
+        </div>
+        <div class="col-sm-4">
+	    	<div class="row col-sm-12 margin5tb">
+	            <div class="col-sm-6 padding0">
+	            	<div class="col-sm-6 padding0 fieldTitle">No. Years</div>
+	            	<div class="col-sm-6 padding0"><input type="text" class="form-control" name=""></div>
+	            </div>
+	            <div class="col-sm-6 padding0">
+	            	<div class="col-sm-6 padding0 fieldTitle">No. Months</div>
+	            	<div class="col-sm-6 padding0"><input type="text" class="form-control" name=""></div>
+	            </div>
+	        </div>
+			<div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">Other Description</div>
+				<div class="col-sm-7">
+					<input type="text" class="form-control" >
+				</div>
 			</div>
-		</div>
-		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Product 
-					<span class="glyphicon glyphicon-star-empty" data-backdrop="static" data-toggle="modal" data-target="#ProductLoanInfo" style="font-size:17px; color:#5bb1dc; cursor: pointer; "></span></div>
-			<div class="col-sm-7">
-				<input type="text"  name="product" ng-model="transformData.pageOne.loanInformation.product" class="form-control">
-				<!--<select ng-model="transformData.pageOne.loanInformation.productL" id="product" name="product" class="form-control" ng-options="option.Product_Description for option in products track by option.Product_Description">
-					<option value="">Select product</option>
-				</select>-->
+			<div class="row col-sm-12 margin5tb">
+	            <div class="col-sm-6 padding0">
+	            	<div class="col-sm-4 padding0 fieldTitle">MIC#</div>
+	            	<div class="col-sm-8"><input type="text" class="form-control" name=""></div>
+	            </div>
+	            <div class="col-sm-6 padding0">
+	            	<div class="col-sm-12 padding0">
+		            	<div class="col-sm-6 padding0 fieldTitle">MERS MIN ID:</div>
+		            	<div class="col-sm-6 padding0"><input type="text" class="form-control" name=""></div>
+	            	</div>
+	            	<div class="col-sm-12 padding0">
+		            	<div class="col-sm-6 padding0 fieldTitle">Appraisal ID:</div>
+		            	<div class="col-sm-6 padding0"><input type="text" class="form-control" name=""></div>
+	            	</div>
+	            </div>
+	        </div>
+	        <div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">AUS Type</div>
+				<div class="col-sm-7">
+					<select  class="form-control"><option>Loan Prospector</option></select>
+				</div>
 			</div>
-		</div>
-		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Loan Type</div>
-			<div class="col-sm-7">
-				<span class="checkboxGroup">
-					<input type="checkbox" value="Conventional" ng-checked="transformData.pageOne.loanInformation.loanType == 'Conventional' ? true : false" ng-model="transformData.pageOne.loanInformation.loanType_c">
-					<label>Conventional</label>
-				</span>
-				<span class="checkboxGroup">
-					<input type="checkbox" value="FHA" ng-checked="transformData.pageOne.loanInformation.loanType == 'FHA'" ng-model="transformData.pageOne.loanInformation.loanType_f">
-					<label>FHA</label>
-				</span><br><br>
-				<span class="checkboxGroup">
-					<input type="checkbox" value="VA" ng-checked="transformData.pageOne.loanInformation.loanType == 'VA'" ng-model="transformData.pageOne.loanInformation.loanType_v">
-					<label>VA</label>
-				</span>
-				<span class="checkboxGroup">
-					<input type="checkbox"  value="Other" ng-checked="transformData.pageOne.loanInformation.loanType == 'Other'" ng-model="transformData.pageOne.loanInformation.loanType_o" onchange="angular.element(this).scope().otherchange(this)">
-					<label>Other</label>
-				</span>
+			<div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">AUS Identifier</div>
+				<div class="col-sm-7">
+					<input type="text" class="form-control" name="">
+				</div>
+			</div>
 
-			</div>
 		</div>
-		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Lien Position</div>
-			<div class="col-sm-7">
-				<select class="form-control" id="otherdescription" ng-model="transformData.pageOne.loanInformation.Other" disabled="disabled"><option>First Position Lien</option></select>
+		<div class="col-sm-4">
+			<div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">Purpose</div>
+				<div class="col-sm-7">
+					<input type="text" class="form-control" name="" value="Purchase" disabled>
+				</div>
 			</div>
-		</div>
-		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Loan ID #</div>
-			<div class="col-sm-7">
-				<input type="text" ng-model="transformData.pageOne.loanInformation.loanId" class="form-control">
-				<div class="margin5tb">
-					<a href="#">+ Add Additional AUS System and Identifiers</a>
+			 <div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">Lien Position</div>
+				<div class="col-sm-7">
+					<select  class="form-control"><option>First</option></select>
+				</div>
+			</div>
+			 <div class="FieldGroup">
+				<div class="col-sm-7 fieldTitle">Manual Underwriting Flag</div>
+				<div class="col-sm-5">
+					<select  class="form-control"><option>No</option></select>
+				</div>
+			</div>
+			<div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">AUS Type</div>
+				<div class="col-sm-7">
+					<select  class="form-control"><option></option></select>
+				</div>
+			</div>
+			<div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">AUS Identifier</div>
+				<div class="col-sm-7">
+					<input type="text" class="form-control" name="">
 				</div>
 			</div>
 		</div>
-		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">MIC #</div>
-			<div class="col-sm-7"><input type="text" ng-model="transformData.pageOne.loanInformation.mic" class="form-control"></div>
-		</div>
-		
-	</div>
+		<div class="AddSection col-sm-12"><a>+ Add Additional Automated Underwriting System Names and Identifiers</a></div>
+
+
 </div>
