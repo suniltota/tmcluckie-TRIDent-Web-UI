@@ -18,11 +18,11 @@
   		<span class="glyphicon glyphicon-file pull-left"></span> 
   		<span class="pull-left noTitle">1</span>
   	</span>
-  	<span class="pageno pageicon" data-toggle="tooltip" ng-click="showTab = 'transInfo'"  data-placement="right" title="Transaction Information">
+  	<span class="pageno pageicon" ng-class="{active:isActive(transInfo)}" data-toggle="tooltip" ng-click="showTab = 'transInfo'"  data-placement="right" title="Transaction Information">
   		<span class="glyphicon glyphicon-file pull-left"></span> 
   		<span class="pull-left noTitle">2</span>
   	</span>
-    <span class="pageno pageicon" data-toggle="tooltip" ng-click="showTab = 'loanInfo'"  data-placement="right" title="Loan Information">
+    <span class="pageno pageicon" ng-class="{'active': active === true}" data-toggle="tooltip" ng-click="showTab = 'loanInfo'"  data-placement="right" title="Loan Information">
       <span class="glyphicon glyphicon-file pull-left"></span> 
       <span class="pull-left noTitle">3</span>
     </span>
