@@ -16,7 +16,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.showTab = 'closingInfo';
 	$scope.options = [{ name: "Yes", id: true }, { name: "No", id: false }];
 	$scope.cdformdata = staticData.cdformdata;
-    $scope.formType= $routeParams.formType != undefined ? $routeParams.formType : 'Standard';
+    $scope.formType= $routeParams.formType != undefined ? $routeParams.formType : 'standard';
     $scope.purposeType = $routeParams.purposeType != undefined ? $routeParams.purposeType : 'purchase';
 	var borrowerAddress ={};
 	var sellerAddress ={};
@@ -39,7 +39,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.compareDate = $scope.mydate.setDate($scope.mydate.getDate() + 5);
     $scope.cd = $scope.closingDate;
     if( $scope.compareDate >=  $scope.cd){
-    	$scope.cdformdata.closingDisclosurePageOne.closingInformation.closingDate = $scope.cd.setDate($scope.cd.getDate() + 5);
+    	$scope.cdformdata.closingInformation.closingDate = $scope.cd.setDate($scope.cd.getDate() + 5);
     }
 	
     }
@@ -48,77 +48,77 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
         $scope.cdformdata = staticData.cdformdata;
 
-		angular.forEach($scope.cdformdata.closingDisclosurePageOne.transactionInformation.lenderFullName, function(l){
+		angular.forEach($scope.cdformdata.transactionInformation.lenderFullName, function(l){
 			l.type="O";
 		});
-		$scope.cdformdata.closingDisclosurePageOne.costsAtClosing.ClosingCosts.amount = 0;
-		$scope.cdformdata.closingDisclosurePageOne.costsAtClosing.CashToClose.amount = 0;
-		$scope.cdformdata.closingDisclosurePageOne.costsAtClosing.ClosingCosts.totalLoanCosts = 0;
-		$scope.cdformdata.closingDisclosurePageOne.costsAtClosing.ClosingCosts.totalOtherCosts = 0;
-		$scope.cdformdata.closingDisclosurePageOne.costsAtClosing.ClosingCosts.lenderCredits = 0;
-		$scope.cdformdata.closingDisclosurePageOne.closingInformation.dateIssued = new Date();
-		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isBorrower = true;
-		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isLender = true;
-		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isSeller = true;
+		$scope.cdformdata.costsAtClosing.ClosingCosts.amount = 0;
+		$scope.cdformdata.costsAtClosing.CashToClose.amount = 0;
+		$scope.cdformdata.costsAtClosing.ClosingCosts.totalLoanCosts = 0;
+		$scope.cdformdata.costsAtClosing.ClosingCosts.totalOtherCosts = 0;
+		$scope.cdformdata.costsAtClosing.ClosingCosts.lenderCredits = 0;
+		$scope.cdformdata.closingInformation.dateIssued = new Date();
+		$scope.cdformdata.transactionInformation.isBorrower = true;
+		$scope.cdformdata.transactionInformation.isLender = true;
+		$scope.cdformdata.transactionInformation.isSeller = true;
         $scope.chooseone = "streetAddress";
         $scope.borrowertype = "I";
         $scope.sellertype = "I";
-        $scope.cdformdata.closingDisclosurePageOne.closingInformation.property.isLegalDescription = $scope._NO;
+        $scope.cdformdata.closingInformation.property.isLegalDescription = $scope._NO;
 
 
-		borrowerAddress  = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails[0]);
-		sellerAddress  = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails[0]);
+		borrowerAddress  = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
+		sellerAddress  = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
     /*
 		$scope.cdformdata = staticData.cdformdata;
 
-		angular.forEach($scope.cdformdata.closingDisclosurePageOne.transactionInformation.lenderFullName, function(l){
+		angular.forEach($scope.cdformdata.transactionInformation.lenderFullName, function(l){
 			l.type="O";
 		});
-		$scope.cdformdata.closingDisclosurePageOne.costsAtClosing.ClosingCosts.amount = 0;
-		$scope.cdformdata.closingDisclosurePageOne.costsAtClosing.CashToClose.amount = 0;
-		$scope.cdformdata.closingDisclosurePageOne.costsAtClosing.ClosingCosts.totalLoanCosts = 0;
-		$scope.cdformdata.closingDisclosurePageOne.costsAtClosing.ClosingCosts.totalOtherCosts = 0;
-		$scope.cdformdata.closingDisclosurePageOne.costsAtClosing.ClosingCosts.lenderCredits = 0;
-		$scope.cdformdata.closingDisclosurePageOne.closingInformation.dateIssued = new Date();
-		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isBorrower = true;
-		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isLender = true;
-		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isSeller = true;
+		$scope.cdformdata.costsAtClosing.ClosingCosts.amount = 0;
+		$scope.cdformdata.costsAtClosing.CashToClose.amount = 0;
+		$scope.cdformdata.costsAtClosing.ClosingCosts.totalLoanCosts = 0;
+		$scope.cdformdata.costsAtClosing.ClosingCosts.totalOtherCosts = 0;
+		$scope.cdformdata.costsAtClosing.ClosingCosts.lenderCredits = 0;
+		$scope.cdformdata.closingInformation.dateIssued = new Date();
+		$scope.cdformdata.transactionInformation.isBorrower = true;
+		$scope.cdformdata.transactionInformation.isLender = true;
+		$scope.cdformdata.transactionInformation.isSeller = true;
 
 		$scope.cdformdata = staticData.cdformdata;
-		$scope.cdformdata.closingDisclosurePageOne.closingInformation.property.isStreeAddress = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.closingInformation.property.isLegalDescription = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.closingInformation.isPurchaseTransaction = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.closingInformation.salesContractDetail = {"personalPropertyIndicator" :$scope._NO}
-		$scope.cdformdata.closingDisclosurePageOne.closingInformation.propertyValuationDetail = {"propertyValuationDetailIndicator":$scope._YES}
-		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.propertyValuationDetail;
+		$scope.cdformdata.closingInformation.property.isStreeAddress = $scope._YES;
+		$scope.cdformdata.closingInformation.property.isLegalDescription = $scope._YES;
+		$scope.cdformdata.closingInformation.isPurchaseTransaction = $scope._YES;
+		$scope.cdformdata.closingInformation.salesContractDetail = {"personalPropertyIndicator" :$scope._NO}
+		$scope.cdformdata.closingInformation.propertyValuationDetail = {"propertyValuationDetailIndicator":$scope._YES}
+		$scope.cdformdata.transactionInformation.propertyValuationDetail;
 		//For added dynamic element from UI
-		borrowerAddress  = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails[0]);
-		sellerAddress  = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails[0]);
-		lenderAddress = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.lenderFullName[0]);
+		borrowerAddress  = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
+		sellerAddress  = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
+		lenderAddress = angular.copy($scope.cdformdata.transactionInformation.lenderFullName[0]);
 
-		$scope.cdformdata.closingDisclosurePageOne.loanInformation.purpose = localStorage["purpose"];
-		$scope.cdformdata.closingDisclosurePageOne.loanInformation.purposeType = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.loanInformation.integratedDisclosureHomeEquityLoanIndicator =$scope.NO;
-		$scope.cdformdata.closingDisclosurePageOne.loanInformation.miRequiredIndicator = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.loanTerms.loanAmountIncreaseIndicator = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.loanTerms.negativeAmoritzationIndicator = $scope.cdformdata.closingDisclosurePageOne.loanTerms.loanAmountIncreaseIndicator;
-		$scope.cdformdata.closingDisclosurePageOne.loanTerms.interestRate.buydownTemporarySubsidyFundingIndicator = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.loanTerms.interestRate.interestRateIncreaseIndicator = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.loanTerms.principalInterest.interestOnlyIndicator = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.loanTerms.principalInterest.paymentIncreaseIndicator = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator = $scope._YES;
-		$scope.cdformdata.closingDisclosurePageOne.loanTerms.balloonPayment.balloonIndicator = $scope._YES;
-		if($scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsOtherCosts.iEPatClosingList == undefined)
-			$scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsOtherCosts.iEPatClosingList =[];
+		$scope.cdformdata.loanInformation.purpose = localStorage["purpose"];
+		$scope.cdformdata.loanInformation.purposeType = $scope._YES;
+		$scope.cdformdata.loanInformation.integratedDisclosureHomeEquityLoanIndicator =$scope.NO;
+		$scope.cdformdata.loanInformation.miRequiredIndicator = $scope._YES;
+		$scope.cdformdata.loanTerms.loanAmountIncreaseIndicator = $scope._YES;
+		$scope.cdformdata.loanTerms.negativeAmoritzationIndicator = $scope.cdformdata.loanTerms.loanAmountIncreaseIndicator;
+		$scope.cdformdata.loanTerms.interestRate.buydownTemporarySubsidyFundingIndicator = $scope._YES;
+		$scope.cdformdata.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator = $scope._YES;
+		$scope.cdformdata.loanTerms.interestRate.interestRateIncreaseIndicator = $scope._YES;
+		$scope.cdformdata.loanTerms.principalInterest.interestOnlyIndicator = $scope._YES;
+		$scope.cdformdata.loanTerms.principalInterest.paymentIncreaseIndicator = $scope._YES;
+		$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator = $scope._YES;
+		$scope.cdformdata.loanTerms.balloonPayment.balloonIndicator = $scope._YES;
+		if($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList == undefined)
+			$scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList =[];
 		for(i=0;i<14;i++){
-			if($scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i] ==undefined) {
-				$scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i]={"displayLabel":""};
+			if($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i] ==undefined) {
+				$scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i]={"displayLabel":""};
 				if(i==13)
-					$scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel ="Aggregate Adjustment";
+					$scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].displayLabel ="Aggregate Adjustment";
 			}
 		}
-		$scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsOtherCosts.tOGovtFeesList=[{"feeType":"Recording Fees"}];
+		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList=[{"feeType":"Recording Fees"}];
 	*/}
 	refreshData();
     $scope.openUCDXMLFile = function(){
@@ -131,7 +131,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	return $sce.trustAsHtml(html_code);
     }
     $scope.updatePurpose = function(){
-    	console.log($scope.cdformdata.closingDisclosurePageOne.loanInformation.purpose);
+    	console.log($scope.cdformdata.loanInformation.purpose);
     }
     var getStateByStateCode = function(stateCode){
     	var state = {};
@@ -143,74 +143,73 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 
     var updateAddressDetails = function() {
-    	if($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails!=null && $scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails.length>0){
+    	if($scope.cdformdata.transactionInformation.borrowerDetails!=null && $scope.cdformdata.transactionInformation.borrowerDetails.length>0){
 			var borrower ={};
-			angular.forEach($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails, function(b, index){
+			angular.forEach($scope.cdformdata.transactionInformation.borrowerDetails, function(b, index){
 				if(b.address.stateCode != null)
 					b.state = getStateByStateCode(b.address.stateCode);
-				if(borrower[b.address.firstName.trim()] == undefined){
+				if(borrower[b.address.firstName] == undefined){
 					if(index !=0 ){
-						$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDisplayName += " & ";
+						$scope.cdformdata.transactionInformation.borrowerDisplayName += " & ";
 					}else{
-						$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDisplayName="";
-						$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerAddress = b.address
+						$scope.cdformdata.transactionInformation.borrowerDisplayName="";
+						$scope.cdformdata.transactionInformation.borrowerAddress = b.address
 					}
-					$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDisplayName += b.borrowerDetails.firstName
+					$scope.cdformdata.transactionInformation.borrowerDisplayName += b.nameModel.firstName
 					
-					borrower[b.borrowerDetails.firstName] = b.address;
+					borrower[b.nameModel.firstName] = b.address;
 				}
 			});
-			$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isBorrower = true;
+			$scope.cdformdata.transactionInformation.isBorrower = true;
 		}else{
-			$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isBorrower = false;
+			$scope.cdformdata.transactionInformation.isBorrower = false;
 		}
-		if($scope.cdformdata.closingDisclosurePageOne.transactionInformation.lender!=null && $scope.cdformdata.closingDisclosurePageOne.transactionInformation.lender.length>0){
+		if($scope.cdformdata.transactionInformation.lenderFullName!=null && $scope.cdformdata.transactionInformation.lenderFullName.length>0){
 			var lender ={};
-			angular.forEach($scope.cdformdata.closingDisclosurePageOne.transactionInformation.lender, function(l, index){
+			angular.forEach($scope.cdformdata.transactionInformation.lenderFullName, function(l, index){
 				if(l.address.stateCode != null)
 					l.state = getStateByStateCode(l.address.stateCode);
-				if(lender[l.lenderDetails.firstName.trim()] == undefined){
+				if(lender[l.nameModel.firstName] == undefined){
 					if(index !=0 ){
-						$scope.cdformdata.closingDisclosurePageOne.transactionInformation.lenderDisplayName += " & ";
+						$scope.cdformdata.transactionInformation.lenderDisplayName += " & ";
 					}else{
-						$scope.cdformdata.closingDisclosurePageOne.transactionInformation.lenderDisplayName="";
-						$scope.cdformdata.closingDisclosurePageOne.transactionInformation.lenderAddress = l.address
+						$scope.cdformdata.transactionInformation.lenderDisplayName="";
+						$scope.cdformdata.transactionInformation.lenderFullName.address = l.address
 					}
-					$scope.cdformdata.closingDisclosurePageOne.transactionInformation.lenderDisplayName += l.lenderDetails.firstName
+					$scope.cdformdata.transactionInformation.lenderDisplayName += l.nameModel.firstName
 					
-					lender[l.lenderDetails.firstName] = l.address;
+					lender[l.nameModel.firstName] = l.address;
 				}
 			});
-			$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isLender = true;
+			$scope.cdformdata.transactionInformation.isLender = true;
 		}else{
-			$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isLender = false;
+			$scope.cdformdata.transactionInformation.isLender = false;
 		}
-		if($scope.cdformdata.closingDisclosurePageOne.transactionInformation.seller!=null && $scope.cdformdata.closingDisclosurePageOne.transactionInformation.seller.length>0){
+		if($scope.cdformdata.transactionInformation.sellerDetails!=null && $scope.cdformdata.transactionInformation.sellerDetails.length>0){
 			var seller ={};
-			angular.forEach($scope.cdformdata.closingDisclosurePageOne.transactionInformation.seller, function(s, index){
+			angular.forEach($scope.cdformdata.transactionInformation.sellerDetails, function(s, index){
 				if(s.address.stateCode != null)
 					s.state = getStateByStateCode(s.address.stateCode);
-				if(seller[s.sellerDetails.firstName.trim()] == undefined){
+				if(seller[s.nameModel.firstName] == undefined){
 					if(index !=0 ){
-						$scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDisplayName += " & ";
 					}else{
-						$scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDisplayName = "";
-						$scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerAddress = s.address
+						$scope.cdformdata.transactionInformation.sellerDisplayName = "";
+						$scope.cdformdata.transactionInformation.sellerAddress = s.address
 					}
-					$scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDisplayName += s.sellerDetails.firstName
-					seller[s.sellerDetails.firstName] = s.address;
+					$scope.cdformdata.transactionInformation.sellerDisplayName += s.nameModel.firstName
+					seller[s.nameModel.firstName] = s.address;
 				}
 			});
-			$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isSeller = true;
+			$scope.cdformdata.transactionInformation.isSeller = true;
 		}else{
-			$scope.cdformdata.closingDisclosurePageOne.transactionInformation.isSeller = false;
+			$scope.cdformdata.transactionInformation.isSeller = false;
 		}
-		$scope.cdformdata.closingDisclosurePageOne.projectedPayments.miTerm = 51;
+		$scope.cdformdata.projectedPayments.miTerm = 51;
 		/*for(i=0;i<15;i++){
-			if($scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsOtherCosts.otherCostsList[i] ==undefined) {
-				$scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsOtherCosts.otherCostsList[i]={"displayLabel":""};
+			if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i] ==undefined) {
+				$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i]={"displayLabel":""};
 				if(i==14)
-					$scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel ="Aggregate Adjustment";
+					$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel ="Aggregate Adjustment";
 			}
 		}*/
     }
@@ -221,15 +220,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
 			$(data).each(function(){
 				$scope.cdformdata = data;
-				$scope.cdformdata.closingDisclosurePageOne.closingInformation.dateIssued = new Date();
+				$scope.cdformdata.closingInformation.dateIssued = new Date();
 				//SET YES or No Values here.
-				$scope.cdformdata.closingDisclosurePageOne.closingInformation.property.isStreeAddress = $scope._YES;
+				$scope.cdformdata.closingInformation.property.isStreeAddress = $scope._YES;
 
-				if($scope.cdformdata.closingDisclosurePageOne.closingInformation.property!=null){
-					if($scope.cdformdata.closingDisclosurePageOne.closingInformation.property.stateCode != null)
-						$scope.cdformdata.closingDisclosurePageOne.closingInformation.property.state = getStateByStateCode($scope.cdformdata.closingDisclosurePageOne.closingInformation.property.stateCode);
+				if($scope.cdformdata.closingInformation.property!=null){
+					if($scope.cdformdata.closingInformation.property.stateCode != null)
+						$scope.cdformdata.closingInformation.property.state = getStateByStateCode($scope.cdformdata.closingInformation.property.stateCode);
 
-					if($scope.cdformdata.closingDisclosurePageOne.closingInformation.property.unparsedLegalDescription == null){
+					if($scope.cdformdata.closingInformation.property.unparsedLegalDescription == null){
 						$scope.chooseone = "streetAddress";
 					}
 					else{
@@ -237,31 +236,31 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 					}
 
 				}
-				if($scope.cdformdata.closingDisclosurePageOne.loanInformation.purpose == 'Purchase')
-					$scope.cdformdata.closingDisclosurePageOne.closingInformation.isPurchaseTransaction = $scope._YES;
+				if($scope.cdformdata.loanInformation.purpose == 'Purchase')
+					$scope.cdformdata.closingInformation.isPurchaseTransaction = $scope._YES;
 				else
-					$scope.cdformdata.closingDisclosurePageOne.closingInformation.isPurchaseTransaction = $scope._NO;
+					$scope.cdformdata.closingInformation.isPurchaseTransaction = $scope._NO;
 
 				updateAddressDetails();
-				$scope.borrowertype = $scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails[0].type;
-				$scope.sellertype = $scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails[0].type;
+				$scope.borrowertype = $scope.cdformdata.transactionInformation.borrowerDetails[0].type;
+				$scope.sellertype = $scope.cdformdata.transactionInformation.sellerDetails[0].type;
 				/*angular.forEach($scope.products, function(p){
-					if($scope.cdformdata.closingDisclosurePageOne.loanInformation.product == p["CFPB-compliant_name"])
-						$scope.cdformdata.closingDisclosurePageOne.loanInformation.productL = p;	
+					if($scope.cdformdata.loanInformation.product == p["CFPB-compliant_name"])
+						$scope.cdformdata.loanInformation.productL = p;	
 				});*/
-				if($scope.cdformdata.closingDisclosurePageOne.loanInformation.constructionLoanType == undefined || $scope.cdformdata.closingDisclosurePageOne.loanInformation.constructionLoanType == "")
-					$scope.cdformdata.closingDisclosurePageOne.loanInformation.purposeType = $scope._NO;
-				if($scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsLoanCosts!=undefined && $scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsLoanCosts.originationCharges!=null && $scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsLoanCosts.originationCharges.length>0){
+				if($scope.cdformdata.loanInformation.constructionLoanType == undefined || $scope.cdformdata.loanInformation.constructionLoanType == "")
+					$scope.cdformdata.loanInformation.purposeType = $scope._NO;
+				if($scope.cdformdata.closingCostDetailsLoanCosts!=undefined && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges!=null && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length>0){
 
-					var orgCharge = angular.copy($scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsLoanCosts.originationCharges);
-					$scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsLoanCosts.originationCharges = [];
-					$scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsLoanCosts.originationCharges.push({});
+					var orgCharge = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges);
+					$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges = [];
+					$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.push({});
 
 					angular.forEach(orgCharge, function(orgCharg){
 						if(orgCharg.displayLabel!=null && orgCharg.displayLabel.indexOf("of Loan Amount (Points)") != -1){
-							$scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsLoanCosts.originationCharges[0]= orgCharg;
+							$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0]= orgCharg;
 						}else{
-							$scope.cdformdata.closingDisclosurePageTwo.closingCostDetailsLoanCosts.originationCharges.push(orgCharg);							
+							$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.push(orgCharg);							
 						}
 					});
 				}
@@ -306,9 +305,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
     $scope.saveFile = function(){
     	$("#spinner").show();
-    	$scope.cdformdata.closingDisclosurePageOne.closingInformation.dateIssued = $filter('date')($scope.cdformdata.closingDisclosurePageOne.closingInformation.dateIssued,requestDFormat);
-    	$scope.cdformdata.closingDisclosurePageOne.closingInformation.closingDate = $filter('date')($scope.cdformdata.closingDisclosurePageOne.closingInformation.closingDate,requestDFormat);
-    	$scope.cdformdata.closingDisclosurePageOne.closingInformation.disbursementDate = $filter('date')($scope.cdformdata.closingDisclosurePageOne.closingInformation.disbursementDate,requestDFormat);
+    	$scope.cdformdata.closingInformation.dateIssued = $filter('date')($scope.cdformdata.closingInformation.dateIssued,requestDFormat);
+    	$scope.cdformdata.closingInformation.closingDate = $filter('date')($scope.cdformdata.closingInformation.closingDate,requestDFormat);
+    	$scope.cdformdata.closingInformation.disbursementDate = $filter('date')($scope.cdformdata.closingInformation.disbursementDate,requestDFormat);
     	cdService.saveUCD($scope.transformData).success(function(data){
 			var a = document.createElement('a');
 			var xmlData = vkbeautify.xml(data)
@@ -322,25 +321,25 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	});
     }
     $scope.addBorrower = function(){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails.push(angular.copy(borrowerAddress));
+    	$scope.cdformdata.transactionInformation.borrowerDetails.push(angular.copy(borrowerAddress));
     }
     $scope.removeBorrower = function(index){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails.splice(index,1);
+    	$scope.cdformdata.transactionInformation.borrowerDetails.splice(index,1);
     }
     $scope.addSeller = function(){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails.push(angular.copy(sellerAddress));
+    	$scope.cdformdata.transactionInformation.sellerDetails.push(angular.copy(sellerAddress));
     }
     $scope.removeSeller = function(index){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails.splice(index,1);
+    	$scope.cdformdata.transactionInformation.sellerDetails.splice(index,1);
     }
     $scope.addLender = function(){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.lenderFullName.push(angular.copy(lenderAddress));
+    	$scope.cdformdata.transactionInformation.lenderFullName.push(angular.copy(lenderAddress));
     }
     $scope.removeLender = function(index){
-    	$scope.cdformdata.closingDisclosurePageOne.transactionInformation.lenderFullName.splice(index,1);
+    	$scope.cdformdata.transactionInformation.lenderFullName.splice(index,1);
     }
     $scope.updateValue = function(){
-    	console.log($scope.cdformdata.closingDisclosurePageOne.loanInformation.mortgageType);
+    	console.log($scope.cdformdata.loanInformation.mortgageType);
     }
     $scope.updateStateValue = function(address){
     	address.stateCode = address.state.STATE_CODE;
@@ -350,8 +349,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	refreshData();
     }
     $scope.otherchange = function(event){
-    	//alert($scope.cdformdata.closingDisclosurePageOne.loanInformation.loanType_o);
-    	if($scope.cdformdata.closingDisclosurePageOne.loanInformation.loanType_o == true){
+    	//alert($scope.cdformdata.loanInformation.loanType_o);
+    	if($scope.cdformdata.loanInformation.loanType_o == true){
     		$("#otherdescription").removeAttr("disabled");
     	}
     	else{
@@ -365,38 +364,38 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
     $scope.loadBorrowerData = function(isUpdate){
     	if(isUpdate){
-    		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails = $scope.borrowers;
+    		$scope.cdformdata.transactionInformation.borrowerDetails = $scope.borrowers;
     		updateAddressDetails();
     	}
     	else{
-    		$scope.borrowers = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.borrowerDetails);
+    		$scope.borrowers = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails);
     	}
     }
     $scope.loadSellerData = function(isUpdate){
     	if(isUpdate){
-    		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails = $scope.sellers;
+    		$scope.cdformdata.transactionInformation.sellerDetails = $scope.sellers;
     		updateAddressDetails();
     	}
     	else{
-    		$scope.sellers = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.sellerDetails);
+    		$scope.sellers = angular.copy($scope.cdformdata.transactionInformation.sellerDetails);
     	}
     }*/
     $scope.loadPropertyData = function(isUpdate){
     	if(isUpdate){
-    		$scope.cdformdata.closingDisclosurePageOne.closingInformation.property = $scope.property;
+    		$scope.cdformdata.closingInformation.property = $scope.property;
     		updateAddressDetails();
     	}
     	else{
-    		$scope.property = angular.copy($scope.cdformdata.closingDisclosurePageOne.closingInformation.property);
+    		$scope.property = angular.copy($scope.cdformdata.closingInformation.property);
     	}
     }
     $scope.loadLenderData = function(isUpdate){
     	if(isUpdate){
-    		$scope.cdformdata.closingDisclosurePageOne.transactionInformation.lender = $scope.lenders;
+    		$scope.cdformdata.transactionInformation.lender = $scope.lenders;
     		updateAddressDetails();
     	}
     	else{
-    		$scope.lenders = angular.copy($scope.cdformdata.closingDisclosurePageOne.transactionInformation.lender);
+    		$scope.lenders = angular.copy($scope.cdformdata.transactionInformation.lender);
     	}
     }
     $scope.generatePDF = function(){
