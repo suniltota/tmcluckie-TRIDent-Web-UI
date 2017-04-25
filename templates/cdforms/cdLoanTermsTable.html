@@ -1,13 +1,12 @@
-<div class="LoanTermsTable col-sm-12">
-	<span class="col-sm-12">
+<div class="col-sm-12">
+	<h4>Loan Terms </h4>
+	<span class="col-sm-12 LoanTermsTable">
 		<table class="table">
 		    <thead>
 		      <tr>
-		        <th class="col-sm-5">Loan Terms</th>
-		        <th  class="col-sm-7" style="padding-right: 0px;">
-		        	<div class="tableQuestion" >
-		        		<span>Can this amount increase after closing?</span>
-		        	</div>
+		        <th class="col-sm-4" colspan="2">Loan Terms</th>
+		        <th  class="col-sm-8" colspan="2">
+		        	<span>Does this change after closing?</span>
 		        </th>
 		      </tr>
 		    </thead>
@@ -20,13 +19,19 @@
 		        		<input class="form-control" ng-model="transformData.pageOne.loanTerms.loanAmount.amount"></input>
 		        	</div>
 		        </td>
-		        <td>
+		        <td class="col-sm-1">
 		        	<select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.loanAmount.status" style="width:100px;">
 		        		<option value="YES">Yes</option>
 		        		<option value="NO">No</option>
 		        	</select>
 		        	<ul class="col-sm-9 pull-right" ng-show="transformData.pageOne.loanTerms.loanAmount.status == 'YES'">
 		        		<li ng-repeat="detail in transformData.pageOne.loanTerms.loanAmount.details"><p ng-bind-html="renderHtml(detail)"></p></li>
+		        	</ul>
+		        </td>
+		        <td>
+		        	<ul class="loanTermsList">
+		        		<li><span class="pull-left margin5tb"> Can go as high as </span> <span class="col-sm-2"><input type="text" class="form-control" name=""></span></li>
+		        		<li> <span class="pull-left margin5tb"> Can increase until year </span> <span class="col-sm-2"><input type="text" class="form-control" name=""></span></li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -46,54 +51,107 @@
 		        		<li ng-repeat="detail in transformData.pageOne.loanTerms.interestRate.details"><p ng-bind-html="renderHtml(detail)"></p></li>
 		        	</ul>
 		        </td>
-		      </tr>
-		      <tr>
 		        <td>
-		        	<p>
-			        	<select class="form-control pull-left" ng-model="transformData.pageOne.projectedPayments.estimatedTotalPaymentType" style="width:100px;">
-			        		<option value="Annual">Annual</option>
-			        		<option value="AtMaturity">AtMaturity</option>
-			        		<option value="Biweekly">Biweekly</option>
-			        		<option value="Monthly">Monthly</option>
-			        		<option value="Quarterly">Quarterly</option>
-			        		<option value="Semiannual">Semiannual</option>
-			        		<option value="Semimonthly">Semimonthly</option>
-			        		<option value="Weekly">Weekly</option>
-			        	</select>
-		        	<label class="margin5tb"> &nbsp&nbsp Principal & Interest</label>
-		        	</p>
-		        	<p>
-		        		<i>See projected payments below for your Estimated Total {{transformData.pageOne.projectedPayments.estimatedTotalPaymentType}} Payment</i>
-		        	</p>
-		        </td>
-		        <td>
-		        	<div class="input-group">
-  						<span class="input-group-addon input-default">$</span>
-  						<input class="form-control"  ng-model="transformData.pageOne.loanTerms.principalInterest.amount"> 
-  					</div>
-		        </td>
-		        <td>
-		        	<select class="form-control pull-left" style="width:100px;" ng-model="transformData.pageOne.loanTerms.principalInterest.status">
-		        		<option value="YES">Yes</option>
-		        		<option value="NO">No</option>
-		        	</select>
-		        	<ul class="col-sm-9 pull-right loanTermsList" ng-show="transformData.pageOne.loanTerms.principalInterest.status == 'YES'">
-		        		<li ng-repeat="detail in transformData.pageOne.loanTerms.principalInterest.details"><p ng-bind-html="renderHtml(detail)"></p></li>
+		        	<ul class="loanTermsList">
+		        		<li> <span class="pull-left margin5tb">Adjusts every</span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span> 
+		        			<span class="pull-left margin5tb">years starting in year</span>
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span></li>
+		        		<li><span class="pull-left margin5tb"> Can go as high as</span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span> 
+		        			<span class="pull-left margin5tb">in year</span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span></li>
+		        		<li><span class="pull-left margin5tb">Provide Current Rate Set Date</span> 
+		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> </li>
+		        		<li><span class="pull-left margin5tb">Provide the Loan price quote</span> 
+		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> </li>
+		        		<li><span class="pull-left margin5tb">Provide the APOR</span> 
+		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> </li>
 		        	</ul>
 		        </td>
 		      </tr>
 		      <tr>
+		        <td><label>Temporary buydown</label></td>
+		        <td>
+		        	
+		        </td>
+		        <td><select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.interestRate.status" style="width:100px;">
+		        		<option value="YES">Yes</option>
+		        		<option value="NO">No</option>
+		        	</select>
+		        	<ul class="col-sm-9 pull-right loanTermsList" ng-show="transformData.pageOne.loanTerms.interestRate.status == 'YES'">
+		        		<li ng-repeat="detail in transformData.pageOne.loanTerms.interestRate.details"><p ng-bind-html="renderHtml(detail)"></p></li>
+		        	</ul>
+		        </td>
+		        <td>
+		        	<ul class="loanTermsList">
+		        		<li> <span class="pull-left margin5tb">What is the Rate as reflected without the Buydown?</span> 
+		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> 
+		        			</li>
+		        		<li><span class="pull-left margin5tb">Is the buydown reflected on the Note</span> 
+		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> 
+		        			</li>
+		        		<li><span class="pull-left margin5tb">Provide the rate the borrower will pay after the buydown is applied</span> 
+		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> </li>
+		        		<li><span class="pull-left margin5tb">Provide the Time interval in months between the interest rate increases during the buydown period</span> 
+		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> </li>
+		        		<li><span class="pull-left margin5tb">Provide the total number of months which the buydown is in affect</span> 
+		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> </li>
+		        			<li><span class="pull-left margin5tb">Provide the amount by which the interest rate can increase at each adjustment within the buydown period</span> 
+		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> </li>
+		        	</ul>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td><label>Principal & Interest Payment Amount </label></td>
+		        <td>
+		        	<div class="input-group">
+  						<span class="input-group-addon input-default">$</span>
+		        		<input class="form-control" ng-model="transformData.pageOne.loanTerms.interestRate.interest" decimal-places>
+		        	</div>
+		        </td>
+		        <td><select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.interestRate.status" style="width:100px;">
+		        		<option value="YES">Yes</option>
+		        		<option value="NO">No</option>
+		        	</select>
+		        	<ul class="col-sm-9 pull-right loanTermsList" ng-show="transformData.pageOne.loanTerms.interestRate.status == 'YES'">
+		        		<li ng-repeat="detail in transformData.pageOne.loanTerms.interestRate.details"><p ng-bind-html="renderHtml(detail)"></p></li>
+		        	</ul>
+		        </td>
+		        <td>
+		        	<ul class="loanTermsList">
+		        		<li> <span class="pull-left margin5tb">Adjusts every</span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span> 
+		        			<span class="pull-left margin5tb">years starting in year</span>
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span></li>
+		        		<li><span class="pull-left margin5tb"> Can go as high as</span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span> 
+		        			<span class="pull-left margin5tb">in year</span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span></li>
+		        	</ul>
+		        </td>
+		      </tr>
+		      
+		      <tr>
 		        <td><label>Prepayment Penalty</label></td>
 		        <td><label></label></td>
 		        <td  style="padding-right: 0px;">
-		        	<div class="tableQuestion">
-		        		<span style="margin-bottom:0; margin-top:-8px; margin-right: -10px;">
-		        		<label>Does the loan have these features? </label></span>
-		        	</div>
+		        	
 		        	<select class="form-control pull-left" ng-model="transformData.pageOne.loanTerms.prepaymentPenalty.status" style="margin-top:5px;width:100px;">
 		        		<option value="YES">Yes</option>
 		        		<option value="NO">No</option>
 		        	</select>
+		        </td>
+		        <td>
+		        	<ul class="loanTermsList">
+		        		<li> <span class="pull-left margin5tb">As high as</span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span> 
+		        			<span class="pull-left margin5tb">if you pay off the loan  in the first</span>
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+		        			<span class="pull-left margin5tb">years</span>
+		        			</li>
+		        		
+		        	</ul>
 		        </td>
 		      </tr>
 		      <tr>
@@ -104,6 +162,16 @@
 		        		<option value="YES">Yes</option>
 		        		<option value="NO">No</option>
 		        	</select>
+		        </td>
+		        <td>
+		        	<ul class="loanTermsList">
+		        		<li> <span class="pull-left margin5tb">You will have to pay</span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span> 
+		        			<span class="pull-left margin5tb">at the end of year</span>
+		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span>
+		        			</li>
+		        		
+		        	</ul>
 		        </td>
 		      </tr>
 		    </tbody>
