@@ -14,7 +14,9 @@ var app = angular.module('actualizeWebApp', [
 app.config(function ($routeProvider, $locationProvider) {
   $routeProvider
     // Home
-    .when("/home", {templateUrl: "partials/home.html", controller: "closingDisclosureCtrl"})
+    .when("/home", {templateUrl: "partials/home.html", controller: "homeCtrl"})
+    .when("/closingDisclosure", {templateUrl: "partials/closingDisclosureHome.html", controller: "closingDisclosureCtrl"})
+    .when("/loanEstimate", {templateUrl: "partials/loanEstimateHome.html", controller: "loanEstimateCtrl"})
     .otherwise({ redirectTo: '/home' });
   $locationProvider.hashPrefix('');
 }).run(['loginService', 'apiService', '$rootScope', '$window', function(loginService, apiService, $rootScope, $window){

@@ -1,46 +1,33 @@
 'use strict';
 
-postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService, apiService, $log) {
-    	$scope.transactionType = {
-    		name : 'new'
-    	};
+postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService, apiService, cdXML2JsonService, $log) {
+    $scope.transactionType = 'new';
+    $scope.purposeType = 'purchase';
+    $scope.documentType = 'closingdisclosure';
+    $scope.formType = 'standard';
 
-    	$scope.purposeType = {
-    		name : 'purchase'
-    	};
+    $('#SelectTransaction').modal('show');
 
-    	$scope.documentType = {
-    		name : 'closingdisclosure'
-    	};
+    $scope.logUserOut = function() {
+    	loginService.logout();
+    	$window.location.href="login.html" + $window.location.search;
+    }
 
-    	$scope.formType = {
-    		name : 'standard'
-    	};
+    $scope.clear = function() {
+        if($scope.transactionType == 'new')
+            $scope.purposeType = 'purchase';
+        $scope.documentType = 'closingdisclosure';
+        $scope.formType = 'standard';
+    }
 
-
-    	$('#SelectTransaction').modal('show');
-
-    	$scope.logUserOut = function() {
-			loginService.logout();
-        	$window.location.href="login.html" + $window.location.search;
-    	}
-
-    	$scope.clear = function() {
-    		$scope.purposeType = {
-	    		name : 'purchase'
-	    	};
-
-	    	$scope.documentType = {
-	    		name : 'closingdisclosure'
-	    	};
-
-	    	$scope.formType = {
-	    		name : 'standard'
-	    	};
-    	}
-
-    	$scope.submit = function() {
-    		location.href = "index.html#/home?documentType="+$scope.documentType.name+"&purposeType="+$scope.purposeType.name+"&formType="+$scope.formType.name;
-    	}
-
+    $scope.submit = function() {
+        if($scope.transactionType == 'new') {
+            location.href = "index.html#/home?transactionType="+$scope.transactionType+"&documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+        } else if($scope.transactionType == 'existing') {
+            cdXML2JsonService.getJsonFromXml($scope.xmlfile).success(function(data){
+                localStorage.jsonData = JSON.stringify(data);
+                location.href = "index.html#/home?transactionType="+$scope.transactionType+"&documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+            });
+        }
+    }
 });

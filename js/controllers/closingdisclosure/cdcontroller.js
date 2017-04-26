@@ -47,8 +47,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 	
     var refreshData = function(){
-
-        $scope.cdformdata = staticData.cdformdata;
+    	$scope.cdformdata = staticData.cdformdata;
+    	if(localStorage.jsonData!=undefined) {
+    		$scope.cdformdata = angular.fromJson(localStorage.jsonData);
+    	}
 
 		angular.forEach($scope.cdformdata.transactionInformation.lenderFullName, function(l){
 			l.type="O";
@@ -246,10 +248,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				updateAddressDetails();
 				$scope.borrowertype = $scope.cdformdata.transactionInformation.borrowerDetails[0].type;
 				$scope.sellertype = $scope.cdformdata.transactionInformation.sellerDetails[0].type;
-				/*angular.forEach($scope.products, function(p){
+				angular.forEach($scope.products, function(p){
 					if($scope.cdformdata.loanInformation.product == p["CFPB-compliant_name"])
 						$scope.cdformdata.loanInformation.productL = p;	
-				});*/
+				});
 				
 				if($scope.cdformdata.loanInformation.constructionLoanType == undefined || $scope.cdformdata.loanInformation.constructionLoanType == "")
 					$scope.cdformdata.loanInformation.purposeType = $scope._NO;

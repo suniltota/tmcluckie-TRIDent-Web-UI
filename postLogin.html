@@ -11,6 +11,7 @@
     <!-- Services -->
   <script src="js/services/apiService.js"></script>
   <script src="js/services/loginService.js"></script>
+  <script src="js/services/postLoginService.js"></script>
 
     <!-- Controllers -->
   <script src="js/controllers/postLoginController.js"></script>
@@ -35,19 +36,19 @@
                     <div class="row margin5tb" style="margin-bottom: 10px;">
                       <div class=" col-sm-12">
                         <div class="col-sm-12  radioGroup margin5tb">
-                          <input type="radio" name="transaction" ng-model="transactionType.name" value="new">
+                          <input type="radio" name="transaction" ng-model="transactionType" value="new">
                           <strong>Start New Transaction</strong>
                         </div>
                         <div class="col-sm-12  radioGroup  margin5tb">
-                          <input type="radio"  name="transaction" ng-model="transactionType.name" value="old">
+                          <input type="radio"  name="transaction" ng-model="transactionType" value="existing">
                           <strong>Open Existing Transaction</strong>
                         </div>
                         <div class="col-sm-12  radioGroup  margin5tb">
-                          <input type="radio"  name="transaction" ng-model="transactionType.name" value="textFile">
+                          <input type="radio"  name="transaction" ng-model="transactionType" value="textTemplate">
                           <strong>Upload File</strong>
                         </div>
                         <div class="col-sm-12  radioGroup  margin5tb">
-                          <input type="radio"  name="transaction" ng-model="transactionType.name" value="pdfFile">
+                          <input type="radio"  name="transaction" ng-model="transactionType" value="pdf">
                           <strong>Upload Closing Disclosure PDF</strong>
                         </div>
                         <!--<div class="col-sm-12  radioGroup  margin5tb">
@@ -73,16 +74,16 @@
                   </div>
                   <div class="modal-body">
                     <div class="row margin5tb" style="margin-bottom: 10px;">
-                      <div class=" col-sm-12">
+                      <div class=" col-sm-12" ng-show="transactionType == 'new'">
                         <div class="col-sm-12 popup_innerHeader">
                           <strong>Choose one radio button for the Loan Purpose for the transaction</strong>
                         </div>
                         <div class="col-sm-6  radioGroup margin5tb">
-                          <input type="radio" name="purpose" ng-model="purposeType.name" value="purchase">
+                          <input type="radio" name="purpose" ng-model="purposeType" value="purchase">
                           <strong>Purchase</strong>
                         </div>
                         <div class="col-sm-6  radioGroup  margin5tb">
-                          <input type="radio"  name="purpose" ng-model="purposeType.name" value="refinance">
+                          <input type="radio"  name="purpose" ng-model="purposeType" value="refinance">
                           <strong>Refinance</strong>
                         </div>
                       </div>
@@ -91,11 +92,11 @@
                           <strong>Choose one radio button for the Document Type</strong>
                         </div>
                         <div class="col-sm-6  radioGroup margin5tb">
-                          <input type="radio" name="Document" ng-model="documentType.name" value="loanestimate">
+                          <input type="radio" name="Document" ng-model="documentType" value="loanestimate">
                           <strong>Loan Estimate</strong>
                         </div>
                         <div class="col-sm-6  radioGroup  margin5tb">
-                          <input type="radio"  name="Document" ng-model="documentType.name" value="closingdisclosure">
+                          <input type="radio"  name="Document" ng-model="documentType" value="closingdisclosure">
                           <strong>Closing Disclosure</strong>
                         </div>
                       </div>
@@ -104,16 +105,24 @@
                           <strong>Choose one radio button for the Form</strong>
                         </div>
                         <div class="col-sm-4  radioGroup margin5tb">
-                          <input type="radio" name="Form" ng-model="formType.name" value="standard">
+                          <input type="radio" name="Form" ng-model="formType" value="standard">
                           <strong>Standard</strong>
                         </div>
                         <div class="col-sm-4  radioGroup  margin5tb">
-                          <input type="radio"  name="Form" ng-model="formType.name" value="alternate">
+                          <input type="radio"  name="Form" ng-model="formType" value="alternate">
                           <strong>Alternate</strong>
                         </div>
                         <div class="col-sm-4  radioGroup  margin5tb">
-                          <input type="radio"  name="Form" ng-model="formType.name" value="selleronly">
+                          <input type="radio"  name="Form" ng-model="formType" value="selleronly">
                           <strong>Seller Only</strong>
+                        </div>
+                      </div>
+                      <div class=" col-sm-12" ng-show="transactionType != 'new'">
+                        <div class="col-sm-12 popup_innerHeader">
+                          <strong>Choose file</strong>
+                        </div>
+                        <div class="col-sm-8  radioGroup margin5tb">
+                          <input type="file" name="xmlfile" id="xmlfile" accept=".xml" file-model="xmlfile">
                         </div>
                       </div>
                     </div>

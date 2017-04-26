@@ -1,0 +1,52 @@
+<div class="bodySection col-sm-12 padding0" style="position: relative; ">
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn glyphicon glyphicon-chevron-left" onclick="closeNav()"></a>
+    <div class="form-group col-sm-12">
+          <div id="doctype">Loan Estimate</div>
+        
+     </div>
+    <span href="" class="active pagenumber" data-scroll="Page1" >Closing Information</span>
+     <span href="" class="pagenumber" data-scroll="Page2" >Transaction Information</span>
+  </div>
+   <div id="transparent"></div>
+  <div class="SidebarBtns" id="SidebarBtns" side-bar-width>
+  	<div class="glyphicon glyphicon-chevron-right openSlidebtn" onclick="openNav();"></div>
+  	<span class="pageno" style="font-size:14px;"  data-toggle="tooltip" data-placement="right" title="Closing Disclosure">
+  		<span class="pull-left" >LE</span>
+  	</span>
+  	<span class="pageno active pageicon"  data-toggle="tooltip" ng-click="showTab = 'closingInfo'" data-placement="right" title="Closing Information">
+  		<span class="glyphicon glyphicon-file pull-left"></span> 
+  		<span class="pull-left noTitle">1</span>
+  	</span>
+  	<span class="pageno pageicon" data-toggle="tooltip" ng-click="showTab = 'transInfo'"  data-placement="right" title="Transaction Information">
+  		<span class="glyphicon glyphicon-file pull-left"></span> 
+  		<span class="pull-left noTitle">2</span>
+  	</span>
+    <span class="pageno pageicon" data-toggle="tooltip" ng-click="showTab = 'loanInfo'"  data-placement="right" title="Loan Information">
+      <span class="glyphicon glyphicon-file pull-left"></span> 
+      <span class="pull-left noTitle">3</span>
+    </span>
+  </div>
+  <div class="col-lg-12 PageformHeader padding0" pdf-width>
+    <div class="panel panel-default">
+			<div class="panel-body" dynamic-height id="PDFviewContainer" style="overflow: auto;">
+
+        <div class="PDFview" data-anchor="Page1" dynamic-height-min >
+        	<span>
+          <div class="CDHeaderSection col-lg-12">
+            <div ng-show="showTab == 'closingInfo'" ng-include='"templates/cdforms/cdClosingInformation.html"'></div>
+            <div ng-show="showTab == 'transInfo'" ng-include='"templates/cdforms/cdTransactionInformation.html"'></div>
+            <div ng-show="showTab == 'loanInfo'" ng-include='"templates/cdforms/cdLoanInformation.html"'></div>
+            </div>
+       	 	</span>
+        </div>
+        
+	    </div>
+    </div>
+  </div>
+  <div id="pdfViewerId">
+    <div id="carousel" style="display: none;">
+      <object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="original"></object>
+    </div>
+  </div>
+</div>

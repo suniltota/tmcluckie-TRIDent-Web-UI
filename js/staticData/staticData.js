@@ -14,6 +14,12 @@ app.service('staticData', function($filter){
     this.ausTypes = ["Assetwise","Capstone","Clues","DesktopUnderwriter","ECS","FHAScorecard","LoanProspector","Other","Strategyware","Zippy"];
     this.partyRoleTypes = ["NotePayTo","MortgageBroker","RealEstateAgent","ClosingAgent","Borrower","NonTitleSpouse","TitleHolder","Other","NonTitleNonSpouseOwnershipInterest","PropertySeller","LoanDeliveryFilePreparer"];
     
+    this.basicLoanInfo = {
+		'loanPurposeType': 'purchase',
+		'loanFormType': 'standard',
+		'loanTransactionType': 'new'
+	};
+    
  
     this.cdformdata =
     {
