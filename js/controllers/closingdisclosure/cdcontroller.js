@@ -7,7 +7,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.format = staticData.dateDisplayFormat;
 	$scope.states = staticData.state;
 	$scope.lienPriorityType = staticData.lienPriorityType;
-	$scope.adjustableRate = staticData.adjustableRate;
+	$scope.amortizationType  = staticData.amortizationType;
 	$scope.mortgageType = staticData.mortgageType;
 	$scope.paymentFrequencyType = staticData.paymentFrequencyType;
 	$scope.fileName = "Actualize_XML.xml"
@@ -18,6 +18,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.cdformdata = staticData.cdformdata;
     $scope.formType= $routeParams.formType != undefined ? $routeParams.formType : 'standard';
     $scope.purposeType = $routeParams.purposeType != undefined ? $routeParams.purposeType : 'purchase';
+    $scope.ausTypes = staticData.ausTypes;
+    $scope.partyRoleTypes = staticData.partyRoleTypes;
 	var borrowerAddress ={};
 	var sellerAddress ={};
 	$scope.dateOptions = {
@@ -248,6 +250,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 					if($scope.cdformdata.loanInformation.product == p["CFPB-compliant_name"])
 						$scope.cdformdata.loanInformation.productL = p;	
 				});*/
+				
 				if($scope.cdformdata.loanInformation.constructionLoanType == undefined || $scope.cdformdata.loanInformation.constructionLoanType == "")
 					$scope.cdformdata.loanInformation.purposeType = $scope._NO;
 				if($scope.cdformdata.closingCostDetailsLoanCosts!=undefined && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges!=null && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length>0){
@@ -348,9 +351,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	localStorage["purpose"] = $scope.purposeType;
     	refreshData();
     }
-    $scope.otherchange = function(event){
-    	//alert($scope.cdformdata.loanInformation.loanType_o);
-    	if($scope.cdformdata.loanInformation.loanType_o == true){
+    $scope.otherchange = function(){
+    	if($scope.event == 'Other'){
     		$("#otherdescription").removeAttr("disabled");
     	}
     	else{

@@ -7,25 +7,27 @@
             <div class="col-sm-5 fieldTitle">Loan Term</div>
             <div class="col-sm-7">
                 <span class="col-sm-6 padding0 margin5tb">Period type</span>
-                <span class="col-sm-6 padding0"><select  class="form-control"><option>Months</option></select></span>
+                <span class="col-sm-6 padding0"><select  class="form-control" ng-model="cdformdata.loanInformation.loanMaturityPeriodType"><option>Months</option></select></span>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Loan Type</div>
             <div class="col-sm-7">
-              	<select  class="form-control"><option>Conventional</option></select>
+              	<select  class="form-control" ng-model="cdformdata.loanInformation.mortgageType" ng-change="otherchange(cdformdata.loanInformation.mortgageType)"><option ng-repeat="mt in mortgageType" value="{{mt}}">{{mt}}</option></select>
+
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Lender Loan Identifier </div>
-            <div class="col-sm-7">
-              	<input type="text" class="form-control" name="">
+            <div class="col-sm-7" ng-repeat="loanIdentifier in cdformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
+              	<input type="text" class="form-control" name="lenderLoanIdentifier"
+              	ng-model="loanIdentifier.loanIdentifier">
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">AUS type</div>
             <div class="col-sm-7">
-              	<select  class="form-control"><option>Desktop Underwriter</option></select>
+              	<select  class="form-control"><option ng-repeat="ausType in ausTypes" value="{{ausType}}">{{ausType}}</option></select>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
@@ -49,18 +51,18 @@
 			<div class="FieldGroup">
 				<div class="col-sm-5 fieldTitle">Other Description</div>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" >
+					<input type="text" class="form-control" id="otherdescription" ng-model="cdformdata.loanInformation.mortgageTypeOtherDescription" disabled="disabled">
 				</div>
 			</div>
 			<div class="row col-sm-12 margin5tb padding0">
-	            <div class="col-sm-6">
+	            <div class="col-sm-6" >
 	            	<div class="col-sm-4 padding0 fieldTitle">MIC#</div>
-	            	<div class="col-sm-8 padding0"><input type="text" class="form-control" name=""></div>
+	            	<div class="col-sm-8 padding0"><input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.miCertificateIdentifier" ></div>
 	            </div>
 	            <div class="col-sm-6 padding0">
-	            	<div class="col-sm-12 padding0">
+	            	<div class="col-sm-12 padding0" ng-repeat="loanIdentifier in cdformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='MERS_MIN'">
 		            	<div class="col-sm-8 padding0 fieldTitle">MERS MIN ID:</div>
-		            	<div class="col-sm-4 padding0"><input type="text" class="form-control" name=""></div>
+		            	<div class="col-sm-4 padding0"><input type="text" class="form-control" ng-model="loanIdentifier.loanIdentifier"></div>
 	            	</div>
 	            	<div class="col-sm-12 padding0">
 		            	<div class="col-sm-8 padding0 fieldTitle">Appraisal ID:</div>
@@ -71,7 +73,7 @@
 	        <div class="FieldGroup">
 				<div class="col-sm-5 fieldTitle">AUS Type</div>
 				<div class="col-sm-7">
-					<select  class="form-control"><option>Loan Prospector</option></select>
+					<select  class="form-control"><option ng-repeat="ausType in ausTypes" value="{{ausType}}">{{ausType}}</option></select>
 				</div>
 			</div>
 			<div class="FieldGroup">
@@ -86,25 +88,30 @@
 			<div class="FieldGroup">
 				<div class="col-sm-5 fieldTitle">Purpose</div>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" name="" value="Purchase" disabled>
+					<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.purpose" disabled>
 				</div>
 			</div>
 			 <div class="FieldGroup">
 				<div class="col-sm-5 fieldTitle">Lien Position</div>
 				<div class="col-sm-7">
-					<select  class="form-control"><option>First</option></select>
+					<select  class="form-control" ng-model="cdformdata.loanInformation.lienPriorityType"><option ng-repeat="lpt in lienPriorityType" value="{{lpt.name}}">{{lpt.id}}</option></select>
 				</div>
 			</div>
 			 <div class="FieldGroup">
 				<div class="col-sm-7 fieldTitle">Manual Underwriting Flag</div>
 				<div class="col-sm-5">
-					<select  class="form-control"><option>No</option></select>
+					<select  class="form-control" ng-model="cdformdata.loanInformation.loanManualUnderwritingIndicator"><option>Yes</option><option>No</option></select>
+				</div>
+			</div>
+			<div class="FieldGroup">
+				<div class="col-sm-7 fieldTitle"></div>
+				<div class="col-sm-5">
 				</div>
 			</div>
 			<div class="FieldGroup">
 				<div class="col-sm-5 fieldTitle">AUS Type</div>
 				<div class="col-sm-7">
-					<select  class="form-control"><option></option></select>
+					<select  class="form-control"><option ng-repeat="ausType in ausTypes" value="{{ausType}}">{{ausType}}</option></select>
 				</div>
 			</div>
 			<div class="FieldGroup">
@@ -123,7 +130,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-5 fieldTitle">Product Description</div>
 						<div class="col-sm-7">
-							<input type="text" class="form-control" name="">
+							<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.integratedDisclosureLoanProductDescription">
 						</div>
 					</div>
 				</div>
@@ -131,7 +138,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-5 fieldTitle">Amortization Type</div>
 						<div class="col-sm-7">
-							<select  class="form-control"><option>Adjustable Rate</option></select>
+							<select  class="form-control" ng-model="cdformdata.loanInformation.amortizationType"><option ng-repeat="at in amortizationType" value="{{at.name}}">{{at.id}}</option></select>
 						</div>
 					</div>
 				</div>
