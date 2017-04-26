@@ -353,8 +353,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	localStorage["purpose"] = $scope.purposeType;
     	refreshData();
     }
-    $scope.otherchange = function(){
-    	if($scope.event == 'Other'){
+    $scope.otherchange = function(mortgageType){
+    	if(mortgageType == 'Other'){
     		$("#otherdescription").removeAttr("disabled");
     	}
     	else{
