@@ -1,99 +1,175 @@
-<div class="LoanTermsTable col-sm-12">
-	<span class="col-sm-12">
+<div class="col-sm-12">
+	<h4>Projected Payments</h4>
+	<span class="col-sm-12 LoanTermsTable">
 		<table class="table">
 		    <thead>
 		      <tr>
-		        <th class="col-sm-3 tableHeadingTitle">Projected Payments</th>
-		        <th  class="col-sm-2"></th>
-		        <th  class="col-sm-2"></th>
-		        <th  class="col-sm-2"></th>
-		        <th  class="col-sm-2"></th>
+		        <th class="col-sm-3 tableHeadingTitle">Payment Calculation</th>
+		        <th  class="col-sm-2 tableHeadingTitle">
+		        	<span class="pull-left margin5tb">Years</span>
+		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
+		        	<span class="pull-left margin5tb">-</span>
+		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
+		        </th>
+		        <th  class="col-sm-2 tableHeadingTitle">
+		        	<span class="pull-left margin5tb">Years</span>
+		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
+		        	<span class="pull-left margin5tb">-</span>
+		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
+		        </th>
+		        <th  class="col-sm-2 tableHeadingTitle">
+		        	<span class="pull-left margin5tb">Years</span>
+		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
+		        	<span class="pull-left margin5tb">-</span>
+		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
+		        </th>
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <tr class="rowBackground" >
-		        <td><label>Payment Calculation</label></td>
-		        <td ng-repeat="pc in transformData.pageOne.projectedPayments.paymentCalculation"><label>{{pc}}</label></td>
-		      </tr>
+		      
 		      <tr>
 		        <td><label>Principal & Interest</label></td>
-		        <td  ng-repeat="pi in transformData.pageOne.projectedPayments.principalInterest track by $index" >
-		        	<div ng-if="pi.minValue!='$0' && $index!=0" class="col-sm-12 padding0">
-		        		<div class="col-sm-9 padding0">
+		        <td>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Min</div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default">$</span>
 		        				<input class="form-control" ng-model="pi.minValue"/>
 		        			</div>
-		        			</div><div class="col-sm-2" ng-show="pi.maxValue && pi.minValue!='$0' && pi.maxValue!='$0' && $index!=0">Min</div>
 		        	</div>
-		        	<div ng-if="pi.maxValue && pi.maxValue!='$0'" class="col-sm-12 padding0">
-		        		<div class="col-sm-9 padding0">
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Max</div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default">$</span>
-		        				<input class="form-control" ng-model="pi.maxValue"/>
+		        				<input class="form-control" ng-model="pi.minValue"/>
 		        			</div>
-		        			</div><div class="col-sm-2" ng-show="pi.maxValue && pi.minValue!='$0' && pi.maxValue!='$0' && $index!=0">Max</div>
 		        	</div>
-		        	<div ng-if="pi.interestOnly != null">
-		        		<labe>{{pi.interestOnly}}</labe>
+		        </td>
+		        <td>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Min</div>
+		        			<div class="input-group">
+  								<span class="input-group-addon input-default">$</span>
+		        				<input class="form-control" ng-model="pi.minValue"/>
+		        			</div>
+		        	</div>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Max</div>
+		        			<div class="input-group">
+  								<span class="input-group-addon input-default">$</span>
+		        				<input class="form-control" ng-model="pi.minValue"/>
+		        			</div>
+		        	</div>
+		        </td>
+		        <td>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Min</div>
+		        			<div class="input-group">
+  								<span class="input-group-addon input-default">$</span>
+		        				<input class="form-control" ng-model="pi.minValue"/>
+		        			</div>
+		        	</div>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Max</div>
+		        			<div class="input-group">
+  								<span class="input-group-addon input-default">$</span>
+		        				<input class="form-control" ng-model="pi.minValue"/>
+		        			</div>
 		        	</div>
 		        </td>
 		      </tr>
 		      <tr>
 		        <td><label >Mortgage Insurance</label> 
-			        <span class="col-sm-4 padding0 pull-right">
-			        	
-			        		<input class="form-control" placeholder="MI Term" ng-model="transformData.pageOne.projectedPayments.miTerm">
-			        	
-			        </span>
+			        <div class="col-sm-12 padding0 margin5tb">
+			        	<span class="col-sm-6 padding0">Is Required?</span> 
+			        	<span class="col-sm-4 pull-right">
+			        		<select class="form-control"><option>No</option></select>
+			        	</span> 
+			        </div>
+			        <div class="col-sm-12 padding0 margin5tb">
+			        	<span class="col-sm-6 padding0">No. Months Duration?</span> 
+			        	<span class="col-sm-4 pull-right">
+			        		<input type="text" class="form-control" name="">
+			        	</span> 
+			        </div>
+			        <div class="col-sm-12 padding0 margin5tb">
+			        	<span class="col-sm-6 padding0">Scheduled Termination Date</span> 
+			        	<span class="col-sm-4 pull-right">
+			        		<input type="text" class="form-control" name="">
+			        	</span> 
+			        </div>
 		        </td>
-		        <td  ng-repeat="mi in transformData.pageOne.projectedPayments.mortgageInsurance track by $index" >
+		        <td><input type="text" class="form-control" name=""></td>
+		        <td><input type="text" class="form-control" name=""></td>
+		        <td><input type="text" class="form-control" name=""></td>
+		      </tr>
+		      <tr>
+		        <td><label >Escrow Payment Amount</label> 
+		        </td>
+		        <td>
 		        	<div class="input-group">
 	  					<span class="input-group-addon input-default">$</span>
-			        	<input class="form-control" type="text" ng-model="mi"/>
+			        	<input class="form-control"/>
+			        </div>
+		        </td>
+		        <td>
+		        	<div class="input-group">
+	  					<span class="input-group-addon input-default">$</span>
+			        	<input class="form-control"/>
+			        </div>
+		        </td>
+		        <td>
+		        	<div class="input-group">
+	  					<span class="input-group-addon input-default">$</span>
+			        	<input class="form-control"/>
 			        </div>
 		        </td>
 		      </tr>
 		      <tr>
-		        <td><label >Estimated Escrow</label> 
-			        <div><i>Amount can increase over time</i></div>
+		        <td><label>Estimated Total Monthly Payment Amount</label> 
 		        </td>
-		        <td  ng-repeat="ee in transformData.pageOne.projectedPayments.estimatedEscrow track by $index" >
-		        	<div class="input-group">
-	  					<span class="input-group-addon input-default">$</span>
-			        	<input class="form-control" ng-model="ee"/>
-			        </div>
+		        
+		        <td>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Min</div>
+		        			<div class="text-center">
+  								-
+		        			</div>
+		        	</div>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Max</div>
+		        			<div class="text-center">
+  								$0
+		        			</div>
+		        	</div>	
 		        </td>
-		      </tr>
-		      <tr>
-		        <td><label class="pull-left margin5tb">Estimated Total {{transformData.pageOne.projectedPayments.estimatedTotalPaymentType}} Payment</label> 
+		        <td>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Min</div>
+		        			<div class="text-center">
+  								-
+		        			</div>
+		        	</div>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Max</div>
+		        			<div class="text-center">
+  								$0
+		        			</div>
+		        	</div>	
 		        </td>
-		        <td  ng-repeat="etp in transformData.pageOne.projectedPayments.estimatedTotalPayment track by $index" >
-		        	<div class="input-group">
-	  					<span class="input-group-addon input-default">$</span>
-			        	<input class="form-control" ng-model="etp"/>
-			        </div>
-		        </td>
-		      </tr>
-		      <tr>
-		        <td><label>Estimated Taxes, Insurance & Assessments</label> 
-		        	<div><i>Amount can increase over time See page 4 for details</i></div>
-		        </td>
-		        <td><label>{{transformData.pageOne.projectedPayments.etia.amount}} &nbsp; {{transformData.pageOne.projectedPayments.etia.frequencyType}}</label></td>
-		        <td colspan="3">
-		        		<span class="col-sm-6"><label>This estimate includes</label></span> 
-		        		<span class="col-sm-6"><label>In escrow?</label></span>
-		        		<ul class="col-sm-6">
-		        			<li><input type="checkbox" ng-model="transformData.pageOne.projectedPayments.etia.propertyTaxesStatus"  ng-true-value="true" ng-false-value="false" ng-checked="transformData.pageOne.projectedPayments.etia.propertyTaxesStatus=='true'? true : false"> Property Taxes</li>
-		        			<li><input type="checkbox" ng-model="transformData.pageOne.projectedPayments.etia.homeownersInsuranceStatus"  ng-true-value="true" ng-false-value="false" ng-checked="transformData.pageOne.projectedPayments.etia.homeownersInsuranceStatus=='true'? true : false"> Homeowners Insurance</li>
-		        			<li><input type="checkbox" ng-model="transformData.pageOne.projectedPayments.etia.otherStatus"  ng-true-value="true" ng-false-value="false" ng-checked="transformData.pageOne.projectedPayments.etia.otherStatus=='true'? true : false"> Other:<input type="text" ng-model="transformData.pageOne.projectedPayments.etia.otherDescription" ng-show="transformData.pageOne.projectedPayments.etia.otherStatus == 'true' || transformData.pageOne.projectedPayments.etia.otherStatus == true"/></li>
-		        		</ul>
-		        		<ul class="col-sm-6">
-		        			<li>&nbsp;{{transformData.pageOne.projectedPayments.etia.propertyTaxesInEscrow}}</li>
-		        			<li>&nbsp;{{transformData.pageOne.projectedPayments.etia.homeownersInsuranceInEscrow}}</li>
-		        			<li>&nbsp;{{transformData.pageOne.projectedPayments.etia.otherInEscrow}}</li>
-		        		</ul>
-		        	<div class="col-sm-12"><i>See Escrow Account on page 4 for details. You must pay for other property costs separately.</i></div>
+		        <td>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Min</div>
+		        			<div class="text-center">
+  								-
+		        			</div>
+		        	</div>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Max</div>
+		        			<div class="text-center">
+  								$0
+		        			</div>
+		        	</div>	
 		        </td>
 		        
 		      </tr>

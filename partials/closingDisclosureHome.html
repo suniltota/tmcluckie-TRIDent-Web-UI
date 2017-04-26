@@ -9,6 +9,7 @@
      <span href="" class="pagenumber" ng-class="{'active': showTab == 'transInfo'}" ng-click="showTab = 'transInfo'" >Transaction Information</span>
      <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanInfo'}" ng-click="showTab = 'loanInfo'" >Loan Information</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanterms'}" ng-click="showTab = 'loanInfo'" >Loan Terms</span>
+        <span href="" class="pagenumber" ng-class="{'active': showTab == 'projectedPayments'}" ng-click="showTab = 'projectedPayments'" >Projected Payments</span>
   </div>
    <div id="transparent"></div>
   <div class="SidebarBtns" id="SidebarBtns" side-bar-width>
@@ -32,6 +33,11 @@
       <span class="glyphicon glyphicon-file pull-left"></span> 
       <span class="pull-left noTitle">4</span>
     </span>
+    <span class="pageno pageicon" ng-class="{'active': showTab == 'projectedPayments'}" data-toggle="tooltip" ng-click="showTab = 'projectedPayments'"  data-placement="right" title="Projected Payments">
+      <span class="glyphicon glyphicon-file pull-left"></span>
+      <span class="pull-left noTitle">5</span>
+    </span>
+
   </div>
   <div class="col-lg-12 PageformHeader padding0" pdf-width>
     <div class="panel panel-default">
@@ -44,6 +50,7 @@
             <div ng-show="showTab == 'transInfo'" ng-include='"templates/cdforms/cdTransactionInformation.html"'></div>
             <div ng-show="showTab == 'loanInfo'" ng-include='"templates/cdforms/cdLoanInformation.html"'></div>
             <div ng-show="showTab == 'loanterms'" ng-include='"templates/cdforms/cdLoanTermsTable.html"'></div>
+            <div ng-show="showTab == 'projectedPayments'" ng-include='"templates/cdforms/cdProjectedPayments.html"'></div>
             </div>
        	 	</span>
         </div>
