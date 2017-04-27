@@ -1,18 +1,12 @@
-<div class="LoanTermsTable col-sm-12">
-	<span class="col-sm-12">
-		<table class="table">
-		    <thead>
-		      <tr>
-		        <th class="col-sm-3 tableHeadingTitle">Costs at Closing</th>
-		        <th  class="col-sm-2"></th>
-		        <th  class="col-sm-7"></th>
-		      </tr>
-		    </thead>
+<div class="col-sm-12">
+	<h4>Costs at Closing</h4>
+		<span class="col-sm-12 LoanTermsTable">
+		<table class="table col-sm-12">
 		    <tbody>
 		      <tr>
-		        <td><label>Closing Costs</label></td>
-		        <td><label>${{transformData.pageOne.costsAtClosing.ClosingCosts.amount}}</label></td>
-		        <td>
+		        <td class="col-sm-2"><label>Closing Costs</label></td>
+		        <td class="col-sm-2"><label>${{transformData.pageOne.costsAtClosing.ClosingCosts.amount}}</label></td>
+		        <td class="col-sm-8">
 		        	<ul class="col-sm-9" >
 		        		<li><p>Includes <label>${{transformData.pageOne.costsAtClosing.ClosingCosts.totalLoanCosts}}</label> in Loan Costs + <label>${{transformData.pageOne.costsAtClosing.ClosingCosts.totalOtherCosts}}</label> in Other Costs - <label>${{transformData.pageOne.costsAtClosing.ClosingCosts.lenderCredits}}</label> in Lender Credits. See page 2 for details.
 		        		</p></li>
@@ -26,14 +20,20 @@
 		        	<ul class="col-sm-9" >
 		        		<li>Includes Closing Costs. See Calculating Cash to Close on page 3 for details.</p></li>
 		        		<li><span ng-show="transformData.pageOne.loanInformation.purpose != 'Purchase'">
-		        			<input type="checkbox" ng-model="transformData.pageOne.costsAtClosing.CashToClose.fromType">From  
-		        		    <input type="checkbox" ng-model="transformData.pageOne.costsAtClosing.CashToClose.toType">To Borrower
+		        			<span class="col-sm-4">
+		        				<input class="margin5" type="checkbox" ng-model="transformData.pageOne.costsAtClosing.CashToClose.fromType">
+		        				From Borrower
+		        			</span>
+		        		    <span class="col-sm-4">
+		        		    	<input class="margin5" type="checkbox" ng-model="transformData.pageOne.costsAtClosing.CashToClose.toType">
+		        		    	To Borrower
 		        		    </span>
+		        		   </span>
 		        		</li>
 		        	</ul>
 		        </td>
 		      </tr>
 		    </tbody>
 		</table>
-</span>
+	</span>
 </div>
