@@ -71,6 +71,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.removeSeller = function(index){
     	$scope.cdformdata.transactionInformation.sellerDetails.splice(index,1);
     }
+    $scope.dropDownOptions =  [{model:"", value:""},{model:"true",value:"YES"},{model:"false",value:"NO"}];
+
 });
 
 //date param of proper format to create date object.
