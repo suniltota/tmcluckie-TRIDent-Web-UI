@@ -3,7 +3,7 @@
 app.service('staticData', function($filter){
 	this.purposes = [{"displayName":"Purchase","value":"Purchase"},{"displayName":"Refinance","value":"Refinance"},{"displayName":"HomeEquity","value":"HomeEquity"}];
 	this.transformData = [{"documentType":{"loanType":"","standardView":true,"alternateView":false,"payoffsAndPayments":false,"refinanceTypeLoan":false,"homeEquityLoanIndicator":false,"sellerOnly":false,"loanId":""},"pageOne":{"closingInformation":{"dateIssued":"","closingDate":"","disbursementDate":"","settlementAgent":"","fileNo":null,"property":{"addressLineText":"","addressType":"","addressUnitDesignatorType":"","addressUnitIdentifier":"","cityName":"","countryCode":"","postalCode":"","stateCode":""},"salePrice":""},"transactionInformation":{"borrower":[{"isOrganizer":"i","borrowerFullName":"","address":{"addressLineText":"","addressType":"","addressUnitDesignatorType":"","addressUnitIdentifier":"","cityName":"","countryCode":"","postalCode":"","stateCode":""}}],"seller":[{"isOrganizer":"i", "sellerFullName":"","address":{"addressLineText":"","addressType":"Mailing","addressUnitDesignatorType":"","addressUnitIdentifier":"","cityName":"","countryCode":"","postalCode":"","stateCode":""}}],"lender":[{"isOrganizer":"i","lenderFullName":"","address":{"addressLineText":"","addressType":"","addressUnitDesignatorType":"","addressUnitIdentifier":"","cityName":"","countryCode":"","postalCode":"","stateCode":""}}]},"loanInformation":{"loanTerm":"","purpose":"","product":"","loanType":"","loanId":"","mic":""},"loanTerms":{"loanAmount":{"amount":"","status":"NO","details":null},"interestRate":{"interest":"","status":"YES","details":["Adjusts <b>every year","Can go <b>as high as 10.125%</b> in year 6","See <b>AIR Table on page 4</b> for details"]},"principalInterest":{"paymentFrequencyType":"Monthly","amount":"","status":"YES","details":["Adjusts <b>every year</b> starting in year 4","Can go <b>as high as 1,267.60</b> in year 6"]},"prepaymentPenalty":{"amount":null,"status":"NO","details":null},"balloonPayment":{"amount":null,"status":"NO","details":null}},"projectedPayments":{"paymentCalculation":["Years 1-3","Year 4","Year 5","Years 6-30"],"principalInterest":[{"minValue":"","maxValue":"0","interestOnly":null},{"minValue":"","maxValue":"","interestOnly":null},{"minValue":"","maxValue":"","interestOnly":null},{"minValue":"","maxValue":"","interestOnly":null}],"mortgageInsurance":["","","",""],"estimatedEscrow":["","","",""],"estimatedTotalPayment":["","","",""],"estimatedTotalPaymentType":"Monthly","etia":{"amount":"","frequencyType":"","propertyTaxesStatus":"false","homeownersInsuranceStatus":"false","otherStatus":"false","otherDescription":"","propertyTaxesInEscrow":"NO","homeownersInsuranceInEscrow":"NO","otherInEscrow":"NO"}},"costsAtClosing":{"ClosingCosts":{"amount":"","details":[],"totalLoanCosts":"","totalOtherCosts":"","lenderCredits":""},"CashToClose":{"amount":"","details":[],"docType":"true","fromType":"true","toType":null}}},"pageTwo":{"closingCostDetailsLoanCosts":{"ocTotalAmount":"","sbDidNotShopTotalAmount":"","sbDidShopTotalAmount":"","tlCostsTotalAmount":"","originationCharges":[],"tlCosts":{"feeType":'',"displayLabel":"Loan Costs Subtotals (A + B + C)","bpAtClosing":"0","bpB4Closing":"0","spAtClosing":null,"spB4Closing":null,"paidByOthers":null,"toEntity":null}},"closingCostDetailsOtherCosts":{"tOGovtFeesTotalAmount":"","prepaidsTotalAmount":"","iEPatClosingTotalAmount":"0","otherTotalAmount":"","totalOtherCostsTotalAmount":"","totalClosingCostsTotalAmount":"","tOGovtFeesList":[]}}}];
-    this.lienPriorityType = [{"name":"FirstLien","id":"First"},{"name":"SecondLien","id":"Second"},{"name":"ThirdLien","id":"Third"},{"name":"FourthLien","id":"Fourth"}];
+    
     this.amortizationType = [{"name":"AdjustableRate","id":"Adjustable Rate"},{"name":"Fixed","id":"Fixed"},{"name":"GEM","id":"GEM"},{"name":"GraduatedPaymentARM","id":"Graduated Payment ARM"},{"name":"Step","id":"Step"}];
  	this.mortgageType = ["Conventional","FHA","LocalAgency","PublicAndIndianHousing","StateAgency","USDARuralDevelopment","VA","Other"];
 	this.paymentFrequencyType =["AtMaturity","Biweekly","Monthly","Quarterly","Semiannual","Semimonthly","Weekly"]
@@ -252,6 +252,25 @@ app.service('staticData', function($filter){
 		}
 	];
 
+	this.lienPriorityTypes = [
+		{
+			"name": "First",
+			"value": "FirstLien"
+		},
+		{
+			"name": "Second",
+			"value": "SecondLien"
+		},
+		{
+			"name": "Third",
+			"value": "ThirdLien"
+		},
+		{
+			"name": "Fourth",
+			"value": "FourthLien"
+		}
+	];
+
 	this.loanTypes = [
 		{
 			"name":"Conventional",
@@ -471,7 +490,7 @@ app.service('staticData', function($filter){
 	    "loanTerm": "",
 	    "purpose": "",
 	    "product": "",
-	    "loanType": "Conventional",
+	    "loanType": "",
 	    "loanId": "",
 	    "constructionLoanType": "",
 	    "constructionPeriodNumberOfMonthsCount": "",
@@ -482,7 +501,7 @@ app.service('staticData', function($filter){
 	    "lienPriorityType": "",
 	    "amortizationType": "",
 	    "integratedDisclosureLoanProductDescription": "",
-	    "mortgageType": "Conventional",
+	    "mortgageType": "",
 	    "mortgageTypeOtherDescription": "",
 	    "loanIdentifiers": [
 	      {
@@ -498,8 +517,8 @@ app.service('staticData', function($filter){
 	    "miCertificateIdentifier": "",
 	    "automatedUnderwritings": [
 	      {
-	        "automatedUnderwritingCaseIdentifier": "11223344556677889900",
-	        "automatedUnderwritingSystemType": "DesktopUnderwriter",
+	        "automatedUnderwritingCaseIdentifier": "",
+	        "automatedUnderwritingSystemType": "",
 	        "automatedUnderwritingSystemTypeOtherDescription": ""
 	      }
 	    ],

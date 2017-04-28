@@ -14,6 +14,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.loanPeriodTypes = staticData.loanPeriodTypes;
 	$scope.loanTypes = staticData.loanTypes;
 	$scope.ausTypes = staticData.ausTypes;
+	$scope.lienPriorityTypes = staticData.lienPriorityTypes;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -62,6 +63,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 
     $scope.addAusTypeIdentifier = function(){
+    	$scope.cdformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
+    	$scope.cdformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
     	$scope.cdformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
     }
 
