@@ -424,473 +424,275 @@ app.service('staticData', function($filter){
 	];
 
 	this.calendarMonths = ['Jan','Feb','Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
- 
-    this.cdformdata =
-    {
-	  "closingInformation": {
-	    "dateIssued": "",
-	    "closingDate": "",
-	    "disbursementDate": "",
-	    "settlementAgent": "",
-	    "fileNo": "",
-	    "property": {
-	      "addressLineText": "",
-	      "addressType": "",
-	      "addressUnitDesignatorType": "",
-	      "addressUnitIdentifier": "",
-	      "cityName": "",
-	      "countryCode": "",
-	      "postalCode": "",
-	      "stateCode": "AL",
-	      "unparsedLegalDescription": "",
-	      "legalDescription":false
-	    },
-	    "salePrice": "",
-	    "partyRoleType": "",
-	    "salesContractDetail": {
-	      "personalPropertyIndicator": false,
-	      "personalPropertyAmount": "",
-	      "realPropertyAmount": "",
-	      "saleContractAmount": ""
-	    },
-	    "propertyValuationDetail": {
-	      "propertyEstimatedValueAmount": "",
-	      "propertyValuationAmount": "",
-	      "propertyValuationMethodType": "",
-	      "propertyValuationMethodTypeOtherDescription": "",
-	      "propertyValue": "Appraised"
-	    }
-	  },
-	  "transactionInformation": {
-	    "borrowerDetails": [
-	      {
-	        "type": "I",
-	        "nameModel": {
-	          "firstName": "",
-	          "lastName": "",
-	          "middleName": "",
-	          "suffixName": "",
-	          "fullName": ""
-	        },
-	        "partyRoleType": "Borrower",
-	        "partyRoleOtherDescription": "",
-	        "address": {
-	          "addressLineText": "",
-	          "addressType": "",
-	          "addressUnitDesignatorType": "",
-	          "addressUnitIdentifier": "",
-	          "cityName": "",
-	          "countryCode": "",
-	          "postalCode": "",
-	          "stateCode": ""
-	        }
-	      }
-	    ],
-	    "sellerDetails": [
-	      {
-	        "type": "I",
-	        "nameModel": {
-	          "firstName": "",
-	          "lastName": "",
-	          "middleName": "",
-	          "suffixName": "",
-	          "fullName": ""
-	        },
-	        "partyRoleType": "Seller",
-	        "partyRoleOtherDescription": "",
-	        "address": {
-	          "addressLineText": "",
-	          "addressType": "",
-	          "addressUnitDesignatorType": "",
-	          "addressUnitIdentifier": "",
-	          "cityName": "",
-	          "countryCode": "",
-	          "postalCode": "",
-	          "stateCode": ""
-	        }
-	      }
-	    ],
-	    "lenderDetails": [
-	      {
-	        "type": "O",
-	        "nameModel": {
-	          "firstName": "",
-	          "lastName": "",
-	          "middleName": "",
-	          "suffixName": "",
-	          "fullName": ""
-	        },
-	        "partyRoleType": "NotePayTo",
-	        "partyRoleOtherDescription": "",
-	        "address": {
-	          "addressLineText": "",
-	          "addressType": "",
-	          "addressUnitDesignatorType": "",
-	          "addressUnitIdentifier": "",
-	          "cityName": "",
-	          "countryCode": "",
-	          "postalCode": "",
-	          "stateCode": ""
-	        }
-	      }
-	    ]
-	  },
-	  "loanInformation": {
-	    "loanTerm": "",
-	    "purpose": "",
-	    "product": "",
-	    "loanType": "",
-	    "loanId": "",
-	    "constructionLoanType": "",
-	    "constructionPeriodNumberOfMonthsCount": "",
-	    "constructionLoanTotalTermMonthsCount": "",
-	    "loanMaturityPeriodType": "Month",
-	    "loanMaturityPeriodCount": "",
-	    "integratedDisclosureHomeEquityLoanIndicator": false,
-	    "lienPriorityType": "",
-	    "amortizationType": "",
-	    "integratedDisclosureLoanProductDescription": "",
-	    "mortgageType": "",
-	    "mortgageTypeOtherDescription": "",
-	    "loanIdentifiers": [
-	      {
-	        "loanIdentifierType": "LenderLoan",
-	        "loanIdentifier": ""
-	      },
-	      {
-	        "loanIdentifierType": "MERS_MIN",
-	        "loanIdentifier": ""
-	      }
-	    ],
-	    "miRequiredIndicator": "",
-	    "miCertificateIdentifier": "",
-	    "automatedUnderwritings": [
-	      {
-	        "automatedUnderwritingCaseIdentifier": "",
-	        "automatedUnderwritingSystemType": "",
-	        "automatedUnderwritingSystemTypeOtherDescription": ""
-	      }
-	    ],
-	    "loanManualUnderwritingIndicator": false,
-    	"interestRateIncreaseIndicator": false,
-    	"negativeAmoritzationIndicator": false,
-    	"negativeAmortizationType":"",
-    	"interestOnlyTermMonthsCount": "",
-    	"interestOnlyIndicator": false
-	  },
-	  "loanTerms": {
-	    "loanAmount": {
-	      "amount": "",
-	      "status": "",
-	      "details": "",
-	      "noteAmount": "",
-	      "negativeAmoritzationIndicator": "",
-	      "negativeAmortizationMaximumLoanBalanceAmount": "",
-	      "negativeAmortizationLimitMonthsCount": ""
-	    },
-	    "interestRate": {
-	      "interest": "",
-	      "status": "",
-	      "details": "",
-	      "buydownTemporarySubsidyFundingIndicator": "",
-	      "gseBuydownReflectedInNoteIndicator": "",
-	      "buydownInitialEffectiveInterestRatePercent": "",
-	      "buydownChangeFrequencyMonthsCount": "",
-	      "buydownIncreaseRatePercent": "",
-	      "noteRatePercent": "",
-	      "disclosedFullyIndexedRatePercent": "",
-	      "interestRateIncreaseIndicator": "",
-	      "adjustmentRuleTypeFirst": "",
-	      "perChangeRateAdjustmentFrequencyMonthsCount": "",
-	      "firstRateChangeMonthsCount": "",
-	      "ceilingRatePercentEarliestEffectiveMonthsCount": "",
-	      "ceilingRatePercent": ""
-	    },
-	    "principalInterest": {
-	      "paymentFrequencyType": "",
-	      "amount": "",
-	      "status": "",
-	      "details": "",
-	      "initialPrincipalAndInterestPaymentAmount": "",
-	      "fullyIndexedInitialPrincipalAndInterestPaymentAmount": "",
-	      "interestOnlyIndicator": "",
-	      "interestOnlyTermMonthsCount": "",
-	      "adjustmentRuleType": "",
-	      "perChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": "",
-	      "firstPrincipalAndInterestPaymentChangeMonthsCount": "",
-	      "principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount": "",
-	      "principalAndInterestPaymentMaximumAmount": ""
-	    },
-	    "prepaymentPenalty": {
-	      "amount": "",
-	      "status": "",
-	      "details": "",
-	      "prepaymentPenaltyIndicator": "",
-	      "prepaymentPenaltyMaximumLifeOfLoanAmount": "",
-	      "prepaymentPenaltyExpirationMonthsCount": ""
-	    },
-	    "balloonPayment": {
-	      "amount": "",
-	      "status": "",
-	      "details": "",
-	      "balloonIndicator": "",
-	      "": ""
-	    },
-	    "intialEscrow": {
-	      "escrowIndicator": "",
-	      "feeType": "",
-	      "feeActualPaymentAmount": "",
-	      "integratedDisclosureSectionType": "",
-	      "escrowItemType": "",
-	      "displayLabelText": "",
-	      "feePaidToType": "",
-	      "typeOtherDescription": "",
-	      "escrowItemPaymentPaidByType": "",
-	      "escrowItemActualPaymentAmount": ""
-	    },
-	    "ETIA": [
-	      {
-	        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
-	        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-	        "projectedPaymentEscrowedType": ""
-	      }
-	    ],
-	    "escrowAccount": {
-	      "firstYearTotalNonEscrowPaymentDescription": "",
-	      "firstYearTotalNonEscrowPaymentAmount": ""
-	    }
-	  },
-	  "projectedPayments": {
-	    "projectedPaymentsDetails": [
-	      {
-	        "paymentFrequencyType": "",
-	        "projectedPaymentCalculationPeriodEndNumber": "",
-	        "projectedPaymentCalculationPeriodStartNumber": "",
-	        "projectedPaymentCalculationPeriodTermType": "",
-	        "projectedPaymentCalculationPeriodTermTypeOtherDescription": "",
-	        "projectedPaymentEstimatedEscrowPaymentAmount": "",
-	        "projectedPaymentEstimatedTotalMaximumPaymentAmount": "",
-	        "projectedPaymentEstimatedTotalMinimumPaymentAmount": "",
-	        "projectedPaymentMIPaymentAmount": "",
-	        "projectedPaymentPrincipalAndInterestMaximumPaymentAmount": "",
-	        "projectedPaymentPrincipalAndInterestMinimumPaymentAmount": "",
-	        "sequenceNumber": "",
-	        "interestOnlyStatus": ""
-	      }
-	    ],
-	    "paymentFrequencyType": "",
-	    "paymentCalculation": "",
-	    "principalInterest": "",
-	    "mortgageInsurance": "",
-	    "estimatedEscrow": "",
-	    "estimatedTotalPayment": "",
-	    "estimatedTotalPaymentType": "",
-	    "etia": ""
-	  },
-	  "costsAtClosing": {
-	    "ClosingCosts": {
-	      "amount": "",
-	      "details": "",
-	      "totalLoanCosts": "",
-	      "totalOtherCosts": "",
-	      "lenderCredits": ""
-	    },
-	    "CashToClose": {
-	      "amount": "",
-	      "details": "",
-	      "docType": "",
-	      "fromType": "",
-	      "toType": "",
-	      "cashFromBorrowerAtClosingAmount": "",
-	      "cashToBorrowerAtClosingAmount": ""
-	    }
-	  }
-	},
-	{
-	  "closingCostDetailsLoanCosts": {
-	    "ocTotalAmount": "",
-	    "sbDidNotShopTotalAmount": "",
-	    "sbDidShopTotalAmount": "",
-	    "tlCostsTotalAmount": "",
-	    "originationCharges": [
-	      {
-	        "displayLabel": null,
-	        "gseDisplayLabel": null,
-	        "feeActualTotalAmount": null,
-	        "feePaidToType": null,
-	        "feePaidToTypeOtherDescription": null,
-	        "feePercentBasisType": null,
-	        "feeTotalPercent": null,
-	        "feeType": null,
-	        "feeTypeOtherDescription": null,
-	        "integratedDisclosureSectionType": null,
-	        "optionalCostIndicator": null,
-	        "regulationZPointsAndFeesIndicator": null,
-	        "bpAtClosing": null,
-	        "bpB4Closing": null,
-	        "spAtClosing": null,
-	        "spB4Closing": null,
-	        "paidByOthers": null,
-	        "lenderStatus": null
-	      }
-	    ],
-	    "sbDidNotShopFors": [
-	      {
-	        "displayLabel": null,
-	        "gseDisplayLabel": null,
-	        "feeActualTotalAmount": null,
-	        "feePaidToType": null,
-	        "feePaidToTypeOtherDescription": null,
-	        "feePercentBasisType": null,
-	        "feeTotalPercent": null,
-	        "feeType": null,
-	        "feeTypeOtherDescription": null,
-	        "integratedDisclosureSectionType": null,
-	        "optionalCostIndicator": null,
-	        "regulationZPointsAndFeesIndicator": null,
-	        "bpAtClosing": null,
-	        "bpB4Closing": null,
-	        "spAtClosing": null,
-	        "spB4Closing": null,
-	        "paidByOthers": null,
-	        "lenderStatus": null
-	      }
-	    ],
-	    "sbDidShopFors": [
-	      {
-	        "displayLabel": null,
-	        "gseDisplayLabel": null,
-	        "feeActualTotalAmount": null,
-	        "feePaidToType": null,
-	        "feePaidToTypeOtherDescription": null,
-	        "feePercentBasisType": null,
-	        "feeTotalPercent": null,
-	        "feeType": null,
-	        "feeTypeOtherDescription": null,
-	        "integratedDisclosureSectionType": null,
-	        "optionalCostIndicator": null,
-	        "regulationZPointsAndFeesIndicator": null,
-	        "bpAtClosing": null,
-	        "bpB4Closing": null,
-	        "spAtClosing": null,
-	        "spB4Closing": null,
-	        "paidByOthers": null,
-	        "lenderStatus": null
-	      }
-	    ],
-	    "tlCosts": {
-	      "displayLabel": null,
-	      "gseDisplayLabel": null,
-	      "feeActualTotalAmount": null,
-	      "feePaidToType": null,
-	      "feePaidToTypeOtherDescription": null,
-	      "feePercentBasisType": null,
-	      "feeTotalPercent": null,
-	      "feeType": null,
-	      "feeTypeOtherDescription": null,
-	      "integratedDisclosureSectionType": null,
-	      "optionalCostIndicator": null,
-	      "regulationZPointsAndFeesIndicator": null,
-	      "bpAtClosing": null,
-	      "bpB4Closing": null,
-	      "spAtClosing": null,
-	      "spB4Closing": null,
-	      "paidByOthers": null,
-	      "lenderStatus": null
-	    }
-	  },
-	  "closingCostDetailsOtherCosts": {
-	    "tOGovtFeesTotalAmount": null,
-	    "prepaidsTotalAmount": null,
-	    "iEPatClosingTotalAmount": null,
-	    "otherTotalAmount": null,
-	    "totalOtherCostsTotalAmount": null,
-	    "totalClosingCostsTotalAmount": null,
-	    "totalOtherCosts": null,
-	    "totalClosingCosts": null,
-	    "tOGovtFeesList": null,
-	    "prepaidsList": [
-	      {
-	        "displayLabel": null,
-	        "gseDisplayLabel": null,
-	        "feeActualTotalAmount": null,
-	        "feePaidToType": null,
-	        "feePaidToTypeOtherDescription": null,
-	        "feePercentBasisType": null,
-	        "feeTotalPercent": null,
-	        "feeType": null,
-	        "feeTypeOtherDescription": null,
-	        "integratedDisclosureSectionType": null,
-	        "optionalCostIndicator": null,
-	        "regulationZPointsAndFeesIndicator": null,
-	        "bpAtClosing": null,
-	        "bpB4Closing": null,
-	        "spAtClosing": null,
-	        "spB4Closing": null,
-	        "paidByOthers": null,
-	        "lenderStatus": null,
-	        "fromDate": null,
-	        "toDate": null,
-	        "months": null
-	      }
-	    ],
-	    "iEPatClosingList": [
-	      {
-	        "displayLabel": "",
-	        "gseDisplayLabel": "",
-	        "escrowCollectedNumberOfMonthsCount": "",
-	        "escrowItemType": "",
-	        "escrowItemTypeOtherDescription": "",
-	        "escrowMonthlyPaymentAmount": "",
-	        "feePaidToType": null,
-	        "feePaidToTypeOtherDescription": "",
-	        "integratedDisclosureSectionType": "",
-	        "regulationZPointsAndFeesIndicator": null,
-	        "paymentIncludedInAPRIndicator": null,
-	        "bpAtClosing": null,
-	        "bpB4Closing": null,
-	        "spAtClosing": null,
-	        "spB4Closing": null,
-	        "paidByOthers": null,
-	        "lenderStatus": null
-	      }
-	    ],
-	    "otherCostsList": [
-	      {
-	        "displayLabel": "",
-	        "gseDisplayLabel": "",
-	        "escrowCollectedNumberOfMonthsCount": "",
-	        "escrowItemType": "",
-	        "escrowItemTypeOtherDescription": "",
-	        "escrowMonthlyPaymentAmount": "",
-	        "feePaidToType": null,
-	        "feePaidToTypeOtherDescription": "",
-	        "integratedDisclosureSectionType": "",
-	        "regulationZPointsAndFeesIndicator": null,
-	        "paymentIncludedInAPRIndicator": null,
-	        "bpAtClosing": null,
-	        "bpB4Closing": null,
-	        "spAtClosing": null,
-	        "spB4Closing": null,
-	        "paidByOthers": null,
-	        "lenderStatus": null
-	      }
-	    ]
-	  }
-	},
-	{
-	  "cashToCloses": [
-	    {
-	      "label": "",
-	      "type": "",
-	      "leFromBorrower": "",
-	      "finalFromBorrower": "",
-	      "dtcStatus": "",
-	      "dtcDetail": "",
-	      "index": "",
-	      "closingCostsFinancedTotalAmount": ""
-	    }
-	  ],
-	  "summariesofTransactions": ""
+
+	this.cdformdata={
+		"closingInformation": {
+			"dateIssued": "",
+			"closingDate": "",
+			"disbursementDate": "",
+			"settlementAgent": "",
+			"fileNo": "",
+			"property": {
+				"addressLineText": "",
+				"addressType": "",
+				"addressUnitDesignatorType": "",
+				"addressUnitIdentifier": "",
+				"cityName": "",
+				"countryCode": "",
+				"postalCode": "",
+				"stateCode": "AL",
+				"unparsedLegalDescription": "",
+				"legalDescription": false
+			},
+			"salePrice": "",
+			"partyRoleType": "",
+			"salesContractDetail": {
+				"personalPropertyIndicator": false,
+				"personalPropertyAmount": "",
+				"realPropertyAmount": "",
+				"saleContractAmount": ""
+			},
+			"propertyValuationDetail": {
+				"propertyEstimatedValueAmount": "",
+				"propertyValuationAmount": "",
+				"propertyValuationMethodType": "",
+				"propertyValuationMethodTypeOtherDescription": "",
+				"propertyValue": "Appraised"
+			}
+		},
+		"transactionInformation": {
+			"borrowerDetails": [{
+				"type": "I",
+				"nameModel": {
+					"firstName": "",
+					"lastName": "",
+					"middleName": "",
+					"suffixName": "",
+					"fullName": ""
+				},
+				"partyRoleType": "Borrower",
+				"partyRoleOtherDescription": "",
+				"address": {
+					"addressLineText": "",
+					"addressType": "",
+					"addressUnitDesignatorType": "",
+					"addressUnitIdentifier": "",
+					"cityName": "",
+					"countryCode": "",
+					"postalCode": "",
+					"stateCode": ""
+				}
+			}],
+			"sellerDetails": [{
+				"type": "I",
+				"nameModel": {
+					"firstName": "",
+					"lastName": "",
+					"middleName": "",
+					"suffixName": "",
+					"fullName": ""
+				},
+				"partyRoleType": "Seller",
+				"partyRoleOtherDescription": "",
+				"address": {
+					"addressLineText": "",
+					"addressType": "",
+					"addressUnitDesignatorType": "",
+					"addressUnitIdentifier": "",
+					"cityName": "",
+					"countryCode": "",
+					"postalCode": "",
+					"stateCode": ""
+				}
+			}],
+			"lenderDetails": [{
+				"type": "O",
+				"nameModel": {
+					"firstName": "",
+					"lastName": "",
+					"middleName": "",
+					"suffixName": "",
+					"fullName": ""
+				},
+				"partyRoleType": "NotePayTo",
+				"partyRoleOtherDescription": "",
+				"address": {
+					"addressLineText": "",
+					"addressType": "",
+					"addressUnitDesignatorType": "",
+					"addressUnitIdentifier": "",
+					"cityName": "",
+					"countryCode": "",
+					"postalCode": "",
+					"stateCode": ""
+				}
+			}]
+		},
+		"loanInformation": {
+			"loanTerm": "",
+			"purpose": "",
+			"product": "",
+			"loanType": "",
+			"loanId": "",
+			"constructionLoan": false,
+			"constructionLoanType": "",
+			"constructionPeriodNumberOfMonthsCount": "",
+			"constructionLoanTotalTermMonthsCount": "",
+			"loanMaturityPeriodType": "Month",
+			"loanMaturityPeriodCount": "",
+			"integratedDisclosureHomeEquityLoanIndicator": false,
+			"lienPriorityType": "",
+			"amortizationType": "",
+			"integratedDisclosureLoanProductDescription": "",
+			"mortgageType": "",
+			"mortgageTypeOtherDescription": "",
+			"loanIdentifiers": [{
+				"loanIdentifierType": "LenderLoan",
+				"loanIdentifier": ""
+			},
+			{
+				"loanIdentifierType": "MERS_MIN",
+				"loanIdentifier": ""
+			}],
+			"miRequiredIndicator": false,
+			"miCertificateIdentifier": "",
+			"automatedUnderwritings": [{
+				"automatedUnderwritingCaseIdentifier": "",
+				"automatedUnderwritingSystemType": "",
+				"automatedUnderwritingSystemTypeOtherDescription": ""
+			}],
+			"loanManualUnderwritingIndicator": false,
+			"interestRateIncreaseIndicator": false,
+			"negativeAmortizationIndicator": false,
+			"interestOnlyTermMonthsCount": "",
+			"interestOnlyIndicator": false,
+			"negativeAmortizationType": "",
+			"seasonalPaymentFeatureIndicator": false,
+			"stepPaymentsFeatureIndicator": false,
+			"optionalPaymentsFeatureIndicator": false,
+			"negativeAmoritzationIndicator": false,
+			"negativeAmoritzationType": ""
+		},
+		"loanTerms": {
+			"loanAmount": {
+		      "noteAmount": "",
+		      "negativeAmoritzationIndicator": false,
+		      "negativeAmortizationMaximumLoanBalanceAmount": "",
+		      "negativeAmortizationLimitMonthsCount": ""
+		    },
+			"interestRate": {
+				"interest": "",
+				"status": "",
+				"details": "",
+				"buydownTemporarySubsidyFundingIndicator": "",
+				"gseBuydownReflectedInNoteIndicator": "",
+				"buydownInitialEffectiveInterestRatePercent": "",
+				"buydownChangeFrequencyMonthsCount": "",
+				"buydownIncreaseRatePercent": "",
+				"noteRatePercent": "",
+				"disclosedFullyIndexedRatePercent": "",
+				"interestRateIncreaseIndicator": "",
+				"adjustmentRuleTypeFirst": "",
+				"perChangeRateAdjustmentFrequencyMonthsCount": "",
+				"firstRateChangeMonthsCount": "",
+				"ceilingRatePercentEarliestEffectiveMonthsCount": "",
+				"ceilingRatePercent": ""
+			},
+			"principalInterest": {
+				"paymentFrequencyType": "",
+				"amount": "",
+				"status": "",
+				"details": "",
+				"initialPrincipalAndInterestPaymentAmount": "",
+				"fullyIndexedInitialPrincipalAndInterestPaymentAmount": "",
+				"interestOnlyIndicator": "",
+				"interestOnlyTermMonthsCount": "",
+				"adjustmentRuleType": "",
+				"perChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": "",
+				"firstPrincipalAndInterestPaymentChangeMonthsCount": "",
+				"principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount": "",
+				"principalAndInterestPaymentMaximumAmount": ""
+			},
+			"prepaymentPenalty": {
+				"amount": "",
+				"status": "",
+				"details": "",
+				"prepaymentPenaltyIndicator": "",
+				"prepaymentPenaltyMaximumLifeOfLoanAmount": "",
+				"prepaymentPenaltyExpirationMonthsCount": ""
+			},
+			"balloonPayment": {
+				"amount": "",
+				"status": "",
+				"details": "",
+				"balloonIndicator": "",
+				"": ""
+			},
+			"intialEscrow": {
+				"escrowIndicator": "",
+				"feeType": "",
+				"feeActualPaymentAmount": "",
+				"integratedDisclosureSectionType": "",
+				"escrowItemType": "",
+				"displayLabelText": "",
+				"feePaidToType": "",
+				"typeOtherDescription": "",
+				"escrowItemPaymentPaidByType": "",
+				"escrowItemActualPaymentAmount": ""
+			},
+			"ETIA": [{
+				"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
+				"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+				"projectedPaymentEscrowedType": ""
+			}],
+			"escrowAccount": {
+				"firstYearTotalNonEscrowPaymentDescription": "",
+				"firstYearTotalNonEscrowPaymentAmount": ""
+			}
+		},
+		"projectedPayments": {
+			"projectedPaymentsDetails": [{
+				"paymentFrequencyType": "",
+				"projectedPaymentCalculationPeriodEndNumber": "",
+				"projectedPaymentCalculationPeriodStartNumber": "",
+				"projectedPaymentCalculationPeriodTermType": "",
+				"projectedPaymentCalculationPeriodTermTypeOtherDescription": "",
+				"projectedPaymentEstimatedEscrowPaymentAmount": "",
+				"projectedPaymentEstimatedTotalMaximumPaymentAmount": "",
+				"projectedPaymentEstimatedTotalMinimumPaymentAmount": "",
+				"projectedPaymentMIPaymentAmount": "",
+				"projectedPaymentPrincipalAndInterestMaximumPaymentAmount": "",
+				"projectedPaymentPrincipalAndInterestMinimumPaymentAmount": "",
+				"sequenceNumber": "",
+				"interestOnlyStatus": ""
+			}],
+			"paymentFrequencyType": "",
+			"paymentCalculation": "",
+			"principalInterest": "",
+			"mortgageInsurance": "",
+			"estimatedEscrow": "",
+			"estimatedTotalPayment": "",
+			"estimatedTotalPaymentType": "",
+			"etia": ""
+		},
+		"costsAtClosing": {
+			"ClosingCosts": {
+				"amount": "",
+				"details": "",
+				"totalLoanCosts": "",
+				"totalOtherCosts": "",
+				"lenderCredits": ""
+			},
+			"CashToClose": {
+				"amount": "",
+				"details": "",
+				"docType": "",
+				"fromType": "",
+				"toType": "",
+				"cashFromBorrowerAtClosingAmount": "",
+				"cashToBorrowerAtClosingAmount": ""
+			}
+		}
 	};
-}); 
+
+ });

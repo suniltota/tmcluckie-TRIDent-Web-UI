@@ -212,7 +212,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-10 fieldTitle">Is this transaction a construction loan?</div>
 						<div class="col-sm-2 padding0">
-					        <select  class="form-control" ng-model="cdformdata.loanInformation.constructionLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+					        <select  class="form-control" ng-model="cdformdata.loanInformation.constructionLoan" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 					        </select>
 				        </div>
 					</div>
@@ -221,7 +221,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-7 fieldTitle">What type of Contraction Loan?</div>
 						<div class="col-sm-5 padding0">
-					        <select  class="form-control" ng-model="cdformdata.loanInformation.constructionLoanType" ng-disabled="cdformdata.loanInformation.constructionLoanIndicator == false">
+					        <select  class="form-control" ng-model="cdformdata.loanInformation.constructionLoanType" ng-disabled="cdformdata.loanInformation.constructionLoan == false">
 					        	<option value="" selected>Select</option>
 					        	<option ng-repeat="constructionLoanType in constructionLoanTypes" value="{{constructionLoanType.value}}">{{constructionLoanType.name}}</option>
 					        </select>
@@ -325,7 +325,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-10 fieldTitle">Does the loan have a Step payment feature</div>
 						<div class="col-sm-2 padding0">
-					        <select  class="form-control" ng-model="cdformdata.loanInformation.stepPaymentFeatureIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"></select>
+					        <select  class="form-control" ng-model="cdformdata.loanInformation.stepPaymentsFeatureIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"></select>
 				        </div>
 					</div>
 				</div>
@@ -333,7 +333,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Step feature will be in affect</div>
 						<div class="col-sm-2 padding0">
-							<input type="text" class="form-control" name="" ng-disabled="cdformdata.loanInformation.stepPaymentFeatureIndicator==false">
+							<input type="text" class="form-control" name="" ng-disabled="cdformdata.loanInformation.stepPaymentsFeatureIndicator==false">
 						</div>
 					</div>
 				</div>
@@ -341,7 +341,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-10 fieldTitle">Does the loan have an optional payment feature</div>
 						<div class="col-sm-2 padding0">
-					        <select  class="form-control" ng-model="cdformdata.loanInformation.optionalPaymentFeatureIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"></select>
+					        <select  class="form-control" ng-model="cdformdata.loanInformation.optionalPaymentsFeatureIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"></select>
 				        </div>
 					</div>
 				</div>
@@ -349,7 +349,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Optional payment will be in affect</div>
 						<div class="col-sm-2 padding0">
-							<input type="text" class="form-control" name="" ng-disabled="cdformdata.loanInformation.optionalPaymentFeatureIndicator==false">
+							<input type="text" class="form-control" name="" ng-disabled="cdformdata.loanInformation.optionalPaymentsFeatureIndicator==false">
 						</div>
 					</div>
 				</div>
