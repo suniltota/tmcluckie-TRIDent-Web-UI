@@ -7,7 +7,7 @@
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle">Date Issued</div>
 			<div class="col-sm-7">
-			    <span class="col-sm-10 padding0">{{cdformdata.closingInformation.dateIssued | date : format}}
+			    <span class="col-sm-10 padding0">{{cdformdata.closingInformation.dateIssued | date : dateFormat}}
 				</span>
 			</div>
 		</div>
@@ -15,7 +15,7 @@
 			<div class="col-sm-5 fieldTitle">Closing Date <span class="required">*</span></div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
-				<input type="text" name="closingDate" id="closingDate" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="cdformdata.closingInformation.closingDate" is-open="isClosingDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="Closing Date" disabled ng-change="closeChange(cdformdata.closingInformation.closingDate)"/>
+				<input type="text" name="closingDate" id="closingDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.closingInformation.closingDate" is-open="isClosingDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="Closing Date" disabled ng-change="closeChange(cdformdata.closingInformation.closingDate)"/>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isClosingDate = !isClosingDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -26,7 +26,7 @@
 			<div class="col-sm-5 fieldTitle">Disbursement Date <span class="required">*</span></div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
-				<input type="text" name="disbursementDate" id="disbursementDate" class="form-control calenderInput" uib-datepicker-popup="{{format}}" ng-model="cdformdata.closingInformation.disbursementDate" is-open="isDisbursementDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Disbursement Date" disabled/>
+				<input type="text" name="disbursementDate" id="disbursementDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.closingInformation.disbursementDate" is-open="isDisbursementDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Disbursement Date" disabled/>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDisbursementDate = !isDisbursementDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -34,15 +34,19 @@
 			</div>
 		</div>
 		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Settlement Agent <span class="required">*</span></div>
+			<div class="col-sm-5 fieldTitle">
+				Settlement Agent Name<span class="required">*</span>
+				(organization)
+			</div>
 			<div class="col-sm-7">
-				
-					<input type="text" ng-model="cdformdata.closingInformation.settlementAgent" class="form-control">
-				
+				<input type="text" ng-model="cdformdata.closingInformation.settlementAgent" class="form-control">
 			</div>
 		</div>
 		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">File # <span class="required">*</span></div>
+			<div class="col-sm-5 fieldTitle">
+				File # <span class="required">*</span><br>
+				(settlement Agent Number)
+			</div>
 			<div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.fileNo" class="form-control"></div>
 		</div>
 	</div>
@@ -51,20 +55,21 @@
 				<h5 class="innerSectionHeader">Property Information</h5>
 				 <div class="row">
 				 	 <div class=" col-sm-12">
-		              <div class="col-sm-5 fieldTitle">Choose One</div>
+		              	<div class="col-sm-5 fieldTitle">Choose One</div>
 		              	<div class="col-sm-7 radioGroup">
-		              		<span class="col-sm-6 padding0"><input type="radio" name="property" checked ng-model="chooseone" value="streetAddress">Street Address</span>
-		              		<span class="col-sm-6 padding0"><input type="radio" name="property" ng-model="chooseone" value="legalDescription">Legal Description</span>
+		              		<span class="col-sm-6 padding0">
+		              		<input type="radio" name="property"  ng-value="false" ng-model="cdformdata.closingInformation.property.legalDescription" ng-click="checkRadio()">Street Address</span>
+		              		<span class="col-sm-6 padding0"><input type="radio" name="property" ng-model="cdformdata.closingInformation.property.legalDescription"  ng-value="true" ng-click="checkRadio()">Legal Description</span>
 		              	</div>
 		             </div>
 		          </div>
-		          <div class="row margin5tb" ng-show="chooseone == 'streetAddress'">
+		          <div class="row margin5tb" ng-show="cdformdata.closingInformation.property.legalDescription == false">
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Street Address</div>
 		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.addressLineText" class="form-control"></div>
 		            </div>
 		          </div>
-		          <div class="row margin5tb" ng-show="chooseone == 'legalDescription'">
+		          <div class="row margin5tb" ng-show="cdformdata.closingInformation.property.legalDescription == true">
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Legal Description</div>
 		              <div class="col-sm-7">
@@ -83,7 +88,7 @@
 		              <div class="col-sm-5 fieldTitle">State</div>
 		              <div class="col-sm-7">
 		                  <select ng-model="cdformdata.closingInformation.property.stateCode" class="form-control">
-		                     <option ng-repeat="state in states['stateCode']" value="{{state}}">{{state}}</option>
+		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
 		                  </select>
 		              </div>
 		            </div>
@@ -91,11 +96,11 @@
 		          <div class="row margin5tb">
 		            <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Postal Code <span class="required">*</span></div>
-		              <div class="col-sm-7"><input type="text" ng-pattern="/^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/" ng-model="cdformdata.closingInformation.property.postalCode" class="form-control"></div>
+		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.postalCode" class="form-control" zipcode-format></div>
 		            </div>
 		          </div>
 		</div>
-		<div class="col-sm-6" ng-show="formType != 'alternate'">
+		<div class="col-sm-6" ng-show="loanBasicInfo.loanFormType == 'standard'">
 				<h5 class="innerSectionHeader">Price Information</h5>
 				 <div class="row" ng-show="cdformdata.closingInformation.salesContractDetail.personalPropertyIndicator == false">
 				 	 <div class=" col-sm-12">
@@ -117,33 +122,32 @@
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Personal Property Included?</div>
 		              <div class="col-sm-3">
-		              		<select class="form-control" ng-model="cdformdata.closingInformation.salesContractDetail.personalPropertyIndicator" ng-init="cdformdata.closingInformation.salesContractDetail.personalPropertyIndicator = options[1].id" 
-		              		ng-options="option.id as option.name for option in options">
-                            <!-- <option ng-repeat="option in options" value="{{option.id}}">{{option.name}}</option> -->
+		              		<select class="form-control" ng-model="cdformdata.closingInformation.salesContractDetail.personalPropertyIndicator"
+		              		ng-options="option.id as option.name for option in dropDownBooleanOptions">
                             </select>
 		              </div>
 		            </div>
 		          </div>
-				 		          
 		</div>
-		<div class="col-sm-6" ng-show="formType == 'alternate'">
+		<div class="col-sm-6" ng-show="loanBasicInfo.loanFormType != 'standard'">
 				<h5 class="innerSectionHeader">Value Information</h5>
 				 <div class="row">
 				 	 <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Choose either “Appraised Property Value” or “Estimated Property Value”</div>
 		              	<div class="col-sm-7">
-		              		<select class="form-control">
-		              			<option>Appraised Property Value</option>
+		              		<select class="form-control" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyValue">
+		              			<option value="Appraised">Appraised Property Value</option>
+		              			<option value="Estimated">Estimated Property Value</option>
 		              		</select>
 		              	</div>
 		             </div>
 		          </div>
-		          <div class="row margin5tb">
+		          <div class="row margin5tb" ng-show="cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'">
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Property Value Method Used </div>
 		              <div class="col-sm-7">
-		              		<select class="form-control" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodType">
-		              			<option>AVM</option>
+		              		<select class="form-control" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodType"
+		              		ng-options="propertyValuationMethodType.value as propertyValuationMethodType.name for propertyValuationMethodType in propertyValuationMethodTypes">
 		              		</select>
 		              </div>
 		            </div>
@@ -152,9 +156,10 @@
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Amount of Value</div>
 		              <div class="col-sm-7">
-		              		<select class="form-control">
-		              			<option>$0</option>
-		              		</select>
+		              		<div class="input-group">
+		  						<span class="input-group-addon input-default">$</span>
+				        		<input class="form-control" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyValuationAmount"></input>
+				        	</div>
 		              </div>
 		            </div>
 		          </div>

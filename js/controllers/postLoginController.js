@@ -25,6 +25,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
             location.href = "index.html#/home?transactionType="+$scope.transactionType+"&documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
         } else if($scope.transactionType == 'existing') {
             cdXML2JsonService.getJsonFromXml($scope.xmlfile).success(function(data){
+                $scope.purposeType = data.loanInformation.purpose.toLowerCase();
                 localStorage.jsonData = JSON.stringify(data);
                 location.href = "index.html#/home?transactionType="+$scope.transactionType+"&documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
             });

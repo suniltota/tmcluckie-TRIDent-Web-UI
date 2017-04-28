@@ -115,3 +115,47 @@ app.directive('fileModel', ['$parse', function ($parse) {
        }
     };
 }]);
+
+app.directive('zipcodeFormat', function ($filter) {
+    return {
+        restrict: 'A',
+        require: '?ngModel',
+        link: function (scope, elem, attrs, ctrl) {
+            if (!ctrl) {
+                return;
+            }
+
+            ctrl.$parsers.unshift(function (viewValue) {
+                var plainNumber = viewValue.replace(/[\-\.]/g, '');
+                if (plainNumber.toString().length === 9) {
+                    plainNumber = plainNumber.toString().slice(0, 5) + "-" + plainNumber.toString().slice(5);
+                } else if (plainNumber.toString().length === 5) {
+                    plainNumber = plainNumber.toString();
+                }
+
+                elem.val(plainNumber);
+
+                return plainNumber;
+            });
+        }
+    };
+});
+
+app.directive('onlyDigits', function () {
+
+    return {
+        restrict: 'A',
+        require: '?ngModel',
+        link: function (scope, element, attrs, modelCtrl) {
+            modelCtrl.$parsers.push(function (inputValue) {
+                if (inputValue == undefined) return '';
+                var transformedInput = inputValue.replace(/[^0-9]/g, '');
+                if (transformedInput !== inputValue) {
+                    modelCtrl.$setViewValue(transformedInput);
+                    modelCtrl.$render();
+                }
+                return transformedInput;
+            });
+        }
+    };
+});
