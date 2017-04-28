@@ -375,6 +375,55 @@ app.service('staticData', function($filter){
 			"value": "PriorAppraisalUsed"
 		}
 	];
+
+	this.amortizationTypes = [
+		{
+			"name":"Adjustable Rate",
+			"value":"AdjustableRate"
+		},
+		{
+			"name":"Fixed",
+			"value":"Fixed"
+		},
+		{
+			"name":"GEM",
+			"value":"GEM"
+		},
+		{
+			"name":"GPM",
+			"value":"GPM"
+		},
+		{
+			"name":"Graduated Payment ARM",
+			"value":"GraduatedPaymentARM"
+		},
+		{
+			"name":"Step",
+			"value":"Step"
+		}
+	];
+	this.constructionLoanTypes = [
+		{
+			"name":"Construction Only",
+			"value":"ConstructionOnly"
+		},
+		{
+			"name":"Construction To Permanent",
+			"value":"ConstructionToPermanent"
+		},
+	];
+	this.negativeAmortizationTypes = [
+		{
+			"name":"Scheduled",
+			"value":"ScheduledNegativeAmortization"
+		},
+		{
+			"name":"Potential",
+			"value":"PotentialNegativeAmortization"
+		}
+	];
+
+	this.calendarMonths = ['Jan','Feb','Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
  
     this.cdformdata =
     {
@@ -497,7 +546,7 @@ app.service('staticData', function($filter){
 	    "constructionLoanTotalTermMonthsCount": "",
 	    "loanMaturityPeriodType": "Month",
 	    "loanMaturityPeriodCount": "",
-	    "integratedDisclosureHomeEquityLoanIndicator": "",
+	    "integratedDisclosureHomeEquityLoanIndicator": false,
 	    "lienPriorityType": "",
 	    "amortizationType": "",
 	    "integratedDisclosureLoanProductDescription": "",
@@ -522,9 +571,12 @@ app.service('staticData', function($filter){
 	        "automatedUnderwritingSystemTypeOtherDescription": ""
 	      }
 	    ],
-	    "loanManualUnderwritingIndicator": "false",
-    	"interestRateIncreaseIndicator": "false",
-    	"negativeAmoritzationIndicator": "false"
+	    "loanManualUnderwritingIndicator": false,
+    	"interestRateIncreaseIndicator": false,
+    	"negativeAmoritzationIndicator": false,
+    	"negativeAmortizationType":"",
+    	"interestOnlyTermMonthsCount": "",
+    	"interestOnlyIndicator": false
 	  },
 	  "loanTerms": {
 	    "loanAmount": {

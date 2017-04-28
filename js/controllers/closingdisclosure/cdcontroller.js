@@ -15,6 +15,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.loanTypes = staticData.loanTypes;
 	$scope.ausTypes = staticData.ausTypes;
 	$scope.lienPriorityTypes = staticData.lienPriorityTypes;
+	$scope.amortizationTypes = staticData.amortizationTypes;
+	$scope.constructionLoanTypes = staticData.constructionLoanTypes;
+	$scope.negativeAmortizationTypes = staticData.negativeAmortizationTypes;
+	$scope.calendarMonths = staticData.calendarMonths;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -28,6 +32,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
+			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.loanInformation.loanTerm/12;
+			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.loanInformation.loanTerm%12;
 		} else {
 			$scope.cdformdata.closingInformation.property.stateCode = $scope.stateCodes[0].code;
 		}

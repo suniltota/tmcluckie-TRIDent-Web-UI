@@ -20,15 +20,14 @@
 		        	</div>
 		        </td>
 		        <td class="col-sm-1">
-		        	<select class="form-control pull-left" ng-model="cdformdata.loanTerms.loanAmount.negativeAmoritzationIndicator" style="width:100px;">
-		        		<option ng-repeat="x in dropDownOptions" value="{{x.model}}">{{x.value}}</option>
+		        	<select class="form-control pull-left" ng-model="cdformdata.loanTerms.loanAmount.negativeAmoritzationIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
 		        	<!-- <ul class="col-sm-9 pull-right" ng-show="cdformdata.loanTerms.loanAmount.status == 'YES'">
 		        		<li ng-repeat="detail in cdformdata.loanTerms.loanAmount.details"><p ng-bind-html="renderHtml(detail)"></p></li>
 		        	</ul> -->
 		        </td>
 		        <td>
-		        	<ul class="loanTermsList" ng-show="cdformdata.loanTerms.loanAmount.negativeAmoritzationIndicator == 'YES'">
+		        	<ul class="loanTermsList" ng-show="cdformdata.loanTerms.loanAmount.negativeAmoritzationIndicator == true">
 		        		<li><span class="pull-left margin5tb"> Can go as high as </span> <span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.loanAmount.negativeAmortizationMaximumLoanBalanceAmount"></span></li>
 		        		<li> <span class="pull-left margin5tb"> Can increase until year </span> <span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.loanAmount.negativeAmortizationLimitMonthsCount"></span></li>
 		        	</ul>
