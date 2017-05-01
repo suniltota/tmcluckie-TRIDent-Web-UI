@@ -4,7 +4,7 @@
 		<table class="table">
 		    <tbody>
 		      <tr>
-		        <td rowspan="4" class="innerSectionHeader col-sm-2" style="vertical-align: middle;"><label>Estimated Taxes, Insurance and Assessment</label></td>
+		        <td rowspan="{{cdformdata.etiaSection.total + 1}}" class="innerSectionHeader col-sm-2" style="vertical-align: middle;"><label>Estimated Taxes, Insurance and Assessment</label></td>
 		        <td class="innerSectionHeader col-sm-2">
 		        	
 		        </td>
@@ -18,60 +18,45 @@
 		        	<label>In Escrow?</label>
 		        </td>
 		      </tr>
-		      <tr>
-		      		<td rowspan="3" style="vertical-align: middle;">
-		      			<label>$ </label>
-		      			<label>A month</label>
+		      <tr ng-repeat="etia in cdformdata.etiaSection.etiaValues track by $index">
+		      		<td rowspan="{{cdformdata.etiaSection.total}}" style="vertical-align: middle;" ng-if="$index==0">
+		      			<label>$ {{cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount}} </label>
+		      			<br>A month</br>
 		      		</td>
-		      		<td>
+		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes'">
 			        	<span class="pull-left margin5tb">Property Taxes</span>
-			        	<span class="col-sm-1 pull-right"><input type="checkbox" name=""></span>
+			        	<span class="col-sm-1 pull-right"><input type="checkbox" name="" ng-checked="true"></span>
 		      		</td>
-		      		<td class="text-center">
-		      			<label> -- </label>
-		      		</td>
-		      		<td>
-		      			<select class="form-control">
-		      				<option>Yes</option>
-		      				<option>No</option>
-		      			</select>
-		      		</td>
-
-		      </tr>
-		      <tr>
-		      		<td>
+		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'">
 			        	<span class="pull-left margin5tb">Homeowners Insurance</span>
-			        	<span class="col-sm-1 pull-right"><input type="checkbox" name=""></span>
+			        	<span class="col-sm-1 pull-right"><input type="checkbox" name="" ng-checked="true"></span>
 		      		</td>
-		      		<td class="text-center">
+		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
+		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance'">
+			        	<select class="form-control" ng-model="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType">
+			        		<option value="">Select</option>
+		      				<option ng-repeat="ETIAComponentType in ETIAComponentTypes" value="{{ETIAComponentType.value}}">{{ETIAComponentType.name}}</option>
+		      			</select>
+		      		</td>
+		      		<td class="text-center" ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' ||
+		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'">
 		      			<label> -- </label>
 		      		</td>
-		      		<td>
-		      			<select class="form-control">
-		      				<option>Yes</option>
-		      				<option>No</option>
-		      			</select>
+		      		<td class="text-center" ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='Other'">
+		      			<input type="text" class="form-control" name="" ng-model="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription">
 		      		</td>
-
-		      </tr>
-		       <tr>
-		      		<td>
-			        	<select class="form-control">
-		      				<option>Homeowners Association Dues</option>
-		      			</select>
-		      		</td>
-		      		<td class="text-center">
-		      			<input type="text" class="form-control" disabled name="">
+		      		<td class="text-center" ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='Other' && etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
+		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance'">
+		      			<input type="text" class="form-control" name="" ng-disabled="true">
 		      		</td>
 		      		<td>
-		      			<select class="form-control">
-		      				<option>Yes</option>
-		      				<option>No</option>
+		      			<select class="form-control" ng-options="option.id as option.name for option in escrowDropDownBooleanOptions" ng-model="etia.projectedPaymentEscrowedType">
 		      			</select>
 		      		</td>
 
 		      </tr>
 		    </tbody>
 		</table>
+		<div class="col-sm-12 text-center" ng-click="addETIAComponent()"><a>+ Add Additional Borrowers</a></div>
 	</span>
 </div>

@@ -7,6 +7,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.showTab = 'closingInfo';
 	$scope.dateFormat = staticData.dateDisplayFormat;
 	$scope.dropDownBooleanOptions = staticData.dropDownBooleanOptions;
+	$scope.escrowDropDownBooleanOptions = staticData.escrowDropDownBooleanOptions;
 	$scope.stateCodes = staticData.stateCodes;
 	$scope.countryCodes = staticData.countryCodes;
 	$scope.propertyValuationMethodTypes = staticData.propertyValuationMethodTypes;
@@ -19,9 +20,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.constructionLoanTypes = staticData.constructionLoanTypes;
 	$scope.negativeAmortizationTypes = staticData.negativeAmortizationTypes;
 	$scope.calendarMonths = staticData.calendarMonths;
+	$scope.ETIAComponentTypes = staticData.ETIAComponentTypes;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
+	var ETIAComponentType = {};
 
 	$scope.dateOptions = {
  		formatYear: 'yy',
@@ -34,6 +37,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		borrower = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
 		seller = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
 		ausTypeIdentifier = angular.copy($scope.cdformdata.loanInformation.automatedUnderwritings[0]);
+		ETIAComponentType = angular.copy($scope.cdformdata.etiaSection.etiaValues[2]);
 		
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
@@ -88,6 +92,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		};
 		$scope.cdformdata.loanInformation['productAdjustmentInformation'] = productAdjustmentInformation;
 		$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = false;
+		$scope.cdformdata.etiaSection.total = $scope.cdformdata.etiaSection.etiaValues.length;
 		
 		$scope.cdformdata.closingInformation.dateIssued = new Date();
 		$scope.cdformdata.closingInformation.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
@@ -146,7 +151,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.removeSeller = function(index){
     	$scope.cdformdata.transactionInformation.sellerDetails.splice(index,1);
     }
-    $scope.dropDownOptions =  [{model:"", value:""},{model:"true",value:"YES"},{model:"false",value:"NO"}];
+
+    $scope.addETIAComponent = function(){
+    	$scope.cdformdata.etiaSection.etiaValues.push(angular.copy(ETIAComponentType));
+    	$scope.cdformdata.etiaSection.total = $scope.cdformdata.etiaSection.etiaValues.length;
+    }
 
 });
 

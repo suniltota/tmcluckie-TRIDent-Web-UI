@@ -23,6 +23,10 @@ app.service('staticData', function($filter){
 		{ name: "Yes", id: true },
 		{ name: "No", id: false }
 	];
+	this.escrowDropDownBooleanOptions = [
+		{ name: "Yes", id: "Escrowed" },
+		{ name: "No", id: "NotEscrowed" }
+	];
 
 	this.countryCodes = [
 		{
@@ -423,6 +427,45 @@ app.service('staticData', function($filter){
 		}
 	];
 
+	this.ETIAComponentTypes = [
+		{
+			"name":"Condominium Association Dues",
+			"value":"CondominiumAssociationDues"
+		},
+		{
+			"name":"Condominium Association Special Assessment",
+			"value":"CondominiumAssociationSpecialAssessment"
+		},
+		{
+			"name":"CooperativeAssociationDues",
+			"value":"Cooperative Association Dues"
+		},
+		{
+			"name":"Cooperative Association Special Assessment",
+			"value":"CooperativeAssociationSpecialAssessment"
+		},
+		{
+			"name":"Ground Rent",
+			"value":"GroundRent"
+		},
+		{
+			"name":"Homeowners Association Dues",
+			"value":"HomeownersAssociationDues"
+		},
+		{
+			"name":"Homeowners Association Special Assessment",
+			"value":"HomeownersAssociationSpecialAssessment"
+		},
+		{
+			"name":"Leasehold Payment",
+			"value":"LeaseholdPayment"
+		},
+		{
+			"name":"Other",
+			"value":"Other"
+		}
+	];
+
 	this.calendarMonths = ['Jan','Feb','Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 	this.cdformdata={
@@ -674,6 +717,26 @@ app.service('staticData', function($filter){
 			"estimatedTotalPayment": "",
 			"estimatedTotalPaymentType": "",
 			"etia": ""
+		},
+		"etiaSection": {
+			"projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount": "",
+			"etiaValues": [
+				{
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "PropertyTaxes",
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+			    	"projectedPaymentEscrowedType": "Escrowed"
+			  	},
+			  	{
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "HomeownersInsurance",
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+			    	"projectedPaymentEscrowedType": "Escrowed"
+			  	},
+			  	{
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+			    	"projectedPaymentEscrowedType": "NotEscrowed"
+			  	}
+			]
 		},
 		"costsAtClosing": {
 			"ClosingCosts": {
