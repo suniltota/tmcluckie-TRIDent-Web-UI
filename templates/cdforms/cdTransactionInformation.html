@@ -3,10 +3,8 @@
   <div class="">
 	<div class="col-sm-12 padding0" ng-repeat= "borrower in cdformdata.transactionInformation.borrowerDetails track by $index">
 		<h5 class="innerSectionHeader">Borrower Information 
-      <span>
-        <div class="col-sm-12 glyphicon-minus RemoveSection" ng-click="removeBorrower($index)" ng-show="$index != 0">
+      <span class="glyphicon-minus pull-right RemoveSection" ng-click="removeBorrower($index)" ng-show="$index != 0">
           <a> Remove Borrower</a>
-        </div>
       </span>
     </h5>
 		 <div class="col-sm-6">
@@ -98,7 +96,11 @@
    </div>
    <div class="sellinfo" ng-show="loanBasicInfo.loanPurposeType=='purchase'">
   <div class="col-sm-12 padding0"  ng-repeat= "seller in cdformdata.transactionInformation.sellerDetails track by $index">
-    <h5 class="innerSectionHeader">Seller Information  <div class="col-sm-12 glyphicon-minus RemoveSection" ng-click="removeSeller($index)" ng-show="$index != 0"><a> Remove Seller</a></div></h5>
+    <h5 class="innerSectionHeader">Seller Information  
+      <span class="glyphicon-minus pull-right RemoveSection" ng-click="removeSeller($index)" ng-show="$index != 0">
+          <a> Remove Seller</a>
+      </span>
+    </h5>
      <div class="col-sm-6">
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Seller Classification</div>
