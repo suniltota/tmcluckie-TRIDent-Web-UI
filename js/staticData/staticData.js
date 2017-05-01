@@ -408,7 +408,7 @@ app.service('staticData', function($filter){
 			"value":"ConstructionOnly"
 		},
 		{
-			"name":"Construction To Permanent",
+			"name":"Construction to Permanent",
 			"value":"ConstructionToPermanent"
 		},
 	];
@@ -427,38 +427,38 @@ app.service('staticData', function($filter){
 
 	this.cdformdata={
 		"closingInformation": {
-			"dateIssued": "",
-			"closingDate": "",
-			"disbursementDate": "",
-			"settlementAgent": "",
-			"fileNo": "",
-			"property": {
-				"addressLineText": "",
-				"addressType": "",
-				"addressUnitDesignatorType": "",
-				"addressUnitIdentifier": "",
-				"cityName": "",
-				"countryCode": "",
-				"postalCode": "",
-				"stateCode": "AL",
-				"unparsedLegalDescription": "",
-				"legalDescription": false
-			},
-			"salePrice": "",
-			"partyRoleType": "",
-			"salesContractDetail": {
-				"personalPropertyIndicator": false,
-				"personalPropertyAmount": "",
-				"realPropertyAmount": "",
-				"saleContractAmount": ""
-			},
-			"propertyValuationDetail": {
-				"propertyEstimatedValueAmount": "",
-				"propertyValuationAmount": "",
-				"propertyValuationMethodType": "",
-				"propertyValuationMethodTypeOtherDescription": "",
-				"propertyValue": "Appraised"
-			}
+		    "dateIssued": "",
+		    "closingDate": "",
+		    "disbursementDate": "",
+		    "settlementAgent": "",
+		    "fileNo": "",
+		    "property": {
+		      "addressLineText": "",
+		      "addressType": "",
+		      "addressUnitDesignatorType": "",
+		      "addressUnitIdentifier": "",
+		      "cityName": "",
+		      "countryCode": "",
+		      "postalCode": "",
+		      "stateCode": "",
+		      "unparsedLegalDescription": "",
+		      "legalDescription": false
+		    },
+		    "salePrice": "",
+		    "partyRoleType": "",
+		    "salesContractDetail": {
+		      "personalPropertyIndicator": false,
+		      "personalPropertyAmount": "",
+		      "realPropertyAmount": "",
+		      "saleContractAmount": ""
+		    },
+		    "propertyValuationDetail": {
+		      "propertyEstimatedValueAmount": "",
+		      "propertyValuationAmount": "",
+		      "propertyValuationMethodType": "",
+		      "propertyValuationMethodTypeOtherDescription": "",
+		      "propertyValue": ""
+		    }
 		},
 		"transactionInformation": {
 			"borrowerDetails": [{
@@ -581,70 +581,70 @@ app.service('staticData', function($filter){
 		      "negativeAmortizationLimitMonthsCount": ""
 		    },
 			"interestRate": {
-				"interest": "",
-				"status": "",
-				"details": "",
-				"buydownTemporarySubsidyFundingIndicator": "",
-				"gseBuydownReflectedInNoteIndicator": "",
-				"buydownInitialEffectiveInterestRatePercent": "",
-				"buydownChangeFrequencyMonthsCount": "",
-				"buydownIncreaseRatePercent": "",
-				"noteRatePercent": "",
-				"disclosedFullyIndexedRatePercent": "",
-				"interestRateIncreaseIndicator": "",
-				"adjustmentRuleTypeFirst": "",
-				"perChangeRateAdjustmentFrequencyMonthsCount": "",
-				"firstRateChangeMonthsCount": "",
-				"ceilingRatePercentEarliestEffectiveMonthsCount": "",
-				"ceilingRatePercent": ""
-			},
-			"principalInterest": {
-				"paymentFrequencyType": "",
-				"amount": "",
-				"status": "",
-				"details": "",
-				"initialPrincipalAndInterestPaymentAmount": "",
-				"fullyIndexedInitialPrincipalAndInterestPaymentAmount": "",
-				"interestOnlyIndicator": "",
-				"interestOnlyTermMonthsCount": "",
-				"adjustmentRuleType": "",
-				"perChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": "",
-				"firstPrincipalAndInterestPaymentChangeMonthsCount": "",
-				"principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount": "",
-				"principalAndInterestPaymentMaximumAmount": ""
-			},
-			"prepaymentPenalty": {
-				"amount": "",
-				"status": "",
-				"details": "",
-				"prepaymentPenaltyIndicator": "",
-				"prepaymentPenaltyMaximumLifeOfLoanAmount": "",
-				"prepaymentPenaltyExpirationMonthsCount": ""
-			},
-			"balloonPayment": {
-				"amount": "",
-				"status": "",
-				"details": "",
-				"balloonIndicator": "",
-				"": ""
-			},
-			"intialEscrow": {
-				"escrowIndicator": "",
-				"feeType": "",
-				"feeActualPaymentAmount": "",
-				"integratedDisclosureSectionType": "",
-				"escrowItemType": "",
-				"displayLabelText": "",
-				"feePaidToType": "",
-				"typeOtherDescription": "",
-				"escrowItemPaymentPaidByType": "",
-				"escrowItemActualPaymentAmount": ""
-			},
-			"ETIA": [{
-				"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
-				"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-				"projectedPaymentEscrowedType": ""
-			}],
+		      "buydownTemporarySubsidyFundingIndicator": false,
+		      "gseBuydownReflectedInNoteIndicator": false,
+		      "buydownInitialEffectiveInterestRatePercent": "",
+		      "buydownChangeFrequencyMonthsCount": "",
+		      "buydownIncreaseRatePercent": "",
+		      "noteRatePercent": "",
+		      "disclosedFullyIndexedRatePercent": "",
+		      "interestRateIncreaseIndicator": false,
+		      "adjustmentRuleTypeFirst": "",
+		      "perChangeRateAdjustmentFrequencyMonthsCount": "",
+		      "firstRateChangeMonthsCount": "",
+		      "ceilingRatePercentEarliestEffectiveMonthsCount": "",
+		      "ceilingRatePercent": ""
+		    },
+		    "principalInterest": {
+		      "paymentFrequencyType": "Monthly",
+		      "amount": "",
+		      "initialPrincipalAndInterestPaymentAmount": "",
+		      "fullyIndexedInitialPrincipalAndInterestPaymentAmount": "",
+		      "adjustmentRuleType": "",
+		      "perChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": null,
+		      "firstPrincipalAndInterestPaymentChangeMonthsCount": "",
+		      "principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount": "",
+		      "principalAndInterestPaymentMaximumAmount": "",
+		      "paymentIncreaseIndicator": false
+		    },
+		    "prepaymentPenalty": {
+		      "prepaymentPenaltyIndicator": false,
+		      "prepaymentPenaltyMaximumLifeOfLoanAmount": "",
+		      "prepaymentPenaltyExpirationMonthsCount": ""
+		    },
+		    "balloonPayment": {
+		      "balloonIndicator": false,
+		      "balloonPaymentAmount": ""
+		    },
+		    "intialEscrow": {
+		      "escrowIndicator": true,
+		      "feeType": "",
+		      "feeActualPaymentAmount": null,
+		      "integratedDisclosureSectionType": "",
+		      "escrowItemType": "",
+		      "displayLabelText": "",
+		      "feePaidToType": "",
+		      "typeOtherDescription": "",
+		      "escrowItemPaymentPaidByType": null,
+		      "escrowItemActualPaymentAmount": null
+		    },
+			"ETIA": [
+				{
+					"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "PropertyTaxes",
+					"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+					"projectedPaymentEscrowedType": "Escrowed"
+				},
+				{
+			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "HomeownersInsurance",
+			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+			        "projectedPaymentEscrowedType": "Escrowed"
+			    },
+			    {
+			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
+			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+			        "projectedPaymentEscrowedType": ""
+			    }
+			],
 			"escrowAccount": {
 				"firstYearTotalNonEscrowPaymentDescription": "",
 				"firstYearTotalNonEscrowPaymentAmount": ""

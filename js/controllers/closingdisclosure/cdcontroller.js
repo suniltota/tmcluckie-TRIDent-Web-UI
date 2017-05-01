@@ -23,6 +23,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	var seller ={};
 	var ausTypeIdentifier = {};
 
+	$scope.dateOptions = {
+ 		formatYear: 'yy',
+ 		startingDay: 1
+ 	};
+
 	var initializeCDformData = function() {
 		$scope.cdformdata = staticData.cdformdata;
 		$scope.cdformdata.loanInformation.purpose = $scope.loanBasicInfo.loanPurposeType;
@@ -41,12 +46,76 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		for (i = $scope.cdformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
 		    $scope.cdformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
 		}
+		var lender = {
+				"type": "O",
+				"nameModel": {
+					"firstName": "",
+					"lastName": "",
+					"middleName": "",
+					"suffixName": "",
+					"fullName": ""
+				},
+				"partyRoleType": "NotePayTo",
+				"partyRoleOtherDescription": "",
+				"address": {
+					"addressLineText": "",
+					"addressType": "",
+					"addressUnitDesignatorType": "",
+					"addressUnitIdentifier": "",
+					"cityName": "",
+					"countryCode": "",
+					"postalCode": "",
+					"stateCode": ""
+				}
+		}
+		var isLenderTypeOrganization = false;
+		for(i=0; i<$scope.cdformdata.transactionInformation.lenderDetails.length; i++){
+		       if($scope.cdformdata.transactionInformation.lenderDetails[i].type == 'O') {
+		       		isLenderTypeOrganization = true;
+		       		break;
+		       }
+		};
+		if(!isLenderTypeOrganization)
+			$scope.cdformdata.transactionInformation.lenderDetails.push(lender);
+
+		var productAdjustmentInformation = {
+			'fixedPeriodMonths' :'',
+			'firstChangePeriodMonths':'',
+			'subsequentChangePeriodMonths':'',
+			'loanCapRate':'',
+			'firstChangeInterestRateLimit':'',
+			'subsequentChangeInterestRateLimit' :''
+		};
+		$scope.cdformdata.loanInformation['productAdjustmentInformation'] = productAdjustmentInformation;
+		$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = false;
 		
 		$scope.cdformdata.closingInformation.dateIssued = new Date();
 		$scope.cdformdata.closingInformation.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
 	}
 
 	initializeCDformData();
+
+	$scope.changeProductInfo = function() {
+		if($scope.cdformdata.loanInformation.amortizationType!='Fixed') {
+			$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = false;
+			var productInfo = $scope.cdformdata.loanInformation.productAdjustmentInformation;
+			if(productInfo.fixedPeriodMonths) {
+				productInfo['fixedPeriodYears'] = productInfo.fixedPeriodMonths/12;
+				productInfo['firstChangeStartYear'] = productInfo.fixedPeriodYears+1;
+				$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = true;
+			}
+			if(productInfo.firstChangePeriodMonths){
+				productInfo['firstChangePeriodYears'] = productInfo.firstChangePeriodMonths/12;
+				$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = true;
+			}
+			if(productInfo.subsequentChangePeriodMonths){
+				productInfo['subsequentChangePeriodYears'] = productInfo.subsequentChangePeriodMonths/12;
+				$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = true;
+			}
+		} else {
+			$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = false;
+		}
+	}
 
 	$scope.checkRadio = function() {
 		console.log($scope.cdformdata.closingInformation.property.legalDescription);
