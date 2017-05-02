@@ -567,7 +567,8 @@ app.service('staticData', function($filter){
 					"lastName": "",
 					"middleName": "",
 					"suffixName": "",
-					"fullName": ""
+					"fullName": "",
+					"refinanceSameLender" : true
 				},
 				"partyRoleType": "NotePayTo",
 				"partyRoleOtherDescription": "",

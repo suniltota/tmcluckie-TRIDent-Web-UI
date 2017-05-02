@@ -38,13 +38,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		seller = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
 		ausTypeIdentifier = angular.copy($scope.cdformdata.loanInformation.automatedUnderwritings[0]);
 		ETIAComponentType = angular.copy($scope.cdformdata.etiaSection.etiaValues[2]);
-		
+		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.loanInformation.loanTerm/12;
 			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.loanInformation.loanTerm%12;
-		} else {
-			$scope.cdformdata.closingInformation.property.stateCode = $scope.stateCodes[0].code;
 		}
 		
 		for (i = $scope.cdformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 

@@ -65,7 +65,7 @@
         </div>
         <div class="col-sm-6">
         	<div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Street Address</div>
+            <div class="col-sm-5 fieldTitle">Street Address (Mailing)</div>
             <div class="col-sm-7"><input type="text"  class="form-control" ng-model="borrower.address.addressLineText"></div>
           </div>
           <div class="row col-sm-12 margin5tb">
@@ -142,7 +142,7 @@
         </div>
         <div class="col-sm-6">
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Street Address</div>
+            <div class="col-sm-5 fieldTitle">Street Address (Mailing)</div>
             <div class="col-sm-7"><input type="text"  class="form-control" ng-model="seller.address.addressLineText"></div>
           </div>
           <div class="row col-sm-12 margin5tb">
@@ -188,9 +188,8 @@
         </div>
          <div class="row col-sm-12 margin5tb" ng-show="loanBasicInfo.loanPurposeType != 'purchase'">
           <div class="col-sm-5 fieldTitle">Refinance Same lender?</div>
-          <div class="col-sm-7">
-              <select placeholder="Organization Name"  class="form-control">
-                <option>Yes</option><option>No</option>
+          <div class="col-sm-7" ng-repeat="lender in cdformdata.transactionInformation.lenderDetails">
+              <select placeholder="Organization Name"  class="form-control" ng-model="lender.nameModel.refinanceSameLender" ng-options="option.id as option.name for option in dropDownBooleanOptions">
               </select>
           </div>
         </div>

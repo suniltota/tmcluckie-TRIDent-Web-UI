@@ -73,7 +73,7 @@
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Legal Description</div>
 		              <div class="col-sm-7">
-		              <textarea ng-model="cdformdata.closingInformation.property.unparsedLegalDescription" class="form-control"></textarea>
+		              <textarea ng-model="cdformdata.closingInformation.property.unparsedLegalDescription" class="form-control" maxlength="265"></textarea>
 		              </div>
 		            </div>
 		          </div>
@@ -88,6 +88,7 @@
 		              <div class="col-sm-5 fieldTitle">State</div>
 		              <div class="col-sm-7">
 		                  <select ng-model="cdformdata.closingInformation.property.stateCode" class="form-control">
+		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
 		                  </select>
 		              </div>
@@ -104,7 +105,7 @@
 				<h5 class="innerSectionHeader">Price Information</h5>
 				 <div class="row" ng-show="cdformdata.closingInformation.salesContractDetail.personalPropertyIndicator == false">
 				 	 <div class=" col-sm-12">
-		              <div class="col-sm-5 fieldTitle">Sales Price</div>
+		              <div class="col-sm-5 fieldTitle">Sales Price (Purchase Only)</div>
 		              	<div class="col-sm-7 radioGroup">
 		              		<input type="text" class="form-control" ng-model="cdformdata.closingInformation.salesContractDetail.saleContractAmount">
 		              	</div>
