@@ -189,7 +189,7 @@
          <div class="row col-sm-12 margin5tb" ng-show="loanBasicInfo.loanPurposeType != 'purchase'">
           <div class="col-sm-5 fieldTitle">Refinance Same lender?</div>
           <div class="col-sm-7" ng-repeat="lender in cdformdata.transactionInformation.lenderDetails">
-              <select placeholder="Organization Name"  class="form-control" ng-model="lender.nameModel.refinanceSameLender" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+              <select placeholder="Organization Name" ng-show="lender.type=='O'"  class="form-control" ng-model="lender.nameModel.refinanceSameLender" ng-options="option.id as option.name for option in dropDownBooleanOptions">
               </select>
           </div>
         </div>

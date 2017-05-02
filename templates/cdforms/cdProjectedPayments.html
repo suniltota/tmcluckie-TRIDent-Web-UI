@@ -1,194 +1,119 @@
 <div class="col-sm-12">
 	<h4>Projected Payments</h4>
 	<span class="col-sm-12 LoanTermsTable">
-		<table class="table">
-		    <thead>
+		<table class="table" style="margin-top:15px;">
 		      <tr>
 		        <th class="col-sm-3 innerSectionHeader">Payment Calculation</th>
-		        <th  class="col-sm-2 innerSectionHeader">
-		        	<span class="pull-left margin5tb">Years</span>
-		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
-		        	<span class="pull-left margin5tb">-</span>
-		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
-		        </th>
-		        <th  class="col-sm-2 innerSectionHeader">
-		        	<span class="pull-left margin5tb">Years</span>
-		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
-		        	<span class="pull-left margin5tb">-</span>
-		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
-		        </th>
-		        <th  class="col-sm-2 innerSectionHeader">
-		        	<span class="pull-left margin5tb">Years</span>
-		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
-		        	<span class="pull-left margin5tb">-</span>
-		        	<span class="col-sm-4 "><input type="text" class="form-control" name=""></span>
+		        <th class="col-sm-2 innerSectionHeader"
+		        	ng-repeat="paymentCalculation in cdformdata.projectedPayments.paymentCalculation track by $index">
+		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years</span>
+		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Year</span>
+		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodStartNumber"></span>
+		        	<span class="pull-left" style="margin:5px;" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">-</span>
+		        	<span class="col-sm-3" style="padding:0 5px;" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodEndNumber"></span>
 		        </th>
 		      </tr>
-		    </thead>
-		    <tbody>
-		      
 		      <tr>
-		        <td><label>Principal & Interest</label></td>
-		        <td>
-		        	<div class="col-sm-6">
+		        <td><label>Principal &amp; Interest</label></td>
+		        <td ng-repeat="principalInterest in cdformdata.projectedPayments.principalInterest track by $index">
+		        	<div class="col-sm-6" style="padding: 0 8px;">
 		        			<div class="col-sm-12 text-center">Min</div>
 		        			<div class="input-group">
-  								<span class="input-group-addon input-default">$</span>
-		        				<input class="form-control" ng-model="pi.minValue"/>
+  								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
+		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount"/>
 		        			</div>
 		        	</div>
-		        	<div class="col-sm-6">
+		        	<div class="col-sm-6" style="padding: 0 8px;">
 		        			<div class="col-sm-12 text-center">Max</div>
 		        			<div class="input-group">
-  								<span class="input-group-addon input-default">$</span>
-		        				<input class="form-control" ng-model="pi.minValue"/>
+  								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
+		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount"/>
 		        			</div>
 		        	</div>
-		        </td>
-		        <td>
-		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Min</div>
-		        			<div class="input-group">
-  								<span class="input-group-addon input-default">$</span>
-		        				<input class="form-control" ng-model="pi.minValue"/>
-		        			</div>
-		        	</div>
-		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Max</div>
-		        			<div class="input-group">
-  								<span class="input-group-addon input-default">$</span>
-		        				<input class="form-control" ng-model="pi.minValue"/>
-		        			</div>
-		        	</div>
-		        </td>
-		        <td>
-		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Min</div>
-		        			<div class="input-group">
-  								<span class="input-group-addon input-default">$</span>
-		        				<input class="form-control" ng-model="pi.minValue"/>
-		        			</div>
-		        	</div>
-		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Max</div>
-		        			<div class="input-group">
-  								<span class="input-group-addon input-default">$</span>
-		        				<input class="form-control" ng-model="pi.minValue"/>
-		        			</div>
-		        	</div>
+		        	<div class="col-sm-12 text-center" style="padding:10px;" ng-show="interestOnlyStatus">Only Interest</div>
 		        </td>
 		      </tr>
 		      <tr>
-		        <td><label >Mortgage Insurance</label> 
+		        <td><label>Mortgage Insurance</label> 
 			        <div class="col-sm-12 padding0 margin5tb">
 			        	<span class="col-sm-6 padding0">Is Required?</span> 
 			        	<span class="col-sm-4 pull-right">
-			        		<select class="form-control"><option>No</option></select>
+			        		<select class="form-control"
+			        		ng-model="cdformdata.projectedPayments.mirequired"
+		              		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+			        		</select>
 			        	</span> 
 			        </div>
-			        <div class="col-sm-12 padding0 margin5tb">
-			        	<span class="col-sm-6 padding0">No. Months Duration?</span> 
-			        	<span class="col-sm-4 pull-right">
-			        		<input type="text" class="form-control" name="">
-			        	</span> 
-			        </div>
-			        <div class="col-sm-12 padding0 margin5tb">
-			        	<span class="col-sm-6 padding0">Scheduled Termination Date</span> 
-			        	<span class="col-sm-4 pull-right">
-			        		<input type="text" class="form-control" name="">
-			        	</span> 
+			        <div ng-show="cdformdata.projectedPayments.mirequired">
+				        <div class="col-sm-12 padding0 margin5tb">
+				        	<span class="col-sm-6 padding0">No. Months Duration?</span> 
+				        	<span class="col-sm-4 pull-right">
+				        		<input type="text" class="form-control" name="" ng-model="cdformdata.projectedPayments.miMonthsDuration">
+				        	</span> 
+				        </div>
+				        <div class="col-sm-12 padding0 margin5tb">
+				        	<span class="col-sm-6 padding0">Scheduled Termination Date</span> 
+				        	<span class="col-sm-4 pull-right">
+				        		<input type="text" class="form-control" name="" ng-model="cdformdata.projectedPayments.miSTDate">
+				        	</span> 
+				        </div>
+				        <div class="col-sm-12 padding0 margin5tb">
+				        	<span class="col-sm-6 padding0">MI Company Name</span> 
+				        	<span class="col-sm-4 pull-right">
+				        		<select class="form-control"
+				        		ng-model="cdformdata.projectedPayments.miCompanyName">
+					        		<option selected>Select</option>
+				              		<option ng-repeat="miCompanyNameType in miCompanyNameTypes" value="{{miCompanyNameType.value}}">{{miCompanyNameType.name}}</option>
+				        		</select>
+				        	</span> 
+				        </div>
+				        <div class="col-sm-12 padding0 margin5tb" ng-show="cdformdata.projectedPayments.miCompanyName=='Other'">
+				        	<span class="col-sm-6 padding0">MI Company Name Description, if other</span> 
+				        	<span class="col-sm-4 pull-right">
+				        		<input type="text" class="form-control" name="" ng-model="cdformdata.projectedPayments.miCompanyNameOtherDescription">
+				        	</span> 
+				        </div>
 			        </div>
 		        </td>
-		        <td>
-		        		<div class="input-group">
-  								<span class="input-group-addon input-default">$</span>
-  								<input type="text" class="form-control" name="">
-  						</div>
+		        <td ng-repeat="mortgageInsurance in cdformdata.projectedPayments.mortgageInsurance track by $index">
+					<div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+						<input type="text" class="form-control" name="" ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount">
+					</div>
   				</td>
-		        <td>
-		        		<div class="input-group">
-  								<span class="input-group-addon input-default">$</span>
-  								<input type="text" class="form-control" name="">
-  						</div>
-  				</td>
-		        <td>
-		        	<div class="input-group">
-  								<span class="input-group-addon input-default">$</span>
-  								<input type="text" class="form-control" name="">
-  						</div>
-		        </td>
 		      </tr>
 		      <tr>
-		        <td><label >Escrow Payment Amount</label> 
+		        <td><label>Escrow Payment Amount</label> 
 		        </td>
-		        <td>
+		        <td ng-repeat="estimatedEscrow in cdformdata.projectedPayments.estimatedEscrow track by $index">
 		        	<div class="input-group">
 	  					<span class="input-group-addon input-default">$</span>
-			        	<input class="form-control"/>
-			        </div>
-		        </td>
-		        <td>
-		        	<div class="input-group">
-	  					<span class="input-group-addon input-default">$</span>
-			        	<input class="form-control"/>
-			        </div>
-		        </td>
-		        <td>
-		        	<div class="input-group">
-	  					<span class="input-group-addon input-default">$</span>
-			        	<input class="form-control"/>
+			        	<input class="form-control" ng-model="estimatedEscrow.projectedPaymentEstimatedEscrowPaymentAmount"/>
 			        </div>
 		        </td>
 		      </tr>
 		      <tr>
-		        <td><label>Estimated Total Monthly Payment Amount</label> 
-		        </td>
-		        
 		        <td>
+		        	<label>Estimated Total Monthly Payment Amount</label> 
+		        </td>
+		        <td ng-repeat="estimatedTotal in cdformdata.projectedPayments.estimatedTotal track by $index">
 		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Min</div>
-		        			<div class="text-center">
-  								-
+		        			<div class="col-sm-12 text-center">Minimum</div>
+		        			<div class="text-center" ng-show="estimatedTotal.projectedPaymentEstimatedTotalMinimumPaymentAmount!=''">
+  								${{estimatedTotal.projectedPaymentEstimatedTotalMinimumPaymentAmount}}
+		        			</div>
+		        			<div class="text-center" ng-show="estimatedTotal.projectedPaymentEstimatedTotalMinimumPaymentAmount==''">
+  								--
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Max</div>
+		        			<div class="col-sm-12 text-center">Maximum</div>
 		        			<div class="text-center">
-  								$0
+  								${{estimatedTotal.projectedPaymentEstimatedTotalMaximumPaymentAmount}}
 		        			</div>
 		        	</div>	
 		        </td>
-		        <td>
-		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Min</div>
-		        			<div class="text-center">
-  								-
-		        			</div>
-		        	</div>
-		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Max</div>
-		        			<div class="text-center">
-  								$0
-		        			</div>
-		        	</div>	
-		        </td>
-		        <td>
-		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Min</div>
-		        			<div class="text-center">
-  								-
-		        			</div>
-		        	</div>
-		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Max</div>
-		        			<div class="text-center">
-  								$0
-		        			</div>
-		        	</div>	
-		        </td>
-		        
 		      </tr>
-		    </tbody>
 		</table>
 	</span>
 </div>

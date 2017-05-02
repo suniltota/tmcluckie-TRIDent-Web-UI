@@ -439,6 +439,53 @@ app.service('staticData', function($filter){
 		}
 	];
 
+	this.miCompanyNameTypes = [
+		{
+			"name":"CMG",
+			"value":"CMG"
+		},
+		{
+			"name":"Essent",
+			"value":"Essent"
+		},
+		{
+			"name":"Genworth",
+			"value":"Genworth"
+		},
+		{
+			"name":"MGIC",
+			"value":"MGIC"
+		},
+		{
+			"name":"NationalMI",
+			"value":"NationalMI"
+		},
+		{
+			"name":"Other",
+			"value":"Other"
+		},
+		{
+			"name":"PMI",
+			"value":"PMI"
+		},
+		{
+			"name":"Radian",
+			"value":"Radian"
+		},
+		{
+			"name":"RMIC",
+			"value":"RMIC"
+		},
+		{
+			"name":"Triad",
+			"value":"Triad"
+		},
+		{
+			"name":"UGI",
+			"value":"UGI"
+		}
+	];
+
 	this.ETIAComponentTypes = [
 		{
 			"name":"Condominium Association Dues",

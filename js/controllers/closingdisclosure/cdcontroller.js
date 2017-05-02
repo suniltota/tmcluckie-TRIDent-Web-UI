@@ -20,6 +20,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.constructionLoanTypes = staticData.constructionLoanTypes;
 	$scope.negativeAmortizationTypes = staticData.negativeAmortizationTypes;
 	$scope.calendarMonths = staticData.calendarMonths;
+	$scope.miCompanyNameTypes = staticData.miCompanyNameTypes;
 	$scope.ETIAComponentTypes = staticData.ETIAComponentTypes;
 	var borrower ={};
 	var seller ={};
@@ -41,8 +42,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
-			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.loanInformation.loanTerm/12;
-			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.loanInformation.loanTerm%12;
+			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.loanInformation.loanMaturityPeriodCount/12;
+			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.loanInformation.loanMaturityPeriodCount%12;
 		}
 		
 		for (i = $scope.cdformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
