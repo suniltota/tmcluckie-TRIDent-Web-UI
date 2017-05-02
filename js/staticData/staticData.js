@@ -246,6 +246,18 @@ app.service('staticData', function($filter){
 		{
 			"name" : "Borrower",
 			"value": "Borrower"
+		},
+		{
+			'name':'Non Title Spouse',
+			'value':'NonTitleSpouse'
+		},
+		{
+			'name':'Title Holder',
+			'value':'TitleHolder'
+		},
+		{
+			'name':'Other',
+			'value':'Other'
 		}
 	];
 

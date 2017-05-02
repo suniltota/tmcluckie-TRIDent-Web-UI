@@ -157,7 +157,7 @@ th.innerSectionHeader{padding: 3px 15px!important; vertical-align: middle!import
 .margin2btb{margin-bottom: 2px;}
 .form-control{height:30px;padding:6px 6px;}
 
-.AddSection{width: 100%; float: left; margin: 10px 0; cursor: pointer;}
+.AddSection{float: left; margin: 10px 0; cursor: pointer;}
 .required{color:red;}
 .tableInsideHeader{background:#f7f7f7; padding: 5px 10px; color:#337ab7; }
 .RemoveSection{cursor: pointer;}

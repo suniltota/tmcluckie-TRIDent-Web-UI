@@ -1,17 +1,17 @@
 <div class="bodySection col-sm-12 padding0" style="position: relative; ">
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn glyphicon glyphicon-chevron-left" onclick="closeNav()"></a>
-    <div class="form-group col-sm-12">
+      <div class="form-group col-sm-12">
           <div id="doctype">Closing Disclosure</div>
-        
-     </div>
-    <span href="" class="active pagenumber" ng-class="{'active': showTab == 'closingInfo'}" ng-click="showTab = 'closingInfo'" >Closing Information</span>
-     <span href="" class="pagenumber" ng-class="{'active': showTab == 'transInfo'}" ng-click="showTab = 'transInfo'" >Transaction Information</span>
-     <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanInfo'}" ng-click="showTab = 'loanInfo'" >Loan Information</span>
-        <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanterms'}" ng-click="showTab = 'loanInfo'" >Loan Terms</span>
-        <span href="" class="pagenumber" ng-class="{'active': showTab == 'projectedPayments'}" ng-click="showTab = 'projectedPayments'" >Projected Payments</span>
-        <span href="" class="pagenumber" ng-class="{'active': showTab == 'ETIAssessments'}" ng-click="showTab = 'ETIAssessments'" >Estimated Taxes, Insurance & Assessments</span>
-        <span href="" class="pagenumber" ng-class="{'active': showTab == 'CostsAtClosing'}" ng-click="showTab = 'CostsAtClosing'" >Costs At Closing</span>
+      </div>
+      <span href="" class="active pagenumber" ng-class="{'active': showTab == 'closingInfo'}" ng-click="showTab = 'closingInfo'" >Closing Information</span>
+      <span href="" class="pagenumber" ng-class="{'active': showTab == 'transInfo'}" ng-click="showTab = 'transInfo'" >Transaction Information</span>
+      <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanInfo'}" ng-click="showTab = 'loanInfo'" >Loan Information</span>
+      <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanterms'}" ng-click="showTab = 'loanInfo'" >Loan Terms</span>
+      <span href="" class="pagenumber" ng-class="{'active': showTab == 'projectedPayments'}" ng-click="showTab = 'projectedPayments'" >Projected Payments</span>
+      <span href="" class="pagenumber" ng-class="{'active': showTab == 'ETIAssessments'}" ng-click="showTab = 'ETIAssessments'" >Estimated Taxes, Insurance & Assessments</span>
+      <span href="" class="pagenumber" ng-class="{'active': showTab == 'CostsAtClosing'}" ng-click="showTab = 'CostsAtClosing'" >Costs At Closing</span>
+      <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCosts'}" ng-click="showTab = 'LoanCosts'" >Loan Costs</span>
   </div>
    <div id="transparent"></div>
   <div class="SidebarBtns" id="SidebarBtns" side-bar-width>
@@ -47,6 +47,10 @@
       <span class="glyphicon glyphicon-file pull-left"></span>
       <span class="pull-left noTitle">7</span>
     </span>
+    <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanCosts'}" data-toggle="tooltip" ng-click="showTab = 'LoanCosts'"  data-placement="right" title="Loan Costs">
+      <span class="glyphicon glyphicon-file pull-left"></span>
+      <span class="pull-left noTitle">8</span>
+    </span>
 
   </div>
   <div class="col-lg-12 PageformHeader padding0" pdf-width>
@@ -63,6 +67,7 @@
             <div ng-show="showTab == 'projectedPayments'" ng-include='"templates/cdforms/cdProjectedPayments.html"'></div>
             <div ng-show="showTab == 'ETIAssessments'" ng-include='"templates/cdforms/cdETIAssessments.html"'></div>
             <div ng-show="showTab == 'CostsAtClosing'" ng-include='"templates/cdforms/cdCostsatClosing.html"'></div>
+            <div ng-show="showTab == 'LoanCosts'" ng-include='"templates/cdforms/cdLoanCosts.html"'></div>
             </div>
        	 	</span>
         </div>
