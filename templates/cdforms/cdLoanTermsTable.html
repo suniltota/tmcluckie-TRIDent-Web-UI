@@ -98,27 +98,27 @@
 		        <td>
 		        	
 		        </td>
-		        <td><select class="form-control pull-left" ng-model="cdformdata.loanTerms.interestRate.buydownTemporarySubsidyFundingIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        <td><select class="form-control pull-left" ng-model="cdformdata.loanTerms.temporaryBuydown.buydownTemporarySubsidyFundingIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
 		        </td>
 		        <td>
-		        	<ul class="loanTermsList" ng-show="cdformdata.loanTerms.interestRate.buydownTemporarySubsidyFundingIndicator == true">
+		        	<ul class="loanTermsList" ng-show="cdformdata.loanTerms.temporaryBuydown.buydownTemporarySubsidyFundingIndicator == true">
 		        		<li> <span class="pull-left margin5tb">What is the Rate as reflected without the Buydown?</span> 
-		        			<span class="col-sm-2 pull-right"><input  ng-model="cdformdata.loanTerms.interestRate.buydownInitialEffectiveInterestRatePercent" type="text" class="form-control" name=""></span> 
+		        			<span class="col-sm-2 pull-right"><input  ng-model="cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" type="text" class="form-control" name=""></span> 
 		        			</li>
 		        		<li><span class="pull-left margin5tb">Is the buydown reflected on the Note</span> 
 		        			<span class="col-sm-2 pull-right">
-		        			<select class="form-control pull-left" ng-model="cdformdata.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        			<select class="form-control pull-left" ng-model="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 			        	    </select>
 			        	   </span> 
 		        			</li>
-		        		<li ng-show="cdformdata.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb">Provide the rate the borrower will pay after the buydown is applied</span> 
+		        		<li ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb">Provide the rate the borrower will pay after the buydown is applied</span> 
 		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> </li>
-		        		<li ng-show="cdformdata.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb">Provide the Time interval in months between the interest rate increases during the buydown period</span> 
+		        		<li ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb">Provide the Time interval in months between the interest rate increases during the buydown period</span> 
 		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> </li>
-		        		<li ng-show="cdformdata.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb">Provide the total number of months which the buydown is in affect</span> 
+		        		<li ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb">Provide the total number of months which the buydown is in affect</span> 
 		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> </li>
-		        		<li ng-show="cdformdata.loanTerms.interestRate.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb">Provide the amount by which the interest rate can increase at each adjustment within the buydown period</span> 
+		        		<li ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb">Provide the amount by which the interest rate can increase at each adjustment within the buydown period</span> 
 		        			<span class="col-sm-2 pull-right"><input type="text" class="form-control" name=""></span> </li>
 		        	</ul>
 		        </td>
