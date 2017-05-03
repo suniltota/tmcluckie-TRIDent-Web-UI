@@ -559,7 +559,7 @@ app.service('staticData', function($filter){
 		      "propertyValuationAmount": "",
 		      "propertyValuationMethodType": "",
 		      "propertyValuationMethodTypeOtherDescription": "",
-		      "propertyValue": ""
+		      "propertyValue": "Appraised"
 		    }
 		},
 		"transactionInformation": {
