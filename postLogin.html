@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-sm-12  radioGroup  margin5tb">
                           <input type="radio"  name="transaction" ng-model="transactionType" value="textTemplate">
-                          <strong>Upload File</strong>
+                          <strong>Upload Template File</strong>
                         </div>
                         <div class="col-sm-12  radioGroup  margin5tb">
                           <input type="radio"  name="transaction" ng-model="transactionType" value="pdf">
@@ -124,11 +124,14 @@
                         <div class="col-sm-8  radioGroup margin5tb">
                           <input type="file" name="xmlfile" id="xmlfile" accept=".xml" file-model="xmlfile">
                         </div>
+                        <div class="col-sm-8  radioGroup margin5tb" ng-show="fileerror">
+                          <label style="color: red;">{{fileerror}}</label>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    <button type="button" class="btn btn-primary"
                       ng-click="submit()">OK</button>
                     <button type="button" class="btn btn-default" ng-click="clear()">Clear</button>
                   </div>
