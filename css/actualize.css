@@ -16,6 +16,7 @@ input:focus,select:focus,textarea:focus,button:focus {outline: none;}
 .CommonTable .form-control{font-size: 11px;}
 .CommonTable .FieldWidth{width: 60px;}
 .border_top{border-top:2px solid #bbb;}
+.border_top0{border-top: 0px!important;}
 
 .pageSpinner{width: 100%; height: 100%; z-index:99999; display: none; position: fixed; background: #222; opacity: 0.5; background-image:url("../images/loading-blue.gif"); background-repeat: no-repeat; background-size:50px; background-position: center;}
 
@@ -82,6 +83,8 @@ th.innerSectionHeader{padding: 3px 15px!important; vertical-align: middle!import
 .LoanCostsRightTable .table{font-size: 11px;}
 .LoanCostsRightTable .table th{padding:0 8px; height: 33px; vertical-align:inherit; text-align: center;}
 .LoanCostsRightTable .form-control{font-size: 11px;}
+.LoanCostsSection .innerSectionHeader{font-size: 11px; min-width:75px;}
+.LoanCostsSection .innerSectionMainHeader{padding: 5px!important; background:#ddd;}
 
 .OtherCostsRightTable .table{font-size: 11px;}
 .OtherCostsRightTable .table th{padding:0 8px; height: 33px; vertical-align:inherit; text-align: center;}

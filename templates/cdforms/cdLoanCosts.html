@@ -1,14 +1,14 @@
-<div class="col-sm-12 padding0">
+<div class="col-sm-12">
 	<h4>Loan Costs</h4>
-	<div class="col-sm-12 padding0">
-		<h5 class="col-sm-3 innerSectionHeader padding0">Section A. Origination Charge</h5>
-		<h5 class="col-sm-3"></h5>
-		<h5 class="col-sm-2 innerSectionHeader padding0">{{cdformdata.closingCostDetailsLoanCosts.ocTotalAmount}}</h5>
-	</div>
 	<span  class="col-sm-12 padding0">
-		<table class="table">
+		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
+			  <tr>	  	
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section A. Origination Charge</th>
+				<th colspan="2" class="border_top0"></th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">{{cdformdata.closingCostDetailsLoanCosts.ocTotalAmount}}</th>
+			  </tr>
 		      <tr>
-		        <th class="innerSectionHeader">Fee Label Name</th>
+		        <th class="innerSectionHeader col-sm-2">Fee Label Name</th>
 		        <th class="innerSectionHeader">Fee Type</th>
 		        <th class="innerSectionHeader">Fee Type Other Description</th>
 		        <th class="innerSectionHeader">Full Name (if applicable)</th>
@@ -22,19 +22,355 @@
 		        <th class="innerSectionHeader">Include in APR Calculation</th>
 		        <th class="innerSectionHeader">Include in Reg Z Points/Fee</th>
 		      </tr>
-		      <tr ng-repeat="originationCharge in cdformdata.closingCostDetailsLoanCosts.originationCharges track by $index">
+		      <tr>
 		        <td>
-		        	<input type="text" name="" ng-model="originationCharge.feeTotalPercent"> % of Loan Amount Points
+		        	<span class="col-sm-2 padding0"><input type="text" class="form-control" ng-model="originationCharge.feeTotalPercent"> </span>
+		        	<span class="margin5tb col-sm-10">% of Loan Amount Points</span>
 		        </td>
 		        <td>
-		        	<select class="form-control" ng-model="cdformdata.originationCharge.feeType">
+		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
               			<option>Select</option>
              			<option value="Estimated">Estimated Property Value</option>
               		</select>
 		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td class="text-center">
+		        	<input type="checkbox" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
+              			<option>Select</option>
+             			<option value="Estimated">Estimated Property Value</option>
+              		</select>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td class="text-center">
+		        	<input type="checkbox" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		      </tr>
+		</table>
+		<span class="AddSection">
+			<a>+ Add Additional lines</a>
+		</span>
+	</span>
+
+	<span  class="col-sm-12 padding0">
+		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
+			  <tr>	  	
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section B. Services Borrower Did Not Shop For</th>
+				<th colspan="2" class="border_top0"></th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">$0</th>
+			  </tr>
+		      <tr>
+		        <th class="innerSectionHeader col-sm-2">Fee Label Name</th>
+		        <th class="innerSectionHeader">Fee Type</th>
+		        <th class="innerSectionHeader">Fee Type Other Description</th>
+		        <th class="innerSectionHeader">Full Name (if applicable)</th>
+		        <th class="innerSectionHeader">Fee Paid To Type</th>
+		        <th class="innerSectionHeader">Brw Paid At Closing Amt</th>
+		        <th class="innerSectionHeader">Brw Paid Before Closing Amt</th>
+		        <th class="innerSectionHeader">Seller Paid At Closing Amt</th>
+		        <th class="innerSectionHeader">Seller Paid Before Closing Amt</th>
+		        <th class="innerSectionHeader">Paid By Other Amt</th>
+		        <th class="innerSectionHeader">Paid By Lender Flag</th>
+		        <th class="innerSectionHeader">Include in APR Calculation</th>
+		        <th class="innerSectionHeader">Include in Reg Z Points/Fee</th>
+		      </tr>
+		      <tr>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
+              			<option>Select</option>
+             			<option value="Estimated">Estimated Property Value</option>
+              		</select>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td class="text-center">
+		        	<input type="checkbox" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
+              			<option>Select</option>
+             			<option value="Estimated">Estimated Property Value</option>
+              		</select>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td class="text-center">
+		        	<input type="checkbox" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		      </tr>
+		</table>
+		<span class="AddSection">
+			<a>+ Add Additional lines</a>
+		</span>
+	</span>
+
+	<span  class="col-sm-12 padding0">
+		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
+			  <tr>	  	
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section C. Services Borrower Did Shop For</th>
+				<th colspan="2" class="border_top0"></th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">$0</th>
+			  </tr>
+		      <tr>
+		        <th class="innerSectionHeader col-sm-2">Fee Label Name</th>
+		        <th class="innerSectionHeader">Fee Type</th>
+		        <th class="innerSectionHeader">Fee Type Other Description</th>
+		        <th class="innerSectionHeader">Full Name (if applicable)</th>
+		        <th class="innerSectionHeader">Fee Paid To Type</th>
+		        <th class="innerSectionHeader">Brw Paid At Closing Amt</th>
+		        <th class="innerSectionHeader">Brw Paid Before Closing Amt</th>
+		        <th class="innerSectionHeader">Seller Paid At Closing Amt</th>
+		        <th class="innerSectionHeader">Seller Paid Before Closing Amt</th>
+		        <th class="innerSectionHeader">Paid By Other Amt</th>
+		        <th class="innerSectionHeader">Paid By Lender Flag</th>
+		        <th class="innerSectionHeader">Include in APR Calculation</th>
+		        <th class="innerSectionHeader">Include in Reg Z Points/Fee</th>
+		      </tr>
+		      <tr>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
+              			<option>Select</option>
+             			<option value="Estimated">Estimated Property Value</option>
+              		</select>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td class="text-center">
+		        	<input type="checkbox" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
+              			<option>Select</option>
+             			<option value="Estimated">Estimated Property Value</option>
+              		</select>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="">
+		        </td>
+		        <td class="text-center">
+		        	<input type="checkbox" name="">
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		        <td>
+		        	<select class="form-control padding0"><option></option></select>
+		        </td>
+		      </tr>
+		</table>
+		<span class="AddSection">
+			<a>+ Add Additional lines</a>
+		</span>
+	</span>
+
+	<span  class="col-sm-6 padding0">
+		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
+			  <tr>	  	
+				<th class="innerSectionHeader innerSectionMainHeader col-sm-7">Section D. Total Loan Costs (Borrower Paid)</th>
+				
+				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">$0</th>
+			  </tr>
+		      <tr>
+		        <td>
+		        	Loan Costs Subtotal (A+B+C)
+		        </td>
+		        <td class="text-center">
+		        	$0
+		        </td>
+		        <td class="text-center">
+		        	$0
+		        </td>
 		      </tr>
 		</table>
 	</span>
+
+
 </div>
 
 
