@@ -22,6 +22,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.calendarMonths = staticData.calendarMonths;
 	$scope.miCompanyNameTypes = staticData.miCompanyNameTypes;
 	$scope.ETIAComponentTypes = staticData.ETIAComponentTypes;
+	$scope.feeTypes = staticData.feeTypes;
+	$scope.feePaidToTypes = staticData.feePaidToTypes;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -199,6 +201,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		}
 	}
 
+	/*$scope.originationChargeTotalAmount = function() {
+		cdformdata.closingCostDetailsLoanCosts.ocTotalAmount
+	}
+*/	
+	$scope.$watch('cdformdata.closingCostDetailsLoanCosts.originationCharges', function(newValue, oldValue) {
+         var originationChargeTotalAmount = 0;
+         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++) {
+         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing);
+         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing);
+         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing);
+         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing);
+         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers);
+         }
+         $scope.cdformdata.closingCostDetailsLoanCosts.ocTotalAmount = originationChargeTotalAmount;
+    }, true);
 });
 
 //date param of proper format to create date object.

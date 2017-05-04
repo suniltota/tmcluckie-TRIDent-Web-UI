@@ -534,6 +534,282 @@ app.service('staticData', function($filter){
 		}
 	];
 
+	this.feeTypes = [
+		'LoanDiscountPoints',
+		'203KArchitecturalAndEngineeringFee',
+		'203KConsultantFee',
+		'203KDiscountOnRepairs',
+		'203KInspectionFee',
+		'203KPermits',
+		'203KSupplementalOriginationFee',
+		'ApplicationFee',
+		'AppraisalDeskReviewFee',
+		'AppraisalFee',
+		'AppraisalFieldReviewFee',
+		'AppraisalManagementCompanyFee',
+		'AssumptionFee',
+		'AutomatedUnderwritingFee',
+		'AVMFee',
+		'BondFee',
+		'CertificationFee',
+		'CopyOrFaxFee',
+		'CourierFee',
+		'CreditReportFee',
+		'DocumentPreparationFee',
+		'ElectronicDocumentDeliveryFee',
+		'EscrowWaiverFee',
+		'FilingFee',
+		'HighCostMortgageCounselingFee',
+		'LoanLevelPriceAdjustment',
+		'LoanOriginationFee',
+		'LoanOriginatorCompensation',
+		'ManualUnderwritingFee',
+		'MERSRegistrationFee',
+		'NotaryFee',
+		'Other',
+		'PowerOfAttorneyPreparationFee',
+		'PowerOfAttorneyRecordingFee',
+		'PreclosingVerificationControlFee',
+		'ProcessingFee',
+		'RateLockFee',
+		'ReinspectionFee',
+		'SubordinationFee',
+		'TemporaryBuydownAdministrationFee',
+		'TemporaryBuydownPoints',
+		'VerificationOfAssetsFee',
+		'VerificationOfEmploymentFee',
+		'VerificationOfIncomeFee',
+		'VerificationOfResidencyStatusFee',
+		'VerificationOfTaxpayerIdentificationFee',
+		'VerificationOfTaxReturnFee',
+		'WireTransferFee',
+		'203KArchitecturalAndEngineeringFee',
+		'203KConsultantFee',
+		'203KInspectionFee',
+		'203KPermits',
+		'203KTitleUpdate',
+		'ApplicationFee',
+		'AppraisalDeskReviewFee',
+		'AppraisalFee',
+		'AppraisalFieldReviewFee',
+		'AppraisalManagementCompanyFee',
+		'AsbestosInspectionFee',
+		'AssumptionFee',
+		'AutomatedUnderwritingFee',
+		'AVMFee',
+		'BondFee',
+		'CertificationFee',
+		'CopyOrFaxFee',
+		'CourierFee',
+		'CreditReportFee',
+		'DisasterInspectionFee',
+		'DocumentPreparationFee',
+		'DryWallInspectionFee',
+		'ElectricalInspectionFee',
+		'ElectronicDocumentDeliveryFee',
+		'EnvironmentalInspectionFee',
+		'EscrowServiceFee',
+		'EscrowWaiverFee',
+		'FilingFee',
+		'FloodCertification',
+		'FoundationInspectionFee',
+		'HeatingCoolingInspectionFee',
+		'HighCostMortgageCounselingFee',
+		'HomeInspectionFee',
+		'LeadInspectionFee',
+		'LendersAttorneyFee',
+		'ManualUnderwritingFee',
+		'MERSRegistrationFee',
+		'MIUpfrontPremium',
+		'MoldInspectionFee',
+		'NotaryFee',
+		'Other',
+		'PestInspectionFee',
+		'PlumbingInspectionFee',
+		'PowerOfAttorneyPreparationFee',
+		'PowerOfAttorneyRecordingFee',
+		'PreclosingVerificationControlFee',
+		'ProcessingFee',
+		'PropertyInspectionWaiverFee',
+		'PropertyTaxStatusResearchFee',
+		'RadonInspectionFee',
+		'ReinspectionFee',
+		'RoofInspectionFee',
+		'SepticInspectionFee',
+		'SettlementFee',
+		'SmokeDetectorInspectionFee',
+		'StructuralInspectionFee',
+		'SubordinationFee',
+		'SurveyFee',
+		'TemporaryBuydownAdministrationFee',
+		'TitleClosingFee',
+		'TitleClosingProtectionLetterFee',
+		'TitleDocumentPreparationFee',
+		'TitleEndorsementFee',
+		'TitleExaminationFee',
+		'TitleInsuranceBinderFee',
+		'TitleLendersCoveragePremium',
+		'TitleNotaryFee',
+		'TitleUnderwritingIssueResolutionFee',
+		'USDARuralDevelopmentGuaranteeFee',
+		'VAFundingFee',
+		'VerificationOfAssetsFee',
+		'VerificationOfEmploymentFee',
+		'VerificationOfIncomeFee',
+		'VerificationOfResidencyStatusFee',
+		'VerificationOfTaxpayerIdentificationFee',
+		'VerificationOfTaxReturnFee',
+		'WaterTestingFee',
+		'WellInspectionFee',
+		'WireTransferFee',
+		'203KArchitecturalAndEngineeringFee',
+		'203KConsultantFee',
+		'203KInspectionFee',
+		'203KPermits',
+		'203KTitleUpdate',
+		'ApplicationFee',
+		'AppraisalDeskReviewFee',
+		'AppraisalFee',
+		'AppraisalFieldReviewFee',
+		'AppraisalManagementCompanyFee',
+		'AsbestosInspectionFee',
+		'AssumptionFee',
+		'AutomatedUnderwritingFee',
+		'AVMFee',
+		'BondFee',
+		'CertificationFee',
+		'CopyOrFaxFee',
+		'CourierFee',
+		'CreditReportFee',
+		'DisasterInspectionFee',
+		'DocumentPreparationFee',
+		'DryWallInspectionFee',
+		'ElectricalInspectionFee',
+		'ElectronicDocumentDeliveryFee',
+		'EnvironmentalInspectionFee',
+		'EscrowServiceFee',
+		'EscrowWaiverFee',
+		'FilingFee',
+		'FloodCertification',
+		'FoundationInspectionFee',
+		'HeatingCoolingInspectionFee',
+		'HighCostMortgageCounselingFee',
+		'HomeInspectionFee',
+		'LeadInspectionFee',
+		'LendersAttorneyFee',
+		'ManualUnderwritingFee',
+		'MERSRegistrationFee',
+		'MIUpfrontPremium',
+		'MoldInspectionFee',
+		'NotaryFee',
+		'Other',
+		'PestInspectionFee',
+		'PlumbingInspectionFee',
+		'PowerOfAttorneyPreparationFee',
+		'PowerOfAttorneyRecordingFee',
+		'PreclosingVerificationControlFee',
+		'ProcessingFee',
+		'PropertyInspectionWaiverFee',
+		'PropertyTaxStatusResearchFee',
+		'RadonInspectionFee',
+		'ReinspectionFee',
+		'RoofInspectionFee',
+		'SepticInspectionFee',
+		'SettlementFee',
+		'SmokeDetectorInspectionFee',
+		'StructuralInspectionFee',
+		'SubordinationFee',
+		'SurveyFee',
+		'TemporaryBuydownAdministrationFee',
+		'TitleClosingFee',
+		'TitleClosingProtectionLetterFee',
+		'TitleDocumentPreparationFee',
+		'TitleEndorsementFee',
+		'TitleExaminationFee',
+		'TitleInsuranceBinderFee',
+		'TitleLendersCoveragePremium',
+		'TitleNotaryFee',
+		'TitleUnderwritingIssueResolutionFee',
+		'VerificationOfAssetsFee',
+		'VerificationOfEmploymentFee',
+		'VerificationOfIncomeFee',
+		'VerificationOfResidencyStatusFee',
+		'VerificationOfTaxpayerIdentificationFee',
+		'VerificationOfTaxReturnFee',
+		'WaterTestingFee',
+		'WellInspectionFee',
+		'WireTransferFee',
+		'RecordingFeeForDeed',
+		'RecordingFeeForMortgage',
+		'RecordingFeeTotal',
+		'MortgageSurchargeCountyOrParish',
+		'MortgageSurchargeMunicipal',
+		'MortgageSurchargeState',
+		'Other',
+		'TransferTaxTotal',
+		'AsbestosInspectionFee',
+		'CondominiumAssociationDues',
+		'CondominiumAssociationSpecialAssessment',
+		'CooperativeAssociationDues',
+		'CooperativeAssociationSpecialAssessment',
+		'CreditDisabilityInsurancePremium',
+		'CreditLifeInsurancePremium',
+		'CreditPropertyInsurancePremium',
+		'CreditUnemploymentInsurancePremium',
+		'DebtCancellationInsurancePremium',
+		'DisasterInspectionFee',
+		'DryWallInspectionFee',
+		'ElectricalInspectionFee',
+		'EnvironmentalInspectionFee',
+		'FoundationInspectionFee',
+		'HeatingCoolingInspectionFee',
+		'HomeInspectionFee',
+		'HomeownersAssociationDues',
+		'HomeownersAssociationSpecialAssessment',
+		'HomeWarrantyFee',
+		'LeadInspectionFee',
+		'MoldInspectionFee',
+		'MunicipalLienCertificateFee',
+		'Other',
+		'PestInspectionFee',
+		'PlumbingInspectionFee',
+		'RadonInspectionFee',
+		'RealEstateCommissionBuyersBroker',
+		'RealEstateCommissionSellersBroker',
+		'ReconveyanceFee',
+		'RoofInspectionFee',
+		'SepticInspectionFee',
+		'SigningAgentFee',
+		'SmokeDetectorInspectionFee',
+		'StructuralInspectionFee',
+		'TitleOwnersCoveragePremium',
+		'WaterTestingFee',
+		'WellInspectionFee'
+	];
+
+	this.feePaidToTypes = [
+		{
+			'name' : 'Broker',
+			'value':'Broker'
+		},
+		{
+			'name' : 'Investor',
+			'value':'Investor'
+		},
+		{
+			'name' : 'Lender',
+			'value':'Lender'
+		},
+		{
+			'name' : 'Other',
+			'value':'Other'
+		},
+		{
+			'name' : 'Third Party Provider',
+			'value':'ThirdPartyProvider'
+		}
+	];
+
 	this.calendarMonths = ['Jan','Feb','Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 	this.cdformdata={
@@ -572,7 +848,6 @@ app.service('staticData', function($filter){
 		    }
 		},
 		"transactionInformation": {
-			"refinanceSameLenderIndicator": false,
 			"borrowerDetails": [{
 				"type": "I",
 				"nameModel": {
@@ -694,18 +969,20 @@ app.service('staticData', function($filter){
 		      "negativeAmortizationLimitMonthsCount": ""
 		    },
 			"interestRate": {
-            "noteRatePercent": "",
-            "disclosedFullyIndexedRatePercent": "",
-            "interestRateIncreaseIndicator": false,
-            "adjustmentRuleTypeFirst": "",
-            "perChangeRateAdjustmentFrequencyMonthsCount": "",
-            "firstRateChangeMonthsCount": "",
-            "ceilingRatePercentEarliestEffectiveMonthsCount": "",
-            "ceilingRatePercent": "",
-            "currentRateSetDate": "",
-            "loanPriceQuote": "",
-            "apor": ""
-            },
+		      "buydownTemporarySubsidyFundingIndicator": false,
+		      "gseBuydownReflectedInNoteIndicator": false,
+		      "buydownInitialEffectiveInterestRatePercent": "",
+		      "buydownChangeFrequencyMonthsCount": "",
+		      "buydownIncreaseRatePercent": "",
+		      "noteRatePercent": "",
+		      "disclosedFullyIndexedRatePercent": "",
+		      "interestRateIncreaseIndicator": false,
+		      "adjustmentRuleTypeFirst": "",
+		      "perChangeRateAdjustmentFrequencyMonthsCount": "",
+		      "firstRateChangeMonthsCount": "",
+		      "ceilingRatePercentEarliestEffectiveMonthsCount": "",
+		      "ceilingRatePercent": ""
+		    },
 		    "principalInterest": {
 		      "paymentFrequencyType": "Monthly",
 		      "amount": "",
@@ -727,94 +1004,103 @@ app.service('staticData', function($filter){
 		      "balloonIndicator": false,
 		      "balloonPaymentAmount": ""
 		    },
-		    "temporaryBuydown":
-            {
-            "buydownTemporarySubsidyFundingIndicator": false,
-            "buydownInitialEffectiveInterestRatePercent": "",
-            "gseBuydownReflectedInNoteIndicator": false,
-            "rateAfterBuydownApplied": "",
-            "buydownChangeFrequencyMonthsCount": "",
-            "totalNumberOfMonths": "",
-            "buydownIncreaseRatePercent": ""
-            }
+		    "intialEscrow": {
+		      "escrowIndicator": true,
+		      "feeType": "",
+		      "feeActualPaymentAmount": null,
+		      "integratedDisclosureSectionType": "",
+		      "escrowItemType": "",
+		      "displayLabelText": "",
+		      "feePaidToType": "",
+		      "typeOtherDescription": "",
+		      "escrowItemPaymentPaidByType": null,
+		      "escrowItemActualPaymentAmount": null
+		    },
+			"ETIA": [
+				{
+					"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "PropertyTaxes",
+					"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+					"projectedPaymentEscrowedType": "Escrowed"
+				},
+				{
+			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "HomeownersInsurance",
+			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+			        "projectedPaymentEscrowedType": "Escrowed"
+			    },
+			    {
+			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
+			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+			        "projectedPaymentEscrowedType": ""
+			    }
+			],
+			"escrowAccount": {
+				"firstYearTotalNonEscrowPaymentDescription": "",
+				"firstYearTotalNonEscrowPaymentAmount": ""
+			}
 		},
-		"projectedPayments":
-	    {
-	        "paymentFrequencyType": "",
-	        "miMonthsDuration": "",
-	        "miSTDate": "",
-	        "miCompanyName": "",
-	        "miCompanyNameOtherDescription": "",
-	        "mirequired": false,
-	        "paymentCalculation":
-	        [
-	            {
-	                "sequenceNumber": "",
-	                "projectedPaymentCalculationPeriodEndNumber": "",
-	                "projectedPaymentCalculationPeriodStartNumber": "",
-	                "projectedPaymentCalculationPeriodTermType": "",
-	                "projectedPaymentCalculationPeriodTermTypeOtherDescription": ""
-	            }
-	        ],
-	        "principalInterest":
-	        [
-	            {
-	                "projectedPaymentPrincipalAndInterestMaximumPaymentAmount": "",
-	                "projectedPaymentPrincipalAndInterestMinimumPaymentAmount": "",
-	                "interestOnlyStatus": false
-	            }
-	        ],
-	        "mortgageInsurance":
-	        [
-	            {
-	                "projectedPaymentMIPaymentAmount": ""
-	            }
-	        ],
-	        "estimatedEscrow":
-	        [
-	            {
-	                "projectedPaymentEstimatedEscrowPaymentAmount": ""
-	            }
-	        ],
-	        "estimatedTotal":
-	        [
-	            {
-	                "projectedPaymentEstimatedTotalMaximumPaymentAmount": "",
-	                "projectedPaymentEstimatedTotalMinimumPaymentAmount": ""
-	            }
-	        ]
-	    },
-	    "etiaSection":
-	    {
-	        "projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount": "",
-	        "etiaValues":
-	        [
-	            {
-	                "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
-	                "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-	                "projectedPaymentEscrowedType": "NotEscrowed"
-	            }
-	        ]
-	    },
-		"costsAtClosing":
-	    {
-	        "ClosingCosts":
-	        {
-	            "amount": "",
-	            "integratedDisclosureSubsectionTotalAmount": null,
-	            "integratedDisclosureSubsectionPaymentAmount": "",
-	            "totalLoanCosts": "",
-	            "totalOtherCosts": "",
-	            "lenderCredits": ""
-	        },
-	        "CashToClose":
-	        {
-	            "amount": "",
-	            "fromType": false,
-	            "cashFromBorrowerAtClosingAmount": "",
-	            "cashToBorrowerAtClosingAmount": ""
-	        }
-	    }
+		"projectedPayments": {
+			"projectedPaymentsDetails": [{
+				"paymentFrequencyType": "",
+				"projectedPaymentCalculationPeriodEndNumber": "",
+				"projectedPaymentCalculationPeriodStartNumber": "",
+				"projectedPaymentCalculationPeriodTermType": "",
+				"projectedPaymentCalculationPeriodTermTypeOtherDescription": "",
+				"projectedPaymentEstimatedEscrowPaymentAmount": "",
+				"projectedPaymentEstimatedTotalMaximumPaymentAmount": "",
+				"projectedPaymentEstimatedTotalMinimumPaymentAmount": "",
+				"projectedPaymentMIPaymentAmount": "",
+				"projectedPaymentPrincipalAndInterestMaximumPaymentAmount": "",
+				"projectedPaymentPrincipalAndInterestMinimumPaymentAmount": "",
+				"sequenceNumber": "",
+				"interestOnlyStatus": ""
+			}],
+			"paymentFrequencyType": "",
+			"paymentCalculation": "",
+			"principalInterest": "",
+			"mortgageInsurance": "",
+			"estimatedEscrow": "",
+			"estimatedTotalPayment": "",
+			"estimatedTotalPaymentType": "",
+			"etia": ""
+		},
+		"etiaSection": {
+			"projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount": "",
+			"etiaValues": [
+				{
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "PropertyTaxes",
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+			    	"projectedPaymentEscrowedType": "Escrowed"
+			  	},
+			  	{
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "HomeownersInsurance",
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+			    	"projectedPaymentEscrowedType": "Escrowed"
+			  	},
+			  	{
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
+			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+			    	"projectedPaymentEscrowedType": "NotEscrowed"
+			  	}
+			]
+		},
+		"costsAtClosing": {
+			"ClosingCosts": {
+				"amount": "",
+				"details": "",
+				"totalLoanCosts": "",
+				"totalOtherCosts": "",
+				"lenderCredits": ""
+			},
+			"CashToClose": {
+				"amount": "",
+				"details": "",
+				"docType": "",
+				"fromType": "",
+				"toType": "",
+				"cashFromBorrowerAtClosingAmount": "",
+				"cashToBorrowerAtClosingAmount": ""
+			}
+		}
 	};
 
  });
