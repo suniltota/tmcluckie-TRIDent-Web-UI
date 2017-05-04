@@ -24,7 +24,7 @@
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-6" style="padding: 0 8px;">
-		        			<div class="col-sm-12 text-center">Max</div>
+		        			<div class="col-sm-12 text-center">Max <span class="required">*</span></div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
 		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount"/>
@@ -36,7 +36,7 @@
 		      <tr>
 		        <td><label>Mortgage Insurance</label> 
 			        <div class="col-sm-12 padding0 margin5tb">
-			        	<span class="col-sm-6 padding0">Is Required?</span> 
+			        	<span class="col-sm-6 padding0">Is Required? <span class="required">*</span></span> 
 			        	<span class="col-sm-4 pull-right">
 			        		<select class="form-control"
 			        		ng-model="cdformdata.projectedPayments.mirequired"
@@ -62,7 +62,7 @@
 				        	<span class="col-sm-4 pull-right">
 				        		<select class="form-control"
 				        		ng-model="cdformdata.projectedPayments.miCompanyName">
-					        		<option selected>Select</option>
+					        		<option value="" selected>Select</option>
 				              		<option ng-repeat="miCompanyNameType in miCompanyNameTypes" value="{{miCompanyNameType.value}}">{{miCompanyNameType.name}}</option>
 				        		</select>
 				        	</span> 
@@ -107,7 +107,7 @@
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Maximum</div>
+		        			<div class="col-sm-12 text-center">Maximum <span class="required">*</span></div>
 		        			<div class="text-center">
   								${{estimatedTotal.projectedPaymentEstimatedTotalMaximumPaymentAmount}}
 		        			</div>

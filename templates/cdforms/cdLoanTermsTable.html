@@ -12,7 +12,7 @@
 		    </thead>
 		    <tbody>
 		      <tr>
-		        <td><label>Loan Amount</label></td>
+		        <td><label>Loan Amount <span class="required">*</span></label></td>
 		        <td>
 		        	<div class="input-group">
   						<span class="input-group-addon input-default">$</span>
@@ -31,7 +31,7 @@
 		        </td>
 		      </tr>
 		      <tr>
-		        <td><label>Interest Rate</label></td>
+		        <td><label>Interest Rate <span class="required">*</span></label></td>
 		        <td>
 		        	<div class="input-group">
   						<span class="input-group-addon input-default">%</span>
@@ -99,7 +99,7 @@
 		        	
 		        </td>
 		        <td><select class="form-control pull-left" ng-model="cdformdata.loanTerms.temporaryBuydown.buydownTemporarySubsidyFundingIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select>
+		        	</select><span class="required">*</span>
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanTerms.temporaryBuydown.buydownTemporarySubsidyFundingIndicator == true">
@@ -124,7 +124,7 @@
 		        </td>
 		      </tr>
 		      <tr>
-		        <td><label>Principal & Interest Payment Amount </label></td>
+		        <td><label>Principal & Interest Payment Amount <span class="required">*</span></label></td>
 		        <td>
 		        	<div class="input-group">
   						<span class="input-group-addon input-default">$</span>
