@@ -32,7 +32,7 @@
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="originationCharge.feeType">
-              			<option>Select</option>
+              			<option value="" selected>Select</option>
              			<option ng-repeat="feeType in feeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
               		</select>
 		        </td>
@@ -44,7 +44,7 @@
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="originationCharge.feePaidToType">
-		        		<option>Select</option>
+		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
 		        </td>
@@ -78,7 +78,7 @@
 		        </td>
 		      </tr>
 		</table>
-		<span class="AddSection">
+		<span class="AddSection" ng-click="addOrganizationCharges()">
 			<a>+ Add Additional lines</a>
 		</span>
 	</span>
@@ -111,7 +111,7 @@
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
-              			<option>Select</option>
+              			<option value="" selected>Select</option>
              			<option value="Estimated">Estimated Property Value</option>
               		</select>
 		        </td>
@@ -155,7 +155,7 @@
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
-              			<option>Select</option>
+              			<option value="" selected>Select</option>
              			<option value="Estimated">Estimated Property Value</option>
               		</select>
 		        </td>
@@ -227,7 +227,7 @@
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
-              			<option>Select</option>
+              			<option value="" selected>Select</option>
              			<option value="Estimated">Estimated Property Value</option>
               		</select>
 		        </td>
@@ -271,7 +271,7 @@
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
-              			<option>Select</option>
+              			<option value="" selected>Select</option>
              			<option value="Estimated">Estimated Property Value</option>
               		</select>
 		        </td>

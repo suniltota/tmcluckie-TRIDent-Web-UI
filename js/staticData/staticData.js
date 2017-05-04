@@ -842,12 +842,13 @@ app.service('staticData', function($filter){
 		    "propertyValuationDetail": {
 		      "propertyEstimatedValueAmount": "",
 		      "propertyValuationAmount": "",
-		      "propertyValuationMethodType": "",
+		      "propertyValuationMethodType": "AutomatedValuationModel",
 		      "propertyValuationMethodTypeOtherDescription": "",
 		      "propertyValue": "Appraised"
 		    }
 		},
 		"transactionInformation": {
+			"refinanceSameLenderIndicator" : false,
 			"borrowerDetails": [{
 				"type": "I",
 				"nameModel": {
@@ -1003,104 +1004,182 @@ app.service('staticData', function($filter){
 		    "balloonPayment": {
 		      "balloonIndicator": false,
 		      "balloonPaymentAmount": ""
-		    },
-		    "intialEscrow": {
-		      "escrowIndicator": true,
-		      "feeType": "",
-		      "feeActualPaymentAmount": null,
-		      "integratedDisclosureSectionType": "",
-		      "escrowItemType": "",
-		      "displayLabelText": "",
-		      "feePaidToType": "",
-		      "typeOtherDescription": "",
-		      "escrowItemPaymentPaidByType": null,
-		      "escrowItemActualPaymentAmount": null
-		    },
-			"ETIA": [
-				{
-					"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "PropertyTaxes",
-					"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-					"projectedPaymentEscrowedType": "Escrowed"
-				},
-				{
-			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "HomeownersInsurance",
-			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-			        "projectedPaymentEscrowedType": "Escrowed"
-			    },
-			    {
-			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
-			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-			        "projectedPaymentEscrowedType": ""
-			    }
-			],
-			"escrowAccount": {
-				"firstYearTotalNonEscrowPaymentDescription": "",
-				"firstYearTotalNonEscrowPaymentAmount": ""
-			}
+		    }, "temporaryBuydown":
+	        {
+	            "buydownTemporarySubsidyFundingIndicator": false,
+	            "buydownInitialEffectiveInterestRatePercent": "",
+	            "gseBuydownReflectedInNoteIndicator": false,
+	            "rateAfterBuydownApplied": null,
+	            "buydownChangeFrequencyMonthsCount": "",
+	            "totalNumberOfMonths": null,
+	            "buydownIncreaseRatePercent": ""
+	        }
 		},
-		"projectedPayments": {
-			"projectedPaymentsDetails": [{
-				"paymentFrequencyType": "",
-				"projectedPaymentCalculationPeriodEndNumber": "",
-				"projectedPaymentCalculationPeriodStartNumber": "",
-				"projectedPaymentCalculationPeriodTermType": "",
-				"projectedPaymentCalculationPeriodTermTypeOtherDescription": "",
-				"projectedPaymentEstimatedEscrowPaymentAmount": "",
-				"projectedPaymentEstimatedTotalMaximumPaymentAmount": "",
-				"projectedPaymentEstimatedTotalMinimumPaymentAmount": "",
-				"projectedPaymentMIPaymentAmount": "",
-				"projectedPaymentPrincipalAndInterestMaximumPaymentAmount": "",
-				"projectedPaymentPrincipalAndInterestMinimumPaymentAmount": "",
-				"sequenceNumber": "",
-				"interestOnlyStatus": ""
-			}],
-			"paymentFrequencyType": "",
-			"paymentCalculation": "",
-			"principalInterest": "",
-			"mortgageInsurance": "",
-			"estimatedEscrow": "",
-			"estimatedTotalPayment": "",
-			"estimatedTotalPaymentType": "",
-			"etia": ""
-		},
-		"etiaSection": {
-			"projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount": "",
-			"etiaValues": [
-				{
-			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "PropertyTaxes",
-			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-			    	"projectedPaymentEscrowedType": "Escrowed"
-			  	},
-			  	{
-			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "HomeownersInsurance",
-			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-			    	"projectedPaymentEscrowedType": "Escrowed"
-			  	},
-			  	{
-			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
-			    	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-			    	"projectedPaymentEscrowedType": "NotEscrowed"
-			  	}
-			]
-		},
-		"costsAtClosing": {
-			"ClosingCosts": {
-				"amount": "",
-				"details": "",
-				"totalLoanCosts": "",
-				"totalOtherCosts": "",
-				"lenderCredits": ""
-			},
-			"CashToClose": {
-				"amount": "",
-				"details": "",
-				"docType": "",
-				"fromType": "",
-				"toType": "",
-				"cashFromBorrowerAtClosingAmount": "",
-				"cashToBorrowerAtClosingAmount": ""
-			}
-		}
+		"projectedPayments":
+	    {
+	        "paymentFrequencyType": "",
+	        "miMonthsDuration": "",
+	        "miSTDate": "",
+	        "miCompanyName": "",
+	        "miCompanyNameOtherDescription": "",
+	        "mirequired": false,
+	        "paymentCalculation":
+	        [
+	            {
+	                "sequenceNumber": "",
+	                "projectedPaymentCalculationPeriodEndNumber": "",
+	                "projectedPaymentCalculationPeriodStartNumber": "",
+	                "projectedPaymentCalculationPeriodTermType": "",
+	                "projectedPaymentCalculationPeriodTermTypeOtherDescription": ""
+	            }
+	        ],
+	        "principalInterest":
+	        [
+	            {
+	                "projectedPaymentPrincipalAndInterestMaximumPaymentAmount": "",
+	                "projectedPaymentPrincipalAndInterestMinimumPaymentAmount": "",
+	                "interestOnlyStatus": false
+	            }
+	        ],
+	        "mortgageInsurance":
+	        [
+	            {
+	                "projectedPaymentMIPaymentAmount": ""
+	            }
+	        ],
+	        "estimatedEscrow":
+	        [
+	            {
+	                "projectedPaymentEstimatedEscrowPaymentAmount": ""
+	            }
+	        ],
+	        "estimatedTotal":
+	        [
+	            {
+	                "projectedPaymentEstimatedTotalMaximumPaymentAmount": "",
+	                "projectedPaymentEstimatedTotalMinimumPaymentAmount": ""
+	            }
+	        ]
+	    },
+	    "etiaSection":
+	    {
+	        "projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount": "",
+	        "etiaValues":
+	        [
+	            {
+	                "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
+	                "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+	                "projectedPaymentEscrowedType": "NotEscrowed"
+	            }
+	        ]
+	    },
+		"costsAtClosing":
+	    {
+	        "ClosingCosts":
+	        {
+	            "amount": "",
+	            "integratedDisclosureSubsectionTotalAmount": null,
+	            "integratedDisclosureSubsectionPaymentAmount": "",
+	            "totalLoanCosts": "",
+	            "totalOtherCosts": "",
+	            "lenderCredits": ""
+	        },
+	        "CashToClose":
+	        {
+	            "amount": "",
+	            "fromType": false,
+	            "cashFromBorrowerAtClosingAmount": "",
+	            "cashToBorrowerAtClosingAmount": ""
+	        }
+	    },
+	    "closingCostDetailsLoanCosts":
+	    {
+	        "ocTotalAmount": "",
+	        "sbDidNotShopTotalAmount": "",
+	        "sbDidShopTotalAmount": "",
+	        "tlCostsTotalAmount": "",
+	        "originationCharges":
+	        [
+	            {
+	                "bpAtClosing": "",
+	                "bpB4Closing": null,
+	                "spAtClosing": null,
+	                "spB4Closing": null,
+	                "paidByOthers": "",
+	                "lenderStatus": false,
+	                "displayLabel": "",
+	                "gseDisplayLabel": "",
+	                "feePaidTo": "",
+	                "feePaidToType": "",
+	                "feePaidToTypeOtherDescription": "",
+	                "feePercentBasisType": "",
+	                "feeTotalPercent": "",
+	                "feeType": "",
+	                "feeTypeOtherDescription": "",
+	                "integratedDisclosureSectionType": "OriginationCharges",
+	                "optionalCostIndicator": false,
+	                "regulationZPointsAndFeesIndicator": false,
+	                "paymentIncludedInAPRIndicator": false
+	            }
+	        ],
+	        "sbDidNotShopFors":
+	        [
+	            {
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
+	                "lenderStatus": false,
+	                "displayLabel": "",
+	                "gseDisplayLabel": "",
+	                "feePaidTo": "",
+	                "feePaidToType": "",
+	                "feePaidToTypeOtherDescription": "",
+	                "feePercentBasisType": "",
+	                "feeTotalPercent": "",
+	                "feeType": "",
+	                "feeTypeOtherDescription": "",
+	                "integratedDisclosureSectionType": "ServicesBorrowerDidNotShopFor",
+	                "optionalCostIndicator": false,
+	                "regulationZPointsAndFeesIndicator": false,
+	                "paymentIncludedInAPRIndicator": false
+	            }
+	        ],
+	        "sbDidShopFors":
+	        [
+	            {
+	                "bpAtClosing": "",
+	                "bpB4Closing": null,
+	                "spAtClosing": null,
+	                "spB4Closing": null,
+	                "paidByOthers": "",
+	                "lenderStatus": true,
+	                "displayLabel": "",
+	                "gseDisplayLabel": "",
+	                "feePaidTo": "",
+	                "feePaidToType": "",
+	                "feePaidToTypeOtherDescription": "",
+	                "feePercentBasisType": "",
+	                "feeTotalPercent": "",
+	                "feeType": "",
+	                "feeTypeOtherDescription": "",
+	                "integratedDisclosureSectionType": "ServicesBorrowerDidShopFor",
+	                "optionalCostIndicator": false,
+	                "regulationZPointsAndFeesIndicator": false,
+	                "paymentIncludedInAPRIndicator": false
+	            }
+	        ],
+	        "tlCosts":
+	        {
+	            "bpAtClosing": "",
+	            "bpB4Closing": "",
+	            "spAtClosing": null,
+	            "spB4Closing": null,
+	            "paidByOthers": null,
+	            "lenderStatus": false
+	        }
+	    }
 	};
 
  });

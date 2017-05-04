@@ -153,6 +153,14 @@
 		              </div>
 		            </div>
 		          </div>
+		          <div class="row margin5tb" ng-show="cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'">
+		              <div class=" col-sm-12">
+		              <div class="col-sm-5 fieldTitle">If, Other is the property Value Method Used provide the description</div>
+		              <div class="col-sm-7">
+		              		<input class="form-control" ng-disabled="cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodType != 'Other'" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodTypeOtherDescription" />
+		              </div>
+		            </div>
+                   </div>
 		          <div class="row margin5tb">
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Amount of Value</div>

@@ -28,7 +28,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	var seller ={};
 	var ausTypeIdentifier = {};
 	var ETIAComponentType = {};
-
+    var originationCharges = 
 	$scope.dateOptions = {
  		formatYear: 'yy',
  		startingDay: 1
@@ -41,6 +41,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		seller = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
 		ausTypeIdentifier = angular.copy($scope.cdformdata.loanInformation.automatedUnderwritings[0]);
 		ETIAComponentType = angular.copy($scope.cdformdata.etiaSection.etiaValues[2]);
+		originationCharges = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0]);
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
@@ -187,6 +188,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.addETIAComponent = function(){
 		$scope.cdformdata.etiaSection.etiaValues.push(angular.copy(ETIAComponentType));
 		$scope.cdformdata.etiaSection.total = $scope.cdformdata.etiaSection.etiaValues.length;
+    }
+
+    $scope.addOrganizationCharges = function(){
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
     }
 
 	$scope.updateETIAComponentTypes = function(value, index) {
