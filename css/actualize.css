@@ -84,8 +84,9 @@ th.innerSectionHeader{padding: 3px 15px!important; vertical-align: middle!import
 .LoanCostsRightTable .table{font-size: 11px;}
 .LoanCostsRightTable .table th{padding:0 8px; height: 33px; vertical-align:inherit; text-align: center;}
 .LoanCostsRightTable .form-control{font-size: 11px;}
-.LoanCostsSection .innerSectionHeader{font-size: 11px; min-width:75px;}
+.LoanCostsSection .innerSectionHeader{font-size: 11px; min-width:43px; word-wrap: break-word;}
 .LoanCostsSection .innerSectionMainHeader{padding: 5px!important; background:#ddd;}
+.InsuranceSection .innerSectionHeader{max-width: 76px;}
 
 .OtherCostsRightTable .table{font-size: 11px;}
 .OtherCostsRightTable .table th{padding:0 8px; height: 33px; vertical-align:inherit; text-align: center;}
