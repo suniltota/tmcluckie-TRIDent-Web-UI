@@ -165,3 +165,6 @@ th.innerSectionHeader{padding: 3px 15px!important; vertical-align: middle!import
 .required{color:red;}
 .tableInsideHeader{background:#f7f7f7; padding: 5px 10px; color:#337ab7; }
 .RemoveSection{cursor: pointer;}
+#cashtoCloseModal .fieldTitle{padding: 5px 0; border-right:1px solid #5bb1dc; min-height: 35px; font-weight: normal;}
+#cashtoCloseModal .fieldValue{padding: 5px 15px;}
+#cashtoCloseModal .fieldValue input{height: 25px;}
