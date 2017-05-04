@@ -47,6 +47,19 @@ app.directive('sideBarWidth', function ($window) {
         }
     }
 });
+app.directive('sideBarHeight', function ($window) {
+    return {
+        compile: function (element) {
+            var $e = angular.element(element);
+            var $w = angular.element($window);
+            $e.css("height", ($window.innerHeight - 150) + "px");
+            $e.css("padding", 0);
+            $w.on("resize", function () {
+                $e.css("height", ($window.innerHeight) - 150 + "px");
+            })
+        }
+    }
+});
 
 app.directive('headerWidth', function ($window) {
     return {
