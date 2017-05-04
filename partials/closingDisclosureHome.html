@@ -14,10 +14,11 @@
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'CostsAtClosing'}" ng-click="showTab = 'CostsAtClosing'" >Costs At Closing</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCosts'}" ng-click="showTab = 'LoanCosts'" >Loan Costs</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'OtherCosts'}" ng-click="showTab = 'OtherCosts'" >Other Costs</span>
-        <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCosts'}" ng-click="showTab = 'TotalClosingCosts'" >Total Closing Costs</span>
+        <span href="" class="pagenumber" ng-class="{'active': showTab == 'TotalClosingCosts'}" ng-click="showTab = 'TotalClosingCosts'" >Total Closing Costs</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'PayoffsAndPayments'}" ng-click="showTab = 'PayoffsAndPayments'" >Payoffs And Payments </span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCals'}" ng-click="showTab = 'LoanCals'" >Loan Calcs OtherDisclosure</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'ContactInfo'}" ng-click="showTab = 'ContactInfo'" >Contact Information</span>
+        <span href="" class="pagenumber" ng-class="{'active': showTab == 'CalculatingCashtoClose'}" ng-click="showTab = 'CalculatingCashtoClose'" >Calculating Cash to Close</span>
       </div>
   </div>
    <div id="transparent"></div>
@@ -78,6 +79,10 @@
       <span class="glyphicon glyphicon-file pull-left"></span>
       <span class="pull-left noTitle">13</span>
     </span>
+    <span class="pageno pageicon" ng-class="{'active': showTab == 'CalculatingCashtoClose'}" data-toggle="tooltip" ng-click="showTab = 'CalculatingCashtoClose'"  data-placement="right" title="Calculating Cash to Close">
+      <span class="glyphicon glyphicon-file pull-left"></span>
+      <span class="pull-left noTitle">14</span>
+    </span>
   </div>
   <div class="col-lg-12 PageformHeader padding0" pdf-width>
     <div class="panel panel-default">
@@ -99,7 +104,7 @@
             <div ng-show="showTab == 'PayoffsAndPayments'" ng-include='"templates/cdforms/cdPayoffsAndPaymentsAlternateForm.html"'></div>
             <div ng-show="showTab == 'LoanCals'" ng-include='"templates/cdforms/cdLoanCalsOtherDisclosure.html"'></div>
             <div ng-show="showTab == 'ContactInfo'" ng-include='"templates/cdforms/cdContactInformation.html"'></div>
-            
+            <div ng-show="showTab == 'CalculatingCashtoClose'" ng-include='"templates/cdforms/cdCalculatingCashtoClose.html"'></div>
             </div>
        	 	</span>
         </div>
