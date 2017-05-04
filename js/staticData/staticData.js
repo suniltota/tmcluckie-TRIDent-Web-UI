@@ -489,39 +489,48 @@ app.service('staticData', function($filter){
 	this.ETIAComponentTypes = [
 		{
 			"name":"Condominium Association Dues",
-			"value":"CondominiumAssociationDues"
+			"value":"CondominiumAssociationDues",
+			'disabled': false
 		},
 		{
 			"name":"Condominium Association Special Assessment",
-			"value":"CondominiumAssociationSpecialAssessment"
+			"value":"CondominiumAssociationSpecialAssessment",
+			'disabled': false
 		},
 		{
-			"name":"CooperativeAssociationDues",
-			"value":"Cooperative Association Dues"
+			"name":"Cooperative Association Dues",
+			"value":"CooperativeAssociationDues",
+			'disabled': false
 		},
 		{
 			"name":"Cooperative Association Special Assessment",
-			"value":"CooperativeAssociationSpecialAssessment"
+			"value":"CooperativeAssociationSpecialAssessment",
+			'disabled': false
 		},
 		{
 			"name":"Ground Rent",
-			"value":"GroundRent"
+			"value":"GroundRent",
+			'disabled': false
 		},
 		{
 			"name":"Homeowners Association Dues",
-			"value":"HomeownersAssociationDues"
+			"value":"HomeownersAssociationDues",
+			'disabled': false
 		},
 		{
 			"name":"Homeowners Association Special Assessment",
-			"value":"HomeownersAssociationSpecialAssessment"
+			"value":"HomeownersAssociationSpecialAssessment",
+			'disabled': false
 		},
 		{
 			"name":"Leasehold Payment",
-			"value":"LeaseholdPayment"
+			"value":"LeaseholdPayment",
+			'disabled': false
 		},
 		{
 			"name":"Other",
-			"value":"Other"
+			"value":"Other",
+			'disabled': false
 		}
 	];
 

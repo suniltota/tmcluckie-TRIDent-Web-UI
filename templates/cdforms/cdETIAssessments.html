@@ -4,7 +4,7 @@
 		<table class="table">
 		    <tbody>
 		      <tr>
-		        <td rowspan="{{cdformdata.etiaSection.total + 1}}" class="innerSectionHeader col-sm-2" style="vertical-align: middle;"><label>Estimated Taxes, Insurance and Assessment</label></td>
+		        <td rowspan="{{cdformdata.etiaSection.etiaValues.length + 1}}" class="innerSectionHeader col-sm-2" style="vertical-align: middle;"><label>Estimated Taxes, Insurance and Assessment</label></td>
 		        <td class="innerSectionHeader col-sm-2">
 		        	
 		        </td>
@@ -19,7 +19,7 @@
 		        </td>
 		      </tr>
 		      <tr ng-repeat="etia in cdformdata.etiaSection.etiaValues track by $index">
-		      		<td rowspan="{{cdformdata.etiaSection.total}}" style="vertical-align: middle;" ng-if="$index==0">
+		      		<td rowspan="{{cdformdata.etiaSection.etiaValues.length}}" style="vertical-align: middle;" ng-if="$index==0">
 		      			<label>$ {{cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount}} </label>
 		      			<br>A month</br>
 		      		</td>
@@ -33,9 +33,9 @@
 		      		</td>
 		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
 		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance'">
-			        	<select class="form-control" ng-model="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType">
+			        	<select class="form-control" ng-model="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType" ng-change="updateETIAComponentTypes(etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType, $index)">
 			        		<option value="">Select</option>
-		      				<option ng-repeat="ETIAComponentType in ETIAComponentTypes" value="{{ETIAComponentType.value}}">{{ETIAComponentType.name}}</option>
+		      				<option ng-repeat="ETIAComponentType in ETIAComponentTypes" value="{{ETIAComponentType.value}}" ng-disabled="ETIAComponentType.disabled">{{ETIAComponentType.name}}</option>
 		      			</select>
 		      		</td>
 		      		<td class="text-center" ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' ||

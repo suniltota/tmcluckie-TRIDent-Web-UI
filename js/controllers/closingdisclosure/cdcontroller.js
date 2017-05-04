@@ -91,7 +91,33 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		};
 		$scope.cdformdata.loanInformation['productAdjustmentInformation'] = productAdjustmentInformation;
 		$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = false;
-		$scope.cdformdata.etiaSection.total = $scope.cdformdata.etiaSection.etiaValues.length;
+
+		$scope.cdformdata.etiaSection['etiaTypes']=[];
+		for(i=0; i<$scope.cdformdata.etiaSection.etiaValues.length; i++){
+		    if(i==0 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType != 'PropertyTaxes') {
+	       		var propertyTaxesETIA = {
+	       			"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "PropertyTaxes",
+			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+			        "projectedPaymentEscrowedType": "Escrowed"
+	       		};
+	       		$scope.cdformdata.etiaSection.etiaValues.splice(0, 0, propertyTaxesETIA);
+	       	} else if(i==1 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType != 'HomeownersInsurance') {
+				var homeownersInsuranceETIA = {
+					"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "HomeownersInsurance",
+		        	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+		        	"projectedPaymentEscrowedType": "Escrowed"
+				};
+				$scope.cdformdata.etiaSection.etiaValues.splice(1, 0, homeownersInsuranceETIA);
+			} else if($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == 'PropertyTaxes' || 
+				$scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == 'HomeownersInsurance') {
+				$scope.cdformdata.etiaSection.etiaValues.splice(i, 1);
+				i--;
+			} else {
+				if($scope.cdformdata.etiaSection.etiaTypes.indexOf($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType)==-1)
+				$scope.cdformdata.etiaSection.etiaTypes.push($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType);
+	
+			}
+		};
 		
 		$scope.cdformdata.closingInformation.dateIssued = new Date();
 		$scope.cdformdata.closingInformation.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
@@ -155,6 +181,23 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.etiaSection.etiaValues.push(angular.copy(ETIAComponentType));
     	$scope.cdformdata.etiaSection.total = $scope.cdformdata.etiaSection.etiaValues.length;
     }
+
+	$scope.addETIAComponent = function(){
+		$scope.cdformdata.etiaSection.etiaValues.push(angular.copy(ETIAComponentType));
+		$scope.cdformdata.etiaSection.total = $scope.cdformdata.etiaSection.etiaValues.length;
+    }
+
+	$scope.updateETIAComponentTypes = function(value, index) {
+		var previousVal = $scope.cdformdata.etiaSection.etiaTypes[index];
+		$scope.cdformdata.etiaSection.etiaTypes[index] = value;
+		for(i=0; i<$scope.ETIAComponentTypes.length; i++){
+			if($scope.ETIAComponentTypes[i].value == value) {
+				$scope.ETIAComponentTypes[i].disabled = true;
+			} else if ($scope.ETIAComponentTypes[i].value == previousVal) {
+				$scope.ETIAComponentTypes[i].disabled = false;
+			}
+		}
+	}
 
 });
 
