@@ -28,7 +28,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	var seller ={};
 	var ausTypeIdentifier = {};
 	var ETIAComponentType = {};
-    var originationCharges = 
+    var originationCharges = {};
+    var sbDidNotShopFors = {};
+    var sbDidShopFors = {};
 	$scope.dateOptions = {
  		formatYear: 'yy',
  		startingDay: 1
@@ -42,6 +44,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		ausTypeIdentifier = angular.copy($scope.cdformdata.loanInformation.automatedUnderwritings[0]);
 		ETIAComponentType = angular.copy($scope.cdformdata.etiaSection.etiaValues[2]);
 		originationCharges = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0]);
+		sbDidNotShopFors = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[0]);
+		sbDidShopFors = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[0]);
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
@@ -194,6 +198,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
     }
 
+    $scope.addsbDidNotShopFor = function(){
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
+    }
+
+    $scope.addsbDidShopFor = function(){
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
+    }
+
 	$scope.updateETIAComponentTypes = function(value, index) {
 		var previousVal = $scope.cdformdata.etiaSection.etiaTypes[index];
 		$scope.cdformdata.etiaSection.etiaTypes[index] = value;
@@ -220,6 +232,18 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
          	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers);
          }
          $scope.cdformdata.closingCostDetailsLoanCosts.ocTotalAmount = originationChargeTotalAmount;
+    }, true);
+
+    $scope.$watch('cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors', function(newValue, oldValue) {
+         var sbDidNotShopTotalAmount = 0;
+         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length; i++) {
+         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount[i].bpAtClosing);
+         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount[i].bpB4Closing);
+         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount[i].spAtClosing);
+         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spB4Closing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount[i].spB4Closing);
+         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paidByOthers == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount[i].paidByOthers);
+         }
+         $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount = sbDidNotShopTotalAmount;
     }, true);
 });
 

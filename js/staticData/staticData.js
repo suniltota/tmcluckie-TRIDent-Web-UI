@@ -1154,7 +1154,7 @@ app.service('staticData', function($filter){
 	                "spAtClosing": null,
 	                "spB4Closing": null,
 	                "paidByOthers": "",
-	                "lenderStatus": true,
+	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
 	                "feePaidTo": "",
