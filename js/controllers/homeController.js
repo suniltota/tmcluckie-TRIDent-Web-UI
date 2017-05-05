@@ -1,15 +1,15 @@
 'use strict';
 
-app.controller('homeCtrl', function ($scope, $routeParams, $location, staticData) {
+app.controller('homeCtrl', function ($scope, $routeParams, $location) {
 
 	if($routeParams.transactionType != undefined) {
-		staticData.basicLoanInfo.loanTransactionType = $routeParams.transactionType;
+		localStorage.loanTransactionType = $routeParams.transactionType;
 	}
 	if($routeParams.purposeType != undefined) {
-		staticData.basicLoanInfo.loanPurposeType = $routeParams.purposeType;
+		localStorage.loanPurposeType = $routeParams.purposeType;
 	}
 	if($routeParams.formType != undefined) {
-		staticData.basicLoanInfo.loanFormType = $routeParams.formType;
+		localStorage.loanFormType = $routeParams.formType;
 	}
 	if($routeParams.documentType == 'LoanEstimate') {
 		$location.url( "/loanEstimate" );

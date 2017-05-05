@@ -42,7 +42,10 @@ app.config(function ($routeProvider, $locationProvider) {
 
     function logUserOut(){
         loginService.logout();
-        window.location.href="login.html" + $window.location.search;
+        return apiService.request({
+          apiMethod: "logout",
+          httpMethod: 'POST'
+        });
     }
 }]);
 
@@ -56,7 +59,7 @@ app.controller('validateCtrl', function ($scope, $location, $http) {
 
 
 
-app.controller('menuCtrl', function ($scope, staticData) {
+app.controller('menuCtrl', function ($scope, loginService, staticData, $window) {
 
   $scope.fileOpen = function(){
     pdfDestroy();
@@ -80,5 +83,10 @@ app.controller('menuCtrl', function ($scope, staticData) {
   
   var pdfDestroy = function(){
     $(".pdfSlider_button").click();
+  }
+
+  $scope.logout = function() {
+      loginService.logout();
+      $window.location.href="login.html" + $window.location.search;
   }
 });

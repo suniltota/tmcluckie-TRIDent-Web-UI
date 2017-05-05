@@ -49,22 +49,22 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="originationCharge.bpAtClosing">
+		        	<input type="text" class="form-control padding0" only-digits name="" ng-model="originationCharge.bpAtClosing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="originationCharge.bpB4Closing">
+		        	<input type="text" class="form-control padding0" only-digits name="" ng-model="originationCharge.bpB4Closing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="originationCharge.spAtClosing">
+		        	<input type="text" class="form-control padding0" only-digits name="" ng-model="originationCharge.spAtClosing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="originationCharge.spB4Closing">
+		        	<input type="text" class="form-control padding0" only-digits name="" ng-model="originationCharge.spB4Closing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="originationCharge.paidByOthers">
+		        	<input type="text" class="form-control padding0" only-digits name="" ng-model="originationCharge.paidByOthers">
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="originationCharge.lenderStatus">{{originationCharge.lenderStatus}}
+		        	<input type="checkbox" name="" ng-model="originationCharge.lenderStatus">
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="originationCharge.paymentIncludedInAPRIndicator"
@@ -128,19 +128,19 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.bpAtClosing">
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidNotShopFor.bpAtClosing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.bpB4Closing">
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidNotShopFor.bpB4Closing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.spAtClosing">
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidNotShopFor.spAtClosing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.spB4Closing">
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidNotShopFor.spB4Closing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.paidByOthers">
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidNotShopFor.paidByOthers">
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="sbDidNotShopFor.lenderStatus">
@@ -207,19 +207,19 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.bpAtClosing">
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidShopFor.bpAtClosing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.bpB4Closing">
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidShopFor.bpB4Closing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.spAtClosing">
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidShopFor.spAtClosing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.spB4Closing">
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidShopFor.spB4Closing">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.paidByOthers">
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidShopFor.paidByOthers">
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="sbDidShopFor.lenderStatus">
@@ -246,7 +246,7 @@
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader col-sm-7">Section D. Total Loan Costs (Borrower Paid)</th>
 				
-				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">{{cdformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">{{cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
 		        <td>

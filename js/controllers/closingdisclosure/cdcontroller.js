@@ -1,8 +1,17 @@
 /**
  * Controller for transform function
  */
-app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticData, cdService, $routeParams) {
+app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticData, cdService) {
 
+	if(localStorage.loanTransactionType != undefined) {
+		staticData.basicLoanInfo.loanTransactionType = localStorage.loanTransactionType;
+	}
+	if(localStorage.loanPurposeType != undefined) {
+		staticData.basicLoanInfo.loanPurposeType = localStorage.loanPurposeType;
+	}
+	if(localStorage.loanFormType != undefined) {
+		staticData.basicLoanInfo.loanFormType = localStorage.loanFormType;
+	}
 	$scope.loanBasicInfo = staticData.basicLoanInfo;
 	$scope.showTab = 'closingInfo';
 	$scope.dateFormat = staticData.dateDisplayFormat;
@@ -225,25 +234,31 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.$watch('cdformdata.closingCostDetailsLoanCosts.originationCharges', function(newValue, oldValue) {
          var originationChargeTotalAmount = 0;
          for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++) {
-         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing);
-         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing);
-         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing);
-         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing);
-         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers);
+         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing);
+         	originationChargeTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing);
          }
          $scope.cdformdata.closingCostDetailsLoanCosts.ocTotalAmount = originationChargeTotalAmount;
+         $scope.cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = $scope.cdformdata.closingCostDetailsLoanCosts.ocTotalAmount + $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount + $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount;
     }, true);
 
     $scope.$watch('cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors', function(newValue, oldValue) {
          var sbDidNotShopTotalAmount = 0;
          for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length; i++) {
-         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount[i].bpAtClosing);
-         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount[i].bpB4Closing);
-         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount[i].spAtClosing);
-         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spB4Closing == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount[i].spB4Closing);
-         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paidByOthers == null ? 0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount[i].paidByOthers);
+         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing);
+         	sbDidNotShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing);
          }
          $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount = sbDidNotShopTotalAmount;
+         $scope.cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = $scope.cdformdata.closingCostDetailsLoanCosts.ocTotalAmount + $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount + $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount;
+    }, true);
+
+    $scope.$watch('cdformdata.closingCostDetailsLoanCosts.sbDidShopFors', function(newValue, oldValue) {
+         var sbDidShopTotalAmount = 0;
+         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.length; i++) {
+         	sbDidShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing);
+         	sbDidShopTotalAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing);
+         }
+         $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount = sbDidShopTotalAmount;
+         $scope.cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = $scope.cdformdata.closingCostDetailsLoanCosts.ocTotalAmount + $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount + $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount;
     }, true);
 });
 

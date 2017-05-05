@@ -24,6 +24,7 @@ loginService.factory('loginService', [function($resource){
 	    },
     	logout:function(){
     		localStorage.removeItem('userDetails');
+            localStorage.clear();
     		isLoggedIn=null;
     	}
     }
