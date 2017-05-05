@@ -33,6 +33,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.ETIAComponentTypes = staticData.ETIAComponentTypes;
 	$scope.feeTypes = staticData.feeTypes;
 	$scope.feePaidToTypes = staticData.feePaidToTypes;
+	$scope.prepaidItems = staticData.prepaidItems;
+    $scope.escrowItemTypes = staticData.escrowItemTypes;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -40,6 +42,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     var originationCharges = {};
     var sbDidNotShopFors = {};
     var sbDidShopFors = {};
+    var tOGovtFeesList = {};
+    var prepaidsList = {};
+    var iEPatClosingList = {};
+    var otherCostsList = {};
+
 	$scope.dateOptions = {
  		formatYear: 'yy',
  		startingDay: 1
@@ -55,6 +62,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		originationCharges = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0]);
 		sbDidNotShopFors = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[0]);
 		sbDidShopFors = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[0]);
+		tOGovtFeesList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[3]);
+		prepaidsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[4]);
+		iEPatClosingList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[3]);
+		otherCostsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[0]); 
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
@@ -213,6 +224,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
     $scope.addsbDidShopFor = function(){
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
+    }
+
+    $scope.addtOGovtFeesList = function(){
+    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.push(angular.copy(tOGovtFeesList));
+    }
+
+    $scope.addprepaidsList = function(){
+    	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
+    }
+   
+    $scope.addiEPatClosingList = function(){
+    	$scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList.push(angular.copy(iEPatClosingList));
+    }
+
+     $scope.addotherCostsList = function(){
+    	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
     }
 
 	$scope.updateETIAComponentTypes = function(value, index) {
