@@ -1160,11 +1160,11 @@ app.service('staticData', function($filter){
 	        "originationCharges":
 	        [
 	            {
-	                "bpAtClosing": "",
+	                "bpAtClosing": null,
 	                "bpB4Closing": null,
 	                "spAtClosing": null,
 	                "spB4Closing": null,
-	                "paidByOthers": "",
+	                "paidByOthers": null,
 	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
@@ -1184,11 +1184,11 @@ app.service('staticData', function($filter){
 	        "sbDidNotShopFors":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
+	                "bpAtClosing": null,
+	                "bpB4Closing": null,
+	                "spAtClosing": null,
+	                "spB4Closing": null,
+	                "paidByOthers": null,
 	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
@@ -1208,11 +1208,11 @@ app.service('staticData', function($filter){
 	        "sbDidShopFors":
 	        [
 	            {
-	                "bpAtClosing": "",
+	                "bpAtClosing": null,
 	                "bpB4Closing": null,
 	                "spAtClosing": null,
 	                "spB4Closing": null,
-	                "paidByOthers": "",
+	                "paidByOthers": null,
 	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
@@ -1231,8 +1231,8 @@ app.service('staticData', function($filter){
 	        ],
 	        "tlCosts":
 	        {
-	            "bpAtClosing": "",
-	            "bpB4Closing": "",
+	            "bpAtClosing": null,
+	            "bpB4Closing": null,
 	            "spAtClosing": null,
 	            "spB4Closing": null,
 	            "paidByOthers": null,

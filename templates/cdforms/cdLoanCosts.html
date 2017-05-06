@@ -5,7 +5,7 @@
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section A. Origination Charge</th>
 				<th colspan="2" class="border_top0"></th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">{{cdformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader col-sm-2">Fee Label Name</th>
@@ -31,7 +31,7 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="originationCharge.displayLabel">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="originationCharge.feeType">
+		        	<select class="form-control padding0" ng-model="originationCharge.feeType" ng-disabled="originationCharge.feeType=='LoanDiscountPoints'">
               			<option value="" selected>Select</option>
              			<option ng-repeat="feeType in feeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
               		</select>
@@ -88,7 +88,7 @@
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section B. Services Borrower Did Not Shop For</th>
 				<th colspan="2" class="border_top0"></th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">{{cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader col-sm-2">Fee Label Name</th>
@@ -167,7 +167,7 @@
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section C. Services Borrower Did Shop For</th>
 				<th colspan="2" class="border_top0"></th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">{{cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader col-sm-2">Fee Label Name</th>
@@ -246,17 +246,17 @@
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader col-sm-7">Section D. Total Loan Costs (Borrower Paid)</th>
 				
-				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">{{cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
 		        <td>
 		        	Loan Costs Subtotal (A+B+C)
 		        </td>
 		        <td class="text-center">
-		        	{{cdformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing | number:2}}
+		        	${{cdformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing | number:2}}
 		        </td>
 		        <td class="text-center">
-		        	{{cdformdata.closingCostDetailsLoanCosts.tlCosts.bpB4Closing | number:2}}
+		        	${{cdformdata.closingCostDetailsLoanCosts.tlCosts.bpB4Closing | number:2}}
 		        </td>
 		      </tr>
 		</table>
