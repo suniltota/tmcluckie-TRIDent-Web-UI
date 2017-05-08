@@ -5,44 +5,50 @@
 		<table class="table LoanCostsSection table-bordered margin5tb" style="border:1px;">
 			  <tbody>
                <tr>
-                <th colspan="2" style="border:1px solid white;"></th>	  	
-				<th colspan="4" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center" >Borrower Paid</th>
-				<th colspan="4" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">Seller Paid</th>
-				<th colspan="4" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center ng-binding">Paid By Others</th>
+                <th style="border:1px solid white;"></th>	  	
+				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center col-sm-3" >Borrower Paid</th>
+				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center col-sm-3">Seller Paid</th>
+				<th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center ng-binding col-sm-3">Paid By Others</th>
 			  </tr>
               <tr>
-                <th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center"><strong>Section J. Total Closing Costs</strong></th>	  	
-				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">{{cdformdata.closingCostsTotal.totalClosingCosts | number:2}}</th>
+                <th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center"><strong>Section J. Total Closing Costs</strong></th>	  	
+				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">${{cdformdata.closingCostsTotal.totalClosingCosts | number:2}}</th>
 				<th colspan="2" style="border:1px solid white;" ></th>
-				<th colspan="2" style="border:1px solid white;" ></th>
-                <th colspan="2" style="border:1px solid white;" ></th>
-                <th colspan="4" style="border:1px solid white;" ></th>
+				<th style="border:1px solid white;" ></th>
 			  </tr>
 
                <tr>
-                <th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center"><strong>Closing Costs Subtotal (D + I)</strong></th>	  	
-				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center" >{{cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing | number:2}}</th>
-				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">{{cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing | number:2}}</th>
-				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">{{cdformdata.closingCostsTotal.closingCostsSubtotal.spAtClosing | number:2}}</th>
-                <th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">{{cdformdata.closingCostsTotal.closingCostsSubtotal.spB4Closing | number:2}}</th>
-                <th colspan="4" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">{{cdformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers | number:2}}</th>                
+                <td style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center"><strong>Closing Costs Subtotal (D + I)</strong></td>	  	
+				<td style="border:1px solid white; width: 12.5%;" class="innerSectionHeader innerSectionMainHeader text-center" >${{cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing | number:2}}</td>
+				<td style="border:1px solid white; width: 12.5%;" class="innerSectionHeader innerSectionMainHeader text-center">${{cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing | number:2}}</td>
+				<td style="border:1px solid white; width: 12.5%;" class="innerSectionHeader innerSectionMainHeader text-center">${{cdformdata.closingCostsTotal.closingCostsSubtotal.spAtClosing | number:2}}</td>
+                <td  style="border:1px solid white; width: 12.5%;" class="innerSectionHeader innerSectionMainHeader text-center">${{cdformdata.closingCostsTotal.closingCostsSubtotal.spB4Closing | number:2}}</td>
+                <td style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">${{cdformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers | number:2}}</td>                
 			  </tr>
 
               <tr>
-                <th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">Lender Credits</th>	  	
-				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center" >{{cdformdata.closingCostsTotal.lenderCredits | number:2}}</th>
-				<th colspan="2" style="border:1px solid white;" ></th>
-				<th colspan="2" style="border:1px solid white;" ></th>
-                <th colspan="2" style="border:1px solid white;" ></th>
-                <th colspan="4" style="border:1px solid white;" ></th>                
-			  </tr>
+                <td style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">Lender Credits</td>	  	
+				<td  style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">
+					<span class="margin5tb col-sm-12 padding0">
+						<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostsTotal.lenderCredits" only-digits>
+					</span>
+				</td>
+				<td  style="border:1px solid white;" ></td>
+				<td  style="border:1px solid white;" ></td>
+                <td  style="border:1px solid white;" ></td>
+                <td style="border:1px solid white;" ></td>
+              </tr>
               <tr>
-                <th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">Lender Credit Tolerance Cure Amount</th>	  	
-				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center" >{{cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount | number:2}}</th>
-				<th colspan="2" style="border:1px solid white;" ></th>
-				<th colspan="2" style="border:1px solid white;" ></th>
-                <th colspan="2" style="border:1px solid white;" ></th>
-                <th colspan="4" style="border:1px solid white;" ></th>                
+                <td style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">Lender Credit Tolerance Cure Amount</td>	  	
+				<td style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center" >
+					<span class="margin5tb col-sm-12 padding0">
+						<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount" only-digits>
+					</span>
+				</td>
+				<td  style="border:1px solid white;" ></td>
+				<td  style="border:1px solid white;" ></td>
+                <td  style="border:1px solid white;" ></td>
+                <td  style="border:1px solid white;" ></td>                
 			  </tr>
 		      
 		</tbody></table>		
