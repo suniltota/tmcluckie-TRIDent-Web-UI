@@ -35,6 +35,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.feePaidToTypes = staticData.feePaidToTypes;
 	$scope.prepaidItems = staticData.prepaidItems;
     $scope.escrowItemTypes = staticData.escrowItemTypes;
+    $scope.cashToCloses = staticData.cashToCloses;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};

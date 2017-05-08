@@ -7,25 +7,44 @@
 		        <th class="innerSectionHeader">Loan Estimate</th>
 		        <th class="innerSectionHeader">Final Amount</th>
 		        <th class="innerSectionHeader">Did This Change?</th>
-		        <th class="innerSectionHeader col-sm-5">Change Reaso
+		        <th class="innerSectionHeader col-sm-5">Change Reason
 		        	<button class="pull-right btn btn-warning" data-toggle="modal" data-target="#cashtoCloseModal">Cash to Close Calculator</button>
 		        </th>   
+		      </tr>
+		      <tr ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+		        <td>
+		        	Loan Amount
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        </td>
+		        <td>
+		        	${{cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
+		        </td>
+		        <td>
+		        	${{true == cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
+		        </td>
+		        <td>
+		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemAmountChangedIndicator == 'true'">
+		        		<li>This amount increased</li>
+		        	</ul>
+		        </td>
 		      </tr>
 		      <tr>
 		        <td>
 		        	Total Closing Costs (J)
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount">
 		        </td>
 		        <td>
-		        	$0
+		        	{{cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount}}
 		        </td>
 		        <td>
-		        	Yes
+		        	{{'true' == cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
 		        </td>
 		        <td>
-		        	<ul class="ListChain">
+		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemAmountChangedIndicator == 'true'">
 		        		<li>See Total Loan Costs (D) And Total Other Costs (I)</li>
 		        		<li>Increase exceeds legal limits by </li>
 		        		<li>See Lender credits  on page 2 for credit of excess amount.</li>
@@ -37,52 +56,149 @@
 		        	Closing Costs Paid Before Closing
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemEstimatedAmount">
 		        </td>
 		        <td>
-		        	$0
+		        	${{cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount | number:2 }}
 		        </td>
 		        <td>
-		        	Yes
+		        	{{'true' == cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
 		        </td>
 		        <td>
-		        	<ul class="ListChain">
-		        		<li>See requirements to the left for al specified bullet verbiage.</li>
+		        	<ul class="ListChain" ng-show=" cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemAmountChangedIndicator == 'true'">
+		        		<li>You paid these closing costs before closing</li>
 		        	</ul>
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        <td>
 		        	Closing Costs Financed
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount">
 		        </td>
 		        <td>
-		        	No
+		        	{{'true' == cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
 		        </td>
 		        <td>
-		        	
+                    <ul class="ListChain" ng-show="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemAmountChangedIndicator == 'true'">
+		        		<li>You included these closing costs in the loan amount, which you (increased or decreased) the loan amount</li>
+		        	</ul>
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        <td>
-		        	Closing Costs Paid Before Closing
+		        	Down Payment /  Funds from Borrower
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount">
 		        </td>
 		        <td>
-		        	Yes
+		        	{{'true' == cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
 		        </td>
 		        <td>
-		        	<ul class="ListChain">
+		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemAmountChangedIndicator == 'true' ">
+		        		<li>You (increased or decreased) this payment. See Details in Section K.</li>
+		        	</ul>
+		        </td>
+		      </tr>
+		      <tr ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
+		        <td>
+		        	Deposit
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" name="" ng-model="cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        </td>
+		        <td>
+		        	${{cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
+		        </td>
+		        <td>
+		        	{{'true' == cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
+		        </td>
+		        <td>
+		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemAmountChangedIndicator == 'true' ">
+		        		<li>You (increased or decreased) this payment. See Details in Section L</li>
+		        	</ul>
+		        </td>
+		      </tr>
+		      <tr ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
+		        <td>
+		        	Funds For Borrower
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemFinalAmount">
+		        </td>
+		        <td>
+		        	{{'true' == cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
+		        </td>
+		        <td>
+		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemAmountChangedIndicator == 'true' ">
+		        		<li>Your available funds from the loan amount have (increased or decreased)</li>
+		        	</ul>
+		        </td>
+		      </tr>
+		      <tr ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
+		        <td>
+		        	Seller Credit
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        </td>
+		        <td>
+		        	${{cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
+		        </td>
+		        <td>
+		        	{{'true' == cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
+		        </td>
+		        <td>
+		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemAmountChangedIndicator == 'true' ">
+		        		<li>See Seller Credits in Section L</li>
+		        	</ul>
+		        </td>
+		      </tr>
+		      <tr ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
+		        <td>
+		        	Adjustments and Other Credits
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount">
+		        </td>
+		        <td>
+		        	{{'true' == cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
+		        </td>
+		        <td>
+		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemAmountChangedIndicator == 'true' ">
+		        		<li>See Details in Section K and L</li>
+		        	</ul>
+		        </td>
+		      </tr>
+		      <tr ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+		        <td>
+		        	Total Payments and Payoffs (K)
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount">
+		        </td>
+		        <td>
+		        	{{'true' == cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
+		        </td>
+		        <td>
+		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemAmountChangedIndicator == 'true' ">
 		        		<li>See requirements to the left for al specified bullet verbiage.</li>
 		        	</ul>
 		        </td>
@@ -92,15 +208,26 @@
 		        	<strong>Cash To Close</strong>
 		        </td>
 		        <td>
-		        	$0
+		        	${{cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}
+		        	<span ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+			        	<input type="checkbox" name="" ng-model=""> From
+			        	<input type="checkbox" name="" ng-model=""> To Borrower
+		        	</span>
 		        </td>
 		        <td>
-		        	$0
+		        	${{cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount | number:2}}
+		        	<span ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+			        	<input type="checkbox" name="" ng-model=""> From
+			        	<input type="checkbox" name="" ng-model=""> To Borrower
+			        </span>
 		        </td>
 		        <td colspan="2">
-		        	
+		        	<span ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+	                    <ul class="ListChain">
+			        		<li>Closing Costs Financed (Paid from your Loan Amount) $0 CLOSING</li>
+			        	</ul>
+		        	</span>
 		        </td>
-		        
 		      </tr>
 		</table>
 			

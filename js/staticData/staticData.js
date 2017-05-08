@@ -1581,8 +1581,120 @@ app.service('staticData', function($filter){
 		    },
 		    "lenderCredits": "",
 		    "lenderCreditToleranceCureAmount": ""
-	  }
-
+	  },
+	  "cashToCloses":
+    {
+        "loanAmount": null,
+        "totalClosingCosts":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "TotalClosingCosts",
+            "index": ""
+        },
+        "closingCostsPaidBeforeClosing":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "ClosingCostsPaidBeforeClosing",
+            "index": ""
+        },
+        "closingCostsFinanced":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "ClosingCostsFinanced",
+            "index": ""
+        },
+        "downPayment":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": true,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "DownPayment",
+            "index": ""
+        },
+        "totalPayoffsAndPayments": null,
+        "deposit":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "Deposit",
+            "index": ""
+        },
+        "fundsForBorrower":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "FundsForBorrower",
+            "index": ""
+        },
+        "sellerCredits":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": true,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "SellerCredits",
+            "index": ""
+        },
+        "adjustmentsAndOtherCredits":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "AdjustmentsAndOtherCredits",
+            "index": ""
+        },
+        "cashToCloseTotal":
+        [
+            {
+                "integratedDisclosureCashToCloseItemAmountChangedIndicator": "",
+                "integratedDisclosureCashToCloseItemChangeDescription": "",
+                "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+                "integratedDisclosureCashToCloseItemFinalAmount": "",
+                "integratedDisclosureCashToCloseItemPaymentType": "",
+                "integratedDisclosureCashToCloseItemType": "CashToCloseTotal",
+                "index": ""
+            },
+            {
+                "integratedDisclosureCashToCloseItemAmountChangedIndicator": "",
+                "integratedDisclosureCashToCloseItemChangeDescription": "",
+                "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+                "integratedDisclosureCashToCloseItemFinalAmount": "",
+                "integratedDisclosureCashToCloseItemPaymentType": "",
+                "integratedDisclosureCashToCloseItemType": "CashToCloseTotal",
+                "index": ""
+            }
+        ],
+        "alternateView": false
+    },
+    "summariesofTransactions":
+    {
+        "borrowerSection": null,
+        "sellerSection": null
+    }
+  
 	};
 
  });
