@@ -43,7 +43,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     var originationCharges = {};
     var sbDidNotShopFors = {};
     var sbDidShopFors = {};
-    var tOGovtFeesList = {};
+    var tOGovtFees = {};
+    var recordingFees = [];
     var prepaidsList = {};
     var iEPatClosingList = {};
     var otherCostsList = {};
@@ -56,6 +57,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	var initializeCDformData = function() {
 		$scope.cdformdata = staticData.cdformdata;
 		$scope.cdformdata.loanInformation.purpose = $scope.loanBasicInfo.loanPurposeType;
+
 		borrower = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
 		seller = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
 		ausTypeIdentifier = angular.copy($scope.cdformdata.loanInformation.automatedUnderwritings[0]);
@@ -63,11 +65,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		originationCharges = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0]);
 		sbDidNotShopFors = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[0]);
 		sbDidShopFors = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[0]);
-		tOGovtFeesList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[3]);
-		prepaidsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[4]);
+		tOGovtFees = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0]);
+		prepaidsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0]);
 		iEPatClosingList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[3]);
 		otherCostsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[0]); 
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
+
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.loanInformation.loanMaturityPeriodCount/12;
@@ -122,29 +125,106 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
 		$scope.cdformdata.etiaSection['etiaTypes']=[];
 		for(i=0; i<$scope.cdformdata.etiaSection.etiaValues.length; i++){
-		    if(i==0 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType != 'PropertyTaxes') {
+			if(i==0 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType != 'PropertyTaxes') {
 	       		var propertyTaxesETIA = {
 	       			"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "PropertyTaxes",
 			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-			        "projectedPaymentEscrowedType": "Escrowed"
+			        "projectedPaymentEscrowedType": "NotEscrowed"
 	       		};
 	       		$scope.cdformdata.etiaSection.etiaValues.splice(0, 0, propertyTaxesETIA);
 	       	} else if(i==1 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType != 'HomeownersInsurance') {
 				var homeownersInsuranceETIA = {
 					"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "HomeownersInsurance",
 		        	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-		        	"projectedPaymentEscrowedType": "Escrowed"
+		        	"projectedPaymentEscrowedType": "NotEscrowed"
 				};
 				$scope.cdformdata.etiaSection.etiaValues.splice(1, 0, homeownersInsuranceETIA);
-			} else if($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == 'PropertyTaxes' || 
-				$scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == 'HomeownersInsurance') {
+			} else if(i!=0 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == 'PropertyTaxes') {
+				$scope.cdformdata.etiaSection.etiaValues[0] = $scope.cdformdata.etiaSection.etiaValues[i];
+				$scope.cdformdata.etiaSection.etiaValues.splice(i, 1);
+				i--;
+			} else if(i!=1 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == 'HomeownersInsurance') {
+				$scope.cdformdata.etiaSection.etiaValues[1] = $scope.cdformdata.etiaSection.etiaValues[i];
 				$scope.cdformdata.etiaSection.etiaValues.splice(i, 1);
 				i--;
 			} else {
 				if($scope.cdformdata.etiaSection.etiaTypes.indexOf($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType)==-1)
 				$scope.cdformdata.etiaSection.etiaTypes.push($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType);
-	
 			}
+		};
+
+		if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0].feeType != 'LoanDiscountPoints') {
+       		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.splice(0, 0, angular.copy(originationCharges));
+			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0].feeType = 'LoanDiscountPoints';
+			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0].displayLabel = 'Loan Discount Points';
+       	}
+
+       	for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++){
+			if (i!=0 && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints') {
+				$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0] = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i];
+				$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.splice(i, 1);
+	       	}
+		};
+
+		if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeType != 'RecordingFeeForDeed') {
+       		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(0, 0, angular.copy(tOGovtFees));
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeType = 'RecordingFeeForDeed';
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].displayLabel = 'Recording Fees';
+       	}
+       	if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeType != 'RecordingFeeForMortgage') {
+       		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(1, 0, angular.copy(tOGovtFees));
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeType = 'RecordingFeeForMortgage';
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].displayLabel = 'Recording Fees';
+       	}
+       	if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[2].feeType != 'RecordingFeeTotal') {
+       		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(2, 0, angular.copy(tOGovtFees));
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[2].feeType = 'RecordingFeeTotal';
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[2].displayLabel = 'Recording Fees Total';
+       	}
+
+		for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++){
+			if(i!=0 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForDeed') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0] = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
+				i--;
+			} else if(i!=1 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForMortgage') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1] = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
+				i--;
+			} else if(i!=2 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeTotal') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[2] = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
+				i--;
+			}
+		};
+
+		if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].prepaidItemType != 'PrepaidInterest') {
+       		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(0, 0, angular.copy(prepaidsList));
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].prepaidItemType = 'PrepaidInterest';
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].displayLabelText = 'Prepaid Interest';
+       	}
+       	if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1].prepaidItemType != 'HomeownersInsurancePremium') {
+       		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(1, 0, angular.copy(prepaidsList));
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1].prepaidItemType = 'HomeownersInsurancePremium';
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1].displayLabelText = 'Homeowners Insurance Premium';
+       	}
+       	if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[2].prepaidItemType != 'MortgageInsurancePremium') {
+       		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(2, 0, angular.copy(prepaidsList));
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[2].prepaidItemType = 'MortgageInsurancePremium';
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[2].displayLabelText = 'Mortgage Insurance Premium';
+       	}
+
+		for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.length; i++){
+			if (i!=0 && $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'PrepaidInterest') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0] = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i];
+				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
+	       	} else if (i!=1 && $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'HomeownersInsurancePremium') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1] = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i];
+				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
+	       	} else if (i!=2 && $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'MortgageInsurancePremium') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[2] = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i];
+				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
+	       	}
 		};
 		
 		$scope.cdformdata.closingInformation.dateIssued = new Date();
@@ -228,7 +308,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 
     $scope.addtOGovtFeesList = function(){
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.push(angular.copy(tOGovtFeesList));
+    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.push(angular.copy(tOGovtFees));
     }
 
     $scope.addprepaidsList = function(){
@@ -259,27 +339,47 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	var bpAtClosing = {
 		'originationChargeTotalbpAtClosing' : 0,
 		'sbDidNotShopTotalbpAtClosing' : 0,
-		'sbDidShopTotalbpAtClosing' : 0
+		'sbDidShopTotalbpAtClosing' : 0,
+		'tOGovtFeesTotalbpAtClosing' : 0,
+		'prepaidsTotalbpAtClosing' : 0,
+		'iEPatClosingTotalbpAtClosing' : 0,
+		'otherTotalbpAtClosing' : 0
 	};
 	var bpB4Closing = {
 		'originationChargeTotalbpB4Closing' : 0,
 		'sbDidNotShopTotalbpB4Closing' : 0,
-		'sbDidShopTotalbpB4Closing' : 0
+		'sbDidShopTotalbpB4Closing' : 0,
+		'tOGovtFeesTotalbpB4Closing' : 0,
+		'prepaidsTotalbpB4Closing' : 0,
+		'iEPatClosingTotalbpB4Closing' : 0,
+		'otherTotalbpB4Closing' : 0
 	};
 	var spAtClosing = {
 		'originationChargeTotalspAtClosing' : 0,
 		'sbDidNotShopTotalspAtClosing' : 0,
-		'sbDidShopTotalspAtClosing' : 0
+		'sbDidShopTotalspAtClosing' : 0,
+		'tOGovtFeesTotalspAtClosing' : 0,
+		'prepaidsTotalspAtClosing' : 0,
+		'iEPatClosingTotalspAtClosing' : 0,
+		'otherTotalspAtClosing' : 0
 	};
 	var spB4Closing = {
 		'originationChargeTotalspB4Closing' : 0,
 		'sbDidNotShopTotalspB4Closing' : 0,
-		'sbDidShopTotalspB4Closing' : 0
+		'sbDidShopTotalspB4Closing' : 0,
+		'tOGovtFeesTotalspB4Closing' : 0,
+		'prepaidsTotalspB4Closing' : 0,
+		'iEPatClosingTotalspB4Closing' : 0,
+		'otherTotalspB4Closing' : 0
 	};
 	var paidByOthers = {
 		'originationChargeTotalpaidByOthers' : 0,
 		'sbDidNotShopTotalpaidByOthers' : 0,
-		'sbDidShopTotalpaidByOthers' : 0
+		'sbDidShopTotalpaidByOthers' : 0,
+		'tOGovtFeesTotalpaidByOthers' : 0,
+		'prepaidsTotalpaidByOthers' : 0,
+		'iEPatClosingTotalpaidByOthers' : 0,
+		'otherTotalpaidByOthers' : 0
 	};
 
 	//This watch will trigger any change happens in the amount of 
@@ -342,6 +442,90 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
          $scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing = parseFloat(bpAtClosing.originationChargeTotalbpAtClosing) + parseFloat(bpAtClosing.sbDidNotShopTotalbpAtClosing) + parseFloat(bpAtClosing.sbDidShopTotalbpAtClosing);
          $scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.bpB4Closing = parseFloat(bpB4Closing.originationChargeTotalbpB4Closing) + parseFloat(bpB4Closing.sbDidNotShopTotalbpB4Closing) + parseFloat(bpB4Closing.sbDidShopTotalbpB4Closing);
          $scope.cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = $scope.cdformdata.closingCostDetailsLoanCosts.ocTotalAmount + $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount + $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount;
+    }, true);
+
+    $scope.$watch('cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList', function(newValue, oldValue) {
+		 bpAtClosing.tOGovtFeesTotalbpAtClosing = 0;
+		 bpB4Closing.tOGovtFeesTotalbpB4Closing = 0;
+		 spAtClosing.tOGovtFeesTotalspAtClosing = 0;
+		 spB4Closing.tOGovtFeesTotalspB4Closing = 0;
+		 paidByOthers.tOGovtFeesTotalpaidByOthers = 0;
+
+         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++) {
+         	bpAtClosing.tOGovtFeesTotalbpAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing);
+         	bpB4Closing.tOGovtFeesTotalbpB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing);
+         	spAtClosing.tOGovtFeesTotalspAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing);
+          	spB4Closing.tOGovtFeesTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing);
+          	paidByOthers.tOGovtFeesTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paidByOthers == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paidByOthers);
+         }
+
+         $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount = bpAtClosing.tOGovtFeesTotalbpAtClosing + bpB4Closing.tOGovtFeesTotalbpB4Closing;
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing = parseFloat(bpAtClosing.tOGovtFeesTotalbpAtClosing) + parseFloat(bpAtClosing.prepaidsTotalbpAtClosing) + parseFloat(bpAtClosing.iEPatClosingTotalbpAtClosing) + parseFloat(bpAtClosing.otherTotalbpAtClosing);
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing = parseFloat(bpB4Closing.tOGovtFeesTotalbpB4Closing) + parseFloat(bpB4Closing.prepaidsTotalbpB4Closing) + parseFloat(bpB4Closing.iEPatClosingTotalbpB4Closing) + parseFloat(bpB4Closing.otherTotalbpB4Closing);
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
+    }, true);
+
+    $scope.$watch('cdformdata.closingCostDetailsOtherCosts.prepaidsList', function(newValue, oldValue) {
+		 bpAtClosing.prepaidsTotalbpAtClosing = 0;
+		 bpB4Closing.prepaidsTotalbpB4Closing = 0;
+		 spAtClosing.prepaidsTotalspAtClosing = 0;
+		 spB4Closing.prepaidsTotalspB4Closing = 0;
+		 paidByOthers.prepaidsTotalpaidByOthers = 0;
+
+         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.length; i++) {
+         	bpAtClosing.prepaidsTotalbpAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing);
+         	bpB4Closing.prepaidsTotalbpB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing);
+         	spAtClosing.prepaidsTotalspAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing);
+          	spB4Closing.prepaidsTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing);
+          	paidByOthers.prepaidsTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers);
+         }
+
+         $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount = bpAtClosing.prepaidsTotalbpAtClosing + bpB4Closing.prepaidsTotalbpB4Closing;
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing = parseFloat(bpAtClosing.tOGovtFeesTotalbpAtClosing) + parseFloat(bpAtClosing.prepaidsTotalbpAtClosing) + parseFloat(bpAtClosing.iEPatClosingTotalbpAtClosing) + parseFloat(bpAtClosing.otherTotalbpAtClosing);
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing = parseFloat(bpB4Closing.tOGovtFeesTotalbpB4Closing) + parseFloat(bpB4Closing.prepaidsTotalbpB4Closing) + parseFloat(bpB4Closing.iEPatClosingTotalbpB4Closing) + parseFloat(bpB4Closing.otherTotalbpB4Closing);
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
+    }, true);
+
+    $scope.$watch('cdformdata.closingCostDetailsOtherCosts.iEPatClosingList', function(newValue, oldValue) {
+		 bpAtClosing.iEPatClosingTotalbpAtClosing = 0;
+		 bpB4Closing.iEPatClosingTotalbpB4Closing = 0;
+		 spAtClosing.iEPatClosingTotalspAtClosing = 0;
+		 spB4Closing.iEPatClosingTotalspB4Closing = 0;
+		 paidByOthers.iEPatClosingTotalpaidByOthers = 0;
+
+         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList.length; i++) {
+         	bpAtClosing.iEPatClosingTotalbpAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].bpAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].bpAtClosing);
+         	bpB4Closing.iEPatClosingTotalbpB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].bpB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].bpB4Closing);
+         	spAtClosing.iEPatClosingTotalspAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].spAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].spAtClosing);
+          	spB4Closing.iEPatClosingTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].spB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].spB4Closing);
+          	paidByOthers.iEPatClosingTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].paidByOthers == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].paidByOthers);
+         }
+
+         $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingTotalAmount = bpAtClosing.iEPatClosingTotalbpAtClosing + bpB4Closing.iEPatClosingTotalbpB4Closing;
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing = parseFloat(bpAtClosing.tOGovtFeesTotalbpAtClosing) + parseFloat(bpAtClosing.prepaidsTotalbpAtClosing) + parseFloat(bpAtClosing.iEPatClosingTotalbpAtClosing) + parseFloat(bpAtClosing.otherTotalbpAtClosing);
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing = parseFloat(bpB4Closing.tOGovtFeesTotalbpB4Closing) + parseFloat(bpB4Closing.prepaidsTotalbpB4Closing) + parseFloat(bpB4Closing.iEPatClosingTotalbpB4Closing) + parseFloat(bpB4Closing.otherTotalbpB4Closing);
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
+    }, true);
+
+    $scope.$watch('cdformdata.closingCostDetailsOtherCosts.otherCostsList', function(newValue, oldValue) {
+		 bpAtClosing.otherTotalbpAtClosing = 0;
+		 bpB4Closing.otherTotalbpB4Closing = 0;
+		 spAtClosing.otherTotalspAtClosing = 0;
+		 spB4Closing.otherTotalspB4Closing = 0;
+		 paidByOthers.otherTotalpaidByOthers = 0;
+
+         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.length; i++) {
+         	bpAtClosing.otherTotalbpAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing);
+         	bpB4Closing.otherTotalbpB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing);
+         	spAtClosing.otherTotalspAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing);
+          	spB4Closing.otherTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing);
+          	paidByOthers.otherTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers);
+         }
+
+         $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount = bpAtClosing.otherTotalbpAtClosing + bpB4Closing.otherTotalbpB4Closing;
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing = parseFloat(bpAtClosing.tOGovtFeesTotalbpAtClosing) + parseFloat(bpAtClosing.prepaidsTotalbpAtClosing) + parseFloat(bpAtClosing.iEPatClosingTotalbpAtClosing) + parseFloat(bpAtClosing.otherTotalbpAtClosing);
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing = parseFloat(bpB4Closing.tOGovtFeesTotalbpB4Closing) + parseFloat(bpB4Closing.prepaidsTotalbpB4Closing) + parseFloat(bpB4Closing.iEPatClosingTotalbpB4Closing) + parseFloat(bpB4Closing.otherTotalbpB4Closing);
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
     }, true);
 });
 
