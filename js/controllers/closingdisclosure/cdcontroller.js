@@ -234,7 +234,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
 	       	}
 		};
-		
+		setTimeout(function(){$("#spinner").hide();}, 3000);
 		$scope.cdformdata.closingInformation.dateIssued = new Date();
 		$scope.cdformdata.closingInformation.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
 	}

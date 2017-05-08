@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('homeCtrl', function ($scope, $routeParams, $location) {
-
+	$("#spinner").show();
 	if($routeParams.transactionType != undefined) {
 		localStorage.loanTransactionType = $routeParams.transactionType;
 	}

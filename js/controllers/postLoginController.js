@@ -27,6 +27,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
     }
 
     $scope.submit = function() {
+        $("#spinner").show();
         if($scope.transactionType == 'new') {
             location.href = "index.html#/home?transactionType="+$scope.transactionType+"&documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
         } else if($scope.transactionType == 'existing') {
@@ -35,6 +36,8 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                     $scope.purposeType = data.loanInformation.purpose.toLowerCase();
                     localStorage.jsonData = JSON.stringify(data);
                     location.href = "index.html#/home?transactionType="+$scope.transactionType+"&documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+                }).error(function(data, status) {
+                    $("#spinner").hide();
                 });
             } else {
                 $scope.fileerror = 'Please select valid xml file';
