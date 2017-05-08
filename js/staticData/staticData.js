@@ -1426,7 +1426,16 @@ app.service('staticData', function($filter){
 	  },
 	  "cashToCloses":
     {
-        "loanAmount": null,
+        "loanAmount":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "Deposit",
+            "index": ""
+        },
         "totalClosingCosts":
         {
             "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
@@ -1467,7 +1476,16 @@ app.service('staticData', function($filter){
             "integratedDisclosureCashToCloseItemType": "DownPayment",
             "index": ""
         },
-        "totalPayoffsAndPayments": null,
+        "totalPayoffsAndPayments": 
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "Deposit",
+            "index": ""
+        },
         "deposit":
         {
             "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
