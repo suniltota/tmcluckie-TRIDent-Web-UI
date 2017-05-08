@@ -102,21 +102,27 @@
 		          </div>
 		</div>
 		<div class="col-sm-6" ng-show="loanBasicInfo.loanFormType == 'standard'">
-				<h5 class="innerSectionHeader">Price Information</h5>
+				<h5 class="innerSectionHeader">Price Information (Purchase Only)</h5>
 				 <div class="row" ng-show="cdformdata.closingInformation.salesContractDetail.personalPropertyIndicator == false">
 				 	 <div class=" col-sm-12">
-		              <div class="col-sm-5 fieldTitle">Sales Price (Purchase Only)</div>
+					    <div class="col-sm-5 fieldTitle">Sales Price (Purchase Only)</div>
 		              	<div class="col-sm-7 radioGroup">
-		              		<input type="text" class="form-control" ng-model="cdformdata.closingInformation.salesContractDetail.saleContractAmount">
-		              	</div>
+						   	 <div class="input-group">
+  								<span class="input-group-addon input-default">$</span>
+		        				<input type="text" class="form-control" ng-model="cdformdata.closingInformation.salesContractDetail.saleContractAmount">
+		        			</div>
+						</div>
 		             </div>
 		          </div>
 		          <div class="row" ng-show="cdformdata.closingInformation.salesContractDetail.personalPropertyIndicator == true">
 				 	 <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Real Property Price</div>
 		              	<div class="col-sm-7 radioGroup">
-		              		<input type="text" class="form-control" ng-model="cdformdata.closingInformation.salesContractDetail.realPropertyAmount">
-		              	</div>
+						   	<div class="input-group">
+  								<span class="input-group-addon input-default">$</span>
+		        				<input type="text" class="form-control" ng-model="cdformdata.closingInformation.salesContractDetail.realPropertyAmount">
+		        			</div>
+						</div>
 		             </div>
 		          </div>
 		          <div class="row margin5tb">
