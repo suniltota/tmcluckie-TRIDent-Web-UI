@@ -1468,7 +1468,7 @@ app.service('staticData', function($filter){
         },
         "downPayment":
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": true,
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
             "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
             "integratedDisclosureCashToCloseItemFinalAmount": "",
@@ -1508,7 +1508,7 @@ app.service('staticData', function($filter){
         },
         "sellerCredits":
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": true,
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
             "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
             "integratedDisclosureCashToCloseItemFinalAmount": "",
@@ -1529,7 +1529,7 @@ app.service('staticData', function($filter){
         "cashToCloseTotal":
         [
             {
-                "integratedDisclosureCashToCloseItemAmountChangedIndicator": "",
+                "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
                 "integratedDisclosureCashToCloseItemChangeDescription": "",
                 "integratedDisclosureCashToCloseItemEstimatedAmount": "",
                 "integratedDisclosureCashToCloseItemFinalAmount": "",
@@ -1538,7 +1538,7 @@ app.service('staticData', function($filter){
                 "index": ""
             },
             {
-                "integratedDisclosureCashToCloseItemAmountChangedIndicator": "",
+                "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
                 "integratedDisclosureCashToCloseItemChangeDescription": "",
                 "integratedDisclosureCashToCloseItemEstimatedAmount": "",
                 "integratedDisclosureCashToCloseItemFinalAmount": "",
