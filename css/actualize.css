@@ -62,11 +62,11 @@ ul li{list-style: none;}
 .panel-body{padding: 0;}
 .CDHeaderSection{width: 100%; margin-top: 10px;}
 .PDFview{background: #adadad; float: left; width: 100%;}
-.PDFview > span{width:94%; margin:10px 3%; padding:20px 0; float: left; min-height: 96%; background: #fff;}
+.PDFview > span{width:98%; margin:10px 1%; padding:20px 0; float: left; min-height: 96%; background: #fff;}
 .CDHeaderSection .fieldTitle{padding:8px; font-weight: bold;}
 .CDHeaderSection .FieldGroup{padding: 5px 0; width: 100%; float: left;}
 .innerSectionHeader{background:#eee; padding:7px 10px; color: #555; border-radius:2px;}
-th.innerSectionHeader{padding: 3px 15px!important; vertical-align: middle!important;}
+th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 
 .home3 .CDHeaderSection .FieldGroup{padding: 2px;}
 .home3 .CDHeaderSection .fieldTitle{padding: 2px;}
@@ -169,3 +169,4 @@ th.innerSectionHeader{padding: 3px 15px!important; vertical-align: middle!import
 #cashtoCloseModal .fieldTitle{padding: 5px 0; border-right:1px solid #5bb1dc; min-height: 35px; font-weight: normal;}
 #cashtoCloseModal .fieldValue{padding: 5px 15px;}
 #cashtoCloseModal .fieldValue input{height: 25px;}
+.finalFooterValues{background: #5bb1dc; padding:5px 15px; color: #fff; font-weight: bold;}
