@@ -17,14 +17,14 @@
 		        <td><label>Principal &amp; Interest Payment</label></td>
 		        <td ng-repeat="principalInterest in cdformdata.projectedPayments.principalInterest track by $index">
 		        	<div class="col-sm-6" style="padding: 0 8px;">
-		        			<div class="col-sm-12 text-center">Min</div>
+		        			<div class="col-sm-12 text-center">Minimum</div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
 		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount"/>
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-6" style="padding: 0 8px;">
-		        			<div class="col-sm-12 text-center">Max <span class="required">*</span></div>
+		        			<div class="col-sm-12 text-center">Maximum <span class="required">*</span></div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
 		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount"/>
