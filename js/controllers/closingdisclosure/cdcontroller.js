@@ -670,6 +670,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
         $scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount = cashToCloseItemEstimatedAmount;
         $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount = cashToCloseItemFinalAmount;
     }, true);
+    
+    $scope.$watch('cdformdata.closingCostsTotal', function(newValue,oldValue){
+    	var totalClosingCosts = 0;
+        totalClosingCosts +=  $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing);
+        totalClosingCosts +=  $scope.cdformdata.closingCostsTotal.lenderCredits == null ? +0 : parseFloat($scope.cdformdata.closingCostsTotal.lenderCredits);
+        $scope.cdformdata.closingCostsTotal.totalClosingCosts = totalClosingCosts;
+    },true);
+
 });
 
 //date param of proper format to create date object.
