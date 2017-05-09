@@ -17,6 +17,15 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
          $scope.fileerror = undefined;
     });
 
+    $scope.purposeTypeChange = function(){
+        if($scope.purposeType == 'refinance'){
+            $scope.formType = 'alternate';
+        }
+        else{
+            $scope.formType = 'standard';
+        }
+    }
+    
     $scope.clear = function() {
         if($scope.transactionType == 'new')
             $scope.purposeType = 'purchase';

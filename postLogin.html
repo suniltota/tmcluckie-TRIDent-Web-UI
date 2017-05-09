@@ -79,11 +79,11 @@
                           <strong>Choose one radio button for the Loan Purpose for the transaction</strong>
                         </div>
                         <div class="col-sm-6  radioGroup margin5tb">
-                          <input type="radio" name="purpose" ng-model="purposeType" value="purchase">
+                          <input type="radio" name="purpose" ng-model="purposeType" value="purchase" ng-change="purposeTypeChange()">
                           <strong>Purchase</strong>
                         </div>
                         <div class="col-sm-6  radioGroup  margin5tb">
-                          <input type="radio"  name="purpose" ng-model="purposeType" value="refinance">
+                          <input type="radio"  name="purpose" ng-model="purposeType" value="refinance" ng-change="purposeTypeChange()">
                           <strong>Refinance</strong>
                         </div>
                       </div>
