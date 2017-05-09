@@ -203,6 +203,14 @@
 						</div>
 					</div>
 				</div>
+				<div class="col-sm-6" ng-show="cdformdata.loanInformation.amortizationType == 'Step'">
+					<div class="FieldGroup">
+						<div class="col-sm-10 fieldTitle">If Amortization Type is Step, Provide the Total Step Count</div>
+						<div class="col-sm-2 padding0">
+							<input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit">
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="col-sm-12">
 	            <div class="col-sm-12 tableInsideHeader">
