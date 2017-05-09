@@ -38,24 +38,24 @@
 		        		<input class="form-control" ng-model="cdformdata.loanTerms.interestRate.noteRatePercent" decimal-places>
 		        	</div>
 		        </td>
-		        <td><select class="form-control pull-left" ng-model="cdformdata.loanInformation.isProductAdjustmentinfoPresent" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        <td><select class="form-control pull-left" ng-model="cdformdata.loanTerms.interestRate.interestRateIncreaseIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList">
-		        		<li ng-show="cdformdata.loanInformation.isProductAdjustmentinfoPresent == true">
+		        		<li ng-show="cdformdata.loanTerms.interestRate.interestRateIncreaseIndicator == true">
 		        			<span class="col-sm-12">
 		        			<span class="pull-left margin5tb">Adjusts every</span> 
 		        			<span class="col-sm-2">
-		        				<input type="text" ng-model="cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodYears" class="form-control" name="">
+		        				<input type="text" ng-model="cdformdata.loanTerms.interestRate.perChangeRateAdjustmentFrequencyMonthsCount" class="form-control" name="" only-digits>
 		        			</span> 
 		        			<span class="pull-left margin5tb">years starting in year</span>
 		        			<span class="col-sm-2">
-		        				<input type="text" class="form-control" ng-model="cdformdata.loanInformation.productAdjustmentInformation.firstChangeStartYear" name="">
+		        				<input type="text" class="form-control" ng-model="cdformdata.loanTerms.interestRate.firstRateChangeMonthsCount" name="" only-digits>
 		        			</span>
 		        			</span>
 		        		</li>
-		        		<li ng-show="cdformdata.loanInformation.isProductAdjustmentinfoPresent == true">
+		        		<li ng-show="cdformdata.loanTerms.interestRate.interestRateIncreaseIndicator == true">
 		        			<span class="col-sm-12">
 		        			<span class="pull-left margin5tb"> Can go as high as</span> 
 		        			<span class="col-sm-2">
@@ -71,7 +71,7 @@
 		        			<span class="pull-left col-sm-7 margin5tb">Provide Current Rate Set Date</span>
 		        			<span class="col-sm-5">
 			        			<span class="col-sm-8 padding0">
-									<input type="text" name="interestRateSetDate" id="interestRateSetDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" is-open="isInterestRateSetDate" datepicker-options="dateOptions" ng-model="cdformdata.loanTerms.interestRateSetDate" close-text="Close" placeholder="Date" disabled/>
+									<input type="text" name="interestRateSetDate" id="interestRateSetDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" is-open="isInterestRateSetDate" datepicker-options="dateOptions" ng-model="cdformdata.loanTerms.interestRate.currentRateSetDate" close-text="Close" placeholder="Date" disabled/>
 								</span>
 				      			<span class="input-group-btn col-sm-2 padding0">
 				        			<button type="button" class="btn btn-default calenderBtn" ng-click="isInterestRateSetDate = !isInterestRateSetDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -81,13 +81,13 @@
 		        		<li>
 		        			<span class="col-sm-7 margin5tb">Provide the Loan price quote</span> 
 		        			<span class="col-sm-3">
-		        				<input type="text" class="form-control" name="">
+		        				<input type="text" class="form-control" name="" ng-model="">
 		        			</span>
 		        		</li>
 		        		<li>
 		        			<span class="col-sm-7 margin5tb">Provide the APOR</span> 
 		        			<span class="col-sm-3">
-		        				<input type="text" class="form-control" name="">
+		        				<input type="text" class="form-control" name="" ng-model="">
 		        			</span>
 		        		</li>
 		        	</ul>
@@ -130,19 +130,19 @@
 		        		<input class="form-control" ng-model="cdformdata.loanTerms.principalInterest.amount" decimal-places>
 		        	</div>
 		        </td>
-		        <td><select class="form-control pull-left" ng-model="cdformdata.loanInformation.isProductAdjustmentinfoPresent" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        <td><select class="form-control pull-left" ng-model="cdformdata.loanTerms.principalInterest.paymentIncreaseIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>        	
 		        </td>
 		        <td>
-		        	<ul class="loanTermsList" ng-show="cdformdata.loanInformation.isProductAdjustmentinfoPresent == true">
+		        	<ul class="loanTermsList" ng-show="cdformdata.loanTerms.principalInterest.paymentIncreaseIndicator == true">
 		        		<li> <span class="pull-left margin5tb">Adjusts every</span> 
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodYears"></span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.principalInterest.perChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount"></span> 
 		        			<span class="pull-left margin5tb">years starting in year</span>
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.productAdjustmentInformation.firstChangeStartYear"></span></li>
+		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.principalInterest.firstPrincipalAndInterestPaymentChangeMonthsCount"></span></li>
 		        		<li><span class="pull-left margin5tb"> Can go as high as</span> 
-		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.principalInterest.principalAndInterestPaymentMaximumAmount"></span> 
 		        			<span class="pull-left margin5tb">in year</span> 
-		        			<span class="col-sm-2"><input type="text" class="form-control" name=""></span></li>
+		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.principalInterest.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount"></span></li>
 		        	</ul>
 		        </td>
 		      </tr>
