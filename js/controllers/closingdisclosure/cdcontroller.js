@@ -61,7 +61,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		borrower = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
 		seller = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
 		ausTypeIdentifier = angular.copy($scope.cdformdata.loanInformation.automatedUnderwritings[0]);
-		ETIAComponentType = angular.copy($scope.cdformdata.etiaSection.etiaValues[2]);
+		ETIAComponentType = angular.copy($scope.cdformdata.etiaSection.etiaValues[0]);
 		originationCharges = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0]);
 		sbDidNotShopFors = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[0]);
 		sbDidShopFors = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[0]);
@@ -124,22 +124,16 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = false;
 
 		$scope.cdformdata.etiaSection['etiaTypes']=[];
+		if($scope.cdformdata.etiaSection.etiaValues!=undefined) {
+			$scope.cdformdata.etiaSection.etiaValues.splice(0, 0, angular.copy(ETIAComponentType));
+			$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType = 'PropertyTaxes';
+
+			$scope.cdformdata.etiaSection.etiaValues.splice(1, 0, angular.copy(ETIAComponentType));
+			$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType = 'HomeownersInsurance';
+		}
+
 		for(i=0; i<$scope.cdformdata.etiaSection.etiaValues.length; i++){
-			if(i==0 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType != 'PropertyTaxes') {
-	       		var propertyTaxesETIA = {
-	       			"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "PropertyTaxes",
-			        "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-			        "projectedPaymentEscrowedType": "NotEscrowed"
-	       		};
-	       		$scope.cdformdata.etiaSection.etiaValues.splice(0, 0, propertyTaxesETIA);
-	       	} else if(i==1 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType != 'HomeownersInsurance') {
-				var homeownersInsuranceETIA = {
-					"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "HomeownersInsurance",
-		        	"projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-		        	"projectedPaymentEscrowedType": "NotEscrowed"
-				};
-				$scope.cdformdata.etiaSection.etiaValues.splice(1, 0, homeownersInsuranceETIA);
-			} else if(i!=0 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == 'PropertyTaxes') {
+			if(i!=0 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == 'PropertyTaxes') {
 				$scope.cdformdata.etiaSection.etiaValues[0] = $scope.cdformdata.etiaSection.etiaValues[i];
 				$scope.cdformdata.etiaSection.etiaValues.splice(i, 1);
 				i--;
@@ -153,8 +147,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			}
 		};
 
-		if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0].feeType != 'LoanDiscountPoints') {
-       		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.splice(0, 0, angular.copy(originationCharges));
+		if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges!=undefined) {
+   			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.splice(0, 0, angular.copy(originationCharges));
 			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0].feeType = 'LoanDiscountPoints';
 			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0].displayLabel = 'Loan Discount Points';
        	}
@@ -166,21 +160,19 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	       	}
 		};
 
-		if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeType != 'RecordingFeeForDeed') {
-       		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(0, 0, angular.copy(tOGovtFees));
+		if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList!=undefined) {
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(0, 0, angular.copy(tOGovtFees));
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeType = 'RecordingFeeForDeed';
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].displayLabel = 'Recording Fees';
-       	}
-       	if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeType != 'RecordingFeeForMortgage') {
-       		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(1, 0, angular.copy(tOGovtFees));
+
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(1, 0, angular.copy(tOGovtFees));
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeType = 'RecordingFeeForMortgage';
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].displayLabel = 'Recording Fees';
-       	}
-       	if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[2].feeType != 'RecordingFeeTotal') {
-       		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(2, 0, angular.copy(tOGovtFees));
+
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(2, 0, angular.copy(tOGovtFees));
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[2].feeType = 'RecordingFeeTotal';
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[2].displayLabel = 'Recording Fees Total';
-       	}
+		}
 
 		for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++){
 			if(i!=0 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForDeed') {
@@ -198,26 +190,24 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			}
 		};
 
-		if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].prepaidItemType != 'PrepaidInterest') {
-       		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(0, 0, angular.copy(prepaidsList));
+		if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList!=undefined) {
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(0, 0, angular.copy(prepaidsList));
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].prepaidItemType = 'PrepaidInterest';
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].displayLabelText = 'Prepaid Interest';
-       	}
-       	if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1].prepaidItemType != 'HomeownersInsurancePremium') {
-       		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(1, 0, angular.copy(prepaidsList));
+			
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(1, 0, angular.copy(prepaidsList));
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1].prepaidItemType = 'HomeownersInsurancePremium';
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1].displayLabelText = 'Homeowners Insurance Premium';
-       	}
-       	if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[2].prepaidItemType != 'MortgageInsurancePremium') {
+
        		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(2, 0, angular.copy(prepaidsList));
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[2].prepaidItemType = 'MortgageInsurancePremium';
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[2].displayLabelText = 'Mortgage Insurance Premium';
-       	}
-       	if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[3].prepaidItemType != 'CountyPropertyTax') {
+
        		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(3, 0, angular.copy(prepaidsList));
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[3].prepaidItemType = 'CountyPropertyTax';
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[3].displayLabelText = 'Property Taxes';
-       	}
+
+		}
 
 		for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.length; i++){
 			if (i!=0 && $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'PrepaidInterest') {
