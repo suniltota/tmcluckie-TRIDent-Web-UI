@@ -41,6 +41,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                 });
             } else {
                 $scope.fileerror = 'Please select valid xml file';
+                $("#spinner").hide();
             }
         }
     }
