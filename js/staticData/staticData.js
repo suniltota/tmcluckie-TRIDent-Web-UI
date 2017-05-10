@@ -889,6 +889,30 @@ app.service('staticData', function($filter){
 			"value":"PublicState"
 		}
     ];
+
+    this.repayMethodType = [
+	     {
+	        "name":"General",
+	        "value":"General"
+	     },
+	     {
+	        "name":"Exempt",
+	        "value":"Exempt"
+	     }
+    ];
+
+    this.repayExemptionReasonType = [
+	     {
+	        "name":"Loan Program",
+	        "value":"LoanProgram"
+	     },
+	     {
+	        "name":"Property Usage",
+	        "value":"PropertyUsage"
+	     }
+    ];
+
+    
 	this.cdformdata={
 		"closingInformation": {
 		    "dateIssued": "",
