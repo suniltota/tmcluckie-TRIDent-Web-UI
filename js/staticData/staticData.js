@@ -1834,7 +1834,8 @@ app.service('staticData', function($filter){
             "feeSummaryTotalAmountFinancedAmount": null,
             "feeSummaryTotalFinanceChargeAmount": null,
             "feeSummaryTotalInterestPercent": null,
-            "feeSummaryTotalOfAllPaymentsAmount": null
+            "feeSummaryTotalOfAllPaymentsAmount": null,
+            "deficiencyRightsPreservedIndicator":false
         },
         "qualifiedMortgage":
         {
@@ -1843,7 +1844,9 @@ app.service('staticData', function($filter){
             "regulationZTotalAffiliateFeesAmount": null,
             "regulationZTotalLoanAmount": null,
             "regulationZTotalPointsAndFeesAmount": null,
-            "averagePrimeOfferRatePercent": null
+            "averagePrimeOfferRatePercent": null,
+            "abilityToRepayMethodType":null,
+            "abilityToRepayExemptionReasonType":null
         }
     },
     "contactInformation":
