@@ -36,6 +36,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.prepaidItems = staticData.prepaidItems;
     $scope.escrowItemTypes = staticData.escrowItemTypes;
     $scope.licenseAuthorityLevelTypes = staticData.licenseAuthorityLevelTypes;
+    $scope.repayMethodType = staticData.repayMethodType;
+    $scope.repayExemptionReasonType = staticData.repayExemptionReasonType;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;
 	var borrower ={};

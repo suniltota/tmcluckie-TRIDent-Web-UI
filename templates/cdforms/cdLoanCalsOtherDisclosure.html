@@ -8,118 +8,104 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	<span class="margin5tb col-sm-10">Total of Payments *</span>
+		        	<span class="margin5tb col-sm-10">Total of Payments <span class="required">*</span></span>
 		        </td>
 				<td>
-		        	<input type="text" class="form-control padding0 col-sm-4" value="$150,250.89">
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalOfAllPaymentsAmount">
 		        </td>
 				<td valign="middle">
-		        	<span class="col-sm-11">Reg.Z Excluded Bonna Fide Discount Points Indicator *</span>
+		        	<span class="col-sm-11">Reg.Z Excluded Bonna Fide Discount Points Indicator <span class="required">*</span></span>
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
-              			<option>Select</option>
+		        	<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" >
               		</select>
 		        </td>
 		      </tr>
 			  
 			  <tr>
 		        <td>
-		        	<span class="margin5tb col-sm-10">Finance Charge *</span>
+		        	<span class="margin5tb col-sm-10">Finance Charge <span class="required">*</span></span>
 		        </td>
 				<td>
-		        	<input type="text" class="form-control padding0 col-sm-4" value="$150,250.89">
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalFinanceChargeAmount">
 		        </td>
 				<td valign="middle">
-		        	<span class="col-sm-11">Reg. Z Excluded Bona Fide Discount Points Percent*</span>
+		        	<span class="col-sm-11">Reg. Z Excluded Bona Fide Discount Points Percent <span class="required">*</span></span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0 col-sm-4" value="$150,250.89">
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent">
 		        </td>
 		      </tr>
 			  
 			  <tr>
 		        <td>
-		        	<span class="margin5tb col-sm-10">Amount Financed *</span>
+		        	<span class="margin5tb col-sm-10">Amount Financed <span class="required">*</span></span>
 		        </td>
 				<td>
-		        	<input type="text" class="form-control padding0 col-sm-4" value="$150,250.89">
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalAmountFinancedAmount">
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg. Z Excluded Total Affiliate Fees Amount </span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0 col-sm-4" value="$150,250.89">
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount">
 		        </td>
 		      </tr>
 			  
 			  <tr>
 		        <td>
-		        	<span class="margin5tb col-sm-10">Annual Percentage Rate (APR) *</span>
+		        	<span class="margin5tb col-sm-10">Annual Percentage Rate (APR) <span class="required">*</span></span>
 		        </td>
 				<td>
-		        	<input type="text" class="form-control padding0 col-sm-4" value="$150,250.89">
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent">
 		        </td>
 				<td valign="middle">
-		        	<span class="col-sm-11">Reg. Z Excluded Total Loan Amount *</span>
+		        	<span class="col-sm-11">Reg. Z Excluded Total Loan Amount <span class="required">*</span></span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0 col-sm-4" value="$150,250.89">
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalLoanAmount">
 		        </td>
 		      </tr>
 			  
 			   <tr>
 		        <td>
-		        	<span class="margin5tb col-sm-10">Total Interest Percentage (TIP) *</span>
+		        	<span class="margin5tb col-sm-10">Total Interest Percentage (TIP) <span class="required">*</span></span>
 		        </td>
 				<td>
-		        	<input type="text" class="form-control padding0 col-sm-4" value="$150,250.89">
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent">
 		        </td>
 				<td valign="middle">
-		        	<span class="col-sm-11">Reg. Z Excluded Total Points and Fees Amount *</span>
+		        	<span class="col-sm-11">Reg. Z Excluded Total Points and Fees Amount <span class="required">*</span></span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0 col-sm-4" value="$150,250.89">
-		        </td>
-		      </tr>
-			  
-			   <tr>
-		        <td>
-		        	<span class="margin5tb col-sm-10">Total Interest Percentage (TIP) *</span>
-		        </td>
-				<td>
-		        	<input type="text" class="form-control padding0 col-sm-4" value="$150,250.89">
-		        </td>
-				<td valign="middle">
-		        	<span class="col-sm-11">Reg. Z Excluded Total Points and Fees Amount *</span>
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0 col-sm-4" value="$150,250.89">
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalPointsAndFeesAmount">
 		        </td>
 		      </tr>
 			  
 			  <tr>		      		
 					<td rowspan="2">
-			        	<span class="margin5tb col-sm-10">Liability After Foreclosure *</span>
+			        	<span class="margin5tb col-sm-10">Liability After Foreclosure <span class="required">*</span></span>
 		      		</td>
 					<td rowspan="2" style="vertical-align: middle;" >
 		      			<span class="text-center">Will Protect Borrower</span>
-			        	<span class="text-center pull-right"><input type="checkbox" name="" ></span>
+			        	<span class="text-center pull-right"><input type="checkbox" name="" ng-checked="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator == true"></span>
 						<br>
 						<span class="text-center">Will Not Protect Borrower</span>
-			        	<span class="text-center pull-right"><input type="checkbox" name="" ></span>
+			        	<span class="text-center pull-right"><input type="checkbox" name="" ng-checked="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator == false"></span>
 		      		</td>
 					<td rowspan="2" style="vertical-align: middle;">
-		      			<span class="text-left margin5lr">Ability to Repay Method Type*</span>							
+		      			<span class="text-left margin5lr">Ability to Repay Method Type <span class="required">*</span></span>							
 						<br>
 						<span class="text-left margin5lr">Ability to Repay Exemption Reason Type</span>			        							
 		      		</td>
 		      		<td rowspan="2">
-		      			<select class="form-control padding0">
-							<option>Select</option>
+		      			<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType">
+							 <option value="" selected>Select</option>
+		                     <option ng-repeat="rMType in repayMethodType" value="{{rMType.value}}">{{rMType.name}}</option>
 						</select>
-						<select class="form-control padding0" >
-							<option>Select</option>
+						<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayExemptionReasonType">
+							 <option value="" selected>Select</option>
+		                     <option ng-repeat="rERType in repayExemptionReasonType" value="{{rERType.value}}">{{rERType.name}}</option>
 						</select>
 		      		</td>
 		      </tr>
