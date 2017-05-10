@@ -31,7 +31,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
             $scope.purposeType = 'purchase';
         $scope.documentType = 'closingdisclosure';
         $scope.formType = 'standard';
-        angular.element("input[type='file']").val(null);
+        angular.element("input[type='file']").val('');
         $scope.xmlfile = undefined;
     }
 
