@@ -23,6 +23,7 @@
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_L'}" ng-click="showTab = 'SummariesofTransaction_L'" >Summaries of Transaction - L. Paid already</span> 
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_M'}" ng-click="showTab = 'SummariesofTransaction_M'" >Summaries of Transaction - M. Due to seller At Closing</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_N'}" ng-click="showTab = 'SummariesofTransaction_N'" >Summaries of Transaction - N. Due from Seller At Closing</span>
+        <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanDisclosures'}" ng-click="showTab = 'LoanDisclosures'" >Additional Information About This Loan - Loan Disclosures</span>
       </div>
   </div>
    <div id="transparent"></div>
@@ -103,7 +104,10 @@
       <span class="glyphicon glyphicon-file pull-left"></span>
       <span class="pull-left noTitle">18</span>
     </span>
-   
+   <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanDisclosures'}" data-toggle="tooltip" ng-click="showTab = 'LoanDisclosures'"  data-placement="right" title="Additional Information About This Loan - Loan Disclosures">
+      <span class="glyphicon glyphicon-file pull-left"></span>
+      <span class="pull-left noTitle">19</span>
+    </span>
   </div>
   <div class="col-lg-12 PageformHeader padding0" pdf-width>
     <div class="panel panel-default">
@@ -130,6 +134,7 @@
              <div ng-show="showTab == 'SummariesofTransaction_L'" ng-include='"templates/cdforms/cdSummariesofTransaction_L_Paidalready.html"'></div>
              <div ng-show="showTab == 'SummariesofTransaction_M'" ng-include='"templates/cdforms/cdSummariesofTransaction_M_DuetoSeller.html"'></div>
              <div ng-show="showTab == 'SummariesofTransaction_N'" ng-include='"templates/cdforms/cdSummariesofTransaction_N_DuefromSeller.html"'></div>
+             <div ng-show="showTab == 'LoanDisclosures'" ng-include='"templates/cdforms/AdditionalInformation_LoanDisclosures.html"'></div>
             </div>
        	 	</span>
         </div>
