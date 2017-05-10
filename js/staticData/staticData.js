@@ -870,7 +870,25 @@ app.service('staticData', function($filter){
 		'WindstormInsurance',
 		'BoroughPropertyTax'
     ];
-
+    
+    this.licenseAuthorityLevelTypes = [
+		{
+			"name":"Private",
+			"value":"Private"
+		},
+		{
+			"name":"Public Federal",
+			"value":"PublicFederal"
+		},
+		{
+			"name":"Public Local",
+			"value":"PublicLocal"
+		},
+		{
+			"name":"Public State",
+			"value":"PublicState"
+		}
+    ];
 	this.cdformdata={
 		"closingInformation": {
 		    "dateIssued": "",
@@ -1551,8 +1569,401 @@ app.service('staticData', function($filter){
     },
     "summariesofTransactions":
     {
-        "borrowerSection": null,
-        "sellerSection": null
+        "dueFromBorroweratClosing":
+        {
+            "salePriceOfProperty": "",
+            "salePriceOfPersonalProperty": "",
+            "closingCostsPaidAtClosing":
+            {
+                "integratedDisclosureSectionSummaryDetailModel":
+                {
+                    "integratedDisclosureSectionTotalAmount": "",
+                    "integratedDisclosureSectionType": "TotalClosingCosts",
+                    "integratedDisclosureSubsectionTotalAmount": "",
+                    "integratedDisclosureSubsectionType": "ClosingCostsSubtotal",
+                    "integratedDisclosureSubsectionTypeOtherDescription": "",
+                    "lenderCreditToleranceCureAmount": ""
+                },
+                "integratedDisclosureSubsectionPayments":
+                [
+                    {
+                        "integratedDisclosureSubsectionPaidByType": "",
+                        "integratedDisclosureSubsectionPaymentAmount": "",
+                        "integratedDisclosureSubsectionPaymentTimingType": ""
+                    }
+                ]
+            },
+            "dueFromBorrowerAtClosing":
+            [
+            ],
+            "adjustments":
+            [
+            ],
+            "adjustmentsPaidBySellerInAdvance":
+            [
+            ],
+            "dueFromBorrowerAtClosingTotalAmount":
+            {
+                "integratedDisclosureSectionSummaryDetailModel":
+                {
+                    "integratedDisclosureSectionTotalAmount": "",
+                    "integratedDisclosureSectionType": "",
+                    "integratedDisclosureSubsectionTotalAmount": "",
+                    "integratedDisclosureSubsectionType": "",
+                    "integratedDisclosureSubsectionTypeOtherDescription": "",
+                    "lenderCreditToleranceCureAmount": ""
+                },
+                "integratedDisclosureSubsectionPayments":
+                [
+                ]
+            }
+        },
+        "paidByAlready":
+        {
+            "deposit": null,
+            "loanAmount": "",
+            "existingLoan": "",
+            "sellerCredit": null,
+            "disclosureDescription": "todo",
+            "subordinateLien": null,
+            "totalSubordinateFinancingAmount": null,
+            "otherCredits":
+            [
+            ],
+            "adjustments":
+            [
+            ],
+            "adjustmentsUnpaidBySeller":
+            [
+            ],
+            "paidByAlreadyTotalAmount":
+            {
+                "integratedDisclosureSectionSummaryDetailModel":
+                {
+                    "integratedDisclosureSectionTotalAmount": "",
+                    "integratedDisclosureSectionType": "",
+                    "integratedDisclosureSubsectionTotalAmount": "",
+                    "integratedDisclosureSubsectionType": "",
+                    "integratedDisclosureSubsectionTypeOtherDescription": "",
+                    "lenderCreditToleranceCureAmount": ""
+                },
+                "integratedDisclosureSubsectionPayments":
+                [
+                ]
+            }
+        },
+        "dueToSeller":
+        {
+            "salePriceOfProperty": "",
+            "salePriceOfPersonalProperty": "",
+            "closingCostsPaidAtClosing":
+            {
+                "integratedDisclosureSectionSummaryDetailModel":
+                {
+                    "integratedDisclosureSectionTotalAmount": "",
+                    "integratedDisclosureSectionType": "TotalClosingCosts",
+                    "integratedDisclosureSubsectionTotalAmount": "",
+                    "integratedDisclosureSubsectionType": "ClosingCostsSubtotal",
+                    "integratedDisclosureSubsectionTypeOtherDescription": "",
+                    "lenderCreditToleranceCureAmount": ""
+                },
+                "integratedDisclosureSubsectionPayments":
+                [
+                    {
+                        "integratedDisclosureSubsectionPaidByType": "",
+                        "integratedDisclosureSubsectionPaymentAmount": "",
+                        "integratedDisclosureSubsectionPaymentTimingType": ""
+                    }
+                ]
+            },
+            "dueToSellerAdjustments":
+            [
+            ],
+            "dueToSellerAdjustmentsPaidBySeller":
+            [
+            ],
+            "dueToSellerTotalAmount":
+            {
+                "integratedDisclosureSectionSummaryDetailModel":
+                {
+                    "integratedDisclosureSectionTotalAmount": "",
+                    "integratedDisclosureSectionType": "",
+                    "integratedDisclosureSubsectionTotalAmount": "",
+                    "integratedDisclosureSubsectionType": "",
+                    "integratedDisclosureSubsectionTypeOtherDescription": "",
+                    "lenderCreditToleranceCureAmount": ""
+                },
+                "integratedDisclosureSubsectionPayments":
+                [
+                ]
+            }
+        },
+        "dueFromSeller":
+        {
+            "excessDeposit": null,
+            "closingCostPaidAtClosing": null,
+            "existingLoan": "",
+            "payoffFirstMortgage": null,
+            "payOffSecondMortgage": null,
+            "sellerCredit": null,
+            "dueFromSellerLiabilities":
+            [
+            ],
+            "dueFromSellerAdjustments":
+            [
+            ],
+            "dueFromSellerAdjustmentsUnPaidBySeller":
+            [
+            ],
+            "dueFromSellerTotalAmount":
+            {
+                "integratedDisclosureSectionSummaryDetailModel":
+                {
+                    "integratedDisclosureSectionTotalAmount": "",
+                    "integratedDisclosureSectionType": "",
+                    "integratedDisclosureSubsectionTotalAmount": "",
+                    "integratedDisclosureSubsectionType": "",
+                    "integratedDisclosureSubsectionTypeOtherDescription": "",
+                    "lenderCreditToleranceCureAmount": ""
+                },
+                "integratedDisclosureSubsectionPayments":
+                [
+                ]
+            }
+        },
+        "borrowerTransaction":
+        {
+            "dueFromBorrowerAtClosing":
+            {
+                "integratedDisclosureSectionSummaryDetailModel":
+                {
+                    "integratedDisclosureSectionTotalAmount": "",
+                    "integratedDisclosureSectionType": "",
+                    "integratedDisclosureSubsectionTotalAmount": "",
+                    "integratedDisclosureSubsectionType": "",
+                    "integratedDisclosureSubsectionTypeOtherDescription": "",
+                    "lenderCreditToleranceCureAmount": ""
+                },
+                "integratedDisclosureSubsectionPayments":
+                [
+                ]
+            },
+            "paidAlreadyByOrOnBehalfOfBorrowerAtClosing":
+            {
+                "integratedDisclosureSectionSummaryDetailModel":
+                {
+                    "integratedDisclosureSectionTotalAmount": "",
+                    "integratedDisclosureSectionType": "",
+                    "integratedDisclosureSubsectionTotalAmount": "",
+                    "integratedDisclosureSubsectionType": "",
+                    "integratedDisclosureSubsectionTypeOtherDescription": "",
+                    "lenderCreditToleranceCureAmount": ""
+                },
+                "integratedDisclosureSubsectionPayments":
+                [
+                ]
+            },
+            "cashFromBorrowerAtClosingAmount": "",
+            "cashToBorrowerAtClosingAmount": ""
+        },
+        "sellerTransaction":
+        {
+            "toSellerAtClosing":
+            {
+                "integratedDisclosureSectionSummaryDetailModel":
+                {
+                    "integratedDisclosureSectionTotalAmount": "",
+                    "integratedDisclosureSectionType": "DueToSellerAtClosing",
+                    "integratedDisclosureSubsectionTotalAmount": "",
+                    "integratedDisclosureSubsectionType": "",
+                    "integratedDisclosureSubsectionTypeOtherDescription": "",
+                    "lenderCreditToleranceCureAmount": ""
+                },
+                "integratedDisclosureSubsectionPayments":
+                [
+                ]
+            },
+            "fromSellerAtClosing":
+            {
+                "integratedDisclosureSectionSummaryDetailModel":
+                {
+                    "integratedDisclosureSectionTotalAmount": "0.00",
+                    "integratedDisclosureSectionType": "DueFromSellerAtClosing",
+                    "integratedDisclosureSubsectionTotalAmount": "",
+                    "integratedDisclosureSubsectionType": "",
+                    "integratedDisclosureSubsectionTypeOtherDescription": "",
+                    "lenderCreditToleranceCureAmount": ""
+                },
+                "integratedDisclosureSubsectionPayments":
+                [
+                ]
+            },
+            "cashFromSellerAtClosingAmount": "",
+            "cashToSellerAtClosingAmount": ""
+        }
+    },
+    "loanCalculationsQualifiedMortgage":
+    {
+        "loanCalculationModel":
+        {
+            "aprPercent": null,
+            "feeSummaryTotalAmountFinancedAmount": null,
+            "feeSummaryTotalFinanceChargeAmount": null,
+            "feeSummaryTotalInterestPercent": null,
+            "feeSummaryTotalOfAllPaymentsAmount": null
+        },
+        "qualifiedMortgage":
+        {
+            "regulationZExcludedBonaFideDiscountPointsIndicator": false,
+            "regulationZExcludedBonaFideDiscountPointsPercent": null,
+            "regulationZTotalAffiliateFeesAmount": null,
+            "regulationZTotalLoanAmount": null,
+            "regulationZTotalPointsAndFeesAmount": null,
+            "averagePrimeOfferRatePercent": null
+        }
+    },
+    "contactInformation":
+    {
+        "lender":
+        {
+            "partyRoleType": "NotePayTo",
+            "organizationName": "",
+            "organizationStreetAddr": "",
+            "organizationAddressType": "",
+            "organizationCity": "",
+            "organizationStateCode": "",
+            "organizationPostalCode": "",
+            "organizationNMLSID": "",
+            "organizationStateLicenseID": null,
+            "organizationLicenseAuthorityLevelType": "",
+            "organizationLicenseIssuingAuthorityName": "",
+            "organizationLicenseIssueDate": "",
+            "organizationIssuingAgencyURL": "",
+            "individualFirstName": "Brook",
+            "individualMiddleName": "",
+            "individualLastName": "Elise Murray",
+            "individualSuffix": "",
+            "individualEmail": "",
+            "individualPhone": "",
+            "individualNmlsID": "",
+            "individualStateLicenseID": null,
+            "individualLicenseAuthorityLevelType": "",
+            "individualLicenseIssuingAuthorityName": "",
+            "individualLicenseIssueDate": "",
+            "individualIssuingAgencyURL": ""
+        },
+        "mortagageBroker":
+        {
+            "partyRoleType": "MortgageBroker",
+            "organizationName": "",
+            "organizationStreetAddr": null,
+            "organizationAddressType": null,
+            "organizationCity": null,
+            "organizationStateCode": null,
+            "organizationPostalCode": null,
+            "organizationNMLSID": "130290",
+            "organizationStateLicenseID": null,
+            "organizationLicenseAuthorityLevelType": "",
+            "organizationLicenseIssuingAuthorityName": "",
+            "organizationLicenseIssueDate": "",
+            "organizationIssuingAgencyURL": "",
+            "individualFirstName": "",
+            "individualMiddleName": "",
+            "individualLastName": "",
+            "individualSuffix": "",
+            "individualEmail": "",
+            "individualPhone": "",
+            "individualNmlsID": "",
+            "individualStateLicenseID": null,
+            "individualLicenseAuthorityLevelType": "",
+            "individualLicenseIssuingAuthorityName": "",
+            "individualLicenseIssueDate": "",
+            "individualIssuingAgencyURL": ""
+        },
+        "realEstateBrokerB": 
+		{
+            "partyRoleType": "RealEstateAgent",
+            "organizationName": "",
+            "organizationStreetAddr": null,
+            "organizationAddressType": null,
+            "organizationCity": null,
+            "organizationStateCode": null,
+            "organizationPostalCode": null,
+            "organizationNMLSID": "130290",
+            "organizationStateLicenseID": null,
+            "organizationLicenseAuthorityLevelType": "",
+            "organizationLicenseIssuingAuthorityName": "",
+            "organizationLicenseIssueDate": "",
+            "organizationIssuingAgencyURL": "",
+            "individualFirstName": "",
+            "individualMiddleName": "",
+            "individualLastName": "",
+            "individualSuffix": "",
+            "individualEmail": "",
+            "individualPhone": "",
+            "individualNmlsID": "",
+            "individualStateLicenseID": null,
+            "individualLicenseAuthorityLevelType": "",
+            "individualLicenseIssuingAuthorityName": "",
+            "individualLicenseIssueDate": "",
+            "individualIssuingAgencyURL": ""
+        },
+        "realEstateBrokerS": 
+		{
+            "partyRoleType": "RealEstateAgent",
+            "organizationName": "",
+            "organizationStreetAddr": null,
+            "organizationAddressType": null,
+            "organizationCity": null,
+            "organizationStateCode": null,
+            "organizationPostalCode": null,
+            "organizationNMLSID": "130290",
+            "organizationStateLicenseID": null,
+            "organizationLicenseAuthorityLevelType": "",
+            "organizationLicenseIssuingAuthorityName": "",
+            "organizationLicenseIssueDate": "",
+            "organizationIssuingAgencyURL": "",
+            "individualFirstName": "",
+            "individualMiddleName": "",
+            "individualLastName": "",
+            "individualSuffix": "",
+            "individualEmail": "",
+            "individualPhone": "",
+            "individualNmlsID": "",
+            "individualStateLicenseID": null,
+            "individualLicenseAuthorityLevelType": "",
+            "individualLicenseIssuingAuthorityName": "",
+            "individualLicenseIssueDate": "",
+            "individualIssuingAgencyURL": ""
+        },
+        "settlementAgent":
+        {
+            "partyRoleType": "ClosingAgent",
+            "organizationName": "",
+            "organizationStreetAddr": "",
+            "organizationAddressType": "",
+            "organizationCity": "",
+            "organizationStateCode": "",
+            "organizationPostalCode": "",
+            "organizationNMLSID": null,
+            "organizationStateLicenseID": null,
+            "organizationLicenseAuthorityLevelType": null,
+            "organizationLicenseIssuingAuthorityName": null,
+            "organizationLicenseIssueDate": null,
+            "organizationIssuingAgencyURL": null,
+            "individualFirstName": "",
+            "individualMiddleName": "",
+            "individualLastName": "",
+            "individualSuffix": "",
+            "individualEmail": "",
+            "individualPhone": "",
+            "individualNmlsID": null,
+            "individualStateLicenseID": null,
+            "individualLicenseAuthorityLevelType": null,
+            "individualLicenseIssuingAuthorityName": null,
+            "individualLicenseIssueDate": null,
+            "individualIssuingAgencyURL": null
+        }
     }
   
 	};

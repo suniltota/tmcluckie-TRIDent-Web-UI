@@ -35,7 +35,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.feePaidToTypes = staticData.feePaidToTypes;
 	$scope.prepaidItems = staticData.prepaidItems;
     $scope.escrowItemTypes = staticData.escrowItemTypes;
-    $scope.cashToCloses = staticData.cashToCloses;
+    $scope.licenseAuthorityLevelTypes = staticData.licenseAuthorityLevelTypes;
+    $scope.showLenderTolerance = false;
+    $scope.toleranceSelection = false;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -48,7 +50,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     var prepaidsList = {};
     var iEPatClosingList = {};
     var otherCostsList = {};
-
+   
 	$scope.dateOptions = {
  		formatYear: 'yy',
  		startingDay: 1
@@ -357,6 +359,18 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount = '';
     	$scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount = '';
     	$scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount = '';
+    }
+    
+    $scope.lenderTolerance = function(){
+    	if($scope.cdformdata.closingCostsTotal.lenderCredits!='0.00' && $scope.cdformdata.closingCostsTotal.lenderCredits!='0' && $scope.cdformdata.closingCostsTotal.lenderCredits!='' && $scope.cdformdata.closingCostsTotal.lenderCredits!=null){
+            $scope.showLenderTolerance = true;
+            $scope.toleranceSelection = false;
+    	}
+    	else{
+    		$scope.showLenderTolerance = false;
+    		$scope.toleranceSelection = false;
+    		$scope.cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount = '';
+    	}
     }
 
 	var bpAtClosing = {
