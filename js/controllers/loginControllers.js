@@ -51,7 +51,10 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 			}).
 			error(function(data, status) {
 				$scope.waitingForLoginResponse=false;
-				$scope.errorMsg="There was an error processing the request. Please try again later.";
+				if('' == data.message)
+					$scope.errorMsg = "There was an error processing the request. Please try again later.";
+				else
+					$scope.errorMsg = data.message;
 				$scope.loginFailure=true;
 			});
 		};
