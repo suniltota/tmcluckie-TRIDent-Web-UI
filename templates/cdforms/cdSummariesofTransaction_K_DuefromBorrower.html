@@ -81,7 +81,7 @@
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="adjustments.closingAdjustmentItemType" >
-			        		<option value="">Select</option>
+			        		<option value="" selected>Select</option>
 		      				<option ng-repeat="adjustmentType in adjustmentTypes" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
 		      	    </select>
 		        </td>
@@ -137,7 +137,7 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemAmount">
 		        </td>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.summariesofTransactions.dueFromBorroweratClosing.adjustmentsPaidBySellerInAdvance track by $index" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel !='Assessments'">
+		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.summariesofTransactions.dueFromBorroweratClosing.adjustmentsPaidBySellerInAdvance track by $index" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='Assessments'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidBySellerInAdvance.displayLabel">  
 		        </td>
