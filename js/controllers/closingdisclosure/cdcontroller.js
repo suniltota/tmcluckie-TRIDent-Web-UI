@@ -32,6 +32,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.feePaidToTypes = staticData.feePaidToTypes;
 	$scope.prepaidItems = staticData.prepaidItems;
     $scope.escrowItemTypes = staticData.escrowItemTypes;
+    $scope.liabilityTypes = staticData.liabilityTypes;
+    $scope.adjustmentTypes = staticData.adjustmentTypes;
+    $scope.prorationItemTypes = staticData.prorationItemTypes;
     $scope.licenseAuthorityLevelTypes = staticData.licenseAuthorityLevelTypes;
     $scope.repayMethodType = staticData.repayMethodType;
     $scope.repayExemptionReasonType = staticData.repayExemptionReasonType;
@@ -49,7 +52,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     var prepaidsList = {};
     var iEPatClosingList = {};
     var otherCostsList = {};
-    var dueFromBrwLiabilityType= {};
+    var liability= {};
+    var adjustments = {};
    
 	$scope.dateOptions = {
  		formatYear: 'yy',
@@ -71,7 +75,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		prepaidsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0]);
 		iEPatClosingList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[3]);
 		otherCostsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[0]);
-		dueFromBrwLiabilityType = angular.copy($scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.dueFromBorrowerAtClosing[0]);
+		liability = angular.copy($scope.cdformdata.summariesofTransactions.liabilityList[0]);
+		adjustments = angular.copy($scope.cdformdata.summariesofTransactions.closingAdjustmentItemList[0])
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
 
 		if(localStorage.jsonData != undefined) {
@@ -237,6 +242,28 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		else
 			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = 0;
 
+		var dueFromBrwLiabilityTypes = [];
+
+        dueFromBrwLiabilityTypes = $scope.cdformdata.summariesofTransactions.liabilityList.filter(function(item){
+		    return item.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'
+		});
+		for(i=dueFromBrwLiabilityTypes.length; i<3; i++) {
+			var dueFromBrwLiabilityType = angular.copy(liability);
+			dueFromBrwLiabilityType.integratedDisclosureSectionType='DueFromBorrowerAtClosing';
+			$scope.cdformdata.summariesofTransactions.liabilityList.push(dueFromBrwLiabilityType);
+		}
+
+		var dueFromBrwAdjustmentTypes = [];
+
+        dueFromBrwAdjustmentTypes = $scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.filter(function(item){
+		    return item.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'
+		});
+		for(i=dueFromBrwAdjustmentTypes.length; i<3; i++) {
+			var dueFromBrwAdjustmentType = angular.copy(liability);
+			dueFromBrwAdjustmentType.integratedDisclosureSectionType='DueFromBorrowerAtClosing';
+			$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.push(dueFromBrwAdjustmentType);
+		}
+
 		setTimeout(function(){$("#spinner").hide();}, 3000);
 		$scope.cdformdata.closingInformation.dateIssued = new Date();
 		$scope.cdformdata.closingInformation.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
@@ -335,7 +362,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 
     $scope.addDueFromBrwLiability = function(){
-    	$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.dueFromBorrowerAtClosing.push(angular.copy(dueFromBrwLiabilityType));
+    	$scope.cdformdata.summariesofTransactions.liabilityList.push(angular.copy(dueFromBrwLiabilityType));
     }
 
 	$scope.updateETIAComponentTypes = function(value, index) {

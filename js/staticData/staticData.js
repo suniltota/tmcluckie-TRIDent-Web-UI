@@ -1020,7 +1020,201 @@ app.service('staticData', function($filter){
     	}
     ];
 
+    this.adjustmentTypes = [
+        {
+    		"name":"Fuel Costs",
+            "value":"FuelCosts",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Other",
+            "value":"Other",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Repairs",
+            "value":"Repairs",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Sellers Escrow Assumption",
+            "value":"SellersEscrowAssumption",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Sellers Mortgage Insurance Assumption",
+            "value":"SellersMortgageInsuranceAssumption",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Tenant Security Deposit",
+            "value":"TenantSecurityDeposit",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Seller Credit",
+            "value":"SellerCredit",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Gift",
+            "value":"Gift",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Grant",
+            "value":"Grant",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Rebate Credit",
+            "value":"RebateCredit",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Unpaid Utility Escrow Holdback",
+            "value":"UnpaidUtilityEscrowHoldback",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Trade Equity",
+            "value":"TradeEquity",
+	        "disabled":false
+    	}
+   
+    ];
     
+    this.prorationItemTypes=[
+    {
+	    "name": "Borough Property Tax",
+	    "value": "BoroughPropertyTax",
+	    'disabled': false
+	},
+	{
+	    "name": "City Property Tax",
+	    "value": "CityPropertyTax",
+	    'disabled': false
+	},
+	{
+	    "name": "County Property Tax",
+	    "value": "CountyPropertyTax",
+	    'disabled': false
+	},
+	{
+	    "name": "Condominium Association Dues",
+	    "value": "CondominiumAssociationDues",
+	    'disabled': false
+	},
+	{
+	    "name": "Condominium Association Special Assessment",
+	    "value": "CondominiumAssociationSpecialAssessment",
+	    'disabled': false
+	},
+	{
+	    "name": "Cooperative Association Dues",
+	    "value": "CooperativeAssociationDues",
+	    'disabled': false
+	},
+	{
+	    "name": "Cooperative Association Special Assessment",
+	    "value": "CooperativeAssociationSpecialAssessment",
+	    'disabled': false
+	},
+	{
+	    "name": "District Property Tax",
+	    "value": "DistrictPropertyTax",
+	    'disabled': false
+	},
+	{
+	    "name": "Earthquake Insurance Premium",
+	    "value": "EarthquakeInsurancePremium",
+	    'disabled': false
+	},
+	{
+	    "name": "Flood Insurance Premium",
+	    "value": "FloodInsurancePremium",
+	    'disabled': false
+	},
+	{
+	    "name": "Ground Rent",
+	    "value": "GroundRent",
+	    'disabled': false
+	},
+	{
+	    "name": "Hail Insurance Premium",
+	    "value": "HailInsurancePremium",
+	    'disabled': false
+	},
+	{
+	    "name": "Hazard Insurance Premium",
+	    "value": "HazardInsurancePremium",
+	    'disabled': false
+	},
+	{
+	    "name": "Homeowners Association Dues",
+	    "value": "HomeownersAssociationDues",
+	    'disabled': false
+	},
+	{
+	    "name": "Homeowners Association Special Assessment",
+	    "value": "HomeownersAssociationSpecialAssessment",
+	    'disabled': false
+	},
+	{
+	    "name": "Homeowners Insurance Premium",
+	    "value": "HomeownersInsurancePremium",
+	    'disabled': false
+	},
+	{
+	    "name": "Interest On Loan Assumption",
+	    "value": "InterestOnLoanAssumption",
+	    'disabled': false
+	},
+	{
+	    "name": "Mortgage Insurance Premium",
+	    "value": "MortgageInsurancePremium",
+	    'disabled': false
+	},
+	{
+	    "name": "Other",
+	    "value": "Other",
+	    'disabled': false
+	},
+	{
+	    "name": "Past Due Property Tax",
+	    "value": "PastDuePropertyTax",
+	    'disabled': false
+	},
+	{
+	    "name": "Rent From Subject Property",
+	    "value": "RentFromSubjectProperty",
+	    'disabled': false
+	},
+	{
+	    "name": "State Property Tax",
+	    "value": "StatePropertyTax",
+	    'disabled': false
+	},
+	{
+	    "name": "Town Property Tax",
+	    "value": "TownPropertyTax",
+	    'disabled': false
+	},
+	{
+	    "name": "Utilities",
+	    "value": "Utilities",
+	    'disabled': false
+	},
+	{
+	    "name": "Volcano Insurance Premium",
+	    "value": "VolcanoInsurancePremium",
+	    'disabled': false
+	},
+	{
+	    "name": "Wind And Storm Insurance Premium",
+	    "value": "WindAndStormInsurancePremium",
+	    'disabled': false
+	}];
 	this.cdformdata={
 		"closingInformation": {
 		    "dateIssued": "",
@@ -1700,6 +1894,63 @@ app.service('staticData', function($filter){
         "alternateView": false
     },
     "summariesofTransactions": {
+    	"liabilityList":
+        [
+            {
+                "displayLabel": "",
+                "liabilityDescription": "",
+                "liabilityType": "",
+                "liabilityTypeOtherDescription": "",
+                "integratedDisclosureSectionType": "",
+                "liabilitySecuredBySubjectPropertyIndicator": false,
+                "liabilityHolderFullName": "",
+                "payoffAmount": "",
+                "payoffPrepaymentPenaltyAmount": ""
+            }
+		],
+		"closingAdjustmentItemList":
+        [
+            {
+                "displayLabel": "",
+                "closingAdjustmentItemAmount": "",
+                "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
+                "closingAdjustmentItemType": "",
+                "closingAdjustmentItemTypeOtherDescription": "",
+                "integratedDisclosureSectionType": "",
+                "integratedDisclosureSubsectionType": "Adjustments",
+                "paidByIndividualFullName": "",
+                "paidByEntityFullName": "",
+                "paidToEntityFullName": ""
+            }
+        ],
+		"closingCostFundList":
+        [
+            {
+                "displayLabel": null,
+                "closingCostFundAmount": "",
+                "fundsType": "ExcessDeposit",
+                "integratedDisclosureSectionType": ""
+            },
+            {
+                "displayLabel": null,
+                "closingCostFundAmount": "",
+                "fundsType": "DepositOnSalesContract",
+                "integratedDisclosureSectionType": ""
+            }
+        ],
+        "prorationList":
+        [
+            {
+                "displayLabel": "City/Town Taxes",
+                "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
+                "integratedDisclosureSubsectionType": "AdjustmentsForItemsPaidBySellerInAdvance",
+                "prorationItemAmount": "9000.00",
+                "prorationItemPaidFromDate": "2016-12-12",
+                "prorationItemPaidThroughDate": "2017-12-12",
+                "prorationItemType": "CityPropertyTax",
+                "prorationItemTypeOtherDescription": ""
+            }
+        ],
 		"dueFromBorroweratClosing": {
 			"salePriceOfProperty": "",
 			"salePriceOfPersonalProperty": "",
@@ -1730,7 +1981,9 @@ app.service('staticData', function($filter){
 				"payoffPrepaymentPenaltyAmount":null
 			}],
 			"adjustments": [],
-			"adjustmentsPaidBySellerInAdvance": [],
+			"adjustmentsPaidBySellerInAdvance": [
+
+			],
 			"dueFromBorrowerAtClosingTotalAmount": {
 				"integratedDisclosureSectionSummaryDetailModel": {
 					"integratedDisclosureSectionTotalAmount": "",
@@ -1795,7 +2048,11 @@ app.service('staticData', function($filter){
 					"integratedDisclosureSubsectionTypeOtherDescription": "",
 					"lenderCreditToleranceCureAmount": ""
 				},
-				"integratedDisclosureSubsectionPayments": []
+				"integratedDisclosureSubsectionPayments": [{
+					"integratedDisclosureSubsectionPaidByType": "",
+					"integratedDisclosureSubsectionPaymentAmount": "",
+					"integratedDisclosureSubsectionPaymentTimingType": ""
+				}]
 			}
 		},
 		"dueFromSeller": {
@@ -1817,7 +2074,11 @@ app.service('staticData', function($filter){
 					"integratedDisclosureSubsectionTypeOtherDescription": "",
 					"lenderCreditToleranceCureAmount": ""
 				},
-				"integratedDisclosureSubsectionPayments": []
+				"integratedDisclosureSubsectionPayments": [{
+					"integratedDisclosureSubsectionPaidByType": "",
+					"integratedDisclosureSubsectionPaymentAmount": "",
+					"integratedDisclosureSubsectionPaymentTimingType": ""
+				}]
 			}
 		},
 		"borrowerTransaction": {
@@ -1830,7 +2091,11 @@ app.service('staticData', function($filter){
 					"integratedDisclosureSubsectionTypeOtherDescription": "",
 					"lenderCreditToleranceCureAmount": ""
 				},
-				"integratedDisclosureSubsectionPayments": []
+				"integratedDisclosureSubsectionPayments": [{
+					"integratedDisclosureSubsectionPaidByType": "",
+					"integratedDisclosureSubsectionPaymentAmount": "",
+					"integratedDisclosureSubsectionPaymentTimingType": ""
+				}]
 			},
 			"paidAlreadyByOrOnBehalfOfBorrowerAtClosing": {
 				"integratedDisclosureSectionSummaryDetailModel": {
@@ -1841,7 +2106,11 @@ app.service('staticData', function($filter){
 					"integratedDisclosureSubsectionTypeOtherDescription": "",
 					"lenderCreditToleranceCureAmount": ""
 				},
-				"integratedDisclosureSubsectionPayments": []
+				"integratedDisclosureSubsectionPayments": [{
+					"integratedDisclosureSubsectionPaidByType": "",
+					"integratedDisclosureSubsectionPaymentAmount": "",
+					"integratedDisclosureSubsectionPaymentTimingType": ""
+				}]
 			},
 			"cashFromBorrowerAtClosingAmount": "",
 			"cashToBorrowerAtClosingAmount": ""
@@ -1856,7 +2125,11 @@ app.service('staticData', function($filter){
 					"integratedDisclosureSubsectionTypeOtherDescription": "",
 					"lenderCreditToleranceCureAmount": ""
 				},
-				"integratedDisclosureSubsectionPayments": []
+				"integratedDisclosureSubsectionPayments": [{
+					"integratedDisclosureSubsectionPaidByType": "",
+					"integratedDisclosureSubsectionPaymentAmount": "",
+					"integratedDisclosureSubsectionPaymentTimingType": ""
+				}]
 			},
 			"fromSellerAtClosing": {
 				"integratedDisclosureSectionSummaryDetailModel": {
@@ -1867,11 +2140,16 @@ app.service('staticData', function($filter){
 					"integratedDisclosureSubsectionTypeOtherDescription": "",
 					"lenderCreditToleranceCureAmount": ""
 				},
-				"integratedDisclosureSubsectionPayments": []
+				"integratedDisclosureSubsectionPayments": [{
+					"integratedDisclosureSubsectionPaidByType": "",
+					"integratedDisclosureSubsectionPaymentAmount": "",
+					"integratedDisclosureSubsectionPaymentTimingType": ""
+				}]
 			},
 			"cashFromSellerAtClosingAmount": "",
 			"cashToSellerAtClosingAmount": ""
 		}
+		
 	},
     "loanCalculationsQualifiedMortgage":
     {
