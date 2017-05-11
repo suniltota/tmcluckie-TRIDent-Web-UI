@@ -18,19 +18,19 @@
 			  </tr>
 
                <tr>
-                <td style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center"><strong>Closing Costs Subtotal (D + I)</strong></td>	  	
+                <td style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center"><strong>Closing Costs Subtotal (D + I)</strong></td>
 				<td style="border:1px solid white; width: 12.5%;" class="innerSectionHeader innerSectionMainHeader text-center" >${{cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing | number:2}}</td>
 				<td style="border:1px solid white; width: 12.5%;" class="innerSectionHeader innerSectionMainHeader text-center">${{cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing | number:2}}</td>
 				<td style="border:1px solid white; width: 12.5%;" class="innerSectionHeader innerSectionMainHeader text-center">${{cdformdata.closingCostsTotal.closingCostsSubtotal.spAtClosing | number:2}}</td>
                 <td  style="border:1px solid white; width: 12.5%;" class="innerSectionHeader innerSectionMainHeader text-center">${{cdformdata.closingCostsTotal.closingCostsSubtotal.spB4Closing | number:2}}</td>
-                <td style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">${{cdformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers | number:2}}</td>                
+                <td style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">${{cdformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers | number:2}}</td>
 			  </tr>
 
               <tr>
                 <td style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">Lender Credits</td>	  	
 				<td  style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center">
 					<span class="margin5tb col-sm-12 padding0">
-						<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostsTotal.lenderCredits" only-digits>
+						<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostsTotal.lenderCredits" negative-digits>
 					</span>
 				</td>
 				<td  style="border:1px solid white;" ></td>

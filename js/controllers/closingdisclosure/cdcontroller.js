@@ -3,9 +3,6 @@
  */
 app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticData, cdService) {
 
-	if(localStorage.loanTransactionType != undefined) {
-		staticData.basicLoanInfo.loanTransactionType = localStorage.loanTransactionType;
-	}
 	if(localStorage.loanPurposeType != undefined) {
 		staticData.basicLoanInfo.loanPurposeType = localStorage.loanPurposeType;
 	}
@@ -52,6 +49,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     var prepaidsList = {};
     var iEPatClosingList = {};
     var otherCostsList = {};
+    var dueFromBrwLiabilityType= {};
    
 	$scope.dateOptions = {
  		formatYear: 'yy',
@@ -72,7 +70,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		tOGovtFees = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0]);
 		prepaidsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0]);
 		iEPatClosingList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[3]);
-		otherCostsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[0]); 
+		otherCostsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[0]);
+		dueFromBrwLiabilityType = angular.copy($scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.dueFromBorrowerAtClosing[0]);
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
 
 		if(localStorage.jsonData != undefined) {
@@ -228,6 +227,16 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
 	       	}
 		};
+
+
+		// Summaries of Tranaction
+		if($scope.cdformdata.closingInformation.salesContractDetail.saleContractAmount)
+			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.closingInformation.salesContractDetail.saleContractAmount;
+		else if($scope.cdformdata.closingInformation.salesContractDetail.realPropertyAmount)
+			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.closingInformation.salesContractDetail.realPropertyAmount;
+		else
+			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = 0;
+
 		setTimeout(function(){$("#spinner").hide();}, 3000);
 		$scope.cdformdata.closingInformation.dateIssued = new Date();
 		$scope.cdformdata.closingInformation.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
@@ -321,8 +330,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList.push(angular.copy(iEPatClosingList));
     }
 
-     $scope.addotherCostsList = function(){
+    $scope.addotherCostsList = function(){
     	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
+    }
+
+    $scope.addDueFromBrwLiability = function(){
+    	$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.dueFromBorrowerAtClosing.push(angular.copy(dueFromBrwLiabilityType));
     }
 
 	$scope.updateETIAComponentTypes = function(value, index) {
@@ -687,12 +700,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
         $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount = cashToCloseItemFinalAmount;
     }, true);
     
-    $scope.$watch('cdformdata.closingCostsTotal', function(newValue,oldValue){
+    $scope.$watch('cdformdata.closingCostsTotal.lenderCredits', function(newValue,oldValue){
     	var totalClosingCosts = 0;
-        totalClosingCosts +=  $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing);
-        totalClosingCosts +=  $scope.cdformdata.closingCostsTotal.lenderCredits == null ? +0 : parseFloat($scope.cdformdata.closingCostsTotal.lenderCredits);
+    	totalClosingCosts += $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing + $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing;
+    	if($scope.cdformdata.closingCostsTotal.lenderCredits)
+  			totalClosingCosts +=  $scope.cdformdata.closingCostsTotal.lenderCredits == null ? +0 : parseFloat($scope.cdformdata.closingCostsTotal.lenderCredits);
         $scope.cdformdata.closingCostsTotal.totalClosingCosts = totalClosingCosts;
     },true);
+
+	$scope.$watch('cdformdata.closingInformation.salesContractDetail', function(newValue,oldValue){
+		if($scope.cdformdata.closingInformation.salesContractDetail.saleContractAmount)
+			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.closingInformation.salesContractDetail.saleContractAmount;
+		else if($scope.cdformdata.closingInformation.salesContractDetail.realPropertyAmount)
+			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.closingInformation.salesContractDetail.realPropertyAmount;
+		else
+			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = 0;
+	}, true);
 
 });
 
@@ -713,6 +736,6 @@ function add_business_days(date, days) {
     //two days per weekend per week
     calendarDays += deliveryWeeks * 2;
   }
-  now.setTime(now.getTime() + calendarDays * 24 * 60 * 60 * 1000);
+  now.setTime(now.getTime() + calendarDays * 24 * 60 * 60 * 1000); 
   return now;
 }
