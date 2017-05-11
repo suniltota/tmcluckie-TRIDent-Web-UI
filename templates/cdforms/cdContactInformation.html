@@ -142,13 +142,13 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationNMLSID">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationNMLSID">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationNMLSID" ng-disabled="true">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationNMLSID">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationNMLSID" ng-disabled="true">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.settlementAgent.organizationNMLSID">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.settlementAgent.organizationNMLSID" ng-disabled="true">
 		        </td>		        
 		      </tr>
 			  
@@ -157,10 +157,10 @@
 		        	<span class="margin5tb col-sm-10">State License ID</span>
 		        </td>
 		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationStateLicenseID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationStateLicenseID" ng-disabled="true">
 		        </td>
 		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationStateLicenseID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationStateLicenseID" ng-disabled="true">
 		        </td>
                 <td >
 		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationStateLicenseID">
@@ -234,21 +234,46 @@
 		        <td >
 		        	<span class="margin5tb col-sm-10">License Issue Date</span>
 		        </td>
-		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationLicenseIssueDate">
+		         <td>
+		        	<span class="col-sm-8 padding0">
+					<input type="text" name="lenderorganizationLicenseIssueDate" id="lenderorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.lender.organizationLicenseIssueDate" is-open="isLenderorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isLenderorganizationLicenseIssueDate = !isLenderorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
 		        </td>
-		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseIssueDate">
+		        <td>
+		        	<span class="col-sm-8 padding0">
+					<input type="text" name="mortagageBrokerorganizationLicenseIssueDate" id="mortagageBrokerorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseIssueDate" is-open="isMortagageBrokerorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isMortagageBrokerorganizationLicenseIssueDate = !isMortagageBrokerorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
 		        </td>
-                <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseIssueDate">
+                <td>
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="realEstateBrokerBorganizationLicenseIssueDate" id="realEstateBrokerBorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseIssueDate" is-open="isRealEstateBrokerBorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerBorganizationLicenseIssueDate = !isRealEstateBrokerBorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
 		        </td>
-                <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseIssueDate">
+                <td>
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="realEstateBrokerSorganizationLicenseIssueDate" id="realEstateBrokerSorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseIssueDate" is-open="isRealEstateBrokerSorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerSorganizationLicenseIssueDate = !isRealEstateBrokerSorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
 		        </td>
-                <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseIssueDate">
-		        </td>		        
+                <td>
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="settlementAgentorganizationLicenseIssueDate" id="settlementAgentorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseIssueDate" is-open="isSettlementAgentorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isSettlementAgentorganizationLicenseIssueDate = !isSettlementAgentorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
+		        </td>	        
 		      </tr>
 			  
 			  <tr>
@@ -256,10 +281,10 @@
 		        	<span class="margin5tb col-sm-10">Issuing Agency URL</span>
 		        </td>
 		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationIssuingAgencyURL">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationIssuingAgencyURL" value="mmousebanker@fed.org">
 		        </td>
 		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationIssuingAgencyURL">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationIssuingAgencyURL" value="mmousebanker@fed.org">
 		        </td>
                 <td >
 		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationIssuingAgencyURL">
@@ -421,13 +446,13 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualNmlsID">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualNmlsID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualNmlsID" ng-disabled="true">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualNmlsID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualNmlsID" ng-disabled="true">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualNmlsID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualNmlsID" ng-disabled="true">
 		        </td>		        
 		      </tr>
 			  
@@ -436,10 +461,10 @@
 		        	<span class="margin5tb col-sm-10">State License ID</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualStateLicenseID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualStateLicenseID" ng-disabled="true">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualStateLicenseID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualStateLicenseID" ng-disabled="true">
 		        </td>
                 <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualStateLicenseID">
@@ -514,19 +539,44 @@
 		        	<span class="margin5tb col-sm-10">License Issue Date</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualLicenseIssueDate">
+		        	<span class="col-sm-8 padding0">
+					<input type="text" name="lenderindividualLicenseIssueDate" id="lenderindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.lender.individualLicenseIssueDate" is-open="isLenderindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isLenderindividualLicenseIssueDate = !isLenderindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseIssueDate">
+		        	<span class="col-sm-8 padding0">
+					<input type="text" name="mortagageBrokerindividualLicenseIssueDate" id="mortagageBrokerindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseIssueDate" is-open="isMortagageBrokerindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isMortagageBrokerindividualLicenseIssueDate = !isMortagageBrokerindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseIssueDate">
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="realEstateBrokerBindividualLicenseIssueDate" id="realEstateBrokerBindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseIssueDate" is-open="isRealEstateBrokerBindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerBindividualLicenseIssueDate = !isRealEstateBrokerBindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseIssueDate">
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="mortagageBrokerindividualLicenseIssueDate" id="mortagageBrokerindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseIssueDate" is-open="isRealEstateBrokerSindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerSindividualLicenseIssueDate = !isRealEstateBrokerSindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseIssueDate">
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="settlementAgentindividualLicenseIssueDate" id="settlementAgentindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseIssueDate" is-open="isSettlementAgentindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isSettlementAgentindividualLicenseIssueDate = !isSettlementAgentindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
 		        </td>		        
 		      </tr>
 			  
