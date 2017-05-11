@@ -11,7 +11,7 @@
 		        	Deposit  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
+		        	<input type="text" class="form-control padding0" value="$0" name="" ng-model="cdformdata.summariesofTransactions.paidByAlready.deposit.closingCostFundAmount">
 		        </td>
 		      </tr>
 		      <tr>
@@ -19,7 +19,7 @@
 		        	Loan Amount 
 		        </td>
 		        <td>
-		        	<label>$0</label>
+		        	<label>${{cdformdata.summariesofTransactions.paidByAlready.loanAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -27,7 +27,7 @@
 		        	Existing Loan(s) Assumed or Taken Subject To
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.paidByAlready.existingLoan">
 		        </td>
 		      </tr>
 		      <tr>
@@ -35,7 +35,7 @@
 		        	Seller Credits
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.paidByAlready.sellerCredit.closingAdjustmentItemAmount">
 		        </td>
 		      </tr>
 		</table>
@@ -48,7 +48,7 @@
 		      <tr>
 		        <td>
 		        	<span class="col-sm-7">
-		        		<input type="text" class="form-control padding0" value="Satisfaction of Jr. Lien $5,000 POC Borrower" name="">
+		        		<input type="text" class="form-control padding0" value="Satisfaction of Jr. Lien $5,000 POC Borrower" name="" ng-module="cdformdata.summariesofTransactions.paidByAlready.disclosureDescription">
 		        	</span>
 		        </td>
 		      </tr>
@@ -70,25 +70,29 @@
 		        	<label>Subordinate Lien proceeds </label> 
 		        </td>
 		        <td>
-		        	<select class="form-control padding0"><option>Proceeds Of</option></select>  
+		        	<select class="form-control padding0" ng-model="cdformdata.summariesofTransactions.paidByAlready.subordinateLien">
+                    <option ng-repeat="sLien in subordinateLiens" value="{{sLien.value}}">{{sLien.name}}</option>
+		        	</select>  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">  
+		        	<input type="text" class="form-control padding0" ng-disabled="cdformdata.summariesofTransactions.paidByAlready.subordinateLien !='Other'" name="" >  
 		        </td>
 		        <td>
-		        	<ul class="ListChain">
+		        	<ul class="ListChain" ng-show="cdformdata.summariesofTransactions.paidByAlready.subordinateLien !='Other'">
 		        		<li><span class="pull-left margin5tb">Original Principal Balance?</span>
-		        			<span class="col-sm-4 pull-right"><input type="text" class="form-control padding0" value="$0" name=""></span>
+		        			<span class="col-sm-4 pull-right"><input type="text" class="form-control padding0" name=""></span>
 		        		</li>
 		        		<li><span class="pull-left margin5tb">Is the Subordinate financing New?</span>
 		        			<span class="col-sm-4 pull-right">
-		        				<select class="form-control padding0"><option>Yes</option> <option>No</option></select>
+		        			<select class="form-control"
+			              		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+			        		</select>
 		        			</span>
 		        		</li>
 		        	</ul> 
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-module="cdformdata.summariesofTransactions.paidByAlready.totalSubordinateFinancingAmount">
 		        </td>
 		      </tr>
 		     
@@ -106,50 +110,31 @@
 		        <th class="innerSectionHeader">P.O.C Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr>
+		      <tr ng-repeat="pbaOtherCredit in cdformdata.summariesofTransactions.paidByAlready.otherCredits">
 		        <td>
-		        	<input type="text" class="form-control padding0" value="Gift From Mom Jones" name="">  
+		        	<input type="text" class="form-control padding0" name="">  
 		        </td>
 		        <td>
-		        	<select class="form-control padding0"><option>Gift</option></select>  
+		        	<select class="form-control padding0" ng-model="pbaOtherCredit.closingAdjustmentItemType">
+		        	<option value="" selected>Select</option>
+		        	<option ng-repeat="otherCredit in otherCredits" value="{{otherCredit.value}}">{{otherCredit.name}}</option>
+		        	</select>  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">  
+		        	<input type="text" class="form-control padding0" ng-disabled="pbaOtherCredit.closingAdjustmentItemType !='Other'" name="" ng-model="pbaOtherCredit.closingAdjustmentItemTypeOtherDescription">  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="Mom Jones" name="">  
+		        	<input type="text" class="form-control padding0" name="" ng-show="pbaOtherCredit.paidByIndividualFullName!=''" ng-model="pbaOtherCredit.paidByIndividualFullName">
+		        	<input type="text" class="form-control padding0" name="" ng-show="pbaOtherCredit.paidByEntityFullName!=''" ng-model="pbaOtherCredit.paidByEntityFullName">  
 		        </td>
 		        <td>
-		        	<select class="form-control padding0"><option>Individual</option></select>  
+		        	<select class="form-control padding0"><option ng-repeat="payeeType in payeeTypes" value="{{payeeType.value}}">{{payeeType.name}}</option></select>  
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="">  
+		        	<input type="checkbox" name="" ng-model="pbaOtherCredit.closingAdjustmentItemPaidOutsideOfClosingIndicator">  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
-		        </td>
-		      </tr>
-		     <tr>
-		        <td>
-		        	<input type="text" class="form-control padding0" value="Rebate from ABC Title " name="">  
-		        </td>
-		        <td>
-		        	<select class="form-control padding0"><option>Rebate Credit</option></select>  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" value="ABC Title Company" name="">  
-		        </td>
-		        <td>
-		        	<select class="form-control padding0"><option>Organizational</option></select>  
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="">  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
+		        	<input type="text" class="form-control padding0"  name="" ng-model="pbaOtherCredit.closingAdjustmentItemAmount">
 		        </td>
 		      </tr>
 		</table>
@@ -167,97 +152,34 @@
 		        <th class="innerSectionHeader">P.O.C Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr>
+		      <tr ng-repeat="adjustmentsPaidByAlready in cdformdata.summariesofTransactions.closingAdjustmentItemList track by $index" ng-if="adjustmentsPaidByAlready.integratedDisclosureSectionType == 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing' ">
 		        <td>
-		        	<input type="text" class="form-control padding0" value="Adjustment for Fuel Levels" name="">  
+		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidByAlready.displaylabel">  
 		        </td>
 		        <td>
-		        	<select class="form-control padding0"><option>Tenant Security</option></select>  
+		        	<select class="form-control padding0" ng-model="adjustmentsPaidByAlready.closingAdjustmentItemType" >
+			        	<option value="" selected>Select</option>
+		      			<option ng-repeat="adjustmentType in adjustmentTypes" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
+		      	    </select> 
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">  
+		        	<input type="text" class="form-control padding0" ng-disabled="adjustmentsPaidByAlready.closingAdjustmentItemType!='Other'" name="" ng-model="adjustmentsPaidByAlready.closingAdjustmentItemTypeOtherDescription">  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="ABC Title Company" name="">  
+		        	<input type="text" class="form-control padding0" name="" ng-show="adjustmentsPaidByAlready.paidByIndividualFullName!=''" ng-model="adjustmentsPaidByAlready.paidByIndividualFullName">
+		        	<input type="text" class="form-control padding0" name="" ng-show="adjustmentsPaidByAlready.paidByEntityFullName!=''" ng-model="adjustmentsPaidByAlready.paidByEntityFullName">  
 		        </td>
-		        <td>
-		        	<select class="form-control padding0"><option>Organizational</option></select>  
+		         <td>
+		        	<select class="form-control padding0">
+			        	<option ng-repeat="payeeType in payeeTypes" value="{{payeeType.value}}">{{payeeType.name}}
+			        	</option>
+		        	</select>  
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="">  
+		        	<input type="checkbox" name="" ng-model="adjustmentsPaidByAlready.closingAdjustmentItemPaidOutsideOfClosingIndicator">  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
-		        </td>
-		      </tr>
-		     
-		      <tr>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="">  
-		        </td>
-		        <td>
-		        	<select class="form-control padding0"><option></option></select>  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0"  name="">  
-		        </td>
-		        <td>
-		        	<select class="form-control padding0"><option></option></select>  
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="">  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0"  name="">
-		        </td>
-		      </tr>
-		      <tr>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="">  
-		        </td>
-		        <td>
-		        	<select class="form-control padding0"><option></option></select>  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0"  name="">  
-		        </td>
-		        <td>
-		        	<select class="form-control padding0"><option></option></select>  
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="">  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0"  name="">
-		        </td>
-		      </tr>
-		      <tr>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="">  
-		        </td>
-		        <td>
-		        	<select class="form-control padding0"><option></option></select>  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0"  name="">  
-		        </td>
-		        <td>
-		        	<select class="form-control padding0"><option></option></select>  
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="">  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0"  name="">
+		        	<input type="text" class="form-control padding0"  name="" ng-model="adjustmentsPaidByAlready.closingAdjustmentItemAmount">
 		        </td>
 		      </tr>
 		</table>
@@ -274,118 +196,65 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr>
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.summariesofTransactions.paidByAlready.adjustmentsUnpaidBySeller track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
 		        <td>
-		        	<label>City/Town Taxes </label>
+		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
 		        </td>
 		        <td>
 		        	 
 		        </td>
 		        <td></td>
 		        <td>
-		        	<input type="Date" class="form-control padding0" name="">  
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="prorationItemPaidFromDate" id="prorationItemPaidFromDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidFromDate" is-open="isProrationItemPaidFromDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="Closing Date" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isProrationItemPaidFromDate = !isProrationItemPaidFromDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>  
 		        </td>
 		        <td>
-		        	<input type="Date" class="form-control padding0" name="">   
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="Closing Date" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isprorationItemPaidThroughDate = !isprorationItemPaidThroughDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
-		        </td>
-		      </tr>
-		     <tr>
-		        <td>
-		        	<label>County Taxes</label>
-		        </td>
-		        <td>
-		        	 
-		        </td>
-		        <td></td>
-		        <td>
-		        	<input type="Date" class="form-control padding0" name="">  
-		        </td>
-		        <td>
-		        	<input type="Date" class="form-control padding0" name="">   
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsUnpaidBySeller.prorationItemAmount">
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.summariesofTransactions.paidByAlready.adjustmentsUnpaidBySeller track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes' && adjustmentsUnpaidBySeller.displayLabel !='Assessments'">
 		        <td>
-		        	<label>Assessments</label>
+		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsUnpaidBySeller.displayLabel">  
 		        </td>
 		        <td>
-		        	 
-		        </td>
-		        <td></td>
-		        <td>
-		        	<input type="Date" class="form-control padding0" name="">  
-		        </td>
-		        <td>
-		        	<input type="Date" class="form-control padding0" name="">   
+		        	<select class="form-control padding0" ng-model="adjustmentsUnpaidBySeller.prorationItemType">
+                        <option value="" selected>Select</option>
+		      		    <option ng-repeat="prorationItemType in prorationItemTypes" value="{{prorationItemType.value}}" ng-disabled="prorationItemType.disabled">{{prorationItemType.name}}</option>
+		        	</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
-		        </td>
-		      </tr>
-		      <tr>
-		        <td>
-		        	<input type="text" class="form-control padding0" value="Ground Rent for First half of year" name="">  
+		        	<input type="text" class="form-control padding0" ng-disabled="adjustmentsUnpaidBySeller.prorationItemType!='Other'" name="" ng-model="adjustmentsUnpaidBySeller.prorationItemTypeOtherDescription">
 		        </td>
 		        <td>
-		        	 <select class="form-control padding0"><option>GroundRent</option></select>
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="prorationItemPaidFromDate" id="prorationItemPaidFromDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidFromDate" is-open="isProrationItemPaidFromDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isProrationItemPaidFromDate = !isProrationItemPaidFromDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isprorationItemPaidThroughDate = !isprorationItemPaidThroughDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
 		        </td>
 		        <td>
-		        	<input type="Date" class="form-control padding0" name="">  
-		        </td>
-		        <td>
-		        	<input type="Date" class="form-control padding0" name="">   
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
-		        </td>
-		      </tr>
-		      <tr>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="">  
-		        </td>
-		        <td>
-		        	 <select class="form-control padding0"><option></option></select>
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">
-		        </td>
-		        <td>
-		        	<input type="Date" class="form-control padding0" name="">  
-		        </td>
-		        <td>
-		        	<input type="Date" class="form-control padding0" name="">   
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0"  name="">
-		        </td>
-		      </tr>
-		      <tr>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="">  
-		        </td>
-		        <td>
-		        	 <select class="form-control padding0"><option></option></select>
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">
-		        </td>
-		        <td>
-		        	<input type="Date" class="form-control padding0" name="">  
-		        </td>
-		        <td>
-		        	<input type="Date" class="form-control padding0" name="">   
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0"  name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsUnpaidBySeller.prorationItemAmount">
 		        </td>
 		      </tr>
 		</table>
@@ -408,7 +277,7 @@
 		        	Total Due from Borrower at Closing (K)  
 		        </td>
 		        <td>
-		        	<label>$positive amount.00</label>
+		        	<label>${{cdformdata.summariesofTransactions.borrowerTransaction.dueFromBorrowerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -416,7 +285,7 @@
 		        	Total Paid Already By or On Behalf of Borrower At Closing (L) 
 		        </td>
 		        <td>
-		        	<label>$negative amount.00</label>
+		        	<label>-${{cdformdata.summariesofTransactions.paidByAlready.paidByAlreadyTotalAmount.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -424,7 +293,7 @@
 		        	Cash to Close (to or from) Borrower  
 		        </td>
 		        <td>
-		        	<label>$Total Amount.00</label>
+		        	<label>${{cdformdata.summariesofTransactions.borrowerTransaction.cashToBorrowerAtClosingAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		</table>

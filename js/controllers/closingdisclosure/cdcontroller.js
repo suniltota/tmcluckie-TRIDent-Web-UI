@@ -35,6 +35,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.liabilityTypes = staticData.liabilityTypes;
     $scope.adjustmentTypes = staticData.adjustmentTypes;
     $scope.prorationItemTypes = staticData.prorationItemTypes;
+    $scope.subordinateLiens = staticData.subordinateLiens;
+    $scope.otherCredits = staticData.otherCredits;
+    $scope.payeeTypes = staticData.payeeTypes;
     $scope.licenseAuthorityLevelTypes = staticData.licenseAuthorityLevelTypes;
     $scope.repayMethodType = staticData.repayMethodType;
     $scope.repayExemptionReasonType = staticData.repayExemptionReasonType;
@@ -262,6 +265,18 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			var dueFromBrwAdjustmentType = angular.copy(liability);
 			dueFromBrwAdjustmentType.integratedDisclosureSectionType='DueFromBorrowerAtClosing';
 			$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.push(dueFromBrwAdjustmentType);
+		}
+
+		//PaidAlreadyByOrOnBehalfOfBorrowerAtClosing
+        var paidAlreadyBrwAtClosingAdjustmentTypes = [];
+
+        paidAlreadyBrwAtClosingAdjustmentTypes = $scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.filter(function(item){
+		    return item.integratedDisclosureSectionType == 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing'
+		});
+		for(i=dueFromBrwAdjustmentTypes.length; i<3; i++) {
+			var paidAlreadyBrwAtClosingAdjustmentType = angular.copy(liability);
+			paidAlreadyBrwAtClosingAdjustmentType.integratedDisclosureSectionType='PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
+			$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.push(paidAlreadyBrwAtClosingAdjustmentType);
 		}
 
 		setTimeout(function(){$("#spinner").hide();}, 3000);
