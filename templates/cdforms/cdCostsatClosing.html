@@ -8,8 +8,8 @@
 		        <td class="col-sm-2"><label>${{cdformdata.costsAtClosing.ClosingCosts.amount}}</label></td>
 		        <td class="col-sm-8">
 		        	<ul class="col-sm-9" >
-		        		<li><p>Includes <label>${{cdformdata.costsAtClosing.ClosingCosts.totalLoanCosts}}</label> in Loan Costs + <label>${{cdformdata.costsAtClosing.ClosingCosts.totalOtherCosts}}</label> in Other Costs - <label>${{cdformdata.costsAtClosing.ClosingCosts.lenderCredits}}</label> in Lender Credits. See page 2 for details.
-		        		</p></li>
+		        		<li><p>Includes <label>${{cdformdata.costsAtClosing.ClosingCosts.totalLoanCosts}}</label> in Loan Costs + <label>${{cdformdata.costsAtClosing.ClosingCosts.totalOtherCosts}}</label> in Other Costs - <label>${{cdformdata.costsAtClosing.ClosingCosts.lenderCredits}}</label> in Lender Credits.<i>See page 2 for details.
+		        		</i></p></li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -18,7 +18,7 @@
 		        <td><label>${{cdformdata.costsAtClosing.CashToClose.amount}} </label></td>
 		        <td>
 		        	<ul class="col-sm-9" >
-		        		<li>Includes Closing Costs. See Calculating Cash to Close on page 3 for details.</p></li>
+		        		<li>Includes Closing Costs.<i>See Calculating Cash to Close on page 3 for details.</i></p></li>
 		        		<li ng-show="loanBasicInfo.loanFormType != 'standard'">
 		        			<span class="col-sm-4">
 		        				<input class="margin5" type="checkbox" name="toOrFromBorrower" ng-model="cdformdata.costsAtClosing.CashToClose.fromType">
