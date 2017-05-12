@@ -404,6 +404,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.addDueFromBrwLiability = function(){
     	$scope.cdformdata.summariesofTransactions.liabilityList.push(angular.copy(dueFromBrwLiabilityType));
     }
+	$scope.changeTab = function(tabName){
+    	$scope.showTab = tabName;
+    }
 
 	$scope.updateETIAComponentTypes = function(value, index) {
 		var previousVal = $scope.cdformdata.etiaSection.etiaTypes[index];

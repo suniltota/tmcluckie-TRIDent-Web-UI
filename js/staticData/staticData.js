@@ -12,7 +12,7 @@ app.service('staticData', function($filter){
     
     this.partyRoleTypes = ["NotePayTo","MortgageBroker","RealEstateAgent","ClosingAgent","Borrower","NonTitleSpouse","TitleHolder","Other","NonTitleNonSpouseOwnershipInterest","PropertySeller","LoanDeliveryFilePreparer"];
     
-    this.dateDisplayFormat = "MM/dd/yy";
+    this.dateDisplayFormat = "MM/dd/yyyy";
     this.basicLoanInfo = {
 		'loanPurposeType': 'purchase',
 		'loanFormType': 'standard',
