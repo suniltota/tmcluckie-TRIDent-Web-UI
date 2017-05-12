@@ -1080,8 +1080,22 @@ app.service('staticData', function($filter){
     		"name":"Trade Equity",
             "value":"TradeEquity",
 	        "disabled":false
+    	},
+    	{
+    		"name":"Sweat Equity",
+            "value":"SweatEquity",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Repair Completion Escrow Holdback",
+            "value":"RepairCompletionEscrowHoldback",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Relocation Funds",
+            "value":"RelocationFunds",
+	        "disabled":false
     	}
-   
     ];
     
     this.prorationItemTypes=[
@@ -1987,9 +2001,9 @@ app.service('staticData', function($filter){
                 "displayLabel": "City/Town Taxes",
                 "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
                 "integratedDisclosureSubsectionType": "AdjustmentsForItemsPaidBySellerInAdvance",
-                "prorationItemAmount": "9000.00",
-                "prorationItemPaidFromDate": "2016-12-12",
-                "prorationItemPaidThroughDate": "2017-12-12",
+                "prorationItemAmount": "",
+                "prorationItemPaidFromDate": "",
+                "prorationItemPaidThroughDate": "",
                 "prorationItemType": "CityPropertyTax",
                 "prorationItemTypeOtherDescription": ""
             }
@@ -2144,9 +2158,9 @@ app.service('staticData', function($filter){
                     "displayLabel": "City/Town Taxes",
                     "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
                     "integratedDisclosureSubsectionType": "AdjustmentsForItemsUnpaidBySeller",
-                    "prorationItemAmount": "36617.00",
-                    "prorationItemPaidFromDate": "2016-01-01",
-                    "prorationItemPaidThroughDate": "2018-09-03",
+                    "prorationItemAmount": "",
+                    "prorationItemPaidFromDate": "",
+                    "prorationItemPaidThroughDate": "",
                     "prorationItemType": "",
                     "prorationItemTypeOtherDescription": ""
                 }
