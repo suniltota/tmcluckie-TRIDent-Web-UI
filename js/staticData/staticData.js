@@ -1272,6 +1272,224 @@ app.service('staticData', function($filter){
         }
     ];
 
+    this.liabilityadjustments = [
+    	{
+    		"name":"Borrower Estimated Total Monthly Liability Payment",
+	        "value":"BorrowerEstimatedTotalMonthlyLiabilityPayment",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Collections Judgments And Liens",
+	        "value":"CollectionsJudgmentsAndLiens",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Deferred Student Loan",
+	        "value":"DeferredStudentLoan",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Delinquent Taxes",
+	        "value":"DelinquentTaxes",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"First Position Mortgage Lien",
+	        "value":"FirstPositionMortgageLien",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Garnishments",
+	        "value":"Garnishments",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"HELOC",
+	        "value":"HELOC",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Homeowners Association Lien",
+	        "value":"HomeownersAssociationLien",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Installment",
+	        "value":"Installment",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Lease Payment",
+	        "value":"LeasePayment",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Mortgage Loan",
+	        "value":"MortgageLoan",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Open 30Day Charge Account",
+	        "value":"Open30DayChargeAccount",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Other",
+	        "value":"Other",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Personal Loan",
+	        "value":"PersonalLoan",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Revolving",
+	        "value":"Revolving",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Second Position Mortgage Lien",
+	        "value":"SecondPositionMortgageLien",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Taxes",
+	        "value":"Taxes",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Tax Lien",
+	        "value":"TaxLien",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Third Position Mortgage Lien",
+	        "value":"ThirdPositionMortgageLien",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Unsecured Home Improvement Loan Installment",
+	        "value":"UnsecuredHomeImprovementLoanInstallment",
+	        "disabled":false,
+			"type":"liability"
+    	},
+    	{
+    		"name":"Unsecured Home Improvement Loan Revolving",
+	        "value":"UnsecuredHomeImprovementLoanRevolving",
+	        "disabled":false,
+			"type":"liability"
+    	},
+        {
+    		"name":"Fuel Costs",
+            "value":"FuelCosts",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Other",
+            "value":"Other",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Repairs",
+            "value":"Repairs",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Sellers Escrow Assumption",
+            "value":"SellersEscrowAssumption",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Sellers Mortgage Insurance Assumption",
+            "value":"SellersMortgageInsuranceAssumption",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Tenant Security Deposit",
+            "value":"TenantSecurityDeposit",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Seller Credit",
+            "value":"SellerCredit",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Gift",
+            "value":"Gift",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Grant",
+            "value":"Grant",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Rebate Credit",
+            "value":"RebateCredit",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Unpaid Utility Escrow Holdback",
+            "value":"UnpaidUtilityEscrowHoldback",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Trade Equity",
+            "value":"TradeEquity",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Sweat Equity",
+            "value":"SweatEquity",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Repair Completion Escrow Holdback",
+            "value":"RepairCompletionEscrowHoldback",
+	        "disabled":false,
+			"type":"adjustment"
+    	},
+    	{
+    		"name":"Relocation Funds",
+            "value":"RelocationFunds",
+	        "disabled":false,
+			"type":"adjustment"
+    	}
+    ];
 	this.cdformdata={
 		"closingInformation": {
 		    "dateIssued": "",

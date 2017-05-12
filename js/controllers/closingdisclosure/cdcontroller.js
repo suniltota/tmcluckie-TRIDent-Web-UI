@@ -41,6 +41,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.licenseAuthorityLevelTypes = staticData.licenseAuthorityLevelTypes;
     $scope.repayMethodType = staticData.repayMethodType;
     $scope.repayExemptionReasonType = staticData.repayExemptionReasonType;
+    $scope.liabilityadjustments = staticData.liabilityadjustments;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;
 	var borrower ={};

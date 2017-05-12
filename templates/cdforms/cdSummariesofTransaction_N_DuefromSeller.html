@@ -11,7 +11,7 @@
 		        	Excess Deposit  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.dueFromSeller.excessDeposit.closingCostFundAmount">
 		        </td>
 		      </tr>
 		      <tr>
@@ -19,7 +19,7 @@
 		        	Closing Costs Paid at Closing (J)  
 		        </td>
 		        <td>
-		        	<label>$0</label>
+		        	<label>${{cdformdata.closingCostsTotal.totalClosingCosts | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -27,7 +27,7 @@
 		        	Existing Loan(s) Assumed or Taken Subject To 
 		        </td>
 		        <td>
-		        	<label>$0</label>
+		        	<label>${{cdformdata.summariesofTransactions.dueFromSeller.existingLoan}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -35,7 +35,7 @@
 		        	Payoff of First Mortgage  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.dueFromSeller.payoffFirstMortgage.payoffAmount">
 		        </td>
 		      </tr>
 		      <tr>
@@ -43,7 +43,7 @@
 		        	Payoff of Second Mortgage 
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.dueFromSeller.payOffSecondMortgage.payoffAmount">
 		        </td>
 		      </tr>
 		      <tr>
@@ -51,7 +51,7 @@
 		        	Seller Credit 
 		        </td>
 		        <td>
-		        	<label>$0</label>
+		        	<label>${{cdformdata.summariesofTransactions.dueFromSeller.sellerCredit.closingAdjustmentItemAmount}}</label>
 		        </td>
 		      </tr>
 		</table>
@@ -76,27 +76,62 @@
 		        	<label>Adjustment</label>
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr ng-repeat="liablitySection in cdformdata.summariesofTransactions.liabilityList track by $index" ng-if="liablitySection.integratedDisclosureSectionType == 'DueFromSellerAtClosing'">
 		        <td>
 		        	<input type="text" class="form-control padding0" value="Adjustment for Fuel Levels" name="">  
 		        </td>
 		        <td>
-		        	<select class="form-control padding0"><option>Fuel Costs</option></select>  
+		        	<select class="form-control padding0" ng-model="liablitySection.liabilityType" ng-options="liabilityadjustment.value as liabilityadjustment.name for liabilityadjustment in liabilityadjustments" ng-change="liabilityadjustment.type=='liability' ? 'latype=liability' : 'latype=adjustment'">
+						<option value="">Select</option>
+					</select>
+		        	<!--<select class="form-control padding0" ng-model="liablitySection.liabilityType" ng-change="">
+			        	<option value="" selected>Select</option>
+			      		<option ng-repeat="la in liabilityadjustments" value="{{la.value}}" ng-disabled="la.disabled">{{la.name}}</option>
+		      		</select>  -->
 		        </td>
 		       	<td class="text-center">
-		        	<input type="radio" name="">
+		        	<input type="radio" name="" ng-model="latype" ng-checked="true">
 		        </td>
 		        <td class="text-center">
-		        	<input type="radio" name="">
+		        	<input type="radio" name="" ng-model="latype" ng-checked="latype == 'adjustment'">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">  
+		        	<input type="text" class="form-control padding0" ng-disabled="liablitySection.liabilityType!='Other'" name="" ng-model="liablitySection.liabilityTypeOtherDescription">  
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="">  
+		        	<input type="checkbox" name="" ng-model="liablitySection.liabilitySecuredBySubjectPropertyIndicator">  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" value="$0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="liablitySection.payoffAmount">
+		        </td>
+		      </tr>
+		      <tr ng-repeat="adjustments in cdformdata.summariesofTransactions.closingAdjustmentItemList track by $index" ng-if="adjustments.integratedDisclosureSectionType == 'DueFromSellerAtClosing'">
+		        <td>
+		        	<input type="text" class="form-control padding0" value="Adjustment for Fuel Levels" name="">  
+		        </td>
+		        <td>
+		        	<select class="form-control padding0" ng-model="adjustments.closingAdjustmentItemType" ng-options="liabilityadjustment.value as liabilityadjustment.name for liabilityadjustment in liabilityadjustments">
+						<option value="">Select</option>
+					</select>
+		        	<!--<select class="form-control padding0" ng-model="liablitySection.liabilityType" ng-change="">
+			        	<option value="" selected>Select</option>
+			      		<option ng-repeat="la in liabilityadjustments" value="{{la.value}}" ng-disabled="la.disabled">{{la.name}}</option>
+		      		</select>  -->
+		        </td>
+		       	<td class="text-center">
+		        	<input type="radio" name="" ng-model="latype" ng-checked="">
+		        </td>
+		        <td class="text-center">
+		        	<input type="radio" name="" ng-model="latype" ng-checked="true">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" ng-disabled="adjustments.closingAdjustmentItemType!='Other'" name="" ng-model="adjustments.closingAdjustmentItemTypeOtherDescription">  
+		        </td>
+		        <td class="text-center">
+		        	<input type="checkbox" name="" ng-model="adjustments.liabilitySecuredBySubjectPropertyIndicator">  
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="adjustments.closingAdjustmentItemAmount">
 		        </td>
 		      </tr>
 		     
@@ -137,78 +172,42 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr>
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.summariesofTransactions.paidByAlready.adjustmentsUnpaidBySeller track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
 		        <td>
-		        	<label>City/Town Taxes </label>
+		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
 		        </td>
 		        <td>
 		        	 
 		        </td>
 		        <td></td>
 		        <td>
-		        	<label>01/01/2017</label>
+	        		<label>{{adjustmentsUnpaidBySeller.prorationItemPaidFromDate | date:dateFormat}}</label>
 		        </td>
 		        <td>
-		        	<label>01/01/2017</label>   
+	        		<label>{{adjustmentsUnpaidBySeller.prorationItemPaidThroughDate | date:dateFormat}}</label>
 		        </td>
 		        <td>
-		        	<label>$0</label>
-		        </td>
-		      </tr>
-		     <tr>
-		        <td>
-		        	<label>County Taxes</label>
-		        </td>
-		        <td>
-		        	 
-		        </td>
-		        <td></td>
-		        <td>
-		        	<label>01/01/2017</label>  
-		        </td>
-		        <td>
-		        	<label>01/01/2017</label>   
-		        </td>
-		        <td>
-		        	<label>$0</label>
+		        	<label>${{adjustmentsUnpaidBySeller.prorationItemAmount | number:2}}</label>
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.summariesofTransactions.paidByAlready.adjustmentsUnpaidBySeller track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes' && adjustmentsUnpaidBySeller.displayLabel !='Assessments'">
 		        <td>
-		        	<label>Assessments</label>
+		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
 		        </td>
 		        <td>
-		        	 
-		        </td>
-		        <td></td>
-		        <td>
-		        	<label>01/01/2017</label>  
+		        	<label ng-repeat="prorationItemType in prorationItemTypes" ng-if="prorationItemType.value == adjustmentsUnpaidBySeller.prorationItemType">{{prorationItemType.name}}</label>
 		        </td>
 		        <td>
-		        	<label>01/01/2017</label>   
+		        	<label>{{adjustmentsUnpaidBySeller.prorationItemTypeOtherDescription}}</label>
 		        </td>
 		        <td>
-		        	<label>$0</label>
-		        </td>
-		      </tr>
-		      <tr>
-		        <td>
-		        	<label>Ground Rent</label> 
+	        		<label>{{adjustmentsUnpaidBySeller.prorationItemPaidFromDate | date:dateFormat}}</label>
 		        </td>
 		        <td>
-		        	 <label>Ground Rent</label>
+	        		<label>{{adjustmentsUnpaidBySeller.prorationItemPaidThroughDate | date:dateFormat}}</label>
 		        </td>
 		        <td>
-		        	
-		        </td>
-		        <td>
-		        	<label>01/01/2017</label>  
-		        </td>
-		        <td>
-		        	<label>01/01/2017</label>   
-		        </td>
-		        <td>
-		        	<label>$0</label>
+		        	<label>${{adjustmentsUnpaidBySeller.prorationItemAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -257,7 +256,7 @@
 
 	<div class="col-sm-12 finalFooterValues">
 		<span class="col-sm-10 text-right">Total for Section N. Due From Borrower At Closing : </span>
-		<span class="col-sm-2">$0</span>
+		<span class="col-sm-2">${{cdformdata.summariesofTransactions.sellerTransaction.fromSellerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount | number:2}}</span>
 	</div>
 
 	<h5 class="margin5tb pull-left"><strong>Summaries of Transaction – Calculations View</strong></h5>
@@ -272,7 +271,7 @@
 		        	Total Due to Seller at Closing (M)  
 		        </td>
 		        <td>
-		        	<label>$positive amount.00</label>
+		        	<label>${{cdformdata.summariesofTransactions.sellerTransaction.toSellerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -280,7 +279,7 @@
 		        	Total Due from Seller at Closing (N) 
 		        </td>
 		        <td>
-		        	<label>$negative amount.00</label>
+		        	<label>-${{cdformdata.summariesofTransactions.sellerTransaction.fromSellerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -288,7 +287,8 @@
 		        	Cash to Close (to or from) Seller  
 		        </td>
 		        <td>
-		        	<label>$Total Amount.00</label>
+		        	<label ng-if="cdformdata.summariesofTransactions.sellerTransaction.cashFromSellerAtClosingAmount!=''">${{cdformdata.summariesofTransactions.sellerTransaction.cashFromSellerAtClosingAmount}}</label>
+		        	<label ng-if="cdformdata.summariesofTransactions.sellerTransaction.cashToSellerAtClosingAmount!=''">${{cdformdata.summariesofTransactions.sellerTransaction.cashToSellerAtClosingAmount}}</label>
 		        </td>
 		      </tr>
 		</table>
