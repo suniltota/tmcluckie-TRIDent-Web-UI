@@ -152,7 +152,7 @@
 		        <th class="innerSectionHeader">P.O.C Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidByAlready in cdformdata.summariesofTransactions.closingAdjustmentItemList track by $index" ng-if="adjustmentsPaidByAlready.integratedDisclosureSectionType == 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing' ">
+		      <tr ng-repeat="adjustmentsPaidByAlready in cdformdata.summariesofTransactions.closingAdjustmentItemList track by $index" ng-if="adjustmentsPaidByAlready.integratedDisclosureSectionType == 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing' && adjustmentsPaidByAlready.integratedDisclosureSubsectionType !='OtherCredits'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidByAlready.displaylabel">  
 		        </td>
@@ -196,7 +196,7 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.summariesofTransactions.paidByAlready.adjustmentsUnpaidBySeller track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.summariesofTransactions.paidByAlready.adjustmentsUnpaidBySeller track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel =='County Taxes' && adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
 		        <td>
 		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
 		        </td>
@@ -255,6 +255,46 @@
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsUnpaidBySeller.prorationItemAmount">
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		        	 <label>&nbsp;</label>
+		        </td>
+		        <td>
+		        	 
+		        </td>
+		        <td>
+		        	
+		        </td>
+		        <td>
+		        	 
+		        </td>
+		        <td>
+		        	   
+		        </td>
+		        <td>
+		        	
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		        	  <label>&nbsp;</label>
+		        </td>
+		        <td>
+		        	 
+		        </td>
+		        <td>
+		        	
+		        </td>
+		        <td>
+		        	 
+		        </td>
+		        <td>
+		        	   
+		        </td>
+		        <td>
+		        	
 		        </td>
 		      </tr>
 		</table>

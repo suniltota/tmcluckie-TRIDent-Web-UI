@@ -57,7 +57,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     var otherCostsList = {};
     var liability= {};
     var adjustments = {};
-   
+
 	$scope.dateOptions = {
  		formatYear: 'yy',
  		startingDay: 1
@@ -278,6 +278,29 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			paidAlreadyBrwAtClosingAdjustmentType.integratedDisclosureSectionType='PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
 			$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.push(paidAlreadyBrwAtClosingAdjustmentType);
 		}
+        
+        var dueToSellerAtClosing =[];
+
+        dueToSellerAtClosing = $scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.filter(function(item){
+		    return item.integratedDisclosureSectionType == 'DueToSellerAtClosing'
+		});
+
+		for(i=0;i<dueToSellerAtClosing.length;i++){
+			for(j=0;j<dueFromBrwAdjustmentTypes.length;j++){
+				if(dueToSellerAtClosing[i].closingAdjustmentItemType == dueFromBrwAdjustmentTypes[j].closingAdjustmentItemType){
+					dueToSellerAtClosing.splice(i,1);
+				}
+			}
+		}
+        /*for(k=0;k<$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.length;k++){
+        	if($scope.cdformdata.summariesofTransactions.closingAdjustmentItemList[k].integratedDisclosureSectionType == 'DueToSellerAtClosing'){
+        		$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList[k].splice(k,1);
+        	}
+        }
+
+        $scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.push(dueToSellerAtClosing);*/
+
+
 
 		setTimeout(function(){$("#spinner").hide();}, 3000);
 		$scope.cdformdata.closingInformation.dateIssued = new Date();
