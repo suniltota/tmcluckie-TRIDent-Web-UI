@@ -42,6 +42,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.repayMethodType = staticData.repayMethodType;
     $scope.repayExemptionReasonType = staticData.repayExemptionReasonType;
     $scope.liabilityadjustments = staticData.liabilityadjustments;
+    $scope.payoffsAndPaymentsTotalAmount = 0;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;
 	var borrower ={};
@@ -781,6 +782,17 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.closingInformation.salesContractDetail.realPropertyAmount;
 		else
 			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = 0;
+	}, true);
+    
+	$scope.$watch('cdformdata.payoffsAndPayments', function(newValue,oldValue){
+		payoffsAndPaymentsTotalAmount = 0;
+		for(i=0; i<$scope.cdformdata.payoffsAndPayments.liabilitiesList.length; i++) {
+         	payoffsAndPaymentsTotalAmount += $scope.cdformdata.payoffsAndPayments.liabilitiesList[i].payoffAmount == null ? +0 : parseFloat($scope.cdformdata.payoffsAndPayments.liabilitiesList[i].payoffAmount);
+        }
+        for(i=0; i<$scope.cdformdata.payoffsAndPayments.closingAdjustmentItemList.length; i++) {
+         	payoffsAndPaymentsTotalAmount += $scope.cdformdata.payoffsAndPayments.closingAdjustmentItemList[i].closingAdjustmentItemAmount == null ? +0 : parseFloat($scope.cdformdata.payoffsAndPayments.closingAdjustmentItemList[i].closingAdjustmentItemAmount);
+        }
+
 	}, true);
 
 });
