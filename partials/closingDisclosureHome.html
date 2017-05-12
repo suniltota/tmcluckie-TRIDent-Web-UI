@@ -24,6 +24,7 @@
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanDisclosures'}" ng-click="showTab = 'LoanDisclosures'" >Additional Information About This Loan - Loan Disclosures</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'EscrowAccount'}" ng-click="showTab = 'EscrowAccount'" >Escrow Account</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'ApTable'}" ng-click="showTab = 'ApTable'" >Adjustable Payment (AP) Table</span>
+        <span href="" class="pagenumber" ng-class="{'active': showTab == 'AirTable'}" ng-click="showTab = 'AirTable'" >Adjustable Interest Rate (AIR) Table</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCals'}" ng-click="showTab = 'LoanCals'" >Loan Calcs OtherDisclosure</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'ContactInfo'}" ng-click="showTab = 'ContactInfo'" >Contact Information</span>
       </div>
@@ -110,13 +111,17 @@
       <span class="glyphicon glyphicon-file pull-left"></span>
       <span class="pull-left noTitle">19</span>
     </span>
-    <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanCals'}" data-toggle="tooltip" ng-click="showTab = 'LoanCals'"  data-placement="right" title="Loan Calculation">
+    <span class="pageno pageicon" ng-class="{'active': showTab == 'AirTable'}" data-toggle="tooltip" ng-click="showTab = 'AirTable'"  data-placement="right" title="AP Table">
       <span class="glyphicon glyphicon-file pull-left"></span>
       <span class="pull-left noTitle">20</span>
     </span>
-    <span class="pageno pageicon" ng-class="{'active': showTab == 'ContactInfo'}" data-toggle="tooltip" ng-click="showTab = 'ContactInfo'"  data-placement="right" title="Contact Information">
+    <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanCals'}" data-toggle="tooltip" ng-click="showTab = 'LoanCals'"  data-placement="right" title="Loan Calculation">
       <span class="glyphicon glyphicon-file pull-left"></span>
       <span class="pull-left noTitle">21</span>
+    </span>
+    <span class="pageno pageicon" ng-class="{'active': showTab == 'ContactInfo'}" data-toggle="tooltip" ng-click="showTab = 'ContactInfo'"  data-placement="right" title="Contact Information">
+      <span class="glyphicon glyphicon-file pull-left"></span>
+      <span class="pull-left noTitle">22</span>
     </span>
   </div>
   <div class="col-lg-12 PageformHeader padding0" pdf-width>
@@ -147,7 +152,7 @@
              <div ng-show="showTab == 'LoanDisclosures'" ng-include='"templates/cdforms/AdditionalInformation_LoanDisclosures.html"'></div>
              <div ng-show="showTab == 'EscrowAccount'" ng-include='"templates/cdforms/AdditionalInformation_EscrowAccount.html"'></div>
              <div ng-show="showTab == 'ApTable'" ng-include='"templates/cdforms/AdditionalInformation_ApTable.html"'></div>
-
+             <div ng-show="showTab == 'AirTable'" ng-include='"templates/cdforms/AdditionalInformation_AirTable.html"'></div>
             </div>
        	 	</span>
         </div>
