@@ -11,40 +11,42 @@
 		        <th class="innerSectionHeader">Prepayment Amount</th>
 		        <th class="innerSectionHeader">Partial Payoff Flag</th>   
 		      </tr>
-		      <tr>
+		      <tr ng-repeat="liability in cdformdata.payoffsAndPayments.liabilitiesList">
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="liability.liabilityHolderFullName">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
+		        	<select class="form-control padding0" ng-model="liability.liabilityType">
               			<option>Select</option>
+              			<option ng-repeat="liabilityType in liabilityTypes" value="{{liabilityType.value}}" ng-disabled="liabilityType.disabled">{{liabilityType.name}}</option>
               		</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="liability.liabilityHolderFullName" >
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="liability.payoffAmount">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0"><option></option></select>
+		        	<select  class="form-control padding0" ng-model="liability.liabilitySecuredBySubjectPropertyIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+					</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="liability.payoffPrepaymentPenaltyAmount">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
-              			<option>Select</option>
-              		</select>
+              		<select  class="form-control padding0" ng-model="liability.liabilitySecuredBySubjectPropertyIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+					</select>
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr ng-repeat="adjustment in cdformdata.payoffsAndPayments.closingAdjustmentItemList">
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="adjustment.paidToEntityFullName">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="cdformdata.originationCharge.feeType">
+		        	<select class="form-control padding0" ng-model="adjustment.closingAdjustmentItemType">
               			<option>Select</option>
+              			<option ng-repeat="adjustmentType in otherCredits" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
               		</select>
 		        </td>
 		        <td>
