@@ -1511,12 +1511,6 @@ app.service('staticData', function($filter){
 		    },
 		    "salePrice": "",
 		    "partyRoleType": "",
-		    "salesContractDetail": {
-		      "personalPropertyIndicator": false,
-		      "personalPropertyAmount": "",
-		      "realPropertyAmount": "",
-		      "saleContractAmount": ""
-		    },
 		    "propertyValuationDetail": {
 		      "propertyEstimatedValueAmount": "",
 		      "propertyValuationAmount": "",
@@ -1639,6 +1633,12 @@ app.service('staticData', function($filter){
 			"optionalPaymentsFeatureIndicator": false,
 			"negativeAmoritzationIndicator": false,
 			"negativeAmoritzationType": ""
+		},
+		"salesContractDetail": {
+		      "personalPropertyIndicator": false,
+		      "personalPropertyAmount": "",
+		      "realPropertyAmount": "",
+		      "saleContractAmount": ""
 		},
 		"loanTerms": {
 			"loanAmount": {
@@ -2168,136 +2168,74 @@ app.service('staticData', function($filter){
         ],
         "alternateView": false
     },
-    "summariesofTransactions": {
-    	"liabilityList":
-        [
-            {
-                "displayLabel": "",
-                "liabilityDescription": "",
-                "liabilityType": "",
-                "liabilityTypeOtherDescription": "",
-                "integratedDisclosureSectionType": "",
-                "liabilitySecuredBySubjectPropertyIndicator": false,
-                "liabilityHolderFullName": "",
-                "payoffAmount": "",
-                "payoffPrepaymentPenaltyAmount": ""
-            }
-		],
-		"closingAdjustmentItemList":
-        [
-            {
-                "displayLabel": "",
-                "closingAdjustmentItemAmount": "",
-                "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
-                "closingAdjustmentItemType": "",
-                "closingAdjustmentItemTypeOtherDescription": "",
-                "integratedDisclosureSectionType": "",
-                "integratedDisclosureSubsectionType": "Adjustments",
-                "paidByIndividualFullName": "",
-                "paidByEntityFullName": "",
-                "paidToEntityFullName": ""
-            }
-        ],
-		"closingCostFundList":
-        [
-            {
-                "displayLabel": null,
-                "closingCostFundAmount": "",
-                "fundsType": "ExcessDeposit",
-                "integratedDisclosureSectionType": ""
-            },
-            {
-                "displayLabel": null,
-                "closingCostFundAmount": "",
-                "fundsType": "DepositOnSalesContract",
-                "integratedDisclosureSectionType": ""
-            }
-        ],
-        "prorationList":
-        [
-            {
-                "displayLabel": "City/Town Taxes",
-                "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
-                "integratedDisclosureSubsectionType": "AdjustmentsForItemsPaidBySellerInAdvance",
-                "prorationItemAmount": "",
-                "prorationItemPaidFromDate": "",
-                "prorationItemPaidThroughDate": "",
-                "prorationItemType": "CityPropertyTax",
-                "prorationItemTypeOtherDescription": ""
-            }
-        ],
-		"dueFromBorroweratClosing":
+    "liabilityList":
+    [
         {
-            "salePriceOfProperty": "",
+            "displayLabel": "",
+            "liabilityDescription": "",
+            "liabilityType": "",
+            "liabilityTypeOtherDescription": "",
+            "integratedDisclosureSectionType": "",
+            "liabilitySecuredBySubjectPropertyIndicator": false,
+            "liabilityHolderFullName": "",
+            "payoffAmount": "",
+            "payoffPrepaymentPenaltyAmount": ""
+        }
+	],
+	"closingAdjustmentItemList":
+    [
+        {
+            "displayLabel": "",
+            "closingAdjustmentItemAmount": "",
+            "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
+            "closingAdjustmentItemType": "",
+            "closingAdjustmentItemTypeOtherDescription": "",
+            "integratedDisclosureSectionType": "",
+            "integratedDisclosureSubsectionType": "Adjustments",
+            "paidByIndividualFullName": "",
+            "paidByEntityFullName": "",
+            "paidToEntityFullName": ""
+        }
+    ],
+	"closingCostFundList":
+    [
+        {
+            "displayLabel": null,
+            "closingCostFundAmount": "",
+            "fundsType": "ExcessDeposit",
+            "integratedDisclosureSectionType": ""
+        },
+        {
+            "displayLabel": null,
+            "closingCostFundAmount": "",
+            "fundsType": "DepositOnSalesContract",
+            "integratedDisclosureSectionType": ""
+        }
+    ],
+    "prorationList":
+    [
+        {
+            "displayLabel": "City/Town Taxes",
+            "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
+            "integratedDisclosureSubsectionType": "AdjustmentsForItemsPaidBySellerInAdvance",
+            "prorationItemAmount": "",
+            "prorationItemPaidFromDate": "",
+            "prorationItemPaidThroughDate": "",
+            "prorationItemType": "CityPropertyTax",
+            "prorationItemTypeOtherDescription": ""
+        }
+    ],
+    "summariesofTransactions":
+    {
+        "dueFromBorroweratClosing":
+        {
             "salePriceOfPersonalProperty": "",
-            "closingCostsPaidAtClosing":
-            {
-                "integratedDisclosureSectionSummaryDetailModel":
-                {
-                    "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "TotalClosingCosts",
-                    "integratedDisclosureSubsectionTotalAmount": "",
-                    "integratedDisclosureSubsectionType": "ClosingCostsSubtotal",
-                    "integratedDisclosureSubsectionTypeOtherDescription": "",
-                    "lenderCreditToleranceCureAmount": ""
-                },
-                "integratedDisclosureSubsectionPayments":
-                [
-                    {
-                        "integratedDisclosureSubsectionPaidByType": "",
-                        "integratedDisclosureSubsectionPaymentAmount": "",
-                        "integratedDisclosureSubsectionPaymentTimingType": ""
-                    }
-                ]
-            },
-            "dueFromBorrowerAtClosing":
-            [
-                {
-                    "displayLabel": "",
-                    "liabilityDescription": "",
-                    "liabilityType": "",
-                    "liabilityTypeOtherDescription": "",
-                    "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
-                    "liabilitySecuredBySubjectPropertyIndicator": false,
-                    "liabilityHolderFullName": "",
-                    "payoffAmount": "",
-                    "payoffPrepaymentPenaltyAmount": ""
-                }
-            ],
-            "adjustments":
-            [
-                {
-                    "displayLabel": "",
-                    "closingAdjustmentItemAmount": "",
-                    "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
-                    "closingAdjustmentItemType": "",
-                    "closingAdjustmentItemTypeOtherDescription": "",
-                    "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
-                    "integratedDisclosureSubsectionType": "Adjustments",
-                    "paidByIndividualFullName": "",
-                    "paidByEntityFullName": "",
-                    "paidToEntityFullName": ""
-                }
-            ],
-            "adjustmentsPaidBySellerInAdvance":
-            [
-                {
-                    "displayLabel": "",
-                    "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
-                    "integratedDisclosureSubsectionType": "AdjustmentsForItemsPaidBySellerInAdvance",
-                    "prorationItemAmount": "",
-                    "prorationItemPaidFromDate": "",
-                    "prorationItemPaidThroughDate": "",
-                    "prorationItemType": "CityPropertyTax",
-                    "prorationItemTypeOtherDescription": ""
-                }
-            ],
             "dueFromBorrowerAtClosingTotalAmount":
             {
                 "integratedDisclosureSectionSummaryDetailModel":
                 {
                     "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
+                    "integratedDisclosureSectionType": "",
                     "integratedDisclosureSubsectionTotalAmount": "",
                     "integratedDisclosureSubsectionType": "",
                     "integratedDisclosureSubsectionTypeOtherDescription": "",
@@ -2313,82 +2251,29 @@ app.service('staticData', function($filter){
                 ]
             }
         },
-		"paidByAlready":
+        "paidByAlready":
         {
             "deposit":
             {
                 "displayLabel": null,
                 "closingCostFundAmount": "",
                 "fundsType": "",
-                "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing"
+                "integratedDisclosureSectionType": ""
             },
-            "loanAmount": "",
             "existingLoan": "",
-            "sellerCredit":
-            {
-                "displayLabel": "",
-                "closingAdjustmentItemAmount": "",
-                "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
-                "closingAdjustmentItemType": "SellerCredit",
-                "closingAdjustmentItemTypeOtherDescription": "",
-                "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
-                "integratedDisclosureSubsectionType": "",
-                "paidByIndividualFullName": "",
-                "paidByEntityFullName": "",
-                "paidToEntityFullName": ""
-            },
+            "sellerCredit": null,
             "disclosureDescription": "",
             "subordinateLien": null,
-            "totalSubordinateFinancingAmount": "0.00",
+            "totalSubordinateFinancingAmount": null,
             "otherCredits":
             [
-                {
-                    "displayLabel": "",
-                    "closingAdjustmentItemAmount": "",
-                    "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
-                    "closingAdjustmentItemType": "",
-                    "closingAdjustmentItemTypeOtherDescription": "",
-                    "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
-                    "integratedDisclosureSubsectionType": "OtherCredits",
-                    "paidByIndividualFullName": "abc",
-                    "paidByEntityFullName": "",
-                    "paidToEntityFullName": ""
-                }
-            ],
-            "adjustments":
-            [
-                {
-                    "displayLabel": "",
-                    "closingAdjustmentItemAmount": "",
-                    "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
-                    "closingAdjustmentItemType": "",
-                    "closingAdjustmentItemTypeOtherDescription": "",
-                    "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
-                    "integratedDisclosureSubsectionType": "Adjustments",
-                    "paidByIndividualFullName": "",
-                    "paidByEntityFullName": "",
-                    "paidToEntityFullName": ""
-                }
-            ],
-            "adjustmentsUnpaidBySeller":
-            [
-                {
-                    "displayLabel": "City/Town Taxes",
-                    "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
-                    "integratedDisclosureSubsectionType": "AdjustmentsForItemsUnpaidBySeller",
-                    "prorationItemAmount": "",
-                    "prorationItemPaidFromDate": "",
-                    "prorationItemPaidThroughDate": "",
-                    "prorationItemType": "",
-                    "prorationItemTypeOtherDescription": ""
-                }
             ],
             "paidByAlreadyTotalAmount":
             {
                 "integratedDisclosureSectionSummaryDetailModel":
                 {
                     "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
+                    "integratedDisclosureSectionType": "",
                     "integratedDisclosureSubsectionTotalAmount": "",
                     "integratedDisclosureSubsectionType": "",
                     "integratedDisclosureSubsectionTypeOtherDescription": "",
@@ -2406,62 +2291,12 @@ app.service('staticData', function($filter){
         },
         "dueToSeller":
         {
-            "salePriceOfProperty": "",
-            "salePriceOfPersonalProperty": "",
-            "closingCostsPaidAtClosing":
-            {
-                "integratedDisclosureSectionSummaryDetailModel":
-                {
-                    "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "TotalClosingCosts",
-                    "integratedDisclosureSubsectionTotalAmount": "",
-                    "integratedDisclosureSubsectionType": "ClosingCostsSubtotal",
-                    "integratedDisclosureSubsectionTypeOtherDescription": "",
-                    "lenderCreditToleranceCureAmount": ""
-                },
-                "integratedDisclosureSubsectionPayments":
-                [
-                    {
-                        "integratedDisclosureSubsectionPaidByType": "",
-                        "integratedDisclosureSubsectionPaymentAmount": "",
-                        "integratedDisclosureSubsectionPaymentTimingType": ""
-                    }
-                ]
-            },
-            "dueToSellerAdjustments":
-            [
-                {
-                    "displayLabel": "",
-                    "closingAdjustmentItemAmount": "",
-                    "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
-                    "closingAdjustmentItemType": "Repairs",
-                    "closingAdjustmentItemTypeOtherDescription": "",
-                    "integratedDisclosureSectionType": "DueToSellerAtClosing",
-                    "integratedDisclosureSubsectionType": "",
-                    "paidByIndividualFullName": "",
-                    "paidByEntityFullName": "",
-                    "paidToEntityFullName": ""
-                }
-            ],
-            "dueToSellerAdjustmentsPaidBySeller":
-            [
-                {
-                    "displayLabel": "",
-                    "integratedDisclosureSectionType": "DueToSellerAtClosing",
-                    "integratedDisclosureSubsectionType": "AdjustmentsForItemsPaidBySellerInAdvance",
-                    "prorationItemAmount": "",
-                    "prorationItemPaidFromDate": "",
-                    "prorationItemPaidThroughDate": "",
-                    "prorationItemType": "",
-                    "prorationItemTypeOtherDescription": ""
-                }
-            ],
             "dueToSellerTotalAmount":
             {
                 "integratedDisclosureSectionSummaryDetailModel":
                 {
                     "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "DueToSellerAtClosing",
+                    "integratedDisclosureSectionType": "",
                     "integratedDisclosureSubsectionTotalAmount": "",
                     "integratedDisclosureSubsectionType": "",
                     "integratedDisclosureSubsectionTypeOtherDescription": "",
@@ -2479,100 +2314,38 @@ app.service('staticData', function($filter){
         },
         "dueFromSeller":
         {
-            "excessDeposit":
-            {
-                "displayLabel": null,
-                "closingCostFundAmount": "",
-                "fundsType": "ExcessDeposit",
-                "integratedDisclosureSectionType": "DueFromSellerAtClosing"
-            },
-            "closingCostPaidAtClosing": null,
-            "existingLoan": "",
-            "payoffFirstMortgage":
-            {
-                "displayLabel": "",
-                "liabilityDescription": "",
-                "liabilityType": "",
-                "liabilityTypeOtherDescription": "",
-                "integratedDisclosureSectionType": "DueFromSellerAtClosing",
-                "liabilitySecuredBySubjectPropertyIndicator": false,
-                "liabilityHolderFullName": "",
-                "payoffAmount": "",
-                "payoffPrepaymentPenaltyAmount": ""
-            },
-            "payOffSecondMortgage":
-            {
-                "displayLabel": "",
-                "liabilityDescription": "",
-                "liabilityType": "",
-                "liabilityTypeOtherDescription": "",
-                "integratedDisclosureSectionType": "DueFromSellerAtClosing",
-                "liabilitySecuredBySubjectPropertyIndicator": false,
-                "liabilityHolderFullName": "",
-                "payoffAmount": "",
-                "payoffPrepaymentPenaltyAmount": ""
-            },
-            "sellerCredit":
-            {
-                "displayLabel": "",
-                "closingAdjustmentItemAmount": "",
-                "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
-                "closingAdjustmentItemType": "SellerCredit",
-                "closingAdjustmentItemTypeOtherDescription": "",
-                "integratedDisclosureSectionType": "DueFromSellerAtClosing",
-                "integratedDisclosureSubsectionType": "",
-                "paidByIndividualFullName": "",
-                "paidByEntityFullName": "",
-                "paidToEntityFullName": ""
-            },
-            "dueFromSellerLiabilities":
-            [
-                {
-                    "displayLabel": "",
-                    "liabilityDescription": "",
-                    "liabilityType": "HELOC",
-                    "liabilityTypeOtherDescription": "",
-                    "integratedDisclosureSectionType": "DueFromSellerAtClosing",
-                    "liabilitySecuredBySubjectPropertyIndicator": false,
-                    "liabilityHolderFullName": "",
-                    "payoffAmount": "1300.00",
-                    "payoffPrepaymentPenaltyAmount": ""
-                }
-            ],
-            "dueFromSellerAdjustments":
-            [
-                {
-                    "displayLabel": "",
-                    "closingAdjustmentItemAmount": "",
-                    "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
-                    "closingAdjustmentItemType": "",
-                    "closingAdjustmentItemTypeOtherDescription": "",
-                    "integratedDisclosureSectionType": "DueFromSellerAtClosing",
-                    "integratedDisclosureSubsectionType": "",
-                    "paidByIndividualFullName": "",
-                    "paidByEntityFullName": "",
-                    "paidToEntityFullName": ""
-                }
-            ],
-            "dueFromSellerAdjustmentsUnPaidBySeller":
-            [
-                {
-                    "displayLabel": "Assessments",
-                    "integratedDisclosureSectionType": "DueFromSellerAtClosing",
-                    "integratedDisclosureSubsectionType": "AdjustmentsForItemsUnpaidBySeller",
-                    "prorationItemAmount": "",
-                    "prorationItemPaidFromDate": "",
-                    "prorationItemPaidThroughDate": "",
-                    "prorationItemType": "",
-                    "prorationItemTypeOtherDescription": ""
-                }
-            ],
+            "excessDeposit": null,
+            "payoffFirstMortgage": null,
+            "payOffSecondMortgage": null,
             "dueFromSellerTotalAmount":
             {
                 "integratedDisclosureSectionSummaryDetailModel":
                 {
                     "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "DueFromSellerAtClosing",
+                    "integratedDisclosureSectionType": "",
+                    "integratedDisclosureSubsectionTotalAmount": "",
+                    "integratedDisclosureSubsectionType": "",
+                    "integratedDisclosureSubsectionTypeOtherDescription": "",
+                    "lenderCreditToleranceCureAmount": ""
+                },
+                "integratedDisclosureSubsectionPayments":
+                [
+				    {
+                        "integratedDisclosureSubsectionPaidByType": "",
+                        "integratedDisclosureSubsectionPaymentAmount": "",
+                        "integratedDisclosureSubsectionPaymentTimingType": ""
+                    } 
+                ]
+            }
+        },
+        "borrowerTransaction":
+        {
+            "dueFromBorrowerAtClosing":
+            {
+                "integratedDisclosureSectionSummaryDetailModel":
+                {
+                    "integratedDisclosureSectionTotalAmount": "",
+                    "integratedDisclosureSectionType": "",
                     "integratedDisclosureSubsectionTotalAmount": "",
                     "integratedDisclosureSubsectionType": "",
                     "integratedDisclosureSubsectionTypeOtherDescription": "",
@@ -2586,31 +2359,13 @@ app.service('staticData', function($filter){
                         "integratedDisclosureSubsectionPaymentTimingType": ""
                     }
                 ]
-            }
-        },
-        "borrowerTransaction":
-        {
-            "dueFromBorrowerAtClosing":
-            {
-                "integratedDisclosureSectionSummaryDetailModel":
-                {
-                    "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
-                    "integratedDisclosureSubsectionTotalAmount": "",
-                    "integratedDisclosureSubsectionType": "",
-                    "integratedDisclosureSubsectionTypeOtherDescription": "",
-                    "lenderCreditToleranceCureAmount": ""
-                },
-                "integratedDisclosureSubsectionPayments":
-                [
-                ]
             },
             "paidAlreadyByOrOnBehalfOfBorrowerAtClosing":
             {
                 "integratedDisclosureSectionSummaryDetailModel":
                 {
                     "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
+                    "integratedDisclosureSectionType": "",
                     "integratedDisclosureSubsectionTotalAmount": "",
                     "integratedDisclosureSubsectionType": "",
                     "integratedDisclosureSubsectionTypeOtherDescription": "",
@@ -2635,7 +2390,7 @@ app.service('staticData', function($filter){
                 "integratedDisclosureSectionSummaryDetailModel":
                 {
                     "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "DueToSellerAtClosing",
+                    "integratedDisclosureSectionType": "",
                     "integratedDisclosureSubsectionTotalAmount": "",
                     "integratedDisclosureSubsectionType": "",
                     "integratedDisclosureSubsectionTypeOtherDescription": "",
@@ -2655,7 +2410,7 @@ app.service('staticData', function($filter){
                 "integratedDisclosureSectionSummaryDetailModel":
                 {
                     "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "DueFromSellerAtClosing",
+                    "integratedDisclosureSectionType": "",
                     "integratedDisclosureSubsectionTotalAmount": "",
                     "integratedDisclosureSubsectionType": "",
                     "integratedDisclosureSubsectionTypeOtherDescription": "",
@@ -2673,8 +2428,89 @@ app.service('staticData', function($filter){
             "cashFromSellerAtClosingAmount": "",
             "cashToSellerAtClosingAmount": ""
         }
-		
-	},
+    },
+	"payoffsAndPayments":
+    {
+        "integratedDisclosureSectionSummary": 
+        {
+            "integratedDisclosureSectionSummaryDetailModel":
+            {
+                "integratedDisclosureSectionTotalAmount": "",
+                "integratedDisclosureSectionType": "",
+                "integratedDisclosureSubsectionTotalAmount": "",
+                "integratedDisclosureSubsectionType": "",
+                "integratedDisclosureSubsectionTypeOtherDescription": "",
+                "lenderCreditToleranceCureAmount": ""
+            },
+            "integratedDisclosureSubsectionPayments":
+            [
+                {
+                    "integratedDisclosureSubsectionPaidByType": "",
+                    "integratedDisclosureSubsectionPaymentAmount": "",
+                    "integratedDisclosureSubsectionPaymentTimingType": ""
+                }
+            ]
+        }
+    },
+    "interestRateAdjustment":
+    {
+        "indexType": "",
+        "indexTypeOtherDescription": "",
+        "ceilingRatePercent": "",
+        "ceilingRatePercentEarliestEffectiveMonthsCount": "",
+        "firstRateChangeMonthsCount": "",
+        "floorRatePercent": "",
+        "marginRatePercent": "",
+        "totalStepCount": "",
+        "firstAdjustmentRule": "",
+        "subsequentAdjustmentRule": null,
+        "firstPerChangeMaximumIncreaseRatePercent": "",
+        "firstPerChangeRateAdjustmentFrequencyMonthsCount": "",
+        "subsequentPerChangeMaximumIncreaseRatePercent": null,
+        "subsequentPerChangeRateAdjustmentFrequencyMonthsCount": null
+    },
+    "principalAndInterestPaymentAdjustment":
+    {
+        "firstPrincipalAndInterestPaymentChangeMonthsCount": "",
+        "principalAndInterestPaymentMaximumAmount": "",
+        "principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount": "",
+        "firstAdjustmentRuleType": "",
+        "firstPerChangeMaximumPrincipalAndInterestPaymentAmount": "",
+        "firstPerChangeMinimumPrincipalAndInterestPaymentAmount": "",
+        "firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": "",
+        "subsequentAdjustmentRuleType": null,
+        "subsequentPerChangeMaximumPrincipalAndInterestPaymentAmount": null,
+        "subsequentPerChangeMinimumPrincipalAndInterestPaymentAmount": null,
+        "subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": null
+    },
+    "payment":
+    {
+        "partialPayments":
+        {
+            "partialPaymentModels":
+            [
+            ]
+        },
+        "paymentRule":
+        {
+            "fullyIndexedInitialPrincipalAndInterestPaymentAmount": "",
+            "initialPrincipalAndInterestPaymentAmount": "",
+            "partialPaymentAllowedIndicator": false,
+            "paymentFrequencyType": "Monthly",
+            "paymentOptionIndicator": false,
+            "seasonalPaymentPeriodEndMonth": "",
+            "seasonalPaymentPeriodStartMonth": "",
+            "totalOptionalPaymentCount": "",
+            "totalStepPaymentCount": ""
+        }
+    },
+    "lateChargeRule":
+    {
+        "lateChargeAmount": "",
+        "lateChargeGracePeriodDaysCount": "",
+        "lateChargeRatePercent": "",
+        "lateChargeType": "PercentOfPrincipalAndInterest"
+    },
     "loanCalculationsQualifiedMortgage":
     {
         "loanCalculationModel":

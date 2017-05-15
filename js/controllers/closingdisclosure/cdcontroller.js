@@ -45,6 +45,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.payoffsAndPaymentsTotalAmount = 0;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;
+    $scope.salePriceAmount = 0;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -80,8 +81,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		prepaidsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0]);
 		iEPatClosingList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[3]);
 		otherCostsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[0]);
-		liability = angular.copy($scope.cdformdata.summariesofTransactions.liabilityList[0]);
-		adjustments = angular.copy($scope.cdformdata.summariesofTransactions.closingAdjustmentItemList[0])
+		liability = angular.copy($scope.cdformdata.liabilityList[0]);
+		adjustments = angular.copy($scope.cdformdata.closingAdjustmentItemList[0])
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
 
 		if(localStorage.jsonData != undefined) {
@@ -240,50 +241,50 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
 
 		// Summaries of Tranaction
-		if($scope.cdformdata.closingInformation.salesContractDetail.saleContractAmount)
-			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.closingInformation.salesContractDetail.saleContractAmount;
-		else if($scope.cdformdata.closingInformation.salesContractDetail.realPropertyAmount)
-			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.closingInformation.salesContractDetail.realPropertyAmount;
+		if($scope.cdformdata.salesContractDetail.saleContractAmount)
+			$scope.salePriceAmount = $scope.cdformdata.salesContractDetail.saleContractAmount;
+		else if($scope.cdformdata.salesContractDetail.realPropertyAmount)
+			$scope.salePriceAmount = $scope.cdformdata.salesContractDetail.realPropertyAmount;
 		else
-			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = 0;
+			$scope.salePriceAmount = 0;
 
 		var dueFromBrwLiabilityTypes = [];
 
-        dueFromBrwLiabilityTypes = $scope.cdformdata.summariesofTransactions.liabilityList.filter(function(item){
+        dueFromBrwLiabilityTypes = $scope.cdformdata.liabilityList.filter(function(item){
 		    return item.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'
 		});
 		for(i=dueFromBrwLiabilityTypes.length; i<3; i++) {
 			var dueFromBrwLiabilityType = angular.copy(liability);
 			dueFromBrwLiabilityType.integratedDisclosureSectionType='DueFromBorrowerAtClosing';
-			$scope.cdformdata.summariesofTransactions.liabilityList.push(dueFromBrwLiabilityType);
+			$scope.cdformdata.liabilityList.push(dueFromBrwLiabilityType);
 		}
 
 		var dueFromBrwAdjustmentTypes = [];
 
-        dueFromBrwAdjustmentTypes = $scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.filter(function(item){
+        dueFromBrwAdjustmentTypes = $scope.cdformdata.closingAdjustmentItemList.filter(function(item){
 		    return item.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'
 		});
 		for(i=dueFromBrwAdjustmentTypes.length; i<3; i++) {
 			var dueFromBrwAdjustmentType = angular.copy(liability);
 			dueFromBrwAdjustmentType.integratedDisclosureSectionType='DueFromBorrowerAtClosing';
-			$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.push(dueFromBrwAdjustmentType);
+			$scope.cdformdata.closingAdjustmentItemList.push(dueFromBrwAdjustmentType);
 		}
 
 		//PaidAlreadyByOrOnBehalfOfBorrowerAtClosing
         var paidAlreadyBrwAtClosingAdjustmentTypes = [];
 
-        paidAlreadyBrwAtClosingAdjustmentTypes = $scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.filter(function(item){
+        paidAlreadyBrwAtClosingAdjustmentTypes = $scope.cdformdata.closingAdjustmentItemList.filter(function(item){
 		    return item.integratedDisclosureSectionType == 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing'
 		});
 		for(i=dueFromBrwAdjustmentTypes.length; i<3; i++) {
 			var paidAlreadyBrwAtClosingAdjustmentType = angular.copy(liability);
 			paidAlreadyBrwAtClosingAdjustmentType.integratedDisclosureSectionType='PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
-			$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.push(paidAlreadyBrwAtClosingAdjustmentType);
+			$scope.cdformdata.closingAdjustmentItemList.push(paidAlreadyBrwAtClosingAdjustmentType);
 		}
         
         var dueToSellerAtClosing =[];
 
-        dueToSellerAtClosing = $scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.filter(function(item){
+        dueToSellerAtClosing = $scope.cdformdata.closingAdjustmentItemList.filter(function(item){
 		    return item.integratedDisclosureSectionType == 'DueToSellerAtClosing'
 		});
 
@@ -294,13 +295,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				}
 			}
 		}
-        /*for(k=0;k<$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.length;k++){
+        /*for(k=0;k<$scope.cdformdata.closingAdjustmentItemList.length;k++){
         	if($scope.cdformdata.summariesofTransactions.closingAdjustmentItemList[k].integratedDisclosureSectionType == 'DueToSellerAtClosing'){
         		$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList[k].splice(k,1);
         	}
         }
 
-        $scope.cdformdata.summariesofTransactions.closingAdjustmentItemList.push(dueToSellerAtClosing);*/
+        $scope.cdformdata.closingAdjustmentItemList.push(dueToSellerAtClosing);*/
 
 
 
@@ -402,7 +403,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 
     $scope.addDueFromBrwLiability = function(){
-    	$scope.cdformdata.summariesofTransactions.liabilityList.push(angular.copy(dueFromBrwLiabilityType));
+    	$scope.cdformdata.liabilityList.push(angular.copy(dueFromBrwLiabilityType));
     }
 	$scope.changeTab = function(tabName){
     	$scope.showTab = tabName;
@@ -777,26 +778,37 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
   			totalClosingCosts +=  $scope.cdformdata.closingCostsTotal.lenderCredits == null ? +0 : parseFloat($scope.cdformdata.closingCostsTotal.lenderCredits);
         $scope.cdformdata.closingCostsTotal.totalClosingCosts = totalClosingCosts;
     },true);
+    
 
-	$scope.$watch('cdformdata.closingInformation.salesContractDetail', function(newValue,oldValue){
-		if($scope.cdformdata.closingInformation.salesContractDetail.saleContractAmount)
-			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.closingInformation.salesContractDetail.saleContractAmount;
-		else if($scope.cdformdata.closingInformation.salesContractDetail.realPropertyAmount)
-			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.closingInformation.salesContractDetail.realPropertyAmount;
+	$scope.$watch('cdformdata.salesContractDetail', function(newValue,oldValue){
+		if($scope.cdformdata.salesContractDetail.saleContractAmount)
+			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.salesContractDetail.saleContractAmount;
+		else if($scope.cdformdata.salesContractDetail.realPropertyAmount)
+			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.salesContractDetail.realPropertyAmount;
 		else
 			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = 0;
 	}, true);
-    
-	$scope.$watch('cdformdata.payoffsAndPayments', function(newValue,oldValue){
+
+    var pAPliabilitiesList = {};
+    var pAPclosingAdjustmentItemList = {};
+
+    pAPliabilitiesList = $scope.cdformdata.liabilityList.filter(function(item){
+		    return item.integratedDisclosureSectionType == 'PayoffsAndPayments'
+	});
+	pAPclosingAdjustmentItemList = $scope.cdformdata.closingAdjustmentItemList.filter(function(item){
+		    return item.integratedDisclosureSectionType == 'PayoffsAndPayments'
+	});
+
+	/*$scope.$watch('cdformdata.payoffsAndPayments', function(newValue,oldValue){
 		payoffsAndPaymentsTotalAmount = 0;
-		for(i=0; i<$scope.cdformdata.payoffsAndPayments.liabilitiesList.length; i++) {
-         	payoffsAndPaymentsTotalAmount += $scope.cdformdata.payoffsAndPayments.liabilitiesList[i].payoffAmount == null ? +0 : parseFloat($scope.cdformdata.payoffsAndPayments.liabilitiesList[i].payoffAmount);
+		for(i=0; i<$scope.pAPliabilitiesList.length; i++) {
+         	payoffsAndPaymentsTotalAmount += $scope.pAPliabilitiesList[i].payoffAmount == null ? +0 : parseFloat($scope.pAPliabilitiesList[i].payoffAmount);
         }
-        for(i=0; i<$scope.cdformdata.payoffsAndPayments.closingAdjustmentItemList.length; i++) {
-         	payoffsAndPaymentsTotalAmount += $scope.cdformdata.payoffsAndPayments.closingAdjustmentItemList[i].closingAdjustmentItemAmount == null ? +0 : parseFloat($scope.cdformdata.payoffsAndPayments.closingAdjustmentItemList[i].closingAdjustmentItemAmount);
+        for(i=0; i<$scope.pAPclosingAdjustmentItemList.length; i++) {
+         	payoffsAndPaymentsTotalAmount += $scope.pAPclosingAdjustmentItemList[i].closingAdjustmentItemAmount == null ? +0 : parseFloat($scope.pAPclosingAdjustmentItemList[i].closingAdjustmentItemAmount);
         }
 
-	}, true);
+	}, true);*/
 
 });
 

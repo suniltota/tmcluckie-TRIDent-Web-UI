@@ -111,24 +111,24 @@
 		</div>
 		<div class="col-sm-6" ng-show="loanBasicInfo.loanFormType == 'standard'">
 				<h5 class="innerSectionHeader">Price Information (Purchase Only)</h5>
-				 <div class="row" ng-show="cdformdata.closingInformation.salesContractDetail.personalPropertyIndicator == false">
+				 <div class="row" ng-show="cdformdata.salesContractDetail.personalPropertyIndicator == false">
 				 	 <div class=" col-sm-12">
 					    <div class="col-sm-5 fieldTitle">Sales Price (Purchase Only)</div>
 		              	<div class="col-sm-7 radioGroup">
 						   	 <div class="input-group">
   								<span class="input-group-addon input-default">$</span>
-		        				<input type="text" class="form-control" ng-model="cdformdata.closingInformation.salesContractDetail.saleContractAmount">
+		        				<input type="text" class="form-control" ng-model="cdformdata.salesContractDetail.saleContractAmount">
 		        			</div>
 						</div>
 		             </div>
 		          </div>
-		          <div class="row" ng-show="cdformdata.closingInformation.salesContractDetail.personalPropertyIndicator == true">
+		          <div class="row" ng-show="cdformdata.salesContractDetail.personalPropertyIndicator == true">
 				 	 <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Real Property Price</div>
 		              	<div class="col-sm-7 radioGroup">
 						   	<div class="input-group">
   								<span class="input-group-addon input-default">$</span>
-		        				<input type="text" class="form-control" ng-model="cdformdata.closingInformation.salesContractDetail.realPropertyAmount">
+		        				<input type="text" class="form-control" ng-model="cdformdata.salesContractDetail.realPropertyAmount">
 		        			</div>
 						</div>
 		             </div>
@@ -137,7 +137,7 @@
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Personal Property Included?</div>
 		              <div class="col-sm-3">
-		              		<select class="form-control" ng-model="cdformdata.closingInformation.salesContractDetail.personalPropertyIndicator"
+		              		<select class="form-control" ng-model="cdformdata.salesContractDetail.personalPropertyIndicator"
 		              		ng-options="option.id as option.name for option in dropDownBooleanOptions">
                             </select>
 		              </div>

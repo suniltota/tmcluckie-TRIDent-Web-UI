@@ -11,7 +11,7 @@
 		        	Sales Price of Property <span class="required">*</span>
 		        </td>
 		        <td>
-		        	<label>${{cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty | number:2}}</label>
+		        	<label>${{salePriceAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -19,7 +19,7 @@
 		        	Sale Price of Personal Property Included in Sale  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfPersonalProperty">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.salesContractDetail.personalPropertyAmount">
 		        </td>
 		      </tr>
 		      <tr>
@@ -42,7 +42,7 @@
 		        <th class="innerSectionHeader">Full Name Paid to Organization</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		     <tr ng-repeat="liablitySection in cdformdata.summariesofTransactions.liabilityList track by $index" ng-if="liablitySection.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'">
+		     <tr ng-repeat="liablitySection in cdformdata.liabilityList track by $index" ng-if="liablitySection.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="liablitySection.displayLabel">  
 		        </td>
@@ -75,7 +75,7 @@
 		        <th class="innerSectionHeader">Paid outside of Closing Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustments in cdformdata.summariesofTransactions.closingAdjustmentItemList track by $index" ng-if="adjustments.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'">
+		      <tr ng-repeat="adjustments in cdformdata.closingAdjustmentItemList track by $index" ng-if="adjustments.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustments.displayLabel">  
 		        </td>
@@ -109,7 +109,7 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.summariesofTransactions.dueFromBorroweratClosing.adjustmentsPaidBySellerInAdvance track by $index" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='Assessments'">
+		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.closingAdjustmentItemList | filter:{ integratedDisclosureSectionType : DueFromBorrowerAtClosing } track by $index" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='Assessments'">
 		        <td >
 		        	<label>{{adjustmentsPaidBySellerInAdvance.displayLabel}}</label>
 		        </td>

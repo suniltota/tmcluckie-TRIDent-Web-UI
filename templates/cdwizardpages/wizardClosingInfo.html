@@ -103,25 +103,25 @@
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle"> Is there Personal Property Itemized in the Sales Contract?</div>
 			<div class="col-sm-2">
-				<select class="form-control pull-left" ng-model="transformData.pageOne.closingInformation.salesContractDetail.personalPropertyIndicator">
+				<select class="form-control pull-left" ng-model="transformData.pageOne.salesContractDetail.personalPropertyIndicator">
 	        		<option>YES</option>
 	        		<option>NO</option>
 	        	</select>
 			</div>
 		</div>
-		<div ng-show="transformData.pageOne.closingInformation.salesContractDetail.personalPropertyIndicator == 'YES'">
+		<div ng-show="transformData.pageOne.salesContractDetail.personalPropertyIndicator == 'YES'">
 			<div class="FieldGroup col-sm-12 margin2btb">
 				<div class="fontBold col-sm-2 fieldTitle"></div>
 				<div class="col-sm-6 fieldTitle">Real Property Amount</div>
-				<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.closingInformation.salesContractDetail.realPropertyAmount" class="form-control"></div>
+				<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.salesContractDetail.realPropertyAmount" class="form-control"></div>
 			</div>
 			<div class="FieldGroup col-sm-12 margin2btb">
 				<div class="fontBold col-sm-2 fieldTitle"></div>
 				<div class="col-sm-6 fieldTitle">Personal Property Amount</div>
-				<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.closingInformation.salesContractDetail.personalPropertyAmount" class="form-control"></div>
+				<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.salesContractDetail.personalPropertyAmount" class="form-control"></div>
 			</div>
 		</div>
-		<div class="FieldGroup col-sm-12 margin2btb" ng-show="transformData.pageOne.closingInformation.salesContractDetail.personalPropertyIndicator == 'NO'">
+		<div class="FieldGroup col-sm-12 margin2btb" ng-show="transformData.pageOne.salesContractDetail.personalPropertyIndicator == 'NO'">
 			<div class="fontBold col-sm-2 fieldTitle"></div>
 			<div class="col-sm-6 fieldTitle">Sale Contract Amount</div>
 			<div class="col-sm-3"><input type="text"  ng-model="transformData.pageOne.closingInformation.salePrice" class="form-control"></div>
