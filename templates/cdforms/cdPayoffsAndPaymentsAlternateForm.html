@@ -11,119 +11,71 @@
 		        <th class="innerSectionHeader">Is the Liability a partial Payoff?</th>
 		        <th class="innerSectionHeader">If Prepayment Penalty, provide  the amount</th>   
 		      </tr>
-		      <tr ng-repeat="liability in cdformdata.liabilityList track by $index" ng-if="liability.integratedDisclosureSectionType=='PayoffsAndPayments'">
+		      <tr ng-repeat="payoffsAndPayment in payoffsAndPaymentsList track by $index">
 			        <td>
 			        	<span class="col-sm-12 ">
-				        	<select class="form-control padding0" ng-model="payOffTypeSelection" ng-init="payOffTypeSelection ='Liability'">
+				        	<select class="form-control padding0" ng-model="payoffsAndPayment.payOffType">
 		              			<option value="" selected>Select</option>
-		              			<option ng-repeat="payOffType in payOffTypes" value="{{payOffType.value}}" ng-disabled="payOffType.disabled">{{payOffType.name}}</option>
+		              			<option ng-repeat="payOff in payOffTypes" value="{{payOff.value}}" ng-disabled="payOff.disabled">{{payOff.name}}</option>
 		              		</select>
 		              	</span>
 		              	<span class="col-sm-12 margin5tb">
-		              		<button class="btn">Delete Field Info</button>
+		              		<button class="btn" ng-click="deleteField($index)">Delete Field Info</button>
 		              	</span>
 			        </td>
 			        <td>
 			        	<span class="col-sm-12 ">
 			        		<strong class="col-sm-12 padding0">Label :</strong>
-			        		<input type="text" class="form-control" name="" ng-model="liability.displayLabel">
+			        		<input type="text" class="form-control" name="" ng-model="payoffsAndPayment.displayLabel">
 		              	</span>
 		              	<span class="col-sm-12 margin5tb">
 		              		<strong class="col-sm-12 padding0">Type :</strong>
-		              		<select class="form-control padding0" ng-model="liability.liabilityType">
+		              		<select class="form-control padding0" ng-model="payoffsAndPayment.itemType">
 		              			<option value="" selected>Select</option>
-		              			<option ng-repeat="liabilityType in liabilityTypes" value="{{liabilityType.value}}" ng-disabled="liabilityType.disabled">{{liabilityType.name}}</option>
-              		        </select>
-		              	</span>
-
-
-			        </td>
-			        <td>
-			        	<span class="col-sm-12 ">
-			        		<strong class="col-sm-12 padding0">Paid TO Full Name :</strong>
-			        		<input type="text" class="form-control padding0" name="" ng-model="liability.liabilityHolderFullName">
-		              	</span>
-		              	<span class="col-sm-12 margin5tb">
-		              		<strong class="col-sm-12 padding0">Paid BY Full Name :</strong>
-		              		<input type="text" class="form-control padding0" name="" disabled>
-		              	</span>
-
-			        	
-			        </td>
-			        <td>
-			        	<input type="text" class="form-control padding0" name="" ng-model="liability.payoffAmount">
-			        </td>
-			        <td>
-			        	<select class="form-control pull-left" ng-model="liability.liabilitySecuredBySubjectPropertyIndicator"  ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select>
-			        </td>
-			        <td>
-			        	<select class="form-control pull-left" ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select>
-			        </td>
-			        <td>
-			        	<input type="text" class="form-control padding0" name="" ng-model="liability.payoffPrepaymentPenaltyAmount">
-			        </td>		        
-		      </tr>
-		      <tr ng-repeat="adjustment in cdformdata.closingAdjustmentItemList track by $index" ng-if="adjustment.integratedDisclosureSectionType=='PayoffsAndPayments'">
-			        <td>
-			        	<span class="col-sm-12 ">
-				        	<select class="form-control padding0" ng-model="payOffTypeSelection" ng-init="payOffTypeSelection ='Adjustment'">
-		              			<option value="" selected>Select</option>
-		              			<option ng-repeat="payOffType in payOffTypes" value="{{payOffType.value}}" ng-disabled="payOffType.disabled">{{payOffType.name}}</option>
+		              			<option ng-repeat="lType in liabilityTypes" value="{{lType.value}}" ng-disabled="lType.disabled" ng-if="payoffsAndPayment.payOffType == 'Liability'">{{lType.name}}</option>
+		              			<option ng-repeat="aType in adjustmentTypes" value="{{aType.value}}" ng-disabled="aType.disabled" ng-if="payoffsAndPayment.payOffType == 'Adjustment'">{{aType.name}}</option>
 		              		</select>
 		              	</span>
-		              	<span class="col-sm-12 margin5tb">
-		              		<button class="btn">Delete Field Info</button>
-		              	</span>
-			        </td>
-			        <td>
-			        	<span class="col-sm-12 ">
-			        		<strong class="col-sm-12 padding0">Label :</strong>
-			        		<input type="text" class="form-control" name="" ng-model="adjustment.displayLabel">
-		              	</span>
-		              	<span class="col-sm-12 margin5tb">
-		              		<strong class="col-sm-12 padding0">Type :</strong>
-		              		<select class="form-control padding0" ng-model="adjustment.closingAdjustmentItemType">
-		              			<option>Select</option>
-		              			<option ng-repeat="adjustmentType in otherCredits" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
-		              		</select>
+		              	<span class="col-sm-12 ">
+			        		<strong class="col-sm-12 padding0">Description :</strong>
+			        		<input type="text" class="form-control" name="" ng-model="payoffsAndPayment.otherDescription" ng-disabled="payoffsAndPayment.itemType!='Other'">
 		              	</span>
 			        </td>
 			        <td>
 			        	<span class="col-sm-12 ">
 			        		<strong class="col-sm-12 padding0">Paid TO Full Name :</strong>
-			        		<input type="text" class="form-control padding0" name="" ng-model="adjustment.paidToEntityFullName" ng-show="adjustment.paidToEntityFullName!=''">
-			        		<input type="text" class="form-control padding0" name="" ng-model="adjustment.paidByIndividualFullName" ng-show="adjustment.paidByIndividualFullName!=''">
+			        		<input type="text" class="form-control padding0" name="" ng-model="payoffsAndPayment.paidToFullName">
 		              	</span>
 		              	<span class="col-sm-12 margin5tb">
 		              		<strong class="col-sm-12 padding0">Paid BY Full Name :</strong>
-		              		<input type="text" class="form-control padding0" name="" ng-model="adjustment.paidByEntityFullName">
+		              		<input type="text" class="form-control padding0" name="" ng-model="payoffsAndPayment.paidByFullName">
 		              	</span>
 			        </td>
 			        <td>
-			        	<input type="text" class="form-control padding0" name="" ng-model="adjustment.closingAdjustmentItemAmount">
+			        	<input type="text" class="form-control padding0" name="" ng-model="payoffsAndPayment.payoffAmount">
+			        </td>
+			       <td>
+			        	<select class="form-control pull-left" ng-model="payoffsAndPayment.securedIndicator"  ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="payoffsAndPayment.payOffType!='Liability'">
+		        	</select>
 			        </td>
 			        <td>
-			        	<select class="form-control padding0" disabled><option></option></select>
+			        	<select class="form-control pull-left" ng-model="payoffsAndPayment.partialPayoffIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="payoffsAndPayment.payOffType!='Liability'">
+		        	</select>
 			        </td>
 			        <td>
-			        	<select class="form-control padding0" disabled><option></option></select>
-			        </td>
-			        <td>
-			        	<input type="text" class="form-control padding0" name="" disabled>
+			        	<input type="text" class="form-control padding0" name="" ng-model="liability.payoffPrepaymentPenaltyAmount" ng-disabled="payoffsAndPayment.payOffType!='Liability'">
 			        </td>		        
 		      </tr>
 
 		</table>
-		<span class="AddSection">
+		<span class="AddSection" ng-click="addPayOff()">
 			<a>+ Add Additional lines</a>
 		</span>		
 		<table class="table col-sm-12">
 		    <tbody>
 		      <tr>
 		        <td class="col-sm-5"><label>Total Payoffs and Payments</label></td>
-		        <td class="col-sm-2"><label class="ng-binding" ng-model="payoffsAndPaymentsTotalAmount">${{payoffsAndPaymentsTotalAmount}}</label></td>
+		        <td class="col-sm-2"><label class="ng-binding" ng-model="payoffsAndPaymentsTotalAmount">${{payoffsAndPaymentsTotalAmount | number:2}}</label></td>
 		        <td class="col-sm-5"></td>
 		      </tr>
 		    </tbody>
@@ -134,6 +86,3 @@
 			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('LoanDisclosures')">Next</a></span>
 	</div>
 </div>
-
-
-

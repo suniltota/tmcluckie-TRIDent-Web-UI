@@ -62,6 +62,18 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     var otherCostsList = {};
     var liability= {};
     var adjustments = {};
+    var payoffsAndPaymentObj = {
+          "payOffType":"",
+          "displayLabel":"",
+          "itemType":"",
+          "otherDescription":"",
+          "paidToFullName":"",
+          "paidByFullName":"",
+          "payoffAmount":"",
+          "securedIndicator":"",
+          "partialPayoffIndicator":"",
+          "prepaymentPenaltyAmount":""
+    };
 
 	$scope.dateOptions = {
  		formatYear: 'yy',
@@ -301,11 +313,50 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
         	if($scope.cdformdata.summariesofTransactions.closingAdjustmentItemList[k].integratedDisclosureSectionType == 'DueToSellerAtClosing'){
         		$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList[k].splice(k,1);
         	}
-        }
+        }*/
 
-        $scope.cdformdata.closingAdjustmentItemList.push(dueToSellerAtClosing);*/
+		$scope.payoffsAndPaymentsList = [];
+      
+		for(i=0; i<$scope.cdformdata.liabilityList.length; i++) {
+			if($scope.cdformdata.liabilityList[i].integratedDisclosureSectionType == 'PayoffsAndPayments')
+			{
+				var payoffLiability = angular.copy(payoffsAndPaymentObj);
+				payoffLiability.payOffType = 'Liability';
+				payoffLiability.displayLabel = $scope.cdformdata.liabilityList[i].displayLabel;
+				payoffLiability.itemType = $scope.cdformdata.liabilityList[i].liabilityType;
+				payoffLiability.otherDescription = $scope.cdformdata.liabilityList[i].liabilityTypeOtherDescription;
+				payoffLiability.paidToFullName = $scope.cdformdata.liabilityList[i].liabilityHolderFullName;
+				payoffLiability.securedIndicator = $scope.cdformdata.liabilityList[i].liabilitySecuredBySubjectPropertyIndicator;
+				//payoffLiability.partialPayoffIndicator = $scope.cdformdata.liabilityList[i].liabilitypartialPayoffIndicator;
+				payoffLiability.payoffAmount = $scope.cdformdata.liabilityList[i].payoffAmount;
+	            payoffLiability.prepaymentPenaltyAmount = $scope.cdformdata.liabilityList[i].payoffPrepaymentPenaltyAmount;
+				$scope.payoffsAndPaymentsList.push(payoffLiability);
+		    }
+		}
 
+        
+        var payOffAdjustments = [];
 
+      	for(i=0; i<$scope.cdformdata.closingAdjustmentItemList.length; i++) {
+			if($scope.cdformdata.closingAdjustmentItemList[i].integratedDisclosureSectionType == 'PayoffsAndPayments')
+			{
+				var payoffAdjustment = angular.copy(payoffsAndPaymentObj);
+				payoffAdjustment.payOffType = 'Adjustment';
+				payoffAdjustment.displayLabel = $scope.cdformdata.closingAdjustmentItemList[i].displayLabel;
+				payoffAdjustment.itemType = $scope.cdformdata.closingAdjustmentItemList[i].closingAdjustmentItemType;
+				payoffAdjustment.otherDescription = $scope.cdformdata.closingAdjustmentItemList[i].closingAdjustmentItemTypeOtherDescription;
+				payoffAdjustment.paidToFullName = $scope.cdformdata.closingAdjustmentItemList[i].paidToEntityFullName;
+				if($scope.cdformdata.closingAdjustmentItemList[i].paidByIndividualFullName != '' && $scope.cdformdata.closingAdjustmentItemList[i].paidByIndividualFullName != null){
+				    payoffAdjustment.paidByFullName = $scope.cdformdata.closingAdjustmentItemList[i].paidByIndividualFullName;
+				}
+				else if($scope.cdformdata.closingAdjustmentItemList[i].paidByEntityFullName != '' && $scope.cdformdata.closingAdjustmentItemList[i].paidByEntityFullName != null){
+					payoffAdjustment.paidByFullName = $scope.cdformdata.closingAdjustmentItemList[i].paidByEntityFullName;
+				} 
+				payoffAdjustment.payoffAmount = $scope.cdformdata.closingAdjustmentItemList[i].closingAdjustmentItemAmount;
+				$scope.payoffsAndPaymentsList.push(payoffAdjustment);
+		    }
+
+		}
 
 		setTimeout(function(){$("#spinner").hide();}, 3000);
 		$scope.cdformdata.closingInformation.dateIssued = new Date();
@@ -409,6 +460,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 	$scope.changeTab = function(tabName){
     	$scope.showTab = tabName;
+    }
+    $scope.addPayOff = function(){
+    	$scope.payoffsAndPaymentsList.push(angular.copy(payoffsAndPaymentObj));
+    }
+    $scope.deleteField = function(index){
+    	$scope.payoffsAndPaymentsList.splice(index,1);
     }
 
 	$scope.updateETIAComponentTypes = function(value, index) {
@@ -790,27 +847,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		else
 			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = 0;
 	}, true);
-
-    var pAPliabilitiesList = {};
-    var pAPclosingAdjustmentItemList = {};
-
-    pAPliabilitiesList = $scope.cdformdata.liabilityList.filter(function(item){
-		    return item.integratedDisclosureSectionType == 'PayoffsAndPayments'
-	});
-	pAPclosingAdjustmentItemList = $scope.cdformdata.closingAdjustmentItemList.filter(function(item){
-		    return item.integratedDisclosureSectionType == 'PayoffsAndPayments'
-	});
-
-	/*$scope.$watch('cdformdata.payoffsAndPayments', function(newValue,oldValue){
-		payoffsAndPaymentsTotalAmount = 0;
-		for(i=0; i<$scope.pAPliabilitiesList.length; i++) {
-         	payoffsAndPaymentsTotalAmount += $scope.pAPliabilitiesList[i].payoffAmount == null ? +0 : parseFloat($scope.pAPliabilitiesList[i].payoffAmount);
+    
+    $scope.$watch('payoffsAndPaymentsList', function(newValue,oldValue){
+    	var totalAmount = 0;
+	   for(k=0;k<$scope.payoffsAndPaymentsList.length;k++){
+	   		if($scope.payoffsAndPaymentsList[k].payoffAmount)
+        		totalAmount += parseFloat($scope.payoffsAndPaymentsList[k].payoffAmount);
         }
-        for(i=0; i<$scope.pAPclosingAdjustmentItemList.length; i++) {
-         	payoffsAndPaymentsTotalAmount += $scope.pAPclosingAdjustmentItemList[i].closingAdjustmentItemAmount == null ? +0 : parseFloat($scope.pAPclosingAdjustmentItemList[i].closingAdjustmentItemAmount);
-        }
-
-	}, true);*/
+        $scope.payoffsAndPaymentsTotalAmount = totalAmount;
+    }, true);
 
 });
 
