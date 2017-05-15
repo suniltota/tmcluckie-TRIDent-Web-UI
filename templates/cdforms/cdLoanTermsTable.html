@@ -164,14 +164,20 @@
 		        			<span class="pull-left margin5tb">years starting in year</span>
 		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.principalInterest.firstPrincipalAndInterestPaymentChangeMonthsCount"></span></li>
 		        		<li><span class="pull-left margin5tb"> Can go as high as</span> 
-		        			<span class="col-sm-2">
-							<input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.principalInterest.principalAndInterestPaymentMaximumAmount"></span> 
+		        			<span class="col-sm-3">
+		        			<div class="input-group">
+								<span class="input-group-addon input-default">$</span>
+								<input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.principalInterest.principalAndInterestPaymentMaximumAmount">
+							</div>
+							</span> 
 		        			<span class="pull-left margin5tb">in year</span> 
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.principalInterest.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount"></span></li>
+		        			<span class="col-sm-2">
+		        			<input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.principalInterest.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount">
+		        			</span>
+		        		</li>
 		        	</ul>
 		        </td>
-		      </tr>
-		      
+		      </tr>		      
 		      <tr>
 		        <td><label>Prepayment Penalty</label></td>
 		        <td><label></label></td>
@@ -183,13 +189,17 @@
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyIndicator == true">
 		        		<li> <span class="pull-left margin5tb">As high as</span> 
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyMaximumLifeOfLoanAmount"></span> 
-		        			<span class="pull-left margin5tb">if you pay off the loan  in the first</span>
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount"></span>
-		        			<span class="pull-left margin5tb">years</span>
-		        			</li>
-		        		
-		        	</ul>
+		        			<span class="col-sm-3">
+		        				<div class="input-group">
+		        					<span class="input-group-addon input-default">$</span>
+		        					<input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyMaximumLifeOfLoanAmount">
+		        				</div>
+		        				</span>
+		        					<span class="pull-left margin5tb">if you pay off the loan  in the first</span>
+		        					<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount"></span>
+		        				<span class="pull-left margin5tb">years</span>
+		        		</li>
+			         </ul>
 		        </td>
 		      </tr>
 		      <tr>
@@ -202,11 +212,15 @@
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanTerms.balloonPayment.balloonIndicator == true">
 		        		<li> <span class="pull-left margin5tb">You will have to pay</span> 
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.balloonPayment.balloonPaymentAmount"></span> 
+		        			<span class="col-sm-3">
+			        			<div class="input-group">
+			        					<span class="input-group-addon input-default">$</span>
+			        					<input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.balloonPayment.balloonPaymentAmount">
+			        			</div>
+		        			</span>
 		        			<span class="pull-left margin5tb">at the end of year</span>
 		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.loanMaturityPeriodCount"></span>
-		        			</li>
-		        		
+		        		</li>		        		
 		        	</ul>
 		        </td>
 		      </tr>
