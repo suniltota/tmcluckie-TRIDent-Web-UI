@@ -76,7 +76,7 @@
 		        	<label>Adjustment</label>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="liablitySection in cdformdata.summariesofTransactions.liabilityList track by $index" ng-if="liablitySection.integratedDisclosureSectionType == 'DueFromSellerAtClosing'">
+		      <tr ng-repeat="liablitySection in cdformdata.liabilityList track by $index" ng-if="liablitySection.integratedDisclosureSectionType == 'DueFromSellerAtClosing'">
 		        <td>
 		        	<input type="text" class="form-control padding0" value="Adjustment for Fuel Levels" name="">  
 		        </td>
@@ -105,7 +105,7 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="liablitySection.payoffAmount">
 		        </td>
 		      </tr>
-		      <tr ng-repeat="adjustments in cdformdata.summariesofTransactions.closingAdjustmentItemList track by $index" ng-if="adjustments.integratedDisclosureSectionType == 'DueFromSellerAtClosing'">
+		      <tr ng-repeat="adjustments in cdformdata.closingAdjustmentItemList track by $index" ng-if="adjustments.integratedDisclosureSectionType == 'DueFromSellerAtClosing'">
 		        <td>
 		        	<input type="text" class="form-control padding0" value="Adjustment for Fuel Levels" name="">  
 		        </td>
@@ -172,7 +172,7 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.summariesofTransactions.paidByAlready.adjustmentsUnpaidBySeller track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.closingAdjustmentItemList | filter:{ integratedDisclosureSectionType : DueFromSellerAtClosing } track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
 		        <td>
 		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
 		        </td>
@@ -190,7 +190,7 @@
 		        	<label>${{adjustmentsUnpaidBySeller.prorationItemAmount | number:2}}</label>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.summariesofTransactions.paidByAlready.adjustmentsUnpaidBySeller track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes' && adjustmentsUnpaidBySeller.displayLabel !='Assessments'">
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.summariesofTransactions.paidByAlready.adjustmentsUnpaidBySeller | filter:{ integratedDisclosureSectionType : DueFromSellerAtClosing } track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes' && adjustmentsUnpaidBySeller.displayLabel !='Assessments'">
 		        <td>
 		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
 		        </td>
