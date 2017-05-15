@@ -3,13 +3,13 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader col-sm-2">Paid To Name</th>
-		        <th class="innerSectionHeader">Item Description</th>
-		        <th class="innerSectionHeader">Paid By Name</th>
+		        <th class="innerSectionHeader col-sm-2">Indicate either LiabilityOR adjustment</th>
+		        <th class="innerSectionHeader col-sm-2">Item Description</th>
+		        <th class="innerSectionHeader col-sm-2">Paid To /By Name </th>
 		        <th class="innerSectionHeader">Amount</th>
-		        <th class="innerSectionHeader">Subject Property Securing Liability?</th>
-		        <th class="innerSectionHeader">Prepayment Amount</th>
-		        <th class="innerSectionHeader">Partial Payoff Flag</th>   
+		        <th class="innerSectionHeader"> Liability Secured by the Subject Property?</th>
+		        <th class="innerSectionHeader">Is the Liability a partial Payoff?</th>
+		        <th class="innerSectionHeader">If Prepayment Penalty, provide  the amount</th>   
 		      </tr>
 		      <tr ng-repeat="liability in cdformdata.payoffsAndPayments.liabilitiesList">
 		        <td>
@@ -39,33 +39,57 @@
 					</select>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="adjustment in cdformdata.payoffsAndPayments.closingAdjustmentItemList">
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="adjustment.paidToEntityFullName">
-		        </td>
-		        <td>
-		        	<select class="form-control padding0" ng-model="adjustment.closingAdjustmentItemType">
-              			<option>Select</option>
-              			<option ng-repeat="adjustmentType in otherCredits" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
-              		</select>
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="adjustment.paidByEntityFullName">
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="adjustment.closingAdjustmentItemAmount">
-		        </td>
-		        <td>
-		        	<select class="form-control padding0"><option></option></select>
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="">
-		        </td>
-		        <td>
-		        	<select class="form-control padding0">
-              			<option>Select</option>
-              		</select>
-		        </td>		        
+		      <tr>
+			        <td>
+			        	<span class="col-sm-12 ">
+				        	<select class="form-control padding0" ng-model="adjustment.paidToEntityFullName">
+		              			<option>Select</option>
+		              			<option ng-repeat="adjustmentType in otherCredits" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
+		              		</select>
+		              	</span>
+		              	<span class="col-sm-12 margin5tb">
+		              		<button class="btn">Delete Field Info</button>
+		              	</span>
+			        </td>
+			        <td>
+			        	<span class="col-sm-12 ">
+			        		<strong class="col-sm-12 padding0">Label :</strong>
+			        		<input type="text" class="form-control" value="First Lien Mortgage" name="">
+		              	</span>
+		              	<span class="col-sm-12 margin5tb">
+		              		<strong class="col-sm-12 padding0">Type :</strong>
+		              		<select class="form-control padding0" ng-model="adjustment.closingAdjustmentItemType">
+		              			<option>Select</option>
+		              			<option ng-repeat="adjustmentType in otherCredits" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
+		              		</select>
+		              	</span>
+
+
+			        </td>
+			        <td>
+			        	<span class="col-sm-12 ">
+			        		<strong class="col-sm-12 padding0">Paid TO Full Name :</strong>
+			        		<input type="text" class="form-control padding0" name="" ng-model="adjustment.paidByEntityFullName">
+		              	</span>
+		              	<span class="col-sm-12 margin5tb">
+		              		<strong class="col-sm-12 padding0">Paid BY Full Name :</strong>
+		              		<input type="text" class="form-control padding0" name="" disabled>
+		              	</span>
+
+			        	
+			        </td>
+			        <td>
+			        	<input type="text" class="form-control padding0" name="" ng-model="adjustment.closingAdjustmentItemAmount">
+			        </td>
+			        <td>
+			        	<select class="form-control padding0"><option></option></select>
+			        </td>
+			        <td>
+			        	<select class="form-control padding0"><option></option></select>
+			        </td>
+			        <td>
+			        	<input type="text" class="form-control padding0" name="" >
+			        </td>		        
 		      </tr>
 		</table>
 		<span class="AddSection">
