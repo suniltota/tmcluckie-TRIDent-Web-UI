@@ -42,10 +42,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.repayMethodType = staticData.repayMethodType;
     $scope.repayExemptionReasonType = staticData.repayExemptionReasonType;
     $scope.liabilityadjustments = staticData.liabilityadjustments;
+    $scope.payOffTypes = staticData.payOffTypes;
     $scope.payoffsAndPaymentsTotalAmount = 0;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;
     $scope.salePriceAmount = 0;
+    $scope.payOffTypeSelection = '';
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};

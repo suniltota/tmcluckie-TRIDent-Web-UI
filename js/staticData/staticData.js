@@ -1490,6 +1490,19 @@ app.service('staticData', function($filter){
 			"type":"adjustment"
     	}
     ];
+
+    this.payOffTypes = [
+        {
+        	"name":"Liability",
+        	"value":"Liability",
+        	"disabled":false,
+        },
+        {
+        	"name":"Adjustment",
+        	"value":"Adjustment",
+        	"disabled":false,
+        }
+    ];
 	this.cdformdata={
 		"closingInformation": {
 		    "dateIssued": "",
