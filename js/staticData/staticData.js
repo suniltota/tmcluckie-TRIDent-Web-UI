@@ -1577,6 +1577,22 @@ app.service('staticData', function($filter){
 		   "value":"PercentOfPrincipalAndInterest"
 		}
 	];
+
+	this.partialPaymentTypes = [
+        {
+            "name":"Apply Partial Payment",
+            "value":"ApplyPartialPayment" 
+        },
+        {
+            "name":"Hold Until Complete Amount",
+            "value":"HoldUntilCompleteAmount" 
+        },
+        {
+            "name":"Other",
+            "value":"Other" 
+        }
+	];
+	
 	this.cdformdata={
 		"closingInformation": {
 		    "dateIssued": "",
