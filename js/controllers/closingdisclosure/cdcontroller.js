@@ -46,6 +46,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.indexTypes = staticData.indexTypes;
     $scope.lateChargeTypes = staticData.lateChargeTypes;
     $scope.partialPaymentTypes = staticData.partialPaymentTypes;
+    $scope.escrowAbsenceReasons = staticData.escrowAbsenceReasons;
     $scope.payoffsAndPaymentsTotalAmount = 0;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;

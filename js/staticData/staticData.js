@@ -1592,7 +1592,18 @@ app.service('staticData', function($filter){
             "value":"Other" 
         }
 	];
-	
+
+	this.escrowAbsenceReasons =[
+        {
+        	"name":"Borrower Declined",
+        	"value":"BorrowerDeclined"
+        },
+        {
+        	"name":"Lender Does Not Offer",
+        	"value":"LenderDoesNotOffer"
+        }
+	];
+
 	this.cdformdata={
 		"closingInformation": {
 		    "dateIssued": "",

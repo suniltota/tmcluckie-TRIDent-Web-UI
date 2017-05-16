@@ -5,75 +5,98 @@
         	  <tr>
 		        <th class="innerSectionHeader col-sm-3">Escrow Account:</th>
 		        <th class="innerSectionHeader col-sm-3">
-		        	<span class="pull-left margin5lr"><input type="radio" name=""></span> 
+		        	<span class="pull-left margin5lr"><input type="radio" name="transactionStatus" ng-model="cdformdata.loanDetail.escrowIndicator" ng-value="true" disabled></span> 
 		        	<span class="pull-left margin5tb">Is Present in Transaction</span>
 		        </th>
 		        <th class="innerSectionHeader">
-		        	<span class="pull-left margin5lr"><input type="radio" name=""></span> 
+		        	<span class="pull-left margin5lr"><input type="radio" name="transactionStatus" ng-model="cdformdata.loanDetail.escrowIndicator" ng-value="false" disabled></span> 
 		        	<span class="pull-left margin5tb">NO Escrow Account In Transaction</span>
 		        </th>
 		      </tr>
-		      <tr>
+		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Escrowed Property Costs over Year 1
 		        </td>
 		        <td>
-		        	<label>$0</label>
+		        	<label>${{cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount | number:2}}</label>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> Escrowed Property Costs includes </span>
-		        	<a class="col-sm-12">list out all items in the Section G that are included in Escrows </a>
+		        	<span class="col-sm-12">{{cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription}}</span><!-- Need To check with Section G.IEPAT -->
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr ng-show="!cdformdata.loanDetail.escrowIndicator">
+		        <td>
+		        	Escrowed Property Costs over Year 1
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control" name="" ng-model="cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount">
+		        </td>
+		        <td>
+		        	<span class="col-sm-12">User must total up all estimated property costs over year 1</span><!-- Need To check with Section G.IEPAT -->
+		        </td>
+		      </tr>
+		      <tr ng-show="!cdformdata.loanDetail.escrowIndicator">
+		        <td>
+		        	Escrow waiver Fee
+		        </td>
+		        <td>
+		        	<label ng-repeat="notShopFors in cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors" ng-if="notShopFors.feeType=='EscrowWaiverFee' && notShopFors.feeActualTotalAmount!=''">${{notShopFors.feeActualTotalAmount}}</label>
+		        	<!-- <label ng-repeat="ShopFors in cdformdata.closingCostDetailsLoanCosts.sbDidShopFors" ng-if="ShopFors.feeType=='EscrowWaiverFee' && ShopFors.feeActualTotalAmount!=''">${{ShopFors.feeActualTotalAmount}}</label> -->
+		        </td>
+		        <td>
+		        	<span class="col-sm-12"> Identified On the Closing Costs Details Section in<a ng-click="changeTab('LoanCosts')"> Loan Costs </a></span>
+		        </td>
+		      </tr>
+		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Non-Escrowed Property Costs over Year 1
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control" name="">
+		        	<input type="text" class="form-control" name="" ng-model="cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount">
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> Non Escrowed Property Costs Includes </span>
-		        	<a class="col-sm-12">list out all items with the Not Escrowed Indicator from ETIA </a>
+		        	<span class="col-sm-12">{{cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentDescription}}</span>
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Initial Escrow Payment  
 		        </td>
 		        <td>
-		        	<label>$0</label>
+		        	<label>${{cdformdata.closingCostDetailsOtherCosts.iEPatClosingTotalAmount | number:2}}</label>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> A cushion for the escrow account see </span>
-		        	<a class="col-sm-12">Section G. Initial Escrow At Closing </a>
+		        	<a class="col-sm-12" ng-click="changeTab('OtherCosts')">Section G. Initial Escrow At Closing </a>
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Monthly Escrow Payment  
 		        </td>
 		        <td>
-		        	<label>$0</label>
+		        	<label>${{cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount | number:2}}</label>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> The amount included in your total monthly payment, see </span>
-		        	<a class="col-sm-12">Projected Payments  </a>
+		        	<a class="col-sm-12" ng-click="changeTab('projectedPayments')">Projected Payments  </a>
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr ng-show="!cdformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Identify the reason for No Escrow Account 
 		        </td>
 		        <td colspan="2">
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name=""></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="cdformdata.loanDetail.escrowAbsenceReasonType=='BorrowerDeclined'"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				The Borrower Declined to escrow property costs
 		        			</span>
 		        	</span>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name=""></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="cdformdata.loanDetail.escrowAbsenceReasonType=='LenderDoesNotOffer'"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				The Lender does not offer Escrow Account
 		        			</span>
