@@ -42,8 +42,8 @@
 		        <td><label>Interest Rate <span class="required">*</span></label></td>
 		        <td>
 		        	<div class="input-group">
-  						<span class="input-group-addon input-default">%</span>
-		        		<input class="form-control" ng-model="cdformdata.loanTerms.interestRate.noteRatePercent" decimal-places>
+  							<input class="form-control" ng-model="cdformdata.loanTerms.interestRate.noteRatePercent" decimal-places>
+  							<span class="input-group-addon input-default">%</span>
 		        	</div>
 		        </td>
 		        <td><select class="form-control pull-left" ng-model="cdformdata.loanTerms.interestRate.interestRateIncreaseIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
@@ -88,13 +88,19 @@
 		        		<li>
 		        			<span class="col-sm-7 margin5tb col-sm-4 padding0">Provide the Loan price quote</span> 
 		        			<span class="col-sm-4">
-		        				<input type="text" class="form-control" name="">
+		        				<div class="input-group">	
+		        					<input type="text" class="form-control" name="">
+		        					<span class="input-group-addon input-default">%</span>
+		        				</div>
 		        			</span>
 		        		</li>
 		        		<li>
 		        			<span class="col-sm-7 margin5tb col-sm-4 padding0">Provide the APOR</span> 
 		        			<span class="col-sm-4">
-		        				<input type="text" class="form-control" name="">
+		        				<div class="input-group">	
+		        					<input type="text" class="form-control" name="">
+		        					<span class="input-group-addon input-default">%</span>
+		        					</div>
 		        			</span>
 		        		</li>
 		        	</ul>
