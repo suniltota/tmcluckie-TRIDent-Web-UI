@@ -839,17 +839,64 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     },true);
     
 
-	$scope.$watch('cdformdata.salesContractDetail', function(newValue,oldValue){
+	/*$scope.$watch('cdformdata.salesContractDetail', function(newValue,oldValue){
 		if($scope.cdformdata.salesContractDetail.saleContractAmount)
 			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.salesContractDetail.saleContractAmount;
 		else if($scope.cdformdata.salesContractDetail.realPropertyAmount)
 			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = $scope.cdformdata.salesContractDetail.realPropertyAmount;
 		else
 			$scope.cdformdata.summariesofTransactions.dueFromBorroweratClosing.salePriceOfProperty = 0;
-	}, true);
+	}, true);*/
     
     $scope.$watch('payoffsAndPaymentsList', function(newValue,oldValue){
-    	var totalAmount = 0;
+        for(i=0;i<$scope.cdformdata.liabilityList.length;i++){
+               if($scope.cdformdata.liabilityList[i].integratedDisclosureSectionType == 'PayoffsAndPayments') {
+                               $scope.cdformdata.liabilityList.splice(i,1);
+                               i--;
+               }
+        };
+
+        for(i=0;i<$scope.cdformdata.closingAdjustmentItemList.length;i++){
+               if($scope.cdformdata.closingAdjustmentItemList[i].integratedDisclosureSectionType == 'PayoffsAndPayments') {
+                               $scope.cdformdata.closingAdjustmentItemList.splice(i,1);
+                               i--;
+               }
+        };
+
+        $.each($scope.payoffsAndPaymentsList, function (index,payoffObj) {
+            if(payoffObj.payOffType == 'Liability') {
+                        var liabilityObj = {
+                              "displayLabel": payoffObj.displayLabel,
+                              "liabilityDescription": "",
+                              "liabilityType": payoffObj.itemType,
+                              "liabilityTypeOtherDescription": (payoffObj.itemType!='Other' ? '' : payoffObj.otherDescription),
+                              "integratedDisclosureSectionType": "PayoffsAndPayments",
+                              "liabilitySecuredBySubjectPropertyIndicator": (payoffObj.securedIndicator ? true : false) ,
+                              "liabilityHolderFullName": payoffObj.paidToFullName,
+                              "payoffAmount": payoffObj.payoffAmount,
+                              "partialPayoffIndicator" : (payoffObj.partialPayoffIndicator ? true : false),
+                              "payoffPrepaymentPenaltyAmount": payoffObj.payoffPrepaymentPenaltyAmount
+                            };
+                            $scope.cdformdata.liabilityList.push(liabilityObj);
+            } 
+            else if(payoffObj.payOffType == 'Adjustment') {
+            	var adjustmentObj = {
+		            "displayLabel": payoffObj.displayLabel,
+		            "closingAdjustmentItemAmount": payoffObj.payoffAmount,
+		            "closingAdjustmentItemPaidOutsideOfClosingIndicator": "",
+		            "closingAdjustmentItemType": payoffObj.itemType,
+		            "closingAdjustmentItemTypeOtherDescription": (payoffObj.itemType!='Other' ? '' : payoffObj.otherDescription),
+		            "integratedDisclosureSectionType": "PayoffsAndPayments",
+		            "integratedDisclosureSubsectionType": "Adjustments",
+		            "paidByIndividualFullName": payoffObj.paidByFullName,
+		            "paidByEntityFullName": "",
+		            "paidToEntityFullName": payoffObj.paidToFullName,
+		        };
+                $scope.cdformdata.liabilityList.push(adjustmentObj);
+
+            }
+        });
+       var totalAmount = 0;
 	   for(k=0;k<$scope.payoffsAndPaymentsList.length;k++){
 	   		if($scope.payoffsAndPaymentsList[k].payoffAmount)
         		totalAmount += parseFloat($scope.payoffsAndPaymentsList[k].payoffAmount);

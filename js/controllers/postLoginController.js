@@ -42,7 +42,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
         } else if($scope.transactionType == 'existing') {
             if($scope.xmlfile != undefined && $scope.xmlfile != null) {
                 cdXML2JsonService.getJsonFromXml($scope.xmlfile).success(function(data){
-                    $scope.purposeType = data.loanInformation.purpose.toLowerCase();
+                    $scope.purposeType = data.termsOfLoan.loanPurposeType.toLowerCase();
                     localStorage.jsonData = JSON.stringify(data);
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                 }).error(function(data, status) {
