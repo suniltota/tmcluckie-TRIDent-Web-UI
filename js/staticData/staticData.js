@@ -32,6 +32,10 @@ app.service('staticData', function($filter){
 		{
 			"name":"United States",
 			"code":"US"
+		},
+		{
+			"name":"Canada",
+			"code":"CA"
 		}
 	];
 
