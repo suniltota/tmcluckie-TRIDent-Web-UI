@@ -43,6 +43,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.repayExemptionReasonType = staticData.repayExemptionReasonType;
     $scope.liabilityadjustments = staticData.liabilityadjustments;
     $scope.payOffTypes = staticData.payOffTypes;
+    $scope.indexTypes = staticData.indexTypes;
     $scope.payoffsAndPaymentsTotalAmount = 0;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;
@@ -896,7 +897,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		            "paidByEntityFullName": "",
 		            "paidToEntityFullName": payoffObj.paidToFullName,
 		        };
-                $scope.cdformdata.liabilityList.push(adjustmentObj);
+                $scope.cdformdata.closingAdjustmentItemList.push(adjustmentObj);
             }
         });
     }, true);
