@@ -322,7 +322,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-6 fieldTitle">If yes, provide the start and end months</div>
 						<div class="col-sm-2 padding0">
-					        <select  class="form-control" ng-disabled="cdformdata.loanInformation.seasonalPaymentFeatureIndicator == false">
+					        <select  class="form-control" ng-disabled="cdformdata.loanDetail.seasonalPaymentFeatureIndicator == false" ng-model="cdformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth">
 					        	<option value="" selected>Select</option>
 					        	<option ng-repeat="calendarMonth in calendarMonths" value="{{calendarMonth}}">{{calendarMonth}}</option>
 					        </select>
@@ -331,7 +331,7 @@
 				        to 
 				        </div>
 				        <div class="col-sm-2 padding0">
-					        <select  class="form-control" ng-disabled="cdformdata.loanInformation.seasonalPaymentFeatureIndicator == false">
+					        <select  class="form-control" ng-disabled="cdformdata.loanDetail.seasonalPaymentFeatureIndicator == false" ng-model="cdformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth">
 					        	<option value="" selected>Select</option>
 					        	<option ng-repeat="calendarMonth in calendarMonths" value="{{calendarMonth}}">{{calendarMonth}}</option>
 					        </select>
