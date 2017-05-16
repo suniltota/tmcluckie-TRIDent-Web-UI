@@ -8,13 +8,13 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name=""></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="cdformdata.loanDetail.assumabilityIndicator" ng-checked="cdformdata.loanDetail.assumabilityIndicator == true"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Will allow, under certain conditions, this person to assume this loan on the original terms
 		        			</span>
 		        	</span>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name=""></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="cdformdata.loanDetail.assumabilityIndicator == false"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Will Not allow assumption on this loan on the original terms
 		        			</span>
@@ -28,13 +28,13 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name=""></span>
+		        			<span class="pull-left"><input type="checkbox" name=""  ng-checked="cdformdata.loanDetail.demandFeatureIndicator == true"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Has a demand feature, which permits your lender to require early repayment of the loan. 
 		        			</span>
 		        	</span>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name=""></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="cdformdata.loanDetail.demandFeatureIndicator == false"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Does not have a demand feature
 		        			</span>
@@ -48,7 +48,7 @@
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0">
 		        			<span class="pull-left margin5tb col-sm-3">Number of Grace Period</span>
-		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name=""></span>
+		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.lateChargeRule.lateChargeGracePeriodDaysCount"></span>
 		        			<span class="pull-left margin5tb">
 		        				Days 
 		        			</span>
@@ -58,17 +58,18 @@
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">
 		        			<span class="pull-left margin5tb col-sm-3">Late Fee if a Percent</span>
-		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name=""></span>
+		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.lateChargeRule.lateChargeRatePercent"></span>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">
 		        			<span class="pull-left margin5tb col-sm-3">Late Fee if an Amount</span>
-		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name=""></span>
+		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.lateChargeRule.lateChargeAmount"></span>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">
 		        			<span class="pull-left margin5tb col-sm-3">Late Charge Type</span>
 		        			<span class="pull-left col-sm-4">
-		        				<select class="form-control">
-		        					<option>Principal & Interest Paymen</option>
+		        				<select class="form-control" ng-model="cdformdata.lateChargeRule.lateChargeType">
+		        					<option value="" selected>Select</option>
+		        					<option ng-repeat="lateChargeType in lateChargeTypes" value="{{lateChargeType.value}}">{{lateChargeType.name}}</option>
 		        				</select>
 		        			</span>
 		        	</span>
@@ -80,17 +81,19 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name=""></span>
+		        			<span class="pull-left"><input type="checkbox" name="partialPayment" ng-checked="cdformdata.payment.paymentRule.partialPaymentAllowedIndicator==true"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				May Accept Payments that are less than full amount due and apply to the loan
 		        			</span>
 		        	</span>
 		        	<span class="col-sm-12">
+		        	        <span class="pull-left"><input type="checkbox" name="partialPayment" ng-model="cdformdata.payment.paymentRule.partialPaymentAllowedIndicator"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				May hold them in a separate account until a full payment is received
 		        			</span>
 		        	</span>
 		        	<span class="col-sm-12">
+		        	        <span class="pull-left"><input type="checkbox" name="partialPayment" ng-checked="cdformdata.payment.paymentRule.partialPaymentAllowedIndicator==false"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Does not accept any partial payment
 		        			</span>
@@ -104,7 +107,7 @@
 		        <td>
 		        	<span class="col-sm-12">
 		        			<span class="col-sm-11 pull-left margin5tb">
-		        				See the <a>Product Description</a> Section for information on Negative Amortization
+		        				See the <a ng-click="changeTab('loanInfo')">Product Description</a> Section for information on Negative Amortization
 		        			</span>
 		        	</span>
 		        </td>

@@ -1546,6 +1546,37 @@ app.service('staticData', function($filter){
 	        "value":"LIBOR"
 	    }
     ];
+
+    this.lateChargeTypes = [
+		{
+		   "name":"Flat Dollar Amount",
+		   "value":"FlatDollarAmount"
+		},
+		{
+		   "name":"No Late Charges",
+		   "value":"NoLateCharges"
+		},
+		{
+		   "name":"Percentage Of Delinquent Interest",
+		   "value":"PercentageOfDelinquentInterest"
+		},
+		{
+		   "name":"Percentage Of Net Payment",
+		   "value":"PercentageOfNetPayment"
+		},
+		{
+		   "name":"Percentage Of Principal Balance",
+		   "value":"PercentageOfPrincipalBalance"
+		},
+		{
+		   "name":"Percentage Of Total Payment",
+		   "value":"PercentageOfTotalPayment"
+		},
+		{
+		   "name":"Percent Of Principal And Interest",
+		   "value":"PercentOfPrincipalAndInterest"
+		}
+	];
 	this.cdformdata={
 		"closingInformation": {
 		    "dateIssued": "",
