@@ -1507,6 +1507,45 @@ app.service('staticData', function($filter){
         	"disabled":false,
         }
     ];
+
+    this.indexTypes = [
+	    {
+	     	"name":"Bank Prime Loan",
+	        "value":"BankPrimeLoan"
+	    },
+	    {
+	     	"name":"Certificate Of DepositIndex",
+	        "value":"CertificateOfDepositIndex"
+	    },
+	    {
+	     	"name":"Constant Maturity Treasury",
+	        "value":"ConstantMaturityTreasury"
+	    },
+	    {
+	     	"name":"Cost Of Savings Index",
+	        "value":"CostOfSavingsIndex"
+	    },
+	    {
+	     	"name":"Eleventh District Cost Of Funds Index",
+	        "value":"EleventhDistrictCostOfFundsIndex"
+	    },
+	    {
+	     	"name":"Twelve Month Treasury Average",
+	        "value":"TwelveMonthTreasuryAverage"
+	    },
+	    {
+	     	"name":"Treasury Bill",
+	        "value":"TreasuryBill"
+	    },
+	    {
+	     	"name":"Other",
+	        "value":"Other"
+	    },
+	    {
+	     	"name":"LIBOR",
+	        "value":"LIBOR"
+	    }
+    ];
 	this.cdformdata={
 		"closingInformation": {
 		    "dateIssued": "",

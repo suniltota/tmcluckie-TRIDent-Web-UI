@@ -4,40 +4,49 @@
         <table class="table table-bordered margin5tb"  style="border:0px;">
 		      <tr>
 		        <td class="col-sm-3">
-		        	Index + Margin
+		        	<label>Index + Margin</label>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12 margin5tb"> 
-		        			<span class="pull-left col-sm-2">
-		        				<select class="form-control"><option>LIBOR</option></select>
-		        			</span>
-		        			<span class="pull-left margin5tb">+</span>
-		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name=""></span>
+	        			<span class="pull-left col-sm-2">
+	        				<select class="form-control" ng-model="cdformdata.interestRateAdjustment.indexType">
+		        				<option value="" selected>Select</option>
+	                            <option ng-repeat="indexType in indexTypes" value="{{indexType.value}}">{{indexType.name}}</option>
+	        				</select>
+	        			</span>
+	        			<span class="pull-left margin5tb">+</span>
+	        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.interestRateAdjustment.marginRatePercent"></span>
 		        			
 		        	 </span>
-		        	 <span class="col-sm-12 margin5tb">
-		        	 		<span class="pull-left margin5tb">Index Description:</span>
-		        	 		<span class="pull-left col-sm-2"><input type="text" class="form-control" value="My Index For Pricing" name=""></span>
+		        	 <span class="col-sm-12 margin5tb" ng-show="cdformdata.interestRateAdjustment.indexType=='Other'">
+		        	 		<span class="pull-left margin5tb"><label>Index Description:</label></span>
+		        	 		<span class="pull-left col-sm-2"><input type="text" class="form-control" value="My Index For Pricing" name="" ng-model="cdformdata.interestRateAdjustment.indexTypeOtherDescription"></span>
 		        	 </span>
 		        </td>
 		      </tr>
 		      <tr>
 		        <td>
-		        	Initial Interest Rate
+		        	<label>Initial Interest Rate</label>
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">3.257%</span>
+		        	<span class="pull-left margin5lr">{{cdformdata.termsOfLoan.noteRatePercent | number:2}}%</span>
 		        </td>
 		      </tr>
 		      <tr>
 		        <td>
-		        	Minimum / Maximum Interest Rate
+		        	<label ng-show="cdformdata.interestRateAdjustment.indexType!='Other'">Minimum / Maximum Interest Rate</label>
+		        	<label ng-show="cdformdata.interestRateAdjustment.indexType=='Other'">Total Step Count</label>
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">3.257%</span>
-		        	<span class="pull-left margin5lr"> Floor Rate </span>
-		        	<span class="pull-left margin5lr"> 4.258%</span>
-		        	<span class="pull-left margin5lr">Life Time Cap Rate</span>
+		            <span ng-show="cdformdata.interestRateAdjustment.indexType!='Other'">
+			        	<span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.floorRatePercent | number:2}}%</span>
+			        	<span class="pull-left margin5lr"> Floor Rate </span>
+			        	<span class="pull-left margin5lr"> {{cdformdata.interestRateAdjustment.ceilingRatePercent | number:2}}%</span>
+			        	<span class="pull-left margin5lr">Life Time Cap Rate</span>
+		        	</span>
+		        	<span ng-show="cdformdata.interestRateAdjustment.indexType=='Other'">
+		        	{{cdformdata.interestRateAdjustment.totalStepCount}}
+		        	</span>
 		        </td>
 		      </tr>
 		      <tr>
@@ -51,7 +60,7 @@
 		        </td>
 		        <td>
 		        	<span class="pull-left margin5lr">Beginning of </span>
-		        	<span class="pull-left margin5lr"> 13 </span>
+		        	<span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.firstRateChangeMonthsCount}}</span>
 		        	<span class="pull-left margin5lr"> months </span>
 		        </td>
 		      </tr>
@@ -61,8 +70,8 @@
 		        </td>
 		        <td>
 		        	<span class="pull-left margin5lr">Every </span>
-		        	<span class="pull-left margin5lr"> 36 </span>
-		        	<span class="pull-left margin5lr">   months after first change  </span>
+		        	<span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount}}</span>
+		        	<span class="pull-left margin5lr"> months after first change</span>
 		        </td>
 		      </tr>
 		      <tr>
@@ -76,7 +85,7 @@
 		        	First Change
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">2.000% </span>
+		        	<span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent | number:2}}% </span>
 		        </td>
 		      </tr>
 		       <tr>
@@ -84,7 +93,7 @@
 		        	Subsequent Change 
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">2.000% </span>
+		        	<span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent | number:2}}% </span>
 		        </td>
 		      </tr>
 		</table>
