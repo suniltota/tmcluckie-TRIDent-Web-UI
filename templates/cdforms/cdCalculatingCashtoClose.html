@@ -16,8 +16,11 @@
 		        	Loan Amount
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount">
-		        </td>
+		        	<div class="input-group">
+							<span class="input-group-addon input-default">$</span>
+				        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount">
+				    </div>
+				        </td>
 		        <td>
 		        	${{cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
 		        </td>
@@ -35,7 +38,10 @@
 		        	Total Closing Costs (J)
 		        </td>
 		        <td>
+		        	<div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        	</div>
 		        </td>
 		        <td>
 		        	{{cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount}}
@@ -56,7 +62,10 @@
 		        	Closing Costs Paid Before Closing
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        	<div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+		        		<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        	</div>
 		        </td>
 		        <td>
 		        	${{cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount | number:2 }}
@@ -75,10 +84,16 @@
 		        	Closing Costs Financed
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        	<div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+			        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount">
+			        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount">
+		        	<div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+		        		<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount">
+		        	</div>	
 		        </td>
 		        <td>
 		        	{{true == cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
@@ -94,10 +109,16 @@
 		        	Down Payment /  Funds from Borrower
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        	<div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+		        		<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        	</div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount">
+		        	<div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+		        		<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount">
+		        	</div>
 		        </td>
 		        <td>
 		        	{{true == cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
@@ -113,7 +134,10 @@
 		        	Deposit
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        <div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+		        		<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        	</div>
 		        </td>
 		        <td>
 		        	${{cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
@@ -132,10 +156,16 @@
 		        	Funds For Borrower
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        	<div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+		        		<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        	</div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemFinalAmount">
+		        	<div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+		        		<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemFinalAmount">
+		        	</div>
 		        </td>
 		        <td>
 		        	{{true == cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
@@ -151,7 +181,10 @@
 		        	Seller Credit
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        </div>
 		        </td>
 		        <td>
 		        	${{cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
@@ -170,10 +203,16 @@
 		        	Adjustments and Other Credits
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        </div>	
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount">
+		        </div>	
 		        </td>
 		        <td>
 		        	{{true == cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
@@ -189,10 +228,16 @@
 		        	Total Payments and Payoffs (K)
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        </div>	
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount">
+		        </div>
 		        </td>
 		        <td>
 		        	{{true == cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
@@ -215,7 +260,12 @@
 		        </td>
 		        <td colspan="2">
 		        	<span ng-show="loanBasicInfo.loanFormType == 'alternate'">Closing Costs Financed (Paid from your Loan Amount)
-			        	<span class="col-sm-2 padding0"><input type="text" class="form-control padding0" name="" only-digits ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount"></span>
+			        	<span class="col-sm-5 pull-right">
+			        		<div class="input-group">
+								<span class="input-group-addon input-default">$</span>
+					        	<input type="text" class="form-control" name="" only-digits ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount">
+					        </div>
+					    </span>
 		        	</span>
 		        </td>
 		      </tr>
