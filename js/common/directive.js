@@ -46,7 +46,7 @@ app.directive('sideBarWidth', function ($window) {
             $e.css("height", ($window.innerHeight - 180) + "px");
             $w.on("resize", function () {
                     $e.css("height", ($window.innerHeight - 180) + "px");
-                    $e.jScrollPane();
+                   // $e.jScrollPane();
             })
         }
     }
@@ -60,7 +60,7 @@ app.directive('sideBarHeight', function ($window) {
             $e.css("width", ($window.innerWidth - ($window.innerWidth/100*85)) + "px");
             $w.on("resize", function () {
                 $e.css("height", ($window.innerHeight) - 160 + "px");
-                $e.jScrollPane();
+                //$e.jScrollPane();
             })
         }
     }

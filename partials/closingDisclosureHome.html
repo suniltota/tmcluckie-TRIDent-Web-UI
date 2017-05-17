@@ -4,7 +4,7 @@
       <div class="form-group col-sm-12" style="width: 90%;">
           <div id="doctype">Closing Disclosure</div>
       </div>
-      <div side-bar-height class="SidebarNavHead">
+      <div side-bar-height class="SidebarNavHead" style="overflow: auto;">
         <span href="" class="active pagenumber" ng-class="{'active': showTab == 'closingInfo'}" ng-click="showTab = 'closingInfo'" >Closing Information</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'transInfo'}" ng-click="showTab = 'transInfo'" >Transaction Information</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanInfo'}" ng-click="showTab = 'loanInfo'" >Loan Information</span>
@@ -678,10 +678,9 @@
   </div>
 </div>
 <script type="text/javascript">
-        $(function(){
-
-              $('.SidebarNavHead').jScrollPane();
-              $('.SidebarBtnsHead').jScrollPane();
+       /*$(function(){
+              $('.SidebarNavHead').jScrollPane({showArrows: true});
+              $('.SidebarBtnsHead').jScrollPane({showArrows: true});
             });
-
+        */
 </script>
