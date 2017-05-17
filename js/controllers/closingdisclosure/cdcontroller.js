@@ -104,11 +104,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		adjustment = angular.copy($scope.cdformdata.closingAdjustmentItemList[0]);
 		prorationObj = angular.copy($scope.cdformdata.prorationsList[0]);
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
-
+        $scope.cdformdata.closingInformation.dateIssued = new Date();
+		$scope.cdformdata.closingInformation.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
-			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.loanInformation.loanMaturityPeriodCount/12;
-			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.loanInformation.loanMaturityPeriodCount%12;
+			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount/12;
+			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount%12;
 		}
 		
 		for (i = $scope.cdformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
@@ -461,8 +462,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		}
 
 		setTimeout(function(){$("#spinner").hide();}, 3000);
-		$scope.cdformdata.closingInformation.dateIssued = new Date();
-		$scope.cdformdata.closingInformation.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
+		
 	}
 
 	initializeCDformData();

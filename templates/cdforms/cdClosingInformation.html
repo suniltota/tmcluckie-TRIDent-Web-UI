@@ -23,7 +23,7 @@
 			<div class="col-sm-5 fieldTitle">Closing Date <span class="required">*</span></div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
-				<input type="text" name="closingDate" id="closingDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.closingInformation.closingDate" is-open="isClosingDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="Closing Date" disabled/>
+				<input type="text" name="closingDate" id="closingDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.closingDate" is-open="isClosingDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="Closing Date" disabled/>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isClosingDate = !isClosingDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -34,7 +34,7 @@
 			<div class="col-sm-5 fieldTitle">Disbursement Date <span class="required">*</span></div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
-				<input type="text" name="disbursementDate" id="disbursementDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.closingInformation.disbursementDate" is-open="isDisbursementDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Disbursement Date" disabled/>
+				<input type="text" name="disbursementDate" id="disbursementDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.disbursementDate" is-open="isDisbursementDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Disbursement Date" disabled/>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDisbursementDate = !isDisbursementDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -47,7 +47,7 @@
 				(organization)
 			</div>
 			<div class="col-sm-7">
-				<input type="text" ng-model="cdformdata.closingInformation.settlementAgent" class="form-control">
+				<input type="text" ng-model="cdformdata.contactInformation.settlementAgent.organizationName" class="form-control">
 			</div>
 		</div>
 		<div class="FieldGroup">
@@ -55,7 +55,7 @@
 				File # <span class="required">*</span><br>
 				(settlement Agent Number)
 			</div>
-			<div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.fileNo" class="form-control"></div>
+			<div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" class="form-control"></div>
 		</div>
 	</div>
 

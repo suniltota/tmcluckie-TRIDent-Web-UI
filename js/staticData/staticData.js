@@ -1604,13 +1604,55 @@ app.service('staticData', function($filter){
         }
 	];
 
-	this.cdformdata={
+this.cdformdata={
+		"closingDisclosureDocType": {
+		    "transactionType": null,
+		    "documentType": null,
+		    "standard": false,
+		    "sellerOnly": false,
+		    "alternativeView": false
+		    },
+		"loanDetail": {
+		    "assumabilityIndicator": false,
+		    "balloonIndicator": false,
+		    "balloonPaymentAmount": "",
+		    "buydownTemporarySubsidyFundingIndicator": false,
+		    "constructionLoanIndicator": false,
+		    "creditorServicingOfLoanStatementType": "",
+		    "demandFeatureIndicator": false,
+		    "escrowAbsenceReasonType": "",
+		    "escrowIndicator": false,
+		    "interestOnlyIndicator": false,
+		    "interestRateIncreaseIndicator": false,
+		    "loanAmountIncreaseIndicator": false,
+		    "miRequiredIndicator": false,
+		    "negativeAmortizationIndicator": false,
+		    "paymentIncreaseIndicator": false,
+		    "prepaymentPenaltyIndicator": false,
+		    "seasonalPaymentFeatureIndicator": false,
+		    "stepPaymentsFeatureDescription": "",
+		    "totalSubordinateFinancingAmount": ""
+		    },
+		"termsOfLoan": {
+		    "assumedLoanAmount": "",
+		    "disclosedFullyIndexedRatePercent": "",
+		    "lienPriorityType": "",
+		    "loanPurposeType": "",
+		    "mortgageType": "",
+		    "mortgageTypeOtherDescription": "",
+		    "noteAmount": "",
+		    "noteRatePercent": "",
+		    "weightedAverageInterestRatePercent": ""
+		    },
+		"documentClassification": {
+		    "documentType": "",
+		    "documentTypeOtherDescription": "",
+		    "documentFormIssuingEntityNameType": "",
+		    "documentFormIssuingEntityVersionIdentifier": "",
+		    "documentSignatureRequiredIndicator": false
+		    },
 		"closingInformation": {
 		    "dateIssued": "",
-		    "closingDate": "",
-		    "disbursementDate": "",
-		    "settlementAgent": "",
-		    "fileNo": "",
 		    "property": {
 		      "addressLineText": "",
 		      "addressType": "",
@@ -1633,9 +1675,34 @@ app.service('staticData', function($filter){
 		      "propertyValue": "Appraised"
 		    }
 		},
+		"closingInformationDetail": {
+		    "cashFromBorrowerAtClosingAmount": "",
+		    "cashFromSellerAtClosingAmount": "",
+		    "cashToBorrowerAtClosingAmount": "",
+		    "cashToSellerAtClosingAmount": "",
+		    "closingAgentOrderNumberIdentifier": "",
+		    "closingDate": "",
+		    "closingRateSetDate": "",
+		    "currentRateSetDate": "",
+		    "disbursementDate": "",
+		    "documentOrderClassificationType": ""
+		  },
+		  "construction": {
+		    "constructionLoanTotalTermMonthsCount": "",
+		    "constructionLoanType": "",
+		    "constructionPeriodNumberOfMonthsCount": ""
+		  },
+		  "miDataDetail": {
+		    "miCertificateIdentifier": "",
+		    "miCompanyNameType": "",
+		    "miCompanyNameTypeOtherDescription": "",
+		    "miScheduledTerminationDate": "",
+		    "miInitialPremiumAmount": ""
+		  },
 		"transactionInformation": {
 			"refinanceSameLenderIndicator" : false,
-			"borrowerDetails": [{
+			"borrowerDetails": [
+			{
 				"type": "I",
 				"nameModel": {
 					"firstName": "",
@@ -1654,9 +1721,12 @@ app.service('staticData', function($filter){
 					"cityName": "",
 					"countryCode": "",
 					"postalCode": "",
-					"stateCode": ""
+					"stateCode": "",
+					"unparsedLegalDescription": "",
+                    "legalDescription": false
 				}
-			}],
+			}
+			],
 			"sellerDetails": [{
 				"type": "I",
 				"nameModel": {
@@ -1676,7 +1746,9 @@ app.service('staticData', function($filter){
 					"cityName": "",
 					"countryCode": "",
 					"postalCode": "",
-					"stateCode": ""
+					"stateCode": "",
+					"unparsedLegalDescription": "",
+                    "legalDescription": false
 				}
 			}],
 			"lenderDetails": [{
@@ -1699,113 +1771,74 @@ app.service('staticData', function($filter){
 					"cityName": "",
 					"countryCode": "",
 					"postalCode": "",
-					"stateCode": ""
+					"stateCode": "",
+					"unparsedLegalDescription": "",
+                    "legalDescription": false
 				}
-			}]
+			}
+		  ]
 		},
-		"loanInformation": {
-			"loanTerm": "",
-			"purpose": "",
-			"product": "",
-			"loanType": "",
-			"loanId": "",
-			"constructionLoan": false,
-			"constructionLoanType": "",
-			"constructionPeriodNumberOfMonthsCount": "",
-			"constructionLoanTotalTermMonthsCount": "",
-			"loanMaturityPeriodType": "Month",
-			"loanMaturityPeriodCount": "",
-			"integratedDisclosureHomeEquityLoanIndicator": false,
-			"lienPriorityType": "",
-			"amortizationType": "",
-			"integratedDisclosureLoanProductDescription": "",
-			"mortgageType": "",
-			"mortgageTypeOtherDescription": "",
-			"loanIdentifiers": [{
-				"loanIdentifierType": "LenderLoan",
-				"loanIdentifier": ""
-			},
-			{
-				"loanIdentifierType": "MERS_MIN",
-				"loanIdentifier": ""
-			}],
-			"miRequiredIndicator": false,
-			"miCertificateIdentifier": "",
-			"automatedUnderwritings": [{
-				"automatedUnderwritingCaseIdentifier": "",
-				"automatedUnderwritingSystemType": "",
-				"automatedUnderwritingSystemTypeOtherDescription": ""
-			}],
-			"loanManualUnderwritingIndicator": false,
-			"interestRateIncreaseIndicator": false,
-			"negativeAmortizationIndicator": false,
-			"interestOnlyTermMonthsCount": "",
-			"interestOnlyIndicator": false,
-			"negativeAmortizationType": "",
-			"seasonalPaymentFeatureIndicator": false,
-			"stepPaymentsFeatureIndicator": false,
-			"optionalPaymentsFeatureIndicator": false,
-			"negativeAmoritzationIndicator": false,
-			"negativeAmoritzationType": ""
+       "loanInformation": {
+		    "amortizationType": "",
+		    "loanIdentifiers": [
+		      {
+		        "loanIdentifierType": "",
+		        "loanIdentifier": ""
+		      }
+		    ],
+		    "automatedUnderwritings": [
+		      {
+		        "automatedUnderwritingCaseIdentifier": "",
+		        "automatedUnderwritingSystemType": "",
+		        "automatedUnderwritingSystemTypeOtherDescription": ""
+		      }
+		    ],
+		    "loanManualUnderwritingIndicator": false
 		},
 		"salesContractDetail": {
-		      "personalPropertyIndicator": false,
-		      "personalPropertyAmount": "",
-		      "realPropertyAmount": "",
-		      "saleContractAmount": ""
+		    "personalPropertyIndicator": false,
+		    "personalPropertyAmount": "",
+		    "realPropertyAmount": "",
+		    "saleContractAmount": ""
+		},
+		"integratedDisclosureDetail": {
+		    "firstYearTotalEscrowPaymentAmount": "",
+		    "firstYearTotalEscrowPaymentDescription": "",
+		    "firstYearTotalNonEscrowPaymentAmount": "",
+		    "firstYearTotalNonEscrowPaymentDescription": "",
+		    "integratedDisclosureHomeEquityLoanIndicator": false,
+		    "integratedDisclosureIssuedDate": "",
+		    "integratedDisclosureLoanProductDescription": ""
+		},
+		"negativeAmortization": {
+		    "negativeAmortizationLimitMonthsCount": "",
+		    "negativeAmortizationMaximumLoanBalanceAmount": "",
+		    "negativeAmortizationType": ""
+		},
+		"interestOnly": {
+		    "interestOnlyTermMonthsCount": ""
+		},
+		"maturityRule": {
+		    "loanMaturityPeriodCount": "",
+		    "loanMaturityPeriodType": "Month",
+		    "loanTermMaximumMonthsCount": ""
+		},
+		"loanProduct": {
+		    "loanPriceQuoteInterestRatePercent": ""
 		},
 		"loanTerms": {
-			"loanAmount": {
-		      "noteAmount": "",
-		      "negativeAmoritzationIndicator": false,
-		      "negativeAmortizationMaximumLoanBalanceAmount": "",
-		      "negativeAmortizationLimitMonthsCount": ""
-		    },
-			"interestRate": {
-		      "buydownTemporarySubsidyFundingIndicator": false,
-		      "gseBuydownReflectedInNoteIndicator": false,
-		      "buydownInitialEffectiveInterestRatePercent": "",
-		      "buydownChangeFrequencyMonthsCount": "",
-		      "buydownIncreaseRatePercent": "",
-		      "noteRatePercent": "",
-		      "disclosedFullyIndexedRatePercent": "",
-		      "interestRateIncreaseIndicator": false,
-		      "adjustmentRuleTypeFirst": "",
-		      "perChangeRateAdjustmentFrequencyMonthsCount": "",
-		      "firstRateChangeMonthsCount": "",
-		      "ceilingRatePercentEarliestEffectiveMonthsCount": "",
-		      "ceilingRatePercent": ""
-		    },
-		    "principalInterest": {
-		      "paymentFrequencyType": "Monthly",
-		      "amount": "",
-		      "initialPrincipalAndInterestPaymentAmount": "",
-		      "fullyIndexedInitialPrincipalAndInterestPaymentAmount": "",
-		      "adjustmentRuleType": "",
-		      "perChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": null,
-		      "firstPrincipalAndInterestPaymentChangeMonthsCount": "",
-		      "principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount": "",
-		      "principalAndInterestPaymentMaximumAmount": "",
-		      "paymentIncreaseIndicator": false
-		    },
 		    "prepaymentPenalty": {
-		      "prepaymentPenaltyIndicator": false,
 		      "prepaymentPenaltyMaximumLifeOfLoanAmount": "",
 		      "prepaymentPenaltyExpirationMonthsCount": ""
 		    },
-		    "balloonPayment": {
-		      "balloonIndicator": false,
-		      "balloonPaymentAmount": ""
-		    }, "temporaryBuydown":
-	        {
-	            "buydownTemporarySubsidyFundingIndicator": false,
-	            "buydownInitialEffectiveInterestRatePercent": "",
-	            "gseBuydownReflectedInNoteIndicator": false,
-	            "rateAfterBuydownApplied": null,
-	            "buydownChangeFrequencyMonthsCount": "",
-	            "totalNumberOfMonths": null,
-	            "buydownIncreaseRatePercent": ""
-	        }
+		    "temporaryBuydown": {
+		      "buydownInitialEffectiveInterestRatePercent": "",
+		      "gseBuydownReflectedInNoteIndicator": false,
+		      "rateAfterBuydownApplied": null,
+		      "buydownChangeFrequencyMonthsCount": "",
+		      "totalNumberOfMonths": null,
+		      "buydownIncreaseRatePercent": ""
+		    }
 		},
 		"projectedPayments":
 	    {
@@ -2282,16 +2315,16 @@ app.service('staticData', function($filter){
         ],
         "alternateView": false
     },
-    "prorationsList" : [{
+	"prorationsList" : [{
 	      "displayLabel": "",
-	      "integratedDisclosureSectionType": "",
-	      "integratedDisclosureSubsectionType": "",
-	      "prorationItemAmount": "",
-	      "prorationItemPaidFromDate": "",
-	      "prorationItemPaidThroughDate": "",
-	      "prorationItemType": "",
-	      "prorationItemTypeOtherDescription": ""
-    	}
+ 	      "integratedDisclosureSectionType": "",
+ 	      "integratedDisclosureSubsectionType": "",
+ 	      "prorationItemAmount": "",
+ 	      "prorationItemPaidFromDate": "",
+ 	      "prorationItemPaidThroughDate": "",
+ 	      "prorationItemType": "",
+ 	      "prorationItemTypeOtherDescription": ""
+     	}
     ],
     "liabilityList":
     [
@@ -2676,9 +2709,9 @@ app.service('staticData', function($filter){
             "organizationLicenseIssuingAuthorityName": "",
             "organizationLicenseIssueDate": "",
             "organizationIssuingAgencyURL": "",
-            "individualFirstName": "Brook",
+            "individualFirstName": "",
             "individualMiddleName": "",
-            "individualLastName": "Elise Murray",
+            "individualLastName": "",
             "individualSuffix": "",
             "individualEmail": "",
             "individualPhone": "",
@@ -2698,7 +2731,7 @@ app.service('staticData', function($filter){
             "organizationCity": null,
             "organizationStateCode": null,
             "organizationPostalCode": null,
-            "organizationNMLSID": "130290",
+            "organizationNMLSID": "",
             "organizationStateLicenseID": null,
             "organizationLicenseAuthorityLevelType": "",
             "organizationLicenseIssuingAuthorityName": "",
@@ -2726,7 +2759,7 @@ app.service('staticData', function($filter){
             "organizationCity": null,
             "organizationStateCode": null,
             "organizationPostalCode": null,
-            "organizationNMLSID": "130290",
+            "organizationNMLSID": "",
             "organizationStateLicenseID": null,
             "organizationLicenseAuthorityLevelType": "",
             "organizationLicenseIssuingAuthorityName": "",
@@ -2754,7 +2787,7 @@ app.service('staticData', function($filter){
             "organizationCity": null,
             "organizationStateCode": null,
             "organizationPostalCode": null,
-            "organizationNMLSID": "130290",
+            "organizationNMLSID": "",
             "organizationStateLicenseID": null,
             "organizationLicenseAuthorityLevelType": "",
             "organizationLicenseIssuingAuthorityName": "",
