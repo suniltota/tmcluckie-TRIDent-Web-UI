@@ -1645,7 +1645,7 @@ this.cdformdata={
 		    "standard": false,
 		    "sellerOnly": false,
 		    "alternativeView": false
-		    },
+		},
 		"loanDetail": {
 		    "assumabilityIndicator": false,
 		    "balloonIndicator": false,
@@ -1666,7 +1666,7 @@ this.cdformdata={
 		    "seasonalPaymentFeatureIndicator": false,
 		    "stepPaymentsFeatureDescription": "",
 		    "totalSubordinateFinancingAmount": ""
-		    },
+		},
 		"termsOfLoan": {
 		    "assumedLoanAmount": "",
 		    "disclosedFullyIndexedRatePercent": "",
@@ -1677,14 +1677,14 @@ this.cdformdata={
 		    "noteAmount": "",
 		    "noteRatePercent": "",
 		    "weightedAverageInterestRatePercent": ""
-		    },
+		},
 		"documentClassification": {
 		    "documentType": "",
 		    "documentTypeOtherDescription": "",
 		    "documentFormIssuingEntityNameType": "",
 		    "documentFormIssuingEntityVersionIdentifier": "",
 		    "documentSignatureRequiredIndicator": false
-		    },
+		},
 		"closingInformation": {
 		    "dateIssued": "",
 		    "property": {
@@ -1720,19 +1720,19 @@ this.cdformdata={
 		    "currentRateSetDate": "",
 		    "disbursementDate": "",
 		    "documentOrderClassificationType": ""
-		  },
+		},
 		  "construction": {
 		    "constructionLoanTotalTermMonthsCount": "",
 		    "constructionLoanType": "",
 		    "constructionPeriodNumberOfMonthsCount": ""
-		  },
+		},
 		  "miDataDetail": {
 		    "miCertificateIdentifier": "",
 		    "miCompanyNameType": "",
 		    "miCompanyNameTypeOtherDescription": "",
 		    "miScheduledTerminationDate": "",
 		    "miInitialPremiumAmount": ""
-		  },
+		},
 		"transactionInformation": {
 			"refinanceSameLenderIndicator" : false,
 			"borrowerDetails": [
@@ -1878,10 +1878,6 @@ this.cdformdata={
 	    {
 	        "paymentFrequencyType": "",
 	        "miMonthsDuration": "",
-	        "miSTDate": "",
-	        "miCompanyName": "",
-	        "miCompanyNameOtherDescription": "",
-	        "mirequired": false,
 	        "paymentCalculation":
 	        [
 	            {

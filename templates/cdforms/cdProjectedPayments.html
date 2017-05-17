@@ -40,12 +40,12 @@
 			        	<span class="col-sm-6 padding0">Is Required?<span class="required">*</span></span> 
 			        	<span class="col-sm-4 pull-right">
 			        		<select class="form-control"
-			        		ng-model="cdformdata.projectedPayments.mirequired"
+			        		ng-model="cdformdata.loanDetail.miRequiredIndicator"
 		              		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 			        		</select>
 			        	</span> 
 			        </div>
-			        <div ng-show="cdformdata.projectedPayments.mirequired">
+			        <div ng-show="cdformdata.loanDetail.miRequiredIndicator">
 				        <div class="col-sm-12 padding0 margin5tb">
 				        	<span class="col-sm-6 padding0">No. Months Duration?</span> 
 				        	<span class="col-sm-4 pull-right">
@@ -69,7 +69,7 @@
 				        	<span class="col-sm-6 padding0">MI Company Name</span> 
 				        	<span class="col-sm-4 pull-right">
 				        		<select class="form-control"
-				        		ng-model="cdformdata.projectedPayments.miCompanyName">
+				        		ng-model="cdformdata.miDataDetail.miCompanyNameType">
 					        		<option value="" selected>Select</option>
 				              		<option ng-repeat="miCompanyNameType in miCompanyNameTypes" value="{{miCompanyNameType.value}}">{{miCompanyNameType.name}}</option>
 				        		</select>
@@ -78,7 +78,7 @@
 				        <div class="col-sm-12 padding0 margin5tb" ng-show="cdformdata.projectedPayments.miCompanyName=='Other'">
 				        	<span class="col-sm-6 padding0">MI Company Name Description, if other</span> 
 				        	<span class="col-sm-4 pull-right">
-				        		<input type="text" class="form-control" name="" ng-model="cdformdata.projectedPayments.miCompanyNameOtherDescription">
+				        		<input type="text" class="form-control" name="" ng-model="cdformdata.miDataDetail.miCompanyNameTypeOtherDescription">
 				        	</span> 
 				        </div>
 			        </div>
