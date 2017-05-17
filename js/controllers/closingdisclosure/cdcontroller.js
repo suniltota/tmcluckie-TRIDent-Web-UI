@@ -52,6 +52,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.toleranceSelection = false;
     $scope.salePriceAmount = 0;
     $scope.payOffTypeSelection = '';
+    $scope.stepPaymentIndicator = false;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -87,7 +88,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
 	var initializeCDformData = function() {
 		$scope.cdformdata = staticData.cdformdata;
-		$scope.cdformdata.loanInformation.purpose = $scope.loanBasicInfo.loanPurposeType;
+		$scope.cdformdata.termsOfLoan.loanPurposeType = $scope.loanBasicInfo.loanPurposeType;
 
 		borrower = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
 		seller = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
@@ -105,16 +106,17 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		prorationObj = angular.copy($scope.cdformdata.prorationsList[0]);
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
         $scope.cdformdata.closingInformation.dateIssued = new Date();
-		$scope.cdformdata.closingInformation.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
+		$scope.cdformdata.closingInformationDetail.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount%12;
 		}
-		
+
 		for (i = $scope.cdformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
 		    $scope.cdformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
 		}
+
 		var lender = {
 				"type": "O",
 				"nameModel": {
@@ -569,7 +571,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.deleteField = function(index){
     	$scope.payoffsAndPaymentsList.splice(index,1);
     }
-
+    $scope.amortizationChange = function(){
+    	if($scope.cdformdata.loanInformation.amortizationType == 'Step' ){
+			$scope.stepPaymentIndicator = true;
+		}
+		else{
+			$scope.stepPaymentIndicator = false;
+		}
+    }
 	$scope.updateETIAComponentTypes = function(value, index) {
 		var previousVal = $scope.cdformdata.etiaSection.etiaTypes[index];
 		$scope.cdformdata.etiaSection.etiaTypes[index] = value;
