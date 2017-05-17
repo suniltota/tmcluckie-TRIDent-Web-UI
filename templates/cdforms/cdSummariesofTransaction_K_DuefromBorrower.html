@@ -19,7 +19,10 @@
 		        	Sale Price of Personal Property Included in Sale  
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.salesContractDetail.personalPropertyAmount">
+		        </div>
 		        </td>
 		      </tr>
 		      <tr>
@@ -59,7 +62,10 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="liablitySection.liabilityHolderFullName">  
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="liablitySection.payoffAmount">
+		        </div>
 		        </td>
 		      </tr>
 		</table>
@@ -91,7 +97,10 @@
 		        	<input type="checkbox" name="" ng-model="adjustments.closingAdjustmentItemPaidOutsideOfClosingIndicator">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="adjustments.closingAdjustmentItemAmount">
+		        	<div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="adjustments.closingAdjustmentItemAmount">
+		        	</div>
 		        </td>
 		      </tr>
 		</table>
@@ -133,7 +142,10 @@
 	        		</span>
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemAmount">
+		        </div>
 		        </td>
 		      </tr>
 		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.prorationsList | filter: {integratedDisclosureSectionType : 'DueFromBorrowerAtClosing'}" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='Assessments'">
@@ -167,7 +179,10 @@
 	        		</span>
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemAmount">
+		        </div>
 		        </td>
 		      </tr>
 		</table>
