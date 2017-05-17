@@ -43,7 +43,11 @@ app.directive('sideBarWidth', function ($window) {
         compile: function (element) {
             var $e = angular.element(element);
             var $w = angular.element($window);
-            $e.css("width", ($window.innerWidth - ($window.innerWidth/100*96)) + "px");
+            $e.css("height", ($window.innerHeight - 180) + "px");
+            $w.on("resize", function () {
+                    $e.css("height", ($window.innerHeight - 180) + "px");
+                    $e.jScrollPane();
+            })
         }
     }
 });
@@ -52,10 +56,11 @@ app.directive('sideBarHeight', function ($window) {
         compile: function (element) {
             var $e = angular.element(element);
             var $w = angular.element($window);
-            $e.css("height", ($window.innerHeight - 150) + "px");
-            $e.css("padding", 0);
+            $e.css("height", ($window.innerHeight - 160) + "px");
+            $e.css("width", ($window.innerWidth - ($window.innerWidth/100*85)) + "px");
             $w.on("resize", function () {
-                $e.css("height", ($window.innerHeight) - 150 + "px");
+                $e.css("height", ($window.innerHeight) - 160 + "px");
+                $e.jScrollPane();
             })
         }
     }
