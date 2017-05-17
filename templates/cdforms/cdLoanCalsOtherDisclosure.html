@@ -11,7 +11,10 @@
 		        	<span class="margin5tb col-sm-10">Total of Payments <span class="required">*</span></span>
 		        </td>
 				<td>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalOfAllPaymentsAmount">
+					<div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+		        		<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalOfAllPaymentsAmount">
+		        	</div>
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg.Z Excluded Bonna Fide Discount Points Indicator <span class="required">*</span></span>
@@ -27,13 +30,19 @@
 		        	<span class="margin5tb col-sm-10">Finance Charge <span class="required">*</span></span>
 		        </td>
 				<td>
+				<div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalFinanceChargeAmount">
+		        </div>
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg. Z Excluded Bona Fide Discount Points Percent <span class="required">*</span></span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent">
+		        <div class="input-group">
+						<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent">
+						<span class="input-group-addon input-default">%</span>
+		        </div>
 		        </td>
 		      </tr>
 			  
@@ -42,13 +51,19 @@
 		        	<span class="margin5tb col-sm-10">Amount Financed <span class="required">*</span></span>
 		        </td>
 				<td>
+				<div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalAmountFinancedAmount">
+		        </div>
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg. Z Excluded Total Affiliate Fees Amount </span>
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount">
+		        </div>
 		        </td>
 		      </tr>
 			  
@@ -57,13 +72,19 @@
 		        	<span class="margin5tb col-sm-10">Annual Percentage Rate (APR) <span class="required">*</span></span>
 		        </td>
 				<td>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent">
+				<div class="input-group">
+					<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent">
+					<span class="input-group-addon input-default">%</span>
+		        </div>
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg. Z Excluded Total Loan Amount <span class="required">*</span></span>
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalLoanAmount">
+		        </div>
 		        </td>
 		      </tr>
 			  
@@ -72,13 +93,18 @@
 		        	<span class="margin5tb col-sm-10">Total Interest Percentage (TIP) <span class="required">*</span></span>
 		        </td>
 				<td>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent">
+				<div class="input-group">
+					   	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent">
+					   	<span class="input-group-addon input-default">%</span>
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg. Z Excluded Total Points and Fees Amount <span class="required">*</span></span>
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalPointsAndFeesAmount">
+		        </div>	
 		        </td>
 		      </tr>
 			  
