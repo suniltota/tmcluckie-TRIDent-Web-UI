@@ -11,7 +11,10 @@
 		        	Excess Deposit  
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.dueFromSeller.excessDeposit.closingCostFundAmount">
+		        </div>
 		        </td>
 		      </tr>
 		      <tr>
@@ -35,7 +38,10 @@
 		        	Payoff of First Mortgage  
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.dueFromSeller.payoffFirstMortgage.payoffAmount">
+		        </div>
 		        </td>
 		      </tr>
 		      <tr>
@@ -43,7 +49,10 @@
 		        	Payoff of Second Mortgage 
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.dueFromSeller.payOffSecondMortgage.payoffAmount">
+		        </div>
 		        </td>
 		      </tr>
 		      <tr>
@@ -102,7 +111,10 @@
 		        	<input type="checkbox" name="" ng-model="liablitySection.liabilitySecuredBySubjectPropertyIndicator">  
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="liablitySection.payoffAmount">
+		        </div>
 		        </td>
 		      </tr>
 		      <tr ng-repeat="adjustments in cdformdata.closingAdjustmentItemList track by $index" ng-if="adjustments.integratedDisclosureSectionType == 'DueFromSellerAtClosing'">
@@ -131,7 +143,10 @@
 		        	<input type="checkbox" name="" ng-model="adjustments.liabilitySecuredBySubjectPropertyIndicator">  
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustments.closingAdjustmentItemAmount">
+		        </div>
 		        </td>
 		      </tr>
 		     

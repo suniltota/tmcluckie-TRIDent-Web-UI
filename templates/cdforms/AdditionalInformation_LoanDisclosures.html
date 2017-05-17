@@ -58,11 +58,21 @@
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">
 		        			<span class="pull-left margin5tb col-sm-3">Late Fee if a Percent</span>
-		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.lateChargeRule.lateChargeRatePercent"></span>
+		        			<span class="pull-left col-sm-3">
+		        				<div class="input-group">
+									<input type="text" class="form-control" name="" ng-model="cdformdata.lateChargeRule.lateChargeRatePercent">
+									<span class="input-group-addon input-default">%</span>
+		        				</div>
+		        			</span>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">
 		        			<span class="pull-left margin5tb col-sm-3">Late Fee if an Amount</span>
-		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.lateChargeRule.lateChargeAmount"></span>
+		        			<span class="pull-left col-sm-3">
+		        				<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+		        					<input type="text" class="form-control" name="" ng-model="cdformdata.lateChargeRule.lateChargeAmount">
+		        				</div>
+		        			</span>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">
 		        			<span class="pull-left margin5tb col-sm-3">Late Charge Type</span>

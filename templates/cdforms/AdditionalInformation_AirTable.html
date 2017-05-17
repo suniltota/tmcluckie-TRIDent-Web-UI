@@ -15,8 +15,12 @@
 	        				</select>
 	        			</span>
 	        			<span class="pull-left margin5tb">+</span>
-	        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.interestRateAdjustment.marginRatePercent"></span>
-		        			
+	        			<span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<input type="text" class="form-control" name="" ng-model="cdformdata.interestRateAdjustment.marginRatePercent">
+								<span class="input-group-addon input-default">%</span>
+	        				</div>
+	        			</span>		        			
 		        	 </span>
 		        	 <span class="col-sm-12 margin5tb" ng-show="cdformdata.interestRateAdjustment.indexType=='Other'">
 		        	 		<span class="pull-left margin5tb"><label>Index Description:</label></span>
