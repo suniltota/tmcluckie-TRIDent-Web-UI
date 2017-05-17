@@ -63,7 +63,6 @@
 		        </td>
 		      </tr>
 		</table>
-		<div class="AddSection col-sm-12 text-center" ng-hide="true"><span ng-click="addDueFromBrwLiability()"><a>+ Add Additional Item</a></span></div>
 	</span>
 	<h5 class="margin5tb pull-left"><strong>Adjustments</strong></h5>
 	<span  class="col-sm-12 padding0">
@@ -89,7 +88,7 @@
 		        	<input type="text" class="form-control padding0" ng-disabled="adjustments.closingAdjustmentItemType!='Other'" name="" ng-model="adjustments.closingAdjustmentItemTypeOtherDescription">  
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="adjustments.closingAdjustmentItemPaidOutsideOfClosingIndicator">  
+		        	<input type="checkbox" name="" ng-model="adjustments.closingAdjustmentItemPaidOutsideOfClosingIndicator">
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustments.closingAdjustmentItemAmount">
@@ -109,7 +108,7 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.closingAdjustmentItemList | filter:{ integratedDisclosureSectionType : DueFromBorrowerAtClosing } track by $index" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='Assessments'">
+		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.prorationsList | filter: {integratedDisclosureSectionType : 'DueFromBorrowerAtClosing'}" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='Assessments'">
 		        <td >
 		        	<label>{{adjustmentsPaidBySellerInAdvance.displayLabel}}</label>
 		        </td>
@@ -137,9 +136,10 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemAmount">
 		        </td>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.summariesofTransactions.dueFromBorroweratClosing.adjustmentsPaidBySellerInAdvance track by $index" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='Assessments'">
+		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.prorationsList | filter: {integratedDisclosureSectionType : 'DueFromBorrowerAtClosing'}" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='Assessments'">
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidBySellerInAdvance.displayLabel">  
+		        	<input type="text" class="form-control padding0" name="" 
+		        	ng-model="adjustmentsPaidBySellerInAdvance.displayLabel">  
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemType">

@@ -2282,6 +2282,17 @@ app.service('staticData', function($filter){
         ],
         "alternateView": false
     },
+    "prorationsList" : [{
+	      "displayLabel": "",
+	      "integratedDisclosureSectionType": "",
+	      "integratedDisclosureSubsectionType": "",
+	      "prorationItemAmount": "",
+	      "prorationItemPaidFromDate": "",
+	      "prorationItemPaidThroughDate": "",
+	      "prorationItemType": "",
+	      "prorationItemTypeOtherDescription": ""
+    	}
+    ],
     "liabilityList":
     [
         {
