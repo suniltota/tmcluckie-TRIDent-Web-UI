@@ -210,7 +210,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-10 fieldTitle">If Amortization Type is Step, Provide the Total Step Count</div>
 						<div class="col-sm-2 padding0">
-							<input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit">
+							<input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="cdformdata.interestRateAdjustment.totalStepCount">
 						</div>
 					</div>
 				</div>
@@ -223,7 +223,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-10 fieldTitle">Is this transaction a construction loan?</div>
 						<div class="col-sm-2 padding0">
-					        <select  class="form-control" ng-model="cdformdata.loanDetail.constructionLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+					        <select  class="form-control" ng-model="cdformdata.loanDetail.constructionLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="constructionChange()">
 					        </select>
 				        </div>
 					</div>
@@ -239,7 +239,33 @@
 				        </div>
 					</div>
 				</div>
+				<span ng-show="cdformdata.construction.constructionLoanType == 'ConstructionOnly'">
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					   <div class="col-sm-10 fieldTitle">What is the construction period in months?</div>
+						<div class="col-sm-2 padding0">
+					        <input type="text" class="form-control" name="" ng-model="cdformdata.construction.constructionPeriodNumberOfMonthsCount">
+				        </div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					   <div class="col-sm-10 fieldTitle">What is the total number of months for this construction transaction (Includes both construction period and permanent financed period)</div>
+						<div class="col-sm-2 padding0">
+					        <input type="text" class="form-control" name="" ng-model="cdformdata.construction.constructionLoanTotalTermMonthsCount">
+				        </div>
+					</div>
+				</div>
 			</div>
+			</span>
 			<div class="col-sm-12">
 			<div class="col-sm-12 tableInsideHeader">
 				Home Equity Loan Information
@@ -284,7 +310,7 @@
 					<div class="FieldGroup">
 						<div class="col-sm-10 fieldTitle">Does this loan have a Negative Amortization Feature?</div>
 						<div class="col-sm-2 padding0">
-					        <select  class="form-control" ng-model="cdformdata.loanDetail.negativeAmortizationIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"></select>
+					        <select  class="form-control" ng-model="cdformdata.loanDetail.negativeAmortizationIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="negativeAmortizationChange()"></select>
 				        </div>
 					</div>
 				</div>
@@ -299,6 +325,36 @@
 				        </div>
 					</div>
 				</div>
+				<span ng-show="cdformdata.negativeAmortization.negativeAmortizationType == 'ScheduledNegativeAmortization'">
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					   <div class="col-sm-10 fieldTitle">What is the Maximum Negative Amortization Loan Balance?</div>
+						<div class="col-sm-2 padding0">
+						<div class="input-group">
+						    <span class="input-group-addon input-default">$</span>
+					        <input type="text" class="form-control" name="" ng-model="cdformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount">
+					    </div>
+				        </div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					   <div class="col-sm-10 fieldTitle">What is the negative amortization limit in months count?</div>
+						<div class="col-sm-2 padding0">
+					        <input type="text" class="form-control" name="" ng-model="cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount">
+				        </div>
+					</div>
+				</div>
+			</div>
+			</span>
 			</div>
 			<div class="col-sm-12">
 			<div class="col-sm-12 tableInsideHeader">
