@@ -1603,7 +1603,41 @@ app.service('staticData', function($filter){
         	"value":"LenderDoesNotOffer"
         }
 	];
-
+    
+    this.paymentFrequencyTypes = [
+        {
+        	"name":"Annual",
+        	"value":"Annual"
+        },
+        {
+        	"name":"At Maturity",
+        	"value":"AtMaturity"
+        },
+        {
+        	"name":"Biweekly",
+        	"value":"Biweekly"
+        },
+        {
+        	"name":"Monthly",
+        	"value":"Monthly"
+        },
+        {
+        	"name":"Quarterly",
+        	"value":"Quarterly"
+        },
+        {
+        	"name":"Semiannual",
+        	"value":"Semiannual"
+        },
+        {
+        	"name":"Semimonthly",
+        	"value":"Semimonthly"
+        },
+        {
+            "name":"Weekly",
+        	"value":"Weekly" 
+        }
+    ];
 this.cdformdata={
 		"closingDisclosureDocType": {
 		    "transactionType": null,

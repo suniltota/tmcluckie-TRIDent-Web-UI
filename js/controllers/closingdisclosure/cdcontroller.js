@@ -47,6 +47,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.lateChargeTypes = staticData.lateChargeTypes;
     $scope.partialPaymentTypes = staticData.partialPaymentTypes;
     $scope.escrowAbsenceReasons = staticData.escrowAbsenceReasons;
+    $scope.paymentFrequencyTypes = staticData.paymentFrequencyTypes;
     $scope.payoffsAndPaymentsTotalAmount = 0;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;
@@ -578,6 +579,16 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		else{
 			$scope.stepPaymentIndicator = false;
 		}
+    }
+    $scope.constructionChange = function(){
+    	if($scope.cdformdata.loanDetail.constructionLoanIndicator == false){
+    		$scope.cdformdata.construction.constructionLoanType ='';
+    	}
+    }
+    $scope.negativeAmortizationChange = function(){
+    	if($scope.cdformdata.loanDetail.negativeAmortizationIndicator == false){
+    		$scope.cdformdata.negativeAmortization.negativeAmortizationType ='';
+    	}
     }
 	$scope.updateETIAComponentTypes = function(value, index) {
 		var previousVal = $scope.cdformdata.etiaSection.etiaTypes[index];
