@@ -45,7 +45,7 @@
 		        <th class="innerSectionHeader">Full Name Paid to Organization</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		     <tr ng-repeat="liablitySection in cdformdata.liabilityList track by $index" ng-if="liablitySection.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'">
+		     <tr ng-repeat="liablitySection in dueFromBrwLiabilities track by $index" ng-if="liablitySection.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="liablitySection.displayLabel">  
 		        </td>
@@ -80,7 +80,7 @@
 		        <th class="innerSectionHeader">Paid outside of Closing Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustments in cdformdata.closingAdjustmentItemList track by $index" ng-if="adjustments.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'">
+		      <tr ng-repeat="adjustments in dueFromBrwAdjustments track by $index">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustments.displayLabel">  
 		        </td>
@@ -117,12 +117,11 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.prorationsList | filter: {integratedDisclosureSectionType : 'DueFromBorrowerAtClosing'}" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='Assessments'">
+		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in dueFromBrwAdjustmentsPaidBySeller | filter: {integratedDisclosureSectionType : 'DueFromBorrowerAtClosing'}" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='Assessments'">
 		        <td >
 		        	<label>{{adjustmentsPaidBySellerInAdvance.displayLabel}}</label>
 		        </td>
-		        <td>
-		        	 
+		        <td> 
 		        </td>
 		        <td></td>
 		        <td>
@@ -148,7 +147,7 @@
 		        </div>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.prorationsList | filter: {integratedDisclosureSectionType : 'DueFromBorrowerAtClosing'}" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='Assessments'">
+		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in dueFromBrwAdjustmentsPaidBySeller | filter: {integratedDisclosureSectionType : 'DueFromBorrowerAtClosing'}" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='Assessments'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" 
 		        	ng-model="adjustmentsPaidBySellerInAdvance.displayLabel">  

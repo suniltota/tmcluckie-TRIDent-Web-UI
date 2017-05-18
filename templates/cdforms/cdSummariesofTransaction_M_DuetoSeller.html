@@ -1,38 +1,29 @@
 <div class="col-sm-12">
 	<h4>Summaries of Transaction - M. Due to Seller At Closing</h4>
 	<span  class="col-sm-12 padding0">
-        <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
-		      <tr>
-		        <th class="innerSectionHeader col-sm-10" style="height:30px;">Label Name</th>
-		        <th class="innerSectionHeader">Amount</th>
-		      </tr>
-		      <tr>
-		        <td>
-		        	Sales Price of Property  
-		        </td>
-		        <td>
-		        	<label>${{salePriceAmount | number:2}}</label>
-		        </td>
-		      </tr>
-		      <tr>
-		        <td>
-		        	Sale Price of Personal Property Included in Sale  
-		        </td>
-		        <td>
-		        	<label>${{cdformdata.summariesofTransactions.dueToSeller.salePriceOfPersonalProperty | number:2}}</label>
-		        </td>
-		      </tr>
-		      <tr>
-		        <td>
-		        	Closing Costs Paid At Closing (J) 
-		        </td>
-		        <td>
-		        	<label>${{cdformdata.closingCostsTotal.totalClosingCosts | number:2}}</label>
-		        </td>
-		      </tr>
+		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
+			<tr>
+				<th class="innerSectionHeader col-sm-10" style="height:30px;">Label Name</th>
+				<th class="innerSectionHeader">Amount</th>
+			</tr>
+			<tr>
+				<td>
+					Sales Price of Property
+				</td>
+				<td>
+					<label>${{salePriceAmount | number:2}}</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Sale Price of Personal Property Included in Sale
+				</td>
+				<td>
+					<label>${{cdformdata.salesContractDetail.personalPropertyAmount | number:2}}</label>
+				</td>
+			</tr>
 		</table>
 	</span>
-		
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
@@ -42,45 +33,41 @@
 		        <th class="innerSectionHeader">Paid outside of Closing Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustments in cdformdata.closingAdjustmentItemList track by $index" ng-if="adjustments.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'">
-		        <td>
-		        	<label>{{adjustments.displayLabel}}</label>  
+		      <tr ng-repeat="adjustment in dueToSellerAdjustments track by $index">
+		        <td ng-if="adjustment.isFromBorrower">
+		        	<label>{{adjustment.displayLabel}}</label>
 		        </td>
-		        <td>
-		      	    <label ng-repeat="adjustmentType in adjustmentTypes" ng-if="adjustmentType.value == adjustments.closingAdjustmentItemType">{{adjustmentType.name}}</label>
-		        </td>
-		        <td>
-		        	<label>{{adjustments.closingAdjustmentItemTypeOtherDescription}}</label>  
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="adjustments.closingAdjustmentItemPaidOutsideOfClosingIndicator" ng-disabled="true">  
-		        </td>
-		        <td>
-		        	{{adjustments.closingAdjustmentItemAmount | number:2}}
-		        </td>
-		      </tr>
-		     
-		      <tr ng-repeat="adjustments in cdformdata.closingAdjustmentItemList track by $index" ng-if="adjustments.integratedDisclosureSectionType == 'DueToSellerAtClosing'">
-		        <td>
+		        <td ng-if="!adjustment.isFromBorrower">
 		        	<input type="text" class="form-control padding0"  name="" ng-model="adjustments.displayLabel">  
 		        </td>
-		        <td>
-		        	<select class="form-control padding0" ng-model="adjustments.closingAdjustmentItemType">
-			        		<option value="" selected>Select</option>
-		      				<option ng-repeat="adjustmentType in adjustmentTypes" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
+		        <td ng-if="adjustment.isFromBorrower">
+		      	    <label ng-repeat="adjustmentType in adjustmentTypes" ng-if="adjustmentType.value == adjustment.closingAdjustmentItemType">{{adjustmentType.name}}</label>
+		        </td>
+		        <td ng-if="!adjustment.isFromBorrower">
+		        	<select class="form-control padding0" ng-model="adjustment.closingAdjustmentItemType">
+		        		<option value="" selected>Select</option>
+	      				<option ng-repeat="adjustmentType in adjustmentTypes" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
 		      	    </select>
 		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" ng-disabled="adjustments.closingAdjustmentItemType!='Other'" name="" ng-model="adjustments.closingAdjustmentItemTypeOtherDescription">  
+		        <td ng-if="adjustment.isFromBorrower">
+		        	<label>{{adjustment.closingAdjustmentItemTypeOtherDescription}}</label>  
 		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="adjustments.closingAdjustmentItemPaidOutsideOfClosingIndicator">  
+		        <td ng-if="!adjustment.isFromBorrower">
+		        	<input type="text" class="form-control padding0" ng-disabled="adjustment.closingAdjustmentItemType!='Other'" name="" ng-model="adjustment.closingAdjustmentItemTypeOtherDescription">  
 		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="adjustments.closingAdjustmentItemAmount">
+		         <td class="text-center" ng-if="adjustment.isFromBorrower">
+		        	<input type="checkbox" name="" ng-model="adjustment.closingAdjustmentItemPaidOutsideOfClosingIndicator" ng-disabled="true">  
+		        </td>
+		        <td class="text-center" ng-if="!adjustment.isFromBorrower">
+		        	<input type="checkbox" name="" ng-model="adjustment.closingAdjustmentItemPaidOutsideOfClosingIndicator">  
+		        </td>
+		        <td ng-if="adjustment.isFromBorrower">
+		        	{{adjustment.closingAdjustmentItemAmount | number:2}}
+		        </td>
+		        <td ng-if="!adjustment.isFromBorrower">
+		        	<input type="text" class="form-control padding0" name="" ng-model="adjustment.closingAdjustmentItemAmount">
 		        </td>
 		      </tr>
-		     
 		</table>
 	</span>
 
@@ -95,31 +82,14 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		       <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.closingAdjustmentItemList | filter:{ integratedDisclosureSectionType : DueToSellerAtClosing } track by $index" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='Assessments'">
+		       <tr ng-repeat="adjustmentsPaidBySellerInAdvance in dueToSellerAdjustmentsPaidBySeller track by $index">
 		        <td >
 		        	<label>{{adjustmentsPaidBySellerInAdvance.displayLabel}}</label>
 		        </td>
-		        <td>
-		        	 
-		        </td>
-		        <td></td>
-		        <td>
-		        	<label>{{adjustmentsPaidBySellerInAdvance.prorationItemPaidFromDate | date:dateFormat}}</label>  
-		        </td>
-		        <td>
-		           <label>{{adjustmentsPaidBySellerInAdvance.prorationItemPaidThroughDate | date:dateFormat}}</label>
-		        </td>
-		        <td>
-		        	<label>{{adjustmentsPaidBySellerInAdvance.prorationItemAmount | number:2}}</label>
-		        </td>
-		      </tr>
-		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in cdformdata.summariesofTransactions.dueFromBorroweratClosing.adjustmentsPaidBySellerInAdvance | filter:{ integratedDisclosureSectionType : DueToSellerAtClosing } track by $index" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='Assessments'">
-		        <td>
-		        	<label>{{adjustmentsPaidBySellerInAdvance.displayLabel}}</label>
-		        </td>
-		        <td>
+		        <td ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes'">
 		        	<label ng-repeat="prorationItemType in prorationItemTypes" ng-if="prorationItemType.value == adjustmentsPaidBySellerInAdvance.prorationItemType">{{prorationItemType.name}}</label>
-
+		        </td>
+		        <td ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes'">
 		        </td>
 		        <td>
 		        	<label>{{adjustmentsPaidBySellerInAdvance.prorationItemTypeOtherDescription}}</label>
