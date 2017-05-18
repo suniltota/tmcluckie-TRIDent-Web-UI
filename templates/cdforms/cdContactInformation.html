@@ -37,19 +37,19 @@
 		        	<span class="margin5tb col-sm-10">Street Address</span>
 		        </td>
 		        <td style="width:8%;border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationStreetAddr">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.address.addressLineText">
 		        </td>
 		        <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationStreetAddr">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.address.addressLineText">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationStreetAddr">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.address.addressLineText">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationStreetAddr">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.address.addressLineText">
 		        </td>
                 <td style="border-left:0px;border-top:0px;border-bottom:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.organizationStreetAddr">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.address.addressLineText">
 		        </td>		        
 		      </tr>
 			  
@@ -58,19 +58,19 @@
 		        	<span class="margin5tb col-sm-10" >City</span>
 		        </td>
 		        <td style="width:8%;border:0px;">
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.lender.organizationCity">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.lender.address.cityName">
 		        </td>
 		        <td style="width:8%;border:0px;" >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationCity">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.address.cityName">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationCity">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.address.cityName">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationCity">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.address.cityName">
 		        </td>
                 <td style="border-left:0px;border-top:0px;border-bottom:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.organizationCity">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.address.cityName">
 		        </td>		        
 		      </tr>
 			  
@@ -79,31 +79,31 @@
 		        	<span class="margin5tb col-sm-10">State Code</span>
 		        </td>
 		        <td style="border:0px;">
-		        	<select ng-model="cdformdata.closingInformation.property.stateCode" class="form-control" ng-model="cdformdata.contactInformation.lender.organizationStateCode">
+		        	<select ng-model="cdformdata.closingInformation.property.stateCode" class="form-control" ng-model="cdformdata.contactInformation.lender.address.stateCode">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
 		            </select>
 		        </td>
 		        <td style="border:0px;">
-		        	<select ng-model="cdformdata.closingInformation.mortagageBroker.stateCode" class="form-control" ng-model="cdformdata.contactInformation.mortagageBroker.organizationStateCode">
+		        	<select ng-model="cdformdata.closingInformation.mortagageBroker.stateCode" class="form-control" ng-model="cdformdata.contactInformation.mortagageBroker.address.stateCode">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
 		            </select>
 		        </td>
                 <td style="border:0px;">
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationStateCode">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerB.address.stateCode">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
 		            </select>
 		        </td>
                 <td style="border:0px;">
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationStateCode">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerS.address.stateCode">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
 		            </select>
 		        </td>
                 <td style="border-left:0px;border-top:0px;border-bottom:0px;">
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.settlementAgent.organizationStateCode">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.settlementAgent.address.stateCode">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
 		            </select>
@@ -115,19 +115,19 @@
 		        	<span class="margin5tb col-sm-10">Postal Code</span>
 		        </td>
 		        <td style="width:8%;border:0px;">
-		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.lender.organizationPostalCode">
+		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.lender.address.postalCode">
 		        </td>
 		        <td style="width:8%;border:0px;" >
-		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.mortagageBroker.organizationPostalCode">
+		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.mortagageBroker.address.postalCode">
 		        </td>
                 <td style="border:0px;border:0px;">
-		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationPostalCode">
+		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.realEstateBrokerB.address.postalCode">
 		        </td>
                 <td style="border:0px;border:0px;">
-		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationPostalCode">
+		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.realEstateBrokerS.address.postalCode">
 		        </td>
                 <td style="border-left:0px;border-top:0px;">
-		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.settlementAgent.organizationPostalCode">
+		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.settlementAgent.address.postalCode">
 		        </td>			        
 		      </tr>
 			  
@@ -136,19 +136,19 @@
 		        	<span class="margin5tb col-sm-10">NMLS ID</span>
 		        </td>
 		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationNMLSID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.licenseIdentifier">
 		        </td>
 		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationNMLSID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseIdentifier">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationNMLSID" ng-disabled="true">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.licenseIdentifier" ng-disabled="true">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationNMLSID" ng-disabled="true">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.licenseIdentifier" ng-disabled="true">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.settlementAgent.organizationNMLSID" ng-disabled="true">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseDetail.licenseIdentifier" ng-disabled="true">
 		        </td>		        
 		      </tr>
 			  
@@ -156,20 +156,21 @@
 		        <td >
 		        	<span class="margin5tb col-sm-10">State License ID</span>
 		        </td>
-		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationStateLicenseID" ng-disabled="true">
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.licenseIdentifier" ng-disabled="true">
 		        </td>
-		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationStateLicenseID" ng-disabled="true">
-		        </td>
-                <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationStateLicenseID">
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseIdentifier" 
+		        	ng-disabled="true">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationStateLicenseID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.licenseIdentifier">
 		        </td>
-                <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.settlementAgent.organizationStateLicenseID">
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.licenseIdentifier">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseDetail.licenseIdentifier">
 		        </td>		        
 		      </tr>
 			  
@@ -178,31 +179,31 @@
 		        	<span class="margin5tb col-sm-10">License Authority Level Type</span>
 		        </td>
 		        <td>
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.lender.organizationLicenseAuthorityLevelType">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.licenseAuthorityLevelType">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
 		            </select>
 		        </td>
 		        <td>
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseAuthorityLevelType">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseAuthorityLevelType">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
 		            </select>
 		        </td>
                 <td>
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseAuthorityLevelType">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.licenseAuthorityLevelType">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
 		            </select>
 		        </td>
                 <td>
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseAuthorityLevelType">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.licenseAuthorityLevelType">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
 		            </select>
 		        </td>
                 <td>
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseAuthorityLevelType">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseDetail.licenseAuthorityLevelType">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
 		            </select>
@@ -214,19 +215,19 @@
 		        	<span class="margin5tb col-sm-10">License Issuing Authority Name</span>
 		        </td>
 		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationLicenseIssuingAuthorityName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.licenseIssuingAuthorityName">
 		        </td>
 		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseIssuingAuthorityName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseIssuingAuthorityName">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseIssuingAuthorityName">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.licenseIssuingAuthorityName">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseIssuingAuthorityName">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.licenseIssuingAuthorityName">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseIssuingAuthorityName">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseDetail.licenseIssuingAuthorityName">
 		        </td>		        
 		      </tr>
 			  
@@ -236,7 +237,7 @@
 		        </td>
 		         <td>
 		        	<span class="col-sm-8 padding0">
-					<input type="text" name="lenderorganizationLicenseIssueDate" id="lenderorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.lender.organizationLicenseIssueDate" is-open="isLenderorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					<input type="text" name="lenderorganizationLicenseIssueDate" id="lenderorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.licenseIssueDate" is-open="isLenderorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isLenderorganizationLicenseIssueDate = !isLenderorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -244,7 +245,7 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-8 padding0">
-					<input type="text" name="mortagageBrokerorganizationLicenseIssueDate" id="mortagageBrokerorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseIssueDate" is-open="isMortagageBrokerorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					<input type="text" name="mortagageBrokerorganizationLicenseIssueDate" id="mortagageBrokerorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseIssueDate" is-open="isMortagageBrokerorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isMortagageBrokerorganizationLicenseIssueDate = !isMortagageBrokerorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -252,7 +253,7 @@
 		        </td>
                 <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="realEstateBrokerBorganizationLicenseIssueDate" id="realEstateBrokerBorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseIssueDate" is-open="isRealEstateBrokerBorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					<input type="text" name="realEstateBrokerBorganizationLicenseIssueDate" id="realEstateBrokerBorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerBorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerBorganizationLicenseIssueDate = !isRealEstateBrokerBorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -260,7 +261,7 @@
 		        </td>
                 <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="realEstateBrokerSorganizationLicenseIssueDate" id="realEstateBrokerSorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseIssueDate" is-open="isRealEstateBrokerSorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					<input type="text" name="realEstateBrokerSorganizationLicenseIssueDate" id="realEstateBrokerSorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerSorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerSorganizationLicenseIssueDate = !isRealEstateBrokerSorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -268,7 +269,7 @@
 		        </td>
                 <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="settlementAgentorganizationLicenseIssueDate" id="settlementAgentorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseIssueDate" is-open="isSettlementAgentorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					<input type="text" name="settlementAgentorganizationLicenseIssueDate" id="settlementAgentorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseDetail.licenseIssueDate" is-open="isSettlementAgentorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isSettlementAgentorganizationLicenseIssueDate = !isSettlementAgentorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -281,19 +282,19 @@
 		        	<span class="margin5tb col-sm-10">Issuing Agency URL</span>
 		        </td>
 		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationIssuingAgencyURL" value="mmousebanker@fed.org">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.identifierOwnerURI" value="mmousebanker@fed.org">
 		        </td>
 		        <td >
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationIssuingAgencyURL" value="mmousebanker@fed.org">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseDetail.identifierOwnerURI" value="mmousebanker@fed.org">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationIssuingAgencyURL">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.identifierOwnerURI">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationIssuingAgencyURL">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.identifierOwnerURI">
 		        </td>
                 <td >
-		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.settlementAgent.organizationIssuingAgencyURL">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseDetail.identifierOwnerURI">
 		        </td>		        
 		      </tr>
 			  
@@ -315,19 +316,19 @@
 		        	<span class="margin5tb col-sm-10">First Name</span>
 		        </td>
 		        <td style="width:13%;;border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualFirstName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.name.firstName">
 		        </td>
 		        <td style="width:13%;;border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualFirstName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.name.firstName">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualFirstName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.name.firstName">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualFirstName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.name.firstName">
 		        </td>
                 <td style="border-left:0px;border-top:0px;border-bottom:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualFirstName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.name.firstName">
 		        </td>		        
 		      </tr>
 			  
@@ -336,19 +337,19 @@
 		        	<span class="margin5tb col-sm-10">Middle Name</span>
 		        </td>
 		        <td style="width:8%;border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualMiddleName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.name.middleName">
 		        </td>
 		        <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualMiddleName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.name.middleName">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualMiddleName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.name.middleName">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualMiddleName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.name.middleName">
 		        </td>
                 <td style="border-left:0px;border-top:0px;border-bottom:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualMiddleName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.name.middleName">
 		        </td>		        
 		      </tr>
 			  
@@ -357,19 +358,19 @@
 		        	<span class="margin5tb col-sm-10" >Last Name</span>
 		        </td>
 		        <td style="width:8%;border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualLastName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.name.lastName">
 		        </td>
 		        <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualLastName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.name.lastName">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLastName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.name.lastName">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLastName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.name.lastName">
 		        </td>
                 <td style="border-left:0px;border-top:0px;border-bottom:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualLastName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.name.lastName">
 		        </td>		        
 		      </tr>
 			  
@@ -378,19 +379,19 @@
 		        	<span class="margin5tb col-sm-10">Suffix</span>
 		        </td>
 		        <td style="width:8%;border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualSuffix">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.name.suffixName">
 		        </td>
 		        <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualSuffix">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.name.suffixName">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualSuffix">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.name.suffixName">
 		        </td>
                 <td style="border:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualSuffix">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.name.suffixName">
 		        </td>
                 <td style="border-left:0px;border-top:0px;border-bottom:0px;">
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualSuffix">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.name.suffixName">
 		        </td>		        
 		      </tr>			  
 			  <tr>
@@ -440,19 +441,19 @@
 		        	<span class="margin5tb col-sm-10">NMLS ID</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualNmlsID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.licenseIdentifier">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualNmlsID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseIdentifier">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualNmlsID" ng-disabled="true">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseIdentifier" ng-disabled="true">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualNmlsID" ng-disabled="true">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseIdentifier" ng-disabled="true">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualNmlsID" ng-disabled="true">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseIdentifier" ng-disabled="true">
 		        </td>		        
 		      </tr>
 			  
@@ -461,19 +462,19 @@
 		        	<span class="margin5tb col-sm-10">State License ID</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualStateLicenseID" ng-disabled="true">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.licenseIdentifier" ng-disabled="true">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualStateLicenseID" ng-disabled="true">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseIdentifier" ng-disabled="true">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualStateLicenseID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseIdentifier">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualStateLicenseID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseIdentifier">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualStateLicenseID">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseIdentifier">
 		        </td>		        
 		      </tr>
 			  
@@ -482,31 +483,31 @@
 		        	<span class="margin5tb col-sm-10">License Authority Level Type</span>
 		        </td>
 		        <td>
-		            <select class="form-control" ng-model="cdformdata.contactInformation.lender.individualLicenseAuthorityLevelType">
+		            <select class="form-control" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.licenseAuthorityLevelType">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
 		            </select>
 		        </td>
 		        <td >
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseAuthorityLevelType">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseAuthorityLevelType">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
 		            </select>
 		        </td>
                 <td >
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseAuthorityLevelType">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseAuthorityLevelType">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
 		            </select>
 		        </td>
                 <td >
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseAuthorityLevelType">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseAuthorityLevelType">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
 		            </select>
 		        </td>
                 <td >
-		        	<select class="form-control" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseAuthorityLevelType">
+		        	<select class="form-control" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseAuthorityLevelType">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
 		            </select>
@@ -518,19 +519,19 @@
 		        	<span class="margin5tb col-sm-10">License Issuing Authority Name</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualLicenseIssuingAuthorityName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.licenseIssuingAuthorityName">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseIssuingAuthorityName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseIssuingAuthorityName">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseIssuingAuthorityName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseIssuingAuthorityName">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseIssuingAuthorityName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseIssuingAuthorityName">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseIssuingAuthorityName">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseIssuingAuthorityName">
 		        </td>		        
 		      </tr>
 			  
@@ -540,7 +541,7 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-8 padding0">
-					<input type="text" name="lenderindividualLicenseIssueDate" id="lenderindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.lender.individualLicenseIssueDate" is-open="isLenderindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					<input type="text" name="lenderindividualLicenseIssueDate" id="lenderindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.licenseIssueDate" is-open="isLenderindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isLenderindividualLicenseIssueDate = !isLenderindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -548,7 +549,7 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-8 padding0">
-					<input type="text" name="mortagageBrokerindividualLicenseIssueDate" id="mortagageBrokerindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseIssueDate" is-open="isMortagageBrokerindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					<input type="text" name="mortagageBrokerindividualLicenseIssueDate" id="mortagageBrokerindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseIssueDate" is-open="isMortagageBrokerindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isMortagageBrokerindividualLicenseIssueDate = !isMortagageBrokerindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -556,7 +557,7 @@
 		        </td>
                 <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="realEstateBrokerBindividualLicenseIssueDate" id="realEstateBrokerBindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseIssueDate" is-open="isRealEstateBrokerBindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					<input type="text" name="realEstateBrokerBindividualLicenseIssueDate" id="realEstateBrokerBindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerBindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerBindividualLicenseIssueDate = !isRealEstateBrokerBindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -564,7 +565,7 @@
 		        </td>
                 <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="mortagageBrokerindividualLicenseIssueDate" id="mortagageBrokerindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseIssueDate" is-open="isRealEstateBrokerSindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					<input type="text" name="mortagageBrokerindividualLicenseIssueDate" id="mortagageBrokerindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerSindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerSindividualLicenseIssueDate = !isRealEstateBrokerSindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -572,7 +573,7 @@
 		        </td>
                 <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="settlementAgentindividualLicenseIssueDate" id="settlementAgentindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseIssueDate" is-open="isSettlementAgentindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					<input type="text" name="settlementAgentindividualLicenseIssueDate" id="settlementAgentindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseIssueDate" is-open="isSettlementAgentindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isSettlementAgentindividualLicenseIssueDate = !isSettlementAgentindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -585,19 +586,19 @@
 		        	<span class="margin5tb col-sm-10">Issuing Agency URL</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualIssuingAgencyURL">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.identifierOwnerURI">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualIssuingAgencyURL">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseDetail.identifierOwnerURI">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualIssuingAgencyURL">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.identifierOwnerURI">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualIssuingAgencyURL">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.identifierOwnerURI">
 		        </td>
                 <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualIssuingAgencyURL">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseDetail.identifierOwnerURI">
 		        </td>		        
 		      </tr>			 	      
 			</table>

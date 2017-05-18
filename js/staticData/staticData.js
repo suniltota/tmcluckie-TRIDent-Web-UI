@@ -1816,9 +1816,13 @@ this.cdformdata={
 		    "amortizationType": "",
 		    "loanIdentifiers": [
 		      {
-		        "loanIdentifierType": "",
-		        "loanIdentifier": ""
-		      }
+                "loanIdentifierType": "LenderLoan",
+                "loanIdentifier": ""
+	          },
+	          {
+	                "loanIdentifierType": "MERS_MIN",
+	                "loanIdentifier": ""
+	          }
 		    ],
 		    "automatedUnderwritings": [
 		      {
@@ -2690,141 +2694,229 @@ this.cdformdata={
         {
             "partyRoleType": "NotePayTo",
             "organizationName": "",
-            "organizationStreetAddr": "",
-            "organizationAddressType": "",
-            "organizationCity": "",
-            "organizationStateCode": "",
-            "organizationPostalCode": "",
-            "organizationNMLSID": "",
-            "organizationStateLicenseID": null,
-            "organizationLicenseAuthorityLevelType": "",
-            "organizationLicenseIssuingAuthorityName": "",
-            "organizationLicenseIssueDate": "",
-            "organizationIssuingAgencyURL": "",
-            "individualFirstName": "",
-            "individualMiddleName": "",
-            "individualLastName": "",
-            "individualSuffix": "",
+            "address":
+            {
+                "addressLineText": "",
+                "addressType": "",
+                "addressUnitDesignatorType": "",
+                "addressUnitIdentifier": "",
+                "cityName": "",
+                "countryCode": "",
+                "postalCode": "",
+                "stateCode": "",
+                "unparsedLegalDescription": "",
+                "legalDescription": false
+            },
+            "organizationLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "mmousebanker@fed.org",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "name":
+            {
+                "firstName": "",
+                "lastName": "",
+                "middleName": "",
+                "suffixName": "",
+                "fullName": ""
+            },
+            "individualLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "mmousebanker@fed.org",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
             "individualEmail": "",
-            "individualPhone": "",
-            "individualNmlsID": "",
-            "individualStateLicenseID": null,
-            "individualLicenseAuthorityLevelType": "",
-            "individualLicenseIssuingAuthorityName": "",
-            "individualLicenseIssueDate": "",
-            "individualIssuingAgencyURL": ""
+            "individualPhone": ""
         },
         "mortagageBroker":
         {
             "partyRoleType": "MortgageBroker",
             "organizationName": "",
-            "organizationStreetAddr": null,
-            "organizationAddressType": null,
-            "organizationCity": null,
-            "organizationStateCode": null,
-            "organizationPostalCode": null,
-            "organizationNMLSID": "",
-            "organizationStateLicenseID": null,
-            "organizationLicenseAuthorityLevelType": "",
-            "organizationLicenseIssuingAuthorityName": "",
-            "organizationLicenseIssueDate": "",
-            "organizationIssuingAgencyURL": "",
-            "individualFirstName": "",
-            "individualMiddleName": "",
-            "individualLastName": "",
-            "individualSuffix": "",
+            "address":
+            {
+                "addressLineText": "",
+                "addressType": "",
+                "addressUnitDesignatorType": "",
+                "addressUnitIdentifier": "",
+                "cityName": "",
+                "countryCode": "",
+                "postalCode": "",
+                "stateCode": "",
+                "unparsedLegalDescription": "",
+                "legalDescription": false
+            },
+            "organizationLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "mmousebanker@fed.org",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "name":
+            {
+                "firstName": "",
+                "lastName": "",
+                "middleName": "",
+                "suffixName": "",
+                "fullName": ""
+            },
+            "individualLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "mmousebanker@fed.org",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
             "individualEmail": "",
-            "individualPhone": "",
-            "individualNmlsID": "",
-            "individualStateLicenseID": null,
-            "individualLicenseAuthorityLevelType": "",
-            "individualLicenseIssuingAuthorityName": "",
-            "individualLicenseIssueDate": "",
-            "individualIssuingAgencyURL": ""
+            "individualPhone": ""
         },
-        "realEstateBrokerB": 
-		{
+        "realEstateBrokerB": {
             "partyRoleType": "RealEstateAgent",
             "organizationName": "",
-            "organizationStreetAddr": null,
-            "organizationAddressType": null,
-            "organizationCity": null,
-            "organizationStateCode": null,
-            "organizationPostalCode": null,
-            "organizationNMLSID": "",
-            "organizationStateLicenseID": null,
-            "organizationLicenseAuthorityLevelType": "",
-            "organizationLicenseIssuingAuthorityName": "",
-            "organizationLicenseIssueDate": "",
-            "organizationIssuingAgencyURL": "",
-            "individualFirstName": "",
-            "individualMiddleName": "",
-            "individualLastName": "",
-            "individualSuffix": "",
+            "address":
+            {
+                "addressLineText": "",
+                "addressType": "",
+                "addressUnitDesignatorType": "",
+                "addressUnitIdentifier": "",
+                "cityName": "",
+                "countryCode": "",
+                "postalCode": "",
+                "stateCode": "",
+                "unparsedLegalDescription": "",
+                "legalDescription": false
+            },
+            "organizationLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "name":
+            {
+                "firstName": "",
+                "lastName": "",
+                "middleName": "",
+                "suffixName": "",
+                "fullName": ""
+            },
+            "individualLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
             "individualEmail": "",
-            "individualPhone": "",
-            "individualNmlsID": "",
-            "individualStateLicenseID": null,
-            "individualLicenseAuthorityLevelType": "",
-            "individualLicenseIssuingAuthorityName": "",
-            "individualLicenseIssueDate": "",
-            "individualIssuingAgencyURL": ""
+            "individualPhone": ""
         },
-        "realEstateBrokerS": 
-		{
+        "realEstateBrokerS": {
             "partyRoleType": "RealEstateAgent",
             "organizationName": "",
-            "organizationStreetAddr": null,
-            "organizationAddressType": null,
-            "organizationCity": null,
-            "organizationStateCode": null,
-            "organizationPostalCode": null,
-            "organizationNMLSID": "",
-            "organizationStateLicenseID": null,
-            "organizationLicenseAuthorityLevelType": "",
-            "organizationLicenseIssuingAuthorityName": "",
-            "organizationLicenseIssueDate": "",
-            "organizationIssuingAgencyURL": "",
-            "individualFirstName": "",
-            "individualMiddleName": "",
-            "individualLastName": "",
-            "individualSuffix": "",
+            "address":
+            {
+                "addressLineText": "",
+                "addressType": "",
+                "addressUnitDesignatorType": "",
+                "addressUnitIdentifier": "",
+                "cityName": "",
+                "countryCode": "",
+                "postalCode": "",
+                "stateCode": "",
+                "unparsedLegalDescription": "",
+                "legalDescription": false
+            },
+            "organizationLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "name":
+            {
+                "firstName": "",
+                "lastName": "",
+                "middleName": "",
+                "suffixName": "",
+                "fullName": ""
+            },
+            "individualLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
             "individualEmail": "",
-            "individualPhone": "",
-            "individualNmlsID": "",
-            "individualStateLicenseID": null,
-            "individualLicenseAuthorityLevelType": "",
-            "individualLicenseIssuingAuthorityName": "",
-            "individualLicenseIssueDate": "",
-            "individualIssuingAgencyURL": ""
+            "individualPhone": ""
         },
         "settlementAgent":
         {
             "partyRoleType": "ClosingAgent",
             "organizationName": "",
-            "organizationStreetAddr": "",
-            "organizationAddressType": "",
-            "organizationCity": "",
-            "organizationStateCode": "",
-            "organizationPostalCode": "",
-            "organizationNMLSID": null,
-            "organizationStateLicenseID": null,
-            "organizationLicenseAuthorityLevelType": null,
-            "organizationLicenseIssuingAuthorityName": null,
-            "organizationLicenseIssueDate": null,
-            "organizationIssuingAgencyURL": null,
-            "individualFirstName": "",
-            "individualMiddleName": "",
-            "individualLastName": "",
-            "individualSuffix": "",
+            "address":
+            {
+                "addressLineText": "",
+                "addressType": "",
+                "addressUnitDesignatorType": "",
+                "addressUnitIdentifier": "",
+                "cityName": "",
+                "countryCode": "",
+                "postalCode": "",
+                "stateCode": "",
+                "unparsedLegalDescription": "",
+                "legalDescription": false
+            },
+            "organizationLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "name":
+            {
+                "firstName": "",
+                "lastName": "",
+                "middleName": "",
+                "suffixName": "",
+                "fullName": ""
+            },
+            "individualLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
             "individualEmail": "",
-            "individualPhone": "",
-            "individualNmlsID": null,
-            "individualStateLicenseID": null,
-            "individualLicenseAuthorityLevelType": null,
-            "individualLicenseIssuingAuthorityName": null,
-            "individualLicenseIssueDate": null,
-            "individualIssuingAgencyURL": null
+            "individualPhone": ""
         }
     }
   
