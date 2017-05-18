@@ -24,14 +24,14 @@
 							</div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
-		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount"/>
+		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" decimal-digits-with-number-format>
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-6" style="padding: 0 8px;">
 		        			<div class="col-sm-12 text-center">Maximum<span class="required" ng-show="$index==0">*</span></div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
-		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount"/>
+		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" decimal-digits-with-number-format>
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-12 text-center" style="padding:10px;" ng-show="principalInterest.interestOnlyStatus">Only Interest</div>
@@ -89,7 +89,7 @@
 		        <td ng-repeat="mortgageInsurance in cdformdata.projectedPayments.mortgageInsurance track by $index">
 					<div class="input-group">
 						<span class="input-group-addon input-default">$</span>
-						<input type="text" class="form-control" name="" ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount">
+						<input type="text" class="form-control" name="" ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
 					</div>
   				</td>
 		      </tr>
@@ -99,7 +99,7 @@
 		        <td ng-repeat="estimatedEscrow in cdformdata.projectedPayments.estimatedEscrow track by $index">
 		        	<div class="input-group">
 	  					<span class="input-group-addon input-default">$</span>
-			        	<input class="form-control" ng-model="estimatedEscrow.projectedPaymentEstimatedEscrowPaymentAmount"/>
+			        	<input class="form-control" ng-model="estimatedEscrow.projectedPaymentEstimatedEscrowPaymentAmount" decimal-digits-with-number-format>
 			        </div>
 		        </td>
 		      </tr>

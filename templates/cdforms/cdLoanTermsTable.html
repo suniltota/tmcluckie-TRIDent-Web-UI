@@ -16,7 +16,7 @@
 		        <td>
 		        	<div class="input-group">
   						<span class="input-group-addon input-default">$</span>
-		        		<input class="form-control" ng-model="cdformdata.termsOfLoan.noteAmount"></input>
+		        		<input class="form-control" ng-model="cdformdata.termsOfLoan.noteAmount" decimal-digits-with-number-format></input>
 		        	</div>
 		        </td>
 		        <td class="col-sm-1">
@@ -29,7 +29,7 @@
 							<span class="col-sm-4">
 								<div class="input-group">
 									<span class="input-group-addon input-default">$</span>
-									<input type="text" class="form-control" name="" ng-model="cdformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount">
+									<input type="text" class="form-control" name="" ng-model="cdformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount" decimal-digits-with-number-format>
 								</div>
 							</span>
 						</li>
@@ -157,7 +157,7 @@
 		        <td>
 		        	<div class="input-group">
   						<span class="input-group-addon input-default">$</span>
-		        		<input class="form-control" ng-model="cdformdata.payment.paymentRule.initialPrincipalAndInterestPaymentAmount" decimal-places>
+		        		<input class="form-control" ng-model="cdformdata.payment.paymentRule.initialPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.paymentIncreaseIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
@@ -173,7 +173,7 @@
 		        			<span class="col-sm-3">
 		        			<div class="input-group">
 								<span class="input-group-addon input-default">$</span>
-								<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount">
+								<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount" decimal-digits-with-number-format>
 							</div>
 							</span> 
 		        			<span class="pull-left margin5tb">in year</span> 
@@ -197,7 +197,7 @@
 		        <td>
 		        </td>
 		      </tr>		      
-		      <tr>
+		      <tr> 
 		        <td><label>Prepayment Penalty</label></td>
 		        <td><label></label></td>
 		        <td  style="padding-right: 0px;">
@@ -211,7 +211,7 @@
 		        			<span class="col-sm-3">
 		        				<div class="input-group">
 		        					<span class="input-group-addon input-default">$</span>
-		        					<input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyMaximumLifeOfLoanAmount">
+		        					<input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyMaximumLifeOfLoanAmount" decimal-digits-with-number-format>
 		        				</div>
 		        				</span>
 		        					<span class="pull-left margin5tb">if you pay off the loan  in the first</span>
@@ -234,7 +234,7 @@
 		        			<span class="col-sm-3">
 			        			<div class="input-group">
 			        					<span class="input-group-addon input-default">$</span>
-			        					<input type="text" class="form-control" name="" ng-model="cdformdata.loanDetail.balloonPaymentAmount">
+			        					<input type="text" class="form-control" name="" ng-model="cdformdata.loanDetail.balloonPaymentAmount" decimal-digits-with-number-format>
 			        			</div>
 		        			</span>
 		        			<span class="pull-left margin5tb">at the end of year</span>
