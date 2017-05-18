@@ -3,101 +3,128 @@
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section E. Taxes and Other Government Fees</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section E. Taxes and Other Government Fees</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}</th>
 			  </tr>
-		      <tr>
-		        <th class="innerSectionHeader col-sm-2">Fee Label Name</th>
-		        <th class="innerSectionHeader">Fee Type</th>
-		        <th class="innerSectionHeader">Amount</th>
+		     <tr>
+		        <th class="innerSectionHeader col-sm-2">Fee Information</th>
+		        <th class="innerSectionHeader">Fee Paid To Info</th>
+		        <th class="innerSectionHeader">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader">Paid By OTHER</th>
+		        <th class="innerSectionHeader">Paid By Lender</th>
+		        <th class="innerSectionHeader">Include in APR?</th>
+		        <th></th>
 		      </tr>
-		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-if="tOGovtFee.feeType =='RecordingFeeForDeed' || tOGovtFee.feeType=='RecordingFeeForMortgage'">
+		      <tr>		      	
+		        <td >
+		        	<span class="col-sm-12 margin5tb padding0">Recording Fee Total</span>
+		        	<span class="col-sm-12 margin5tb padding0">Recording Fee For Deed</span>
+		        	<span class="col-sm-5 padding0 pull-right">
+		        		<input type="text" class="form-control" value="$0"> 
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Recording  Fee For Mortgage</span>
+		        	<span class="col-sm-5 padding0 pull-right">
+		        		<input type="text" class="form-control" value="$0"> 
+		        	</span>
+		        </td>
 		        <td>
-		        	<span class="margin5tb col-sm-12 padding0">{{tOGovtFee.displayLabel}}</span>
-		        </td>
-		        <td style="width:8%">
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.feeType" ng-disabled="true">
-		        </td>
-		        <td style="width:8%">
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.feeActualTotalAmount" only-digits ng-keyup="">
-		        </td>
-                <td style="border:0px">
+		        	<span class="col-sm-3 padding0 margin5tb">Type</span>
+		        	<span class="col-sm-9">
+		        		<select class="form-control">
+		        			<option>Broker</option>
+		        		</select>
+		        	</span>
 		        	
 		        </td>
-                <td style="border:0px">
-		        	
-		        </td>
-		        <th class="innerSectionHeader innerSectionMainHeader text-center"  style=" border:0px" colspan="2" ng-if="tOGovtFee.feeType=='RecordingFeeForMortgage'">
-		        	${{cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount | number:2}}
-		        </th>
-                <td style="border:0px" ng-if="tOGovtFee.feeType!='RecordingFeeForMortgage'">
-		        	
-		        </td>
-		      </tr>
-		<!--</table>
-        <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">-->
-			 
-		      <tr>
-		        <th class="innerSectionHeader col-sm-2">Fee Label Name</th>
-		        <th class="innerSectionHeader">Fee Type</th>
-		        <th class="innerSectionHeader">Fee Type Other Description</th>
-		        <th class="innerSectionHeader">Full Name (if applicable)</th>
-		        <th class="innerSectionHeader">Fee Paid To Type</th>
-		        <th class="innerSectionHeader">Brw Paid At Closing Amt</th>
-		        <th class="innerSectionHeader">Brw Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader">Seller Paid At Closing Amt</th>
-		        <th class="innerSectionHeader">Seller Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader">Paid By Other Amt</th>
-		        <th class="innerSectionHeader">Paid By Lender Flag</th>
-		        <th class="innerSectionHeader">Include in APR Calculation</th>
-		      </tr>
-		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-if="tOGovtFee.feeType !='RecordingFeeForDeed' && tOGovtFee.feeType!='RecordingFeeForMortgage'">
-		        <td ng-if="tOGovtFee.feeType == 'RecordingFeeTotal'">
-		        	<span class="margin5tb col-sm-12">{{tOGovtFee.displayLabel}}</span>
-		        </td>
-		        <td ng-if="tOGovtFee.feeType != 'RecordingFeeTotal'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.displayLabel">
+		        <td>
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="tOGovtFee.feeType" ng-disabled="tOGovtFee.feeType == 'RecordingFeeTotal'">
-              		<option value="" selected>Select</option>
-             			<option ng-repeat="feeType in feeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
-              		</select>
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-disabled="tOGovtFee.feeType!='Other'" name="tOGovtFee.feePaidToTypeOtherDescription">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.feePaidToFullName">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="tOGovtFee.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
+		        	<input type="text" class="form-control" value="$0" name="">
+		        </td>
+		        <td class="text-center">
+		        	<input type="checkbox"  name="">
+		        </td>
+		        <td>
+		        	<select class="form-control">
+		        		<option>Yes</option>
+		        		<option>No</option>
 		        	</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="tOGovtFee.bpAtClosing">
+		      		<span class="glyphicon glyphicon-remove iconTooltip red margin5tb" data-toggle="tooltip" title="Close"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear"></span>
+		      	</td>
+		      </tr>
+		      <tr>		      	
+		        <td >
+		        	<span class="col-sm-12 margin5tb padding0">Transfer Taxes</span>
+		        	<span class="col-sm-12 padding0">
+		        		<input type="text" class="form-control" > 
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
+		        	<span class="col-sm-12 padding0">
+		        		<select class="form-control" >
+		        			<option>Transfer Tax Total</option>
+		        		</select>
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Description</span>
+		        	<span class="col-sm-12 padding0">
+		        		<input type="text" class="form-control" > 
+		        	</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="tOGovtFee.bpB4Closing">
+		        	<span class="col-sm-3 padding0 margin5tb">Type</span>
+		        	<span class="col-sm-9">
+		        		<select class="form-control">
+		        			<option>Broker</option>
+		        		</select>
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
+		        	<span class="col-sm-12 padding0">
+		        		<input type="text" class="form-control padding0" name="" >
+		        	</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="tOGovtFee.spAtClosing">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="tOGovtFee.spB4Closing">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="tOGovtFee.paidByOthers">
-		        </td>
-		       <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="tOGovtFee.lenderStatus">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="tOGovtFee.paymentIncludedInAPRIndicator"
-		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	<input type="text" class="form-control" value="$0" name="">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control" value="$0" name="">
+		        </td>
+		        <td class="text-center">
+		        	<input type="checkbox"  name="">
+		        </td>
+		        <td>
+		        	<select class="form-control">
+		        		<option>Yes</option>
+		        		<option>No</option>
 		        	</select>
 		        </td>
+		        <td>
+		      		<span class="glyphicon glyphicon-remove iconTooltip red margin5tb" data-toggle="tooltip" title="Close"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear"></span>
+		      	</td>
 		      </tr>
 		</table>
 		<span class="AddSection" ng-click="addtOGovtFeesList()">
