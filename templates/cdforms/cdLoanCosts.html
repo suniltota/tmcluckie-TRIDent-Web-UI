@@ -8,7 +8,7 @@
 				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}</th>
 			  </tr>
 		     <tr>
-		        <th class="innerSectionHeader col-sm-2" colspan="2">Fee Information</th>
+		        <th class="innerSectionHeader col-sm-2">Fee Information</th>
 		        <th class="innerSectionHeader">Fee Paid To Info</th>
 		        <th class="innerSectionHeader">Borrower Paid AT Closing</th>
 		        <th class="innerSectionHeader">Borrower Paid BEFORE Closing</th>
@@ -18,11 +18,9 @@
 		        <th class="innerSectionHeader">Paid By Lender</th>
 		        <th class="innerSectionHeader">Include in APR?</th>
 		        <th class="innerSectionHeader">Included in Reg Z?</th>
+		        <th></th>
 		      </tr>
-		      <tr ng-repeat="originationCharge in cdformdata.closingCostDetailsLoanCosts.originationCharges">
-		      	<td>
-		      		<button class="btn btn-danger">Delete Fee info</button>
-		      	</td>
+		      <tr ng-repeat="originationCharge in cdformdata.closingCostDetailsLoanCosts.originationCharges">		      	
 		        <td >
 		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
 		        	<span class="col-sm-3 padding0">
@@ -70,6 +68,10 @@
 		        		<option>No</option>
 		        	</select>
 		        </td>
+		        <td>
+		      		<span class="glyphicon glyphicon-remove iconTooltip red margin5tb" data-toggle="tooltip" title="Close"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear"></span>
+		      	</td>
 		      </tr>
 		</table>
 		<span class="AddSection" ng-click="addOrganizationCharges()">
@@ -260,3 +262,8 @@
 			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('OtherCosts')">Next</a></span>
 	</div>
 </div>
+ <script type="text/javascript">
+  $(document).ready(function(){
+	    $(".iconTooltip").tooltip();   
+	});
+  </script>

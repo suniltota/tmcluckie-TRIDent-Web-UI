@@ -37,6 +37,7 @@ input, select, textarea, .form-control{font-size: 12px;}
 .radioGroup input[type="radio"]{margin:0 5px; float: left;}
 .radioGroup label{float: left;}
 .rowBackground{background: #eee;}
+.red{color:#e21414;}
 ul li{list-style: none;}
 .popup_innerHeader{background:#eee; padding:7px 10px; margin: 5px 0px;}
 .notificationIcons{margin:8px 10px; color:#5bb1dc;}
@@ -113,6 +114,7 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .SidebarBtnsHead{width: 100%; float: left; outline: none;}
 .sidenav #doctype{background-color: #fff; font-weight: bold; padding: 5px 15px; text-align: center;}
 .SidebarBtnsHead .tooltip.right{z-index:1; position: fixed;}
+.iconTooltip{cursor: pointer;}
 .sidenav {
     height: 100%;
     width: 0;
