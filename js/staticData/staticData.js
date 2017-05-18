@@ -2376,13 +2376,13 @@ this.cdformdata={
             "displayLabel": null,
             "closingCostFundAmount": "",
             "fundsType": "ExcessDeposit",
-            "integratedDisclosureSectionType": ""
+            "integratedDisclosureSectionType": "DueFromSellerAtClosing"
         },
         {
             "displayLabel": null,
             "closingCostFundAmount": "",
             "fundsType": "DepositOnSalesContract",
-            "integratedDisclosureSectionType": ""
+            "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing"
         }
     ],
     "prorationList":
@@ -2426,41 +2426,18 @@ this.cdformdata={
         },
         "paidByAlready":
         {
-            "deposit":
-            {
-                "displayLabel": null,
-                "closingCostFundAmount": "",
-                "fundsType": "",
-                "integratedDisclosureSectionType": ""
-            },
-            "existingLoan": "",
-            "sellerCredit": null,
-            "disclosureDescription": "",
-            "subordinateLien": null,
-            "totalSubordinateFinancingAmount": null,
-            "otherCredits":
-            [
-            ],
-            "paidByAlreadyTotalAmount":
-            {
-                "integratedDisclosureSectionSummaryDetailModel":
-                {
-                    "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "",
-                    "integratedDisclosureSubsectionTotalAmount": "",
-                    "integratedDisclosureSubsectionType": "",
-                    "integratedDisclosureSubsectionTypeOtherDescription": "",
-                    "lenderCreditToleranceCureAmount": ""
-                },
-                "integratedDisclosureSubsectionPayments":
-                [
-				    {
-                        "integratedDisclosureSubsectionPaidByType": "",
-                        "integratedDisclosureSubsectionPaymentAmount": "",
-                        "integratedDisclosureSubsectionPaymentTimingType": ""
-                    }
-                ]
-            }
+            "subordinateLien": {
+		        "displayLabel": "Subordinate Lien proceeds",
+		        "closingAdjustmentItemAmount": "",
+		        "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
+		        "closingAdjustmentItemType": "ProceedsOfSubordinateLiens",
+		        "closingAdjustmentItemTypeOtherDescription": "",
+		        "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
+		        "integratedDisclosureSubsectionType": "",
+		        "paidByIndividualFullName": "",
+		        "paidByEntityFullName": "",
+		        "paidToEntityFullName": ""
+		    }
         },
         "dueToSeller":
         {

@@ -1,5 +1,5 @@
 <div class="col-sm-12">
-	<h4>Summaries of Transaction - L. Paid already</h4>
+	<h4>Summaries of Transaction - L. Paid Already by or on Behalf of Borrower at Closing</h4>
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
@@ -8,21 +8,21 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	Deposit  
+		        	Deposit
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" value="$0" name="" ng-model="cdformdata.summariesofTransactions.paidByAlready.deposit.closingCostFundAmount">
+		        	<input type="text" class="form-control padding0" value="$0" name="" ng-model="cdformdata.closingCostFundList[1].closingCostFundAmount">
 		        </div>
 		        </td>
 		      </tr>
 		      <tr>
 		        <td>
-		        	Loan Amount 
+		        	Loan Amount
 		        </td>
 		        <td>
-		        	<label>${{cdformdata.summariesofTransactions.paidByAlready.loanAmount | number:2}}</label>
+		        	<label>${{cdformdata.termsOfLoan.noteAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -41,9 +41,9 @@
 		        	Seller Credits
 		        </td>
 		        <td>
-		        <div class="input-group">
+		        <div class="input-group" ng-repeat="paidAlreadyByAdjustment in paidAlreadyByAdjustments" ng-if="paidAlreadyByAdjustment.closingAdjustmentItemType=='SellerCredit'">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.paidByAlready.sellerCredit.closingAdjustmentItemAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-model="paidAlreadyByAdjustment.closingAdjustmentItemAmount">
 		        </div>
 		        </td>
 		      </tr>
@@ -57,7 +57,7 @@
 		      <tr>
 		        <td>
 		        	<span class="col-sm-7">
-		        		<input type="text" class="form-control padding0" value="Satisfaction of Jr. Lien $5,000 POC Borrower" name="" ng-module="cdformdata.summariesofTransactions.paidByAlready.disclosureDescription">
+		        		<input type="text" class="form-control padding0" name="" ng-module="paidAlreadyByLiabilities[0].liabilityDescription">
 		        	</span>
 		        </td>
 		      </tr>
@@ -76,25 +76,25 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	<label>Subordinate Lien proceeds </label> 
+		        	<label>Subordinate Lien proceeds</label> 
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="cdformdata.summariesofTransactions.paidByAlready.subordinateLien">
-                    <option ng-repeat="sLien in subordinateLiens" value="{{sLien.value}}">{{sLien.name}}</option>
-		        	</select>  
+		        	<select class="form-control padding0" ng-model="cdformdata.summariesofTransactions.paidByAlready.subordinateLien.closingAdjustmentItemType">
+			        	<option value="" selected>Select</option>
+	                    <option ng-repeat="sLien in subordinateLiens" value="{{sLien.value}}">{{sLien.name}}</option>
+		        	</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" ng-disabled="cdformdata.summariesofTransactions.paidByAlready.subordinateLien !='Other'" name="" >  
+		        	<input type="text" class="form-control padding0" ng-disabled="cdformdata.summariesofTransactions.paidByAlready.subordinateLien.closingAdjustmentItemType !='Other'" name="" ng-model="cdformdata.summariesofTransactions.paidByAlready.subordinateLien.closingAdjustmentItemTypeOtherDescription"">  
 		        </td>
 		        <td>
-		        	<ul class="ListChain" ng-show="cdformdata.summariesofTransactions.paidByAlready.subordinateLien !='Other'">
+		        	<ul class="ListChain" ng-show="cdformdata.summariesofTransactions.paidByAlready.subordinateLien.closingAdjustmentItemType =='ProceedsOfSubordinateLiens'">
 		        		<li><span class="pull-left margin5tb">Original Principal Balance?</span>
-		        			<span class="col-sm-4 pull-right"><input type="text" class="form-control padding0" name=""></span>
+		        			<span class="col-sm-4 pull-right"><input type="text" class="form-control padding0" name="" ng-model="cdformdata.loanDetail.totalSubordinateFinancingAmount"></span>
 		        		</li>
 		        		<li><span class="pull-left margin5tb">Is the Subordinate financing New?</span>
 		        			<span class="col-sm-4 pull-right">
-		        			<select class="form-control"
-			              		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        			<select class="form-control" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-model="cdformdata.loanDetail.subordinateFinancingIsNewIndicator">
 			        		</select>
 		        			</span>
 		        		</li>
@@ -103,7 +103,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-module="cdformdata.summariesofTransactions.paidByAlready.totalSubordinateFinancingAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-module="cdformdata.summariesofTransactions.paidByAlready.subordinateLien.closingAdjustmentItemAmount">
 		        </div>
 		        </td>
 		      </tr>
@@ -122,25 +122,27 @@
 		        <th class="innerSectionHeader">P.O.C Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="pbaOtherCredit in cdformdata.summariesofTransactions.paidByAlready.otherCredits">
+		      <tr ng-repeat="pbaOtherCredit in paidAlreadyByAdjustmentsOtherCredits track by $index">
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">  
+		        	<input type="text" class="form-control padding0" name="" ng-model="pbaOtherCredit.displayLabel">  
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="pbaOtherCredit.closingAdjustmentItemType">
 		        	<option value="" selected>Select</option>
 		        	<option ng-repeat="otherCredit in otherCredits" value="{{otherCredit.value}}">{{otherCredit.name}}</option>
-		        	</select>  
+		        	</select>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" ng-disabled="pbaOtherCredit.closingAdjustmentItemType !='Other'" name="" ng-model="pbaOtherCredit.closingAdjustmentItemTypeOtherDescription">  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-show="pbaOtherCredit.paidByIndividualFullName!=''" ng-model="pbaOtherCredit.paidByIndividualFullName">
-		        	<input type="text" class="form-control padding0" name="" ng-show="pbaOtherCredit.paidByEntityFullName!=''" ng-model="pbaOtherCredit.paidByEntityFullName">  
+		        	<input type="text" class="form-control padding0" name="" ng-model="pbaOtherCredit.fullName">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0"><option ng-repeat="payeeType in payeeTypes" value="{{payeeType.value}}">{{payeeType.name}}</option></select>  
+		        	<select class="form-control padding0" ng-model="pbaOtherCredit.payeeType" ng-change="updateOtherCreditsFullName($index)">
+		        		<option value="" selected>Select</option>
+		        		<option ng-repeat="payeeType in payeeTypes" value="{{payeeType.value}}">{{payeeType.name}}</option>
+		        	</select>  
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="pbaOtherCredit.closingAdjustmentItemPaidOutsideOfClosingIndicator">  
@@ -164,7 +166,7 @@
 		        <th class="innerSectionHeader">P.O.C Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidByAlready in cdformdata.summariesofTransactions.closingAdjustmentItemList track by $index" ng-if="adjustmentsPaidByAlready.integratedDisclosureSectionType == 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing' && adjustmentsPaidByAlready.integratedDisclosureSubsectionType !='OtherCredits'">
+		      <tr ng-repeat="adjustmentsPaidByAlready in paidAlreadyByAdjustments track by $index">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidByAlready.displaylabel">  
 		        </td>
@@ -183,8 +185,8 @@
 		        </td>
 		         <td>
 		        	<select class="form-control padding0">
-			        	<option ng-repeat="payeeType in payeeTypes" value="{{payeeType.value}}">{{payeeType.name}}
-			        	</option>
+		        		<option value="" selected>Select</option>
+			        	<option ng-repeat="payeeType in payeeTypes" value="{{payeeType.value}}">{{payeeType.name}}</option>
 		        	</select>  
 		        </td>
 		        <td class="text-center">
@@ -208,14 +210,25 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.closingAdjustmentItemList | filter:{ integratedDisclosureSectionType : PaidAlreadyByOrOnBehalfOfBorrowerAtClosing } track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
-		        <td>
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in paidAlreadyByAdjustmentsUnpaidBySeller">
+		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
 		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
 		        </td>
-		        <td>
-		        	 
+		         <td ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes' && adjustmentsUnpaidBySeller.displayLabel !='Assessments'">
+		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsUnpaidBySeller.displayLabel">  
 		        </td>
-		        <td></td>
+		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes'">
+		        </td>
+		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes'">
+		        	<select class="form-control padding0" ng-model="adjustmentsUnpaidBySeller.prorationItemType">
+                        <option value="" selected>Select</option>
+		      		    <option ng-repeat="prorationItemType in prorationItemTypes" value="{{prorationItemType.value}}" ng-disabled="prorationItemType.disabled">{{prorationItemType.name}}</option>
+		        	</select>
+		        </td>
+		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'"></td>
+		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes' && adjustmentsUnpaidBySeller.displayLabel !='Assessments'">
+		        	<input type="text" class="form-control padding0" ng-disabled="adjustmentsUnpaidBySeller.prorationItemType!='Other'" name="" ng-model="adjustmentsUnpaidBySeller.prorationItemTypeOtherDescription">
+		        </td>
 		        <td>
 		        	<span class="col-sm-10 padding0">
 					<input type="text" name="prorationItemPaidFromDate" id="prorationItemPaidFromDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidFromDate" is-open="isProrationItemPaidFromDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="Closing Date" disabled/>
@@ -229,84 +242,10 @@
 					<input type="text" name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="Closing Date" disabled/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
-	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isprorationItemPaidThroughDate = !isprorationItemPaidThroughDate"><i class="glyphicon glyphicon-calendar"></i></button>
-	        		</span>
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isprorationItemPaidThroughDate = !isprorationItemPaidThroughDate"><i class="glyphicon glyphicon-calendar"></i></button>	        		</span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsUnpaidBySeller.prorationItemAmount">
-		        </td>
-		      </tr>
-		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.summariesofTransactions.paidByAlready.adjustmentsUnpaidBySeller track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes' && adjustmentsUnpaidBySeller.displayLabel !='Assessments'">
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsUnpaidBySeller.displayLabel">  
-		        </td>
-		        <td>
-		        	<select class="form-control padding0" ng-model="adjustmentsUnpaidBySeller.prorationItemType">
-                        <option value="" selected>Select</option>
-		      		    <option ng-repeat="prorationItemType in prorationItemTypes" value="{{prorationItemType.value}}" ng-disabled="prorationItemType.disabled">{{prorationItemType.name}}</option>
-		        	</select>
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" ng-disabled="adjustmentsUnpaidBySeller.prorationItemType!='Other'" name="" ng-model="adjustmentsUnpaidBySeller.prorationItemTypeOtherDescription">
-		        </td>
-		        <td>
-		        	<span class="col-sm-10 padding0">
-					<input type="text" name="prorationItemPaidFromDate" id="prorationItemPaidFromDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidFromDate" is-open="isProrationItemPaidFromDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" disabled/>
-					</span>
-	      			<span class="input-group-btn col-sm-2 padding0">
-	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isProrationItemPaidFromDate = !isProrationItemPaidFromDate"><i class="glyphicon glyphicon-calendar"></i></button>
-	        		</span>  
-		        </td>
-		        <td>
-		        	<span class="col-sm-10 padding0">
-					<input type="text" name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" disabled/>
-					</span>
-	      			<span class="input-group-btn col-sm-2 padding0">
-	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isprorationItemPaidThroughDate = !isprorationItemPaidThroughDate"><i class="glyphicon glyphicon-calendar"></i></button>
-	        		</span>
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsUnpaidBySeller.prorationItemAmount">
-		        </td>
-		      </tr>
-		      <tr>
-		        <td>
-		        	 <label>&nbsp;</label>
-		        </td>
-		        <td>
-		        	 
-		        </td>
-		        <td>
-		        	
-		        </td>
-		        <td>
-		        	 
-		        </td>
-		        <td>
-		        	   
-		        </td>
-		        <td>
-		        	
-		        </td>
-		      </tr>
-		      <tr>
-		        <td>
-		        	  <label>&nbsp;</label>
-		        </td>
-		        <td>
-		        	 
-		        </td>
-		        <td>
-		        	
-		        </td>
-		        <td>
-		        	 
-		        </td>
-		        <td>
-		        	   
-		        </td>
-		        <td>
-		        	
 		        </td>
 		      </tr>
 		</table>
@@ -316,8 +255,6 @@
 		<span class="col-sm-10 text-right">Total for Section L. Paid By or On Behalf Of Borrower At Closing : </span>
 		<span class="col-sm-2">${{cdformdata.summariesofTransactions.paidByAlready.paidByAlreadyTotalAmount.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount | number:2}}</span>
 	</div>
-
-	
 	<div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('SummariesofTransaction_K')">Back</a></span>
 			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('SummariesofTransaction_L_cv')">Next</a></span>

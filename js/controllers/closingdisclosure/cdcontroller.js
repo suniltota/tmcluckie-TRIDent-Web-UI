@@ -281,6 +281,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		$scope.cdformdata.prorationsList = [];
 
 		$scope.dueFromBrwLiabilities = [];
+		$scope.paidAlreadyByLiabilities = [];
 		$scope.dueToSellerLiabilities = [];
 		$scope.dueFromSellerLiabilities = [];
 		
@@ -290,6 +291,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		$scope.dueFromSellerAdjustments = [];
 		$scope.dueFromBrwAdjustmentsPaidBySeller = [];
 		$scope.dueToSellerAdjustmentsPaidBySeller = [];
+		$scope.paidAlreadyByAdjustmentsOtherCredits = [];
+		$scope.paidAlreadyByAdjustmentsUnpaidBySeller = [];
 
 		for(i=0; i<$scope.cdformdata.liabilities.length; i++) {
 			if($scope.cdformdata.liabilities[i].integratedDisclosureSectionType == 'DueFromBorrowerAtClosing') {
@@ -384,9 +387,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 					i--;
 				} else {
 					$scope.dueFromBrwAdjustmentsPaidBySeller.push($scope.cdformdata.prorations[i]);
+					$scope.cdformdata.prorations.splice(i,1);
+					i--;
 				}
 			}
 		};
+		if($scope.dueFromBrwAdjustmentsPaidBySeller.length > 7) {
+			$scope.dueFromBrwAdjustmentsPaidBySeller = $scope.dueFromBrwAdjustmentsPaidBySeller.splice(0, 7);
+		}
 		for(i=$scope.dueFromBrwAdjustmentsPaidBySeller.length; i<7; i++) {
 			var prorationItem = angular.copy(prorationObj);
 			prorationItem.integratedDisclosureSectionType = 'DueFromBorrowerAtClosing';
@@ -395,13 +403,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		}
 
 		//Summaries of Transaction : M.Due to Seller At Closing --- Starts from here.
-		if($scope.dueFromBrwAdjustments[0].closingAdjustmentItemAmount!='' && $scope.dueFromBrwAdjustments[0].closingAdjustmentItemAmount!=null && $scope.dueFromBrwAdjustments[0].closingAdjustmentItemAmount!=undefined) {
+		if($scope.dueFromBrwAdjustments[0].closingAdjustmentItemType) {
 			var sellerAdjustment = $scope.dueFromBrwAdjustments[0];
 			sellerAdjustment['isFromBorrower'] = true;
 			sellerAdjustment.integratedDisclosureSectionType = "DueToSellerAtClosing";
 			$scope.dueToSellerAdjustments.splice(0, 0, $scope.dueFromBrwAdjustments[0]);
 		}
-		if($scope.dueFromBrwAdjustments[1].closingAdjustmentItemAmount!='' && $scope.dueFromBrwAdjustments[1].closingAdjustmentItemAmount!=null && $scope.dueFromBrwAdjustments[1].closingAdjustmentItemAmount!=undefined) {
+		if($scope.dueFromBrwAdjustments[1].closingAdjustmentItemType) {
 			var sellerAdjustment = $scope.dueFromBrwAdjustments[1];
 			sellerAdjustment['isFromBorrower'] = true;
 			sellerAdjustment.integratedDisclosureSectionType = "DueToSellerAtClosing";
@@ -423,43 +431,121 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			adjustmentPaidBySellerInAdvance.integratedDisclosureSubsectionType = 'AdjustmentsForItemsPaidBySellerInAdvance';
 			$scope.dueToSellerAdjustmentsPaidBySeller.push(adjustmentPaidBySellerInAdvance);
 		}
-
-
-		
-
-
-
-
-		/*/PaidAlreadyByOrOnBehalfOfBorrowerAtClosing
-        var paidAlreadyBrwAtClosingAdjustmentTypes = [];
-
-        paidAlreadyBrwAtClosingAdjustmentTypes = $scope.cdformdata.closingAdjustmentItemList.filter(function(item){
-		    return item.integratedDisclosureSectionType == 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing'
-		});
-		for(i=dueFromBrwAdjustmentTypes.length; i<3; i++) {
-			var paidAlreadyBrwAtClosingAdjustmentType = angular.copy(liability);
-			paidAlreadyBrwAtClosingAdjustmentType.integratedDisclosureSectionType='PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
-			$scope.cdformdata.closingAdjustmentItemList.push(paidAlreadyBrwAtClosingAdjustmentType);
-		}
-        
-        var dueToSellerAtClosing =[];
-
-        dueToSellerAtClosing = $scope.cdformdata.closingAdjustmentItemList.filter(function(item){
-		    return item.integratedDisclosureSectionType == 'DueToSellerAtClosing'
-		});
-
-		for(i=0;i<dueToSellerAtClosing.length;i++){
-			for(j=0;j<dueFromBrwAdjustmentTypes.length;j++){
-				if(dueToSellerAtClosing[i].closingAdjustmentItemType == dueFromBrwAdjustmentTypes[j].closingAdjustmentItemType){
-					dueToSellerAtClosing.splice(i,1);
+		//Summaries of Transaction : L.Paid Already by or on Behalf of Borrower at Closing --- Starts from here.
+		if($scope.cdformdata.closingCostFundList!=undefined && $scope.cdformdata.closingCostFundList.length>0) {
+			var depositOnSalesContract = false;
+			var excessDeposit = false;
+			for(i=0; i<$scope.cdformdata.closingCostFundList.length; i++) {
+				if($scope.cdformdata.closingCostFundList[i].fundsType == 'DepositOnSalesContract') {
+					depositOnSalesContract = true;
+				}
+				if($scope.cdformdata.closingCostFundList[i].fundsType == 'ExcessDeposit') {
+					excessDeposit = true;
 				}
 			}
+			if(!excessDeposit && $scope.cdformdata.closingCostFundList.length>=1) {
+				$scope.cdformdata.closingCostFundList.splice(1, 0, staticData.cdformdata.closingCostFundList[0]);
+			}
+			if(!depositOnSalesContract) {
+				$scope.cdformdata.closingCostFundList.splice(0, 0, staticData.cdformdata.closingCostFundList[1]);
+			}
+		} else {
+			$scope.cdformdata.closingCostFundList = staticData.cdformdata.closingCostFundList;
+ 		}
+ 		if($scope.paidAlreadyByLiabilities!=undefined) {
+			var paidAlreadyByLiability = angular.copy(liability);
+			paidAlreadyByLiability.integratedDisclosureSectionType='PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
+			$scope.paidAlreadyByLiabilities.push(paidAlreadyByLiability);
 		}
-        /*for(k=0;k<$scope.cdformdata.closingAdjustmentItemList.length;k++){
-        	if($scope.cdformdata.summariesofTransactions.closingAdjustmentItemList[k].integratedDisclosureSectionType == 'DueToSellerAtClosing'){
-        		$scope.cdformdata.summariesofTransactions.closingAdjustmentItemList[k].splice(k,1);
-        	}
-        }*/
+		for(i=0; i<$scope.paidAlreadyByAdjustments.length; i++) {
+			if($scope.paidAlreadyByAdjustments[i].integratedDisclosureSubsectionType == 'OtherCredits') {
+				if($scope.paidAlreadyByAdjustments[i].paidByEntityFullName) {
+					$scope.paidAlreadyByAdjustments[i].fullName = $scope.paidAlreadyByAdjustments[i].paidByEntityFullName;
+					$scope.paidAlreadyByAdjustments[i].payeeType = 'Organization';
+				} else if($scope.paidAlreadyByAdjustments[i].paidByIndividualFullName) {
+					$scope.paidAlreadyByAdjustments[i].fullName = $scope.paidAlreadyByAdjustments[i].paidByIndividualFullName;
+					$scope.paidAlreadyByAdjustments[i].payeeType = 'Individual';
+ 				}
+				$scope.paidAlreadyByAdjustmentsOtherCredits.push($scope.paidAlreadyByAdjustments[i]);
+				$scope.paidAlreadyByAdjustments.splice(i, 1);
+				i--;
+			} else if($scope.paidAlreadyByAdjustments[i].integratedDisclosureSubsectionType == 'AdjustmentsForItemsUnpaidBySeller') {
+				$scope.paidAlreadyByAdjustmentsUnpaidBySeller.push($scope.paidAlreadyByAdjustments[i]);
+				$scope.paidAlreadyByAdjustments.splice(i, 1);
+				i--;
+ 			}
+ 		}
+
+ 		if($scope.paidAlreadyByAdjustmentsOtherCredits.length > 2) {
+			$scope.paidAlreadyByAdjustmentsOtherCredits = $scope.paidAlreadyByAdjustmentsOtherCredits.splice(0, 2);
+		}
+		for(i=$scope.paidAlreadyByAdjustmentsOtherCredits.length; i<2; i++) {
+			var otherCreditsAdjustment = angular.copy(adjustment);
+			otherCreditsAdjustment.integratedDisclosureSectionType='PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
+			otherCreditsAdjustment.integratedDisclosureSubsectionType = 'OtherCredits';
+			$scope.paidAlreadyByAdjustmentsOtherCredits.push(otherCreditsAdjustment);
+		}
+		if($scope.paidAlreadyByAdjustments.length > 4) {
+			$scope.paidAlreadyByAdjustments = $scope.paidAlreadyByAdjustments.splice(0, 4);
+		}
+		for(i=$scope.paidAlreadyByAdjustments.length; i<4; i++) {
+			var paidAlreadyByAdjustment = angular.copy(adjustment);
+			paidAlreadyByAdjustment.integratedDisclosureSectionType='PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
+			paidAlreadyByAdjustment.integratedDisclosureSubsectionType = 'Adjustments';
+			$scope.paidAlreadyByAdjustments.push(paidAlreadyByAdjustment);
+		}
+		if($scope.paidAlreadyByAdjustmentsUnpaidBySeller!=undefined) {
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller.splice(0, 0, angular.copy(prorationObj));
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller[0].prorationItemType = 'CityPropertyTax';
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller[0].displayLabel = 'City/Town Taxes';
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller[0].integratedDisclosureSectionType = 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller[0].integratedDisclosureSubsectionType = 'AdjustmentsForItemsUnpaidBySeller';
+			
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller.splice(1, 0, angular.copy(prorationObj));
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller[1].prorationItemType = 'CountyPropertyTax';
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller[1].displayLabel = 'County Taxes';
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller[1].integratedDisclosureSectionType = 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller[1].integratedDisclosureSubsectionType = 'AdjustmentsForItemsUnpaidBySeller';
+
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller.splice(2, 0, angular.copy(prorationObj));
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller[2].displayLabel = 'Assessments';
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller[2].integratedDisclosureSectionType = 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller[2].integratedDisclosureSubsectionType = 'AdjustmentsForItemsUnpaidBySeller';
+		}
+		for(i=0; i<$scope.cdformdata.prorations.length; i++){
+			if($scope.cdformdata.prorations[i].integratedDisclosureSectionType == 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing' && 
+				$scope.cdformdata.prorations[i].integratedDisclosureSubsectionType == 'AdjustmentsForItemsUnpaidBySeller') {
+				if($scope.cdformdata.prorations[i].prorationItemType == 'CityPropertyTax' || $scope.cdformdata.prorations[i].prorationItemType == 'DistrictPropertyTax' || $scope.cdformdata.prorations[i].prorationItemType == 'TownPropertyTax') {
+					$scope.paidAlreadyByAdjustmentsUnpaidBySeller[0] = $scope.cdformdata.prorations[i];
+					$scope.paidAlreadyByAdjustmentsUnpaidBySeller[0].displayLabel = 'City/Town Taxes';
+					$scope.cdformdata.prorations.splice(i,1);
+					i--;
+				} else if($scope.cdformdata.prorations[i].prorationItemType == 'BoroughPropertyTax' || $scope.cdformdata.prorations[i].prorationItemType == 'CountyPropertyTax') {
+					$scope.paidAlreadyByAdjustmentsUnpaidBySeller[1] = $scope.cdformdata.prorations[i];
+					$scope.paidAlreadyByAdjustmentsUnpaidBySeller[1].displayLabel = 'County Taxes';
+					$scope.cdformdata.prorations.splice(i,1);
+					i--;
+				} else if($scope.cdformdata.prorations[i].prorationItemType == 'CondominiumAssociationSpecialAssessment' || $scope.cdformdata.prorations[i].prorationItemType == 'CooperativeAssociationSpecialAssessment' || $scope.cdformdata.prorations[i].prorationItemType == 'HomeownersAssociationSpecialAssessment') {
+					$scope.paidAlreadyByAdjustmentsUnpaidBySeller[2] = $scope.cdformdata.prorations[i];
+					$scope.paidAlreadyByAdjustmentsUnpaidBySeller[2].displayLabel = 'Assessments';
+					$scope.cdformdata.prorations.splice(i,1);
+					i--;
+				} else {
+					$scope.paidAlreadyByAdjustmentsUnpaidBySeller.push($scope.cdformdata.prorations[i]);
+					$scope.cdformdata.prorations.splice(i,1);
+					i--;
+				}
+			}
+		};
+		if($scope.paidAlreadyByAdjustmentsUnpaidBySeller.length > 6) {
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller = $scope.paidAlreadyByAdjustmentsUnpaidBySeller.splice(0, 6);
+		}
+		for(i=$scope.paidAlreadyByAdjustmentsUnpaidBySeller.length; i<6; i++) {
+			var unpaidByAdjustment = angular.copy(adjustment);
+			unpaidByAdjustment.integratedDisclosureSectionType='PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
+			unpaidByAdjustment.integratedDisclosureSubsectionType = 'AdjustmentsForItemsUnpaidBySeller';
+			$scope.paidAlreadyByAdjustmentsUnpaidBySeller.push(unpaidByAdjustment);
+		}
 
 		$scope.payoffsAndPaymentsList = [];
 		for(i=0; i<$scope.cdformdata.liabilityList.length; i++) {
@@ -688,6 +774,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     		$scope.showLenderTolerance = false;
     		$scope.toleranceSelection = false;
     		$scope.cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount = '';
+    	}
+    }
+
+    $scope.updateOtherCreditsFullName = function(index) {
+    	var paidAlreadyByAdjustmentsOtherCredit = $scope.paidAlreadyByAdjustmentsOtherCredits[index];
+    	if(paidAlreadyByAdjustmentsOtherCredit.payeeType=='Organization') {
+    		paidAlreadyByAdjustmentsOtherCredit.paidByEntityFullName = paidAlreadyByAdjustmentsOtherCredit.fullName;
+    	} else if (paidAlreadyByAdjustmentsOtherCredit.payeeType=='Individual') {
+    		paidAlreadyByAdjustmentsOtherCredit.paidByIndividualFullName = paidAlreadyByAdjustmentsOtherCredit.fullName;
     	}
     }
     

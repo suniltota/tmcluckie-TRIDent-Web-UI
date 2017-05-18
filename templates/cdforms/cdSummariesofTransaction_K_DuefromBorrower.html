@@ -117,7 +117,7 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in dueFromBrwAdjustmentsPaidBySeller | filter: {integratedDisclosureSectionType : 'DueFromBorrowerAtClosing'}" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='Assessments'">
+		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in dueFromBrwAdjustmentsPaidBySeller" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes'">
 		        <td >
 		        	<label>{{adjustmentsPaidBySellerInAdvance.displayLabel}}</label>
 		        </td>
@@ -147,10 +147,10 @@
 		        </div>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in dueFromBrwAdjustmentsPaidBySeller | filter: {integratedDisclosureSectionType : 'DueFromBorrowerAtClosing'}" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='Assessments'">
+		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in dueFromBrwAdjustmentsPaidBySeller" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" 
-		        	ng-model="adjustmentsPaidBySellerInAdvance.displayLabel">  
+		        	ng-model="adjustmentsPaidBySellerInAdvance.displayLabel">
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemType">
@@ -159,7 +159,7 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" ng-disabled="adjustmentsPaidBySellerInAdvance.prorationItemType!='Other'" name="" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemTypeOtherDescription">
+		        	<input type="text" class="form-control padding0" ng-disabled="adjustmentsPaidBySellerInAdvance.prorationItemType!='Other'" name="" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemTypeOtherDescription" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel!='Assessments'">
 		        </td>
 		        <td>
 		        	<span class="col-sm-10 padding0">
