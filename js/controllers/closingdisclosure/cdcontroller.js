@@ -59,6 +59,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	var seller ={};
 	var ausTypeIdentifier = {};
 	var ETIAComponentType = {};
+	var paymentCalculation = {};
+	var principalInterest = {};
+	var mortgageInsurance = {};
+	var estimatedEscrow = {};
+	var estimatedTotal = {};
     var originationCharges = {};
     var sbDidNotShopFors = {};
     var sbDidShopFors = {};
@@ -82,7 +87,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
           "partialPayoffIndicator":"",
           "prepaymentPenaltyAmount":""
     };
-
+    
 	$scope.dateOptions = {
  		formatYear: 'yy',
  		startingDay: 1
@@ -106,6 +111,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		liability = angular.copy($scope.cdformdata.liabilityList[0]);
 		adjustment = angular.copy($scope.cdformdata.closingAdjustmentItemList[0]);
 		prorationObj = angular.copy($scope.cdformdata.prorationsList[0]);
+		paymentCalculation = angular.copy($scope.cdformdata.projectedPayments.paymentCalculation[0]);
+		principalInterest = angular.copy($scope.cdformdata.projectedPayments.principalInterest[0]);
+		mortgageInsurance = angular.copy($scope.cdformdata.projectedPayments.mortgageInsurance[0]);
+		estimatedEscrow = angular.copy($scope.cdformdata.projectedPayments.estimatedEscrow[0]);
+		estimatedTotal = angular.copy($scope.cdformdata.projectedPayments.estimatedTotal[0]);
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
         $scope.cdformdata.closingInformation.dateIssued = new Date();
 		$scope.cdformdata.closingInformationDetail.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
@@ -745,6 +755,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	   $scope.cdformdata.transactionInformation.sellerDetails[index] = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
     	   $scope.cdformdata.transactionInformation.sellerDetails[index].checkSeller = true;
         }
+    }
+    $scope.addProjectedPayments = function(){
+    	if($scope.cdformdata.projectedPayments.paymentCalculation.length <= 3){
+	    	$scope.cdformdata.projectedPayments.paymentCalculation.push(angular.copy(paymentCalculation));
+			$scope.cdformdata.projectedPayments.principalInterest.push(angular.copy(principalInterest));
+			$scope.cdformdata.projectedPayments.mortgageInsurance.push(angular.copy(mortgageInsurance));
+			$scope.cdformdata.projectedPayments.estimatedEscrow.push(angular.copy(estimatedEscrow));
+			$scope.cdformdata.projectedPayments.estimatedTotal.push(angular.copy(estimatedTotal));
+	    }
     }
 	$scope.calculateCash = function(){
 		var totalEstimatedAmount = 0;
