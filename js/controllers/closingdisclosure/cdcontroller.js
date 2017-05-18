@@ -54,6 +54,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.salePriceAmount = 0;
     $scope.payOffTypeSelection = '';
     $scope.stepPaymentIndicator = false;
+    $scope.checkBorrower = false;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -638,7 +639,20 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			}
 		}
 	}
-    
+    $scope.sameBorrower = function(index){
+    	var bCheck = $scope.cdformdata.transactionInformation.borrowerDetails[index];
+    	if(bCheck.checkBorrower == true){
+    	   $scope.cdformdata.transactionInformation.borrowerDetails[index] = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
+    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].checkBorrower = true;
+        }
+    }
+    $scope.sameSeller = function(index){
+    	var sCheck = $scope.cdformdata.transactionInformation.sellerDetails[index];
+    	if(sCheck.checkSeller == true){
+    	   $scope.cdformdata.transactionInformation.sellerDetails[index] = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
+    	   $scope.cdformdata.transactionInformation.sellerDetails[index].checkSeller = true;
+        }
+    }
 	$scope.calculateCash = function(){
 		var totalEstimatedAmount = 0;
 		if($scope.cdformdata.cashToCloses.totalClosingCosts != null)
@@ -676,7 +690,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     		$scope.cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount = '';
     	}
     }
-
+    
 	var bpAtClosing = {
 		'originationChargeTotalbpAtClosing' : 0,
 		'sbDidNotShopTotalbpAtClosing' : 0,

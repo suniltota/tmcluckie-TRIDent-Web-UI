@@ -64,7 +64,7 @@
 		        	    </select>
 			        </td>
 			        <td>
-			        	<select class="form-control pull-left" ng-model="payoffsAndPayment.partialPayoffIndicator" ng-disabled="payoffsAndPayment.payOffType!='Liability'">
+			        	<select class="form-control pull-left" ng-model="payoffsAndPayment.payoffPartialIndicator" ng-disabled="payoffsAndPayment.payOffType!='Liability'">
 			        	<option value="" selected>Select</option>
 			        	<option  ng-repeat="option in dropDownBooleanOptions" value="{{option.id}}">{{option.name}}</option>
 		        	    </select>

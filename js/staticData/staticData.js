@@ -1918,6 +1918,9 @@ this.cdformdata={
 	    },
 	    "etiaSection":
 	    {
+	    	"escrowTypes":
+	        [
+	        ],
 	        "projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount": "",
 	        "etiaValues":
 	        [
@@ -1927,25 +1930,6 @@ this.cdformdata={
 	                "projectedPaymentEscrowedType": "NotEscrowed"
 	            }
 	        ]
-	    },
-		"costsAtClosing":
-	    {
-	        "ClosingCosts":
-	        {
-	            "amount": "",
-	            "integratedDisclosureSubsectionTotalAmount": null,
-	            "integratedDisclosureSubsectionPaymentAmount": "",
-	            "totalLoanCosts": "",
-	            "totalOtherCosts": "",
-	            "lenderCredits": ""
-	        },
-	        "CashToClose":
-	        {
-	            "amount": "",
-	            "fromType": false,
-	            "cashFromBorrowerAtClosingAmount": "",
-	            "cashToBorrowerAtClosingAmount": ""
-	        }
 	    },
 	    "closingCostDetailsLoanCosts":
 	    {
@@ -2367,7 +2351,8 @@ this.cdformdata={
             "liabilitySecuredBySubjectPropertyIndicator": false,
             "liabilityHolderFullName": "",
             "payoffAmount": "",
-            "payoffPrepaymentPenaltyAmount": ""
+            "payoffPrepaymentPenaltyAmount": "",
+            "payoffPartialIndicator":false
         }
 	],
 	"closingAdjustmentItemList":
