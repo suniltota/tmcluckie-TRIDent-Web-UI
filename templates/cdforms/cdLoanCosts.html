@@ -3,9 +3,8 @@
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section A. Origination Charge</th>
-				<th colspan="2" class="border_top0"></th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section A. Origination Charge</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}</th>
 			  </tr>
 		     <tr>
 		        <th class="innerSectionHeader col-sm-2">Fee Information</th>
@@ -27,6 +26,16 @@
 		        		<input type="text" class="form-control"> 
 		        	</span>
 		        	<span class="margin5tb col-sm-9">Loan Amount (Points)</span>
+		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
+		        	<span class="col-sm-12 padding0">
+		        		<input type="text" class="form-control"> 
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
+		        	<span class="col-sm-12 padding0">
+		        		<select class="form-control">
+		        			<option>Application Fee</option>
+		        		</select> 
+		        	</span>
 		        </td>
 		        <td>
 		        	<span class="col-sm-3 padding0 margin5tb">Type</span>
@@ -82,75 +91,86 @@
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section B. Services Borrower Did Not Shop For</th>
-				<th colspan="2" class="border_top0"></th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section B. Services Borrower Did Not Shop For</th>
+				
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
-		        <th class="innerSectionHeader col-sm-2">Fee Label Name</th>
-		        <th class="innerSectionHeader">Fee Type</th>
-		        <th class="innerSectionHeader">Fee Type Other Description</th>
-		        <th class="innerSectionHeader">Full Name (if applicable)</th>
-		        <th class="innerSectionHeader">Fee Paid To Type</th>
-		        <th class="innerSectionHeader">Brw Paid At Closing Amt</th>
-		        <th class="innerSectionHeader">Brw Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader">Seller Paid At Closing Amt</th>
-		        <th class="innerSectionHeader">Seller Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader">Paid By Other Amt</th>
-		        <th class="innerSectionHeader">Paid By Lender Flag</th>
-		        <th class="innerSectionHeader">Include in APR Calculation</th>
-		        <th class="innerSectionHeader">Include in Reg Z Points/Fee</th>
+		        <th class="innerSectionHeader col-sm-2">Fee Information</th>
+		        <th class="innerSectionHeader">Fee Paid To Info</th>
+		        <th class="innerSectionHeader">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader">Paid By OTHER</th>
+		        <th class="innerSectionHeader">Paid By Lender</th>
+		        <th class="innerSectionHeader">Include in APR?</th>
+		        <th class="innerSectionHeader">Included in Reg Z?</th>
+		        <th></th>
 		      </tr>
-		      <tr ng-repeat="sbDidNotShopFor in cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors">
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.displayLabel">
+		      <tr>		      	
+		        <td >
+		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
+		        	<span class="col-sm-12 padding0">
+		        		<input type="text" class="form-control"> 
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
+		        	<span class="col-sm-12 padding0">
+		        		<select class="form-control">
+		        			<option>Application Fee</option>
+		        		</select> 
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Description</span>
+		        	<span class="col-sm-12 padding0">
+		        		<select class="form-control" disabled="">
+		        			<option>Lender Costs Fee</option>
+		        		</select> 
+		        	</span>
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="sbDidNotShopFor.feeType">
-              			<option value="" selected>Select</option>
-             			<option ng-repeat="feeType in feeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
-              		</select>
+		        	<span class="col-sm-3 padding0 margin5tb">Type</span>
+		        	<span class="col-sm-9">
+		        		<select class="form-control">
+		        			<option>Broker</option>
+		        		</select>
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
+		        	<input type="text" class="form-control padding0" name="" >
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-disabled="sbDidNotShopFor.feeType!='Other'" name="sbDidNotShopFor.feePaidToTypeOtherDescription" name="sbDidNotShopFor.feePaidToTypeOtherDescription">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.feePaidToFullName">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="sbDidNotShopFor.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidNotShopFor.bpAtClosing">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidNotShopFor.bpB4Closing">
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidNotShopFor.spAtClosing">
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidNotShopFor.spB4Closing">
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidNotShopFor.paidByOthers">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="sbDidNotShopFor.lenderStatus">
+		        	<input type="checkbox"  name="">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="sbDidNotShopFor.paymentIncludedInAPRIndicator"
-		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	<select class="form-control">
+		        		<option>Yes</option>
+		        		<option>No</option>
 		        	</select>
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="sbDidNotShopFor.regulationZPointsAndFeesIndicator"
-		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	<select class="form-control">
+		        		<option>Yes</option>
+		        		<option>No</option>
 		        	</select>
 		        </td>
+		        <td>
+		      		<span class="glyphicon glyphicon-remove iconTooltip red margin5tb" data-toggle="tooltip" title="Close"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear"></span>
+		      	</td>
 		      </tr>
 		</table>
 		<span class="AddSection" ng-click="addsbDidNotShopFor()">
@@ -161,75 +181,85 @@
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section C. Services Borrower Did Shop For</th>
-				<th colspan="2" class="border_top0"></th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section C. Services Borrower Did Shop For</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
-		        <th class="innerSectionHeader col-sm-2">Fee Label Name</th>
-		        <th class="innerSectionHeader">Fee Type</th>
-		        <th class="innerSectionHeader">Fee Type Other Description</th>
-		        <th class="innerSectionHeader">Full Name (if applicable)</th>
-		        <th class="innerSectionHeader">Fee Paid To Type</th>
-		        <th class="innerSectionHeader">Brw Paid At Closing Amt</th>
-		        <th class="innerSectionHeader">Brw Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader">Seller Paid At Closing Amt</th>
-		        <th class="innerSectionHeader">Seller Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader">Paid By Other Amt</th>
-		        <th class="innerSectionHeader">Paid By Lender Flag</th>
-		        <th class="innerSectionHeader">Include in APR Calculation</th>
-		        <th class="innerSectionHeader">Include in Reg Z Points/Fee</th>
+		        <th class="innerSectionHeader col-sm-2">Fee Information</th>
+		        <th class="innerSectionHeader">Fee Paid To Info</th>
+		        <th class="innerSectionHeader">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader">Paid By OTHER</th>
+		        <th class="innerSectionHeader">Paid By Lender</th>
+		        <th class="innerSectionHeader">Include in APR?</th>
+		        <th class="innerSectionHeader">Included in Reg Z?</th>
+		        <th></th>
 		      </tr>
-		      <tr ng-repeat="sbDidShopFor in cdformdata.closingCostDetailsLoanCosts.sbDidShopFors">
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.displayLabel">
+		      <tr>		      	
+		        <td >
+		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
+		        	<span class="col-sm-12 padding0">
+		        		<input type="text" class="form-control"> 
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
+		        	<span class="col-sm-12 padding0">
+		        		<select class="form-control">
+		        			<option>Application Fee</option>
+		        		</select> 
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Description</span>
+		        	<span class="col-sm-12 padding0">
+		        		<select class="form-control" disabled="">
+		        			<option>Lender Costs Fee</option>
+		        		</select> 
+		        	</span>
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="sbDidShopFor.feeType">
-              			<option value="" selected>Select</option>
-             			<option ng-repeat="feeType in feeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
-              		</select>
+		        	<span class="col-sm-3 padding0 margin5tb">Type</span>
+		        	<span class="col-sm-9">
+		        		<select class="form-control">
+		        			<option>Broker</option>
+		        		</select>
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
+		        	<input type="text" class="form-control padding0" name="" >
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-disabled="sbDidShopFor.feeType!='Other'" name="sbDidShopFor.feePaidToTypeOtherDescription" name="sbDidShopFor.feePaidToTypeOtherDescription">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feePaidToFullName">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="sbDidShopFor.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidShopFor.bpAtClosing">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidShopFor.bpB4Closing">
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidShopFor.spAtClosing">
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidShopFor.spB4Closing">
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="sbDidShopFor.paidByOthers">
+		        	<input type="text" class="form-control" value="$0" name="">
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="sbDidShopFor.lenderStatus">
+		        	<input type="checkbox"  name="">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="sbDidShopFor.paymentIncludedInAPRIndicator"
-		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	<select class="form-control">
+		        		<option>Yes</option>
+		        		<option>No</option>
 		        	</select>
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="sbDidShopFor.regulationZPointsAndFeesIndicator"
-		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	<select class="form-control">
+		        		<option>Yes</option>
+		        		<option>No</option>
 		        	</select>
 		        </td>
+		        <td>
+		      		<span class="glyphicon glyphicon-remove iconTooltip red margin5tb" data-toggle="tooltip" title="Close"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear"></span>
+		      	</td>
 		      </tr>
 		</table>
 		<span class="AddSection" ng-click="addsbDidShopFor()">
