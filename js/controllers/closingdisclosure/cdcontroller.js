@@ -169,6 +169,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
 			$scope.cdformdata.etiaSection.etiaValues.splice(1, 0, angular.copy(ETIAComponentType));
 			$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType = 'HomeownersInsurance';
+
+			$scope.cdformdata.etiaSection.etiaValues.splice(2, 0, angular.copy(ETIAComponentType));
+			$scope.cdformdata.etiaSection.etiaValues[2].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType = '';
 		}
 
 		for(i=0; i<$scope.cdformdata.etiaSection.etiaValues.length; i++){
@@ -178,6 +181,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				i--;
 			} else if(i!=1 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == 'HomeownersInsurance') {
 				$scope.cdformdata.etiaSection.etiaValues[1] = $scope.cdformdata.etiaSection.etiaValues[i];
+				$scope.cdformdata.etiaSection.etiaValues.splice(i, 1);
+				i--;
+			} else if(i!=2 && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == '') {
+				$scope.cdformdata.etiaSection.etiaValues[2] = $scope.cdformdata.etiaSection.etiaValues[i];
 				$scope.cdformdata.etiaSection.etiaValues.splice(i, 1);
 				i--;
 			} else {
