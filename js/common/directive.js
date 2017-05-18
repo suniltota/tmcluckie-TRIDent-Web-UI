@@ -218,3 +218,37 @@ app.directive('negativeDigits', function () {
       }
     };
 });
+
+app.directive('decimalDigitsWithNumberFormat', function () {
+    return {
+      require: 'ngModel',
+      restrict: 'A',
+      link: function (scope, element, attr, ctrl) {
+        function inputValue(val) {
+          if (val) {
+            var digits = val.replace(/[^0-9.]/g, '');
+            var decimalSplitValues = digits.split('.');
+            if(decimalSplitValues[0].length>9)
+              decimalSplitValues[0] = decimalSplitValues[0].substring(0, 9);
+                        
+            if (decimalSplitValues[1]!=undefined && decimalSplitValues[1].length > 2) {
+              decimalSplitValues[1] = decimalSplitValues[1].substring(0, 2);
+            }
+
+            if(decimalSplitValues.length==2)
+                digits = decimalSplitValues[0] +"."+decimalSplitValues[1];
+            else if (decimalSplitValues.length==1)
+                digits = decimalSplitValues[0];
+            
+            if (digits !== val) {
+              ctrl.$setViewValue(digits);
+              ctrl.$render();
+            }
+            return parseFloat(digits);
+          }
+          return undefined;
+        }            
+        ctrl.$parsers.push(inputValue);
+      }
+    };
+});
