@@ -18,6 +18,7 @@
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'CalculatingCashtoClose'}" ng-click="showTab = 'CalculatingCashtoClose'" >Calculating Cash to Close</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_K'}" ng-click="showTab = 'SummariesofTransaction_K'" >Summaries of Transaction - K. Due from Borrower At Closing</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_L'}" ng-click="showTab = 'SummariesofTransaction_L'" >Summaries of Transaction - L. Paid already</span> 
+        <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_L_cv'}" ng-click="showTab = 'SummariesofTransaction_L_cv'" >Summaries of Transaction - L. Calculations View</span> 
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_M'}" ng-click="showTab = 'SummariesofTransaction_M'" >Summaries of Transaction - M. Due to seller At Closing</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_N'}" ng-click="showTab = 'SummariesofTransaction_N'" >Summaries of Transaction - N. Due from Seller At Closing</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'PayoffsAndPayments'}" ng-click="showTab = 'PayoffsAndPayments'" >Payoffs And Payments </span> 
@@ -87,6 +88,10 @@
         <span class="pageno pageicon" ng-class="{'active': showTab == 'SummariesofTransaction_L'}" data-toggle="tooltip" ng-click="showTab = 'SummariesofTransaction_L'"  data-placement="right" title="Summaries of Transaction - L. Paid already">
           <span class="glyphicon glyphicon-file pull-left"></span>
           <span class="pull-left noTitle">13</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'SummariesofTransaction_L_cv'}" data-toggle="tooltip" ng-click="showTab = 'SummariesofTransaction_L_cv'"  data-placement="right" title="Summaries of Transaction - L. Calculations View">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">13</span>
         </span> 
         <span class="pageno pageicon" ng-class="{'active': showTab == 'SummariesofTransaction_M'}" data-toggle="tooltip" ng-click="showTab = 'SummariesofTransaction_M'"  data-placement="right" title="Summaries of Transaction - M. Due to seller At Closing">
           <span class="glyphicon glyphicon-file pull-left"></span>
@@ -149,6 +154,7 @@
             <div ng-show="showTab == 'CalculatingCashtoClose'" ng-include='"templates/cdforms/cdCalculatingCashtoClose.html"'></div>
             <div ng-show="showTab == 'SummariesofTransaction_K'" ng-include='"templates/cdforms/cdSummariesofTransaction_K_DuefromBorrower.html"'></div>
              <div ng-show="showTab == 'SummariesofTransaction_L'" ng-include='"templates/cdforms/cdSummariesofTransaction_L_Paidalready.html"'></div>
+             <div ng-show="showTab == 'SummariesofTransaction_L_cv'" ng-include='"templates/cdforms/cdSummariesofTransaction_L_CalculationsView.html"'></div>
              <div ng-show="showTab == 'SummariesofTransaction_M'" ng-include='"templates/cdforms/cdSummariesofTransaction_M_DuetoSeller.html"'></div>
              <div ng-show="showTab == 'SummariesofTransaction_N'" ng-include='"templates/cdforms/cdSummariesofTransaction_N_DuefromSeller.html"'></div>
              <div ng-show="showTab == 'LoanDisclosures'" ng-include='"templates/cdforms/AdditionalInformation_LoanDisclosures.html"'></div>

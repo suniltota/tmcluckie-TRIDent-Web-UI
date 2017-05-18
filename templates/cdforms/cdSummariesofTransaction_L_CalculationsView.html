@@ -1,0 +1,41 @@
+<div class="col-sm-12">
+	
+	<h5 class="margin5tb pull-left"><strong>Summaries of Transaction – Calculations View</strong></h5>
+	<span  class="col-sm-12 padding0">
+        <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
+		      <tr>
+		        <th class="innerSectionHeader col-sm-10">Borrower  Transaction  -  Calculation</th>
+		        <th class="innerSectionHeader"></th>
+		      </tr>
+		      <tr>
+		        <td>
+		        	Total Due from Borrower at Closing (K)  
+		        </td>
+		        <td>
+		        	<label>${{cdformdata.summariesofTransactions.borrowerTransaction.dueFromBorrowerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount | number:2}}</label>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		        	Total Paid Already By or On Behalf of Borrower At Closing (L) 
+		        </td>
+		        <td>
+		        	<label>-${{cdformdata.summariesofTransactions.paidByAlready.paidByAlreadyTotalAmount.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount | number:2}}</label>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		        	Cash to Close (to or from) Borrower  
+		        </td>
+		        <td>
+		        	<label ng-if="cdformdata.summariesofTransactions.borrowerTransaction.cashFromBorrowerAtClosingAmount!=''">${{cdformdata.summariesofTransactions.borrowerTransaction.cashFromBorrowerAtClosingAmount | number:2}}</label>
+		        	<label ng-if="cdformdata.summariesofTransactions.borrowerTransaction.cashToBorrowerAtClosingAmount!=''">${{cdformdata.summariesofTransactions.borrowerTransaction.cashToBorrowerAtClosingAmount}}</label>
+		        </td>
+		      </tr>
+		</table>
+	</span>
+	<div class="col-sm-12 margin10t">
+			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('SummariesofTransaction_L')">Back</a></span>
+			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('SummariesofTransaction_M')">Next</a></span>
+	</div>
+</div>
