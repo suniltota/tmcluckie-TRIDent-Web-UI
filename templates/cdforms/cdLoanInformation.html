@@ -239,7 +239,7 @@
 				        </div>
 					</div>
 				</div>
-				<span ng-show="cdformdata.construction.constructionLoanType == 'ConstructionOnly'">
+				<span ng-show="cdformdata.loanDetail.constructionLoanIndicator == true && cdformdata.construction.constructionLoanType != ''">
 				<div class="col-sm-6">
 					<div class="FieldGroup">
 					</div>
@@ -325,7 +325,7 @@
 				        </div>
 					</div>
 				</div>
-				<span ng-show="cdformdata.negativeAmortization.negativeAmortizationType == 'ScheduledNegativeAmortization'">
+				<span ng-show="cdformdata.loanDetail.negativeAmortizationIndicator == true && cdformdata.negativeAmortization.negativeAmortizationType != ''">
 				<div class="col-sm-6">
 					<div class="FieldGroup">
 					</div>
