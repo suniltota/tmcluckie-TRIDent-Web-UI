@@ -5,17 +5,17 @@
 		    <tbody>
 		      <tr>
 		        <td class="col-sm-2"><label>Closing Costs</label></td>
-		        <td class="col-sm-2"><label>${{cdformdata.costsAtClosing.ClosingCosts.amount}}</label></td>
+		        <td class="col-sm-2"><label>${{cdformdata.closingCostsTotal.totalClosingCosts | number:2}}</label></td>
 		        <td class="col-sm-8">
 		        	<ul class="col-sm-9" >
-		        		<li><p>Includes <label>${{cdformdata.costsAtClosing.ClosingCosts.totalLoanCosts}}</label> in Loan Costs + <label>${{cdformdata.costsAtClosing.ClosingCosts.totalOtherCosts}}</label> in Other Costs - <label>${{cdformdata.costsAtClosing.ClosingCosts.lenderCredits}}</label> in Lender Credits.<i>See page 2 for details.
+		        		<li><p>Includes <label>${{cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | number:2}}</label> in Loan Costs + <label>${{cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount | number:2 }}</label> in Other Costs - <label>${{cdformdata.closingCostsTotal.lenderCredits}}</label> in Lender Credits.<i>See page 2 for details.
 		        		</i></p></li>
 		        	</ul>
 		        </td>
 		      </tr>
 		      <tr>
 		        <td><label>Cash To Close</label></td>
-		        <td><label>${{cdformdata.costsAtClosing.CashToClose.amount}} </label></td>
+		        <td><label>${{cdformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount | number:2}} </label></td>
 		        <td>
 		        	<ul class="col-sm-9" >
 		        		<li>Includes Closing Costs.<i>See Calculating Cash To Close on page 3 for details.</i></p></li>
