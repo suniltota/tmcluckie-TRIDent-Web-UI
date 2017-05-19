@@ -971,18 +971,30 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.splice(index,1);
     }
 
-    /*$scope.clearOC = function(index){
-    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.splice(index,1);
+    $scope.clearOC = function(index){
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTotalPercent ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].displayLabel ='';
+    	//$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeType ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTypeOtherDescription ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToTypeOtherDescription ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToFullName ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].bpAtClosing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].bpB4Closing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].spAtClosing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].spB4Closing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].paidByOthers ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].lenderStatus ='';
     }
-
+/*
     $scope.clearSDidNot = function(index){
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.splice(index,1);
     }
 
     $scope.clearSDid = function(index){
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.splice(index,1);
-    }*/
-
+    }
+*/
 	var bpAtClosing = {
 		'originationChargeTotalbpAtClosing' : 0,
 		'sbDidNotShopTotalbpAtClosing' : 0,
