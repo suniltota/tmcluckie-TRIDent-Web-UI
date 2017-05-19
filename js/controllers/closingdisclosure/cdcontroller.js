@@ -958,7 +958,31 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     		paidAlreadyByAdjustmentsOtherCredit.paidByIndividualFullName = paidAlreadyByAdjustmentsOtherCredit.fullName;
     	}
     }
-    
+
+    $scope.deleteOC = function(index){
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.splice(index,1);
+    }
+
+    $scope.deleteSDidNot = function(index){
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.splice(index,1);
+    }
+
+    $scope.deleteSDid = function(index){
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.splice(index,1);
+    }
+
+    /*$scope.clearOC = function(index){
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.splice(index,1);
+    }
+
+    $scope.clearSDidNot = function(index){
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.splice(index,1);
+    }
+
+    $scope.clearSDid = function(index){
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.splice(index,1);
+    }*/
+
 	var bpAtClosing = {
 		'originationChargeTotalbpAtClosing' : 0,
 		'sbDidNotShopTotalbpAtClosing' : 0,
