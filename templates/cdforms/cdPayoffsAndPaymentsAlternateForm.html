@@ -16,7 +16,7 @@
 			        	<span class="col-sm-12 ">
 				        	<select class="form-control padding0" ng-model="payoffsAndPayment.payOffType">
 		              			<option value="" selected>Select</option>
-		              			<option ng-repeat="payOff in payOffTypes" value="{{payOff.value}}" ng-disabled="payOff.disabled">{{payOff.name}}</option>
+		              			<option ng-repeat="liabilityOrAdjustment in liabilityOrAdjustments" value="{{liabilityOrAdjustment.value}}" ng-disabled="liabilityOrAdjustment.disabled">{{liabilityOrAdjustment.name}}</option>
 		              		</select>
 		              	</span>
 		              	<span class="col-sm-12 margin5tb">

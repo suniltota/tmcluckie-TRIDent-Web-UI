@@ -1495,7 +1495,7 @@ app.service('staticData', function($filter){
     	}
     ];
 
-    this.payOffTypes = [
+    this.liabilityOrAdjustments = [
         {
         	"name":"Liability",
         	"value":"Liability",

@@ -13,7 +13,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.dueFromSeller.excessDeposit.closingCostFundAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostFundList[0].closingCostFundAmount">
 		        </div>
 		        </td>
 		      </tr>
@@ -30,7 +30,7 @@
 		        	Existing Loan(s) Assumed or Taken Subject To 
 		        </td>
 		        <td>
-		        	<label>${{cdformdata.summariesofTransactions.dueFromSeller.existingLoan}}</label>
+		        	<label>${{cdformdata.termsOfLoan.assumedLoanAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -40,7 +40,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.dueFromSeller.payoffFirstMortgage.payoffAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-repeat="dueFromSellerLiability in dueFromSellerLiabilities" ng-if="dueFromSellerLiability.liabilityType=='FirstPositionMortgageLien'" ng-model="dueFromSellerLiability.payoffAmount">
 		        </div>
 		        </td>
 		      </tr>
@@ -51,7 +51,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.summariesofTransactions.dueFromSeller.payOffSecondMortgage.payoffAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-repeat="dueFromSellerLiability in dueFromSellerLiabilities" ng-if="dueFromSellerLiability.liabilityType=='SecondPositionMortgageLien'" ng-model="dueFromSellerLiability.payoffAmount">
 		        </div>
 		        </td>
 		      </tr>
@@ -60,7 +60,7 @@
 		        	Seller Credit 
 		        </td>
 		        <td>
-		        	<label>${{cdformdata.summariesofTransactions.dueFromSeller.sellerCredit.closingAdjustmentItemAmount}}</label>
+		        	<label>${{dueFromSellerAdjustments[0].closingAdjustmentItemAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		</table>
@@ -70,107 +70,41 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader" rowspan="2">Liability or Adjustment Name</th>
-		        <th class="innerSectionHeader" rowspan="2">Valid Value</th>
-		        <th class="innerSectionHeader col-sm-2 text-center" colspan="2" style="padding:4px 8px!important;">Choose 1 per Line item</th>
-		        <th class="innerSectionHeader" rowspan="2">Description</th>
-		        <th class="innerSectionHeader" rowspan="2">POC Flag</th>
-		        <th class="innerSectionHeader col-sm-2" rowspan="2">Amount</th>
+		        <th class="innerSectionHeader">Indicate if line item is either a Liability or Adjustment</th>
+		        <th class="innerSectionHeader">Label Name</th>
+		        <th class="innerSectionHeader">Valid Values</th>
+		        <th class="innerSectionHeader">Description</th>
+		        <th class="innerSectionHeader">POC Flag</th>
+		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr>
-		      	<td class="col-sm-1 text-center innerSectionHeader"  style="padding: 3px 8px!important;">
-		        	<label>Liability</label>
-		        </td>
-		        <td class="col-sm-1 text-center innerSectionHeader"  style="padding: 3px 8px!important;">
-		        	<label>Adjustment</label>
-		        </td>
-		      </tr>
-		      <tr ng-repeat="liablitySection in cdformdata.liabilityList track by $index" ng-if="liablitySection.integratedDisclosureSectionType == 'DueFromSellerAtClosing'">
+		      <tr ng-repeat="dueFromSellerAdjustmentsAndLiability in dueFromSellerAdjustmentsAndLiabilities track by $index">
 		        <td>
-		        	<input type="text" class="form-control padding0" value="Adjustment for Fuel Levels" name="">  
+		        	<select class="form-control padding0" ng-model="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType">
+              			<option value="" selected>Select</option>
+              			<option ng-repeat="liabilityOrAdjustment in liabilityOrAdjustments" value="{{liabilityOrAdjustment.value}}" ng-disabled="liabilityOrAdjustment.disabled">{{liabilityOrAdjustment.name}}</option>
+              		</select>
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="liablitySection.liabilityType" ng-options="liabilityadjustment.value as liabilityadjustment.name for liabilityadjustment in liabilityadjustments" ng-change="liabilityadjustment.type=='liability' ? 'latype=liability' : 'latype=adjustment'">
-						<option value="">Select</option>
-					</select>
-		        	<!--<select class="form-control padding0" ng-model="liablitySection.liabilityType" ng-change="">
+		        	<input type="text" class="form-control padding0" name="" ng-model="dueFromSellerAdjustmentsAndLiability.displayLabel">  
+		        </td>
+		        <td>
+		        	<select class="form-control padding0" ng-model="dueFromSellerAdjustmentsAndLiability.itemType">
 			        	<option value="" selected>Select</option>
-			      		<option ng-repeat="la in liabilityadjustments" value="{{la.value}}" ng-disabled="la.disabled">{{la.name}}</option>
-		      		</select>  -->
-		        </td>
-		       	<td class="text-center">
-		        	<input type="radio" name="" ng-model="latype" ng-checked="true">
-		        </td>
-		        <td class="text-center">
-		        	<input type="radio" name="" ng-model="latype" ng-checked="latype == 'adjustment'">
+			      		<option ng-repeat="lType in liabilityTypes" value="{{lType.value}}" ng-disabled="lType.disabled" ng-if="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType == 'Liability'">{{lType.name}}</option>
+		              	<option ng-repeat="aType in otherCredits" value="{{aType.value}}" ng-disabled="aType.disabled" ng-if="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType == 'Adjustment'">{{aType.name}}</option>
+		      		</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" ng-disabled="liablitySection.liabilityType!='Other'" name="" ng-model="liablitySection.liabilityTypeOtherDescription">  
+		        	<input type="text" class="form-control padding0" ng-disabled="dueFromSellerAdjustmentsAndLiability.itemType!='Other'" name="" ng-model="dueFromSellerAdjustmentsAndLiability.otherDescription">  
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="liablitySection.liabilitySecuredBySubjectPropertyIndicator">  
+		        	<input type="checkbox" name="" ng-model="dueFromSellerAdjustmentsAndLiability.pocIndicator" ng-disabled="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType == 'Liability'">  
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="liablitySection.payoffAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-model="dueFromSellerAdjustmentsAndLiability.payoffAmount">
 		        </div>
-		        </td>
-		      </tr>
-		      <tr ng-repeat="adjustments in cdformdata.closingAdjustmentItemList track by $index" ng-if="adjustments.integratedDisclosureSectionType == 'DueFromSellerAtClosing'">
-		        <td>
-		        	<input type="text" class="form-control padding0" value="Adjustment for Fuel Levels" name="">  
-		        </td>
-		        <td>
-		        	<select class="form-control padding0" ng-model="adjustments.closingAdjustmentItemType" ng-options="liabilityadjustment.value as liabilityadjustment.name for liabilityadjustment in liabilityadjustments">
-						<option value="">Select</option>
-					</select>
-		        	<!--<select class="form-control padding0" ng-model="liablitySection.liabilityType" ng-change="">
-			        	<option value="" selected>Select</option>
-			      		<option ng-repeat="la in liabilityadjustments" value="{{la.value}}" ng-disabled="la.disabled">{{la.name}}</option>
-		      		</select>  -->
-		        </td>
-		       	<td class="text-center">
-		        	<input type="radio" name="" ng-model="latype" ng-checked="">
-		        </td>
-		        <td class="text-center">
-		        	<input type="radio" name="" ng-model="latype" ng-checked="true">
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" ng-disabled="adjustments.closingAdjustmentItemType!='Other'" name="" ng-model="adjustments.closingAdjustmentItemTypeOtherDescription">  
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="adjustments.liabilitySecuredBySubjectPropertyIndicator">  
-		        </td>
-		        <td>
-		        <div class="input-group">
-					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="adjustments.closingAdjustmentItemAmount">
-		        </div>
-		        </td>
-		      </tr>
-		     
-		      <tr>
-		        <td>
-		        	<input type="text" class="form-control padding0"  name="">  
-		        </td>
-		        <td>
-		        	<select class="form-control padding0"><option></option></select>  
-		        </td>
-		        <td class="text-center">
-		        	<input type="radio" name="">
-		        </td>
-		        <td class="text-center">
-		        	<input type="radio" name="">
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0" disabled name="">  
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" disabled name="">  
-		        </td>
-		        <td>
-		        	<input type="text" class="form-control padding0"  name="">
 		        </td>
 		      </tr>
 		</table>
@@ -187,29 +121,14 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.closingAdjustmentItemList | filter:{ integratedDisclosureSectionType : DueFromSellerAtClosing } track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in dueFromSellerAdjustmentsUnpaidBySeller">
 		        <td>
 		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
 		        </td>
-		        <td>
+		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes'">
 		        	 
 		        </td>
-		        <td></td>
-		        <td>
-	        		<label>{{adjustmentsUnpaidBySeller.prorationItemPaidFromDate | date:dateFormat}}</label>
-		        </td>
-		        <td>
-	        		<label>{{adjustmentsUnpaidBySeller.prorationItemPaidThroughDate | date:dateFormat}}</label>
-		        </td>
-		        <td>
-		        	<label>${{adjustmentsUnpaidBySeller.prorationItemAmount | number:2}}</label>
-		        </td>
-		      </tr>
-		      <tr ng-repeat="adjustmentsUnpaidBySeller in cdformdata.summariesofTransactions.paidByAlready.adjustmentsUnpaidBySeller | filter:{ integratedDisclosureSectionType : DueFromSellerAtClosing } track by $index" ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes' && adjustmentsUnpaidBySeller.displayLabel !='Assessments'">
-		        <td>
-		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
-		        </td>
-		        <td>
+		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes'">
 		        	<label ng-repeat="prorationItemType in prorationItemTypes" ng-if="prorationItemType.value == adjustmentsUnpaidBySeller.prorationItemType">{{prorationItemType.name}}</label>
 		        </td>
 		        <td>
@@ -225,50 +144,8 @@
 		        	<label>${{adjustmentsUnpaidBySeller.prorationItemAmount | number:2}}</label>
 		        </td>
 		      </tr>
-		      <tr>
-		        <td>
-		        	 <label>&nbsp;</label>
-		        </td>
-		        <td>
-		        	 
-		        </td>
-		        <td>
-		        	
-		        </td>
-		        <td>
-		        	 
-		        </td>
-		        <td>
-		        	   
-		        </td>
-		        <td>
-		        	
-		        </td>
-		      </tr>
-		      <tr>
-		        <td>
-		        	  <label>&nbsp;</label>
-		        </td>
-		        <td>
-		        	 
-		        </td>
-		        <td>
-		        	
-		        </td>
-		        <td>
-		        	 
-		        </td>
-		        <td>
-		        	   
-		        </td>
-		        <td>
-		        	
-		        </td>
-		      </tr>
 		</table>
 	</span>
-
-
 	<div class="col-sm-12 finalFooterValues">
 		<span class="col-sm-10 text-right">Total for Section N. Due From Borrower At Closing : </span>
 		<span class="col-sm-2">${{cdformdata.summariesofTransactions.sellerTransaction.fromSellerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount | number:2}}</span>

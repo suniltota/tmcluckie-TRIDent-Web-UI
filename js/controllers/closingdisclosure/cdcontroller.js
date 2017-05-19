@@ -42,7 +42,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.repayMethodType = staticData.repayMethodType;
     $scope.repayExemptionReasonType = staticData.repayExemptionReasonType;
     $scope.liabilityadjustments = staticData.liabilityadjustments;
-    $scope.payOffTypes = staticData.payOffTypes;
+    $scope.liabilityOrAdjustments = staticData.liabilityOrAdjustments;
     $scope.indexTypes = staticData.indexTypes;
     $scope.lateChargeTypes = staticData.lateChargeTypes;
     $scope.partialPaymentTypes = staticData.partialPaymentTypes;
@@ -310,6 +310,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		$scope.dueToSellerAdjustmentsPaidBySeller = [];
 		$scope.paidAlreadyByAdjustmentsOtherCredits = [];
 		$scope.paidAlreadyByAdjustmentsUnpaidBySeller = [];
+		$scope.dueFromSellerAdjustmentsUnpaidBySeller = [];
 
 		for(i=0; i<$scope.cdformdata.liabilities.length; i++) {
 			if($scope.cdformdata.liabilities[i].integratedDisclosureSectionType == 'DueFromBorrowerAtClosing') {
@@ -334,7 +335,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			dueFromBrwLiabilityType.integratedDisclosureSectionType='DueFromBorrowerAtClosing';
 			$scope.dueFromBrwLiabilities.push(dueFromBrwLiabilityType);
 		}
-		//$scope.cdformdata.liabilityList.push.apply($scope.cdformdata.liabilityList, $scope.dueFromBrwLiabilities);
 
 		for(i=0; i<$scope.cdformdata.adjustments.length; i++) {
 			if($scope.cdformdata.adjustments[i].integratedDisclosureSectionType == 'DueFromBorrowerAtClosing') {
@@ -474,6 +474,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			paidAlreadyByLiability.integratedDisclosureSectionType='PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
 			$scope.paidAlreadyByLiabilities.push(paidAlreadyByLiability);
 		}
+		if($scope.paidAlreadyByAdjustments!=undefined) {
+			var paidAlreadyByAdjustment = angular.copy(adjustment);
+			paidAlreadyByAdjustment.integratedDisclosureSectionType='PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
+			paidAlreadyByAdjustment.closingAdjustmentItemType = 'SellerCredit';
+			$scope.paidAlreadyByAdjustments.splice(0, 0, paidAlreadyByAdjustment);
+		}
 		for(i=0; i<$scope.paidAlreadyByAdjustments.length; i++) {
 			if($scope.paidAlreadyByAdjustments[i].integratedDisclosureSubsectionType == 'OtherCredits') {
 				if($scope.paidAlreadyByAdjustments[i].paidByEntityFullName) {
@@ -490,7 +496,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				$scope.paidAlreadyByAdjustmentsUnpaidBySeller.push($scope.paidAlreadyByAdjustments[i]);
 				$scope.paidAlreadyByAdjustments.splice(i, 1);
 				i--;
- 			}
+ 			} else /*if($scope.paidAlreadyByAdjustments[i].integratedDisclosureSubsectionType == 'Adjustments') */{
+				if(i!=0 && $scope.paidAlreadyByAdjustments[i].closingAdjustmentItemType=='SellerCredit') {
+					$scope.paidAlreadyByAdjustments[0] = $scope.paidAlreadyByAdjustments[i];
+					$scope.paidAlreadyByAdjustments.splice(i, 1);
+					i--;
+				}
+				
+ 			} 
  		}
 
  		if($scope.paidAlreadyByAdjustmentsOtherCredits.length > 2) {
@@ -502,10 +515,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			otherCreditsAdjustment.integratedDisclosureSubsectionType = 'OtherCredits';
 			$scope.paidAlreadyByAdjustmentsOtherCredits.push(otherCreditsAdjustment);
 		}
-		if($scope.paidAlreadyByAdjustments.length > 4) {
-			$scope.paidAlreadyByAdjustments = $scope.paidAlreadyByAdjustments.splice(0, 4);
+		if($scope.paidAlreadyByAdjustments.length > 5) {
+			$scope.paidAlreadyByAdjustments = $scope.paidAlreadyByAdjustments.splice(0, 5);
 		}
-		for(i=$scope.paidAlreadyByAdjustments.length; i<4; i++) {
+		for(i=$scope.paidAlreadyByAdjustments.length; i<5; i++) {
 			var paidAlreadyByAdjustment = angular.copy(adjustment);
 			paidAlreadyByAdjustment.integratedDisclosureSectionType='PaidAlreadyByOrOnBehalfOfBorrowerAtClosing';
 			paidAlreadyByAdjustment.integratedDisclosureSubsectionType = 'Adjustments';
@@ -563,7 +576,80 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			unpaidByAdjustment.integratedDisclosureSubsectionType = 'AdjustmentsForItemsUnpaidBySeller';
 			$scope.paidAlreadyByAdjustmentsUnpaidBySeller.push(unpaidByAdjustment);
 		}
+		//Summaries of Transaction : N.Due from Seller at Closing --- Starts from here.
+		$scope.dueFromSellerAdjustmentsAndLiabilities = [];
+		var dueFromSellerAdjustmentsAndLiabilityObj = {
+			"dueFromSellerItemType":"",
+			"displayLabel":"",
+			"itemType":"",
+			"otherDescription":"",
+			"pocIndicator":"",
+			"payoffAmount":""
+		}
+		if($scope.dueFromSellerLiabilities!=undefined) {
+			$scope.dueFromSellerLiabilities.splice(0, 0, angular.copy(liability));
+			$scope.dueFromSellerLiabilities[0].liabilityType = 'FirstPositionMortgageLien';
+			$scope.dueFromSellerLiabilities[0].displayLabel = 'Payoff of First Mortgage';
+			$scope.dueFromSellerLiabilities[0].integratedDisclosureSectionType = 'DueFromSellerAtClosing';
 
+			$scope.dueFromSellerLiabilities.splice(1, 0, angular.copy(liability));
+			$scope.dueFromSellerLiabilities[1].liabilityType = 'SecondPositionMortgageLien';
+			$scope.dueFromSellerLiabilities[1].displayLabel = 'Payoff of Second Mortgage';
+			$scope.dueFromSellerLiabilities[1].integratedDisclosureSectionType = 'DueFromSellerAtClosing';
+		}
+		for(i=0; i<$scope.dueFromSellerLiabilities.length; i++){
+			if(i!=0 && $scope.dueFromSellerLiabilities[i].liabilityType=='FirstPositionMortgageLien') {
+				$scope.dueFromSellerLiabilities[0] = $scope.dueFromSellerLiabilities[i]; 
+				$scope.dueFromSellerLiabilities.splice(i,1);
+				i--;
+			} else if(i!=1 && $scope.dueFromSellerLiabilities[i].liabilityType=='SecondPositionMortgageLien') {
+				$scope.dueFromSellerLiabilities[1] = $scope.dueFromSellerLiabilities[i]; 
+				$scope.dueFromSellerLiabilities.splice(i,1);
+				i--;
+			} else if($scope.dueFromSellerLiabilities[i].liabilityType!='FirstPositionMortgageLien' && $scope.dueFromSellerLiabilities[i].liabilityType!='SecondPositionMortgageLien'){
+				var dueFromSellerObj = angular.copy(dueFromSellerAdjustmentsAndLiabilityObj);
+				dueFromSellerObj.dueFromSellerItemType = "Liability";
+				dueFromSellerObj.displayLabel = $scope.dueFromSellerLiabilities[i].displayLabel;
+				dueFromSellerObj.itemType = $scope.dueFromSellerLiabilities[i].liabilityType;
+				dueFromSellerObj.otherDescription = $scope.dueFromSellerLiabilities[i].liabilityTypeOtherDescription;
+				dueFromSellerObj.payoffAmount = $scope.dueFromSellerLiabilities[i].payoffAmount;
+				$scope.dueFromSellerAdjustmentsAndLiabilities.push(dueFromSellerObj);
+				$scope.dueFromSellerLiabilities.splice(i,1);
+				i--;
+			}
+		};
+		if($scope.dueFromSellerAdjustments!=undefined) {
+			$scope.dueFromSellerAdjustments.splice(0, 0, $scope.paidAlreadyByAdjustments[0]);
+			$scope.dueFromSellerAdjustments[0].integratedDisclosureSectionType='DueFromSellerAtClosing';
+		}
+		for(i=0; i<$scope.dueFromSellerAdjustments.length; i++){
+			if(i!=0 && $scope.dueFromSellerAdjustments[i].closingAdjustmentItemType=='SellerCredit') {
+				$scope.dueFromSellerAdjustments.splice(i,1);
+				i--;
+			} else if($scope.dueFromSellerAdjustments[i].closingAdjustmentItemType!='SellerCredit') {
+				var dueFromSellerObj = angular.copy(dueFromSellerAdjustmentsAndLiabilityObj);
+				dueFromSellerObj.dueFromSellerItemType = "Adjustment";
+				dueFromSellerObj.displayLabel = $scope.dueFromSellerAdjustments[i].displayLabel;
+				dueFromSellerObj.itemType = $scope.dueFromSellerAdjustments[i].closingAdjustmentItemType;
+				dueFromSellerObj.otherDescription = $scope.dueFromSellerAdjustments[i].closingAdjustmentItemTypeOtherDescription;
+				dueFromSellerObj.pocIndicator = $scope.dueFromSellerAdjustments[i].closingAdjustmentItemPaidOutsideOfClosingIndicator;
+				dueFromSellerObj.payoffAmount = $scope.dueFromSellerAdjustments[i].closingAdjustmentItemAmount;
+				$scope.dueFromSellerAdjustmentsAndLiabilities.push(dueFromSellerObj);
+				$scope.dueFromSellerAdjustments.splice(i,1);
+				i--;
+			}
+		};
+		if($scope.dueFromSellerAdjustmentsAndLiabilities.length>6) {
+			$scope.dueFromSellerAdjustmentsAndLiabilities = $scope.dueFromSellerAdjustmentsAndLiabilities.splice(0, 6);
+		}
+		for(i<$scope.dueFromSellerAdjustmentsAndLiabilities.length;i<6;i++){
+			$scope.dueFromSellerAdjustments.push(angular.copy(dueFromSellerAdjustmentsAndLiabilityObj))
+		}
+		if($scope.dueFromSellerAdjustmentsUnpaidBySeller!=undefined) {
+			$scope.dueFromSellerAdjustmentsUnpaidBySeller.push.apply($scope.dueFromSellerAdjustmentsUnpaidBySeller, $scope.paidAlreadyByAdjustmentsUnpaidBySeller);
+		}
+
+ 		//Payoffs And Payments starts here...
 		$scope.payoffsAndPaymentsList = [];
 		for(i=0; i<$scope.cdformdata.liabilityList.length; i++) {
 			if($scope.cdformdata.liabilityList[i].integratedDisclosureSectionType == 'PayoffsAndPayments')
@@ -575,7 +661,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				payoffLiability.otherDescription = $scope.cdformdata.liabilityList[i].liabilityTypeOtherDescription;
 				payoffLiability.paidToFullName = $scope.cdformdata.liabilityList[i].liabilityHolderFullName;
 				payoffLiability.securedIndicator = $scope.cdformdata.liabilityList[i].liabilitySecuredBySubjectPropertyIndicator;
-				//payoffLiability.partialPayoffIndicator = $scope.cdformdata.liabilityList[i].liabilitypartialPayoffIndicator;
+				payoffLiability.partialPayoffIndicator = $scope.cdformdata.liabilityList[i].payoffPartialIndicators;
 				payoffLiability.payoffAmount = $scope.cdformdata.liabilityList[i].payoffAmount;
 	            payoffLiability.prepaymentPenaltyAmount = $scope.cdformdata.liabilityList[i].payoffPrepaymentPenaltyAmount;
 				$scope.payoffsAndPaymentsList.push(payoffLiability);
