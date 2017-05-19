@@ -5,59 +5,64 @@
 	<div class="col-sm-12 row">
 		<div class="col-sm-4">
 			<div class="col-sm-5 fieldTitle">Loan Term:</div>
-			<div class="col-sm-7">
-                <span class="col-sm-6 padding0 margin5tb">Period type</span>
-                <span class="col-sm-6 padding0">
-                	<select  class="form-control" ng-model="cdformdata.maturityRule.loanMaturityPeriodType">
-                		<option ng-repeat="loanPeriodType in loanPeriodTypes" value="{{loanPeriodType.value}}">{{loanPeriodType.name}}</option>
-                	</select>
-                </span>
+			<div class="col-sm-7 padding0">
+				<div class="col-sm-12 padding0">
+	            	<div class="col-sm-6 padding0">No. Years</div>
+	            	<div class="col-sm-6 padding0">
+	            		<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.loanTermYears">
+	            	</div>
+	            </div>
+	            <div class="col-sm-12 padding0 margin5tb">
+	            	<div class="col-sm-6 padding0">No. Months</div>
+	            	<div class="col-sm-6 padding0">
+	            		<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.loanTermMonths">
+	            	</div>
+	            </div>
             </div>
+			
 		</div>
 		<div class="col-sm-4">
-			<div class="col-sm-6">
-            	<div class="col-sm-7 padding0 fieldTitle">No. Years</div>
-            	<div class="col-sm-5 padding0">
-            		<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.loanTermYears">
-            	</div>
-            </div>
-            <div class="col-sm-6 padding0">
-            	<div class="col-sm-8 padding0 fieldTitle">No. Months</div>
-            	<div class="col-sm-4 padding0">
-            		<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.loanTermMonths">
-            	</div>
-            </div>
+			<div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">Loan Type:</div>
+	            <div class="col-sm-7 padding0">
+	              	<select  class="form-control" ng-model="cdformdata.termsOfLoan.mortgageType">
+	              		<option value="" selected>Select</option>
+	              		<option ng-repeat="loanType in loanTypes" value="{{loanType.value}}">{{loanType.name}}</option>
+	              	</select>
+	            </div>
+	         </div>
+            <div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">Description:</div>
+				<div class="col-sm-7 padding0">
+					<input type="text" class="form-control" id="loanTypeOtherDescription" ng-model="cdformdata.termsOfLoan.mortgageTypeOtherDescription" ng-disabled="cdformdata.termsOfLoan.mortgageType!='Other'">
+				</div>
+			</div>
+            
 		</div>
 		<div class="col-sm-4">
 			<div class="col-sm-5 fieldTitle">Purpose:</div>
-			<div class="col-sm-7">
+			<div class="col-sm-7 padding0">
 				<input type="text" class="form-control" style="text-transform:capitalize;" ng-model="cdformdata.termsOfLoan.loanPurposeType" ng-disabled="true">
 			</div>
 		</div>
 	</div>
 	<div class="col-sm-12 row margin5tb">
 		<div class="col-sm-4">
-			<div class="col-sm-5 fieldTitle">Loan Type:</div>
-            <div class="col-sm-7">
-              	<select  class="form-control" ng-model="cdformdata.termsOfLoan.mortgageType">
-              		<option value="" selected>Select</option>
-              		<option ng-repeat="loanType in loanTypes" value="{{loanType.value}}">{{loanType.name}}</option>
-              	</select>
-
+			<div class="col-sm-12 padding0" >
+            	<div class="col-sm-5 padding0 fieldTitle">MIC#</div>
+            	<div class="col-sm-7 padding0"><input type="text" class="form-control" name="" ng-model="cdformdata.miDataDetail.miCertificateIdentifier"></div>
             </div>
 		</div>
 		<div class="col-sm-4">
-			<div class="FieldGroup">
-				<div class="col-sm-5 fieldTitle">Other Description:</div>
-				<div class="col-sm-7">
-					<input type="text" class="form-control" id="loanTypeOtherDescription" ng-model="cdformdata.termsOfLoan.mortgageTypeOtherDescription" ng-disabled="cdformdata.termsOfLoan.mortgageType!='Other'">
-				</div>
-			</div>
+			<div class="col-sm-12 padding0" ng-repeat="loanIdentifier in cdformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='MERS_MIN'">
+	            	<div class="col-sm-5 padding0 fieldTitle">MERS MIN ID:</div>
+	            	<div class="col-sm-7 padding0"><input type="text" class="form-control" ng-model="loanIdentifier.loanIdentifier"></div>
+            	</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="FieldGroup">
 				<div class="col-sm-5 fieldTitle">Lien Position</div>
-				<div class="col-sm-7">
+				<div class="col-sm-7 padding0">
 					<select  class="form-control" ng-model="cdformdata.termsOfLoan.lienPriorityType">
 						<option value="" selected>Select</option>
 						<option ng-repeat="lienPriorityType in lienPriorityTypes" value="{{lienPriorityType.value}}">{{lienPriorityType.name}}</option>
@@ -69,31 +74,21 @@
 	<div class="col-sm-12 row margin5tb">
 		<div class="col-sm-4">
 			<div class="col-sm-5 fieldTitle">Lender Loan Identifier: </div>
-            <div class="col-sm-7" ng-repeat="loanIdentifier in cdformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
+            <div class="col-sm-7 padding0" ng-repeat="loanIdentifier in cdformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
               	<input type="text" class="form-control" name="lenderLoanIdentifier"
               	ng-model="loanIdentifier.loanIdentifier">
             </div>
 		</div>
 		<div class="col-sm-4">
-			<div class="col-sm-6" >
-            	<div class="col-sm-4 padding0 fieldTitle">MIC#</div>
-            	<div class="col-sm-8 padding0"><input type="text" class="form-control" name="" ng-model="cdformdata.miDataDetail.miCertificateIdentifier"></div>
-            </div>
-            <div class="col-sm-6 padding0">
-            	<div class="col-sm-12 padding0" ng-repeat="loanIdentifier in cdformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='MERS_MIN'">
-	            	<div class="col-sm-8 padding0 fieldTitle">MERS MIN ID:</div>
-	            	<div class="col-sm-4 padding0"><input type="text" class="form-control" ng-model="loanIdentifier.loanIdentifier"></div>
+			<div class="col-sm-12 padding0">
+	            	<div class="col-sm-5 padding0 fieldTitle">Appraisal ID:</div>
+	            	<div class="col-sm-7 padding0"><input type="text" class="form-control" name=""></div>
             	</div>
-            	<div class="col-sm-12 padding0">
-	            	<div class="col-sm-8 padding0 fieldTitle">Appraisal ID:</div>
-	            	<div class="col-sm-4 padding0"><input type="text" class="form-control" name=""></div>
-            	</div>
-            </div>
 		</div>
 		<div class="col-sm-4">
 			<div class="FieldGroup">
 				<div class="col-sm-7 fieldTitle">Manual Underwriting Flag</div>
-				<div class="col-sm-5">
+				<div class="col-sm-5 padding0">
 					<select  class="form-control" ng-model="cdformdata.loanInformation.loanManualUnderwritingIndicator"ng-options="option.id as option.name for option in dropDownBooleanOptions">
 					</select>
 				</div>
@@ -102,27 +97,27 @@
 	</div>
 	<div class="col-sm-12 row margin5tb">
 		<div class="col-sm-4" ng-repeat="automatedUnderwriting in cdformdata.loanInformation.automatedUnderwritings">
-			<div class="row col-sm-12">
+			<div class="col-sm-12 padding0">
 				<div class="col-sm-5 fieldTitle">AUS Type</div>
-				<div class="col-sm-7">
+				<div class="col-sm-7 padding0">
 					<select  class="form-control" ng-model="automatedUnderwriting.automatedUnderwritingSystemType">
 	              		<option value="" selected>Select</option>
 	                	<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
 	          		</select>
 				</div>
 			</div>
-			<div class="row col-sm-12" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
+			<div class="col-sm-12 padding0">
 				<div class="FieldGroup">
-				<div class="col-sm-5 fieldTitle">AUS Description:</div>
-				<div class="col-sm-7">
-					<input type="text" class="form-control" id="aUSOtherDescription" ng-model="automatedUnderwriting.automatedUnderwritingSystemTypeOtherDescription">
+					<div class="col-sm-5 fieldTitle">AUS Description</div>
+					<div class="col-sm-7 padding0">
+						<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseDescription">
+					</div>
 				</div>
 			</div>
-		    </div>
-			<div class="row col-sm-12">
+			<div class="col-sm-12 padding0">
 				<div class="FieldGroup">
 					<div class="col-sm-5 fieldTitle">AUS Identifier</div>
-					<div class="col-sm-7">
+					<div class="col-sm-7 padding0">
 						<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
 					</div>
 				</div>
@@ -170,7 +165,7 @@
 						<div class="col-sm-9 fieldTitle">Provide the life of loan Cap Rate</div>
 						<div class="col-sm-3 padding0">
 						<div class="input-group">
-	  							<input type="text" class="form-control" name="loanCapRate" ng-model="cdformdata.loanInformation.productAdjustmentInformation.loanCapRate" percentage-format>
+	  							<input type="text" class="form-control" name="loanCapRate" ng-model="cdformdata.loanInformation.productAdjustmentInformation.loanCapRate">
 	  							<span class="input-group-addon input-default">%</span>
   							</div>
 						</div>
