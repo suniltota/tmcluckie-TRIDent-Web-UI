@@ -111,6 +111,14 @@
 	          		</select>
 				</div>
 			</div>
+			<div class="row col-sm-12" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
+				<div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">AUS Description:</div>
+				<div class="col-sm-7">
+					<input type="text" class="form-control" id="aUSOtherDescription" ng-model="automatedUnderwriting.automatedUnderwritingSystemTypeOtherDescription">
+				</div>
+			</div>
+		    </div>
 			<div class="row col-sm-12">
 				<div class="FieldGroup">
 					<div class="col-sm-5 fieldTitle">AUS Identifier</div>
