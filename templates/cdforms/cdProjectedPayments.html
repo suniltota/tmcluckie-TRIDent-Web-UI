@@ -1,7 +1,7 @@
 <div class="col-sm-12">
 	<h4>Projected Payments</h4>
 	<span class="col-sm-12 LoanTermsTable">
-		<div class="margin5tb pull-right">
+		<div class="margin5tb pull-right" ng-show="cdformdata.projectedPayments.paymentCalculation.length<=3">
 			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns</a>
 		</div>
 		<table class="table" style="margin-top:15px;">
@@ -120,7 +120,7 @@
 		        	<div class="col-sm-6">
 		        			<div class="col-sm-12 text-center">Maximum<span class="required">*</span></div>
 		        			<div class="text-center">
-							${{estimatedTotal.projectedPaymentEstimatedTotalMaximumPaymentAmount}}
+							${{estimatedTotal.projectedPaymentEstimatedTotalMaximumPaymentAmount | number:2}}
 		        			</div>
 		        	</div>	
 		        </td>

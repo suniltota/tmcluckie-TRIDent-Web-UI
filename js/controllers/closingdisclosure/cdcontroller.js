@@ -123,6 +123,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount%12;
+			$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = $scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount/12;
+			$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = parseFloat($scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount/12);
+			$scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount = parseFloat($scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount/12);
 		}
 
 		for (i = $scope.cdformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
@@ -1286,6 +1289,19 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
     $scope.$watch('dueFromBrwAdjustments', function(newValue,oldValue){
 
+    }, true);
+
+    $scope.$watch('cdformdata.projectedPayments',function(newValue,oldValue){
+        var estimatedTotalMinimumPayment = 0;
+        var estimatedTotalMaximumPayment = 0;
+    	for(i=0;i<$scope.cdformdata.projectedPayments.paymentCalculation.length;i++){
+    		estimatedTotalMinimumPayment = $scope.cdformdata.projectedPayments.principalInterest[i].projectedPaymentPrincipalAndInterestMinimumPaymentAmount + $scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount + $scope.cdformdata.projectedPayments.estimatedEscrow[i].projectedPaymentEstimatedEscrowPaymentAmount;
+    	    $scope.cdformdata.projectedPayments.estimatedTotal[i].projectedPaymentEstimatedTotalMinimumPaymentAmount = estimatedTotalMinimumPayment;
+
+    	    estimatedTotalMaximumPayment = $scope.cdformdata.projectedPayments.principalInterest[i].projectedPaymentPrincipalAndInterestMaximumPaymentAmount + $scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount + $scope.cdformdata.projectedPayments.estimatedEscrow[i].projectedPaymentEstimatedEscrowPaymentAmount;
+    	    $scope.cdformdata.projectedPayments.estimatedTotal[i].projectedPaymentEstimatedTotalMaximumPaymentAmount = estimatedTotalMaximumPayment;
+
+    	}
     }, true);
 
 });
