@@ -252,3 +252,38 @@ app.directive('decimalDigitsWithNumberFormat', function () {
       }
     };
 });
+
+
+app.directive('percentageFormat', function () {
+    return {
+      require: 'ngModel',
+      restrict: 'A',
+      link: function (scope, element, attr, ctrl) {
+        function inputValue(val) {
+          if (val) {
+            var digits = val.replace(/[^0-9.]/g, '');
+            var decimalSplitValues = digits.split('.');
+            if(decimalSplitValues[0].length>3)
+              decimalSplitValues[0] = decimalSplitValues[0].substring(0, 3);
+                        
+            if (decimalSplitValues[1]!=undefined && decimalSplitValues[1].length > 4) {
+              decimalSplitValues[1] = decimalSplitValues[1].substring(0, 4);
+            }
+
+            if(decimalSplitValues.length==2)
+                digits = decimalSplitValues[0] +"."+decimalSplitValues[1];
+            else if (decimalSplitValues.length==1)
+                digits = decimalSplitValues[0];
+            
+            if (digits !== val) {
+              ctrl.$setViewValue(digits);
+              ctrl.$render();
+            }
+            return parseFloat(digits);
+          }
+          return undefined;
+        }            
+        ctrl.$parsers.push(inputValue);
+      }
+    };
+});
