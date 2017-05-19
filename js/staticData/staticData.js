@@ -1944,11 +1944,11 @@ this.cdformdata={
 	        "originationCharges":
 	        [
 	            {
-	                "bpAtClosing": null,
-	                "bpB4Closing": null,
-	                "spAtClosing": null,
-	                "spB4Closing": null,
-	                "paidByOthers": null,
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
 	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
@@ -1968,11 +1968,11 @@ this.cdformdata={
 	        "sbDidNotShopFors":
 	        [
 	            {
-	                "bpAtClosing": null,
-	                "bpB4Closing": null,
-	                "spAtClosing": null,
-	                "spB4Closing": null,
-	                "paidByOthers": null,
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
 	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
@@ -1992,11 +1992,11 @@ this.cdformdata={
 	        "sbDidShopFors":
 	        [
 	            {
-	                "bpAtClosing": null,
-	                "bpB4Closing": null,
-	                "spAtClosing": null,
-	                "spB4Closing": null,
-	                "paidByOthers": null,
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
 	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
