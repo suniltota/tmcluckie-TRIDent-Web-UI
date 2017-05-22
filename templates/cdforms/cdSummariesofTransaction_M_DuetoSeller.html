@@ -65,7 +65,10 @@
 		        	{{adjustment.closingAdjustmentItemAmount | number:2}}
 		        </td>
 		        <td ng-if="!adjustment.isFromBorrower">
-		        	<input type="text" class="form-control padding0" name="" ng-model="adjustment.closingAdjustmentItemAmount">
+		       		 <div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="adjustment.closingAdjustmentItemAmount" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		      </tr>
 		</table>
@@ -101,7 +104,7 @@
 		           <label>{{adjustmentsPaidBySellerInAdvance.prorationItemPaidThroughDate | date:dateFormat}}</label>
 		        </td>
 		        <td>
-		        	<label>{{adjustmentsPaidBySellerInAdvance.prorationItemAmount | number:2}}</label>
+		        	<label>${{adjustmentsPaidBySellerInAdvance.prorationItemAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		</table>
