@@ -70,7 +70,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     var tOGovtFees = {};
     var recordingFees = [];
     var prepaidsList = {};
-    var iEPatClosingList = {};
+    var escrowItemsList = {};
     var otherCostsList = {};
     var liability= {};
     var adjustment = {};
@@ -106,7 +106,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		sbDidShopFors = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[0]);
 		tOGovtFees = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0]);
 		prepaidsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0]);
-		iEPatClosingList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[3]);
+		escrowItemsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[3]);
 		otherCostsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[0]);
 		liability = angular.copy($scope.cdformdata.liabilityList[0]);
 		adjustment = angular.copy($scope.cdformdata.closingAdjustmentItemList[0]);
@@ -231,6 +231,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(2, 0, angular.copy(tOGovtFees));
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[2].feeType = 'RecordingFeeTotal';
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[2].displayLabel = 'Recording Fees Total';
+
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(3, 0, angular.copy(tOGovtFees));
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[3].feeType = 'TransferTaxTotal';
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[3].displayLabel = '';
 		}
 
 		for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++){
@@ -244,6 +248,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				i--;
 			} else if(i!=2 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeTotal') {
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[2] = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
+				i--;
+			}
+			else if(i!=3 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'TransferTaxTotal') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[3] = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
 				i--;
 			}
@@ -840,8 +849,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
     }
    
-    $scope.addiEPatClosingList = function(){
-    	$scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList.push(angular.copy(iEPatClosingList));
+    $scope.addescrowItemsList = function(){
+    	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
     }
 
     $scope.addotherCostsList = function(){
@@ -1194,7 +1203,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
          $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.spB4Closing = parseFloat(spB4Closing.tOGovtFeesTotalbpAtClosing) + parseFloat(spB4Closing.prepaidsTotalbpAtClosing) + parseFloat(spB4Closing.iEPatClosingTotalbpAtClosing) + parseFloat(spB4Closing.otherTotalbpB4Closing);
          $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.paidByOthers = parseFloat(paidByOthers.tOGovtFeesTotalbpAtClosing) + parseFloat(paidByOthers.prepaidsTotalbpAtClosing) + parseFloat(paidByOthers.iEPatClosingTotalbpAtClosing) + parseFloat(paidByOthers.otherTotalbpB4Closing);
          
-         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
          $scope.cdformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount);
          $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing);
          $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.bpB4Closing) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing);
@@ -1225,7 +1234,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
          $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.spB4Closing = parseFloat(spB4Closing.tOGovtFeesTotalbpAtClosing) + parseFloat(spB4Closing.prepaidsTotalbpAtClosing) + parseFloat(spB4Closing.iEPatClosingTotalbpAtClosing) + parseFloat(spB4Closing.otherTotalbpB4Closing);
          $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.paidByOthers = parseFloat(paidByOthers.tOGovtFeesTotalbpAtClosing) + parseFloat(paidByOthers.prepaidsTotalbpAtClosing) + parseFloat(paidByOthers.iEPatClosingTotalbpAtClosing) + parseFloat(paidByOthers.otherTotalbpB4Closing);
          
-         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
          $scope.cdformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount);
          $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing);
          $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.bpB4Closing) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing);
@@ -1234,29 +1243,29 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
          $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.paidByOthers);
     }, true);
 
-    $scope.$watch('cdformdata.closingCostDetailsOtherCosts.iEPatClosingList', function(newValue, oldValue) {
+    $scope.$watch('cdformdata.closingCostDetailsOtherCosts.escrowItemsList', function(newValue, oldValue) {
 		 bpAtClosing.iEPatClosingTotalbpAtClosing = 0;
 		 bpB4Closing.iEPatClosingTotalbpB4Closing = 0;
 		 spAtClosing.iEPatClosingTotalspAtClosing = 0;
 		 spB4Closing.iEPatClosingTotalspB4Closing = 0;
 		 paidByOthers.iEPatClosingTotalpaidByOthers = 0;
 
-         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList.length; i++) {
-         	bpAtClosing.iEPatClosingTotalbpAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].bpAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].bpAtClosing);
-         	bpB4Closing.iEPatClosingTotalbpB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].bpB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].bpB4Closing);
-         	spAtClosing.iEPatClosingTotalspAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].spAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].spAtClosing);
-          	spB4Closing.iEPatClosingTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].spB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].spB4Closing);
-          	paidByOthers.iEPatClosingTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].paidByOthers == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingList[i].paidByOthers);
+         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length; i++) {
+         	bpAtClosing.iEPatClosingTotalbpAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing);
+         	bpB4Closing.iEPatClosingTotalbpB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing);
+         	spAtClosing.iEPatClosingTotalspAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing);
+          	spB4Closing.iEPatClosingTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing);
+          	paidByOthers.iEPatClosingTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers == null ? +0 : parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers);
          }
 
-         $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingTotalAmount = bpAtClosing.iEPatClosingTotalbpAtClosing + bpB4Closing.iEPatClosingTotalbpB4Closing;
+         $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount = bpAtClosing.iEPatClosingTotalbpAtClosing + bpB4Closing.iEPatClosingTotalbpB4Closing;
          $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing = parseFloat(bpAtClosing.tOGovtFeesTotalbpAtClosing) + parseFloat(bpAtClosing.prepaidsTotalbpAtClosing) + parseFloat(bpAtClosing.iEPatClosingTotalbpAtClosing) + parseFloat(bpAtClosing.otherTotalbpAtClosing);
          $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing = parseFloat(bpB4Closing.tOGovtFeesTotalbpB4Closing) + parseFloat(bpB4Closing.prepaidsTotalbpB4Closing) + parseFloat(bpB4Closing.iEPatClosingTotalbpB4Closing) + parseFloat(bpB4Closing.otherTotalbpB4Closing);
          $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.spAtClosing = parseFloat(spAtClosing.tOGovtFeesTotalbpAtClosing) + parseFloat(spAtClosing.prepaidsTotalbpAtClosing) + parseFloat(spAtClosing.iEPatClosingTotalbpAtClosing) + parseFloat(spAtClosing.otherTotalbpB4Closing);
          $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.spB4Closing = parseFloat(spB4Closing.tOGovtFeesTotalbpAtClosing) + parseFloat(spB4Closing.prepaidsTotalbpAtClosing) + parseFloat(spB4Closing.iEPatClosingTotalbpAtClosing) + parseFloat(spB4Closing.otherTotalbpB4Closing);
          $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.paidByOthers = parseFloat(paidByOthers.tOGovtFeesTotalbpAtClosing) + parseFloat(paidByOthers.prepaidsTotalbpAtClosing) + parseFloat(paidByOthers.iEPatClosingTotalbpAtClosing) + parseFloat(paidByOthers.otherTotalbpB4Closing);
          
-         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
          $scope.cdformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount);
          $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing);
          $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.bpB4Closing) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing);
@@ -1287,7 +1296,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
          $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.spB4Closing = parseFloat(spB4Closing.tOGovtFeesTotalbpAtClosing) + parseFloat(spB4Closing.prepaidsTotalbpAtClosing) + parseFloat(spB4Closing.iEPatClosingTotalbpAtClosing) + parseFloat(spB4Closing.otherTotalbpB4Closing);
          $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.paidByOthers = parseFloat(paidByOthers.tOGovtFeesTotalbpAtClosing) + parseFloat(paidByOthers.prepaidsTotalbpAtClosing) + parseFloat(paidByOthers.iEPatClosingTotalbpAtClosing) + parseFloat(paidByOthers.otherTotalbpB4Closing);
          
-         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.iEPatClosingTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
+         $scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount + $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount;
          $scope.cdformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount);
          $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing);
          $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.bpB4Closing) + parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing);
