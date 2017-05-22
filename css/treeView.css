@@ -1,0 +1,39 @@
+
+.sapling-list li {
+	clear: left;
+	display: inline-block;
+	float: left;
+	list-style: none;
+	position: relative;
+	padding-left: 17px;
+	color: #fff;
+	width: 100%;
+	font-size: 14px;
+}
+.sapling-list ul {
+	display: none;
+}
+.sapling-top-level{padding:3px 0;}
+.sapling-list .sapling-item {
+	cursor: pointer;
+	padding-left: 10px;
+}
+.sapling-list .sapling-item:before {
+	background: url('../images/expand-small.png') no-repeat;
+	content: "";
+	display: inline-block;
+	font-size: .8em;
+	height: 12px;
+	padding-right:20px;
+	width: 12px;
+}
+.sapling-list .sapling-item.sapling-expanded:before {
+	background-image: url('../images/collapse-small.png');
+}
+.sapling-list .sapling-item ul {
+	padding-left: 5px;
+}
+.sapling-list .sapling-item.sapling-expanded > ul {
+	cursor: default;
+	display: block;
+}
