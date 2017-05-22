@@ -13,7 +13,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostFundList[0].closingCostFundAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostFundList[0].closingCostFundAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -40,7 +40,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-repeat="dueFromSellerLiability in dueFromSellerLiabilities" ng-if="dueFromSellerLiability.liabilityType=='FirstPositionMortgageLien'" ng-model="dueFromSellerLiability.payoffAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-repeat="dueFromSellerLiability in dueFromSellerLiabilities" ng-if="dueFromSellerLiability.liabilityType=='FirstPositionMortgageLien'" ng-model="dueFromSellerLiability.payoffAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -51,7 +51,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-repeat="dueFromSellerLiability in dueFromSellerLiabilities" ng-if="dueFromSellerLiability.liabilityType=='SecondPositionMortgageLien'" ng-model="dueFromSellerLiability.payoffAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-repeat="dueFromSellerLiability in dueFromSellerLiabilities" ng-if="dueFromSellerLiability.liabilityType=='SecondPositionMortgageLien'" ng-model="dueFromSellerLiability.payoffAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -103,7 +103,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="dueFromSellerAdjustmentsAndLiability.payoffAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-model="dueFromSellerAdjustmentsAndLiability.payoffAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
