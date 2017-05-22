@@ -981,7 +981,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.clearOC = function(index){
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTotalPercent ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].displayLabel ='';
-    	//$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeType ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeType ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTypeOtherDescription ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToTypeOtherDescription ='';
@@ -992,16 +992,47 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].spB4Closing ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].paidByOthers ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].lenderStatus ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationChargesoriginationCharges[index].paymentIncludedInAPRIndicator = false;
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].regulationZPointsAndFeesIndicator = false;
     }
-/*
-    $scope.clearSDidNot = function(index){
-    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.splice(index,1);
+	
+	$scope.clearSDidNot = function(index){
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feeTotalPercent ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].displayLabel ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feeType ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feeTypeOtherDescription ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToFullName ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].bpAtClosing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].bpB4Closing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].spAtClosing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].spB4Closing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].paidByOthers ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].lenderStatus ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].paymentIncludedInAPRIndicator = false;
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = false;
     }
 
     $scope.clearSDid = function(index){
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.splice(index,1);
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeTotalPercent ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].displayLabel ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeType ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeTypeOtherDescription ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToTypeOtherDescription ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToFullName ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].bpAtClosing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].bpB4Closing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].spAtClosing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].spB4Closing ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].paidByOthers ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].lenderStatus ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].paymentIncludedInAPRIndicator = false;
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
     }
-*/
+
 	var bpAtClosing = {
 		'originationChargeTotalbpAtClosing' : 0,
 		'sbDidNotShopTotalbpAtClosing' : 0,
@@ -1411,18 +1442,25 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			}
     });
 
-    $scope.$watch('cdformdata.projectedPayments',function(newValue,oldValue){
+   /* $scope.$watch('cdformdata.projectedPayments',function(newValue,oldValue){
         var estimatedTotalMinimumPayment = 0;
         var estimatedTotalMaximumPayment = 0;
     	for(i=0;i<$scope.cdformdata.projectedPayments.paymentCalculation.length;i++){
-    		estimatedTotalMinimumPayment = $scope.cdformdata.projectedPayments.principalInterest[i].projectedPaymentPrincipalAndInterestMinimumPaymentAmount + $scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount + $scope.cdformdata.projectedPayments.estimatedEscrow[i].projectedPaymentEstimatedEscrowPaymentAmount;
+    		if($scope.cdformdata.projectedPayments.principalInterest[i].projectedPaymentPrincipalAndInterestMinimumPaymentAmount)
+    		estimatedTotalMinimumPayment += parseFloat($scope.cdformdata.projectedPayments.principalInterest[i].projectedPaymentPrincipalAndInterestMinimumPaymentAmount);
+            if($scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount)
+    	    estimatedTotalMinimumPayment += parseFloat($scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount);
+            if($scope.cdformdata.projectedPayments.estimatedEscrow[i].projectedPaymentEstimatedEscrowPaymentAmount)
+    	    estimatedTotalMinimumPayment += parseFloat($scope.cdformdata.projectedPayments.estimatedEscrow[i].projectedPaymentEstimatedEscrowPaymentAmount);
+    	    
     	    $scope.cdformdata.projectedPayments.estimatedTotal[i].projectedPaymentEstimatedTotalMinimumPaymentAmount = estimatedTotalMinimumPayment;
 
-    	    estimatedTotalMaximumPayment = $scope.cdformdata.projectedPayments.principalInterest[i].projectedPaymentPrincipalAndInterestMaximumPaymentAmount + $scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount + $scope.cdformdata.projectedPayments.estimatedEscrow[i].projectedPaymentEstimatedEscrowPaymentAmount;
+    	    estimatedTotalMaximumPayment = parseFloat($scope.cdformdata.projectedPayments.principalInterest[i].projectedPaymentPrincipalAndInterestMaximumPaymentAmount) + parseFloat($scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount) + parseFloat($scope.cdformdata.projectedPayments.estimatedEscrow[i].projectedPaymentEstimatedEscrowPaymentAmount);
     	    $scope.cdformdata.projectedPayments.estimatedTotal[i].projectedPaymentEstimatedTotalMaximumPaymentAmount = estimatedTotalMaximumPayment;
 
     	}
-    }, true);
+    }, true);*/
+	
 
 });
 
