@@ -54,7 +54,7 @@
 			        <td>
 			        <div class="input-group">
 						<span class="input-group-addon input-default">$</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="payoffsAndPayment.payoffAmount">
+			        	<input type="text" class="form-control padding0" name="" ng-model="payoffsAndPayment.payoffAmount" decimal-digits-with-number-format>
 			        </div>
 			        </td>
 			       <td>
@@ -72,7 +72,7 @@
 			        <td>
 			        <div class="input-group">
 						<span class="input-group-addon input-default">$</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="liability.payoffPrepaymentPenaltyAmount" ng-disabled="payoffsAndPayment.payOffType!='Liability'">
+			        	<input type="text" class="form-control padding0" name="" ng-model="liability.payoffPrepaymentPenaltyAmount" ng-disabled="payoffsAndPayment.payOffType!='Liability'" decimal-digits-with-number-format>
 			        </div>
 			        </td>		        
 		      </tr>
