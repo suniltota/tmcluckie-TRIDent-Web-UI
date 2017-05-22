@@ -188,7 +188,7 @@ app.directive('onlyDigits', function () {
     };
 });
 
-app.directive('negativeDigits', function () {
+app.directive('negativeDigits', function ($filter) {
     return {
       require: 'ngModel',
       restrict: 'A',
@@ -196,21 +196,32 @@ app.directive('negativeDigits', function () {
         function inputValue(val) {
           if (val) {
             var digits = val.replace(/[^0-9.]/g, '');
-            var decimalSplitValues = digits.split('.');
-
-            if (decimalSplitValues[1]!=undefined && decimalSplitValues[1].length > 2) {
-              decimalSplitValues[1] = decimalSplitValues[1].substring(0, 2);
-              digits = decimalSplitValues[0]+"."+decimalSplitValues[1];
+            var isContainsDecimal = digits.indexOf(".");
+            var viewValue = "";
+            if(isContainsDecimal != -1) {
+                var decimalSplitValues = digits.split('.');
+                if(decimalSplitValues[0].length>9)
+                  decimalSplitValues[0] = decimalSplitValues[0].substring(0, 9);
+                viewValue = $filter('number')(decimalSplitValues[0]);
+                            
+                if (decimalSplitValues[1]!="" && decimalSplitValues[1].length > 2) {
+                  decimalSplitValues[1] = decimalSplitValues[1].substring(0, 2);
+                  viewValue = viewValue + "." +decimalSplitValues[1];
+                } else if(decimalSplitValues[1].length == 2 || decimalSplitValues[1].length < 2){
+                   viewValue = viewValue + "." + decimalSplitValues[1];
+                } else {
+                  viewValue = viewValue + ".";
+                }
+                digits = decimalSplitValues[0] + "." +decimalSplitValues[1];
+            } else {
+              if( digits.length>9)
+                digits = digits.substring(0, 9);
+              viewValue = $filter('number')(digits);
             }
-            
+            ctrl.$setViewValue(viewValue);
+            ctrl.$render();
 
-            if (digits !== val) {
-              ctrl.$setViewValue(digits);
-              ctrl.$render();
-            }
-            var negativeVal = 0-parseFloat(digits)
-
-            return negativeVal;
+            return 0-parseFloat(digits);
           }
           return undefined;
         }            
@@ -248,6 +259,8 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
                 }
                 digits = decimalSplitValues[0] + "." +decimalSplitValues[1];
             } else {
+              if( digits.length>9)
+                digits = digits.substring(0, 9);
               viewValue = $filter('number')(digits);
             }
             ctrl.$setViewValue(viewValue);
