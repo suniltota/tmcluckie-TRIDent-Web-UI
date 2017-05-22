@@ -912,6 +912,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			$scope.cdformdata.projectedPayments.estimatedTotal.push(angular.copy(estimatedTotal));
 	    }
     }
+    $scope.deleteProjectedPayments = function(index){
+	    	$scope.cdformdata.projectedPayments.paymentCalculation.splice(index, 1);
+			$scope.cdformdata.projectedPayments.principalInterest.splice(index, 1);
+			$scope.cdformdata.projectedPayments.mortgageInsurance.splice(index, 1);
+			$scope.cdformdata.projectedPayments.estimatedEscrow.splice(index, 1);
+			$scope.cdformdata.projectedPayments.estimatedTotal.splice(index, 1);
+    }
 	$scope.calculateCash = function(){
 		var totalEstimatedAmount = 0;
 		if($scope.cdformdata.cashToCloses.totalClosingCosts != null)
