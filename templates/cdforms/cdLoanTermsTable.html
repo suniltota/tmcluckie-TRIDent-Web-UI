@@ -42,7 +42,7 @@
 		        <td><label>Interest Rate <span class="required">*</span></label></td>
 		        <td>
 		        	<div class="input-group">
-  							<input class="form-control" ng-model="cdformdata.termsOfLoan.noteRatePercent" decimal-places>
+  							<input class="form-control" ng-model="cdformdata.termsOfLoan.noteRatePercent" percentage-format>
   							<span class="input-group-addon input-default">%</span>
 		        	</div>
 		        </td>
@@ -65,7 +65,7 @@
 		        			<span class="pull-left margin5tb col-sm-4 padding0">Can go as high as</span> 
 		        			<span class="col-sm-3">
 							<div class="input-group">								
-		        				<input type="text" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent" class="form-control" name="">
+		        				<input type="text" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent" class="form-control" name="" percentage-format>
 								<span class="input-group-addon input-default">%</span>
 							</div>
 		        			</span> 
@@ -89,7 +89,7 @@
 		        			<span class="col-sm-7 margin5tb col-sm-4 padding0">Provide the Loan price quote</span> 
 		        			<span class="col-sm-4">
 		        				<div class="input-group">	
-		        					<input type="text" class="form-control" name="" ng-model="cdformdata.loanProduct.loanPriceQuoteInterestRatePercent">
+		        					<input type="text" class="form-control" name="" ng-model="cdformdata.loanProduct.loanPriceQuoteInterestRatePercent" percentage-format>
 		        					<span class="input-group-addon input-default">%</span>
 		        				</div>
 		        			</span>
@@ -98,7 +98,7 @@
 		        			<span class="col-sm-7 margin5tb col-sm-4 padding0">Provide the APOR</span> 
 		        			<span class="col-sm-4">
 		        				<div class="input-group">	
-		        					<input type="text" class="form-control" name="" ng-model="cdfromdata.qualifiedMortgage.averagePrimeOfferRatePercent">
+		        					<input type="text" class="form-control" name="" ng-model="cdfromdata.qualifiedMortgage.averagePrimeOfferRatePercent" percentage-format>
 		        					<span class="input-group-addon input-default">%</span>
 		        					</div>
 		        			</span>
@@ -118,7 +118,7 @@
 							<span class="pull-left margin5tb">What is the Rate as reflected without the Buydown?</span> 
 		        			<span class="col-sm-3">
 								<div class="input-group">
-									<input  ng-model="cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" type="text" class="form-control" name="">
+									<input  ng-model="cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" type="text" class="form-control" name="" percentage-format>
 									<span class="input-group-addon input-default">%</span>
 								</div>
 							</span>
@@ -132,7 +132,7 @@
 		        		<li ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb col-sm-9 padding0">Provide the rate the borrower will pay after the buydown is applied</span> 
 		        			<span class="col-sm-3 pull-right">
 								<div class="input-group">
-									<input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent">
+									<input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" percentage-format>
 									<span class="input-group-addon input-default">%</span>
 								</div>
 							</span>
@@ -144,7 +144,7 @@
 		        		<li ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb col-sm-9 padding0">Provide the amount by which the interest rate can increase at each adjustment within the buydown period</span> 
 		        			<span class="col-sm-3 pull-right">
 								<div class="input-group">
-									<input type="text" class="form-control" name="" ng-model="cdfromdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent">
+									<input type="text" class="form-control" name="" ng-model="cdfromdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent" percentage-format>
 									<span class="input-group-addon input-default">%</span>
 								</div>
 							</span>
