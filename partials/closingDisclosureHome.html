@@ -4,7 +4,7 @@
       <div class="form-group col-sm-12" style="width: 90%;">
           <div id="doctype">Closing Disclosure</div>
       </div>
-      <div side-bar-height class="SidebarNavHead" style="overflow: auto;">
+      <div side-bar-height class="SidebarNavHead modern-skin">
         <span href="" class="active pagenumber" ng-class="{'active': showTab == 'closingInfo'}" ng-click="showTab = 'closingInfo'" >Closing Information</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'transInfo'}" ng-click="showTab = 'transInfo'" >Transaction Information</span>
         <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanInfo'}" ng-click="showTab = 'loanInfo'" >Loan Information</span>
@@ -37,7 +37,7 @@
   	<span class="pageno" style="font-size:14px;"  data-toggle="tooltip" data-placement="right" title="Closing Disclosure">
   		<span class="pull-left" >CD</span>
   	</span>
-    <div class="SidebarBtnsHead" side-bar-width>
+    <div class="SidebarBtnsHead modern-skin" side-bar-width>
       	<span class="pageno active pageicon"  data-toggle="tooltip" ng-class="{'active': showTab == 'closingInfo'}" ng-click="showTab = 'closingInfo'" data-placement="right" title="Closing Information">
       		<span class="glyphicon glyphicon-file pull-left"></span> 
       		<span class="pull-left noTitle">1</span>
@@ -690,9 +690,9 @@
   </div>
 </div>
 <script type="text/javascript">
-       /*$(function(){
-              $('.SidebarNavHead').jScrollPane({showArrows: true});
-              $('.SidebarBtnsHead').jScrollPane({showArrows: true});
+       $(function(){
+              $(".SidebarNavHead").customScrollbar();
+              $(".SidebarBtnsHead").customScrollbar();
             });
-        */
+        
 </script>
