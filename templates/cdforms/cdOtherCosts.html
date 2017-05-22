@@ -761,7 +761,7 @@
 		        <th class="innerSectionHeader">Seller Paid Before Closing Amt</th>
 		        <th class="innerSectionHeader">Paid By Other Amt</th>
 		        <th class="innerSectionHeader">Paid By Lender Flag</th>
-		        <th class="innerSectionHeader">Optional Fee?</th>
+		       <!--  <th class="innerSectionHeader">Optional Fee?</th> -->
                 <th class="innerSectionHeader">Include in APR Calculation</th>
 		        <th class="innerSectionHeader">Include in Reg Z Points/Fee</th>
 		        <th class="innerSectionHeader">Delete / Clear</th>
@@ -816,11 +816,11 @@
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="otherCostsList.lenderStatus">
 		        </td>
-		        <td>
+		       <!--  <td>
 		        	<select class="form-control padding0" ng-model="otherCostsList.optionalCostIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
-		        </td>
+		        </td> -->
 		        <td>
 		        	<select class="form-control padding0" ng-model="otherCostsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
