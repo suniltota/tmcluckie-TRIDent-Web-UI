@@ -355,3 +355,24 @@ app.directive('percentageFormat', function () {
       }
     };
 });
+app.directive('months2years', function() {
+  return { restrict: 'A',
+    require: 'ngModel',
+    link: function(scope, element, attrs, ngModel) {
+
+      if(ngModel) { // Don't do anything unless we have a model
+/*
+        ngModel.$parsers.push(function (value) {
+          return value;
+        });
+*/
+        ngModel.$formatters.push(function (value) {
+          value = Math.round(value/12);
+         
+          return value;
+        });
+
+      }
+    }
+  };
+});
