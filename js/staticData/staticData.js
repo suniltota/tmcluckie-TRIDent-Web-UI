@@ -1721,7 +1721,7 @@ this.cdformdata={
 		    "disbursementDate": "",
 		    "documentOrderClassificationType": ""
 		},
-		  "construction": {
+		"construction": {
 		    "constructionLoanTotalTermMonthsCount": "",
 		    "constructionLoanType": "",
 		    "constructionPeriodNumberOfMonthsCount": ""
@@ -2404,184 +2404,54 @@ this.cdformdata={
     ],
     "summariesofTransactions":
     {
-        "dueFromBorroweratClosing":
-        {
-            "salePriceOfPersonalProperty": "",
-            "dueFromBorrowerAtClosingTotalAmount":
-            {
-                "integratedDisclosureSectionSummaryDetailModel":
-                {
-                    "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "",
-                    "integratedDisclosureSubsectionTotalAmount": "",
-                    "integratedDisclosureSubsectionType": "",
-                    "integratedDisclosureSubsectionTypeOtherDescription": "",
-                    "lenderCreditToleranceCureAmount": ""
-                },
-                "integratedDisclosureSubsectionPayments":
-                [
-				    {
-                        "integratedDisclosureSubsectionPaidByType": "",
-                        "integratedDisclosureSubsectionPaymentAmount": "",
-                        "integratedDisclosureSubsectionPaymentTimingType": ""
-                    }
-                ]
-            }
-        },
-        "paidByAlready":
-        {
-            "subordinateLien": {
-		        "displayLabel": "Subordinate Lien proceeds",
-		        "closingAdjustmentItemAmount": "",
-		        "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
-		        "closingAdjustmentItemType": "ProceedsOfSubordinateLiens",
-		        "closingAdjustmentItemTypeOtherDescription": "",
-		        "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
-		        "integratedDisclosureSubsectionType": "",
-		        "paidByIndividualFullName": "",
-		        "paidByEntityFullName": "",
-		        "paidToEntityFullName": ""
-		    }
-        },
-        "dueToSeller":
-        {
-            "dueToSellerTotalAmount":
-            {
-                "integratedDisclosureSectionSummaryDetailModel":
-                {
-                    "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "",
-                    "integratedDisclosureSubsectionTotalAmount": "",
-                    "integratedDisclosureSubsectionType": "",
-                    "integratedDisclosureSubsectionTypeOtherDescription": "",
-                    "lenderCreditToleranceCureAmount": ""
-                },
-                "integratedDisclosureSubsectionPayments":
-                [
-				    {
-                        "integratedDisclosureSubsectionPaidByType": "",
-                        "integratedDisclosureSubsectionPaymentAmount": "",
-                        "integratedDisclosureSubsectionPaymentTimingType": ""
-                    }
-                ]
-            }
-        },
-        "dueFromSeller":
-        {
-            "excessDeposit": null,
-            "payoffFirstMortgage": null,
-            "payOffSecondMortgage": null,
-            "dueFromSellerTotalAmount":
-            {
-                "integratedDisclosureSectionSummaryDetailModel":
-                {
-                    "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "",
-                    "integratedDisclosureSubsectionTotalAmount": "",
-                    "integratedDisclosureSubsectionType": "",
-                    "integratedDisclosureSubsectionTypeOtherDescription": "",
-                    "lenderCreditToleranceCureAmount": ""
-                },
-                "integratedDisclosureSubsectionPayments":
-                [
-				    {
-                        "integratedDisclosureSubsectionPaidByType": "",
-                        "integratedDisclosureSubsectionPaymentAmount": "",
-                        "integratedDisclosureSubsectionPaymentTimingType": ""
-                    } 
-                ]
-            }
-        },
-        "borrowerTransaction":
-        {
-            "dueFromBorrowerAtClosing":
-            {
-                "integratedDisclosureSectionSummaryDetailModel":
-                {
-                    "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "",
-                    "integratedDisclosureSubsectionTotalAmount": "",
-                    "integratedDisclosureSubsectionType": "",
-                    "integratedDisclosureSubsectionTypeOtherDescription": "",
-                    "lenderCreditToleranceCureAmount": ""
-                },
-                "integratedDisclosureSubsectionPayments":
-                [
-				    {
-                        "integratedDisclosureSubsectionPaidByType": "",
-                        "integratedDisclosureSubsectionPaymentAmount": "",
-                        "integratedDisclosureSubsectionPaymentTimingType": ""
-                    }
-                ]
-            },
-            "paidAlreadyByOrOnBehalfOfBorrowerAtClosing":
-            {
-                "integratedDisclosureSectionSummaryDetailModel":
-                {
-                    "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "",
-                    "integratedDisclosureSubsectionTotalAmount": "",
-                    "integratedDisclosureSubsectionType": "",
-                    "integratedDisclosureSubsectionTypeOtherDescription": "",
-                    "lenderCreditToleranceCureAmount": ""
-                },
-                "integratedDisclosureSubsectionPayments":
-                [
-				    {
-                        "integratedDisclosureSubsectionPaidByType": "",
-                        "integratedDisclosureSubsectionPaymentAmount": "",
-                        "integratedDisclosureSubsectionPaymentTimingType": ""
-                    }
-                ]
-            },
-            "cashFromBorrowerAtClosingAmount": "",
-            "cashToBorrowerAtClosingAmount": ""
-        },
-        "sellerTransaction":
-        {
-            "toSellerAtClosing":
-            {
-                "integratedDisclosureSectionSummaryDetailModel":
-                {
-                    "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "",
-                    "integratedDisclosureSubsectionTotalAmount": "",
-                    "integratedDisclosureSubsectionType": "",
-                    "integratedDisclosureSubsectionTypeOtherDescription": "",
-                    "lenderCreditToleranceCureAmount": ""
-                },
-                "integratedDisclosureSubsectionPayments":
-                [
-				    {
-                        "integratedDisclosureSubsectionPaidByType": "",
-                        "integratedDisclosureSubsectionPaymentAmount": "",
-                        "integratedDisclosureSubsectionPaymentTimingType": ""
-                    }
-                ]
-            },
-            "fromSellerAtClosing":
-            {
-                "integratedDisclosureSectionSummaryDetailModel":
-                {
-                    "integratedDisclosureSectionTotalAmount": "",
-                    "integratedDisclosureSectionType": "",
-                    "integratedDisclosureSubsectionTotalAmount": "",
-                    "integratedDisclosureSubsectionType": "",
-                    "integratedDisclosureSubsectionTypeOtherDescription": "",
-                    "lenderCreditToleranceCureAmount": ""
-                },
-                "integratedDisclosureSubsectionPayments":
-                [
-				    {
-                        "integratedDisclosureSubsectionPaidByType": "",
-                        "integratedDisclosureSubsectionPaymentAmount": "",
-                        "integratedDisclosureSubsectionPaymentTimingType": ""
-                    }
-                ]
-            },
-            "cashFromSellerAtClosingAmount": "",
-            "cashToSellerAtClosingAmount": ""
-        }
+        "borrowerTransaction": {
+	      "dueFromBorrowerAtClosing": {
+	        "integratedDisclosureSectionSummaryDetailModel": {
+	          "integratedDisclosureSectionTotalAmount": "221495.00",
+	          "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
+	          "integratedDisclosureSubsectionTotalAmount": "",
+	          "integratedDisclosureSubsectionType": "",
+	          "integratedDisclosureSubsectionTypeOtherDescription": "",
+	          "lenderCreditToleranceCureAmount": ""
+	        },
+	        "integratedDisclosureSubsectionPayments": []
+	      },
+	      "paidAlreadyByOrOnBehalfOfBorrowerAtClosing": {
+	        "integratedDisclosureSectionSummaryDetailModel": {
+	          "integratedDisclosureSectionTotalAmount": "224737.00",
+	          "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
+	          "integratedDisclosureSubsectionTotalAmount": "",
+	          "integratedDisclosureSubsectionType": "",
+	          "integratedDisclosureSubsectionTypeOtherDescription": "",
+	          "lenderCreditToleranceCureAmount": ""
+	        },
+	        "integratedDisclosureSubsectionPayments": []
+	      }
+	    },
+	    "sellerTransaction": {
+	      "toSellerAtClosing": {
+	        "integratedDisclosureSectionSummaryDetailModel": {
+	          "integratedDisclosureSectionTotalAmount": "202800.00",
+	          "integratedDisclosureSectionType": "DueToSellerAtClosing",
+	          "integratedDisclosureSubsectionTotalAmount": "",
+	          "integratedDisclosureSubsectionType": "",
+	          "integratedDisclosureSubsectionTypeOtherDescription": "",
+	          "lenderCreditToleranceCureAmount": ""
+	        },
+	        "integratedDisclosureSubsectionPayments": []
+	      },
+	      "fromSellerAtClosing": {
+	        "integratedDisclosureSectionSummaryDetailModel": {
+	          "integratedDisclosureSectionTotalAmount": "105552.00",
+	          "integratedDisclosureSectionType": "DueFromSellerAtClosing",
+	          "integratedDisclosureSubsectionTotalAmount": "",
+	          "integratedDisclosureSubsectionType": "",
+	          "integratedDisclosureSubsectionTypeOtherDescription": "",
+	          "lenderCreditToleranceCureAmount": ""
+	        },
+	        "integratedDisclosureSubsectionPayments": []
+	      }
+	    }
     },
 	"payoffsAndPayments":
     {

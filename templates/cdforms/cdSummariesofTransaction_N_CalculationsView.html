@@ -25,17 +25,16 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	Cash to Close (to or from) Seller  
+		        	Cash to Close {{sotSellerTransactionTotalAmount >= 0 ? 'to' : 'from'}} Seller  
 		        </td>
 		        <td>
-		        	<label ng-if="cdformdata.summariesofTransactions.sellerTransaction.cashFromSellerAtClosingAmount!=''">${{cdformdata.summariesofTransactions.sellerTransaction.cashFromSellerAtClosingAmount}}</label>
-		        	<label ng-if="cdformdata.summariesofTransactions.sellerTransaction.cashToSellerAtClosingAmount!=''">${{cdformdata.summariesofTransactions.sellerTransaction.cashToSellerAtClosingAmount}}</label>
+		        	<label>${{cdformdata.closingInformationDetail.cashToSellerAtClosingAmount ? cdformdata.closingInformationDetail.cashToSellerAtClosingAmount : cdformdata.closingInformationDetail.cashFromSellerAtClosingAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		</table>
 	</span>
 	<div class="col-sm-12 margin10t">
-			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('SummariesofTransaction_N')">Back</a></span>
-			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('PayoffsAndPayments')">Next</a></span>
+		<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('SummariesofTransaction_N')">Back</a></span>
+		<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('PayoffsAndPayments')">Next</a></span>
 	</div>
 </div>
