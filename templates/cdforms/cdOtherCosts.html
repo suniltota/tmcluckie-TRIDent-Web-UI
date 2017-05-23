@@ -18,16 +18,16 @@
 		        <th class="innerSectionHeader">Include in APR?</th>
 		        <th class="innerSectionHeader">Delete / Clear</th>
 		      </tr>
-		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-show="tOGovtFee.feeType =='RecordingFeeForDeed' || tOGovtFee.feeType=='RecordingFeeForMortgage' || tOGovtFee.feeType=='RecordingFeeTotal' ">		      	
+		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-if="tOGovtFee.feeType == 'RecordingFee'">		      	
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fee Total</span>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fee For Deed</span>
 		        	<span class="col-sm-5 padding0 pull-right">
-		        		<input type="text" class="form-control" ng-model="tOGovtFee.feeActualTotalAmount"> 
+		        		<input type="text" class="form-control" ng-model="tOGovtFee.recordingFeeForDeed"> 
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Recording  Fee For Mortgage</span>
 		        	<span class="col-sm-5 padding0 pull-right">
-		        		<input type="text" class="form-control" ng-model="tOGovtFee.feeActualTotalAmount"> 
+		        		<input type="text" class="form-control" ng-model="tOGovtFee.recordingFeeForMortgage"> 
 		        	</span>
 		        </td> 
 		        <td>
@@ -65,7 +65,7 @@
 		        <td>
 		      	</td>
 		      </tr>
-		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-show="tOGovtFee.feeType !='RecordingFeeForDeed' && tOGovtFee.feeType!='RecordingFeeForMortgage' && tOGovtFee.feeType!='RecordingFeeTotal'">		         
+		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-show="tOGovtFee.feeType !='RecordingFeeForDeed' && tOGovtFee.feeType!='RecordingFeeForMortgage' && tOGovtFee.feeType!='RecordingFeeTotal' && tOGovtFee.feeType!='RecordingFee'">		         
 		        <td>
 		            <span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType =='TransferTaxTotal'">Transfer Taxes</span>
 		        	<span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType !='TransferTaxTotal'">Label Name</span>
@@ -129,7 +129,7 @@
 		        	</select>
 		        </td>
 		        <td>
-		            <span ng-show="tOGovtFee.feeType !='TransferTaxTotal'">
+		            <span>
 		      		<span class="glyphicon glyphicon-remove iconTooltip red margin5tb" data-toggle="tooltip" title="Close"></span>
 		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear"></span>
 		      		</span>
