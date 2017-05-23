@@ -29,7 +29,7 @@
 		        <td ng-show="originationCharge.feeType != 'LoanDiscountPoints'">
 		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
 		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control" ng-model="originationCharge.displayLabel"> 
+		        		<input type="text" class="form-control" ng-model="originationCharge.displayLabel" > 
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
 		        	<span class="col-sm-12 padding0">
@@ -63,19 +63,34 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="originationCharge.feePaidToFullName">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpAtClosing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpAtClosing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpB4Closing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpB4Closing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spAtClosing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spAtClosing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spB4Closing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spB4Closing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.paidByOthers">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.paidByOthers" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="originationCharge.lenderStatus">
@@ -155,19 +170,34 @@
 		        	<input type="text" class="form-control padding0" name="" >
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.bpAtClosing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.bpAtClosing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.bpB4Closing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.bpB4Closing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.spAtClosing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.spAtClosing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.spB4Closing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.spB4Closing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.paidByOthers">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.paidByOthers" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="sbDidNotShopFor.lenderStatus">
@@ -245,19 +275,34 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feePaidToFullName">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpAtClosing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpAtClosing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpB4Closing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpB4Closing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spAtClosing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spAtClosing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spB4Closing">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spB4Closing" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.paidByOthers">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.paidByOthers" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="sbDidShopFor.lenderStatus">
