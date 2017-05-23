@@ -56,6 +56,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.stepPaymentIndicator = false;
     $scope.checkBorrower = false;
     $scope.interestRatePercent = 0;
+    $scope.piAmount = 0;
 
 	var borrower ={};
 	var seller ={};
@@ -166,6 +167,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			$scope.interestRatePercent = $scope.cdformdata.termsOfLoan.weightedAverageInterestRatePercent;
 		} else {
 			$scope.interestRatePercent = $scope.cdformdata.termsOfLoan.noteRatePercent;
+		}
+		
+		//To Update the Principal And Interest Amount
+
+		if($scope.cdformdata.payment.paymentRule.initialPrincipalAndInterestPaymentAmount!=''){
+            $scope.piAmount = $scope.cdformdata.payment.paymentRule.initialPrincipalAndInterestPaymentAmount;
+		}
+		else if($scope.cdformdata.payment.paymentRule.fullyIndexedInitialPrincipalAndInterestPaymentAmount!=''){
+            $scope.piAmount = $scope.cdformdata.payment.paymentRule.fullyIndexedInitialPrincipalAndInterestPaymentAmount;
 		}
 		
 		var lender = {
