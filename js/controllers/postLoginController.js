@@ -44,6 +44,8 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                 cdXML2JsonService.getJsonFromXml($scope.xmlfile).success(function(data){
                     $scope.purposeType = data.termsOfLoan.loanPurposeType.toLowerCase();
                     localStorage.jsonData = JSON.stringify(data);
+                    console.log(localStorage.jsonData);
+                    console.log(data);
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                 }).error(function(data, status) {
                     $("#spinner").hide();
