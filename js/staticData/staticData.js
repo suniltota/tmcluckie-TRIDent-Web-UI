@@ -539,7 +539,6 @@ app.service('staticData', function($filter){
 	];
 
 	this.feeTypes = [
-		'LoanDiscountPoints',
 		'203KArchitecturalAndEngineeringFee',
 		'203KConsultantFee',
 		'203KDiscountOnRepairs',
@@ -817,7 +816,6 @@ app.service('staticData', function($filter){
 	this.calendarMonths = ['Jan','Feb','Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
     this.prepaidItems = [
-        'PrepaidInterest',
 		'BoroughPropertyTax',
 		'CityPropertyTax',
 		'CondominiumAssociationDues',
@@ -1726,7 +1724,7 @@ this.cdformdata={
 		    "constructionLoanType": "",
 		    "constructionPeriodNumberOfMonthsCount": ""
 		},
-		  "miDataDetail": {
+		"miDataDetail": {
 		    "miCertificateIdentifier": "",
 		    "miCompanyNameType": "",
 		    "miCompanyNameTypeOtherDescription": "",
