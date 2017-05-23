@@ -323,12 +323,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			"sectionTotalAmount":0
 		};
 		$scope.summariesOfTransaction_NSection = {
-			"salePriceProperty" : "",
-			"salePricePersonalProperty":"",
+			"excessDeposit" : {},
 			"closingCostsPaidAtClosing":"",
+			"assumedLoanAmount":"",
 			"liabilites" : [],
+			"liabilitesAndAdjustments":[],
 			"adjustments": [],
-			"adjustmentsPaidBySeller":[],
+			"adjustmentsUnpaidBySeller":[],
 			"sectionTotalAmount":0
 		};
 
@@ -385,8 +386,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		else
 			$scope.summariesOfTransaction_KSection.salePricePersonalProperty = 0;
 
-		if($scope.cdformdata.closingCostsTotal.totalClosingCosts)
-			$scope.summariesOfTransaction_KSection.closingCostsPaidAtClosing = $scope.cdformdata.closingCostsTotal.totalClosingCosts;
+		if($scope.cdformdata.closingCostsTotal.closingCostsSubtotal)
+			$scope.summariesOfTransaction_KSection.closingCostsPaidAtClosing = $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing;
 		else
 			$scope.summariesOfTransaction_KSection.closingCostsPaidAtClosing = 0;
 
@@ -501,7 +502,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				$scope.summariesOfTransaction_LSection.deposit = $scope.cdformdata.closingCostFundList[i];
 			}
 			if($scope.cdformdata.closingCostFundList[i].fundsType == 'ExcessDeposit') {
-				//TODO ----
+				$scope.summariesOfTransaction_NSection.excessDeposit = $scope.cdformdata.closingCostFundList[i];
 			}
 		}
 		if($scope.cdformdata.termsOfLoan.noteAmount)
@@ -620,100 +621,84 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			$scope.summariesOfTransaction_LSection.adjustmentsUnpaidBySeller.push(unpaidByAdjustment);
 		}
 
-		/*//Summaries of Transaction : N.Due from Seller at Closing --- Starts from here.
-		$scope.dueFromSellerAdjustmentsAndLiabilities = [];
+		//Summaries of Transaction : N.Due from Seller at Closing --- Starts from here.
+		if($scope.cdformdata.closingCostsTotal.closingCostsSubtotal)
+			$scope.summariesOfTransaction_NSection.closingCostsPaidAtClosing = $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.spAtClosing;
+		else
+			$scope.summariesOfTransaction_NSection.closingCostsPaidAtClosing = 0;
+
+		$scope.summariesOfTransaction_NSection.assumedLoanAmount = $scope.summariesOfTransaction_LSection.assumedLoanAmount;
+		
 		var dueFromSellerAdjustmentsAndLiabilityObj = {
 			"dueFromSellerItemType":"",
 			"displayLabel":"",
 			"itemType":"",
 			"otherDescription":"",
 			"pocIndicator":"",
-			"payoffAmount":""
+			"amount":""
 		}
-		if($scope.dueFromSellerLiabilities!=undefined) {
-			$scope.dueFromSellerLiabilities.splice(0, 0, angular.copy(liability));
-			$scope.dueFromSellerLiabilities[0].liabilityType = 'FirstPositionMortgageLien';
-			$scope.dueFromSellerLiabilities[0].displayLabel = 'Payoff of First Mortgage';
-			$scope.dueFromSellerLiabilities[0].integratedDisclosureSectionType = 'DueFromSellerAtClosing';
+		if($scope.summariesOfTransaction_NSection.liabilites!=undefined) {
+			$scope.summariesOfTransaction_NSection.liabilites.splice(0, 0, angular.copy(liability));
+			$scope.summariesOfTransaction_NSection.liabilites[0].liabilityType = 'FirstPositionMortgageLien';
+			$scope.summariesOfTransaction_NSection.liabilites[0].displayLabel = 'Payoff of First Mortgage';
+			$scope.summariesOfTransaction_NSection.liabilites[0].integratedDisclosureSectionType = 'DueFromSellerAtClosing';
 
-			$scope.dueFromSellerLiabilities.splice(1, 0, angular.copy(liability));
-			$scope.dueFromSellerLiabilities[1].liabilityType = 'SecondPositionMortgageLien';
-			$scope.dueFromSellerLiabilities[1].displayLabel = 'Payoff of Second Mortgage';
-			$scope.dueFromSellerLiabilities[1].integratedDisclosureSectionType = 'DueFromSellerAtClosing';
+			$scope.summariesOfTransaction_NSection.liabilites.splice(1, 0, angular.copy(liability));
+			$scope.summariesOfTransaction_NSection.liabilites[1].liabilityType = 'SecondPositionMortgageLien';
+			$scope.summariesOfTransaction_NSection.liabilites[1].displayLabel = 'Payoff of Second Mortgage';
+			$scope.summariesOfTransaction_NSection.liabilites[1].integratedDisclosureSectionType = 'DueFromSellerAtClosing';
 		}
-		for(i=0; i<$scope.dueFromSellerLiabilities.length; i++){
-			if(i!=0 && $scope.dueFromSellerLiabilities[i].liabilityType=='FirstPositionMortgageLien') {
-				$scope.dueFromSellerLiabilities[0] = $scope.dueFromSellerLiabilities[i]; 
-				$scope.dueFromSellerLiabilities.splice(i,1);
+		for(i=0; i<$scope.summariesOfTransaction_NSection.liabilites.length; i++){
+			if(i!=0 && $scope.summariesOfTransaction_NSection.liabilites[i].liabilityType=='FirstPositionMortgageLien') {
+				$scope.summariesOfTransaction_NSection.liabilites[0] = $scope.summariesOfTransaction_NSection.liabilites[i]; 
+				$scope.summariesOfTransaction_NSection.liabilites.splice(i,1);
 				i--;
-			} else if(i!=1 && $scope.dueFromSellerLiabilities[i].liabilityType=='SecondPositionMortgageLien') {
-				$scope.dueFromSellerLiabilities[1] = $scope.dueFromSellerLiabilities[i]; 
-				$scope.dueFromSellerLiabilities.splice(i,1);
+			} else if(i!=1 && $scope.summariesOfTransaction_NSection.liabilites[i].liabilityType=='SecondPositionMortgageLien') {
+				$scope.summariesOfTransaction_NSection.liabilites[1] = $scope.summariesOfTransaction_NSection.liabilites[i]; 
+				$scope.summariesOfTransaction_NSection.liabilites.splice(i,1);
 				i--;
-			} else if($scope.dueFromSellerLiabilities[i].liabilityType!='FirstPositionMortgageLien' && $scope.dueFromSellerLiabilities[i].liabilityType!='SecondPositionMortgageLien'){
+			} else if($scope.summariesOfTransaction_NSection.liabilites[i].liabilityType!='FirstPositionMortgageLien' && $scope.summariesOfTransaction_NSection.liabilites[i].liabilityType!='SecondPositionMortgageLien'){
 				var dueFromSellerObj = angular.copy(dueFromSellerAdjustmentsAndLiabilityObj);
 				dueFromSellerObj.dueFromSellerItemType = "Liability";
-				dueFromSellerObj.displayLabel = $scope.dueFromSellerLiabilities[i].displayLabel;
-				dueFromSellerObj.itemType = $scope.dueFromSellerLiabilities[i].liabilityType;
-				dueFromSellerObj.otherDescription = $scope.dueFromSellerLiabilities[i].liabilityTypeOtherDescription;
-				dueFromSellerObj.payoffAmount = $scope.dueFromSellerLiabilities[i].payoffAmount;
-				$scope.dueFromSellerAdjustmentsAndLiabilities.push(dueFromSellerObj);
-				$scope.dueFromSellerLiabilities.splice(i,1);
+				dueFromSellerObj.displayLabel = $scope.summariesOfTransaction_NSection.liabilites[i].displayLabel;
+				dueFromSellerObj.itemType =$scope.summariesOfTransaction_NSection.liabilites[i].liabilityType;
+				dueFromSellerObj.otherDescription = $scope.summariesOfTransaction_NSection.liabilites[i].liabilityTypeOtherDescription;
+				dueFromSellerObj.amount = $scope.summariesOfTransaction_NSection.liabilites[i].payoffAmount;
+				$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments.push(dueFromSellerObj);
+				$scope.summariesOfTransaction_NSection.liabilites.splice(i,1);
 				i--;
 			}
 		};
-		if($scope.dueFromSellerAdjustments!=undefined) {
-			$scope.dueFromSellerAdjustments.splice(0, 0, $scope.paidAlreadyByAdjustments[0]);
-			$scope.dueFromSellerAdjustments[0].integratedDisclosureSectionType='DueFromSellerAtClosing';
+		if($scope.summariesOfTransaction_NSection.adjustments!=undefined) {
+			$scope.summariesOfTransaction_NSection.adjustments.splice(0, 0, $scope.summariesOfTransaction_LSection.adjustments[0]);
+			$scope.summariesOfTransaction_NSection.adjustments[0].integratedDisclosureSectionType='DueFromSellerAtClosing';
 		}
-		for(i=0; i<$scope.dueFromSellerAdjustments.length; i++){
-			if(i!=0 && $scope.dueFromSellerAdjustments[i].closingAdjustmentItemType=='SellerCredit') {
-				$scope.dueFromSellerAdjustments.splice(i,1);
+		for(i=0; i<$scope.summariesOfTransaction_NSection.adjustments.length; i++){
+			if(i!=0 && $scope.summariesOfTransaction_NSection.adjustments[i].closingAdjustmentItemType=='SellerCredit') {
+				$scope.summariesOfTransaction_NSection.adjustments.splice(i,1);
 				i--;
-			} else if($scope.dueFromSellerAdjustments[i].closingAdjustmentItemType!='SellerCredit') {
+			} else if($scope.summariesOfTransaction_NSection.adjustments[i].closingAdjustmentItemType!='SellerCredit') {
 				var dueFromSellerObj = angular.copy(dueFromSellerAdjustmentsAndLiabilityObj);
 				dueFromSellerObj.dueFromSellerItemType = "Adjustment";
-				dueFromSellerObj.displayLabel = $scope.dueFromSellerAdjustments[i].displayLabel;
-				dueFromSellerObj.itemType = $scope.dueFromSellerAdjustments[i].closingAdjustmentItemType;
-				dueFromSellerObj.otherDescription = $scope.dueFromSellerAdjustments[i].closingAdjustmentItemTypeOtherDescription;
-				dueFromSellerObj.pocIndicator = $scope.dueFromSellerAdjustments[i].closingAdjustmentItemPaidOutsideOfClosingIndicator;
-				dueFromSellerObj.payoffAmount = $scope.dueFromSellerAdjustments[i].closingAdjustmentItemAmount;
-				$scope.dueFromSellerAdjustmentsAndLiabilities.push(dueFromSellerObj);
-				$scope.dueFromSellerAdjustments.splice(i,1);
+				dueFromSellerObj.displayLabel = $scope.summariesOfTransaction_NSection.adjustments[i].displayLabel;
+				dueFromSellerObj.itemType = $scope.summariesOfTransaction_NSection.adjustments[i].closingAdjustmentItemType;
+				dueFromSellerObj.otherDescription = $scope.summariesOfTransaction_NSection.adjustments[i].closingAdjustmentItemTypeOtherDescription;
+				dueFromSellerObj.pocIndicator = $scope.summariesOfTransaction_NSection.adjustments[i].closingAdjustmentItemPaidOutsideOfClosingIndicator;
+				dueFromSellerObj.amount = $scope.summariesOfTransaction_NSection.adjustments[i].closingAdjustmentItemAmount;
+				$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments.push(dueFromSellerObj);
+				$scope.summariesOfTransaction_NSection.adjustments.splice(i,1);
 				i--;
 			}
 		};
-		if($scope.dueFromSellerAdjustmentsAndLiabilities.length>6) {
-			$scope.dueFromSellerAdjustmentsAndLiabilities = $scope.dueFromSellerAdjustmentsAndLiabilities.splice(0, 6);
+		if($scope.summariesOfTransaction_NSection.liabilitesAndAdjustments.length>6) {
+			$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments = $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments.splice(0, 6);
 		}
-		for(i<$scope.dueFromSellerAdjustmentsAndLiabilities.length;i<6;i++){
-			$scope.dueFromSellerAdjustments.push(angular.copy(dueFromSellerAdjustmentsAndLiabilityObj))
+		for(i=$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments.length;i<6;i++){
+			$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments.push(angular.copy(dueFromSellerAdjustmentsAndLiabilityObj))
 		}
-		if($scope.dueFromSellerAdjustmentsUnpaidBySeller!=undefined) {
-			$scope.dueFromSellerAdjustmentsUnpaidBySeller.push.apply($scope.dueFromSellerAdjustmentsUnpaidBySeller, $scope.paidAlreadyByAdjustmentsUnpaidBySeller);
+		if($scope.summariesOfTransaction_NSection.adjustmentsUnpaidBySeller!=undefined) {
+			$scope.summariesOfTransaction_NSection.adjustmentsUnpaidBySeller.push.apply($scope.summariesOfTransaction_NSection.adjustmentsUnpaidBySeller, $scope.summariesOfTransaction_LSection.adjustmentsUnpaidBySeller);
 		}
-		if($scope.cdformdata.closingCostFundList && $scope.cdformdata.closingCostFundList[0].closingCostFundAmount)
-			$scope.dueFromSellerTotalAmount += parseFloat($scope.cdformdata.closingCostFundList[0].closingCostFundAmount);
-		if($scope.cdformdata.closingCostsTotal.totalClosingCosts)
-			 $scope.dueFromSellerTotalAmount += parseFloat($scope.cdformdata.closingCostsTotal.totalClosingCosts);
-		if($scope.cdformdata.termsOfLoan.assumedLoanAmount)
-			 $scope.dueFromSellerTotalAmount += parseFloat($scope.cdformdata.termsOfLoan.assumedLoanAmount);
-		for(i=0; i<$scope.dueFromSellerLiabilities.length; i++) {
-			if($scope.dueFromSellerLiabilities[i].payoffAmount)
-				$scope.dueFromSellerTotalAmount += parseFloat($scope.dueFromSellerLiabilities[i].payoffAmount);
-		}
-		for(i=0; i<$scope.dueFromSellerAdjustments.length; i++) {
-			if($scope.dueFromSellerAdjustments[i].closingAdjustmentItemAmount)
-				$scope.dueFromSellerTotalAmount += parseFloat($scope.dueFromSellerAdjustments[i].closingAdjustmentItemAmount);
-		}
-		for(i=0; i<$scope.dueFromSellerAdjustmentsAndLiabilities.length; i++) {
-			if($scope.dueFromSellerAdjustmentsAndLiabilities[i].payoffAmount)
-				$scope.dueFromSellerTotalAmount += parseFloat($scope.dueFromSellerAdjustmentsAndLiabilities[i].payoffAmount);
-		}
-		for(i=0; i<$scope.dueFromSellerAdjustmentsUnpaidBySeller.length; i++) {
-			if($scope.dueFromSellerAdjustmentsUnpaidBySeller[i].prorationItemAmount)
-				$scope.dueFromSellerTotalAmount += parseFloat($scope.dueFromSellerAdjustmentsUnpaidBySeller[i].prorationItemAmount);
-		}*/
 
  		//Payoffs And Payments starts here...
 		$scope.payoffsAndPaymentsList = [];
@@ -1479,6 +1464,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				 $scope.summariesOfTransaction_LSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_LSection.loanAmount);
 			}
 			if($scope.summariesOfTransaction_LSection.assumedLoanAmount) {
+				$scope.summariesOfTransaction_NSection.assumedLoanAmount = $scope.summariesOfTransaction_LSection.assumedLoanAmount;
 				 $scope.summariesOfTransaction_LSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_LSection.assumedLoanAmount);
 			}
 			if($scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount){
@@ -1495,6 +1481,34 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			for(i=0; i<$scope.summariesOfTransaction_LSection.adjustmentsUnpaidBySeller.length; i++) {
 				if($scope.summariesOfTransaction_LSection.adjustmentsUnpaidBySeller[i].prorationItemAmount)
 					$scope.summariesOfTransaction_LSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_LSection.adjustmentsUnpaidBySeller[i].prorationItemAmount);
+			}
+    }, true);
+
+
+    $scope.$watch('summariesOfTransaction_NSection', function(newValues,oldValues){
+     		$scope.summariesOfTransaction_NSection.sectionTotalAmount = 0;
+	    	if($scope.summariesOfTransaction_NSection.excessDeposit.closingCostFundAmount)
+				$scope.summariesOfTransaction_NSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_NSection.excessDeposit.closingCostFundAmount);
+			if($scope.summariesOfTransaction_NSection.closingCostsPaidAtClosing)
+				$scope.summariesOfTransaction_NSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_NSection.closingCostsPaidAtClosing);
+			if($scope.summariesOfTransaction_NSection.assumedLoanAmount) {
+				 $scope.summariesOfTransaction_NSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_NSection.assumedLoanAmount);
+			}
+			for(i=0; i<$scope.summariesOfTransaction_NSection.liabilites.length; i++) {
+				if($scope.summariesOfTransaction_NSection.liabilites[i].payoffAmount)
+					$scope.summariesOfTransaction_NSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_NSection.liabilites[i].payoffAmount);
+			}
+			for(i=0; i<$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments.length; i++) {
+				if($scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].amount)
+					$scope.summariesOfTransaction_NSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].amount);
+			}
+			for(i=0; i<$scope.summariesOfTransaction_NSection.adjustments.length; i++) {
+				if($scope.summariesOfTransaction_NSection.adjustments[i].closingAdjustmentItemAmount)
+					$scope.summariesOfTransaction_NSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_NSection.adjustments[i].closingAdjustmentItemAmount);
+			}
+			for(i=0; i<$scope.summariesOfTransaction_NSection.adjustmentsUnpaidBySeller.length; i++) {
+				if($scope.summariesOfTransaction_NSection.adjustmentsUnpaidBySeller[i].prorationItemAmount)
+					$scope.summariesOfTransaction_NSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_NSection.adjustmentsUnpaidBySeller[i].prorationItemAmount);
 			}
     }, true);
 

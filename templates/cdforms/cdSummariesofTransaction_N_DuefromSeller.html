@@ -13,7 +13,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostFundList[0].closingCostFundAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_NSection.excessDeposit.closingCostFundAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -22,7 +22,7 @@
 		        	Closing Costs Paid at Closing (J)  
 		        </td>
 		        <td>
-		        	<label>${{cdformdata.closingCostsTotal.totalClosingCosts | number:2}}</label>
+		        	<label>${{summariesOfTransaction_NSection.closingCostsPaidAtClosing | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -30,7 +30,7 @@
 		        	Existing Loan(s) Assumed or Taken Subject To 
 		        </td>
 		        <td>
-		        	<label>${{cdformdata.termsOfLoan.assumedLoanAmount | number:2}}</label>
+		        	<label>${{summariesOfTransaction_NSection.assumedLoanAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -40,7 +40,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-repeat="dueFromSellerLiability in dueFromSellerLiabilities" ng-if="dueFromSellerLiability.liabilityType=='FirstPositionMortgageLien'" ng-model="dueFromSellerLiability.payoffAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0" name="" ng-repeat="dueFromSellerLiability in summariesOfTransaction_NSection.liabilites" ng-if="dueFromSellerLiability.liabilityType=='FirstPositionMortgageLien'" ng-model="dueFromSellerLiability.payoffAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -51,7 +51,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-repeat="dueFromSellerLiability in dueFromSellerLiabilities" ng-if="dueFromSellerLiability.liabilityType=='SecondPositionMortgageLien'" ng-model="dueFromSellerLiability.payoffAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0" name="" ng-repeat="dueFromSellerLiability in summariesOfTransaction_NSection.liabilites" ng-if="dueFromSellerLiability.liabilityType=='SecondPositionMortgageLien'" ng-model="dueFromSellerLiability.payoffAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -60,7 +60,7 @@
 		        	Seller Credit 
 		        </td>
 		        <td>
-		        	<label>${{dueFromSellerAdjustments[0].closingAdjustmentItemAmount | number:2}}</label>
+		        	<label>${{summariesOfTransaction_NSection.adjustments[0].closingAdjustmentItemAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		</table>
@@ -77,7 +77,7 @@
 		        <th class="innerSectionHeader">POC Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="dueFromSellerAdjustmentsAndLiability in dueFromSellerAdjustmentsAndLiabilities track by $index">
+		      <tr ng-repeat="dueFromSellerAdjustmentsAndLiability in summariesOfTransaction_NSection.liabilitesAndAdjustments track by $index">
 		        <td>
 		        	<select class="form-control padding0" ng-model="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType">
               			<option value="" selected>Select</option>
@@ -103,7 +103,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="dueFromSellerAdjustmentsAndLiability.payoffAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0" name="" ng-model="dueFromSellerAdjustmentsAndLiability.amount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -121,7 +121,7 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsUnpaidBySeller in dueFromSellerAdjustmentsUnpaidBySeller">
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in summariesOfTransaction_NSection.adjustmentsUnpaidBySeller">
 		        <td>
 		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
 		        </td>
@@ -148,7 +148,7 @@
 	</span>
 	<div class="col-sm-12 finalFooterValues">
 		<span class="col-sm-10 text-right">Total for Section N. Due From Borrower At Closing : </span>
-		<span class="col-sm-2">${{dueFromSellerTotalAmount | number:2}}</span>
+		<span class="col-sm-2">${{summariesOfTransaction_NSection.sectionTotalAmount | number:2}}</span>
 	</div>
 
 	<div class="col-sm-12 margin10t">
