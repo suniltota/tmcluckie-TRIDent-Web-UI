@@ -30,7 +30,10 @@
 		        	Escrowed Property Costs over Year 1
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control" name="" ng-model="cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control" name="" ng-model="cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12">User must total up all estimated property costs over year 1</span><!-- Need To check with Section G.IEPAT -->
@@ -53,7 +56,10 @@
 		        	Non-Escrowed Property Costs over Year 1
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control" name="" ng-model="cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control" name="" ng-model="cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> Non Escrowed Property Costs Includes </span>
