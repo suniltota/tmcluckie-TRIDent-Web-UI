@@ -146,9 +146,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount%12;
-			$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = $scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount/12;
-			$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = parseFloat($scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount/12);
-			$scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount = parseFloat($scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount/12);
+			//$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = $scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount/12;
+			//$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = parseFloat($scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount/12);
+			//$scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount = parseFloat($scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount/12);
 		}
 
 		for (i = $scope.cdformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
