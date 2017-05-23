@@ -137,21 +137,39 @@ app.directive('fileModel', ['$parse', function ($parse) {
 app.directive('zipcodeFormat', function ($filter) {
     return {
         restrict: 'A',
-        require: '?ngModel',
+        require: 'ngModel',
         link: function (scope, elem, attrs, ctrl) {
             if (!ctrl) {
                 return;
             }
 
-            ctrl.$parsers.unshift(function (viewValue) {
+            ctrl.$formatters.push(function () {
+                return formatValue(ctrl.$modelValue);
+            });
+
+            function formatValue(viewValue) {
+              if(viewValue) {
                 var plainNumber = viewValue.replace(/[\-\.]/g, '');
-                if (plainNumber.toString().length === 9) {
-                    plainNumber = plainNumber.toString().slice(0, 5) + "-" + plainNumber.toString().slice(5);
-                } else if (plainNumber.toString().length === 5) {
+                if (plainNumber.length > 5) {
+                    var plainNumber1 = plainNumber.slice(0, 5);
+                    var plainNumber2 = plainNumber.slice(5);
+                    if(plainNumber2.length>4) 
+                      plainNumber2 = plainNumber2.slice(0,4);
+
+                    plainNumber = plainNumber1 + "-" + plainNumber2;
+                } else if (plainNumber.length === 5) {
                     plainNumber = plainNumber.toString();
                 }
+                return plainNumber;
+              }
+              return undefined;
+            }
 
-                elem.val(plainNumber);
+            ctrl.$parsers.push(function (viewValue) {
+                var plainNumber = formatValue(viewValue);
+
+                ctrl.$setViewValue(plainNumber);
+                ctrl.$render();
 
                 return plainNumber;
             });
@@ -193,6 +211,14 @@ app.directive('negativeDigits', function ($filter) {
       require: 'ngModel',
       restrict: 'A',
       link: function (scope, element, attr, ctrl) {
+        if (!ctrl) {
+            return;
+        }
+
+        ctrl.$formatters.push(function () {
+            return $filter('number')(ctrl.$modelValue);
+        });
+
         function inputValue(val) {
           if (val) {
             var digits = val.replace(/[^0-9.]/g, '');
@@ -235,9 +261,14 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
       require: 'ngModel',
       restrict: 'A',
       link: function (scope, element, attr, ctrl) {
-        scope.$watch(attr.decimalDigitsWithNumberFormat, function() {
-          $compile(element.contents())(scope);
+        if (!ctrl) {
+            return;
+        }
+
+        ctrl.$formatters.push(function () {
+            return $filter('number')(ctrl.$modelValue);
         });
+
         function inputValue(val) {
           if (val) {
             var digits = val.replace(/[^0-9.]/g, '');
@@ -281,6 +312,15 @@ app.directive('percentageFormat', function () {
       require: 'ngModel',
       restrict: 'A',
       link: function (scope, element, attr, ctrl) {
+
+        if (!ctrl) {
+            return;
+        }
+
+        ctrl.$formatters.push(function () {
+            return inputValue(ctrl.$modelValue);
+        });
+
         function inputValue(val) {
           if (val) {
             var digits = val.replace(/[^0-9.]/g, '');
@@ -304,7 +344,7 @@ app.directive('percentageFormat', function () {
             return parseFloat(digits);
           }
           return undefined;
-        }            
+        }
         ctrl.$parsers.push(inputValue);
       }
     };
