@@ -13,7 +13,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" value="$0" name="" ng-model="cdformdata.closingCostFundList[1].closingCostFundAmount">
+		        	<input type="text" class="form-control padding0" value="$0" name="" ng-model="summariesOfTransaction_LSection.deposit.closingCostFundAmount">
 		        </div>
 		        </td>
 		      </tr>
@@ -22,7 +22,7 @@
 		        	Loan Amount
 		        </td>
 		        <td>
-		        	<label>${{cdformdata.termsOfLoan.noteAmount | number:2}}</label>
+		        	<label>${{summariesOfTransaction_LSection.loanAmount | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -32,7 +32,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default">$</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.termsOfLoan.assumedLoanAmount">
+			        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.assumedLoanAmount">
 			        </div>
 		        </td>
 		      </tr>
@@ -41,7 +41,7 @@
 		        	Seller Credits
 		        </td>
 		        <td>
-		        <div class="input-group" ng-repeat="paidAlreadyByAdjustment in paidAlreadyByAdjustments" ng-if="paidAlreadyByAdjustment.closingAdjustmentItemType=='SellerCredit'">
+		        <div class="input-group" ng-repeat="paidAlreadyByAdjustment in summariesOfTransaction_LSection.adjustments" ng-if="paidAlreadyByAdjustment.closingAdjustmentItemType=='SellerCredit'">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="paidAlreadyByAdjustment.closingAdjustmentItemAmount">
 		        </div>
@@ -57,7 +57,7 @@
 		      <tr>
 		        <td>
 		        	<span class="col-sm-7">
-		        		<input type="text" class="form-control padding0" name="" ng-module="paidAlreadyByLiabilities[0].liabilityDescription">
+		        		<input type="text" class="form-control padding0" name="" ng-module="summariesOfTransaction_LSection.liabilites[0].liabilityDescription">
 		        	</span>
 		        </td>
 		      </tr>
@@ -79,16 +79,16 @@
 		        	<label>Subordinate Lien proceeds</label> 
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="cdformdata.summariesofTransactions.paidByAlready.subordinateLien.closingAdjustmentItemType">
+		        	<select class="form-control padding0" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType">
 			        	<option value="" selected>Select</option>
 	                    <option ng-repeat="sLien in subordinateLiens" value="{{sLien.value}}">{{sLien.name}}</option>
 		        	</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" ng-disabled="cdformdata.summariesofTransactions.paidByAlready.subordinateLien.closingAdjustmentItemType !='Other'" name="" ng-model="cdformdata.summariesofTransactions.paidByAlready.subordinateLien.closingAdjustmentItemTypeOtherDescription"">  
+		        	<input type="text" class="form-control padding0" ng-disabled="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType !='Other'" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemTypeOtherDescription"">  
 		        </td>
 		        <td>
-		        	<ul class="ListChain" ng-show="cdformdata.summariesofTransactions.paidByAlready.subordinateLien.closingAdjustmentItemType =='ProceedsOfSubordinateLiens'">
+		        	<ul class="ListChain" ng-show="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType =='ProceedsOfSubordinateLiens'">
 		        		<li><span class="pull-left margin5tb">Original Principal Balance?</span>
 		        			<span class="col-sm-4 pull-right"><input type="text" class="form-control padding0" name="" ng-model="cdformdata.loanDetail.totalSubordinateFinancingAmount"></span>
 		        		</li>
@@ -103,7 +103,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-module="cdformdata.summariesofTransactions.paidByAlready.subordinateLien.closingAdjustmentItemAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-module="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount">
 		        </div>
 		        </td>
 		      </tr>
@@ -122,7 +122,7 @@
 		        <th class="innerSectionHeader">P.O.C Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="pbaOtherCredit in paidAlreadyByAdjustmentsOtherCredits track by $index">
+		      <tr ng-repeat="pbaOtherCredit in summariesOfTransaction_LSection.otherCredits track by $index">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="pbaOtherCredit.displayLabel">  
 		        </td>
@@ -166,7 +166,7 @@
 		        <th class="innerSectionHeader">P.O.C Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidByAlready in paidAlreadyByAdjustments track by $index">
+		      <tr ng-repeat="adjustmentsPaidByAlready in summariesOfTransaction_LSection.adjustments track by $index" ng-if="adjustmentsPaidByAlready.closingAdjustmentItemType!='SellerCredit'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidByAlready.displaylabel">  
 		        </td>
@@ -210,7 +210,7 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsUnpaidBySeller in paidAlreadyByAdjustmentsUnpaidBySeller">
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in summariesOfTransaction_LSection.adjustmentsUnpaidBySeller">
 		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
 		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
 		        </td>
@@ -253,7 +253,7 @@
 
 	<div class="col-sm-12 finalFooterValues">
 		<span class="col-sm-10 text-right">Total for Section L. Paid By or On Behalf Of Borrower At Closing : </span>
-		<span class="col-sm-2">${{paidAlreadyByTotalAmount | number:2}}</span>
+		<span class="col-sm-2">${{summariesOfTransaction_LSection.sectionTotalAmount | number:2}}</span>
 	</div>
 	<div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('SummariesofTransaction_K')">Back</a></span>

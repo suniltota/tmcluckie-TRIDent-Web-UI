@@ -11,7 +11,7 @@
 		        	Sales Price of Property <span class="required">*</span>
 		        </td>
 		        <td>
-		        	<label>${{salePriceAmount | number:2}}</label>
+		        	<label>${{summariesOfTransaction_KSection.salePriceProperty | number:2}}</label>
 		        </td>
 		      </tr>
 		      <tr>
@@ -21,7 +21,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.salesContractDetail.personalPropertyAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_KSection.salePricePersonalProperty">
 		        </div>
 		        </td>
 		      </tr>
@@ -30,7 +30,7 @@
 		        	Closing Costs Paid At Closing (J) 
 		        </td>
 		        <td>
-		        	<label>${{cdformdata.closingCostsTotal.totalClosingCosts | number:2}}</label>
+		        	<label>${{summariesOfTransaction_KSection.closingCostsPaidAtClosing | number:2}}</label>
 		        </td>
 		      </tr>
 		</table>
@@ -45,7 +45,7 @@
 		        <th class="innerSectionHeader">Full Name Paid to Organization</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		     <tr ng-repeat="liablitySection in dueFromBrwLiabilities track by $index" ng-if="liablitySection.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'">
+		     <tr ng-repeat="liablitySection in summariesOfTransaction_KSection.liabilites track by $index" ng-if="liablitySection.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="liablitySection.displayLabel">  
 		        </td>
@@ -80,7 +80,7 @@
 		        <th class="innerSectionHeader">Paid outside of Closing Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustments in dueFromBrwAdjustments track by $index">
+		      <tr ng-repeat="adjustments in summariesOfTransaction_KSection.adjustments track by $index">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustments.displayLabel">  
 		        </td>
@@ -117,7 +117,7 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in dueFromBrwAdjustmentsPaidBySeller" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes'">
+		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in summariesOfTransaction_KSection.adjustmentsPaidBySeller" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes'">
 		        <td >
 		        	<label>{{adjustmentsPaidBySellerInAdvance.displayLabel}}</label>
 		        </td>
@@ -147,7 +147,7 @@
 		        </div>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in dueFromBrwAdjustmentsPaidBySeller" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes'">
+		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in summariesOfTransaction_KSection.adjustmentsPaidBySeller" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='City/Town Taxes' && adjustmentsPaidBySellerInAdvance.displayLabel !='County Taxes'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" 
 		        	ng-model="adjustmentsPaidBySellerInAdvance.displayLabel">
@@ -189,7 +189,7 @@
 
 	<div class="col-sm-12 finalFooterValues">
 		<span class="col-sm-10 text-right">Total for Section K. Due From Borrower At Closing : </span>
-		<span class="col-sm-2">${{dueFromBrwTotalAmount | number:2}}</span>
+		<span class="col-sm-2">${{summariesOfTransaction_KSection.sectionTotalAmount | number:2}}</span>
 	</div>
 	<div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('CalculatingCashtoClose')">Back</a></span>

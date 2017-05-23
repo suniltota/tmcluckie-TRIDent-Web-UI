@@ -11,7 +11,7 @@
 					Sales Price of Property
 				</td>
 				<td>
-					<label>${{salePriceAmount | number:2}}</label>
+					<label>${{summariesOfTransaction_MSection.salePriceProperty | number:2}}</label>
 				</td>
 			</tr>
 			<tr>
@@ -19,7 +19,7 @@
 					Sale Price of Personal Property Included in Sale
 				</td>
 				<td>
-					<label>${{cdformdata.salesContractDetail.personalPropertyAmount | number:2}}</label>
+					<label>${{summariesOfTransaction_MSection.salePricePersonalProperty | number:2}}</label>
 				</td>
 			</tr>
 		</table>
@@ -33,12 +33,12 @@
 		        <th class="innerSectionHeader">Paid outside of Closing Flag</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustment in dueToSellerAdjustments track by $index">
+		      <tr ng-repeat="adjustment in summariesOfTransaction_MSection.adjustments track by $index">
 		        <td ng-if="adjustment.isFromBorrower">
 		        	<label>{{adjustment.displayLabel}}</label>
 		        </td>
 		        <td ng-if="!adjustment.isFromBorrower">
-		        	<input type="text" class="form-control padding0"  name="" ng-model="adjustments.displayLabel">  
+		        	<input type="text" class="form-control padding0"  name="" ng-model="adjustment.displayLabel">  
 		        </td>
 		        <td ng-if="adjustment.isFromBorrower">
 		      	    <label ng-repeat="adjustmentType in adjustmentTypes" ng-if="adjustmentType.value == adjustment.closingAdjustmentItemType">{{adjustmentType.name}}</label>
@@ -85,7 +85,7 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		       <tr ng-repeat="adjustmentsPaidBySellerInAdvance in dueToSellerAdjustmentsPaidBySeller track by $index">
+		       <tr ng-repeat="adjustmentsPaidBySellerInAdvance in summariesOfTransaction_MSection.adjustmentsPaidBySeller track by $index">
 		        <td >
 		        	<label>{{adjustmentsPaidBySellerInAdvance.displayLabel}}</label>
 		        </td>
@@ -112,7 +112,7 @@
 
 	<div class="col-sm-12 finalFooterValues">
 		<span class="col-sm-10 text-right">Total For Section M. Due to Seller At Closing : </span>
-		<span class="col-sm-2">${{dueToSellerTotalAmount | number:2}}</span>
+		<span class="col-sm-2">${{summariesOfTransaction_MSection.sectionTotalAmount | number:2}}</span>
 	</div>
 	<div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('SummariesofTransaction_L_cv')">Back</a></span>
