@@ -216,7 +216,10 @@ app.directive('negativeDigits', function ($filter) {
         }
 
         ctrl.$formatters.push(function () {
-            return $filter('number')(ctrl.$modelValue);
+            if(ctrl.$modelValue)
+              return $filter('number')(ctrl.$modelValue);
+            else
+              return (ctrl.$modelValue);
         });
 
         function inputValue(val) {
@@ -266,7 +269,10 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
         }
 
         ctrl.$formatters.push(function () {
-            return $filter('number')(ctrl.$modelValue);
+            if(ctrl.$modelValue)
+              return $filter('number')(ctrl.$modelValue);
+            else
+              return (ctrl.$modelValue);
         });
 
         function inputValue(val) {
