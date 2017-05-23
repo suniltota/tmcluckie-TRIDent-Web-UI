@@ -356,23 +356,29 @@ app.directive('percentageFormat', function () {
     };
 });
 app.directive('months2years', function() {
-  return { restrict: 'A',
+  return {
+    restrict: 'A',
     require: 'ngModel',
-    link: function(scope, element, attrs, ngModel) {
+    link: function(scope, element, attrs, ctrl) {
 
-      if(ngModel) { // Don't do anything unless we have a model
-/*
-        ngModel.$parsers.push(function (value) {
-          return value;
-        });
-*/
-        ngModel.$formatters.push(function (value) {
-          value = Math.round(value/12);
-         
-          return value;
-        });
-
+     if (!ctrl) {
+          return;
       }
+      ctrl.$formatters.push(function () {
+          if(ctrl.$modelValue) {
+            return Math.round((ctrl.$modelValue)/12);
+          } else{
+            return ctrl.$modelValue;
+          }
+      });
+      function inputValue(val) {
+        if(val) {
+          ctrl.$setViewValue(Math.round(val/12));
+          ctrl.$render();
+        }
+        return val;
+      }
+      ctrl.$parsers.push(inputValue);
     }
   };
 });
