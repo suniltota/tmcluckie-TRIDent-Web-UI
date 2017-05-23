@@ -28,9 +28,13 @@ input, select, textarea, .form-control{font-size: 12px;}
 .margin0{margin: 0px;}
 .padding5{padding: 5px;}
 .padding5r{padding-right:5px;}
+.padding5l{padding-left:5px;}
+.padding5t{padding-top:5px;}
 .padding5lr{padding-left:5px; padding-right: 5px;}
 .fontBold{font-weight: bold;}
 .margin5tb{margin-top: 5px; margin-bottom: 5px;}
+.margin5t{margin-top: 5px; }
+.margin5b{margin-bottom: 5px;}
 .margin10t{margin-top: 10px;}
 .margin5lr{margin-left: 5px; margin-right: 5px;}
 .checkboxGroup input[type="checkbox"]{margin:0 5px; float: left;}
@@ -178,3 +182,8 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 #cashtoCloseModal .fieldValue{padding: 5px 15px;}
 #cashtoCloseModal .fieldValue input{height: 25px;}
 .finalFooterValues{background: #5bb1dc; padding:5px 15px; color: #fff; font-weight: bold;}
+
+.LabelText{margin-top: 5px;padding:0px;}
+.LabelValue{margin-bottom: 5px;padding:0px;}
+.ValueText{margin-top: 10px;padding:0px;}
+.ValueValue{margin-bottom: 5px;padding:0px;}
