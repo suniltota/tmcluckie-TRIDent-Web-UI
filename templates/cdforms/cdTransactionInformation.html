@@ -3,7 +3,7 @@
   <div class="">
 	<div class="col-sm-12 padding0" ng-repeat= "borrower in cdformdata.transactionInformation.borrowerDetails track by $index">
 		<h5 class="innerSectionHeader">Borrower Information 
-      <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="borrower.checkBorrower" ng-click="sameBorrower($index)"> Same as 1<sup>st</sup> Borrower Address</span>
+      <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="borrower.checkBorrower" ng-click="sameBorrower($index)"> Same as 1<sup>st</sup>Borrower Address</span>
       <span class="glyphicon-minus pull-right RemoveSection" ng-click="removeBorrower($index)" ng-show="$index != 0">
           <a> Remove Borrower</a>
       </span>
