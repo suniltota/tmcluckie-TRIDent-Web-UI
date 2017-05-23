@@ -55,6 +55,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.payOffTypeSelection = '';
     $scope.stepPaymentIndicator = false;
     $scope.checkBorrower = false;
+    $scope.interestRatePercent = 0;
+
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -154,7 +156,18 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		for (i = $scope.cdformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
 		    $scope.cdformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
 		}
-
+        
+        //To Update The Interest Rate Percent
+        if ($scope.cdformdata.loanTerms.temporaryBuydown.buydownReflectedInNoteIndicator==true && $scope.cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent!='') {
+			$scope.interestRatePercent = $scope.cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent;
+		} else if($scope.cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent!='') {
+			$scope.interestRatePercent = $scope.cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent;
+		} else if ($scope.cdformdata.termsOfLoan.weightedAverageInterestRatePercent!='') {
+			$scope.interestRatePercent = $scope.cdformdata.termsOfLoan.weightedAverageInterestRatePercent;
+		} else {
+			$scope.interestRatePercent = $scope.cdformdata.termsOfLoan.noteRatePercent;
+		}
+		
 		var lender = {
 				"type": "O",
 				"nameModel": {
@@ -1677,14 +1690,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	}
     }, true);
 
-    /*$scope.$watch('cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList',function(newValue,oldValue){
+    $scope.$watch('cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList',function(newValue,oldValue){
            var recordingFeeAmount = 0;
            if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed)
            recordingFeeAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed);
            if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage)
            recordingFeeAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage);
            $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpAtClosing = recordingFeeAmount;
-    },true);*/
+    },true);
 
 });
 
