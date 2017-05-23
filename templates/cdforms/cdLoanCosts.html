@@ -11,8 +11,9 @@
 		        <th class="innerSectionHeader col-sm-2">Fee Paid To Info</th>
 		        <th class="innerSectionHeader">Borrower Paid AT Closing</th>
 		        <th class="innerSectionHeader">Borrower Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader">Seller Paid AT Closing</th>
-		        <th class="innerSectionHeader">Seller Paid BEFORE Closing</th>
+
+		        <th ng-hide="loanBasicInfo.loanPurposeType == 'refinance'"  class="innerSectionHeader">Seller Paid AT Closing</th>
+		        <th ng-hide="loanBasicInfo.loanPurposeType == 'refinance'" class="innerSectionHeader">Seller Paid BEFORE Closing</th>
 		        <th class="innerSectionHeader">Paid By OTHER</th>
 		        <th class="innerSectionHeader">Paid By Lender</th>
 		        <th class="innerSectionHeader">Include in APR?</th>
@@ -81,13 +82,13 @@
 		        </div>
 		        </td>
 		        <td>
-		        <div class="input-group">
+		        <div class="input-group" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spB4Closing" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		        <td>
-		        <div class="input-group">
+		        <div class="input-group" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.paidByOthers" decimal-digits-with-number-format>
 		        </div>
@@ -128,8 +129,8 @@
 		        <th class="innerSectionHeader">Fee Paid To Info</th>
 		        <th class="innerSectionHeader">Borrower Paid AT Closing</th>
 		        <th class="innerSectionHeader">Borrower Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader">Seller Paid AT Closing</th>
-		        <th class="innerSectionHeader">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">Seller Paid BEFORE Closing</th>
 		        <th class="innerSectionHeader">Paid By OTHER</th>
 		        <th class="innerSectionHeader">Paid By Lender</th>
 		        <th class="innerSectionHeader">Include in APR?</th>
@@ -182,13 +183,13 @@
 		        </div>
 		        </td>
 		        <td>
-		        <div class="input-group">
+		        <div class="input-group" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.spAtClosing" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		        <td>
-		        <div class="input-group">
+		        <div class="input-group" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.spB4Closing" decimal-digits-with-number-format>
 		        </div>
@@ -234,8 +235,8 @@
 		        <th class="innerSectionHeader">Fee Paid To Info</th>
 		        <th class="innerSectionHeader">Borrower Paid AT Closing</th>
 		        <th class="innerSectionHeader">Borrower Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader">Seller Paid AT Closing</th>
-		        <th class="innerSectionHeader">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">Seller Paid BEFORE Closing</th>
 		        <th class="innerSectionHeader">Paid By OTHER</th>
 		        <th class="innerSectionHeader">Paid By Lender</th>
 		        <th class="innerSectionHeader">Include in APR?</th>
@@ -287,13 +288,13 @@
 		        </div>
 		        </td>
 		        <td>
-		        <div class="input-group">
+		        <div class="input-group" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spAtClosing" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		        <td>
-		        <div class="input-group">
+		        <div class="input-group" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spB4Closing" decimal-digits-with-number-format>
 		        </div>
