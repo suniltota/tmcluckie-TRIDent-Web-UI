@@ -13,7 +13,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" value="$0" name="" ng-model="summariesOfTransaction_LSection.deposit.closingCostFundAmount">
+		        	<input type="text" class="form-control padding0" value="$0" name="" ng-model="summariesOfTransaction_LSection.deposit.closingCostFundAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -32,7 +32,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default">$</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.assumedLoanAmount">
+			        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.assumedLoanAmount" decimal-digits-with-number-format>
 			        </div>
 		        </td>
 		      </tr>
@@ -43,7 +43,7 @@
 		        <td>
 		        <div class="input-group" ng-repeat="paidAlreadyByAdjustment in summariesOfTransaction_LSection.adjustments" ng-if="paidAlreadyByAdjustment.closingAdjustmentItemType=='SellerCredit'">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="paidAlreadyByAdjustment.closingAdjustmentItemAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-model="paidAlreadyByAdjustment.closingAdjustmentItemAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -103,7 +103,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-module="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount">
+		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -148,7 +148,10 @@
 		        	<input type="checkbox" name="" ng-model="pbaOtherCredit.closingAdjustmentItemPaidOutsideOfClosingIndicator">  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0"  name="" ng-model="pbaOtherCredit.closingAdjustmentItemAmount">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control padding0"  name="" ng-model="pbaOtherCredit.closingAdjustmentItemAmount" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		      </tr>
 		</table>
@@ -193,7 +196,10 @@
 		        	<input type="checkbox" name="" ng-model="adjustmentsPaidByAlready.closingAdjustmentItemPaidOutsideOfClosingIndicator">  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0"  name="" ng-model="adjustmentsPaidByAlready.closingAdjustmentItemAmount">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control padding0"  name="" ng-model="adjustmentsPaidByAlready.closingAdjustmentItemAmount" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		      </tr>
 		</table>
@@ -245,7 +251,10 @@
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isprorationItemPaidThroughDate = !isprorationItemPaidThroughDate"><i class="glyphicon glyphicon-calendar"></i></button>	        		</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsUnpaidBySeller.prorationItemAmount">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsUnpaidBySeller.prorationItemAmount" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		      </tr>
 		</table>
