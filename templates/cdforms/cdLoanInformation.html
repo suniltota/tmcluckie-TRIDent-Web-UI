@@ -7,13 +7,13 @@
 			<div class="col-sm-5 fieldTitle">Loan Term:</div>
 			<div class="col-sm-7 padding0">
 				<div class="col-sm-12 padding0">
-	            	<div class="col-sm-6 padding0">No. Years</div>
+	            	<div class="col-sm-6 padding0">No. Years:</div>
 	            	<div class="col-sm-6 padding0">
 	            		<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.loanTermYears">
 	            	</div>
 	            </div>
 	            <div class="col-sm-12 padding0 margin5tb">
-	            	<div class="col-sm-6 padding0">No. Months</div>
+	            	<div class="col-sm-6 padding0">No. Months:</div>
 	            	<div class="col-sm-6 padding0">
 	            		<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.loanTermMonths">
 	            	</div>
@@ -49,7 +49,7 @@
 	<div class="col-sm-12 row margin5tb">
 		<div class="col-sm-4">
 			<div class="col-sm-12 padding0" >
-            	<div class="col-sm-5 padding0 fieldTitle">MIC#</div>
+            	<div class="col-sm-5 padding0 fieldTitle">MIC#:</div>
             	<div class="col-sm-7 padding0"><input type="text" class="form-control" name="" ng-model="cdformdata.miDataDetail.miCertificateIdentifier"></div>
             </div>
 		</div>
@@ -61,7 +61,7 @@
 		</div>
 		<div class="col-sm-4">
 			<div class="FieldGroup">
-				<div class="col-sm-5 fieldTitle">Lien Position</div>
+				<div class="col-sm-5 fieldTitle">Lien Position:</div>
 				<div class="col-sm-7 padding0">
 					<select  class="form-control" ng-model="cdformdata.termsOfLoan.lienPriorityType">
 						<option value="" selected>Select</option>
@@ -87,7 +87,7 @@
 		</div>
 		<div class="col-sm-4">
 			<div class="FieldGroup">
-				<div class="col-sm-7 fieldTitle">Manual Underwriting Flag</div>
+				<div class="col-sm-7 fieldTitle">Manual Underwriting Flag:</div>
 				<div class="col-sm-5 padding0">
 					<select  class="form-control" ng-model="cdformdata.loanInformation.loanManualUnderwritingIndicator"ng-options="option.id as option.name for option in dropDownBooleanOptions">
 					</select>
@@ -98,7 +98,7 @@
 	<div class="col-sm-12 row margin5tb">
 		<div class="col-sm-4" ng-repeat="automatedUnderwriting in cdformdata.loanInformation.automatedUnderwritings">
 			<div class="col-sm-12 padding0">
-				<div class="col-sm-5 fieldTitle">AUS Type</div>
+				<div class="col-sm-5 fieldTitle">AUS Type:</div>
 				<div class="col-sm-7 padding0">
 					<select  class="form-control" ng-model="automatedUnderwriting.automatedUnderwritingSystemType">
 	              		<option value="" selected>Select</option>
@@ -116,7 +116,7 @@
  		    </div>
 			<div class="col-sm-12 padding0">
 				<div class="FieldGroup">
-					<div class="col-sm-5 fieldTitle">AUS Identifier</div>
+					<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
 					<div class="col-sm-7 padding0">
 						<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
 					</div>
@@ -131,7 +131,7 @@
 				<h5 class="innerSectionHeader">Product Description and Information</h5>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-5 fieldTitle">Product Description</div>
+						<div class="col-sm-5 fieldTitle">Product Description:</div>
 						<div class="col-sm-7">
 							<input type="text" class="form-control" name="" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureLoanProductDescription">
 						</div>
@@ -139,7 +139,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-5 fieldTitle">Amortization Type</div>
+						<div class="col-sm-5 fieldTitle">Amortization Type:</div>
 						<div class="col-sm-7">
 							<select  class="form-control" ng-model="cdformdata.loanInformation.amortizationType" ng-change="amortizationChange()">
 								<option value="" selected>Select</option>
@@ -154,7 +154,7 @@
 			</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">Provide the number of months for the fixed period</div>
+						<div class="col-sm-10 fieldTitle">Provide the number of months for the fixed period:</div>
 						<div class="col-sm-2 padding0">
 							<input type="text" class="form-control" name="fixedPeriodMonths" ng-blur="changeProductInfo()" ng-model="cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths">
 						</div>
@@ -162,10 +162,10 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-9 fieldTitle">Provide the life of loan Cap Rate</div>
+						<div class="col-sm-9 fieldTitle">Provide the life of loan Cap Rate:</div>
 						<div class="col-sm-3 padding0">
 						<div class="input-group">
-	  							<input type="text" class="form-control" name="loanCapRate" ng-model="cdformdata.loanInformation.productAdjustmentInformation.loanCapRate">
+	  							<input type="text" class="form-control" name="loanCapRate" ng-model="cdformdata.loanInformation.productAdjustmentInformation.loanCapRate" percentage-format>
 	  							<span class="input-group-addon input-default">%</span>
   							</div>
 						</div>
@@ -173,7 +173,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">Provide the number of months first change period</div>
+						<div class="col-sm-10 fieldTitle">Provide the number of months first change period:</div>
 						<div class="col-sm-2 padding0">
 								<input type="text" class="form-control" name="firstChangePeriodMonths" ng-blur="changeProductInfo()" ng-model="cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths">
 						</div>
@@ -181,10 +181,10 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-9 fieldTitle">Provide the first change interest rate limit</div>
+						<div class="col-sm-9 fieldTitle">Provide the first change interest rate limit:</div>
 						<div class="col-sm-3 padding0">
 							<div class="input-group">
-								<input type="text" class="form-control" name="firstChangeInterestRateLimit" ng-model="cdformdata.loanInformation.productAdjustmentInformation.firstChangeInterestRateLimit">
+								<input type="text" class="form-control" name="firstChangeInterestRateLimit" ng-model="cdformdata.loanInformation.productAdjustmentInformation.firstChangeInterestRateLimit" percentage-format>
 								<span class="input-group-addon input-default">%</span>
 							</div>
 						</div>
@@ -192,7 +192,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">Provide the number of months subsequent change period</div>
+						<div class="col-sm-10 fieldTitle">Provide the number of months subsequent change period:</div>
 						<div class="col-sm-2 padding0">
 							<input type="text" class="form-control" name="subsequentChangePeriodMonths" ng-blur="changeProductInfo()" ng-model="cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths">
 						</div>
@@ -200,10 +200,10 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-9 fieldTitle">Provide the subsequent change interest rate limit</div>
+						<div class="col-sm-9 fieldTitle">Provide the subsequent change interest rate limit:</div>
 						<div class="col-sm-3 padding0">
 						<div class="input-group">
-							<input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit">
+							<input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit" percentage-format>
 							<span class="input-group-addon input-default">%</span>
 						</div>
 					</div>
@@ -211,7 +211,7 @@
 				</div>
 				<div class="col-sm-6" ng-show="cdformdata.loanInformation.amortizationType == 'Step'">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">If Amortization Type is Step, Provide the Total Step Count</div>
+						<div class="col-sm-10 fieldTitle">If Amortization Type is Step, Provide the Total Step Count:</div>
 						<div class="col-sm-2 padding0">
 							<input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="cdformdata.interestRateAdjustment.totalStepCount">
 						</div>
@@ -224,7 +224,7 @@
 				</div>
 			    <div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">Is this transaction a construction loan?</div>
+						<div class="col-sm-10 fieldTitle">Is this transaction a construction loan?:</div>
 						<div class="col-sm-2 padding0">
 					        <select  class="form-control" ng-model="cdformdata.loanDetail.constructionLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="constructionChange()">
 					        </select>
@@ -233,7 +233,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-7 fieldTitle">What type of Construction Loan?</div>
+						<div class="col-sm-7 fieldTitle">What type of Construction Loan?:</div>
 						<div class="col-sm-5 padding0">
 					        <select  class="form-control" ng-model="cdformdata.construction.constructionLoanType" ng-disabled="cdformdata.loanDetail.constructionLoanIndicator == false">
 					        	<option value="" selected>Select</option>
@@ -249,7 +249,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-					   <div class="col-sm-10 fieldTitle">What is the construction period in months?</div>
+					   <div class="col-sm-10 fieldTitle">What is the construction period in months?:</div>
 						<div class="col-sm-2 padding0">
 					        <input type="text" class="form-control" name="" ng-model="cdformdata.construction.constructionPeriodNumberOfMonthsCount">
 				        </div>
@@ -261,7 +261,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-					   <div class="col-sm-10 fieldTitle">What is the total number of months for this construction transaction (Includes both construction period and permanent financed period)</div>
+					   <div class="col-sm-10 fieldTitle">What is the total number of months for this construction transaction (Includes both construction period and permanent financed period):</div>
 						<div class="col-sm-2 padding0">
 					        <input type="text" class="form-control" name="" ng-model="cdformdata.construction.constructionLoanTotalTermMonthsCount">
 				        </div>
@@ -275,7 +275,7 @@
 			</div>  
 			     <div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">Is the Loan a Home Equity Loan</div>
+						<div class="col-sm-10 fieldTitle">Is the Loan a Home Equity Loan?:</div>
 						<div class="col-sm-2 padding0">
 					        <select  class="form-control" ng-disabled="cdformdata.termsOfLoan.loanPurposeType=='Purchase' || cdformdata.termsOfLoan.loanPurposeType=='purchase'" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureHomeEquityLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"></select>
 				        </div>
@@ -290,7 +290,7 @@
 			</div>    
 			    <div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">Does this loan have an interest only feature?</div>
+						<div class="col-sm-10 fieldTitle">Does this loan have an interest only feature?:</div>
 						<div class="col-sm-2 padding0">
 					        <select  class="form-control" ng-model="cdformdata.loanDetail.interestOnlyIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"></select>
 				        </div>
@@ -298,7 +298,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">If Yes, what is the interest only period?</div>
+						<div class="col-sm-10 fieldTitle">If Yes, what is the interest only period?:</div>
 						<div class="col-sm-2 padding0">
 							<input type="text" class="form-control" ng-model="cdformdata.interestOnly.interestOnlyTermMonthsCount" ng-disabled="cdformdata.loanDetail.interestOnlyIndicator == false">
 						</div>
@@ -311,7 +311,7 @@
 			</div>    
 			    <div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">Does this loan have a Negative Amortization Feature?</div>
+						<div class="col-sm-10 fieldTitle">Does this loan have a Negative Amortization Feature?:</div>
 						<div class="col-sm-2 padding0">
 					        <select  class="form-control" ng-model="cdformdata.loanDetail.negativeAmortizationIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="negativeAmortizationChange()"></select>
 				        </div>
@@ -335,7 +335,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-					   <div class="col-sm-8 fieldTitle">What is the Maximum Negative Amortization Loan Balance?</div>
+					   <div class="col-sm-8 fieldTitle">What is the Maximum Negative Amortization Loan Balance?:</div>
 						<div class="col-sm-4 padding0">
 						<div class="input-group">
 						    <span class="input-group-addon input-default">$</span>
@@ -350,7 +350,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-					   <div class="col-sm-10 fieldTitle">What is the negative amortization limit in months count?</div>
+					   <div class="col-sm-10 fieldTitle">What is the negative amortization limit in months count?:</div>
 						<div class="col-sm-2 padding0">
 					        <input type="text" class="form-control" name="" ng-model="cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount">
 				        </div>
@@ -365,7 +365,7 @@
 			</div> 
 			    <div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">Does the loan have a seasonal payment feature</div>
+						<div class="col-sm-10 fieldTitle">Does the loan have a seasonal payment feature:</div>
 						<div class="col-sm-2 padding0">
 					        <select  class="form-control" ng-model="cdformdata.loanDetail.seasonalPaymentFeatureIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"></select>
 				        </div>
@@ -373,7 +373,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-6 fieldTitle">If yes, provide the start and end months</div>
+						<div class="col-sm-6 fieldTitle">If yes, provide the start and end months:</div>
 						<div class="col-sm-2 padding0">
 					        <select  class="form-control" ng-disabled="cdformdata.loanDetail.seasonalPaymentFeatureIndicator == false" ng-model="cdformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth">
 					        	<option value="" selected>Select</option>
@@ -393,7 +393,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">Does the loan have a Step payment feature</div>
+						<div class="col-sm-10 fieldTitle">Does the loan have a Step payment feature:</div>
 						<div class="col-sm-2 padding0">
 					        <select  class="form-control" ng-model="stepPaymentIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"></select>
 				        </div>
@@ -401,7 +401,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Step feature will be in affect</div>
+						<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Step feature will be in affect:</div>
 						<div class="col-sm-2 padding0">
 							<input type="text" class="form-control" name="" ng-model="cdformdata.payment.paymentRule.totalStepPaymentCount" ng-disabled="!stepPaymentIndicator">
 						</div>
@@ -409,7 +409,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">Does the loan have an optional payment feature</div>
+						<div class="col-sm-10 fieldTitle">Does the loan have an optional payment feature:</div>
 						<div class="col-sm-2 padding0">
 					        <select  class="form-control" ng-model="cdformdata.payment.paymentRule.paymentOptionIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"></select>
 				        </div>
@@ -417,7 +417,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="FieldGroup">
-						<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Optional payment will be in affect</div>
+						<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Optional payment will be in affect:</div>
 						<div class="col-sm-2 padding0">
 							<input type="text" class="form-control" name="" ng-model="cdformdata.payment.paymentRule.totalOptionalPaymentCount" ng-disabled="cdformdata.payment.paymentRule.paymentOptionIndicator==false">
 						</div>
