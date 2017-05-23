@@ -816,7 +816,6 @@ app.service('staticData', function($filter){
 	this.calendarMonths = ['Jan','Feb','Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
     this.prepaidItems = [
-        'PrepaidInterest',
 		'BoroughPropertyTax',
 		'CityPropertyTax',
 		'CondominiumAssociationDues',
