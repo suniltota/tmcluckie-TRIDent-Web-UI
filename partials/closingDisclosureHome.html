@@ -85,10 +85,10 @@
                       <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'EscrowAccount'}" ng-click="showTab = 'EscrowAccount'" >Escrow Account</span> 
                       </li>
-                      <li>
+                      <li ng-show="cdformdata.loanDetail.interestOnlyIndicator==true || cdformdata.payment.paymentRule.paymentOptionIndicator==true || cdformdata.loanInformation.amortizationType=='Step' || cdformdata.loanInformation.amortizationType=='GPM' || cdformdata.loanInformation.amortizationType=='GraduatedARM' || cdformdata.loanDetail.seasonalPaymentFeatureIndicator==true">
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'ApTable'}" ng-click="showTab = 'ApTable'" >Adjustable Payment (AP) Table</span> 
                       </li>
-                      <li>
+                      <li ng-show="cdformdata.loanDetail.interestRateIncreaseIndicator==true">
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'AirTable'}" ng-click="showTab = 'AirTable'" >Adjustable Interest Rate (AIR) Table</span>
                       </li>
                       <li>
@@ -191,11 +191,11 @@
           <span class="glyphicon glyphicon-file pull-left"></span>
           <span class="pull-left noTitle">19</span>
         </span>
-        <span class="pageno pageicon" ng-class="{'active': showTab == 'ApTable'}" data-toggle="tooltip" ng-click="showTab = 'ApTable'"  data-placement="right" title="AP Table">
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'ApTable'}" data-toggle="tooltip" ng-click="showTab = 'ApTable'"  data-placement="right" title="AP Table" ng-show="cdformdata.loanDetail.interestOnlyIndicator==true || cdformdata.payment.paymentRule.paymentOptionIndicator==true || cdformdata.loanInformation.amortizationType=='Step' || cdformdata.loanInformation.amortizationType=='GPM' || cdformdata.loanInformation.amortizationType=='GraduatedARM' || cdformdata.loanDetail.seasonalPaymentFeatureIndicator==true">
           <span class="glyphicon glyphicon-file pull-left"></span>
           <span class="pull-left noTitle">20</span>
         </span>
-        <span class="pageno pageicon" ng-class="{'active': showTab == 'AirTable'}" data-toggle="tooltip" ng-click="showTab = 'AirTable'"  data-placement="right" title="AIR Table">
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'AirTable'}" data-toggle="tooltip" ng-click="showTab = 'AirTable'"  data-placement="right" title="AIR Table" ng-show="cdformdata.loanDetail.interestRateIncreaseIndicator==true">
           <span class="glyphicon glyphicon-file pull-left"></span>
           <span class="pull-left noTitle">21</span>
         </span>
@@ -695,7 +695,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Cash to Close Calculator- {{loanBasicInfo.loanFormType}}</h4>
+        <h4 class="modal-title">Cash to Close Calculator- {{loanBasicInfo.loanFormType}} {{loanBasicInfo.loanPurposeType}}</h4>
       </div>
 
       <div class="modal-body">
