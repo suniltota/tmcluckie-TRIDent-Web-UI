@@ -539,7 +539,6 @@ app.service('staticData', function($filter){
 	];
 
 	this.feeTypes = [
-		'LoanDiscountPoints',
 		'203KArchitecturalAndEngineeringFee',
 		'203KConsultantFee',
 		'203KDiscountOnRepairs',
@@ -1726,7 +1725,7 @@ this.cdformdata={
 		    "constructionLoanType": "",
 		    "constructionPeriodNumberOfMonthsCount": ""
 		},
-		  "miDataDetail": {
+		"miDataDetail": {
 		    "miCertificateIdentifier": "",
 		    "miCompanyNameType": "",
 		    "miCompanyNameTypeOtherDescription": "",
