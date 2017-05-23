@@ -250,27 +250,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(1, 0, angular.copy(tOGovtFees));
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeType = 'TransferTaxTotal';
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].displayLabel = '';
-		}
-		var j=0;
-		for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++){
-			if(i!=1 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'TransferTaxTotal') {
-				if(j==0){
-					$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1] = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
-					$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
-					i--;
-					j++;
-			    }
-			}
-		}
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].displayLabel = 'Transfer Taxes';
 
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.push(angular.copy(tOGovtFees));
+		}
+		var temp=0;
         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++){
 	     	var recordingFeetotal = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0];
 			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForDeed') {
 				recordingFeetotal.recordingFeeForDeed = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeActualTotalAmount;
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
+				i--;
 			}
 			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForMortgage') {
 				recordingFeetotal.recordingFeeForMortgage = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeActualTotalAmount;
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
+				i--;
 			}
 			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeTotal') {
 				recordingFeetotal.bpAtClosing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing;
@@ -280,15 +275,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				recordingFeetotal.lenderStatus = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].lenderStatus;
 				recordingFeetotal.gseDisplayLabel = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].gseDisplayLabel;
 				recordingFeetotal.feePaidToFullName = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToFullName;
-				recordingFeetotal.feeActualTotalAmount = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeActualTotalAmount;
+				recordingFeetotal.feeActualTotalAmount = parseFloat(recordingFeetotal.recordingFeeForDeed) + parseFloat(recordingFeetotal.recordingFeeForMortgage);
 				recordingFeetotal.feePaidToType = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToType;
 				recordingFeetotal.feePaidToTypeOtherDescription = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToTypeOtherDescription;
 				recordingFeetotal.feeTotalPercent = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeTotalPercent;
 				recordingFeetotal.optionalCostIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].optionalCostIndicator;
 				recordingFeetotal.regulationZPointsAndFeesIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].regulationZPointsAndFeesIndicator;
 				recordingFeetotal.paymentIncludedInAPRIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paymentIncludedInAPRIndicator;
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
+				i--;
 			}
-
+			if(i!=1 && temp==0 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'TransferTaxTotal') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1] = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
+				i--;
+				temp++;
+			}
 		}
 
 		if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList!=undefined) {
@@ -314,15 +316,19 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			if (i!=0 && $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'PrepaidInterest') {
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0] = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
+				i--;
 	       	} else if (i!=1 && $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'HomeownersInsurancePremium') {
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1] = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
+				i--;
 	       	} else if (i!=2 && $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'MortgageInsurancePremium') {
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[2] = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
+				i--;
 	       	} else if (i!=3 && $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'CountyPropertyTax') {
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[3] = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
+				i--;
 	       	}
 		};
 
@@ -1639,14 +1645,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	}
     }, true);
 
-    $scope.$watch('cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList',function(newValue,oldValue){
+    /*$scope.$watch('cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList',function(newValue,oldValue){
            var recordingFeeAmount = 0;
            if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed)
            recordingFeeAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed);
            if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage)
            recordingFeeAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage);
            $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpAtClosing = recordingFeeAmount;
-    },true);
+    },true);*/
 
 });
 
