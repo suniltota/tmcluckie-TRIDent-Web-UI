@@ -129,7 +129,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 		sbDidShopFors = angular.copy($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[0]);
 		tOGovtFees = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0]);
 		prepaidsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0]);
-		escrowItemsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[3]);
+		escrowItemsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[0]);
 		otherCostsList = angular.copy($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[0]);
 		liability = angular.copy($scope.cdformdata.liabilityList[0]);
 		adjustment = angular.copy($scope.cdformdata.closingAdjustmentItemList[0]);
@@ -331,6 +331,38 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				i--;
 	       	}
 		};
+
+		if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList!=undefined) {
+			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(0, 0, angular.copy(escrowItemsList));
+			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[0].escrowItemType = 'HomeownersInsurance';
+			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[0].displayLabel = 'Homeowners Insurance';
+			
+			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(1, 0, angular.copy(escrowItemsList));
+			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[1].escrowItemType = 'MortgageInsurance';
+			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[1].displayLabel = 'Mortgage Insurance';
+
+       		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(2, 0, angular.copy(escrowItemsList));
+			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[2].escrowItemType = 'CountyPropertyTax';
+			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[2].displayLabel = 'Property Taxes';
+		}
+
+		for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length; i++){
+			if (i!=0 && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType == 'HomeownersInsurance') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[0] = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i];
+				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(i, 1);
+				i--;
+	       	} else if (i!=1 && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType == 'MortgageInsurance') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[1] = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i];
+				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(i, 1);
+				i--;
+	       	} else if (i!=2 && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType == 'CountyPropertyTax') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[2] = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i];
+				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(i, 1);
+				i--;
+	       	}
+		};
+
+
 
 		// Summaries of Tranaction
 		$scope.summariesOfTransaction_KSection = {
