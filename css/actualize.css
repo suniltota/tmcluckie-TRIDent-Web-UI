@@ -44,6 +44,7 @@ input, select, textarea, .form-control{font-size: 12px;}
 .rowBackground{background: #eee;}
 .red{color:#e21414;}
 .cursor{cursor: pointer;}
+.helpIcon{font-size: 14px; color:#5bb1dc;}
 ul li{list-style: none;}
 .popup_innerHeader{background:#eee; padding:7px 10px; margin: 5px 0px;}
 .notificationIcons{margin:8px 10px; color:#5bb1dc;}
