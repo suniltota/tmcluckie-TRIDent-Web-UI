@@ -626,6 +626,18 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				$scope.summariesOfTransaction_LSection.otherCredits.push($scope.summariesOfTransaction_LSection.adjustments[i]);
 				$scope.summariesOfTransaction_LSection.adjustments.splice(i, 1);
 				i--;
+			} 
+			else if($scope.summariesOfTransaction_LSection.adjustments[i].integratedDisclosureSubsectionType == 'Adjustments') {
+				if($scope.summariesOfTransaction_LSection.adjustments[i].paidByEntityFullName) {
+					$scope.summariesOfTransaction_LSection.adjustments[i]['fullName'] = $scope.summariesOfTransaction_LSection.adjustments[i].paidByEntityFullName;
+					$scope.summariesOfTransaction_LSection.adjustments[i]['payeeType'] = 'Organization';
+				} else if($scope.summariesOfTransaction_LSection.adjustments[i].paidByIndividualFullName) {
+					$scope.summariesOfTransaction_LSection.adjustments[i]['fullName'] = $scope.summariesOfTransaction_LSection.adjustments[i].paidByIndividualFullName;
+					$scope.summariesOfTransaction_LSection.adjustments[i]['payeeType'] = 'Individual';
+ 				}
+				/*$scope.summariesOfTransaction_LSection.adjustments.push($scope.summariesOfTransaction_LSection.adjustments[i]);
+				$scope.summariesOfTransaction_LSection.adjustments.splice(i, 1);
+				i--;*/
 			} else if($scope.summariesOfTransaction_LSection.adjustments[i].integratedDisclosureSubsectionType == 'AdjustmentsForItemsUnpaidBySeller') {
 				$scope.summariesOfTransaction_LSection.adjustmentsUnpaidBySeller.push($scope.summariesOfTransaction_LSection.adjustments[i]);
 				$scope.summariesOfTransaction_LSection.adjustments.splice(i, 1);

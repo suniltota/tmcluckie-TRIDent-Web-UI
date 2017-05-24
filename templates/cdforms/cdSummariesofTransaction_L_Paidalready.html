@@ -183,11 +183,10 @@
 		        	<input type="text" class="form-control padding0" ng-disabled="adjustmentsPaidByAlready.closingAdjustmentItemType!='Other'" name="" ng-model="adjustmentsPaidByAlready.closingAdjustmentItemTypeOtherDescription">  
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-show="adjustmentsPaidByAlready.paidByIndividualFullName!=''" ng-model="adjustmentsPaidByAlready.paidByIndividualFullName">
-		        	<input type="text" class="form-control padding0" name="" ng-show="adjustmentsPaidByAlready.paidByEntityFullName!=''" ng-model="adjustmentsPaidByAlready.paidByEntityFullName">  
+		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidByAlready.fullName">
 		        </td>
 		         <td>
-		        	<select class="form-control padding0">
+		        	<select class="form-control padding0" ng-model="adjustmentsPaidByAlready.payeeType">
 		        		<option value="" selected>Select</option>
 			        	<option ng-repeat="payeeType in payeeTypes" value="{{payeeType.value}}">{{payeeType.name}}</option>
 		        	</select>  
