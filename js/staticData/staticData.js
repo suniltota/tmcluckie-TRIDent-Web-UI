@@ -1633,13 +1633,13 @@ app.service('staticData', function($filter){
         }
     ];
 this.cdformdata={
-		"closingDisclosureDocType": {
-		    "transactionType": null,
-		    "documentType": null,
-		    "standard": false,
-		    "sellerOnly": false,
-		    "alternativeView": false
-		},
+		"closingDisclosureDocDetails":
+	    {
+	        "transactionType": null,
+	        "documentType": "",
+	        "formType": "",
+	        "escrowAggregateAccountingAdjustmentAmount": ""
+	    },
 		"loanDetail": {
 		    "assumabilityIndicator": false,
 		    "balloonIndicator": false,
