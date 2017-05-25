@@ -172,7 +172,8 @@
 		            <span class="LabelText col-sm-12 ">Label:</span>
 		            <span class="LabelValue col-sm-12 ">Prepaid Interest</span>
 		            <span class="ValueText col-sm-12 ">Valid value:</span>
-		        	<span class="ValueValue col-sm-12 " ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span>
+		            <span class="LabelValue col-sm-12 ">Prepaid Interest</span>
+		        	<!-- <span class="ValueValue col-sm-12 " ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span> -->
 		        	<span class="margin10t padding5t col-sm-5 padding0">Fee Paid To:</span>
 		        	<span class="col-sm-7 margin10t">
 		        		<select class="form-control padding0" ng-model="prepaidsList.feePaidToType">
@@ -270,8 +271,8 @@
 		        	<span class="col-sm-12 LabelValue">Homeowners Insurance</span><br>
 
 		        	<span class="col-sm-12 ValueText">Valid Value:</span>
-		        	<!-- <span class="margin5tb col-sm-10">Homeowners Insurance Premium</span> -->
-		        	<span class="col-sm-12 ValueValue" ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span>
+		        	<span class="margin5tb col-sm-10">Homeowners Insurance Premium</span>
+		        	<!-- <span class="col-sm-12 ValueValue" ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span> -->
 		        </td>
 		        <td>
                     <span class="LabelText col-sm-10">Type:</span>
@@ -325,7 +326,8 @@
 		        	<span class="LabelValue col-sm-12 padding0">Mortgage Insurance</span><br>
 
 		        	<span class="ValueText col-sm-12 ">Valid Value:</span>
-		        	<span class="ValueValue col-sm-5 " ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span>
+		        	<span class="LabelValue col-sm-12 padding0">Mortgage Insurance Premium</span>
+		        	<!-- <span class="ValueValue col-sm-5 " ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span> -->
 		        </td>
 		        <td>
                     <span class="LabelText col-sm-12">Type:</span>
@@ -425,9 +427,9 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="prepaidsList.regulationZPointsAndFeesIndicator"
+		        	<!-- <select class="form-control padding0" ng-model="prepaidsList.regulationZPointsAndFeesIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select>
+		        	</select> -->
 		        </td>
 		        <td>
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
@@ -485,9 +487,9 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="prepaidsList.regulationZPointsAndFeesIndicator"
+		        	<!-- <select class="form-control padding0" ng-model="prepaidsList.regulationZPointsAndFeesIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select>
+		        	</select> -->
 		        </td>
 		        <td>
 		           <span class="glyphicon glyphicon-trash iconTooltip red margin5tb" data-toggle="tooltip" title="Close" ng-click="deletePrepaidInfo($index)"></span>
@@ -537,7 +539,7 @@
 		        <td>
 		            <!-- <span class="LabelText col-sm-10">Type</span> -->
 		        	<select class="form-control LabelValue" ng-model="escrowItemsList.feePaidToType">
-		        		<option value="" selected>Select Type</option>
+		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
 		        	<span ng-show="escrowItemsList.feePaidToType =='Other'">
@@ -683,9 +685,9 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="escrowItemsList.regulationZPointsAndFeesIndicator"
+		        	<!-- <select class="form-control padding0" ng-model="escrowItemsList.regulationZPointsAndFeesIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select>
+		        	</select> -->
 		        </td>
 		        <td>
 		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('2')"></span>
@@ -750,9 +752,9 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="escrowItemsList.regulationZPointsAndFeesIndicator"
+		        	<!-- <select class="form-control padding0" ng-model="escrowItemsList.regulationZPointsAndFeesIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select>
+		        	</select> -->
 		        </td>
 		        <td>
 		        	<span class="glyphicon glyphicon-trash iconTooltip red margin5tb" data-toggle="tooltip" title="Close" ng-click="deleteEscrowsList($index)"></span>
