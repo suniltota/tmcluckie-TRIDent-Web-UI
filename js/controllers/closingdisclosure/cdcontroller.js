@@ -1127,7 +1127,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 
     $scope.clearSDid = function(index){
-    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.splice(index,1);
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeTotalPercent ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].displayLabel ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeType ='';
