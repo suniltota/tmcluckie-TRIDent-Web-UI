@@ -1662,7 +1662,8 @@ this.cdformdata={
 		    "prepaymentPenaltyIndicator": false,
 		    "seasonalPaymentFeatureIndicator": false,
 		    "stepPaymentsFeatureDescription": "",
-		    "totalSubordinateFinancingAmount": ""
+		    "totalSubordinateFinancingAmount": "",
+		    "subordinateFinancingIsNewIndicator":false
 		},
 		"termsOfLoan": {
 		    "assumedLoanAmount": "",
