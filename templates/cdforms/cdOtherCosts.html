@@ -8,7 +8,7 @@
 			  </tr>
 		     <tr>
 		        <th class="innerSectionHeader col-sm-2">Fee Information</th>
-		        <th class="innerSectionHeader col-sm-2">Fee Paid To Info</th>
+		        <th class="innerSectionHeader col-sm-2">Fee Paid To Info.</th>
 		        <th class="innerSectionHeader">Borrower Paid AT Closing</th>
 		        <th class="innerSectionHeader">Borrower Paid BEFORE Closing</th>
 		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
@@ -38,6 +38,12 @@
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
 		        	</span>
+		        	<span ng-show="tOGovtFee.feePaidToType=='Other'">
+		        	<span class="col-sm-12 margin5tb padding0">Description</span>
+			        	<span class="col-sm-12 padding0">
+			        		<input type="text" class="form-control" ng-model="tOGovtFee.feeTypeOtherDescription"> 
+			        	</span>
+			        </span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpAtClosing" decimal-digits-with-number-format>
@@ -151,14 +157,14 @@
 		      <tr>
 		        <th class="innerSectionHeader col-sm-2">Fee Label Name</th>
 		        <th class="innerSectionHeader col-sm-2 padding0">Per Diem Information</th>
-		        <th class="innerSectionHeader col-sm-1">Brw Paid At Closing Amt</th>
-		        <th class="innerSectionHeader col-sm-1">Brw Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid At Closing Amt</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader">Paid By Other Amt</th>
-		        <th class="innerSectionHeader">Paid By Lender Flag</th>
-		        <th class="innerSectionHeader">Include in APR Calculation</th>
-		        <th class="innerSectionHeader">Include in Reg Z Points/Fee</th>
+		        <th class="innerSectionHeader col-sm-1">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader col-sm-1">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader">Paid By OTHER</th>
+		        <th class="innerSectionHeader">Paid By Lender</th>
+		        <th class="innerSectionHeader">Include in APR?</th>
+		        <th class="innerSectionHeader">Included In Reg Z?</th>
 		        <th class="innerSectionHeader">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='PrepaidInterest'" >
@@ -247,14 +253,14 @@
 		      <tr>
 		        <th class="innerSectionHeader  col-sm-2">Prepaid Information</th>
 		        <th class="innerSectionHeader col-sm-2">Prepaid Paid To Info.</th>
-		        <th class="innerSectionHeader  col-sm-1">Brw Paid At Closing Amt</th>
-		        <th class="innerSectionHeader  col-sm-1">Brw Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid At Closing Amt</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader">Paid By Other Amt</th>
-		        <th class="innerSectionHeader">Paid By Lender Flag</th>
-		        <th class="innerSectionHeader">Include in APR Calculation</th>
-		        <th class="innerSectionHeader">Include in Reg Z Points/Fee</th>
+		        <th class="innerSectionHeader  col-sm-1">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader  col-sm-1">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader">Paid By OTHER</th>
+		        <th class="innerSectionHeader">Paid By Lender</th>
+		        <th class="innerSectionHeader">Include in APR?</th>
+		        <th class="innerSectionHeader">Included In Reg Z?</th>
 		        <th class="innerSectionHeader">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='HomeownersInsurancePremium'">
@@ -478,20 +484,20 @@
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section G. Escrows</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section G. Initial Escrow Payment At Closing</th>
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader col-sm-2">Escrow Information Information</th>
 		        <th class="innerSectionHeader">Prepaid Paid To Info.</th>
-		        <th class="innerSectionHeader">Brw Paid At Closing Amt</th>
-		        <th class="innerSectionHeader">Brw Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid At Closing Amt</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader">Paid By Other Amt</th>
-		        <th class="innerSectionHeader">Paid By Lender Flag</th>
-		        <th class="innerSectionHeader">Include in APR Calculation</th>
-		        <th class="innerSectionHeader">Include in Reg Z Points/Fee</th>
+		        <th class="innerSectionHeader">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader">Paid By OTHER</th>
+		        <th class="innerSectionHeader">Paid By Lender</th>
+		        <th class="innerSectionHeader">Include in APR?</th>
+		        <th class="innerSectionHeader">Included In Reg Z?</th>
 		        <th class="innerSectionHeader">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'HomeownersInsurance'}">
@@ -763,16 +769,16 @@
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader col-sm-2">Fee Information</th>
-		        <th class="innerSectionHeader">Fee Paid To Info</th>
-		        <th class="innerSectionHeader">Brw Paid At Closing Amt</th>
-		        <th class="innerSectionHeader">Brw Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid At Closing Amt</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid Before Closing Amt</th>
-		        <th class="innerSectionHeader">Paid By Other Amt</th>
-		        <th class="innerSectionHeader">Paid By Lender Flag</th>
+		        <th class="innerSectionHeader">Fee Paid To Info.</th>
+		        <th class="innerSectionHeader">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader">Paid By OTHER</th>
+		        <th class="innerSectionHeader">Paid By Lender</th>
 		       <!--  <th class="innerSectionHeader">Optional Fee?</th> -->
-                <th class="innerSectionHeader">Include in APR Calculation</th>
-		        <th class="innerSectionHeader">Include in Reg Z Points/Fee</th>
+                <th class="innerSectionHeader">Include in APR?</th>
+		        <th class="innerSectionHeader">Included In Reg Z?</th>
 		        <th class="innerSectionHeader">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="otherCostsList in cdformdata.closingCostDetailsOtherCosts.otherCostsList">

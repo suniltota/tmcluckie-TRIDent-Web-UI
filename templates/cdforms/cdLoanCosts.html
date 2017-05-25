@@ -153,10 +153,12 @@
 	             			<option ng-repeat="feeType in feeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
               		    </select>
 		        	</span>
-		        	<span class="col-sm-12 margin5tb padding0">Description</span>
-		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control padding0" ng-disabled="sbDidNotShopFor.feeType!='Other'" name="" ng-model="sbDidNotShopFor.feeTypeOtherDescription">
-		        	</span>
+		        	<span ng-show="sbDidNotShopFor.feeType=='Other'">
+			        	<span class="col-sm-12 margin5tb padding0">Description</span>
+			        	<span class="col-sm-12 padding0">
+			        		<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.feeTypeOtherDescription">
+			        	</span>
+			        </span>
 		        </td>
 		        <td>
 		        	<span class="col-sm-3 padding0 margin5tb">Type</span>
@@ -166,9 +168,11 @@
              			    <option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
 		        	</span>
-		        	<span class="col-sm-12 margin5tb padding0">Description</span>
-		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control padding0" ng-disabled="sbDidNotShopFor.feePaidToType!='Other'" name="sbDidNotShopFor.feePaidToTypeOtherDescription">
+		        	<span ng-show="sbDidNotShopFor.feePaidToType=='Other'">
+			        	<span class="col-sm-12 margin5tb padding0">Description</span>
+			        	<span class="col-sm-12 padding0">
+			        		<input type="text" class="form-control padding0" name="sbDidNotShopFor.feePaidToTypeOtherDescription">
+			        	</span>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
 		        	<input type="text" class="form-control padding0" name="" >
@@ -258,9 +262,11 @@
              			<option ng-repeat="feeType in feeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
               		</select> 
 		        	</span>
-		        	<span class="col-sm-12 margin5tb padding0">Description</span>
-		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control padding0" name="" ng-disabled="sbDidShopFor.feeType!='Other'" name="sbDidShopFor.feeTypeOtherDescription" name="sbDidShopFor."> 
+		        	<span ng-show="sbDidShopFor.feeType=='Other'">
+			        	<span class="col-sm-12 margin5tb padding0">Description</span>
+			        	<span class="col-sm-12 padding0">
+			        		<input type="text" class="form-control padding0" name="" name="sbDidShopFor.feeTypeOtherDescription" name="sbDidShopFor."> 
+			        	</span>
 		        	</span>
 		        </td>
 		        <td>
@@ -271,9 +277,11 @@
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
 		        	</span>
-		        	<span class="col-sm-12 margin5tb padding0">Description</span>
-		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control padding0" ng-disabled="sbDidShopFor.feePaidToType!='Other'" name="sbDidShopFor.feePaidToTypeOtherDescription">
+		        	<span ng-show="sbDidShopFor.feePaidToType=='Other'">
+			        	<span class="col-sm-12 margin5tb padding0">Description</span>
+			        	<span class="col-sm-12 padding0">
+			        		<input type="text" class="form-control padding0" name="sbDidShopFor.feePaidToTypeOtherDescription">
+			        	</span>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feePaidToFullName">

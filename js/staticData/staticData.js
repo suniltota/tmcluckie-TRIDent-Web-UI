@@ -1866,9 +1866,9 @@ this.cdformdata={
 		    "temporaryBuydown": {
 		      "buydownInitialEffectiveInterestRatePercent": "",
 		      "gseBuydownReflectedInNoteIndicator": false,
-		      "rateAfterBuydownApplied": null,
+		      "rateAfterBuydownApplied": "",
 		      "buydownChangeFrequencyMonthsCount": "",
-		      "totalNumberOfMonths": null,
+		      "totalNumberOfMonths": "",
 		      "buydownIncreaseRatePercent": ""
 		    }
 		},
@@ -2009,11 +2009,11 @@ this.cdformdata={
 	        ],
 	        "tlCosts":
 	        {
-	            "bpAtClosing": null,
-	            "bpB4Closing": null,
-	            "spAtClosing": null,
-	            "spB4Closing": null,
-	            "paidByOthers": null,
+	            "bpAtClosing": "",
+	            "bpB4Closing": "",
+	            "spAtClosing": "",
+	            "spB4Closing": "",
+	            "paidByOthers": "",
 	            "lenderStatus": false
 	        }
 	    },
@@ -2026,21 +2026,21 @@ this.cdformdata={
 	        "totalOtherCostsTotalAmount": "",
 	        "totalOtherCosts":
 	        {
-	            "bpAtClosing": null,
-	            "bpB4Closing": null,
-	            "spAtClosing": null,
-	            "spB4Closing": null,
-	            "paidByOthers": null,
+	            "bpAtClosing": "",
+	            "bpB4Closing": "",
+	            "spAtClosing": "",
+	            "spB4Closing": "",
+	            "paidByOthers": "",
 	            "lenderStatus": false
 	        },
 	        "tOGovtFeesList":
 	        [
 	            {
-	                "bpAtClosing": null,
-	                "bpB4Closing": null,
-	                "spAtClosing": null,
-	                "spB4Closing": null,
-	                "paidByOthers": null,
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
 	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
@@ -2061,11 +2061,11 @@ this.cdformdata={
 	        "prepaidsList":
 	        [
 	            {
-	                "bpAtClosing": null,
-	                "bpB4Closing": null,
-	                "spAtClosing": null,
-	                "spB4Closing": null,
-	                "paidByOthers": null,
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
 	                "lenderStatus": false,
 	                "gseDisplayLabelText": "",
 	                "displayLabelText": "",
@@ -2109,10 +2109,10 @@ this.cdformdata={
 	        [
 	            {
 	                "bpAtClosing": "",
-	                "bpB4Closing": null,
-	                "spAtClosing": null,
-	                "spB4Closing": null,
-	                "paidByOthers": null,
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
 	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
@@ -2423,11 +2423,11 @@ this.cdformdata={
         "marginRatePercent": "",
         "totalStepCount": "",
         "firstAdjustmentRule": "",
-        "subsequentAdjustmentRule": null,
+        "subsequentAdjustmentRule": "",
         "firstPerChangeMaximumIncreaseRatePercent": "",
         "firstPerChangeRateAdjustmentFrequencyMonthsCount": "",
-        "subsequentPerChangeMaximumIncreaseRatePercent": null,
-        "subsequentPerChangeRateAdjustmentFrequencyMonthsCount": null
+        "subsequentPerChangeMaximumIncreaseRatePercent": "",
+        "subsequentPerChangeRateAdjustmentFrequencyMonthsCount": ""
     },
     "principalAndInterestPaymentAdjustment":
     {
@@ -2438,10 +2438,10 @@ this.cdformdata={
         "firstPerChangeMaximumPrincipalAndInterestPaymentAmount": "",
         "firstPerChangeMinimumPrincipalAndInterestPaymentAmount": "",
         "firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": "",
-        "subsequentAdjustmentRuleType": null,
-        "subsequentPerChangeMaximumPrincipalAndInterestPaymentAmount": null,
-        "subsequentPerChangeMinimumPrincipalAndInterestPaymentAmount": null,
-        "subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": null
+        "subsequentAdjustmentRuleType": "",
+        "subsequentPerChangeMaximumPrincipalAndInterestPaymentAmount": "",
+        "subsequentPerChangeMinimumPrincipalAndInterestPaymentAmount": "",
+        "subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": ""
     },
     "payment":
     {
@@ -2475,23 +2475,23 @@ this.cdformdata={
     {
         "loanCalculationModel":
         {
-            "aprPercent": null,
-            "feeSummaryTotalAmountFinancedAmount": null,
-            "feeSummaryTotalFinanceChargeAmount": null,
-            "feeSummaryTotalInterestPercent": null,
-            "feeSummaryTotalOfAllPaymentsAmount": null,
+            "aprPercent": "",
+            "feeSummaryTotalAmountFinancedAmount": "",
+            "feeSummaryTotalFinanceChargeAmount": "",
+            "feeSummaryTotalInterestPercent": "",
+            "feeSummaryTotalOfAllPaymentsAmount": "",
             "deficiencyRightsPreservedIndicator":false
         },
         "qualifiedMortgage":
         {
             "regulationZExcludedBonaFideDiscountPointsIndicator": false,
-            "regulationZExcludedBonaFideDiscountPointsPercent": null,
-            "regulationZTotalAffiliateFeesAmount": null,
-            "regulationZTotalLoanAmount": null,
-            "regulationZTotalPointsAndFeesAmount": null,
-            "averagePrimeOfferRatePercent": null,
-            "abilityToRepayMethodType":null,
-            "abilityToRepayExemptionReasonType":null
+            "regulationZExcludedBonaFideDiscountPointsPercent": "",
+            "regulationZTotalAffiliateFeesAmount": "",
+            "regulationZTotalLoanAmount": "",
+            "regulationZTotalPointsAndFeesAmount": "",
+            "averagePrimeOfferRatePercent": "",
+            "abilityToRepayMethodType":"",
+            "abilityToRepayExemptionReasonType":""
         }
     },
     "contactInformation":
