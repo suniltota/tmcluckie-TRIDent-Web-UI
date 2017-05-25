@@ -1249,7 +1249,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
     
     $scope.clearEscrowsList = function(i){
-    	alert(i)
     	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType = '';
     	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].displayLabel = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].feePaidToType = '';
@@ -1265,7 +1264,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 
     $scope.deleteEscrowsList = function(i){
-    	alert(i);
     	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(i,1);
     }
     
