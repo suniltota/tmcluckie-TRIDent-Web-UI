@@ -2046,7 +2046,7 @@ this.cdformdata={
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
 	                "feeActualTotalAmount": "",
-	                "feePaidToType": "",
+	                "feePaidToType": "ThirdPartyProvider",
 	                "feePaidToTypeOtherDescription": "",
 	                "feePercentBasisType": "",
 	                "feeTotalPercent": "",
@@ -2269,7 +2269,8 @@ this.cdformdata={
         ],
         "alternateView": false
     },
-	"prorationsList" : [{
+	"prorationsList" : [
+	    {
 	      "displayLabel": "",
  	      "integratedDisclosureSectionType": "",
  	      "integratedDisclosureSubsectionType": "",
