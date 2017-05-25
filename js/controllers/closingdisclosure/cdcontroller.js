@@ -1148,7 +1148,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.clearRecordings = function(){
         $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToType='';
+    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToType='ThirdPartyProvider';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpAtClosing='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpB4Closing='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].spAtClosing='';
@@ -1161,7 +1161,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
     //deleteOGF
     $scope.clearOGF = function(index){
-
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].bpAtClosing='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].bpB4Closing='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].spAtClosing='';
@@ -1172,7 +1171,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].gseDisplayLabel='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePaidToFullName='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeActualTotalAmount='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePaidToType='';
+    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePaidToType='ThirdPartyProvider';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePaidToTypeOtherDescription='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePercentBasisType='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTotalPercent='';
@@ -1235,6 +1234,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     //Escrows
 
     $scope.clearEscrow = function(i){
+    	alert(i);
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowCollectedNumberOfMonthsCount = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].feePaidToType = '';
@@ -1249,6 +1249,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
     
     $scope.clearEscrowsList = function(i){
+    	alert(i)
     	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType = '';
     	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].displayLabel = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].feePaidToType = '';
@@ -1264,7 +1265,28 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 
     $scope.deleteEscrowsList = function(i){
+    	alert(i);
     	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(i,1);
+    }
+    
+    $scope.clearOthers = function(i){
+    	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel = '';
+    	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType = '';
+    	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeTypeOtherDescription = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feePaidToType = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feePaidToTypeOtherDescription = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feePaidToFullName = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].lenderStatus = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paymentIncludedInAPRIndicator = false;
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].regulationZPointsAndFeesIndicator = false;
+    }
+    $scope.deleteOthers = function(i){
+    	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.splice(i,1);
     }
 
 	var bpAtClosing = {

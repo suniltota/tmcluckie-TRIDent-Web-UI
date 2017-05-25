@@ -181,8 +181,8 @@
 		        	    </select>
 		        	</span>
 		        	 <span ng-show="prepaidsList.feePaidToType =='Other'">
-	              		<span class="margin10t padding5t col-sm-5 padding0">Decription:</span>
-			        	<span class="ValueValue col-sm-10 padding0"><input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" ></span>
+	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription">
 			        </span>
 		        </td>
 		        <td class="col-sm-1 padding0">
@@ -279,6 +279,10 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+		        	<span ng-show="prepaidsList.feePaidToType =='Other'">
+	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription">
+			        </span>
                     <span class="LabelText col-sm-10">Full Name:</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName">
 		        </td>
@@ -329,6 +333,10 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+		        	<span ng-show="prepaidsList.feePaidToType =='Other'">
+	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription">
+			        </span>
                     <span class="LabelText col-sm-12">Full Name:</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName">
 		        </td>
@@ -375,6 +383,10 @@
               		<option value="" selected>Select</option>
              			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem}}">{{prepaidItem}}</option>
               		</select>
+                    <span ng-show="prepaidsList.feeType =='Other'">
+	              		<span class="LabelText col-sm-10">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feeTypeOtherDescription">
+			        </span>
 		        </td>
 		        <td>
                     <span class="margin5tb col-sm-10">Type:</span>
@@ -382,6 +394,10 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+                    <span ng-show="prepaidsList.feePaidToType =='Other'">
+	              		<span class="margin5tb col-sm-10">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" >
+			        </span>
                     <span class="margin5tb col-sm-10">Full Name:</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName">
 		        </td>
@@ -428,8 +444,8 @@
              			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem}}">{{prepaidItem}}</option>
               		</select>
                     <span ng-show="prepaidsList.prepaidItemType =='Other'">
-	              		<span class="margin5tb col-sm-10">Decription:</span>
-			        	<span class="margin5tb col-sm-10 padding0"><input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemTypeOtherDescription" ></span>
+	              		<span class="margin5tb col-sm-10">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemTypeOtherDescription" >
 			        </span>
 		        </td>
 		        <td>
@@ -438,6 +454,10 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+		        	<span ng-show="prepaidsList.feePaidToType =='Other'">
+	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" >
+			        </span>
                     <span class="ValueText col-sm-10">Full Name:</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName">
 		        </td>
@@ -520,6 +540,10 @@
 		        		<option value="" selected>Select Type</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+		        	<span ng-show="escrowItemsList.feePaidToType =='Other'">
+	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.feePaidToTypeOtherDescription">
+			        </span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
@@ -550,7 +574,7 @@
 		        	</select>
 		        </td>
 		        <td>
-		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrow($index)"></span>
+		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('0')"></span>
 		        </td>
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'MortgageInsurance'}">
@@ -573,6 +597,10 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+		        	<span ng-show="escrowItemsList.feePaidToType =='Other'">
+	              		<span class="LabelText col-sm-10">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.feePaidToTypeOtherDescription">
+			        </span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
@@ -603,7 +631,7 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrow($index)"></span>
+		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('1')"></span>
 		        </td>
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType: 'CountyPropertyTax'}">
@@ -626,6 +654,10 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+		        	<span ng-show="escrowItemsList.feePaidToType =='Other'">
+	              		<span class="LabelText col-sm-10">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.feePaidToTypeOtherDescription">
+			        </span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
@@ -656,10 +688,10 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrow($index)"></span>
+		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('2')"></span>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList" ng-if="escrowItemsList.escrowItemType != 'HomeownersInsurance' && escrowItemsList.escrowItemType != 'MortgageInsurance' && escrowItemsList.escrowItemType != 'CountyPropertyTax'">
+		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList track by $index" ng-if="escrowItemsList.escrowItemType != 'HomeownersInsurance' && escrowItemsList.escrowItemType != 'MortgageInsurance' && escrowItemsList.escrowItemType != 'CountyPropertyTax'">
 		        <td>
 		            <span class="LabelText col-sm-10">Label:</span><br>
 		        	<span class="LabelValue col-sm-10">
@@ -674,9 +706,7 @@
               		</span><br>
               		<span  ng-show="escrowItemsList.escrowItemType=='Other'">
 	              		<span class="ValueText col-sm-10">Description:</span>
-			        	<span class="ValueValue col-sm-10">
-			        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemTypeOtherDescription">
-			        	</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemTypeOtherDescription">
 		        	</span><br>
 		        	<span class="ValueText col-sm-10">Amount Per Month</span>
 		        	<span class="ValueValue col-sm-10">
@@ -691,6 +721,10 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+		        	<span ng-show="escrowItemsList.feePaidToType =='Other'">
+	              		<span class="LabelText col-sm-10">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.feePaidToTypeOtherDescription" >
+			        </span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
@@ -721,7 +755,7 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<span class="glyphicon glyphicon-trash iconTooltip red margin5tb" data-toggle="tooltip" title="Close" ng-click="deleteEscrowsList()"></span>
+		        	<span class="glyphicon glyphicon-trash iconTooltip red margin5tb" data-toggle="tooltip" title="Close" ng-click="deleteEscrowsList($index)"></span>
 		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrowsList($index)"></span>
 		        </td>
 		      </tr>
@@ -794,10 +828,9 @@
 	             			<option ng-repeat="feeType in feeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
               		    </select>
               		</span>
-              		<span ng-show="otherCostsList.feePaidToType=='Other'">
-	              		<span class="ValueText col-sm-10">Other:</span>
-			        	<span class="ValueValue col-sm-10">
-			        	<input type="text" class="form-control padding0" name="" name="otherCostsList.feePaidToTypeOtherDescription"></span>
+              		<span ng-show="otherCostsList.feeType=='Other'">
+	              		<span class="ValueText col-sm-10">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" name="otherCostsList.feeTypeOtherDescription">
 		        	</span>
 		        </td>
 		        <td>
@@ -808,6 +841,10 @@
 	             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 			        	</select>
 		        	</span>
+		        	<span ng-show="otherCostsList.feePaidToType =='Other'">
+	              		<span class="LabelText col-sm-10">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.feePaidToTypeOtherDescription">
+			        </span>
 		        	<span class="ValueText col-sm-10">Full Name:</span>
 		        	<span class="ValueValue col-sm-10">
 		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.feePaidToFullName">
@@ -847,8 +884,8 @@
 		        	</select>
 		        </td>
 		        <td>
-		            <span class="glyphicon glyphicon-trash iconTooltip red margin5tb" data-toggle="tooltip" title="Close" ng-click="deleteOther($index)"></span>
-		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearOther($index)"></span>
+		            <span class="glyphicon glyphicon-trash iconTooltip red margin5tb" data-toggle="tooltip" title="Close" ng-click="deleteOthers($index)"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearOthers($index)"></span>
 		        </td>
 		      </tr>
 		</table>
