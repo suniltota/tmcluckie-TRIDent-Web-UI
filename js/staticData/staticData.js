@@ -830,11 +830,14 @@ app.service('staticData', function($filter){
 		'HazardInsurancePremium',
 		'HomeownersAssociationDues',
 		'HomeownersAssociationSpecialAssessment',
+		'HomeownersInsurancePremium',
+		'MortgageInsurancePremium',
 		'Other',
 		'StatePropertyTax',
 		'TownPropertyTax',
 		'VolcanoInsurancePremium',
-		'WindAndStormInsurancePremium'
+		'WindAndStormInsurancePremium',
+		'PrepaidInterest'
 		];
     
     this.escrowItemTypes = [
