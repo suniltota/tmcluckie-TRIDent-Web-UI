@@ -1114,7 +1114,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.clearOC = function(index){
     	if(index==0){
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTotalPercent ='';
-    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType ='Lender';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToTypeOtherDescription ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToFullName ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].bpAtClosing ='';
@@ -1131,7 +1131,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].displayLabel ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeType ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTypeOtherDescription ='';
-    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType ='Lender';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToTypeOtherDescription ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToFullName ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].bpAtClosing ='';
