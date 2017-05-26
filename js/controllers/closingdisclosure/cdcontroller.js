@@ -903,6 +903,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
     	$scope.cdformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
     }
+    $scope.removeAusTypeIdentifier = function(index){
+    	var indexval = 0;
+    	if(index==5 || index==8){
+                indexval = index+1;
+    		for(i=indexval;i>indexval-3;i--){
+    	       $scope.cdformdata.loanInformation.automatedUnderwritings.splice(i-1,1);
+    		}
+    	 }
+    }
 
     $scope.removeSeller = function(index){
     	$scope.cdformdata.transactionInformation.sellerDetails.splice(index,1);

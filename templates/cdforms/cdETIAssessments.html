@@ -42,13 +42,13 @@
 		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'">
 		      			<label> -- </label>
 		      		</td>
-		      		<td class="text-center" ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='Other'">
-		      			<input type="text" class="form-control" name="" ng-model="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription">
+		      		<td class="text-center">
+		      			<input type="text" class="form-control" name="" ng-disabled="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='Other'" ng-model="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription">
 		      		</td>
-		      		<td class="text-center" ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='Other' && etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
+		      		<!-- <td class="text-center" ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='Other' && etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
 		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance'">
 		      			<input type="text" class="form-control" name="" ng-disabled="true">
-		      		</td>
+		      		</td> -->
 		      		<td>
 		      			<select class="form-control" ng-options="option.id as option.name for option in escrowDropDownBooleanOptions" ng-model="etia.projectedPaymentEscrowedType">
 		      			</select>
