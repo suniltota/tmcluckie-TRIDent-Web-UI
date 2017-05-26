@@ -75,7 +75,7 @@
 		        			</span>
 		        		</li>
 		        		<li>
-		        			<span class="pull-left margin5tb col-sm-4 padding0">Provide Current Rate Set Date</span>
+		        			<span class="pull-left margin5tb col-sm-4 padding0">Provide Current Rate Set Date <span class="required">*</span></span>
 		        			<span class="col-sm-5">
 			        			<span class="col-sm-7 padding0">
 									<input type="text" name="interestRateSetDate" id="interestRateSetDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" is-open="isInterestRateSetDate" datepicker-options="dateOptions" ng-model="cdformdata.closingInformationDetail.currentRateSetDate" close-text="Close" placeholder="Date" disabled/>
@@ -86,7 +86,7 @@
 			        		</span>
 		        		</li>
 		        		<li>
-		        			<span class="col-sm-7 margin5tb col-sm-4 padding0">Provide the Loan price quote</span> 
+		        			<span class="col-sm-7 margin5tb col-sm-4 padding0">Provide the Loan price quote <span class="required">*</span></span> 
 		        			<span class="col-sm-4">
 		        				<div class="input-group">	
 		        					<input type="text" class="form-control" name="" ng-model="cdformdata.loanProduct.loanPriceQuoteInterestRatePercent" percentage-format>
@@ -95,7 +95,7 @@
 		        			</span>
 		        		</li>
 		        		<li>
-		        			<span class="col-sm-7 margin5tb col-sm-4 padding0">Provide the APOR</span> 
+		        			<span class="col-sm-7 margin5tb col-sm-4 padding0">Provide the APOR <span class="required">*</span></span> 
 		        			<span class="col-sm-4">
 		        				<div class="input-group">	
 		        					<input type="text" class="form-control" name="" ng-model="cdfromdata.qualifiedMortgage.averagePrimeOfferRatePercent" percentage-format>
@@ -107,7 +107,7 @@
 		        </td>
 		      </tr>
 		      <tr>
-		        <td><label>Temporary buydown</label></td>
+		        <td><label>Temporary buydown <span class="required">*</span></label></td>
 		        <td>
 		        </td>
 		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
@@ -185,7 +185,7 @@
 		        </td>
 		      </tr>	
 		      <tr>
-		        <td><label>Payment Frequency Type</label></td>
+		        <td><label>Payment Frequency Type <span class="required">*</span></label></td>
 		        <td>
 		        	<select class="form-control pull-left col-sm-7" ng-model="cdformdata.payment.paymentRule.paymentFrequencyType" style="width:100px;">
 			        	<option value="" selected>Select</option>
@@ -198,7 +198,7 @@
 		        </td>
 		      </tr>		      
 		      <tr> 
-		        <td><label>Prepayment Penalty</label></td>
+		        <td><label>Prepayment Penalty <span class="required">*</span></label></td>
 		        <td><label></label></td>
 		        <td  style="padding-right: 0px;">
 		        	
@@ -222,7 +222,7 @@
 		        </td>
 		      </tr>
 		      <tr>
-		        <td><label>Balloon Payment</label></td>
+		        <td><label>Balloon Payment <span class="required">*</span></label></td>
 		        <td><label></label></td>
 		        <td>
 		        	<select class="form-control pull-left"  ng-model="cdformdata.loanDetail.balloonIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
