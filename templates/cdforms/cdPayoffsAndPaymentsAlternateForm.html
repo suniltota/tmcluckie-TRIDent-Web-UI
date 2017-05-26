@@ -9,7 +9,8 @@
 		        <th class="innerSectionHeader">Amount</th>
 		        <th class="innerSectionHeader">Liability Secured by the Subject Property?</th>
 		        <th class="innerSectionHeader">Is the Liability a partial Payoff?</th>
-		        <th class="innerSectionHeader">If Prepayment Penalty, provide  the amount</th>   
+		        <th class="innerSectionHeader">If Prepayment Penalty, provide  the amount</th>  
+		        <th class="innerSectionHeader">Delete / Clear</th> 
 		      </tr>
 		      <tr ng-repeat="payoffsAndPayment in payoffsAndPaymentsList track by $index">
 			        <td>
@@ -18,9 +19,6 @@
 		              			<option value="" selected>Select</option>
 		              			<option ng-repeat="liabilityOrAdjustment in liabilityOrAdjustments" value="{{liabilityOrAdjustment.value}}" ng-disabled="liabilityOrAdjustment.disabled">{{liabilityOrAdjustment.name}}</option>
 		              		</select>
-		              	</span>
-		              	<span class="col-sm-12 margin5tb">
-		              		<button class="btn" ng-click="deleteField($index)">Delete Field Info</button>
 		              	</span>
 			        </td>
 			        <td>
@@ -72,8 +70,12 @@
 			        <td>
 			        <div class="input-group">
 						<span class="input-group-addon input-default">$</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="liability.payoffPrepaymentPenaltyAmount" ng-disabled="payoffsAndPayment.payOffType!='Liability'" decimal-digits-with-number-format>
+			        	<input type="text" class="form-control padding0" name="" ng-model="payoffsAndPayment.prepaymentPenaltyAmount" ng-disabled="payoffsAndPayment.payOffType!='Liability'" decimal-digits-with-number-format>
 			        </div>
+			        </td>
+			        <td>
+			            <span class="glyphicon glyphicon-trash iconTooltip red margin5tb" data-toggle="tooltip" title="Close" ng-click="deletePayoff($index)" ng-show="$index!=0"></span>
+			        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearPayoff($index)"></span>
 			        </td>		        
 		      </tr>
 

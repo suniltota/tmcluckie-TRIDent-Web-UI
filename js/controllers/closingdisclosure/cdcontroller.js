@@ -955,7 +955,19 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.addPayOff = function(){
     	$scope.payoffsAndPaymentsList.push(angular.copy(payoffsAndPaymentObj));
     }
-    $scope.deleteField = function(index){
+    $scope.clearPayoff = function(index){
+    	$scope.payoffsAndPaymentsList[index].payOffType='';
+    	$scope.payoffsAndPaymentsList[index].displayLabel='';
+    	$scope.payoffsAndPaymentsList[index].itemType='';
+    	$scope.payoffsAndPaymentsList[index].otherDescription='';
+    	$scope.payoffsAndPaymentsList[index].paidToFullName='';
+    	$scope.payoffsAndPaymentsList[index].paidByFullName='';
+    	$scope.payoffsAndPaymentsList[index].securedIndicator='';
+    	$scope.payoffsAndPaymentsList[index].partialPayoffIndicator='';
+    	//if($scope.payoffsAndPaymentsList[index].payOffType='')
+    	$scope.payoffsAndPaymentsList[index].prepaymentPenaltyAmount='';
+    }
+    $scope.deletePayoff = function(index){
     	$scope.payoffsAndPaymentsList.splice(index,1);
     }
     $scope.amortizationChange = function(){
@@ -992,6 +1004,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	if(bCheck.checkBorrower == true){
     	   $scope.cdformdata.transactionInformation.borrowerDetails[index] = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
     	   $scope.cdformdata.transactionInformation.borrowerDetails[index].checkBorrower = true;
+    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.firstName = '';
+    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.lastName = '';
+    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.middleName = '';
+    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.suffixName = '';
+    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.fullName = '';
         }
     }
     $scope.sameSeller = function(index){
@@ -999,6 +1016,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	if(sCheck.checkSeller == true){
     	   $scope.cdformdata.transactionInformation.sellerDetails[index] = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
     	   $scope.cdformdata.transactionInformation.sellerDetails[index].checkSeller = true;
+    	   $scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.firstName = '';
+    	   $scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.lastName = '';
+    	   $scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.middleName = '';
+    	   $scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.suffixName = '';
+    	   $scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.fullName = '';
         }
     }
     $scope.addProjectedPayments = function(){
@@ -1234,7 +1256,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     //Escrows
 
     $scope.clearEscrow = function(i){
-    	alert(i);
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowCollectedNumberOfMonthsCount = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].feePaidToType = '';
