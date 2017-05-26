@@ -527,7 +527,8 @@
 		        	<span class="LabelText col-sm-10">Label:</span><br>
 		        	<span class="LabelValue col-sm-10">Homeowners Insurance</span><br>
 		        	<span class="ValueText col-sm-10">Valid Value:</span>
-		        	<span class="ValueValue col-sm-10" ng-repeat="escrowItemType in escrowItemTypes" ng-if="escrowItemsList.escrowItemType == escrowItemType">{{escrowItemType}}</span><br>
+		        	<span class="LabelValue col-sm-10">Homeowners Insurance</span><br>
+		        	<!-- <span class="ValueValue col-sm-10" ng-repeat="escrowItemType in escrowItemTypes" ng-if="escrowItemsList.escrowItemType == escrowItemType">{{escrowItemType}}</span><br> -->
 		        	
 		        	<span class="ValueText col-sm-10">Amount Per Month</span>
 		        	<span class="ValueValue col-sm-10">
@@ -584,7 +585,8 @@
 		        	<span class="LabelText col-sm-10">Label:</span><br>
 		        	<span class="LabelValue col-sm-10">Mortgage Insurance</span><br>
 		        	<span class="ValueText col-sm-10">Valid Value:</span>
-		        	<span class="ValueValue col-sm-10" ng-repeat="escrowItemType in escrowItemTypes" ng-if="escrowItemsList.escrowItemType == escrowItemType">{{escrowItemType}}</span><br>
+		        	<span class="LabelValue col-sm-10">Mortgage Insurance</span><br>
+		        	<!-- <span class="ValueValue col-sm-10" ng-repeat="escrowItemType in escrowItemTypes" ng-if="escrowItemsList.escrowItemType == escrowItemType">{{escrowItemType}}</span><br> -->
 		        	
 		        	<span class="ValueText col-sm-10">Amount Per Month</span>
 		        	<span class="ValueValue col-sm-10">
@@ -641,7 +643,12 @@
 		        	<span class="LabelText col-sm-10">Label:</span><br>
 		        	<span class="LabelValue col-sm-10">Property Taxes</span>
 		        	<span class="ValueText col-sm-10">Valid Value:</span>
-		        	<span class="ValueValue col-sm-10" ng-repeat="escrowItemType in escrowItemTypes" ng-if="escrowItemsList.escrowItemType == escrowItemType">{{escrowItemType}}</span>
+		        	<span class="ValueValue col-sm-10">
+			        	<select class="form-control" ng-model="escrowItemsList.escrowItemType">
+	              		    <option value="" selected>Select</option>
+	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType}}">{{escrowItemType}}</option>
+	              		</select>
+              		</span><br>
 		        	
 		        	<span class="ValueText col-sm-10">Amount Per Month</span>
 		        	<span class="ValueValue col-sm-10">
