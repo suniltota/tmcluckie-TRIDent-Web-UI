@@ -28,7 +28,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.calendarMonths = staticData.calendarMonths;
 	$scope.miCompanyNameTypes = staticData.miCompanyNameTypes;
 	$scope.ETIAComponentTypes = staticData.ETIAComponentTypes;
-	$scope.feeTypes = staticData.feeTypes;
+	$scope.sectionAfeeTypes = staticData.sectionAfeeTypes;
+	$scope.sectionBfeeTypes = staticData.sectionBfeeTypes;
+	$scope.sectionCfeeTypes = staticData.sectionCfeeTypes;
+	$scope.sectionEfeeTypes = staticData.sectionEfeeTypes;
+	$scope.sectionHfeeTypes = staticData.sectionHfeeTypes;
 	$scope.feePaidToTypes = staticData.feePaidToTypes;
 	$scope.prepaidItems = staticData.prepaidItems;
     $scope.escrowItemTypes = staticData.escrowItemTypes;

@@ -83,7 +83,7 @@
 		        	<span class="col-sm-12 padding0">
 		        		<select class="form-control padding0" ng-model="tOGovtFee.feeType" ng-disabled="tOGovtFee.feeType == 'RecordingFeeTotal'">
 	              		<option value="" selected>Select</option>
-	             	    <option ng-repeat="feeType in feeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
+	             	    <option ng-repeat="feeType in sectionEfeeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
               		    </select>
 		        	</span>
 		        	<span ng-show="tOGovtFee.feeType == 'Other'">
@@ -649,7 +649,10 @@
 	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType}}">{{escrowItemType}}</option>
 	              		</select>
               		</span><br>
-		        	
+              		<span  ng-show="escrowItemsList.escrowItemType=='Other'">
+	              		<span class="ValueText col-sm-10">Description:</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemTypeOtherDescription">
+		        	</span><br>
 		        	<span class="ValueText col-sm-10">Amount Per Month</span>
 		        	<span class="ValueValue col-sm-10">
 		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.escrowMonthlyPaymentAmount"></span>
@@ -834,7 +837,7 @@
 		        	<span class="ValueValue col-sm-10">
 			        	<select class="form-control padding0" ng-model="otherCostsList.feeType">
 	              		    <option value="" selected>Select</option>
-	             			<option ng-repeat="feeType in feeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
+	             			<option ng-repeat="feeType in sectionHfeeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
               		    </select>
               		</span>
               		<span ng-show="otherCostsList.feeType=='Other'">
