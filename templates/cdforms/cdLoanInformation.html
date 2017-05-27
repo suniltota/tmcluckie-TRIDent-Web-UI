@@ -4,16 +4,16 @@
 	<h5 class="innerSectionHeader">Loan Period, Type and Position</h5>
 	<div class="col-sm-12 row">
 		<div class="col-sm-4">
-			<div class="col-sm-5 fieldTitle">Loan Term:</div>
+			<div class="col-sm-5 fieldTitle margin5t">Loan Term:</div>
 			<div class="col-sm-7 padding0">
-				<div class="col-sm-12 padding0">
-	            	<div class="col-sm-6 padding0">No. Years:</div>
+				<div class="col-sm-12 padding0 paddingtop6">
+	            	<div class="col-sm-6 padding0 paddingtop7">No. Years:</div>
 	            	<div class="col-sm-6 padding0">
 	            		<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.loanTermYears">
 	            	</div>
 	            </div>
-	            <div class="col-sm-12 padding0 margin5tb">
-	            	<div class="col-sm-6 padding0">No. Months:</div>
+	            <div class="col-sm-12 padding0 margin5tb paddingtop11">
+	            	<div class="col-sm-6 padding0 paddingtop5">No. Months:</div>
 	            	<div class="col-sm-6 padding0">
 	            		<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.loanTermMonths">
 	            	</div>
@@ -33,20 +33,20 @@
 	         </div>
             <div class="FieldGroup">
 				<div class="col-sm-5 fieldTitle">Description:</div>
-				<div class="col-sm-7 padding0">
+				<div class="col-sm-7 padding0 paddingtop5">
 					<input type="text" class="form-control" id="loanTypeOtherDescription" ng-model="cdformdata.termsOfLoan.mortgageTypeOtherDescription" ng-disabled="cdformdata.termsOfLoan.mortgageType!='Other'">
 				</div>
 			</div>
             
 		</div>
 		<div class="col-sm-4">
-			<div class="col-sm-5 fieldTitle">Purpose:</div>
-			<div class="col-sm-7 padding0">
+			<div class="col-sm-5 fieldTitle margin4t">Purpose:</div>
+			<div class="col-sm-7 padding0 paddingtop5">
 				<input type="text" class="form-control" style="text-transform:capitalize;" ng-model="cdformdata.termsOfLoan.loanPurposeType" ng-disabled="true">
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-12 row margin5tb">
+	<div class="col-sm-12 row margin5tb margin8t">
 		<div class="col-sm-4">
 			<div class="col-sm-12 padding0" >
             	<div class="col-sm-5 padding0 fieldTitle">MIC#:</div>
@@ -60,8 +60,8 @@
             	</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="FieldGroup">
-				<div class="col-sm-5 fieldTitle">Lien Position: <span class="required">*</span></div>
+			<div class="FieldGroup marginnegative4t">
+				<div class="col-sm-5 fieldTitle paddingtop5">Lien Position: <span class="required">*</span></div>
 				<div class="col-sm-7 padding0">
 					<select  class="form-control" ng-model="cdformdata.termsOfLoan.lienPriorityType">
 						<option value="" selected>Select</option>
@@ -86,9 +86,9 @@
             	</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="FieldGroup">
-				<div class="col-sm-7 fieldTitle">Manual Underwriting Flag: <span class="required">*</span></div>
-				<div class="col-sm-5 padding0">
+			<div class="FieldGroup marginnegative9t">
+				<div class="col-sm-5 fieldTitle paddingtop0">Manual Underwriting Flag: <span class="required">*</span></div>
+				<div class="col-sm-7 padding0 paddingtop5">
 					<select  class="form-control" ng-model="cdformdata.loanInformation.loanManualUnderwritingIndicator"ng-options="option.id as option.name for option in dropDownBooleanOptions">
 					</select>
 				</div>
