@@ -332,8 +332,8 @@
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
 		        	<span ng-show="prepaidsList.feePaidToType =='Other'">
-	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription">
+		        	<span class="col-sm-12 LabelText">Description:</span>
+	              	     	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription">
 			        </span>
                     <span class="LabelText col-sm-10">Full Name:</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName">
@@ -542,8 +542,8 @@
              			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem}}">{{prepaidItem}}</option>
               		</select>
                     <span ng-show="prepaidsList.prepaidItemType =='Other'">
-	              		<span class="margin5tb col-sm-10">Description:</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemTypeOtherDescription" >
+                    	<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
+	              		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemTypeOtherDescription" >
 			        </span>
 		        </td>
 		        <td>
