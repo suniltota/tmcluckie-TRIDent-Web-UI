@@ -114,7 +114,14 @@
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator == true">
-		        		<li>						    
+		        		
+		        		<li><span class="pull-left margin5tb">Is the buydown reflected on the Note</span> 
+		        			<span class="col-sm-2">
+		        			<select class="form-control pull-left" ng-model="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" style="width:55px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+			        	    </select>
+			        	   </span> 
+		        		</li>
+		        		<li ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true">						    
 							<span class="pull-left margin5tb">What is the Rate as reflected without the Buydown?</span> 
 		        			<span class="col-sm-3">
 								<div class="input-group">
@@ -123,12 +130,6 @@
 								</div>
 							</span>
 		        		</li>
-		        		<li><span class="pull-left margin5tb">Is the buydown reflected on the Note</span> 
-		        			<span class="col-sm-2">
-		        			<select class="form-control pull-left" ng-model="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" style="width:55px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
-			        	    </select>
-			        	   </span> 
-		        			</li>
 		        		<li ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb col-sm-9 padding0">Provide the rate the borrower will pay after the buydown is applied</span> 
 		        			<span class="col-sm-3 pull-right">
 								<div class="input-group">

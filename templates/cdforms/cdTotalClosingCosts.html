@@ -32,9 +32,12 @@
 					<span class="margin5tb col-sm-12 padding0">
 						<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
-							<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostsTotal.lenderCredits" negative-digits>
+							<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostsTotal.lenderCredits" data-dismiss="modal" data-toggle="modal" data-target="#LedgerCreditConfirmModal" negative-digits>
+							
 						</div>
+
 					</span>
+					
 				</td>
 				<td  style="border:1px solid white;" ></td>
 				<td  style="border:1px solid white;" ></td>
@@ -59,11 +62,38 @@
 		      
 		</tbody></table>		
 	</span>
+	<!-- Modal Start-->
+				 <div class="modal fade" id="LedgerCreditConfirmModal" role="dialog" data-keyboard="false" data-backdrop="static">
+              <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Tolerance Cure Amount</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row margin5tb" style="margin-bottom: 10px;">
+                        <div class="col-sm-12 ">
+                          <strong>is there a tolerance cure amount for this transaction ?</strong>
+                        </div>
+                      </div>
+                    </div>
+                  
+                  <div class="modal-footer">
+				          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+		                  <button type="button" class="btn btn-primary" data-dismiss="modal"
+		                     >Yes</button>
+                    
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+ 				<!--Modal End -->
 	<div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('OtherCosts')">Back</a></span>
 			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('CalculatingCashtoClose')">Next</a></span>
 	</div>
 </div>
+
 
 
 
