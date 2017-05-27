@@ -122,6 +122,24 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
  		formatYear: 'yy',
  		startingDay: 1
  	};
+    $scope.FormType = '';
+    $scope.LoanType = '';
+    
+    if($scope.loanBasicInfo!=undefined){
+	    if($scope.loanBasicInfo.loanFormType == 'standard'){
+	    	$scope.FormType = 'Standard'
+	    }
+	    else if($scope.loanBasicInfo.loanFormType == 'alternate'){
+	    	$scope.FormType = 'Alternate'
+	    }
+
+	    if($scope.loanBasicInfo.loanPurposeType == 'purchase'){
+	    	$scope.LoanType = 'Purchase'
+	    }
+	    else if($scope.loanBasicInfo.loanPurposeType == 'refinance'){
+	    	$scope.LoanType = 'Refinance'
+	    }
+    }
 
 	var initializeCDformData = function() {
 		$scope.cdformdata = staticData.cdformdata;
