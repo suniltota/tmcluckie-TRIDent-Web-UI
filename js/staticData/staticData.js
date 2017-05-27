@@ -2090,6 +2090,99 @@ app.service('staticData', function($filter){
     	}
     ];
     
+    this.liabilityTypesPayoff = [
+    	{
+    		"name":"Collections Judgments And Liens",
+	        "value":"CollectionsJudgmentsAndLiens",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Deferred Student Loan",
+	        "value":"DeferredStudentLoan",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Delinquent Taxes",
+	        "value":"DelinquentTaxes",
+	        "disabled":false
+    	},
+    	{
+    		"name":"First Position Mortgage Lien",
+	        "value":"FirstPositionMortgageLien",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Garnishments",
+	        "value":"Garnishments",
+	        "disabled":false
+    	},
+    	{
+    		"name":"HELOC",
+	        "value":"HELOC",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Installment",
+	        "value":"Installment",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Lease Payment",
+	        "value":"LeasePayment",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Open 30Day Charge Account",
+	        "value":"Open30DayChargeAccount",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Other",
+	        "value":"Other",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Personal Loan",
+	        "value":"PersonalLoan",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Revolving",
+	        "value":"Revolving",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Second Position Mortgage Lien",
+	        "value":"SecondPositionMortgageLien",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Taxes",
+	        "value":"Taxes",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Tax Lien",
+	        "value":"TaxLien",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Third Position Mortgage Lien",
+	        "value":"ThirdPositionMortgageLien",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Unsecured Home Improvement Loan Installment",
+	        "value":"UnsecuredHomeImprovementLoanInstallment",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Unsecured Home Improvement Loan Revolving",
+	        "value":"UnsecuredHomeImprovementLoanRevolving",
+	        "disabled":false
+    	}
+    ];
+
     this.prorationItemTypes=[
 	    {
 		    "name": "Borough Property Tax",
