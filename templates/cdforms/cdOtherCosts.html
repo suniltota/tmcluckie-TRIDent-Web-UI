@@ -22,12 +22,18 @@
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0" style="font-weight: bold;">Recording Fee Total</span>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fee For Deed</span>
-		        	<span class="col-sm-7 padding0 pull-right">
-		        		<input type="text" class="form-control" ng-model="tOGovtFee.recordingFeeForDeed" decimal-digits-with-number-format> 
+		        	<span class="col-sm-8 padding0 pull-right">
+			        	<div class="input-group">
+							<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+			        		<input type="text" class="form-control" ng-model="tOGovtFee.recordingFeeForDeed" decimal-digits-with-number-format>
+			        	</div>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fee For Mortgage</span>
-		        	<span class="col-sm-7 padding0 pull-right">
-		        		<input type="text" class="form-control" ng-model="tOGovtFee.recordingFeeForMortgage" decimal-digits-with-number-format> 
+		        	<span class="col-sm-8 padding0 pull-right">
+		        		<div class="input-group">
+							<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        			<input type="text" class="form-control" ng-model="tOGovtFee.recordingFeeForMortgage" decimal-digits-with-number-format>
+		        		</div>
 		        	</span>
 		        </td> 
 		        <td>
@@ -46,19 +52,34 @@
 			        </span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpAtClosing" decimal-digits-with-number-format>
+			        </div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpB4Closing" decimal-digits-with-number-format>
+			        </div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spB4Closing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.paidByOthers" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.paidByOthers" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="tOGovtFee.lenderStatus">
@@ -113,19 +134,33 @@
 		        	</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpB4Closing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spAtClosing" decimal-digits-with-number-format>
+			        </div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spB4Closing" decimal-digits-with-number-format>
-		        </td>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spB4Closing" decimal-digits-with-number-format>
+		        	</div>	
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.paidByOthers" decimal-digits-with-number-format>
+		            <div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        	    <input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.paidByOthers" decimal-digits-with-number-format>
+		        	</div>    
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="tOGovtFee.lenderStatus">
@@ -189,7 +224,10 @@
 		        <td class="col-sm-1 padding0">
 		            <span class="margin5tb col-sm-12 padding0">Per Diem Amount:</span>
 		            <span class="col-sm-12 padding0">
-		            	<input type="text" class="form-control padding0" placeholder="Per Diem Amount" name="" ng-model="prepaidsList.prepaidItemPerDiemAmount" decimal-digits-with-number-format>
+		            	<div class="input-group">
+							<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+			            	<input type="text" class="form-control padding0" placeholder="Per Diem Amount" name="" ng-model="prepaidsList.prepaidItemPerDiemAmount" decimal-digits-with-number-format>
+			            </div>
 		            </span>
 		            <span class="margin5tb col-sm-12 padding0">Per Diem Calculation Type:</span>
 		        	<span class=" col-sm-12 padding0" style="padding-left:5px;">
@@ -216,19 +254,34 @@
 	        		</span>
 		        </td>
 		         <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		         	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		         <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
+		             <div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		         <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		         <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
+		         	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="prepaidsList.lenderStatus">
@@ -247,9 +300,7 @@
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearPrepaid($index)"></span>
 		        </td>
 		      </tr>
-		      
 		</table>
-
 		<table class="table LoanCostsSection table-bordered margin5tb InsuranceSection"  style="border:0px;">
 		      <tr>
 		        <th class="innerSectionHeader  col-sm-2">Prepaid Information</th>
@@ -289,19 +340,34 @@
 		        </td>
 
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
+		         	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        	    <input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="prepaidsList.lenderStatus">
@@ -344,19 +410,34 @@
 		        </td>
 
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
+		            <div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        	    <input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
+		        	</div>    
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="prepaidsList.lenderStatus">
@@ -404,19 +485,34 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        	    <input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
+		        	</div>    
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
+		            <div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="prepaidsList.lenderStatus">
@@ -464,19 +560,34 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
+		            <div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        	    <input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="prepaidsList.lenderStatus">
@@ -549,19 +660,28 @@
 			        </span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
 		        	<!-- <input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.bpB4Closing"> -->
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<!-- <input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.spB4Closing"> -->
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+		        	</div>	
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="escrowItemsList.lenderStatus">
@@ -607,20 +727,28 @@
 			        </span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
 		        	<!-- <input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.bpB4Closing"> -->
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<!-- <input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.spB4Closing"> -->
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
-		        </td>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+		        	</div>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="escrowItemsList.lenderStatus">
 		        </td>
@@ -672,19 +800,28 @@
 			        </span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
 		        	<!-- <input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.bpB4Closing"> -->
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+		            <div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<!-- <input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.spB4Closing"> -->
 		        </td>
 		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+		        </div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="escrowItemsList.lenderStatus">
@@ -739,19 +876,28 @@
 			        </span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
 		        	<!-- <input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.bpB4Closing"> -->
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<!-- <input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.spB4Closing"> -->
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="escrowItemsList.lenderStatus">
@@ -778,24 +924,32 @@
 		        <td>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
 		        	<!-- <input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.bpB4Closing"> -->
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="">
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<!-- <input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.spB4Closing"> -->
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="">
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
 		        </td>
-		        <td>
-		        	
+		        <td>		        	
 		        </td>
 		        <td>
 		        </td>
@@ -863,19 +1017,34 @@
 		        	</span>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.bpAtClosing" decimal-digits-with-number-format>
+		       		<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.bpAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.bpB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.bpB4Closing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.spAtClosing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.spAtClosing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.spB4Closing" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.spB4Closing" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.paidByOthers" decimal-digits-with-number-format>
+		        	<div class="input-group">
+						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.paidByOthers" decimal-digits-with-number-format>
+		        	</div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="otherCostsList.lenderStatus">
@@ -930,6 +1099,3 @@
 			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('TotalClosingCosts')">Next</a></span>
 	</div>
 </div>
-
-
-
