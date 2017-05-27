@@ -121,15 +121,15 @@
 		      		</td>
 					<td rowspan="2" style="vertical-align: middle;">
 		      			<span class="text-left margin5lr">Ability to Repay Method Type <span class="required">*</span></span>							
-						<br>
-						<span class="text-left margin5lr">Ability to Repay Exemption Reason Type</span>			        							
+						<br><br>
+						<span class="text-left margin5lr" ng-show="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType!='General'">Ability to Repay Exemption Reason Type</span>			        							
 		      		</td>
 		      		<td rowspan="2">
 		      			<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType">
 							 <option value="" selected>Select</option>
 		                     <option ng-repeat="rMType in repayMethodType" value="{{rMType.value}}">{{rMType.name}}</option>
-						</select>
-						<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayExemptionReasonType">
+						</select>&nbsp;
+						<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayExemptionReasonType" ng-show="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType!='General'">
 							 <option value="" selected>Select</option>
 		                     <option ng-repeat="rERType in repayExemptionReasonType" value="{{rERType.value}}">{{rERType.name}}</option>
 						</select>
