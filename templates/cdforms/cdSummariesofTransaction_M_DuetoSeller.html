@@ -41,12 +41,12 @@
 		        	<input type="text" class="form-control padding0"  name="" ng-model="adjustment.displayLabel">  
 		        </td>
 		        <td ng-if="adjustment.isFromBorrower">
-		      	    <label ng-repeat="adjustmentType in adjustmentTypes" ng-if="adjustmentType.value == adjustment.closingAdjustmentItemType">{{adjustmentType.name}}</label>
+		      	    <label ng-repeat="adjustmentType in sectionKadjustmentTypes" ng-if="adjustmentType.value == adjustment.closingAdjustmentItemType">{{adjustmentType.name}}</label>
 		        </td>
 		        <td ng-if="!adjustment.isFromBorrower">
 		        	<select class="form-control padding0" ng-model="adjustment.closingAdjustmentItemType">
 		        		<option value="" selected>Select</option>
-	      				<option ng-repeat="adjustmentType in adjustmentTypes" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
+	      				<option ng-repeat="adjustmentType in sectionKadjustmentTypes" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
 		      	    </select>
 		        </td>
 		        <td ng-if="adjustment.isFromBorrower">

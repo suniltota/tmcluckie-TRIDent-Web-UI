@@ -39,6 +39,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.liabilityTypes = staticData.liabilityTypes;
     $scope.adjustmentTypes = staticData.adjustmentTypes;
     $scope.liabilityTypesPayoff = staticData.liabilityTypesPayoff;
+    $scope.sectionNliabilityTypes = staticData.sectionNliabilityTypes;
+    $scope.sectionKadjustmentTypes = staticData.sectionKadjustmentTypes;
+    $scope.sectionLadjustmentTypes = staticData.sectionLadjustmentTypes;
+    $scope.sectionNadjustmentTypes = staticData.sectionNadjustmentTypes;
     $scope.prorationItemTypes = staticData.prorationItemTypes;
     $scope.subordinateLiens = staticData.subordinateLiens;
     $scope.otherCredits = staticData.otherCredits;

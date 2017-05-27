@@ -90,8 +90,8 @@
 		        <td>
 		        	<select class="form-control padding0" ng-model="dueFromSellerAdjustmentsAndLiability.itemType">
 			        	<option value="" selected>Select</option>
-			      		<option ng-repeat="lType in liabilityTypes" value="{{lType.value}}" ng-disabled="lType.disabled" ng-if="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType == 'Liability'">{{lType.name}}</option>
-		              	<option ng-repeat="aType in otherCredits" value="{{aType.value}}" ng-disabled="aType.disabled" ng-if="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType == 'Adjustment'">{{aType.name}}</option>
+			      		<option ng-repeat="lType in sectionNliabilityTypes" value="{{lType.value}}" ng-disabled="lType.disabled" ng-if="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType == 'Liability'">{{lType.name}}</option>
+		              	<option ng-repeat="aType in sectionNadjustmentTypes" value="{{aType.value}}" ng-disabled="aType.disabled" ng-if="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType == 'Adjustment'">{{aType.name}}</option>
 		      		</select>
 		        </td>
 		        <td>

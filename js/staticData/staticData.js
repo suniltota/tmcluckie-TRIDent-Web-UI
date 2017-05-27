@@ -2183,6 +2183,137 @@ app.service('staticData', function($filter){
     	}
     ];
 
+    this.sectionNliabilityTypes = [
+    	{
+    		"name":"Collections Judgments And Liens",
+	        "value":"CollectionsJudgmentsAndLiens",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Deferred Student Loan",
+	        "value":"DeferredStudentLoan",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Garnishments",
+	        "value":"Garnishments",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Installment",
+	        "value":"Installment",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Open 30Day Charge Account",
+	        "value":"Open30DayChargeAccount",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Other",
+	        "value":"Other",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Personal Loan",
+	        "value":"PersonalLoan",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Revolving",
+	        "value":"Revolving",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Unsecured Home Improvement Loan Installment",
+	        "value":"UnsecuredHomeImprovementLoanInstallment",
+	        "disabled":false
+    	}
+    ];
+
+    this.sectionKadjustmentTypes = [
+        {
+    		"name":"Fuel Costs",
+            "value":"FuelCosts",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Other",
+            "value":"Other",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Repairs",
+            "value":"Repairs",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Sellers Escrow Assumption",
+            "value":"SellersEscrowAssumption",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Sellers Mortgage Insurance Assumption",
+            "value":"SellersMortgageInsuranceAssumption",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Tenant Security Deposit",
+            "value":"TenantSecurityDeposit",
+	        "disabled":false
+    	}
+    ];
+
+    this.sectionLadjustmentTypes = [
+        {
+    		"name":"Other",
+            "value":"Other",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Relocation Funds",
+            "value":"RelocationFunds",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Sweat Equity",
+            "value":"SweatEquity",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Trade Equity",
+            "value":"TradeEquity",
+	        "disabled":false
+    	}
+    ];	
+
+    this.sectionNadjustmentTypes = [
+        {
+    		"name":"Other",
+            "value":"Other",
+	        "disabled":false
+    	},
+		{
+    		"name":"Repair Completion Escrow Holdback",
+            "value":"RepairCompletionEscrowHoldback",
+	        "disabled":false
+    	},
+		{
+    		"name":"Tenant Security Deposit",
+            "value":"TenantSecurityDeposit",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Trade Equity",
+            "value":"TradeEquity",
+	        "disabled":false
+    	},
+		{
+    		"name":"Unpaid Utility Escrow Holdback",
+            "value":"UnpaidUtilityEscrowHoldback",
+	        "disabled":false
+    	}
+    ];
     this.prorationItemTypes=[
 	    {
 		    "name": "Borough Property Tax",
