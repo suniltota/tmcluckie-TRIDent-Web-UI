@@ -752,11 +752,31 @@ app.service('staticData', function($filter){
 	];
     
     this.sectionEfeeTypes = [
-        "MortgageSurchargeCountyOrParish", 
-		"MortgageSurchargeMunicipal",  
-		"MortgageSurchargeState", 
-		"Other",  
-		"TransferTaxTotal"
+        {
+	        "name":"Mortgage Surcharge County Or Parish",
+	        "value":"MortgageSurchargeCountyOrParish",
+	        "disabled":false
+        },
+        {
+	        "name":"Mortgage Surcharge Municipal",
+	        "value":"MortgageSurchargeMunicipal",
+	        "disabled":false
+        },
+        {
+	        "name":"Mortgage Surcharge State",
+	        "value":"MortgageSurchargeState",
+	        "disabled":false
+        },
+        {
+	        "name":"Other",
+	        "value":"Other",
+	        "disabled":false
+        },
+        {
+	        "name":"Transfer Tax Total",
+	        "value":"TransferTaxTotal",
+	        'disabled': false
+        }
 	];
 	
 	this.sectionHfeeTypes = [

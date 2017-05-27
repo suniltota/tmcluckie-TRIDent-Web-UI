@@ -81,9 +81,9 @@
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
 		        	<span class="col-sm-12 padding0">
-		        		<select class="form-control padding0" ng-model="tOGovtFee.feeType" ng-disabled="tOGovtFee.feeType == 'RecordingFeeTotal'">
+		        		<select class="form-control padding0" ng-model="tOGovtFee.feeType" ng-disabled="tOGovtFee.feeType == 'RecordingFeeTotal'" ng-change="updateSectionEfeeTypes(tOGovtFee.feeType, $index)">
 	              		<option value="" selected>Select</option>
-	             	    <option ng-repeat="feeType in sectionEfeeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
+	             	    <option ng-repeat="feeType in sectionEfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
               		    </select>
 		        	</span>
 		        	<span ng-show="tOGovtFee.feeType == 'Other'">
@@ -835,7 +835,7 @@
 		        	</span>
 		        	<span class="ValueText col-sm-10">Valid Value:</span>
 		        	<span class="ValueValue col-sm-10">
-			        	<select class="form-control padding0" ng-model="otherCostsList.feeType">
+			        	<select class="form-control padding0" ng-model="otherCostsList.feeType" ng-change="updateSectionHfeeTypes(otherCostsList.feeType, $index)">
 	              		    <option value="" selected>Select</option>
 	             			<option ng-repeat="feeType in sectionHfeeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
               		    </select>
