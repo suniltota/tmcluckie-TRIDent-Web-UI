@@ -124,7 +124,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
  	};
     $scope.FormType = '';
     $scope.LoanType = '';
-    
+
     if($scope.loanBasicInfo!=undefined){
 	    if($scope.loanBasicInfo.loanFormType == 'standard'){
 	    	$scope.FormType = 'Standard'
@@ -317,7 +317,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].displayLabel = 'Transfer Taxes';
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feePaidToType = 'ThirdPartyProvider';
 
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.push(angular.copy(tOGovtFees));
 		}
 
 
