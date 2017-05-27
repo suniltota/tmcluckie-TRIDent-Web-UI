@@ -90,7 +90,7 @@
 		        </select>
 		        </td>
 		        <td>
-		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearRecordings()"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearRecordings()"></span>
 		      	</td>
 		      </tr>
 		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-show="tOGovtFee.feeType !='RecordingFeeForDeed' && tOGovtFee.feeType!='RecordingFeeForMortgage' && tOGovtFee.feeType!='RecordingFeeTotal' && tOGovtFee.feeType!='RecordingFee'">		         
@@ -172,8 +172,8 @@
 		        </td>
 		        <td>
 		            <span>
-		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb" data-toggle="tooltip" title="Close" ng-click="deleteOGF($index)"></span>
-		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear"  ng-click="clearOGF($index)"></span>
+		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Close" ng-click="deleteOGF($index)"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear"  ng-click="clearOGF($index)"></span>
 		      		</span>
 		      	</td>
 		      </tr>
@@ -297,7 +297,7 @@
  		        	</select>
 		        </td>
 		        <td>
-		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearPrepaid($index)"></span>
+		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaid($index)"></span>
 		        </td>
 		      </tr>
 		</table>
@@ -383,7 +383,7 @@
 		        	</select>
 		        </td>
 		        <td>
-		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
+		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
 		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='MortgageInsurancePremium'">
@@ -453,7 +453,7 @@
 		        	</select>
 		        </td>
 		        <td>
-		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
+		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
 		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='CountyPropertyTax'">
@@ -528,7 +528,7 @@
 		        	</select> -->
 		        </td>
 		        <td>
-		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
+		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
               <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType!='HomeownersInsurancePremium' && prepaidsList.prepaidItemType!='MortgageInsurancePremium' && prepaidsList.prepaidItemType!='PrepaidInterest' && prepaidsList.prepaidItemType!='CountyPropertyTax'">
@@ -603,8 +603,8 @@
 		        	</select> -->
 		        </td>
 		        <td>
-		           <span class="glyphicon glyphicon-trash iconTooltip red margin5tb" data-toggle="tooltip" title="Close" ng-click="deletePrepaidInfo($index)"></span>
-		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidList($index)"></span>
+		           <span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Close" ng-click="deletePrepaidInfo($index)"></span>
+		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidList($index)"></span>
 		        </td>
 		      </tr>
 		</table>
@@ -622,7 +622,7 @@
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader col-sm-2">Escrow Information</th>
-		        <th class="innerSectionHeader">Paid To Info.</th>
+		        <th class="innerSectionHeader">Prepaid Paid To Info.</th>
 		        <th class="innerSectionHeader">Borrower Paid AT Closing</th>
 		        <th class="innerSectionHeader">Borrower Paid BEFORE Closing</th>
 		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
@@ -697,7 +697,7 @@
 		        	</select>
 		        </td>
 		        <td>
-		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('0')"></span>
+		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tbcol-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('0')"></span>
 		        </td>
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'MortgageInsurance'}">
@@ -763,7 +763,7 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('1')"></span>
+		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('1')"></span>
 		        </td>
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType: 'CountyPropertyTax'}">
@@ -837,7 +837,7 @@
 		        	</select> -->
 		        </td>
 		        <td>
-		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('2')"></span>
+		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('2')"></span>
 		        </td>
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList track by $index" ng-if="escrowItemsList.escrowItemType != 'HomeownersInsurance' && escrowItemsList.escrowItemType != 'MortgageInsurance' && escrowItemsList.escrowItemType != 'CountyPropertyTax'">
@@ -913,8 +913,8 @@
 		        	</select> -->
 		        </td>
 		        <td>
-		        	<span class="glyphicon glyphicon-trash iconTooltip red margin5tb" data-toggle="tooltip" title="Close" ng-click="deleteEscrowsList($index)"></span>
-		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearEscrowsList($index)"></span>
+		        	<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Close" ng-click="deleteEscrowsList($index)"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearEscrowsList($index)"></span>
 		        </td>
 		      </tr>
 		      <tr>
@@ -1065,8 +1065,8 @@
 		        	</select>
 		        </td>
 		        <td>
-		            <span class="glyphicon glyphicon-trash iconTooltip red margin5tb" data-toggle="tooltip" title="Close" ng-click="deleteOthers($index)"></span>
-		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb" data-toggle="tooltip" title="Clear" ng-click="clearOthers($index)"></span>
+		            <span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Close" ng-click="deleteOthers($index)"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearOthers($index)"></span>
 		        </td>
 		      </tr>
 		</table>
