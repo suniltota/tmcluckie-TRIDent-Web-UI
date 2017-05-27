@@ -39,7 +39,7 @@
 		        	<span class="col-sm-12 padding0">
 		        		<select class="form-control padding0" ng-model="originationCharge.feeType" ng-change="updateSectionAfeeTypes(originationCharge.feeType, $index)">
 	              			<option value="" selected>Select</option>
-	             			<option ng-repeat="feeType in sectionAfeeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
+	             			<option ng-repeat="feeType in sectionAfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
               		    </select> 
 		        	</span>
 		        	<span ng-hide="originationCharge.feeType!='Other'" class="col-sm-12 padding0">
@@ -152,7 +152,7 @@
 		        	<span class="col-sm-12 padding0">
 		        		<select class="form-control padding0" ng-model="sbDidNotShopFor.feeType" ng-change="updateSectionBfeeTypes(sbDidNotShopFor.feeType, $index)">
 	              			<option value="" selected>Select</option>
-	             			<option ng-repeat="feeType in sectionBfeeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
+	             			<option ng-repeat="feeType in sectionBfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
               		    </select>
 		        	</span>
 		        	<span ng-show="sbDidNotShopFor.feeType=='Other'">
@@ -261,7 +261,7 @@
 		        	<span class="col-sm-12 padding0">
 		        		<select class="form-control padding0" ng-model="sbDidShopFor.feeType" ng-change="updateSectionCfeeTypes(sbDidShopFor.feeType, $index)">
               			<option value="" selected>Select</option>
-             			<option ng-repeat="feeType in sectionCfeeTypes track by $index" value="{{feeType}}">{{feeType}}</option>
+             			<option ng-repeat="feeType in sectionCfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
               		</select> 
 		        	</span>
 		        	<span ng-show="sbDidShopFor.feeType=='Other'">

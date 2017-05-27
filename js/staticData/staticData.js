@@ -539,216 +539,1025 @@ app.service('staticData', function($filter){
 	];
 
 	this.sectionAfeeTypes = [
-		"203KArchitecturalAndEngineeringFee",
-		"203KConsultantFee",
-		"203KDiscountOnRepairs",
-		"203KInspectionFee",
-		"203KPermits",
-		"203KSupplementalOriginationFee",
-		"ApplicationFee",
-		"AppraisalDeskReviewFee",
-		"AppraisalFee",
-		"AppraisalFieldReviewFee",
-		"AppraisalManagementCompanyFee",
-		"AssumptionFee",
-		"AutomatedUnderwritingFee",
-		"AVMFee",
-		"BondFee",
-		"CertificationFee",
-		"CopyOrFaxFee",
-		"CourierFee",
-		"CreditReportFee",
-		"DocumentPreparationFee",
-		"ElectronicDocumentDeliveryFee",
-		"EscrowWaiverFee",
-		"FilingFee",
-		"HighCostMortgageCounselingFee",
-		"LoanLevelPriceAdjustment",
-		"LoanOriginationFee",
-		"LoanOriginatorCompensation",
-		"ManualUnderwritingFee",
-		"MERSRegistrationFee",
-		"NotaryFee",
-		"Other",
-		"PowerOfAttorneyPreparationFee",
-		"PowerOfAttorneyRecordingFee",
-		"PreclosingVerificationControlFee",
-		"ProcessingFee",
-		"RateLockFee",
-		"ReinspectionFee",
-		"SubordinationFee",
-		"TemporaryBuydownAdministrationFee",
-		"TemporaryBuydownPoints",
-		"VerificationOfAssetsFee",
-		"VerificationOfEmploymentFee",
-		"VerificationOfIncomeFee",
-		"VerificationOfResidencyStatusFee",
-		"VerificationOfTaxpayerIdentificationFee",
-		"VerificationOfTaxReturnFee",
-		"WireTransferFee"
+		{
+		 "name":"203K Architectural And Engineering Fee",
+		 "value":"203KArchitecturalAndEngineeringFee",
+		 "disabled":false
+		},
+		{
+		"name":"203K Consultant Fee",
+		"value":"203KConsultantFee",
+		"disabled":false
+		},
+		{
+		"name":"203K Discount On Repairs",
+		"value":"203KDiscountOnRepairs",
+		"disabled":false
+		},
+		{
+		"name":"203K Inspection Fee",
+		"value":"203KInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"203K Permits",
+		"value":"203KPermits",
+		"disabled":false
+		},
+		{
+		"name":"203K Supplemental Origination Fee",
+		"value":"203KSupplementalOriginationFee",
+		"disabled":false
+		},
+		{
+		"name":"Application Fee",
+		"value":"ApplicationFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Desk Review Fee",
+		"value":"AppraisalDeskReviewFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Fee",
+		"value":"AppraisalFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Field Review Fee",
+		"value":"AppraisalFieldReviewFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Management Company Fee",
+		"value":"AppraisalManagementCompanyFee",
+		"disabled":false
+		},
+		{
+		"name":"Assumption Fee",
+		"value":"AssumptionFee",
+		"disabled":false
+		},
+		{
+		"name":"Automated Underwriting Fee",
+		"value":"AutomatedUnderwritingFee",
+		"disabled":false
+		},
+		{
+		"name":"AVM Fee",
+		"value":"AVMFee",
+		"disabled":false
+		},
+		{
+		"name":"Bond Fee",
+		"value":"BondFee",
+		"disabled":false
+		},
+		{
+		"name":"Certification Fee",
+		"value":"CertificationFee",
+		"disabled":false
+		},
+		{
+		"name":"Copy Or Fax Fee",
+		"value":"CopyOrFaxFee",
+		"disabled":false
+		},
+		{
+		"name":"Courier Fee",
+		"value":"CourierFee",
+		"disabled":false
+		},
+		{
+		"name":"Credit Report Fee",
+		"value":"CreditReportFee",
+		"disabled":false
+		},
+		{
+		"name":"Document Preparation Fee",
+		"value":"DocumentPreparationFee",
+		"disabled":false
+		},
+		{
+		"name":"Electronic Document Delivery Fee",
+		"value":"ElectronicDocumentDeliveryFee",
+		"disabled":false
+		},
+		{
+		"name":"Escrow Waiver Fee",
+		"value":"EscrowWaiverFee",
+		"disabled":false
+		},
+		{
+		"name":"Filing Fee",
+		"value":"FilingFee",
+		"disabled":false
+		},
+		{
+		"name":"High Cost Mortgage Counseling Fee",
+		"value":"HighCostMortgageCounselingFee",
+		"disabled":false
+		},
+		{
+		"name":"Loan Level Price Adjustment",
+		"value":"LoanLevelPriceAdjustment",
+		"disabled":false
+		},
+		{
+		"name":"Loan Origination Fee",
+		"value":"LoanOriginationFee",
+		"disabled":false
+		},
+		{
+		"name":"Loan Originator Compensation",
+		"value":"LoanOriginatorCompensation",
+		"disabled":false
+		},
+		{
+		"name":"Manual Underwriting Fee",
+		"value":"ManualUnderwritingFee",
+		"disabled":false
+		},
+		{
+		"name":"MERS Registration Fee",
+		"value":"MERSRegistrationFee",
+		"disabled":false
+		},
+		{
+		"name":"Notary Fee",
+		"value":"NotaryFee",
+		"disabled":false
+		},
+		{
+		"name":"Other",
+		"value":"Other",
+		"disabled":false
+		},
+		{
+		"name":"Power Of Attorney Preparation Fee",
+		"value":"PowerOfAttorneyPreparationFee",
+		"disabled":false
+		},
+		{
+		"name":"Power Of Attorney Recording Fee",
+		"value":"PowerOfAttorneyRecordingFee",
+		"disabled":false
+		},
+		{
+		"name":"Preclosing Verification Control Fee",
+		"value":"PreclosingVerificationControlFee",
+		"disabled":false
+		},
+		{
+		"name":"Processing Fee",
+		"value":"ProcessingFee",
+		"disabled":false
+		},
+		{
+		"name":"RateLock Fee",
+		"value":"RateLockFee",
+		"disabled":false
+		},
+		{
+		"name":"Reinspection Fee",
+		"value":"ReinspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Subordination Fee",
+		"value":"SubordinationFee",
+		"disabled":false
+		},
+		{
+		"name":"Temporary Buydown Administration Fee",
+		"value":"TemporaryBuydownAdministrationFee",
+		"disabled":false
+		},
+		{
+		"name":"Temporary Buydown Points",
+		"value":"TemporaryBuydownPoints",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Assets Fee",
+		"value":"VerificationOfAssetsFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Employment Fee",
+		"value":"VerificationOfEmploymentFee","disabled":false
+		},
+		{
+		"name":"Verification Of Income Fee",
+		"value":"Verification Of Income Fee","disabled":false
+		},
+		{
+		"name":"Verification Of Resvalueency Status Fee",
+		"value":"VerificationOfResvalueencyStatusFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Taxpayervalueentification Fee",
+		"value":"VerificationOfTaxpayervalueentificationFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Tax Return Fee",
+		"value":"VerificationOfTaxReturnFee",
+		"disabled":false
+		},
+		{
+		"name":"Wire Transfer Fee",
+		"value":"WireTransferFee",
+		"disabled":false
+		}
     ];
     
-    this.sectionBfeeTypes = [
-		"203KArchitecturalAndEngineeringFee",
-		"203KConsultantFee",
-		"203KInspectionFee",
-		"203KPermits",
-		"203KTitleUpdate",
-		"ApplicationFee",
-		"AppraisalDeskReviewFee",
-		"AppraisalFee",
-		"AppraisalFieldReviewFee",
-		"AppraisalManagementCompanyFee",
-		"AsbestosInspectionFee",
-		"AssumptionFee",
-		"AutomatedUnderwritingFee",
-		"AVMFee",
-		"BondFee",
-		"CertificationFee",
-		"CopyOrFaxFee",
-		"CourierFee",
-		"CreditReportFee",
-		"DisasterInspectionFee",
-		"DocumentPreparationFee",
-		"DryWallInspectionFee",
-		"ElectricalInspectionFee",
-		"ElectronicDocumentDeliveryFee",
-		"EnvironmentalInspectionFee",
-		"EscrowServiceFee",
-		"EscrowWaiverFee",
-		"FilingFee",
-		"FloodCertification",
-		"FoundationInspectionFee",
-		"HeatingCoolingInspectionFee",
-		"HighCostMortgageCounselingFee",
-		"HomeInspectionFee",
-		"LeadInspectionFee",
-		"LendersAttorneyFee",
-		"ManualUnderwritingFee",
-		"MERSRegistrationFee",
-		"MIUpfrontPremium",
-		"MoldInspectionFee",
-		"NotaryFee",
-		"Other",
-		"PestInspectionFee",
-		"PlumbingInspectionFee",
-		"PowerOfAttorneyPreparationFee",
-		"PowerOfAttorneyRecordingFee",
-		"PreclosingVerificationControlFee",
-		"ProcessingFee",
-		"PropertyInspectionWaiverFee",
-		"PropertyTaxStatusResearchFee",
-		"RadonInspectionFee",
-		"ReinspectionFee",
-		"RoofInspectionFee",
-		"SepticInspectionFee",
-		"SettlementFee",
-		"SmokeDetectorInspectionFee",
-		"StructuralInspectionFee",
-		"SubordinationFee",
-		"SurveyFee",
-		"TemporaryBuydownAdministrationFee",
-		"TitleClosingFee",
-		"TitleClosingProtectionLetterFee",
-		"TitleDocumentPreparationFee",
-		"TitleEndorsementFee",
-		"TitleExaminationFee",
-		"TitleInsuranceBinderFee",
-		"TitleLendersCoveragePremium",
-		"TitleNotaryFee",
-		"TitleUnderwritingIssueResolutionFee",
-		"USDARuralDevelopmentGuaranteeFee",
-		"VAFundingFee", 
-		"VerificationOfAssetsFee",
-		"VerificationOfEmploymentFee",
-		"VerificationOfIncomeFee",
-		"VerificationOfResidencyStatusFee",
-		"VerificationOfTaxpayerIdentificationFee",
-		"VerificationOfTaxReturnFee",
-		"WaterTestingFee",
-		"WellInspectionFee",
-		"WireTransferFee"
+   this.sectionBfeeTypes = [
+		{
+		 "name":"203K Architectural And Engineering Fee",
+		 "value":"203KArchitecturalAndEngineeringFee",
+		 "disabled":false
+		},
+		{
+		"name":"203K Consultant Fee",
+		"value":"203KConsultantFee",
+		"disabled":false
+		},
+		{
+		"name":"203K Inspection Fee",
+		"value":"203KInspectionFee",
+		"disabled":false
+		},
+		,
+		{
+		"name":"203K Permits",
+		"value":"203KPermits",
+		"disabled":false
+		},
+		{
+		"name":"203K Title Update",
+		"value":"203KTitleUpdate",
+		"disabled":false
+		},
+		{
+		"name":"Application Fee",
+		"value":"ApplicationFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Desk Review Fee",
+		"value":"AppraisalDeskReviewFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Fee",
+		"value":"AppraisalFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Field Review Fee",
+		"value":"AppraisalFieldReviewFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Management Company Fee",
+		"value":"AppraisalManagementCompanyFee",
+		"disabled":false
+		},
+		{
+		"name":"Asbestos Inspection Fee",
+		"value":"AsbestosInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Assumption Fee",
+		"value":"AssumptionFee",
+		"disabled":false
+		},
+		{
+		"name":"Automated Underwriting Fee",
+		"value":"AutomatedUnderwritingFee",
+		"disabled":false
+		},
+		{
+		"name":"AVM Fee",
+		"value":"AVMFee",
+		"disabled":false
+		},
+		{
+		"name":"Bond Fee",
+		"value":"BondFee",
+		"disabled":false
+		},
+		{
+		"name":"Certification Fee",
+		"value":"CertificationFee",
+		"disabled":false
+		},
+		{
+		"name":"Copy Or Fax Fee",
+		"value":"CopyOrFaxFee",
+		"disabled":false
+		},
+		{
+		"name":"Courier Fee",
+		"value":"CourierFee",
+		"disabled":false
+		},
+		{
+		"name":"Credit Report Fee",
+		"value":"CreditReportFee",
+		"disabled":false
+		},
+		{
+		"name":"Disaster Inspection Fee",
+		"value":"DisasterInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Document Preparation Fee",
+		"value":"DocumentPreparationFee",
+		"disabled":false
+		},
+		{
+		"name":"Dry Wall Inspection Fee",
+		"value":"DryWallInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Electrical Inspection Fee",
+		"value":"ElectricalInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Electronic Document Delivery Fee",
+		"value":"ElectronicDocumentDeliveryFee",
+		"disabled":false
+		},
+		{
+		"name":"Environmental Inspection Fee",
+		"value":"EnvironmentalInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Escrow Service Fee",
+		"value":"EscrowServiceFee",
+		"disabled":false
+		},
+		{
+		"name":"Escrow Waiver Fee",
+		"value":"EscrowWaiverFee",
+		"disabled":false
+		},
+		{
+		"name":"Filing Fee",
+		"value":"FilingFee",
+		"disabled":false
+		},
+		{
+		"name":"Flood Certification",
+		"value":"FloodCertification",
+		"disabled":false
+		},
+		{
+		"name":"Foundation Inspection Fee",
+		"value":"FoundationInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Heating Cooling Inspection Fee",
+		"value":"HeatingCoolingInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"High Cost Mortgage Counseling Fee",
+		"value":"HighCostMortgageCounselingFee",
+		"disabled":false
+		},
+		{
+		"name":"Home Inspection Fee",
+		"value":"HomeInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Lead Inspection Fee",
+		"value":"LeadInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Lenders Attorney Fee",
+		"value":"LendersAttorneyFee",
+		"disabled":false
+		},
+		{
+		"name":"Manual Underwriting Fee",
+		"value":"ManualUnderwritingFee",
+		"disabled":false
+		},
+		{
+		"name":"MERS Registration Fee",
+		"value":"MERSRegistrationFee",
+		"disabled":false
+		},
+		{
+		"name":"MI Upfront Premium",
+		"value":"MIUpfrontPremium",
+		"disabled":false
+		},
+		{
+		"name":"Mold Inspection Fee",
+		"value":"MoldInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Notary Fee",
+		"value":"NotaryFee",
+		"disabled":false
+		},
+		{
+		"name":"Other",
+		"value":"Other",
+		"disabled":false
+		},
+		{
+		"name":"Pest Inspection Fee",
+		"value":"PestInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Plumbing Inspection Fee",
+		"value":"PlumbingInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Power Of Attorney Preparation Fee",
+		"value":"PowerOfAttorneyPreparationFee",
+		"disabled":false
+		},
+		{
+		"name":"Power Of Attorney Recording Fee",
+		"value":"PowerOfAttorneyRecordingFee",
+		"disabled":false
+		},
+		{
+		"name":"Preclosing Verification Control Fee",
+		"value":"PreclosingVerificationControlFee",
+		"disabled":false
+		},
+		{
+		"name":"Processing Fee",
+		"value":"ProcessingFee",
+		"disabled":false
+		},
+		{
+		"name":"Property Inspection Waiver Fee",
+		"value":"PropertyInspectionWaiverFee",
+		"disabled":false
+		},
+		{
+		"name":"Property Tax Status Research Fee",
+		"value":"PropertyTaxStatusResearchFee",
+		"disabled":false
+		},
+		{
+		"name":"Radon Inspection Fee",
+		"value":"RadonInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Reinspection Fee",
+		"value":"ReinspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Roof Inspection Fee",
+		"value":"RoofInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Septic Inspection Fee",
+		"value":"SepticInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Settlement Fee",
+		"value":"SettlementFee",
+		"disabled":false
+		},
+		{
+		"name":"Smoke Detector Inspection Fee",
+		"value":"SmokeDetectorInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Structural Inspection Fee",
+		"value":"StructuralInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Subordination Fee",
+		"value":"SubordinationFee",
+		"disabled":false
+		},
+		{
+		"name":"Survey Fee",
+		"value":"SurveyFee",
+		"disabled":false
+		},
+		{
+		"name":"Temporary Buydown Administration Fee",
+		"value":"TemporaryBuydownAdministrationFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Closing Fee",
+		"value":"TitleClosingFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Closing Protection Letter Fee",
+		"value":"TitleClosingProtectionLetterFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Document Preparation Fee",
+		"value":"TitleDocumentPreparationFee","disabled":false
+		},
+		{
+		"name":"Title Endorsement Fee",
+		"value":"TitleEndorsementFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Examination Fee",
+		"value":"TitleExaminationFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Insurance Binder Fee",
+		"value":"TitleInsuranceBinderFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Lenders Coverage Premium",
+		"value":"TitleLendersCoveragePremium",
+		"disabled":false
+		},
+		{
+		"name":"Title Notary Fee",
+		"value":"TitleNotaryFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Underwriting Issue Resolution Fee",
+		"value":"TitleUnderwritingIssueResolutionFee",
+		"disabled":false
+		},
+		{
+		"name":"USDA Rural Development Guarantee Fee",
+		"value":"USDARuralDevelopmentGuaranteeFee",
+		"disabled":false
+		},
+		{
+		"name":"VAFunding Fee",
+		"value":"VAFundingFee",
+		"disabled":false
+		}, 
+		{
+		"name":"Verification Of Assets Fee",
+		"value":"VerificationOfAssetsFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Employment Fee",
+		"value":"VerificationOfEmploymentFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Income Fee",
+		"value":"VerificationOfIncomeFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Residency Status Fee",
+		"value":"VerificationOfResidencyStatusFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Taxpayer Identification Fee",
+		"value":"VerificationOfTaxpayerIdentificationFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Tax Return Fee",
+		"value":"VerificationOfTaxReturnFee",
+		"disabled":false
+		},
+		{
+		"name":"Water Testing Fee",
+		"value":"WaterTestingFee",
+		"disabled":false
+		},
+		{
+		"name":"Well Inspection Fee",
+		"value":"WellInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Wire Transfer Fee",
+		"value":"WireTransferFee",
+		"disabled":false
+		}
 	];
     
     this.sectionCfeeTypes = [
-	    "203KArchitecturalAndEngineeringFee",
-		"203KConsultantFee",
-		"203KInspectionFee",
-		"203KPermits",
-		"203KTitleUpdate",
-		"ApplicationFee",
-		"AppraisalDeskReviewFee",
-		"AppraisalFee",
-		"AppraisalFieldReviewFee",
-		"AppraisalManagementCompanyFee",
-		"AsbestosInspectionFee",
-		"AssumptionFee",
-		"AutomatedUnderwritingFee",
-		"AVMFee",
-		"BondFee",
-		"CertificationFee",
-		"CopyOrFaxFee",
-		"CourierFee",
-		"CreditReportFee",
-		"DisasterInspectionFee",
-		"DocumentPreparationFee",
-		"DryWallInspectionFee",
-		"ElectricalInspectionFee",
-		"ElectronicDocumentDeliveryFee",
-		"EnvironmentalInspectionFee",
-		"EscrowServiceFee",
-		"EscrowWaiverFee",
-		"FilingFee",
-		"FloodCertification",
-		"FoundationInspectionFee",
-		"HeatingCoolingInspectionFee",
-		"HighCostMortgageCounselingFee",
-		"HomeInspectionFee",
-		"LeadInspectionFee",
-		"LendersAttorneyFee",
-		"ManualUnderwritingFee",
-		"MERSRegistrationFee",
-		"MIUpfrontPremium",
-		"MoldInspectionFee",
-		"NotaryFee",
-		"Other",
-		"PestInspectionFee",
-		"PlumbingInspectionFee",
-		"PowerOfAttorneyPreparationFee",
-		"PowerOfAttorneyRecordingFee",
-		"PreclosingVerificationControlFee",
-		"ProcessingFee",
-		"PropertyInspectionWaiverFee",
-		"PropertyTaxStatusResearchFee",
-		"RadonInspectionFee",
-		"ReinspectionFee",
-		"RoofInspectionFee",
-		"SepticInspectionFee",
-		"SettlementFee",
-		"SmokeDetectorInspectionFee",
-		"StructuralInspectionFee",
-		"SubordinationFee",
-		"SurveyFee",
-		"TemporaryBuydownAdministrationFee",
-		"TitleClosingFee",
-		"TitleClosingProtectionLetterFee",
-		"TitleDocumentPreparationFee",
-		"TitleEndorsementFee",
-		"TitleExaminationFee",
-		"TitleInsuranceBinderFee",
-		"TitleLendersCoveragePremium",
-		"TitleNotaryFee",
-		"TitleUnderwritingIssueResolutionFee",
-		"VerificationOfAssetsFee",
-		"VerificationOfEmploymentFee",
-		"VerificationOfIncomeFee",
-		"VerificationOfResidencyStatusFee",
-		"VerificationOfTaxpayerIdentificationFee",
-		"VerificationOfTaxReturnFee",
-		"WaterTestingFee",
-		"WellInspectionFee",
-		"WireTransferFee"
-
+		{
+		 "name":"203K Architectural And Engineering Fee",
+		 "value":"203KArchitecturalAndEngineeringFee",
+		 "disabled":false
+		},
+		{
+		"name":"203K Consultant Fee",
+		"value":"203KConsultantFee",
+		"disabled":false
+		},
+		{
+		"name":"203K Inspection Fee",
+		"value":"203KInspectionFee",
+		"disabled":false
+		},
+		,
+		{
+		"name":"203K Permits",
+		"value":"203KPermits",
+		"disabled":false
+		},
+		{
+		"name":"203K Title Update",
+		"value":"203KTitleUpdate",
+		"disabled":false
+		},
+		{
+		"name":"Application Fee",
+		"value":"ApplicationFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Desk Review Fee",
+		"value":"AppraisalDeskReviewFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Fee",
+		"value":"AppraisalFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Field Review Fee",
+		"value":"AppraisalFieldReviewFee",
+		"disabled":false
+		},
+		{
+		"name":"Appraisal Management Company Fee",
+		"value":"AppraisalManagementCompanyFee",
+		"disabled":false
+		},
+		{
+		"name":"Asbestos Inspection Fee",
+		"value":"AsbestosInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Assumption Fee",
+		"value":"AssumptionFee",
+		"disabled":false
+		},
+		{
+		"name":"Automated Underwriting Fee",
+		"value":"AutomatedUnderwritingFee",
+		"disabled":false
+		},
+		{
+		"name":"AVM Fee",
+		"value":"AVMFee",
+		"disabled":false
+		},
+		{
+		"name":"Bond Fee",
+		"value":"BondFee",
+		"disabled":false
+		},
+		{
+		"name":"Certification Fee",
+		"value":"CertificationFee",
+		"disabled":false
+		},
+		{
+		"name":"Copy Or Fax Fee",
+		"value":"CopyOrFaxFee",
+		"disabled":false
+		},
+		{
+		"name":"Courier Fee",
+		"value":"CourierFee",
+		"disabled":false
+		},
+		{
+		"name":"Credit Report Fee",
+		"value":"CreditReportFee",
+		"disabled":false
+		},
+		{
+		"name":"Disaster Inspection Fee",
+		"value":"DisasterInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Document Preparation Fee",
+		"value":"DocumentPreparationFee",
+		"disabled":false
+		},
+		{
+		"name":"Dry Wall Inspection Fee",
+		"value":"DryWallInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Electrical Inspection Fee",
+		"value":"ElectricalInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Electronic Document Delivery Fee",
+		"value":"ElectronicDocumentDeliveryFee",
+		"disabled":false
+		},
+		{
+		"name":"Environmental Inspection Fee",
+		"value":"EnvironmentalInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Escrow Service Fee",
+		"value":"EscrowServiceFee",
+		"disabled":false
+		},
+		{
+		"name":"Escrow Waiver Fee",
+		"value":"EscrowWaiverFee",
+		"disabled":false
+		},
+		{
+		"name":"Filing Fee",
+		"value":"FilingFee",
+		"disabled":false
+		},
+		{
+		"name":"Flood Certification",
+		"value":"FloodCertification",
+		"disabled":false
+		},
+		{
+		"name":"Foundation Inspection Fee",
+		"value":"FoundationInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Heating Cooling Inspection Fee",
+		"value":"HeatingCoolingInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"High Cost Mortgage Counseling Fee",
+		"value":"HighCostMortgageCounselingFee",
+		"disabled":false
+		},
+		{
+		"name":"Home Inspection Fee",
+		"value":"HomeInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Lead Inspection Fee",
+		"value":"LeadInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Lenders Attorney Fee",
+		"value":"LendersAttorneyFee",
+		"disabled":false
+		},
+		{
+		"name":"Manual Underwriting Fee",
+		"value":"ManualUnderwritingFee",
+		"disabled":false
+		},
+		{
+		"name":"MERS Registration Fee",
+		"value":"MERSRegistrationFee",
+		"disabled":false
+		},
+		{
+		"name":"MI Upfront Premium",
+		"value":"MIUpfrontPremium",
+		"disabled":false
+		},
+		{
+		"name":"Mold Inspection Fee",
+		"value":"MoldInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Notary Fee",
+		"value":"NotaryFee",
+		"disabled":false
+		},
+		{
+		"name":"Other",
+		"value":"Other",
+		"disabled":false
+		},
+		{
+		"name":"Pest Inspection Fee",
+		"value":"PestInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Plumbing Inspection Fee",
+		"value":"PlumbingInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Power Of Attorney Preparation Fee",
+		"value":"PowerOfAttorneyPreparationFee",
+		"disabled":false
+		},
+		{
+		"name":"Power Of Attorney Recording Fee",
+		"value":"PowerOfAttorneyRecordingFee",
+		"disabled":false
+		},
+		{
+		"name":"Preclosing Verification Control Fee",
+		"value":"PreclosingVerificationControlFee",
+		"disabled":false
+		},
+		{
+		"name":"Processing Fee",
+		"value":"ProcessingFee",
+		"disabled":false
+		},
+		{
+		"name":"Property Inspection Waiver Fee",
+		"value":"PropertyInspectionWaiverFee",
+		"disabled":false
+		},
+		{
+		"name":"Property Tax Status Research Fee",
+		"value":"PropertyTaxStatusResearchFee",
+		"disabled":false
+		},
+		{
+		"name":"Radon Inspection Fee",
+		"value":"RadonInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Reinspection Fee",
+		"value":"ReinspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Roof Inspection Fee",
+		"value":"RoofInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Septic Inspection Fee",
+		"value":"SepticInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Settlement Fee",
+		"value":"SettlementFee",
+		"disabled":false
+		},
+		{
+		"name":"Smoke Detector Inspection Fee",
+		"value":"SmokeDetectorInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Structural Inspection Fee",
+		"value":"StructuralInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Subordination Fee",
+		"value":"SubordinationFee",
+		"disabled":false
+		},
+		{
+		"name":"Survey Fee",
+		"value":"SurveyFee",
+		"disabled":false
+		},
+		{
+		"name":"Temporary Buydown Administration Fee",
+		"value":"TemporaryBuydownAdministrationFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Closing Fee",
+		"value":"TitleClosingFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Closing Protection Letter Fee",
+		"value":"TitleClosingProtectionLetterFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Document Preparation Fee",
+		"value":"TitleDocumentPreparationFee","disabled":false
+		},
+		{
+		"name":"Title Endorsement Fee",
+		"value":"TitleEndorsementFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Examination Fee",
+		"value":"TitleExaminationFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Insurance Binder Fee",
+		"value":"TitleInsuranceBinderFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Lenders Coverage Premium",
+		"value":"TitleLendersCoveragePremium",
+		"disabled":false
+		},
+		{
+		"name":"Title Notary Fee",
+		"value":"TitleNotaryFee",
+		"disabled":false
+		},
+		{
+		"name":"Title Underwriting Issue Resolution Fee",
+		"value":"TitleUnderwritingIssueResolutionFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Assets Fee",
+		"value":"VerificationOfAssetsFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Employment Fee",
+		"value":"VerificationOfEmploymentFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Income Fee",
+		"value":"VerificationOfIncomeFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Residency Status Fee",
+		"value":"VerificationOfResidencyStatusFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Taxpayer Identification Fee",
+		"value":"VerificationOfTaxpayerIdentificationFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Tax Return Fee",
+		"value":"VerificationOfTaxReturnFee",
+		"disabled":false
+		},
+		{
+		"name":"Water Testing Fee",
+		"value":"WaterTestingFee",
+		"disabled":false
+		},
+		{
+		"name":"Well Inspection Fee",
+		"value":"WellInspectionFee",
+		"disabled":false
+		},
+		{
+		"name":"Wire Transfer Fee",
+		"value":"WireTransferFee",
+		"disabled":false
+		}
 	];
     
     this.sectionEfeeTypes = [
@@ -779,46 +1588,198 @@ app.service('staticData', function($filter){
         }
 	];
 	
-	this.sectionHfeeTypes = [
-        "AsbestosInspectionFee",
-		"CondominiumAssociationDues",
-		"CondominiumAssociationSpecialAssessment",
-		"CooperativeAssociationDues",
-		"CooperativeAssociationSpecialAssessment",
-		"CreditDisabilityInsurancePremium",
-		"CreditLifeInsurancePremium",
-		"CreditPropertyInsurancePremium",
-		"CreditUnemploymentInsurancePremium",
-		"DebtCancellationInsurancePremium",
-		"DisasterInspectionFee",
-		"DryWallInspectionFee",
-		"ElectricalInspectionFee",
-		"EnvironmentalInspectionFee",
-		"FoundationInspectionFee",
-		"HeatingCoolingInspectionFee",
-		"HomeInspectionFee",
-		"HomeownersAssociationDues",
-		"HomeownersAssociationSpecialAssessment",
-		"HomeWarrantyFee",
-		"LeadInspectionFee",
-		"MoldInspectionFee",
-		"MunicipalLienCertificateFee",
-		"Other",
-		"PestInspectionFee",
-		"PlumbingInspectionFee",
-		"RadonInspectionFee",
-		"RealEstateCommissionBuyersBroker",
-		"RealEstateCommissionSellersBroker",
-		"ReconveyanceFee",
-		"RoofInspectionFee",
-		"SepticInspectionFee",
-		"SigningAgentFee",
-		"SmokeDetectorInspectionFee",
-		"StructuralInspectionFee",
-		"TitleOwnersCoveragePremium",
-		"WaterTestingFee",
-		"WellInspectionFee",
-	];
+	this.sectionHfeeTypes = [                                                                                                 
+	     {
+		 "name":"Asbestos Inspection Fee",
+		 "value":"AsbestosInspectionFee",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Condominium Association Dues",
+		 "value":"CondominiumAssociationDues",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Condominium AssociationSpecial Assessment",
+		 "value":"CondominiumAssociationSpecialAssessment",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Cooperative Association Dues",            
+		 "value":"CooperativeAssociationDues",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Cooperative Association Special Assessment",
+		 "value":"CooperativeAssociationSpecialAssessment",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Credit Disability Insurance Premium",
+		 "value":"CreditDisabilityInsurancePremium",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Credit LifeInsurance Premium",
+		 "value":"CreditLifeInsurancePremium",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Credit Property Insurance Premium",
+		 "value":"CreditPropertyInsurancePremium", 
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Credit Unemployment Insurance Premium",
+		 "value":"CreditUnemploymentInsurancePremium",
+	     "disabled":false
+		 }, 
+	     {
+		 "name":"Debt Cancellation Insurance Premium",
+		 "value":"DebtCancellationInsurancePremium",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Disaster Inspection Fee",
+		 "value":"DisasterInspectionFee",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Dry Wall Inspection Fee",
+		 "value":"DryWallInspectionFee", 
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Electrical Inspection Fee",
+		 "value":"ElectricalInspectionFee",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Environmental Inspection Fee",
+		 "value":"EnvironmentalInspectionFee",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Foundation Inspection Fee",
+		 "value":"FoundationInspectionFee", 
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Heating Cooling Inspection Fee",
+		 "value":"HeatingCoolingInspectionFee",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Home Inspection Fee", 
+		 "value":"HomeInspectionFee",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Homeowners Association Dues",
+		 "value":"HomeownersAssociationDues",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Homeowners Association Special Assessment",
+		 "value":"HomeownersAssociationSpecialAssessment", 
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Home Warranty Fee",  
+		 "value":"HomeWarrantyFee",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Lead Inspection Fee",    
+		 "value":"LeadInspectionFee",  
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Mold Inspection Fee", 
+		 "value":"MoldInspectionFee", 
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Municipal Lien Certificate Fee", 
+		 "value":"MunicipalLienCertificateFee",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Other",   
+		 "value":"Other", 
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Pest Inspection Fee", 
+		 "value":"PestInspectionFee",  
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Plumbing Inspection Fee",    
+		 "value":"PlumbingInspectionFee", 
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Radon Inspection Fee",
+		 "value":"RadonInspectionFee",  
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Real Estate Commission Buyers Broker",
+		 "value":"RealEstateCommissionBuyersBroker",   
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Real Estate Commission Sellers Broker", 
+		 "value":"RealEstateCommissionSellersBroker", 
+	     "disabled":false
+		 }, 
+	     {
+		 "name":"Reconveyance Fee",    
+		 "value":"ReconveyanceFee",  
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Roof Inspection Fee",   
+		 "value":"RoofInspectionFee", 
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Septic Inspection Fee", 
+		 "value":"SepticInspectionFee", 
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Signing AgentFee",   
+		 "value":"SigningAgentFee", 
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Smoke Detector Inspection Fee",
+		 "value":"SmokeDetectorInspectionFee",
+		 "disabled":false
+		 },
+	     {
+		 "name":"Structural Inspection Fee",
+		 "value":"StructuralInspectionFee",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Title Owners Coverage Premium",
+		 "value":"TitleOwnersCoveragePremium",
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Water Testing Fee",
+		 "value":"WaterTestingFee", 
+		 "disabled":false
+		 }, 
+	     {
+		 "name":"Well Inspection Fee",
+		 "value":"WellInspectionFee",
+		 "disabled":false
+		 } 
+	]; 
 
 	this.feePaidToTypes = [
 		{

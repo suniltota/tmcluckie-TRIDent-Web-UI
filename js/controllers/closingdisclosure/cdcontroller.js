@@ -346,8 +346,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 				
 		}
         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.length; i++){
-			if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.HfeeTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType)==-1)
-				$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.HfeeTypes.push($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType);
+			if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.HfeeTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType)==-1)
+				$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.HfeeTypes.push($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType);
 		};
 		if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList!=undefined) {
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(0, 0, angular.copy(prepaidsList));
