@@ -38,6 +38,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.escrowItemTypes = staticData.escrowItemTypes;
     $scope.liabilityTypes = staticData.liabilityTypes;
     $scope.adjustmentTypes = staticData.adjustmentTypes;
+    $scope.liabilityTypesPayoff = staticData.liabilityTypesPayoff;
     $scope.prorationItemTypes = staticData.prorationItemTypes;
     $scope.subordinateLiens = staticData.subordinateLiens;
     $scope.otherCredits = staticData.otherCredits;
