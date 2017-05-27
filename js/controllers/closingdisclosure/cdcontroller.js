@@ -1250,7 +1250,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].displayLabel ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feeType ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feeTypeOtherDescription ='';
-    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType ='ThirdPartyProvider';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToFullName ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].bpAtClosing ='';
@@ -1268,7 +1268,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].displayLabel ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeType ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeTypeOtherDescription ='';
-    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType ='';
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType ='ThirdPartyProvider';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToTypeOtherDescription ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToFullName ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].bpAtClosing ='';
@@ -1335,7 +1335,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     }
 
     $scope.clearPrepaidInfo = function(i){
-		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToType = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToType = 'ThirdPartyProvider';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidPaidToFullName = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing = '';
@@ -1350,7 +1350,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.clearPrepaidList = function(i){
     	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType = '';
     	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel = '';
-		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToType = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToType = 'ThirdPartyProvider';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidPaidToFullName = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing = '';
@@ -1371,7 +1371,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.clearEscrow = function(i){
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowCollectedNumberOfMonthsCount = '';
-		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].feePaidToType = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].feePaidToType = 'ThirdPartyProvider';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing = '';
@@ -1385,7 +1385,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.clearEscrowsList = function(i){
     	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType = '';
     	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].displayLabel = '';
-		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].feePaidToType = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].feePaidToType = 'ThirdPartyProvider';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].prepaidPaidToFullName = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing = '';
@@ -1405,7 +1405,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel = '';
     	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType = '';
     	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeTypeOtherDescription = '';
-		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feePaidToType = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feePaidToType = 'ThirdPartyProvider';
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feePaidToTypeOtherDescription = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feePaidToFullName = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing = '';
