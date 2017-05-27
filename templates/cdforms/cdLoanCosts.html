@@ -24,7 +24,8 @@
 		      </tr>
 		      <tr ng-repeat="originationCharge in cdformdata.closingCostDetailsLoanCosts.originationCharges">		      	
 		        <td ng-show="originationCharge.feeType == 'LoanDiscountPoints'">
-		        	<span class="input-group">
+		        	 <span class="col-sm-12 margin5tb padding0">Label Name</span>
+		        	 <span class="input-group">
 		        	 <input type="text" class="form-control" ng-model="originationCharge.feeTotalPercent">
 		        	 <span class="input-group-addon input-default">%</span> 
 		        	</span>
