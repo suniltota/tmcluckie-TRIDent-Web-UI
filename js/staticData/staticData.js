@@ -1828,7 +1828,6 @@ app.service('staticData', function($filter){
 		'TownPropertyTax',
 		'VolcanoInsurancePremium',
 		'WindAndStormInsurancePremium',
-		'PrepaidInterest'
 		];
     
     this.escrowItemTypes = [
@@ -3227,8 +3226,8 @@ this.cdformdata={
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "ServicesBorrowerDidShopFor",
 	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": false,
-	                "paymentIncludedInAPRIndicator": false
+	                "regulationZPointsAndFeesIndicator": true,
+	                "paymentIncludedInAPRIndicator": true
 	            }
 	        ],
 	        "tlCosts":
@@ -3278,8 +3277,8 @@ this.cdformdata={
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
 	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": false,
-	                "paymentIncludedInAPRIndicator": false
+	                "regulationZPointsAndFeesIndicator": true,
+	                "paymentIncludedInAPRIndicator": true
 	            }
 	        ],
 	        "prepaidsList":
@@ -3303,8 +3302,8 @@ this.cdformdata={
 	                "prepaidItemPerDiemCalculationMethodType": "",
 	                "prepaidItemType": "",
 	                "prepaidItemTypeOtherDescription": "",
-	                "regulationZPointsAndFeesIndicator": false,
-	                "paymentIncludedInAPRIndicator": false,
+	                "regulationZPointsAndFeesIndicator": true,
+	                "paymentIncludedInAPRIndicator": true,
 	                "prepaidPaidToFullName": ""
 	            }
 	        ],
@@ -3325,8 +3324,8 @@ this.cdformdata={
 			        "feePaidToType": "ThirdPartyProvider",
 			        "feePaidToTypeOtherDescription": "",
 			        "integratedDisclosureSectionType": "InitialEscrowPaymentAtClosing",
-			        "regulationZPointsAndFeesIndicator": false,
-			        "paymentIncludedInAPRIndicator": false
+			        "regulationZPointsAndFeesIndicator": true,
+			        "paymentIncludedInAPRIndicator": true
 	            }
 	        ],
 	        "otherCostsList":
@@ -3350,8 +3349,8 @@ this.cdformdata={
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "",
 	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": false,
-	                "paymentIncludedInAPRIndicator": false
+	                "regulationZPointsAndFeesIndicator": true,
+	                "paymentIncludedInAPRIndicator": true
 	            }
 	        ]
 	    },
