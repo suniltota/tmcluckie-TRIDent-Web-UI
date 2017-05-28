@@ -2450,11 +2450,13 @@ app.service('staticData', function($filter){
 	this.subordinateLiens = [ 
 		{ 
 			"name" : "Other",
-			"value": "Other"  
+			"value": "Other",  
+			'disabled': false
 		},
 		{
 			"name" : "Proceeds Of Subordinate Liens",
-			"value":"ProceedsOfSubordinateLiens"
+			"value":"ProceedsOfSubordinateLiens",  
+			'disabled': false
 		}
 	];
 

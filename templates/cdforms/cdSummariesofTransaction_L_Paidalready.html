@@ -49,7 +49,7 @@
 		      </tr>
 		</table>
 	</span>
-	<span  class="col-sm-12 padding0">
+	<!-- <span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
 		        <th class="innerSectionHeader col-sm-10">Disclosure Description</th>
@@ -63,31 +63,33 @@
 		      </tr>
 		      
 		</table>
-	</span>
+	</span> -->
 
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
+		        <th class="innerSectionHeader"></th>
 		        <th class="innerSectionHeader">Label Name</th>
 		        <th class="innerSectionHeader">Valid Value</th>
 		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader">Qualifying Statement</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
 		      <tr>
 		        <td>
-		        	<label>Subordinate Lien proceeds</label> 
-		        </td>
-		        <td>
-		        	<select class="form-control padding0" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType">
-			        	<option value="" selected>Select</option>
-	                    <option ng-repeat="sLien in subordinateLiens" value="{{sLien.value}}">{{sLien.name}}</option>
+		        	<label>Is Disclosure Only?</label> 
+		        	<select class="form-control padding0" ng-model="disclosureOnly" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" ng-disabled="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType !='Other'" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemTypeOtherDescription"">  
+		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.displayLabel" ng-disabled="disclosureOnly==true">  
 		        </td>
 		        <td>
+		            <span>
+		        	<select class="form-control padding0" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType" ng-disabled="disclosureOnly==true">
+			        	<option value="" selected>Select</option>
+	                    <option ng-repeat="sLien in subordinateLiens" value="{{sLien.value}}">{{sLien.name}}</option>
+		        	</select>
+		        	&nbsp;
 		        	<ul class="ListChain" ng-show="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType =='ProceedsOfSubordinateLiens'">
 		        		<li><span class="pull-left margin5tb">Original Principal Balance?</span>
 		        			<span class="col-sm-6 pull-right">
@@ -104,11 +106,19 @@
 		        			</span>
 		        		</li>
 		        	</ul> 
+		        	<span ng-show="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType =='Other'">
+		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemTypeOtherDescription""> 
+		        	</span>
+
+		        	</span>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" ng-disabled="disclosureOnly==false" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemTypeOtherDescription"">  
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount" decimal-digits-with-number-format ng-disabled="disclosureOnly==true">
 		        </div>
 		        </td>
 		      </tr>

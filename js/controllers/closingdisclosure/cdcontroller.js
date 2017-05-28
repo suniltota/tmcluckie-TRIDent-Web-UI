@@ -66,7 +66,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.checkBorrower = false;
     $scope.interestRatePercent = 0;
     $scope.piAmount = 0;
-    
+    $scope.disclosureOnly = true;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -708,6 +708,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 					$scope.summariesOfTransaction_LSection.subordinateLien = $scope.summariesOfTransaction_LSection.adjustments[i];
 					$scope.summariesOfTransaction_LSection.adjustments.splice(i, 1);
 					i--;
+					$scope.disclosureOnly = false;
 				}
  			} 
  		}
@@ -1976,16 +1977,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 
     $scope.$watch('cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList',function(newValue,oldValue){
            var recordingFeeAmount = 0;
-           var previousValue = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpAtClosing;
+          //var previousValue = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpAtClosing;
            if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed)
            recordingFeeAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed);
            if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage)
-           recordingFeeAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage);
+           recordingFeeAmount += parseFloat($scope.cdformsdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage);
            if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed!="" || $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage!=""){
               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpAtClosing = recordingFeeAmount;
            }
     },true);
-
 });
 
 //date param of proper format to create date object.
