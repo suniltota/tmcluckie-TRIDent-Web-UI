@@ -792,7 +792,6 @@ app.service('staticData', function($filter){
 		"value":"203KInspectionFee",
 		"disabled":false
 		},
-		,
 		{
 		"name":"203K Permits",
 		"value":"203KPermits",
@@ -1190,7 +1189,6 @@ app.service('staticData', function($filter){
 		"value":"203KInspectionFee",
 		"disabled":false
 		},
-		,
 		{
 		"name":"203K Permits",
 		"value":"203KPermits",
@@ -1860,8 +1858,7 @@ app.service('staticData', function($filter){
 		'TownshipPropertyTax',
 		'VillagePropertyTax',
 		'VolcanoInsurance',
-		'WindstormInsurance',
-		'BoroughPropertyTax'
+		'WindstormInsurance'
     ];
     
     this.licenseAuthorityLevelTypes = [
