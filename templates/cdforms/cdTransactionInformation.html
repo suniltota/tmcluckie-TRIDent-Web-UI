@@ -4,11 +4,10 @@
 	<div class="col-sm-12 padding0" ng-repeat= "borrower in cdformdata.transactionInformation.borrowerDetails track by $index">
 		<h5 class="innerSectionHeader">Borrower Information 
       <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="borrower.checkBorrower" ng-click="sameBorrower($index)"> Same as 1<sup>st</sup> Borrower Address</span>
-      <span class="glyphicon-minus pull-right RemoveSection" ng-click="removeBorrower($index)" ng-show="$index != 0">
-          <a> Remove Borrower</a>
+      <span class="pull-right green RemoveSection" ng-click="backtoTop()" ng-show="$index != 0">
+          <a> Back To Top </a>
       </span>
-      <span class="glyphicon-minus pull-right RemoveSection margin50r" ng-click="backtoTop()" ng-show="$index != 0">
-          <a>Back To Top</a>
+      <span class="glyphicon glyphicon-trash pull-right margin50r red RemoveSection" ng-click="removeBorrower($index)" ng-show="$index != 0">
       </span>
     </h5>
 		 <div class="col-sm-6">
@@ -108,11 +107,10 @@
   <div class="col-sm-12 padding0"  ng-repeat= "seller in cdformdata.transactionInformation.sellerDetails track by $index">
     <h5 class="innerSectionHeader">Seller Information  
       <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="seller.checkSeller" ng-click="sameSeller($index)"> Same as 1<sup>st</sup> Seller Address</span>
-      <span class="glyphicon-minus pull-right RemoveSection" ng-click="removeSeller($index)" ng-show="$index != 0">
-          <a> Remove Seller</a>
+      <span class="pull-right green RemoveSection" ng-click="backtoTop()" ng-show="$index != 0">
+          <a> Back To Top </a>
       </span>
-      <span class="glyphicon-minus pull-right RemoveSection margin50r" ng-click="backtoTop()" ng-show="$index != 0">
-          <a>Back To Top</a>
+      <span class="glyphicon glyphicon-trash red pull-right margin50r RemoveSection" ng-click="removeSeller($index)" ng-show="$index != 0">
       </span>
     </h5>
      <div class="col-sm-6">

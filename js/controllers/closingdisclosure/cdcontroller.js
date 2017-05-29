@@ -9,6 +9,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	if(localStorage.loanFormType != undefined) {
 		staticData.basicLoanInfo.loanFormType = localStorage.loanFormType;
 	}
+	$scope.originationChargeDisplayLabelStatus=false;
+	$scope.originationChargeDisplayLabelValue;
 	$scope.loanBasicInfo = staticData.basicLoanInfo;
 	$scope.showTab = 'closingInfo';
 	$scope.dateFormat = staticData.dateDisplayFormat;
@@ -1073,6 +1075,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.ETIAComponentTypes.length; i++){
 			if($scope.ETIAComponentTypes[i].value == value) {
 				$scope.ETIAComponentTypes[i].disabled = true;
+				$scope.originationChargeDisplayLabelValue=$scope.sectionAfeeTypes[i].name;
 			} else if ($scope.ETIAComponentTypes[i].value == previousVal) {
 				$scope.ETIAComponentTypes[i].disabled = false;
 			}

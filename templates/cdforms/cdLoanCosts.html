@@ -34,13 +34,15 @@
 		        <td ng-show="originationCharge.feeType != 'LoanDiscountPoints'">
 		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
 		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control" ng-model="originationCharge.displayLabel" > 
+		        		<input type="text" class="form-control" ng-if="originationChargeDisplayLabelStatus" ng-model="originationCharge.displayLabel" >
+
+		        		<input type="text" class="form-control" ng-if="!originationChargeDisplayLabelStatus" ng-model="originationChargeDisplayLabelValue" >
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
 		        	<span class="col-sm-12 padding0">
 		        		<select class="form-control padding0" ng-model="originationCharge.feeType" ng-change="updateSectionAfeeTypes(originationCharge.feeType, $index)">
 	              			<option value="" selected>Select</option>
-	             			<option ng-repeat="feeType in sectionAfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
+	             			<option ng-repeat="feeType in sectionAfeeTypes track by $index" value="{{feeType.value}}" ng-model="sectionAfeeTypesValue"ng-disabled="feeType.disabled">{{feeType.name}}</option>
               		    </select> 
 		        	</span>
 		        	<span ng-hide="originationCharge.feeType!='Other'" class="col-sm-12 padding0">
