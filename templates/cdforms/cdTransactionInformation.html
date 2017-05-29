@@ -7,6 +7,9 @@
       <span class="glyphicon-minus pull-right RemoveSection" ng-click="removeBorrower($index)" ng-show="$index != 0">
           <a> Remove Borrower</a>
       </span>
+      <span class="glyphicon-minus pull-right RemoveSection margin50r" ng-click="backtoTop()" ng-show="$index != 0">
+          <a>Back To Top</a>
+      </span>
     </h5>
 		 <div class="col-sm-6">
           <div class="row col-sm-12 margin5tb">
@@ -107,6 +110,9 @@
       <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="seller.checkSeller" ng-click="sameSeller($index)"> Same as 1<sup>st</sup> Seller Address</span>
       <span class="glyphicon-minus pull-right RemoveSection" ng-click="removeSeller($index)" ng-show="$index != 0">
           <a> Remove Seller</a>
+      </span>
+      <span class="glyphicon-minus pull-right RemoveSection margin50r" ng-click="backtoTop()" ng-show="$index != 0">
+          <a>Back To Top</a>
       </span>
     </h5>
      <div class="col-sm-6">

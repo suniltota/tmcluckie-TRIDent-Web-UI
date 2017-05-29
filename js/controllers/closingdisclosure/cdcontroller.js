@@ -943,6 +943,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
     $scope.removeBorrower = function(index){
     	$scope.cdformdata.transactionInformation.borrowerDetails.splice(index,1);
     }
+    $scope.backtoTop = function(){
+    	console.log("i am here");
+    	$('#PDFviewContainer').scrollTop(0);
+    }
 
     $scope.addSeller = function(){
     	$scope.cdformdata.transactionInformation.sellerDetails.push(angular.copy(seller));
