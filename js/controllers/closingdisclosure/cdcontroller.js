@@ -1517,6 +1517,17 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.negativeAmortization.negativeAmortizationType = '';
     	}
     }, true);
+    
+    $scope.$watch('cdformdata.closingCostsTotal.closingCostsSubtotal', function(newValue, oldValue){
+    	if($scope.cdformdata.closingCostsTotal.closingCostsSubtotal) {
+    		$scope.summariesOfTransaction_KSection.closingCostsPaidAtClosing = $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing;
+    		$scope.summariesOfTransaction_NSection.closingCostsPaidAtClosing = $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.spAtClosing;
+    	}
+    	else {
+    		$scope.summariesOfTransaction_KSection.closingCostsPaidAtClosing = 0;
+    		$scope.summariesOfTransaction_NSection.closingCostsPaidAtClosing = 0;
+    	}
+    }, true);
 
 	var bpAtClosing = {
 		'originationChargeTotalbpAtClosing' : 0,
