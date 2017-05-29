@@ -263,7 +263,7 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
 
         ctrl.$formatters.push(function () {
             if(ctrl.$modelValue)
-              return $filter('number')(ctrl.$modelValue);
+              return $filter('number')(ctrl.$modelValue, 2);
             else
               return (ctrl.$modelValue);
         });
@@ -296,7 +296,7 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
             ctrl.$setViewValue(viewValue);
             ctrl.$render();
 
-            return digits;
+            return parseFloat(digits).toFixed(2);
           }
           return undefined;
         }            
