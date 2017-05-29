@@ -69,6 +69,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.interestRatePercent = 0;
     $scope.piAmount = 0;
     $scope.disclosureOnly = true;
+    $scope.toleranceCure = false;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
