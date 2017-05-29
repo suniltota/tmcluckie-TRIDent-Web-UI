@@ -1,7 +1,7 @@
 /**
  * Controller for transform function
  */
-app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticData, cdService) {
+app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $location, $anchorScroll, staticData, cdService) {
 
 	if(localStorage.loanPurposeType != undefined) {
 		staticData.basicLoanInfo.loanPurposeType = localStorage.loanPurposeType;
@@ -935,7 +935,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, staticD
 	$scope.checkRadio = function() {
 		console.log($scope.cdformdata.closingInformation.property.legalDescription);
 	}
+	$scope.scrollTo = function(id) {
+           $location.hash(id);
+           $anchorScroll();
+         };
 
+     $scope.productDescription = function(){
+     	$scope.changeTab('loanInfo'); 
+     	setTimeout( function(){
+     	$scope.scrollTo('ProductDescriptionInfo');
+     	}, 500)
+
+     }
+
+
+     
 	$scope.addBorrower = function(){
     	$scope.cdformdata.transactionInformation.borrowerDetails.push(angular.copy(borrower));
     }
