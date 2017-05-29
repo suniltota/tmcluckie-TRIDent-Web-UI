@@ -746,20 +746,22 @@ app.service('staticData', function($filter){
 		},
 		{
 		"name":"Verification Of Employment Fee",
-		"value":"VerificationOfEmploymentFee","disabled":false
-		},
-		{
-		"name":"Verification Of Income Fee",
-		"value":"Verification Of Income Fee","disabled":false
-		},
-		{
-		"name":"Verification Of Resvalueency Status Fee",
-		"value":"VerificationOfResvalueencyStatusFee",
+		"value":"VerificationOfEmploymentFee",
 		"disabled":false
 		},
 		{
-		"name":"Verification Of Taxpayervalueentification Fee",
-		"value":"VerificationOfTaxpayervalueentificationFee",
+		"name":"Verification Of Income Fee",
+		"value":"VerificationOfIncomeFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Residency Status Fee",
+		"value":"VerificationOfResidencyStatusFee",
+		"disabled":false
+		},
+		{
+		"name":"Verification Of Taxpayer Identification Fee",
+		"value":"VerificationOfTaxpayerIdentificationFee",
 		"disabled":false
 		},
 		{
