@@ -1033,6 +1033,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.showTab = tabName;
     	$('#PDFviewContainer').scrollTop(0);
     }
+    $scope.navigateTo = function(tabName, idname){
+    	$scope.showTab = tabName;
+    	setTimeout( function(){
+     		$scope.scrollTo(idname);
+     	}, 200);
+    }
     $scope.addPayOff = function(){
     	$scope.payoffsAndPaymentsList.push(angular.copy(payoffsAndPaymentObj));
     }
