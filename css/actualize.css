@@ -184,7 +184,7 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .calenderBtn{height: 30px;}
 /*.modal-header{padding:5px;}*/
 .margin2btb{margin-bottom: 2px;}
-.form-control{height:30px;padding:6px 6px;}
+.form-control{height:30px;padding:6px 1px 6px 3px;}
 
 .AddSection{float: left; margin: 10px 0; cursor: pointer;}
 .required{color:red;}
