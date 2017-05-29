@@ -2916,11 +2916,13 @@ this.cdformdata={
 		    "salePrice": "",
 		    "partyRoleType": "",
 		    "propertyValuationDetail": {
-		      "propertyEstimatedValueAmount": "",
-		      "propertyValuationAmount": "",
-		      "propertyValuationMethodType": "AutomatedValuationModel",
-		      "propertyValuationMethodTypeOtherDescription": "",
-		      "propertyValue": "Appraised"
+		    	"appraisalIdentifier":"",
+		    	"identifierOwnerURI": "",
+		      	"propertyEstimatedValueAmount": "",
+		      	"propertyValuationAmount": "",
+		      	"propertyValuationMethodType": "AutomatedValuationModel",
+		      	"propertyValuationMethodTypeOtherDescription": "",
+		      	"propertyValue": "Appraised"
 		    }
 		},
 		"closingInformationDetail": {

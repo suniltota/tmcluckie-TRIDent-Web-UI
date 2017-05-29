@@ -148,7 +148,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
 	var initializeCDformData = function() {
 		$scope.cdformdata = staticData.cdformdata;
-		$scope.cdformdata.termsOfLoan.loanPurposeType = $scope.loanBasicInfo.loanPurposeType;
+		$scope.cdformdata.termsOfLoan.loanPurposeType = $scope.loanBasicInfo.loanPurposeType.capitalizeFirstLetter();
 
 		borrower = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
 		seller = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
@@ -176,9 +176,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount%12;
-			//$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = $scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount/12;
-			//$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = parseFloat($scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount/12);
-			//$scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount = parseFloat($scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount/12);
 		}
 
 		for (i = $scope.cdformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
@@ -1053,7 +1050,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.payoffsAndPaymentsList.splice(index,1);
     }
     $scope.amortizationChange = function(){
-    	if($scope.cdformdata.loanInformation.amortizationType == 'Step' ){
+    	if($scope.cdformdata.loanInformation.amortizationType == 'Step'){
 			$scope.stepPaymentIndicator = true;
 		}
 		else{
@@ -1065,11 +1062,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.construction.constructionLoanType ='';
     	}
     }
-    $scope.negativeAmortizationChange = function(){
+    /*$scope.negativeAmortizationChange = function(){
     	if($scope.cdformdata.loanDetail.negativeAmortizationIndicator == false){
     		$scope.cdformdata.negativeAmortization.negativeAmortizationType ='';
     	}
-    }
+    }*/
 	$scope.updateETIAComponentTypes = function(value, index) {
 		var previousVal = $scope.cdformdata.etiaSection.etiaTypes[index];
 		$scope.cdformdata.etiaSection.etiaTypes[index] = value;
@@ -1464,6 +1461,25 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.deleteOthers = function(i){
     	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.splice(i,1);
     }
+
+    $scope.$watchCollection('[cdformdata.loanInformation.loanTermYears, cdformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){
+    	$scope.cdformdata.maturityRule.loanMaturityPeriodCount = 0;
+    	if($scope.cdformdata.loanInformation.loanTermYears)
+    		$scope.cdformdata.maturityRule.loanMaturityPeriodCount = parseInt($scope.cdformdata.loanInformation.loanTermYears * 12);
+    	if($scope.cdformdata.loanInformation.loanTermMonths)
+    		$scope.cdformdata.maturityRule.loanMaturityPeriodCount = $scope.cdformdata.maturityRule.loanMaturityPeriodCount + parseInt($scope.cdformdata.loanInformation.loanTermMonths);
+    	$scope.cdformdata.maturityRule.loanMaturityPeriodType = 'Month';
+    });
+
+    $scope.$watch('cdformdata.loanDetail.negativeAmortizationIndicator', function(newValue, oldValue){
+    	if($scope.cdformdata.loanDetail.negativeAmortizationIndicator) {
+    		$scope.cdformdata.loanDetail.loanAmountIncreaseIndicator = true;
+    	}
+    	else {
+    		$scope.cdformdata.loanDetail.loanAmountIncreaseIndicator = false;
+    		$scope.cdformdata.negativeAmortization.negativeAmortizationType = '';
+    	}
+    }, true);
 
 	var bpAtClosing = {
 		'originationChargeTotalbpAtClosing' : 0,
@@ -2059,4 +2075,9 @@ function add_business_days(date, days) {
   }
   now.setTime(now.getTime() + calendarDays * 24 * 60 * 60 * 1000); 
   return now;
+}
+
+
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
 }

@@ -184,20 +184,13 @@ app.directive('onlyDigits', function () {
       link: function (scope, element, attr, ctrl) {
         function inputValue(val) {
           if (val) {
-            var digits = val.replace(/[^0-9.]/g, '');
-            var decimalSplitValues = digits.split('.');
-
-            if (decimalSplitValues[1]!=undefined && decimalSplitValues[1].length > 2) {
-              decimalSplitValues[1] = decimalSplitValues[1].substring(0, 2);
-              digits = decimalSplitValues[0]+"."+decimalSplitValues[1];
-            }
+            var digits = val.replace(/[^0-9]/g, '');
             
-
             if (digits !== val) {
               ctrl.$setViewValue(digits);
               ctrl.$render();
             }
-            return parseFloat(digits);
+            return parseInt(digits);
           }
           return undefined;
         }            
@@ -303,7 +296,7 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
             ctrl.$setViewValue(viewValue);
             ctrl.$render();
 
-            return parseFloat(digits);
+            return digits;
           }
           return undefined;
         }            
@@ -347,7 +340,7 @@ app.directive('percentageFormat', function () {
               ctrl.$setViewValue(digits);
               ctrl.$render();
             }
-            return parseFloat(digits);
+            return digits;
           }
           return undefined;
         }
@@ -355,6 +348,7 @@ app.directive('percentageFormat', function () {
       }
     };
 });
+
 app.directive('months2years', function() {
   return {
     restrict: 'A',
@@ -381,4 +375,17 @@ app.directive('months2years', function() {
       ctrl.$parsers.push(inputValue);
     }
   };
+});
+
+
+app.filter('round', function() {
+    return function(input) {
+        return Math.round(input);
+    };
+});
+
+app.filter('ceil', function() {
+    return function(input) {
+        return Math.ceil(input);
+    };
 });
