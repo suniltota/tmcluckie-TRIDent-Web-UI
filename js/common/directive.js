@@ -144,21 +144,37 @@ app.directive('zipcodeFormat', function ($filter) {
             }
 
             ctrl.$formatters.push(function () {
-                return formatValue(ctrl.$modelValue);
+                return formatValue(ctrl.$modelValue, 'formxml');
             });
 
-            function formatValue(viewValue) {
+            function formatValue(viewValue, sourcefrom) {
               if(viewValue) {
                 var plainNumber = viewValue.replace(/[\-\.]/g, '');
-                if (plainNumber.length > 5) {
+                if (plainNumber.length >= 9) {
                     var plainNumber1 = plainNumber.slice(0, 5);
                     var plainNumber2 = plainNumber.slice(5);
                     if(plainNumber2.length>4) 
                       plainNumber2 = plainNumber2.slice(0,4);
 
                     plainNumber = plainNumber1 + "-" + plainNumber2;
+                } else if (plainNumber.length > 5 && plainNumber.length < 9) {
+                    var plainNumber1 = plainNumber.slice(0, 5);
+                    var plainNumber2 = plainNumber.slice(5);
+                    if(sourcefrom == 'formxml'){
+                      for(var i=plainNumber2.length; i<4; i++) {
+                        plainNumber2 = plainNumber2+"0";
+                      }
+                    }
+                    plainNumber = plainNumber1 + "-" + plainNumber2;
                 } else if (plainNumber.length === 5) {
                     plainNumber = plainNumber.toString();
+                } else if (plainNumber.length < 5) {
+                  if(sourcefrom == 'formxml'){
+                    for(var i=plainNumber.length; i<5; i++) {
+                      plainNumber = plainNumber+"0";
+                    }
+                  }
+                  plainNumber = plainNumber.toString();
                 }
                 return plainNumber;
               }
