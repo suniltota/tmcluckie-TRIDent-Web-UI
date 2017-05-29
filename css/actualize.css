@@ -85,7 +85,7 @@ ul li{list-style: none;}
 .PDFview > span{width:98%; margin:10px 1%; padding:20px 0; float: left; min-height: 96%; background: #fff;}
 .CDHeaderSection .fieldTitle{padding:8px; font-weight: bold;}
 .CDHeaderSection .FieldGroup{padding: 5px 0; width: 100%; float: left;}
-.innerSectionHeader{background:#eee; padding:7px 10px; color: #555; border-radius:2px;}
+.innerSectionHeader{background:#5bb1dc; padding:7px 10px; color: #fff; border-radius:2px;}
 th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 
 .home3 .CDHeaderSection .FieldGroup{padding: 2px;}
@@ -105,7 +105,7 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .LoanCostsRightTable .table th{padding:0 8px; height: 33px; vertical-align:inherit; text-align: center;}
 .LoanCostsRightTable .form-control{font-size: 11px;}
 .LoanCostsSection .innerSectionHeader{font-size: 11px; min-width:43px; word-wrap: break-word;}
-.LoanCostsSection .innerSectionMainHeader{padding: 5px!important; background:#ddd;}
+.LoanCostsSection .innerSectionMainHeader{padding: 5px!important; background:#5bb1dc;}
 .InsuranceSection .innerSectionHeader{max-width: 76px;}
 
 .OtherCostsRightTable .table{font-size: 11px;}
