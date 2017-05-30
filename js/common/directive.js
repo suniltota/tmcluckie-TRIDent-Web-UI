@@ -330,6 +330,61 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
 });
 
 
+app.directive('negativeDecimalDigitsWithNumberFormat', function ($compile, $filter) {
+     return {
+      require: 'ngModel',
+      restrict: 'A',
+      link: function (scope, element, attr, ctrl) {
+        if (!ctrl) {
+            return;
+        }
+
+        ctrl.$formatters.push(function () {
+            if(ctrl.$modelValue)
+              return $filter('number')(ctrl.$modelValue, 2);
+            else
+              return (ctrl.$modelValue);
+        });
+
+        function inputValue(val) {
+          if (val) {
+            var digits = val.replace(/[^0-9.]/g, '');
+            var isContainsDecimal = digits.indexOf(".");
+            var viewValue = "";
+            var minusSymbol ="- ";
+            if(isContainsDecimal != -1) {
+                var decimalSplitValues = digits.split('.');
+                if(decimalSplitValues[0].length>9)
+                  decimalSplitValues[0] = decimalSplitValues[0].substring(0, 9);
+                viewValue = $filter('number')(decimalSplitValues[0]);
+                            
+                if (decimalSplitValues[1]!="" && decimalSplitValues[1].length > 2) {
+                  decimalSplitValues[1] = decimalSplitValues[1].substring(0, 2);
+                  viewValue = viewValue + "." +decimalSplitValues[1];
+                } else if(decimalSplitValues[1].length == 2 || decimalSplitValues[1].length < 2){
+                   viewValue = viewValue + "." + decimalSplitValues[1];
+                } else {
+                  viewValue = viewValue + ".";
+                }
+                digits = decimalSplitValues[0] + "." +decimalSplitValues[1];
+            } else {
+              if( digits.length>9)
+                digits = digits.substring(0, 9);
+              viewValue = $filter('number')(digits);
+            }
+            ctrl.$setViewValue(minusSymbol + viewValue);
+            ctrl.$render();
+
+            return parseFloat(digits).toFixed(2);
+          }
+          return undefined;
+        }            
+        ctrl.$parsers.push(inputValue);
+      }
+    };
+});
+
+
 app.directive('percentageFormat', function () {
     return {
       require: 'ngModel',
