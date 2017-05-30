@@ -70,6 +70,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.piAmount = 0;
     $scope.disclosureOnly = true;
     $scope.toleranceCure = false;
+    $scope.toleranceCureDrpdwn = false;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -1217,6 +1218,29 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.showLenderTolerance = false;
     		$scope.toleranceSelection = false;
     		$scope.cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount = '';
+    	}
+    }
+
+    $scope.toleranceCheck = function(){
+    	if($scope.cdformdata.closingCostsTotal.lenderCredits!='0.00' && $scope.cdformdata.closingCostsTotal.lenderCredits!='0' && $scope.cdformdata.closingCostsTotal.lenderCredits!='' && $scope.cdformdata.closingCostsTotal.lenderCredits!=null &&  $scope.cdformdata.closingCostsTotal.lenderCredits!=undefined){
+    		$scope.toleranceCureDrpdwn = true;
+    		$scope.cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount='';
+    	}
+    	else{
+    		$scope.toleranceCureDrpdwn = false;
+    		$scope.toleranceCure = false;
+    		$scope.cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount='';
+    	}
+    }
+
+    $scope.toleranceChange = function(){
+    	if($scope.toleranceCureDrpdwn == true){
+           $scope.toleranceCure = true;
+    	   $scope.cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount='';
+    	}
+    	else{
+    		$scope.toleranceCure = false;
+    	    $scope.cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount='';
     	}
     }
 
