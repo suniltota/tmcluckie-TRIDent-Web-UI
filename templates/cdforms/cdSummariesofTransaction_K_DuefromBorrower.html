@@ -85,7 +85,7 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustments.displayLabel">  
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="adjustments.closingAdjustmentItemType" >
+		        	<select class="form-control padding0" ng-model="adjustments.closingAdjustmentItemType" ng-change="updateSectionMAdjustments($index)">
 			        		<option value="" selected>Select</option>
 		      				<option ng-repeat="adjustmentType in sectionKadjustmentTypes" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
 		      	    </select>

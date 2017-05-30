@@ -1220,6 +1220,40 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	}
     }
 
+     $scope.updateSectionMAdjustments = function(index) {
+     	var selectedSectionKadjustmentTypes = [];
+		for(var i=0; i<$scope.summariesOfTransaction_KSection.adjustments.length; i++) {
+			if((i==0 || i==1) && $scope.summariesOfTransaction_KSection.adjustments[i].closingAdjustmentItemType) {
+				var sellerAdjustment = $scope.summariesOfTransaction_KSection.adjustments[i];
+				sellerAdjustment['isFromBorrower'] = true;
+				sellerAdjustment.integratedDisclosureSectionType = "DueToSellerAtClosing";
+				$scope.summariesOfTransaction_MSection.adjustments.splice(i, 0, sellerAdjustment);
+			}
+			if($scope.summariesOfTransaction_KSection.adjustments[i].closingAdjustmentItemType && selectedSectionKadjustmentTypes.indexOf($scope.summariesOfTransaction_KSection.adjustments[i].closingAdjustmentItemType) == -1) {
+				selectedSectionKadjustmentTypes.push($scope.summariesOfTransaction_KSection.adjustments[i].closingAdjustmentItemType);
+			}
+		}
+		for(var i=0; i<selectedSectionKadjustmentTypes.length; i++) {
+			for(var j=0; j<$scope.summariesOfTransaction_MSection.adjustments.length; j++) {
+				if(j!=0 && j!=1 && selectedSectionKadjustmentTypes[i]==$scope.summariesOfTransaction_MSection.adjustments[j].closingAdjustmentItemType) {
+					$scope.summariesOfTransaction_MSection.adjustments.splice(j,1);
+					j--;
+				}
+			}
+		}
+		if($scope.summariesOfTransaction_MSection.adjustments.length > 5) {
+			$scope.summariesOfTransaction_MSection.adjustments = $scope.summariesOfTransaction_MSection.adjustments.splice(0, 5);
+		}
+		for(i=$scope.summariesOfTransaction_MSection.adjustments.length; i<5; i++) {
+			var sellerAdjustment = angular.copy(adjustment);
+			sellerAdjustment.integratedDisclosureSectionType='DueToSellerAtClosing';
+			sellerAdjustment.integratedDisclosureSubsectionType = 'Adjustments';
+			sellerAdjustment['isFromBorrower'] = false;
+			$scope.summariesOfTransaction_MSection.adjustments.push(sellerAdjustment);
+		}
+
+     }
+
     $scope.updateOtherCreditsFullName = function(index) {
     	var paidAlreadyByAdjustmentsOtherCredit = $scope.paidAlreadyByAdjustmentsOtherCredits[index];
     	if(paidAlreadyByAdjustmentsOtherCredit.payeeType=='Organization') {
