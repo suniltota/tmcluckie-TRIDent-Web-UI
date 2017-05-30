@@ -462,9 +462,9 @@
 		        	<span class="LabelValue col-sm-12">Property Taxes</span><br>
 
 		        	<span class="LabelText col-sm-10">Type:</span>
-		        	<select class="form-control col-sm-12 padding0" ng-model="prepaidsList.prepaidItemType">
+		        	<select class="form-control col-sm-12 padding0" ng-model="prepaidsList.prepaidItemType" ng-change="updateSectionFprepaidTypes(prepaidsList.prepaidItemType, $index)">
               		<option value="" selected>Select</option>
-             			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem}}">{{prepaidItem}}</option>
+             			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem.value}}" ng-disabled="prepaidItem.disabled">{{prepaidItem.name}}</option>
               		</select>
                     <span ng-show="prepaidsList.feeType =='Other'">
 	              		<span class="LabelText col-sm-10">Description:</span>
@@ -537,9 +537,9 @@
 		        	<span class="LabelValue col-sm-10"><input type="text" class="form-control padding0" name="" ng-model="prepaidsList.displayLabel"></span>
 
 		        	<span class="ValueText col-sm-10">Type:</span>
-		        	<select class="form-control col-sm-12 padding0" ng-model="prepaidsList.prepaidItemType">
+              		<select class="form-control col-sm-12 padding0" ng-model="prepaidsList.prepaidItemType" ng-change="updateSectionFprepaidTypes(prepaidsList.prepaidItemType, $index)">
               		<option value="" selected>Select</option>
-             			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem}}">{{prepaidItem}}</option>
+             			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem.value}}" ng-disabled="prepaidItem.disabled">{{prepaidItem.name}}</option>
               		</select>
                     <span ng-show="prepaidsList.prepaidItemType =='Other'">
                     	<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
@@ -772,9 +772,9 @@
 		        	<span class="LabelValue col-sm-10">Property Taxes</span>
 		        	<span class="ValueText col-sm-10">Valid Value:</span>
 		        	<span class="ValueValue col-sm-10">
-			        	<select class="form-control" ng-model="escrowItemsList.escrowItemType">
+			        	<select class="form-control" ng-model="escrowItemsList.escrowItemType" ng-change="updateSectionGescrowTypes(escrowItemsList.escrowItemType,$index)">
 	              		    <option value="" selected>Select</option>
-	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType}}">{{escrowItemType}}</option>
+	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType.value}}" ng-disabled="escrowItemType.disabled">{{escrowItemType.name}}</option>
 	              		</select>
               		</span><br>
               		<span  ng-show="escrowItemsList.escrowItemType=='Other'">
@@ -848,9 +848,9 @@
 		        	</span><br>
 		        	<span class="ValueText col-sm-10">Valid Value:</span>
 		        	<span class="ValueValue col-sm-10">
-			        	<select class="form-control" ng-model="escrowItemsList.escrowItemType">
+			        	<select class="form-control" ng-model="escrowItemsList.escrowItemType" ng-change="updateSectionGescrowTypes(escrowItemsList.escrowItemType,$index)">
 	              		    <option value="" selected>Select</option>
-	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType}}">{{escrowItemType}}</option>
+	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType.value}}" ng-disabled="escrowItemType.disabled">{{escrowItemType.name}}</option>
 	              		</select>
               		</span><br>
               		<span  ng-show="escrowItemsList.escrowItemType=='Other'">

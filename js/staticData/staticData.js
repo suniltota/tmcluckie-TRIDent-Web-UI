@@ -1807,58 +1807,254 @@ app.service('staticData', function($filter){
 	this.calendarMonths = ['Jan','Feb','Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
     this.prepaidItems = [
-		'BoroughPropertyTax',
-		'CityPropertyTax',
-		'CondominiumAssociationDues',
-		'CondominiumAssociationSpecialAssessment',
-		'CooperativeAssociationDues',
-		'CooperativeAssociationSpecialAssessment',
-		'CountyPropertyTax',
-		'DistrictPropertyTax',
-		'EarthquakeInsurancePremium',
-		'FloodInsurancePremium',
-		'HailInsurancePremium',
-		'HazardInsurancePremium',
-		'HomeownersAssociationDues',
-		'HomeownersAssociationSpecialAssessment',
-		'HomeownersInsurancePremium',
-		'MortgageInsurancePremium',
-		'Other',
-		'StatePropertyTax',
-		'TownPropertyTax',
-		'VolcanoInsurancePremium',
-		'WindAndStormInsurancePremium',
-		];
+		{
+		'name':'Borough Property Tax',                     
+		'value':'BoroughPropertyTax',
+		'disabled':false,
+		},
+		{
+		'name':'City Property Tax',                        
+		'value':'CityPropertyTax',                         
+		'disabled':false,
+		},
+		{
+		'name':'Condominium Association Dues', 
+		'value':'CondominiumAssociationDues', 
+		'disabled':false
+		},
+		{
+		'name':'Condominium Association Special Assessment',
+		'value':'CondominiumAssociationSpecialAssessment', 
+		'disabled':false
+		},
+		{
+		'name':'Cooperative Association Dues', 
+		'value':'CooperativeAssociationDues', 
+		'disabled':false
+		},
+		{
+		'name':'Cooperative Association Special Assessment',
+		'value':'CooperativeAssociationSpecialAssessment',
+		'disabled':false
+		},
+		{
+		'name':'County Property Tax',   
+		'value':'CountyPropertyTax',   
+		'disabled':false
+		},
+		{
+		'name':'District Property Tax', 
+		'value':'DistrictPropertyTax',  
+		'disabled':false
+		},
+		{
+		'name':'Earthquake Insurance Premium',  
+		'value':'EarthquakeInsurancePremium',
+		'disabled':false
+		},
+		{
+		'name':'FloodInsurance Premium', 
+		'value':'FloodInsurancePremium', 
+		'disabled':false
+		},
+		{
+		'name':'Hail Insurance Premium',
+		'value':'HailInsurancePremium', 
+		'disabled':false
+		},
+		{
+		'name':'Hazard Insurance Premium',
+		'value':'HazardInsurancePremium', 
+		'disabled':false
+		},
+		{
+		'name':'Homeowners Association Dues',
+		'value':'HomeownersAssociationDues',
+		'disabled':false
+		},
+		{
+		'name':'Homeowners Association Special Assessment', 
+		'value':'HomeownersAssociationSpecialAssessment',
+		'disabled':false
+		},
+		{
+		'name':'Homeowners Insurance Premium',     
+        'value':'HomeownersInsurancePremium', 
+		'disabled':false
+		},
+		{
+		'name':'Mortgage Insurance Premium',   
+		'value':'MortgageInsurancePremium',
+		'disabled':false
+		},
+		{
+		'name':'Other',               
+		'value':'Other',         
+		'disabled':false
+		},
+		{
+		'name':'State Property Tax',   
+		'value':'StatePropertyTax',  
+		'disabled':false
+		},
+		{
+		'name':'Town Property Tax',  
+		'value':'TownPropertyTax',
+		'disabled':false
+		},
+		{
+		'name':'Volcano Insurance Premium',  
+		'value':'VolcanoInsurancePremium',  
+		'disabled':false
+		},
+		{
+		'name':'Wind And Storm Insurance Premium', 
+		'value':'WindAndStormInsurancePremium', 
+		'disabled':false
+		}
+	];
     
     this.escrowItemTypes = [
-        'AssessmentTax',
-		'CityBondTax',
-		'CityPropertyTax',
-		'CondominiumAssociationDues',
-		'CondominiumAssociationSpecialAssessment',
-		'CooperativeAssociationDues',
-		'CooperativeAssociationSpecialAssessment',
-		'CountyBondTax',
-		'CountyPropertyTax',
-		'DistrictPropertyTax',
-		'EarthquakeInsurance',
-		'EnergyEfficientImprovementFunds',
-		'FloodInsurance',
-		'HailInsurancePremium',
-		'HazardInsurance',
-		'HomeownersAssociationDues',
-		'HomeownersAssociationSpecialAssessment',
-		'Other',
-		'ParishTax',
-		'PestInsurance',
-		'RehabilitationFunds',
-		'SchoolPropertyTax',
-		'StatePropertyTax',
-		'TownPropertyTax',
-		'TownshipPropertyTax',
-		'VillagePropertyTax',
-		'VolcanoInsurance',
-		'WindstormInsurance'
+        {
+        	'name':'Assessment Tax',                          
+        	'value':'AssessmentTax',                            
+        	'disabled':false
+        },
+		{
+			'name':'City Bond Tax',   
+			'value':'CityBondTax', 
+			'disabled':false
+		},
+		{
+			'name':'City Property Tax',
+			'value':'CityPropertyTax',
+			'disabled':false
+		},
+		{ 
+			'name':'Condominium Association Dues',
+			'value':'CondominiumAssociationDues',
+			'disabled':false
+		},
+		{
+			'name':'Condominium Association Special Assessment',
+			'value':'CondominiumAssociationSpecialAssessment', 
+			'disabled':false
+		},
+		{
+			'name':'Cooperative Association Dues', 
+			'value':'CooperativeAssociationDues',
+			'disabled':false
+		},
+		{
+			'name':'Cooperative Association Special Assessment',
+			'value':'CooperativeAssociationSpecialAssessment', 
+			'disabled':false
+		},
+		{
+			'name':'County Bond Tax',
+			'value':'CountyBondTax',
+			'disabled':false
+		},
+		{ 
+			'name':'County Property Tax',
+			'value':'CountyPropertyTax',
+			'disabled':false
+		},
+		{
+			'name':'District Property Tax', 
+			'value':'DistrictPropertyTax', 
+			'disabled':false
+		},
+		{
+			'name':'Earthquake Insurance',     
+			'value':'EarthquakeInsurance',  
+			'disabled':false
+		},
+		{
+			'name':'Energy Efficient Improvement Funds', 
+			'value':'EnergyEfficientImprovementFunds',         
+			'disabled':false
+		},
+		{
+			'name':'Flood Insurance',
+			'value':'FloodInsurance',
+			'disabled':false
+		},
+		{
+			'name':'Hail Insurance Premium',
+			'value':'HailInsurancePremium',
+			'disabled':false
+		},
+		{
+			'name':'Hazard Insurance',
+			'value':'HazardInsurance',
+			'disabled':false
+		},
+		{
+			'name':'Homeowners Association Dues',
+			'value':'HomeownersAssociationDues',
+			'disabled':false
+		},
+		{
+			'name':'Homeowners Association Special Assessment', 
+			'value':'HomeownersAssociationSpecialAssessment', 
+			'disabled':false
+		},
+		{
+			'name':'Other',  
+			'value':'Other',  
+			'disabled':false
+		},
+		{
+			'name':'Parish Tax', 
+			'value':'ParishTax',
+			'disabled':false
+		},
+		{ 
+			'name':'Pest Insurance',
+			'value':'PestInsurance',
+			'disabled':false
+		},
+		{
+			'name':'Rehabilitation Funds',
+			'value':'RehabilitationFunds',   
+			'disabled':false
+		},
+		{
+			'name':'School Property Tax',
+			'value':'SchoolPropertyTax', 
+			'disabled':false
+		},
+		{
+			'name':'State Property Tax',
+			'value':'StatePropertyTax',
+			'disabled':false
+		},
+		{ 
+			'name':'Town Property Tax', 
+			'value':'TownPropertyTax',
+			'disabled':false
+		},
+		{
+			'name':'Township Property Tax', 
+			'value':'TownshipPropertyTax',
+			'disabled':false
+		},
+		{
+			'name':'Village Property Tax', 
+			'value':'VillagePropertyTax',
+			'disabled':false
+		},
+		{
+			'name':'Volcano Insurance',
+			'value':'VolcanoInsurance',
+			'disabled':false
+		},
+		{
+			'name':'Windstorm Insurance',
+			'value':'WindstormInsurance', 
+		    'disabled':false
+		}
     ];
     
     this.licenseAuthorityLevelTypes = [

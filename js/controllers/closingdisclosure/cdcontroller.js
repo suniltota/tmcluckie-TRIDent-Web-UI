@@ -290,7 +290,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors['BfeeTypes']=[];
 		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors['CfeeTypes']=[];
 		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList['EfeeTypes']=[];
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList['FprepaidTypes']=[];
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList['GescrowTypes']=[];
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList['HfeeTypes']=[];
+
 
        	for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++){
 			if (i!=0 && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints') {
@@ -408,6 +411,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
 				i--;
 	       	}
+
+	       	if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.FprepaidTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType)==-1)
+				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.FprepaidTypes.push($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType);
 		};
 
 		if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList!=undefined) {
@@ -438,6 +444,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(i, 1);
 				i--;
 	       	}
+	       	if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.GescrowTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType)==-1)
+				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.GescrowTypes.push($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType);
 		};
 
 
@@ -1094,6 +1102,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.sectionAfeeTypes.length; i++){
 			if($scope.sectionAfeeTypes[i].value == value) {
 				$scope.sectionAfeeTypes[i].disabled = true;
+				$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].displayLabel = $scope.sectionAfeeTypes[i].name;
 			} else if ($scope.sectionAfeeTypes[i].value == previousAfeeVal) {
 				$scope.sectionAfeeTypes[i].disabled = false;
 			}
@@ -1105,6 +1114,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.sectionBfeeTypes.length; i++){
 			if($scope.sectionBfeeTypes[i].value == value) {
 				$scope.sectionBfeeTypes[i].disabled = true;
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].displayLabel = $scope.sectionBfeeTypes[i].name;
 			} else if ($scope.sectionBfeeTypes[i].value == previousBfeeVal) {
 				$scope.sectionBfeeTypes[i].disabled = false;
 			}
@@ -1116,6 +1126,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.sectionCfeeTypes.length; i++){
 			if($scope.sectionCfeeTypes[i].value == value) {
 				$scope.sectionCfeeTypes[i].disabled = true;
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].displayLabel = $scope.sectionCfeeTypes[i].name;
 			} else if ($scope.sectionCfeeTypes[i].value == previousCfeeVal) {
 				$scope.sectionCfeeTypes[i].disabled = false;
 			}
@@ -1127,22 +1138,52 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.sectionEfeeTypes.length; i++){
 			if($scope.sectionEfeeTypes[i].value == value) {
 				$scope.sectionEfeeTypes[i].disabled = true;
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].displayLabel = $scope.sectionEfeeTypes[i].name;
 			} else if ($scope.sectionEfeeTypes[i].value == previousEfeeVal) {
 				$scope.sectionEfeeTypes[i].disabled = false;
 			}
 		}
 	}
+
+	$scope.updateSectionFprepaidTypes = function(value, index) {
+		var previousFprepaidVal = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.FprepaidTypes[index];
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.FprepaidTypes[index] = value;
+		for(i=0; i<$scope.prepaidItems.length; i++){
+			if($scope.prepaidItems[i].value == value) {
+				$scope.prepaidItems[i].disabled = true;
+				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[index].displayLabel = $scope.prepaidItems[i].name;
+			} else if ($scope.prepaidItems[i].value == previousFprepaidVal) {
+				$scope.prepaidItems[i].disabled = false;
+			}
+		}
+	}
+
+	$scope.updateSectionGescrowTypes = function(value, index) {
+		var previousGescrowVal = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.GescrowTypes[index];
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.GescrowTypes[index] = value;
+		for(i=0; i<$scope.escrowItemTypes.length; i++){
+			if($scope.escrowItemTypes[i].value == value) {
+				$scope.escrowItemTypes[i].disabled = true;
+				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].displayLabel = $scope.escrowItemTypes[i].name;
+			} else if ($scope.escrowItemTypes[i].value == previousGescrowVal) {
+				$scope.escrowItemTypes[i].disabled = false;
+			}
+		}
+	}
+
 	$scope.updateSectionHfeeTypes = function(value, index) {
 		var previousHfeeVal = $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.HfeeTypes[index];
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.HfeeTypes[index] = value;
 		for(i=0; i<$scope.sectionHfeeTypes.length; i++){
 			if($scope.sectionHfeeTypes[i].value == value) {
 				$scope.sectionHfeeTypes[i].disabled = true;
+				$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].displayLabel = $scope.sectionHfeeTypes[i].name;
 			} else if ($scope.sectionHfeeTypes[i].value == previousHfeeVal) {
 				$scope.sectionHfeeTypes[i].disabled = false;
 			}
 		}
 	}
+
     $scope.sameBorrower = function(index){
     	var bCheck = $scope.cdformdata.transactionInformation.borrowerDetails[index];
     	if(bCheck.checkBorrower == true){
