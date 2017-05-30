@@ -348,7 +348,7 @@
 	<span  class="col-sm-6 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader col-sm-7">Section D. Total Loan Costs (Borrower Paid)</th>
+				<th class="innerSectionHeader innerSectionMainHeader col-sm-8">Section D. Total Loan Costs (Borrower Paid)</th>
 				
 				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | number:2}}</th>
 			  </tr>
@@ -356,10 +356,10 @@
 		        <td>
 		        	Loan Costs Subtotal (A+B+C)
 		        </td>
-		        <td class="text-center">
+		        <td class="text-center col-sm-2">
 		        	${{cdformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing | number:2}}
 		        </td>
-		        <td class="text-center">
+		        <td class="text-center col-sm-2">
 		        	${{cdformdata.closingCostDetailsLoanCosts.tlCosts.bpB4Closing | number:2}}
 		        </td>
 		      </tr>
