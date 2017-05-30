@@ -366,6 +366,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				temp++;
 			}
 
+			if(i>1 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == '') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
+				i--;
+			}
+
 			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType)==-1)
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.push($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType);
 				
