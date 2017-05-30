@@ -107,6 +107,15 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .LoanCostsRightTable .form-control{font-size: 11px;}
 .LoanCostsSection .innerSectionHeader{font-size: 11px; min-width:43px; word-wrap: break-word;}
 .LoanCostsSection .innerSectionMainHeader{padding: 5px!important; background:#5bb1dc;}
+.LoanCostsSection .FeeInfo{width: 15%;}
+.LoanCostsSection .FeePaid{width: 10%;}
+.LoanCostsSection .BPatClosing, .LoanCostsSection .BPbeforeClosing, .LoanCostsSection .SPatClosing, .LoanCostsSection .SPbeforeClosing, .LoanCostsSection .PaidByOther{width:11%;}
+.LoanCostsSection .PaidByLender{width: 4%;}
+.LoanCostsSection .incInApr, .LoanCostsSection .incRegZ{width:6%;}
+.LoanCostsSection .DeleteIcons{width: 4%;}
+.LoanCostsSection .input-group-addon{padding: 6px;}
+
+
 .InsuranceSection .innerSectionHeader{max-width: 76px;}
 
 .OtherCostsRightTable .table{font-size: 11px;}
