@@ -1338,6 +1338,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	}
     }
 
+    $scope.updatePropertyValuationMethodType = function() {
+    	$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodTypeOtherDescription = $scope.cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodType!='Other' ? '' : $scope.cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodTypeOtherDescription;
+    }
+
     $scope.deleteOC = function(index){
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.splice(index,1);
     }
