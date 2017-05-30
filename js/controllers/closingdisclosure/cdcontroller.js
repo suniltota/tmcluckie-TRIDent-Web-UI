@@ -1693,6 +1693,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		 paidByOthers.originationChargeTotalpaidByOthers = 0;
 
          for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++) {
+         	if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints'){
+         	   var loanDiscountAmount = 0;
+               loanDiscountAmount = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent ? $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent*($scope.cdformdata.termsOfLoan.noteAmount/100) : +0;
+         	   $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing = loanDiscountAmount; 
+         	}
          	bpAtClosing.originationChargeTotalbpAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing) : +0;
          	bpB4Closing.originationChargeTotalbpB4Closing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing) : +0;
          	spAtClosing.originationChargeTotalspAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing) : +0;
