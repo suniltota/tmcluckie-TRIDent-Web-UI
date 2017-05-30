@@ -448,6 +448,16 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.GescrowTypes.push($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType);
 		};
 
+		if($scope.cdformdata.closingCostsTotal.lenderCredits!='0.00' && $scope.cdformdata.closingCostsTotal.lenderCredits!='0' && $scope.cdformdata.closingCostsTotal.lenderCredits!='' && $scope.cdformdata.closingCostsTotal.lenderCredits!=null &&  $scope.cdformdata.closingCostsTotal.lenderCredits!=undefined){
+    		$scope.toleranceCureDrpdwn = true;
+    		if($scope.cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount)
+    			$scope.toleranceCure = true;
+    		else {
+    			$scope.toleranceCure = false;
+    			$scope.cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount='';
+    		}
+    	}
+
 
 
 		// Summaries of Tranaction

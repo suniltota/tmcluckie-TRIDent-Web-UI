@@ -228,9 +228,14 @@ app.directive('negativeDigits', function ($filter) {
         }
 
         ctrl.$formatters.push(function () {
-            if(ctrl.$modelValue)
-              return $filter('number')(ctrl.$modelValue);
-            else
+            if(ctrl.$modelValue) {
+              if(ctrl.$modelValue.indexOf("-")!=-1) {
+                var value = ctrl.$modelValue.replace(/[\-\,]/g, '');
+                return $filter('number')(value, 2);
+              } else {
+                return $filter('number')(ctrl.$modelValue, 2);
+              }
+            } else
               return (ctrl.$modelValue);
         });
 
