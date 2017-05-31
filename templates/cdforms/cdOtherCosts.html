@@ -240,14 +240,14 @@
 		        	</span>
 		        	<span class="margin5tb col-sm-12 padding0">Paid From Date:</span>
 					<span class="col-sm-10 padding0">
-					<input type="text" name="disbursementDate" id="prepaidItemPaidFromDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="prepaidsList.prepaidItemPaidFromDate" min-date="cdformdata.closingInformationDetail.closingDate" is-open="isPaidFromDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Paid From Date" disabled ng-change="perDiemCalc()"/>
+					<input type="text" name="disbursementDate" id="prepaidItemPaidFromDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="prepaidsList.prepaidItemPaidFromDate" min-date="cdformdata.closingInformation.dateIssued" is-open="isPaidFromDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Paid From Date" disabled ng-change="perDiemCalc()"/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isPaidFromDate = !isPaidFromDate"><i class="glyphicon glyphicon-calendar"></i></button>
 	        		</span>
 		        	<span class="margin5tb col-sm-12 padding0">Paid To Date:</span>
 					<span class="col-sm-10 padding0">
-					<input type="text" name="disbursementDate" id="prepaidItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="prepaidsList.prepaidItemPaidThroughDate" min-date="prepaidsList.prepaidItemPaidFromDate ? prepaidsList.prepaidItemPaidFromDate : cdformdata.closingInformationDetail.closingDate" is-open="isPaidThroughDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Paid To Date" disabled ng-change="perDiemCalc()"/>
+					<input type="text" name="disbursementDate" id="prepaidItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="prepaidsList.prepaidItemPaidThroughDate" min-date="prepaidsList.prepaidItemPaidFromDate ? prepaidsList.prepaidItemPaidFromDate : cdformdata.closingInformation.dateIssued" is-open="isPaidThroughDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Paid To Date" disabled ng-change="perDiemCalc()"/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isPaidThroughDate = !isPaidThroughDate"><i class="glyphicon glyphicon-calendar"></i></button>
