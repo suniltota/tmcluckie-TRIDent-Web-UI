@@ -2214,6 +2214,16 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		} else{
 			$scope.summariesOfTransaction_LSection.loanAmount = 0;
 		}
+
+	//Calculations regarding Loan Discount Percentage in Section A. Origination Charge of Other Costs
+ 	for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++){
+	   if ($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints') {
+	   var loanDiscountAmount = 0;
+       loanDiscountAmount = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent ? $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent*($scope.cdformdata.termsOfLoan.noteAmount/100) : +0;
+ 	   $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing = loanDiscountAmount; 
+       }
+    }
+
 	}, true);
 
     $scope.$watch('cdformdata.projectedPayments',function(newValue,oldValue){
