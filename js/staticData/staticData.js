@@ -1804,6 +1804,17 @@ app.service('staticData', function($filter){
 		}
 	];
 
+    this.feePaidToTypeDescription = [
+		{
+			'name' : 'Broker Affiliate',
+			'value':'BrokerAffiliate'
+		},
+		{
+			'name' : 'Lender Affiliate',
+			'value':'LenderAffiliate'
+		}
+	];
+
 	this.calendarMonths = ['Jan','Feb','Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
     this.prepaidItems = [
