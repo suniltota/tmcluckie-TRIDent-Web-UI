@@ -955,9 +955,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		}
 	}
 
-	$scope.checkRadio = function() {
-		console.log($scope.cdformdata.closingInformation.property.legalDescription);
+	$scope.checkPropertyRadio = function() {
+		if(!$scope.cdformdata.closingInformation.property.legalDescription)
+			$scope.cdformdata.closingInformation.property.unparsedLegalDescription = "";
 	}
+	
 	$scope.scrollTo = function(id) {
            $location.hash(id);
            $anchorScroll();
