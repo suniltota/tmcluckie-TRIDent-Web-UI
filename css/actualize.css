@@ -56,7 +56,7 @@ input, select, textarea, .form-control{font-size: 12px;}
 .red{color:#e21414;}
 .green{color:#009688;}
 .cursor{cursor: pointer;}
-.helpIcon{font-size: 14px; color:#5bb1dc;}
+.helpIcon{font-size: 14px; color:#fff;}
 ul li{list-style: none;}
 .popup_innerHeader{background:#eee; padding:7px 10px; margin: 5px 0px;}
 .notificationIcons{margin:8px 10px; color:#5bb1dc;}
@@ -106,7 +106,7 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .LoanCostsRightTable .table th{padding:0 8px; height: 33px; vertical-align:inherit; text-align: center;}
 .LoanCostsRightTable .form-control{font-size: 11px;}
 .LoanCostsSection .innerSectionHeader{font-size: 11px; min-width:43px; word-wrap: break-word;}
-.LoanCostsSection .innerSectionMainHeader{padding: 5px!important; background:#5bb1dc;}
+.LoanCostsSection .innerSectionMainHeader{padding: 5px!important; background:#2280af;}
 .LoanCostsSection .FeeInfo{width: 15%;}
 .LoanCostsSection .FeePaid{width: 10%;}
 .LoanCostsSection .BPatClosing, .LoanCostsSection .BPbeforeClosing, .LoanCostsSection .SPatClosing, .LoanCostsSection .SPbeforeClosing, .LoanCostsSection .PaidByOther{width:11%;}
