@@ -1621,7 +1621,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     
     $scope.loanDiscount = function(index){
  	   var loanDiscountAmount = 0;
-       loanDiscountAmount = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTotalPercent ? $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTotalPercent*($scope.cdformdata.termsOfLoan.noteAmount/100) : +0;
+       loanDiscountAmount = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTotalPercent ? ($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTotalPercent*$scope.cdformdata.termsOfLoan.noteAmount)/100 : +0;
  	   $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].bpAtClosing = loanDiscountAmount; 
     }
 
@@ -1650,12 +1650,17 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		    }
 	    }
     }
+
     $scope.amountPerMonth = function(index){
     	var amount = 0;
 		var months = 0;
-		amount = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount ? $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount : +0;
-		months = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowCollectedNumberOfMonthsCount ? $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowCollectedNumberOfMonthsCount : +0;
-		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].bpAtClosing = parseFloat(amount*months);
+		if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowCollectedNumberOfMonthsCount){
+			amount = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount ? $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount : +0;
+			months = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowCollectedNumberOfMonthsCount ? $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowCollectedNumberOfMonthsCount : +0;
+			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].bpAtClosing = parseFloat(amount*months);
+	    }else{
+            $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].bpAtClosing = '';
+	    }
     }
 
     $scope.$watchCollection('[cdformdata.loanInformation.loanTermYears, cdformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){
@@ -2219,10 +2224,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
 	//Calculations regarding Loan Discount Percentage in Section A. Origination Charge of Other Costs
  	for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++){
-	   if ($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints') {
-	   var loanDiscountAmount = 0;
-       loanDiscountAmount = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent ? $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent*($scope.cdformdata.termsOfLoan.noteAmount/100) : +0;
- 	   $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing = loanDiscountAmount; 
+	   if ($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints'){
+		   var loanDiscountAmount = 0;
+		   if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent && $scope.cdformdata.termsOfLoan.noteAmount){
+		   		loanDiscountAmount = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent ? ($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent*$scope.cdformdata.termsOfLoan.noteAmount)/100 : +0;
+	 	   		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing = loanDiscountAmount;
+		   } else {
+		   		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ='';
+		   }
        }
     }
 
