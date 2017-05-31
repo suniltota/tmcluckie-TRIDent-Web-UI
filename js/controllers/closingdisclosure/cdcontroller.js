@@ -960,6 +960,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.closingInformation.property.unparsedLegalDescription = "";
 	}
 	
+	$scope.changePropertyPrice = function() {
+		if($scope.cdformdata.salesContractDetail.personalPropertyIndicator) {
+			$scope.cdformdata.salesContractDetail.saleContractAmount = "";
+		} else 
+			$scope.cdformdata.salesContractDetail.realPropertyAmount = "";
+	}
+
+	$scope.changePropertyValueAmount = function() {
+		if($scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised') {
+			$scope.cdformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount = "";
+		} else {
+			$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValuationAmount = "";
+		}
+	}
+
 	$scope.scrollTo = function(id) {
            $location.hash(id);
            $anchorScroll();

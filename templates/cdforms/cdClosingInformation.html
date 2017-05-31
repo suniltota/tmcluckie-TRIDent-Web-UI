@@ -115,7 +115,7 @@
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Personal Property Included?</div>
 			              <div class="col-sm-3">
-			              		<select class="form-control" ng-model="cdformdata.salesContractDetail.personalPropertyIndicator"
+			              		<select class="form-control" ng-model="cdformdata.salesContractDetail.personalPropertyIndicator" ng-change="changePropertyPrice()"
 			              		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 	                            </select>
 			              </div>
@@ -150,7 +150,7 @@
 				 	 <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Choose either “Appraised Property Value” or “Estimated Property Value”</div>
 		              	<div class="col-sm-7">
-		              		<select class="form-control" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyValue">
+		              		<select class="form-control" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyValue" ng-change="changePropertyValueAmount()">
 		              			<option value="Appraised">Appraised Property Value</option>
 		              			<option value="Estimated">Estimated Property Value</option>
 		              		</select>
