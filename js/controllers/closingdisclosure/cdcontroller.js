@@ -1703,6 +1703,37 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    }else{
             $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].bpAtClosing = '';
 	    }
+        
+        //Calculating Prepaids bpAtClosing amount
+	    var prepaidmonths = 0;
+		var escrowAmount = 0;
+		for(i=0;i<$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.length;i++){
+			if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowItemType)!=-1 && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowItemType){
+				if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemMonthsPaidCount && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount){
+					prepaidmonths = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemMonthsPaidCount ? $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemMonthsPaidCount : +0;
+					escrowAmount = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount ? $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount : +0;
+					$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = parseFloat(prepaidmonths*escrowAmount);
+			    }else{
+		            $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = '';
+			    }
+		    }
+	    }
+    }
+
+    $scope.prepaidPerMonth = function(ideType,index){
+		var months = 0;
+		var prepaidAmount = 0;
+		for(i=0;i<$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length;i++){
+			if(ideType.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType)!=-1 && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType){
+				if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[index].prepaidItemMonthsPaidCount && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount){
+					months = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[index].prepaidItemMonthsPaidCount ? $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[index].prepaidItemMonthsPaidCount : +0;
+					prepaidAmount = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount ? $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount : +0;
+					$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[index].bpAtClosing = parseFloat(months*prepaidAmount);
+			    }else{
+		            $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[index].bpAtClosing = '';
+			    }
+		    }
+	    }
     }
     
     $scope.$watchCollection('[cdformdata.loanInformation.loanTermYears, cdformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){

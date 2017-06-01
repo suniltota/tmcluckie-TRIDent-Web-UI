@@ -335,7 +335,7 @@
 		        	<!-- <span clacss="col-sm-12 ValueValue" ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span> -->
 		        	<span class="ValueText col-sm-10">No. of Months</span>
 		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth($index)"></span>
+		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"></span>
 		        </td>
 		        <td>
                     <span class="LabelText col-sm-12">Type:</span>
@@ -411,7 +411,7 @@
 		        	<!-- <span class="ValueValue col-sm-5 " ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span> -->
 		        	<span class="ValueText col-sm-10">No. of Months</span>
 		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth($index)"></span>
+		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"></span>
 		        </td>
 		        <td>
                     <span class="LabelText col-sm-12">Type:</span>
@@ -493,7 +493,7 @@
 			        </span>
 			        <span class="ValueText col-sm-12">No. of Months</span>
 		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth($index)"></span>
+		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"></span>
 		        </td>
 		        <td>
                     <span class="col-sm-12 LabelText">Type:</span>
@@ -574,7 +574,7 @@
 			        </span>
 			        <span class="ValueText col-sm-10">No. of Months</span>
 		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth($index)"></span>
+		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"></span>
 		        </td>
 		        <td>
                     <span class="LabelText col-sm-10">Type:</span>
