@@ -140,7 +140,10 @@ app.directive('zipcodeFormat', function ($filter) {
         require: 'ngModel',
         link: function (scope, elem, attrs, ctrl) {
             elem.bind('blur', function (e) {
+              if(e.target.value)
                  e.target.value = formatValue(e.target.value, 'formxml');
+               else
+                e.target.value = '';
             });
             if (!ctrl) {
                 return;
