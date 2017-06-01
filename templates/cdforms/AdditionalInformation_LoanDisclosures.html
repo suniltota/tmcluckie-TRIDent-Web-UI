@@ -8,13 +8,13 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-model="cdformdata.loanDetail.assumabilityIndicator" ng-checked="cdformdata.loanDetail.assumabilityIndicator == true"></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="cdformdata.loanDetail.assumabilityIndicator" ng-true-value="true" ng-false-value="false"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Will allow, under certain conditions, this person to assume this loan on the original terms
 		        			</span>
 		        	</span>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="cdformdata.loanDetail.assumabilityIndicator == false"></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="cdformdata.loanDetail.assumabilityIndicator" ng-true-value="false" ng-false-value="true"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Will Not allow assumption on this loan on the original terms
 		        			</span>
@@ -28,13 +28,13 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name=""  ng-checked="cdformdata.loanDetail.demandFeatureIndicator == true"></span>
+		        			<span class="pull-left"><input type="checkbox" name=""  ng-model="cdformdata.loanDetail.demandFeatureIndicator" ng-true-value="true" ng-false-value="false"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Has a demand feature, which permits your lender to require early repayment of the loan. 
 		        			</span>
 		        	</span>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="cdformdata.loanDetail.demandFeatureIndicator == false"></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="cdformdata.loanDetail.demandFeatureIndicator" ng-true-value="false" ng-false-value="true"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Does not have a demand feature
 		        			</span>

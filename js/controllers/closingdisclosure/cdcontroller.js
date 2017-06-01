@@ -1942,7 +1942,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		 spAtClosing.iEPatClosingTotalspAtClosing = 0;
 		 spB4Closing.iEPatClosingTotalspB4Closing = 0;
 		 paidByOthers.iEPatClosingTotalpaidByOthers = 0;
-
+         var escrowArray = [];
          for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length; i++) {
          	/*var amount = 0;
 			var months = 0;
@@ -1954,6 +1954,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
          	spAtClosing.iEPatClosingTotalspAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing) : +0;
           	spB4Closing.iEPatClosingTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing) : +0;
           	paidByOthers.iEPatClosingTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers) : +0;
+            
+            //Adding Values to Escrow Account
+            if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].displayLabel){
+            	escrowArray.push($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].displayLabel);
+            }
+            $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription =
+            angular.forEach(escrowArray, function(value) { 
+            	return value;
+            }).join(",");
          }
 
          bpAtClosing.iEPatClosingTotalbpAtClosing += ($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount == '' || undefined == $scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount) ? +0 : parseFloat($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount);
