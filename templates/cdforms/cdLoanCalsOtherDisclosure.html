@@ -114,10 +114,16 @@
 		      		</td>
 					<td rowspan="2" style="vertical-align: middle;" >
 		      			<span class="text-center">Will Protect Borrower</span>
-			        	<span class="text-center pull-right"><input type="checkbox" name="" ng-checked="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator == true" ng-click="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator = true"></span>
+			        	<span class="text-center pull-right">
+			        		<input type="checkbox" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator"
+			        			ng-true-value="true" ng-false-value="false">
+			        	</span>
 						<br>
 						<span class="text-center">Will Not Protect Borrower</span>
-			        	<span class="text-center pull-right"><input type="checkbox" name="" ng-checked="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator == false" ng-click="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator = false"></span>{{cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator}}
+			        	<span class="text-center pull-right">
+			        		<input type="checkbox" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator"
+			        			ng-true-value="false" ng-false-value="true">
+			        	</span>
 		      		</td>
 					<td rowspan="2" style="vertical-align: middle;">
 		      			<span class="text-left margin5lr">Ability to Repay Method Type <span class="required">*</span></span>							
