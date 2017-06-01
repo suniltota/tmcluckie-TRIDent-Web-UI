@@ -177,9 +177,10 @@
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
 			        		<select class="form-control padding0" ng-model="sbDidNotShopFor.feePaidToTypeOtherDescription">
-	              			<option value="" selected>Select</option>
-	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
-              		    </select>
+		              			<option value="" selected>Select</option>
+		             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
+              		    	</select>
+		        		</span>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.feePaidToFullName">
@@ -260,7 +261,7 @@
 		      <tr ng-repeat="sbDidShopFor in cdformdata.closingCostDetailsLoanCosts.sbDidShopFors">		 	<td>
 		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
 		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control"> 
+		        		<input type="text" class="form-control" ng-model="sbDidShopFor.displayLabel"> 
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
 		        	<span class="col-sm-12 padding0">
@@ -272,7 +273,7 @@
 		        	<span ng-show="sbDidShopFor.feeType=='Other'">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control padding0" name="" name="sbDidShopFor.feeTypeOtherDescription" name="sbDidShopFor."> 
+			        		<input type="text" class="form-control padding0" name="" name="sbDidShopFor.feeTypeOtherDescription" name=""> 
 			        	</span>
 		        	</span>
 		        </td>
