@@ -20,7 +20,7 @@
               <label>Organization</label>
             </div>
           </div>
-          <div class="row col-sm-12 margin5tb" ng-show="borrower.type=='I'">
+          <div class="row col-sm-12 margin5tb" ng-if="borrower.type=='I'">
             <div class="col-sm-5 fieldTitle">Borrower Type</div>
             <div class="col-sm-7">
                 <select placeholder="Organization Name"  class="form-control" ng-model="borrower.partyRoleType">
@@ -29,19 +29,19 @@
                 </select>
             </div>
           </div>
-          <div class="row col-sm-12 margin5tb" ng-show="borrower.type=='I' && borrower.partyRoleType == 'Other'">
-            <div class="col-sm-5 fieldTitle">Borrower Type Other Description</div>
+          <div class="row col-sm-12 margin5tb" ng-if="borrower.type=='I' && borrower.partyRoleType == 'Other'">
+            <div class="col-sm-5 fieldTitle"  ng-init="borrower.partyRoleOtherDescription = ''">Borrower Type Other Description</div>
             <div class="col-sm-7">
                  <input type="text" class="form-control" ng-model="borrower.partyRoleOtherDescription">
             </div>
           </div>
-          <div class="row col-sm-12 margin5tb" ng-show="borrower.type=='O'">
+          <div class="row col-sm-12 margin5tb" ng-if="borrower.type=='O'">
             <div class="col-sm-5 fieldTitle">Borrower Type</div>
             <div class="col-sm-7">
                 <input type="text" class="form-control" value="Borrower" ng-disabled="true" ng-model="borrower.partyRoleType">
             </div>
           </div>
-          <div ng-show="borrower.type == 'I'">
+          <div ng-if="borrower.type == 'I'">
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Borrower First Name</div>
               <div class="col-sm-7"><input type="text" placeholder="First Name"  class="form-control" ng-model="borrower.nameModel.firstName"></div>
@@ -59,7 +59,7 @@
               <div class="col-sm-7"><input type="text" class="form-control" ng-model="borrower.nameModel.suffixName"></div>
             </div>   
           </div>     
-          <div ng-show="borrower.type == 'O'">
+          <div ng-if="borrower.type == 'O'">
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Borrower Name</div>
               <div class="col-sm-7"><input type="text" class="form-control" placeholder="Borrower Name" ng-model="borrower.nameModel.fullName"></div>
