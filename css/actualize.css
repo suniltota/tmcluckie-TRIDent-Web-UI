@@ -108,11 +108,11 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .LoanCostsSection .innerSectionHeader{font-size: 11px; min-width:43px; word-wrap: break-word;}
 .LoanCostsSection .innerSectionMainHeader{padding: 5px!important; background:#2280af;}
 .LoanCostsSection .FeeInfo{width: 15%;}
-.LoanCostsSection .FeePaid{width: 10%;}
+.LoanCostsSection .FeePaid{width: 12%;}
 .LoanCostsSection .BPatClosing, .LoanCostsSection .BPbeforeClosing, .LoanCostsSection .SPatClosing, .LoanCostsSection .SPbeforeClosing, .LoanCostsSection .PaidByOther{width:11%;}
-.LoanCostsSection .PaidByLender{width: 4%;}
+.LoanCostsSection .PaidByLender{width: 3%;}
 .LoanCostsSection .incInApr, .LoanCostsSection .incRegZ{width:6%;}
-.LoanCostsSection .DeleteIcons{width: 4%;}
+.LoanCostsSection .DeleteIcons{width: 3%;}
 .LoanCostsSection .input-group-addon{padding: 6px;}
 
 
@@ -191,7 +191,7 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .modal-footer{clear: both; margin-top:10px;}
 
 .calenderInput{border-right: 0px;}
-.calenderBtn{height: 30px;}
+.calenderBtn{height: 30px; padding: 5px 7px;}
 /*.modal-header{padding:5px;}*/
 .margin2btb{margin-bottom: 2px;}
 .form-control{height:30px;padding:6px 1px 6px 3px;}
@@ -205,8 +205,8 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 #cashtoCloseModal .fieldValue input{height: 25px;}
 .finalFooterValues{background: #5bb1dc; padding:5px 15px; color: #fff; font-weight: bold;}
 
-.LabelText{margin-top: 5px;padding:0px;}
+.LabelText{margin-top: 5px;padding:0px; font-weight: bold;}
 .LabelValue{margin-bottom: 5px;padding:0px;}
-.ValueText{margin-top: 10px;padding:0px;}
+.ValueText{margin-top: 10px;padding:0px; font-weight: bold;}
 .ValueValue{margin-bottom: 5px;padding:0px;}
 .ausTrash{float: right;margin: -6px -35px 0px 0px;}

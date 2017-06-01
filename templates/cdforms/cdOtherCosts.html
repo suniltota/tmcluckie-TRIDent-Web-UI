@@ -7,29 +7,29 @@
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount | number:2}}</th>
 			  </tr>
 		     <tr>
-		        <th class="innerSectionHeader col-sm-2">Fee Information</th>
-		        <th class="innerSectionHeader col-sm-2">Fee Paid To Info.</th>
-		        <th class="innerSectionHeader col-sm-1">Borrower Paid AT Closing</th>
-		        <th class="innerSectionHeader  col-sm-1">Borrower Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader">Paid By OTHER</th>
-		        <th class="innerSectionHeader">Paid By Lender</th>
-		        <th class="innerSectionHeader">Include in APR?</th>
-		        <th class="innerSectionHeader">Delete / Clear</th>
+		        <th class="innerSectionHeader FeeInfo">Fee Information</th>
+		        <th class="innerSectionHeader FeePaid">Fee Paid To Info.</th>
+		        <th class="innerSectionHeader BPatClosing">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader BPbeforeClosing">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader SPatClosing" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader SPbeforeClosing" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader PaidByOther">Paid By OTHER</th>
+		        <th class="innerSectionHeader PaidByLender">Paid By Lender</th>
+		        <th class="innerSectionHeader incInApr">Include in APR?</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-if="tOGovtFee.feeType == 'RecordingFee'">		      	
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0" style="font-weight: bold;">Recording Fee Total</span>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fee For Deed</span>
-		        	<span class="col-sm-8 padding0 pull-right">
+		        	<span class="col-sm-10 padding0 pull-right">
 			        	<div class="input-group">
 							<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 			        		<input type="text" class="form-control" ng-model="tOGovtFee.recordingFeeForDeed" decimal-digits-with-number-format ng-blur="recordingTotal()">
 			        	</div>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fee For Mortgage</span>
-		        	<span class="col-sm-8 padding0 pull-right">
+		        	<span class="col-sm-10 padding0 pull-right">
 		        		<div class="input-group">
 							<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        			<input type="text" class="form-control" ng-model="tOGovtFee.recordingFeeForMortgage" decimal-digits-with-number-format ng-blur="recordingTotal()">
@@ -37,8 +37,8 @@
 		        	</span>
 		        </td> 
 		        <td>
-		        	<span class="col-sm-3 padding0 margin5tb">Type</span>
-		        	<span class="col-sm-9">
+		        	<span class="col-sm-12 padding0 margin5tb">Type</span>
+		        	<span class="col-sm-12 padding0">
 		        		<select class="form-control padding0" ng-model="tOGovtFee.feePaidToType" ng-change="sectionEpaidToChange('0')">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
@@ -118,8 +118,8 @@
 		        	</span>
 		        </td>
 		        <td>
-		        	<span class="col-sm-3 padding0 margin5tb">Type</span>
-		        	<span class="col-sm-9">
+		        	<span class="col-sm-12 padding0  margin5tb">Type</span>
+		        	<span class="col-sm-12 padding0">
 		        		<select class="form-control padding0" ng-model="tOGovtFee.feePaidToType" ng-change="sectionEpaidToChange($index)">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
@@ -190,23 +190,23 @@
 	</span>
 
 	<span  class="col-sm-12 padding0">
-		<table class="table LoanCostsSection table-bordered margin5tb InsuranceSection"  style="border:0px;">
+		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section F. Prepaids	</th>
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
-		        <th class="innerSectionHeader col-sm-2">Prepaid Interest</th>
-		        <th class="innerSectionHeader col-sm-2 padding0">Per Diem Information</th>
-		        <th class="innerSectionHeader col-sm-1">Borrower Paid AT Closing</th>
-		        <th class="innerSectionHeader col-sm-1">Borrower Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader">Paid By OTHER</th>
-		        <th class="innerSectionHeader">Paid By Lender</th>
-		        <th class="innerSectionHeader">Include in APR?</th>
-		        <th class="innerSectionHeader">Included In Reg Z?</th>
-		        <th class="innerSectionHeader">Delete / Clear</th>
+		        <th class="innerSectionHeader FeePaid">Prepaid Interest</th>
+		        <th class="innerSectionHeader FeeInfo">Per Diem Information</th>
+		        <th class="innerSectionHeader BPatClosing">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader BPbeforeClosing">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader SPatClosing" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader SPbeforeClosing" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader PaidByOther">Paid By OTHER</th>
+		        <th class="innerSectionHeader PaidByLender">Paid By Lender</th>
+		        <th class="innerSectionHeader incInApr">Include in APR?</th>
+		        <th class="innerSectionHeader incRegZ">Included In Reg Z?</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='PrepaidInterest'" >
 		        <td>
@@ -215,14 +215,14 @@
 		            <span class="ValueText col-sm-12 ">Valid Value:</span>
 		            <span class="LabelValue col-sm-12 ">Prepaid Interest</span>
 		        	<!-- <span class="ValueValue col-sm-12 " ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span> -->
-		        	<span class="margin10t padding5t col-sm-5 padding0">Fee Paid To:</span>
-		        	<span class="col-sm-7 margin10t">
+		        	<span class="margin5tb col-sm-12 padding0"><strong>Fee Paid To:</strong></span>
+		        	<span class="col-sm-12 padding0">
 		        		<select class="form-control padding0" ng-model="prepaidsList.feePaidToType" ng-change="sectionFpaidToChange($index)">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	    </select>
 		        	</span>
-		        	<span ng-show="prepaidsList.feePaidToType =='Other'">
+		        	<span class="col-sm-12 padding0" ng-show="prepaidsList.feePaidToType =='Other'">
 	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
 			        	<select class="form-control padding0" ng-model="prepaidsList.feePaidToTypeOtherDescription">
 	              			<option value="" selected>Select</option>
@@ -239,7 +239,7 @@
 			            </div>
 		            </span>
 		            <span class="margin5tb col-sm-12 padding0">Per Diem Calculation Type:</span>
-		        	<span class=" col-sm-12 padding0" style="padding-left:5px;">
+		        	<span class=" col-sm-12 padding0">
 			        	<select class="form-control" ng-model="prepaidsList.prepaidItemPerDiemCalculationMethodType">
 				        	<option value="" selected>Select</option>
 				        	<option value="360">360</option>
@@ -312,17 +312,17 @@
 		</table>
 		<table class="table LoanCostsSection table-bordered margin5tb InsuranceSection"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader  col-sm-2">Prepaid Information</th>
-		        <th class="innerSectionHeader col-sm-2">Prepaid Paid To Info.</th>
-		        <th class="innerSectionHeader  col-sm-1">Borrower Paid AT Closing</th>
-		        <th class="innerSectionHeader  col-sm-1">Borrower Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader">Paid By OTHER</th>
-		        <th class="innerSectionHeader">Paid By Lender</th>
-		        <th class="innerSectionHeader">Include in APR?</th>
-		        <th class="innerSectionHeader">Included In Reg Z?</th>
-		        <th class="innerSectionHeader">Delete / Clear</th>
+		        <th class="innerSectionHeader  FeePaid">Prepaid Information</th>
+		        <th class="innerSectionHeader FeeInfo">Prepaid Paid To Info.</th>
+		        <th class="innerSectionHeader  BPatClosing">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader  BPbeforeClosing">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader SPatClosing" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader SPbeforeClosing" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader PaidByOther">Paid By OTHER</th>
+		        <th class="innerSectionHeader PaidByLender">Paid By Lender</th>
+		        <th class="innerSectionHeader incInApr">Include in APR?</th>
+		        <th class="innerSectionHeader incRegZ">Included In Reg Z?</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='HomeownersInsurancePremium'">
 		        <td>
@@ -338,7 +338,7 @@
 		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth($index)"></span>
 		        </td>
 		        <td>
-                    <span class="LabelText col-sm-10">Type:</span>
+                    <span class="LabelText col-sm-12">Type:</span>
 		        	<select class="form-control padding0" ng-model="prepaidsList.feePaidToType" ng-change="sectionFpaidToChange($index)">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
@@ -482,7 +482,7 @@
 		        	<span class="LabelText col-sm-12">Label:</span>
 		        	<span class="LabelValue col-sm-12">Property Taxes</span><br>
 
-		        	<span class="LabelText col-sm-10">Type:</span>
+		        	<span class="LabelText col-sm-12">Type:</span>
 		        	<select class="form-control col-sm-12 padding0" ng-model="prepaidsList.prepaidItemType" ng-change="updateSectionFprepaidTypes(prepaidsList.prepaidItemType, $index)">
               		<option value="" selected>Select</option>
              			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem.value}}" ng-disabled="prepaidItem.disabled">{{prepaidItem.name}}</option>
@@ -491,24 +491,24 @@
 	              		<span class="LabelText col-sm-10">Description:</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feeTypeOtherDescription">
 			        </span>
-			        <span class="ValueText col-sm-10">No. of Months</span>
+			        <span class="ValueText col-sm-12">No. of Months</span>
 		        	<span class="ValueValue col-sm-10">
 		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth($index)"></span>
 		        </td>
 		        <td>
-                    <span class="margin5tb col-sm-10">Type:</span>
+                    <span class="col-sm-12 LabelText">Type:</span>
 		        	<select class="form-control padding0" ng-model="prepaidsList.feePaidToType" ng-change="sectionFpaidToChange($index)">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
                     <span ng-show="prepaidsList.feePaidToType =='Other'">
-	              		<span class="margin5tb col-sm-10">Description:</span>
+	              		<span class="col-sm-12 LabelText">Description:</span>
 			        	<select class="form-control padding0" ng-model="prepaidsList.feePaidToTypeOtherDescription">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
               		    </select>
 			        </span>
-                    <span class="margin5tb col-sm-10">Full Name:</span>
+                    <span class="col-sm-12 LabelText">Full Name:</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName">
 		        </td>
 		        <td>
@@ -560,8 +560,8 @@
 		      </tr>
               <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType!='HomeownersInsurancePremium' && prepaidsList.prepaidItemType!='MortgageInsurancePremium' && prepaidsList.prepaidItemType!='PrepaidInterest' && prepaidsList.prepaidItemType!='CountyPropertyTax'">
 		        <td>
-		        	<span class="LabelText col-sm-10">Label:</span>
-		        	<span class="LabelValue col-sm-10"><input type="text" class="form-control padding0" name="" ng-model="prepaidsList.displayLabel"></span>
+		        	<span class="LabelText col-sm-12">Label:</span>
+		        	<span class="LabelValue col-sm-12"><input type="text" class="form-control padding0" name="" ng-model="prepaidsList.displayLabel"></span>
 
 		        	<span class="ValueText col-sm-10">Type:</span>
               		<select class="form-control col-sm-12 padding0" ng-model="prepaidsList.prepaidItemType" ng-change="updateSectionFprepaidTypes(prepaidsList.prepaidItemType, $index)">
@@ -569,7 +569,7 @@
              			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem.value}}" ng-disabled="prepaidItem.disabled">{{prepaidItem.name}}</option>
               		</select>
                     <span ng-show="prepaidsList.prepaidItemType =='Other'">
-                    	<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
+                    	<span class="ValueText col-sm-10">Description:</span>
 	              		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemTypeOtherDescription" >
 			        </span>
 			        <span class="ValueText col-sm-10">No. of Months</span>
@@ -583,7 +583,7 @@
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
 		        	<span ng-show="prepaidsList.feePaidToType =='Other'">
-	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
+	              		<span class="LabelText col-sm-10">Description:</span>
 			        	<select class="form-control padding0" ng-model="prepaidsList.feePaidToTypeOtherDescription">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
@@ -654,45 +654,45 @@
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
-		        <th class="innerSectionHeader col-sm-2">Escrow Information</th>
-		        <th class="innerSectionHeader  col-sm-2">Paid To Info.</th>
-		        <th class="innerSectionHeader  col-sm-1">Borrower Paid AT Closing</th>
-		        <th class="innerSectionHeader  col-sm-1">Borrower Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader">Paid By OTHER</th>
-		        <th class="innerSectionHeader">Paid By Lender</th>
-		        <th class="innerSectionHeader">Include in APR?</th>
-		        <th class="innerSectionHeader">Included In Reg Z?</th>
-		        <th class="innerSectionHeader">Delete / Clear</th>
+		        <th class="innerSectionHeader FeeInfo">Escrow Information</th>
+		        <th class="innerSectionHeader  FeePaid">Paid To Info.</th>
+		        <th class="innerSectionHeader  BPatClosing">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader  BPbeforeClosing">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader SPatClosing" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader SPbeforeClosing" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader PaidByOther">Paid By OTHER</th>
+		        <th class="innerSectionHeader PaidByLender">Paid By Lender</th>
+		        <th class="innerSectionHeader incInApr">Include in APR?</th>
+		        <th class="innerSectionHeader incRegZ">Included In Reg Z?</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'HomeownersInsurance'}">
 		        <td>
-		        	<span class="LabelText col-sm-10">Label:</span><br>
-		        	<span class="LabelValue col-sm-10">Homeowners Insurance</span><br>
-		        	<span class="ValueText col-sm-10">Valid Value:</span>
-		        	<span class="LabelValue col-sm-10">Homeowners Insurance</span><br>
+		        	<span class="LabelText col-sm-12">Label:</span><br>
+		        	<span class="LabelValue col-sm-12">Homeowners Insurance</span><br>
+		        	<span class="ValueText col-sm-12">Valid Value:</span>
+		        	<span class="LabelValue col-sm-12">Homeowners Insurance</span><br>
 		        	<!-- <span class="ValueValue col-sm-10" ng-repeat="escrowItemType in escrowItemTypes" ng-if="escrowItemsList.escrowItemType == escrowItemType">{{escrowItemType}}</span><br> -->
 		        	
-		        	<span class="ValueText col-sm-10">Amount Per Month</span>
-		        	<span class="ValueValue col-sm-10">
+		        	<span class="ValueText col-sm-12">Amount Per Month</span>
+		        	<span class="ValueValue col-sm-12">
 		        		<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
 		        			<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('0')">
 		        		</div>
 		        	</span>
-		        	<span class="ValueText col-sm-10">No. of Months</span>
-		        	<span class="ValueValue col-sm-10">
+		        	<span class="ValueText col-sm-12">No. of Months</span>
+		        	<span class="ValueValue col-sm-12">
 		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" ng-blur="amountPerMonth('0')"></span>
 		        </td>
 		        <td>
-		            <span class="LabelText col-sm-10">Type</span>
+		            <span class="LabelText col-sm-12">Type</span>
 		        	<select class="form-control LabelValue" ng-model="escrowItemsList.feePaidToType" ng-change="sectionGpaidToChange('0')">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
 		        	<span ng-show="escrowItemsList.feePaidToType =='Other'">
-	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
+	              		<span class="LabelText col-sm-12">Description:</span>
 			        	<select class="form-control padding0" ng-model="escrowItemsList.feePaidToTypeOtherDescription">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
@@ -742,25 +742,25 @@
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'MortgageInsurance'}">
 		        <td>
-		        	<span class="LabelText col-sm-10">Label:</span><br>
-		        	<span class="LabelValue col-sm-10">Mortgage Insurance</span><br>
-		        	<span class="ValueText col-sm-10">Valid Value:</span>
-		        	<span class="LabelValue col-sm-10">Mortgage Insurance</span><br>
+		        	<span class="LabelText col-sm-12">Label:</span><br>
+		        	<span class="LabelValue col-sm-12">Mortgage Insurance</span><br>
+		        	<span class="ValueText col-sm-12">Valid Value:</span>
+		        	<span class="LabelValue col-sm-12">Mortgage Insurance</span><br>
 		        	<!-- <span class="ValueValue col-sm-10" ng-repeat="escrowItemType in escrowItemTypes" ng-if="escrowItemsList.escrowItemType == escrowItemType">{{escrowItemType}}</span><br> -->
 		        	
-		        	<span class="ValueText col-sm-10">Amount Per Month</span>
-		        	<span class="ValueValue col-sm-10">
+		        	<span class="ValueText col-sm-12">Amount Per Month</span>
+		        	<span class="ValueValue col-sm-12">
 		        		<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
 		        			<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('1')">
 		        		</div>	
 		        	</span>
-		        	<span class="ValueText col-sm-10">No. of Months</span>
-		        	<span class="ValueValue col-sm-10">
+		        	<span class="ValueText col-sm-12">No. of Months</span>
+		        	<span class="ValueValue col-sm-12">
 		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" ng-blur="amountPerMonth('1')"></span>
 		        </td>
 		       <td>
-		            <span class="LabelText col-sm-10">Type</span>
+		            <span class="LabelText col-sm-10 margin5tb">Type</span>
 		        	<select class="form-control LabelValue" ng-model="escrowItemsList.feePaidToType" ng-change="sectionGpaidToChange('1')">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
@@ -815,10 +815,10 @@
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType: 'CountyPropertyTax'}">
 		        <td>
-		        	<span class="LabelText col-sm-10">Label:</span><br>
-		        	<span class="LabelValue col-sm-10">Property Taxes</span>
-		        	<span class="ValueText col-sm-10">Valid Value:</span>
-		        	<span class="ValueValue col-sm-10">
+		        	<span class="LabelText col-sm-12">Label:</span><br>
+		        	<span class="LabelValue col-sm-12">Property Taxes</span>
+		        	<span class="ValueText col-sm-12">Valid Value:</span>
+		        	<span class="ValueValue col-sm-12">
 			        	<select class="form-control" ng-model="escrowItemsList.escrowItemType" ng-change="updateSectionGescrowTypes(escrowItemsList.escrowItemType,$index)">
 	              		    <option value="" selected>Select</option>
 	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType.value}}" ng-disabled="escrowItemType.disabled">{{escrowItemType.name}}</option>
@@ -828,15 +828,15 @@
 	              		<span class="ValueText col-sm-10">Description:</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemTypeOtherDescription">
 		        	</span><br>
-		        	<span class="ValueText col-sm-10">Amount Per Month</span>
-		        	<span class="ValueValue col-sm-10">
+		        	<span class="ValueText col-sm-12">Amount Per Month</span>
+		        	<span class="ValueValue col-sm-12">
 		        		<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
 		        			<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('2')">
 		        		</div>	
 		        	</span>
-		        	<span class="ValueText col-sm-10">No. of Months</span>
-		        	<span class="ValueValue col-sm-10">
+		        	<span class="ValueText col-sm-12">No. of Months</span>
+		        	<span class="ValueValue col-sm-12">
 		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" ng-blur="amountPerMonth('2')"></span>
 		        </td>
 		       <td>
@@ -896,30 +896,30 @@
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList track by $index" ng-if="escrowItemsList.escrowItemType != 'HomeownersInsurance' && escrowItemsList.escrowItemType != 'MortgageInsurance' && escrowItemsList.escrowItemType != 'CountyPropertyTax'">
 		        <td>
-		            <span class="LabelText col-sm-10">Label:</span><br>
-		        	<span class="LabelValue col-sm-10">
+		            <span class="LabelText col-sm-12">Label:</span><br>
+		        	<span class="LabelValue col-sm-12">
 		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.displayLabel">
 		        	</span><br>
-		        	<span class="ValueText col-sm-10">Valid Value:</span>
-		        	<span class="ValueValue col-sm-10">
+		        	<span class="ValueText col-sm-12">Valid Value:</span>
+		        	<span class="ValueValue col-sm-12">
 			        	<select class="form-control" ng-model="escrowItemsList.escrowItemType" ng-change="updateSectionGescrowTypes(escrowItemsList.escrowItemType,$index)">
 	              		    <option value="" selected>Select</option>
 	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType.value}}" ng-disabled="escrowItemType.disabled">{{escrowItemType.name}}</option>
 	              		</select>
               		</span><br>
               		<span  ng-show="escrowItemsList.escrowItemType=='Other'">
-	              		<span class="ValueText col-sm-10">Description:</span>
+	              		<span class="ValueText col-sm-12">Description:</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemTypeOtherDescription">
 		        	</span><br>
-		        	<span class="ValueText col-sm-10">Amount Per Month</span>
-		        	<span class="ValueValue col-sm-10">
+		        	<span class="ValueText col-sm-12">Amount Per Month</span>
+		        	<span class="ValueValue col-sm-12">
 		        		<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
 		        			<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth($index)">
 		        		</div>
 		        	</span>
-		        	<span class="ValueText col-sm-10">No. of Months</span>
-		        	<span class="ValueValue col-sm-10">
+		        	<span class="ValueText col-sm-12">No. of Months</span>
+		        	<span class="ValueValue col-sm-12">
 		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" ng-blur="amountPerMonth($index)"></span>
 		        </td>
 		         <td>
@@ -980,7 +980,7 @@
 		      </tr>
 		      <tr>
 		        <td>
-		            <span class="LabelText col-sm-10"><label>Aggregate Accounting Adjustment</label></span>
+		            <span class="LabelText col-sm-12"><label>Aggregate Accounting Adjustment</label></span>
 		        </td>
 		        <td>
 		        </td>
@@ -1029,23 +1029,23 @@
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.otherTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
-		        <th class="innerSectionHeader col-sm-2">Fee Information</th>
-		        <th class="innerSectionHeader  col-sm-2">Fee Paid To Info.</th>
-		        <th class="innerSectionHeader  col-sm-1">Borrower Paid AT Closing</th>
-		        <th class="innerSectionHeader  col-sm-1">Borrower Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader">Paid By OTHER</th>
-		        <th class="innerSectionHeader">Paid By Lender</th>
+		        <th class="innerSectionHeader FeeInfo">Fee Information</th>
+		        <th class="innerSectionHeader  FeePaid">Fee Paid To Info.</th>
+		        <th class="innerSectionHeader  BPatClosing">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader  BPbeforeClosing">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader SPatClosing" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader SPbeforeClosing" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader PaidByOther">Paid By OTHER</th>
+		        <th class="innerSectionHeader PaidByLender">Paid By Lender</th>
 		       <!--  <th class="innerSectionHeader">Optional Fee?</th> -->
-                <th class="innerSectionHeader">Include in APR?</th>
-		        <th class="innerSectionHeader">Included In Reg Z?</th>
-		        <th class="innerSectionHeader">Delete / Clear</th>
+                <th class="innerSectionHeader incInApr">Include in APR?</th>
+		        <th class="innerSectionHeader incRegZ">Included In Reg Z?</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="otherCostsList in cdformdata.closingCostDetailsOtherCosts.otherCostsList">
 		        <td>
-		            <span class="LabelText col-sm-10">Label:</span> 
-		        	<span class="LabelValue col-sm-10">
+		            <span class="LabelText col-sm-12">Label:</span> 
+		        	<span class="LabelValue col-sm-12">
 		        	<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.displayLabel">
 		        	</span>
 		        	<span class="ValueText col-sm-10">Valid Value:</span>
@@ -1061,24 +1061,24 @@
 		        	</span>
 		        </td>
 		        <td>
-		            <span class="LabelText col-sm-10">Type:</span>
-		        	<span class="LabelValue col-sm-10">
+		            <span class="LabelText col-sm-12">Type:</span>
+		        	<span class="LabelValue col-sm-12">
 			        	<select class="form-control padding0" ng-model="otherCostsList.feePaidToType" ng-change="sectionHpaidToChange($index)">
 			        		<option value="" selected>Select</option>
 	             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 			        	</select>
 		        	</span>
 		        	<span ng-show="otherCostsList.feePaidToType =='Other'">
-	              		<span class="LabelText col-sm-10">Description:</span>
-	              		<span class="LabelValue col-sm-10">
+	              		<span class="LabelText col-sm-12">Description:</span>
+	              		<span class="LabelValue col-sm-12">
 				        	<select class="form-control padding0" ng-model="otherCostsList.feePaidToTypeOtherDescription">
 		              			<option value="" selected>Select</option>
 		             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
 	              		    </select>
               		    </span>
 			        </span>
-		        	<span class="ValueText col-sm-10">Full Name:</span>
-		        	<span class="ValueValue col-sm-10">
+		        	<span class="ValueText col-sm-12">Full Name:</span>
+		        	<span class="ValueValue col-sm-12">
 		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.feePaidToFullName">
 		        	</span>
 		        </td>
@@ -1143,7 +1143,7 @@
 	<span  class="col-sm-6 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader col-sm-8">Section I. Total Other Costs (Borrower Paid)</th>
+				<th class="innerSectionHeader innerSectionMainHeader col-sm-8" style="width: 25%;">Section I. Total Other Costs (Borrower Paid)</th>
 				
 				<th class="innerSectionHeader innerSectionMainHeader text-center col-sm-4" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount | number:2 }}</th>
 			  </tr>
@@ -1151,10 +1151,10 @@
 		        <td>
 		        	Other Costs Subtotal (E + F + G + H)
 		        </td>
-		        <td class="text-center">
+		        <td class="text-center BPatClosing">
 		        	${{cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing | number:2}}
 		        </td>
-		        <td class="text-center">
+		        <td class="text-center BPbeforeClosing">
 		        	${{cdformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing  | number:2}}
 		        </td>
 		      </tr>
