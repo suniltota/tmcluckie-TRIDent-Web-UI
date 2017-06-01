@@ -107,7 +107,7 @@
                           <strong>Standard</strong>
                         </div>
                         <div class="col-sm-6  radioGroup  margin5tb">
-                          <input type="radio"  name="Form" ng-model="formType" value="alternate" ng-disabled="purposeType == 'purchase'">
+                          <input type="radio"  name="Form" ng-model="formType" value="alternate" ng-disabled="transactionType == 'new' && purposeType == 'purchase'">
                           <strong>Alternate</strong>
                         </div>
                         <!-- <div class="col-sm-4  radioGroup  margin5tb">

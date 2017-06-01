@@ -43,6 +43,8 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
             if($scope.xmlfile != undefined && $scope.xmlfile != null) {
                 cdXML2JsonService.getJsonFromXml($scope.xmlfile).success(function(data){
                     $scope.purposeType = data.termsOfLoan.loanPurposeType.toLowerCase();
+                    if($scope.purposeType == 'purchase')
+                       $scope.formType = 'standard';
                     localStorage.jsonData = JSON.stringify(data);
                     console.log(localStorage.jsonData);
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
