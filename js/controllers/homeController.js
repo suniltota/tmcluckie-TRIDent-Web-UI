@@ -9,6 +9,7 @@ app.controller('homeCtrl', function ($scope, $routeParams, $location) {
 		localStorage.loanFormType = $routeParams.formType;
 	}
 	if($routeParams.documentType == 'loanestimate') {
+		localStorage.documentType = $routeParams.documentType;
 		$location.url( "/loanEstimate" );
 	} else {
 		$location.url( "/closingDisclosure");

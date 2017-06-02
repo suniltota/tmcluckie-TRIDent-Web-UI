@@ -75,7 +75,8 @@ app.controller('menuCtrl', function ($scope, loginService, staticData, $window) 
   }
   $scope.generatePDF = function(){
     pdfDestroy();
-    angular.element($("#UCDXMLFILE")).scope().generatePDF();    
+    if(!localStorage.documentType)
+      angular.element($("#UCDXMLFILE")).scope().generatePDF();
   }
   $scope.closePdfView = function() {
     pdfDestroy();

@@ -13,11 +13,11 @@ app.service('cdService', function(apiService){
             xmlData:xmlData
         });
     },
-    this.saveUCD = function(data){
+    this.genearateXmlFromJson = function(data){
         return apiService.request({
-            apiMethod: "services/actualize/saveUCDXML",
+            apiMethod: "services/trident/closingdisclosure/v1/convertJsonToXml",
             httpMethod: 'POST',
-            formData:[data]
+            formData:data
         });
     },
     this.transformText2XML = function(textData) {
@@ -29,7 +29,7 @@ app.service('cdService', function(apiService){
     },
     this.generatePDF = function(xml) {
         return apiService.request({
-            apiMethod: "services/actualize/generatePDF",
+            apiMethod: "services/trident/closingdisclosure/v1/generatePDF",
             httpMethod: 'POST',
             formData:xml
         });

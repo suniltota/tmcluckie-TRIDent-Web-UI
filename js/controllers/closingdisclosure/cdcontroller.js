@@ -1760,6 +1760,24 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		    }
 	    }
     }
+
+    $scope.generatePDF = function(){
+    	$("#spinner").show();
+    	cdService.genearateXmlFromJson($scope.cdformdata).success(function(data){
+    		cdService.generatePDF(data).success(function(pdfData){
+    			if(pdfData!=null && pdfData.length>0){
+    				$("#pdfViewerId").show();
+    				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
+					$("#carousel").pdfSlider();
+    			}
+    			$("#spinner").hide();
+    		}).error( function(pdfData, status){
+    			$("#spinner").hide();
+    		});
+    	}).error( function(data, status){
+    		$("#spinner").hide();
+    	});
+    }
     
     $scope.$watchCollection('[cdformdata.loanInformation.loanTermYears, cdformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){
     	$scope.cdformdata.maturityRule.loanMaturityPeriodCount = 0;
