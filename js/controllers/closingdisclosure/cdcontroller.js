@@ -957,8 +957,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	}
 
 	$scope.checkPropertyRadio = function() {
-		if(!$scope.cdformdata.closingInformation.property.legalDescription)
+		if(!$scope.cdformdata.closingInformation.property.legalDescription){
 			$scope.cdformdata.closingInformation.property.unparsedLegalDescription = "";
+			$scope.cdformdata.closingInformation.property.addressLineText = '';
+		}
 	}
 	
 	$scope.changePropertyPrice = function() {
@@ -975,6 +977,29 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValuationAmount = "";
 		}
 	}
+    
+    $scope.borrowerCheck = function(index){
+    	if($scope.cdformdata.transactionInformation.borrowerDetails[index].type == 'O'){
+    		$scope.cdformdata.transactionInformation.borrowerDetails[index].partyRoleType ='Borrower';
+    		$scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.firstName ='';
+    		$scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.middleName ='';
+    		$scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.lastName ='';
+    		$scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.suffixName ='';
+    	}else{
+    		$scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.fullName ='';
+    	}
+    }
+
+    $scope.sellerCheck = function(index){
+    	if($scope.cdformdata.transactionInformation.sellerDetails[index].type == 'O'){
+    		$scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.firstName ='';
+    		$scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.middleName ='';
+    		$scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.lastName ='';
+    		$scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.suffixName ='';
+    	}else{
+    		$scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.fullName ='';
+    	}
+    }
 
 	$scope.scrollTo = function(id) {
            $location.hash(id);

@@ -14,9 +14,9 @@
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Borrower Classification</div>
             <div class="col-sm-7 radioGroup">
-              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrower.type" value="I">
+              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrower.type" value="I" ng-click="borrowerCheck($index)">
               <label>Individual</label>
-              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrower.type" value="O">
+              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrower.type" value="O" ng-click="borrowerCheck($index)">
               <label>Organization</label>
             </div>
           </div>
@@ -117,8 +117,8 @@
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Seller Classification</div>
             <div class="col-sm-7 radioGroup" ng-init="seller.type == 'I'">
-              <input type="radio" name="sellertype_{{$index}}" ng-model="seller.type" value="I"> <label>Individual</label>
-              <input type="radio" name="sellertype_{{$index}}" ng-model="seller.type"  value="O" > <label>Organization </label>
+              <input type="radio" name="sellertype_{{$index}}" ng-model="seller.type" value="I" ng-click="sellerCheck($index)"> <label>Individual</label>
+              <input type="radio" name="sellertype_{{$index}}" ng-model="seller.type"  value="O" ng-click="sellerCheck($index)"> <label>Organization </label>
             </div>
           </div>
           <div ng-show="seller.type == 'I'"> 
