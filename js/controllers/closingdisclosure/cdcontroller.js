@@ -1190,6 +1190,39 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.payment.paymentRule.totalOptionalPaymentCount = '';
     }
 
+    $scope.temporaryChange = function(){
+    	$scope.cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator = false;
+    	$scope.cdformdata.interestRateAdjustment.ceilingRatePercent = '';
+    	$scope.cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent = '';
+    	$scope.cdformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount = '';
+    	$scope.cdformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount = '';
+    	$scope.cdformdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent = '';
+    }
+    $scope.tiChange = function(){
+    	$scope.cdformdata.interestRateAdjustment.ceilingRatePercent = '';
+    	$scope.cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent = '';
+    	$scope.cdformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount = '';
+    	$scope.cdformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount = '';
+    	$scope.cdformdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent = '';
+    }
+
+    $scope.pipaChange = function(){
+       $scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = '';
+       $scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = '';
+       $scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount = '';
+       $scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount = '';
+    }
+
+    $scope.ppChange = function(){
+    	$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyMaximumLifeOfLoanAmount = '';
+    	$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount = '';
+    }
+
+     $scope.baloonChange = function(){
+    	$scope.cdformdata.loanDetail.balloonPaymentAmount = '';
+    	$scope.cdformdata.maturityRule.loanMaturityPeriodCount = '';
+    }
+
 	$scope.updateETIAComponentTypes = function(value, index) {
 		var previousVal = $scope.cdformdata.etiaSection.etiaTypes[index];
 		$scope.cdformdata.etiaSection.etiaTypes[index] = value;
