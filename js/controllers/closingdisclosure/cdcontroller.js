@@ -1001,6 +1001,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	}
     }
 
+    $scope.loanChange = function(){
+    	$scope.cdformdata.termsOfLoan.mortgageTypeOtherDescription = '';
+    }
+
+    $scope.ausChange = function(index){
+    	$scope.cdformdata.loanInformation.automatedUnderwritings[index].automatedUnderwritingSystemTypeOtherDescription = '';
+    }
+
 	$scope.scrollTo = function(id) {
            $location.hash(id);
            $anchorScroll();
@@ -1131,17 +1139,57 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		else{
 			$scope.stepPaymentIndicator = false;
 		}
+		$scope.cdformdata.interestRateAdjustment.totalStepCount = '';
     }
+
     $scope.constructionChange = function(){
     	if($scope.cdformdata.loanDetail.constructionLoanIndicator == false){
     		$scope.cdformdata.construction.constructionLoanType ='';
+    		$scope.cdformdata.construction.constructionPeriodNumberOfMonthsCount = '';
+    		$scope.cdformdata.construction.constructionLoanTotalTermMonthsCount = '';
     	}
     }
-    /*$scope.negativeAmortizationChange = function(){
+
+    $scope.clChange = function(){
+    	if($scope.cdformdata.construction.constructionLoanType == ''){
+    		$scope.cdformdata.construction.constructionPeriodNumberOfMonthsCount = '';
+    		$scope.cdformdata.construction.constructionLoanTotalTermMonthsCount = '';
+
+    	}
+    }
+
+    $scope.interestChange = function(){
+    	$scope.cdformdata.interestOnly.interestOnlyTermMonthsCount = '';
+    }
+
+    $scope.negativeAmortizationChange = function(){
     	if($scope.cdformdata.loanDetail.negativeAmortizationIndicator == false){
     		$scope.cdformdata.negativeAmortization.negativeAmortizationType ='';
+    		$scope.cdformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount = '';
+    		$scope.cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount = '';
     	}
-    }*/
+    }
+
+    $scope.nATypeChange = function(){
+    	if($scope.cdformdata.negativeAmortization.negativeAmortizationType==''){
+    		$scope.cdformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount = '';
+    		$scope.cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount = '';
+    	}
+    }
+
+    $scope.seasonalChange = function(){
+    	$scope.cdformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth = '';
+    	$scope.cdformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth = '';
+    }
+
+    $scope.stepChange = function(){
+    	$scope.cdformdata.payment.paymentRule.totalStepPaymentCount = '';
+    }
+
+    $scope.optionalChange = function(){
+    	$scope.cdformdata.payment.paymentRule.totalOptionalPaymentCount = '';
+    }
+
 	$scope.updateETIAComponentTypes = function(value, index) {
 		var previousVal = $scope.cdformdata.etiaSection.etiaTypes[index];
 		$scope.cdformdata.etiaSection.etiaTypes[index] = value;
