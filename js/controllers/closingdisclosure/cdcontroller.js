@@ -1226,6 +1226,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	$scope.updateETIAComponentTypes = function(value, index) {
 		var previousVal = $scope.cdformdata.etiaSection.etiaTypes[index];
 		$scope.cdformdata.etiaSection.etiaTypes[index] = value;
+		$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription = '';
 		for(i=0; i<$scope.ETIAComponentTypes.length; i++){
 			if($scope.ETIAComponentTypes[i].value == value) {
 				$scope.ETIAComponentTypes[i].disabled = true;
