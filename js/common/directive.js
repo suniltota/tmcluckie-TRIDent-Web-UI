@@ -460,6 +460,51 @@ app.directive('months2years', function() {
 });
 
 
+app.directive('actualizeDate', ['$timeout', '$filter', 'staticData', function ($timeout, $filter, staticData)
+{
+    return {
+        require: 'ngModel',
+
+        link: function ($scope, $element, $attrs, $ctrl)
+        {
+            var dateFormat = staticData.dateDisplayFormat;
+            $ctrl.$parsers.push(function (viewValue)
+            {
+                //convert string input into moment data model
+                var pDate = Date.parse(viewValue);
+                if (isNaN(pDate) === false) {
+                    return new Date(pDate);
+                }
+                return undefined;
+
+            });
+            $ctrl.$formatters.push(function (modelValue)
+            {
+                var pDate = Date.parse(modelValue);
+                if (isNaN(pDate) === false) {
+                    return $filter('date')(new Date(pDate), dateFormat);
+                }
+                return undefined;
+            });
+            $element.on('blur', function ()
+            {
+                var pDate = Date.parse($ctrl.$modelValue);
+                if (isNaN(pDate) === true) {
+                    $ctrl.$setViewValue(null);
+                    $ctrl.$render();
+                } else {
+                    if ($element.val() !== $filter('date')(new Date(pDate), dateFormat)) {
+                        $ctrl.$setViewValue($filter('date')(new Date(pDate), dateFormat));
+                        $ctrl.$render();
+                    }
+                }
+
+            });
+        }
+    };
+}]);
+
+
 app.filter('round', function() {
     return function(input) {
         return Math.round(input);
