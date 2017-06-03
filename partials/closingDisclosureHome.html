@@ -249,8 +249,13 @@
   </div>
   <div id="pdfViewerId">
     <div id="carousel" style="display: none;">
-      <object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="original"></object>
+      <object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="ClosingDisclosure"></object>
     </div>
+  </div>
+  <div id="xmlView" style="display: none;" dynamic-height>
+    <span class="closeXml glyphicon glyphicon-remove-circle cursor" ng-click="closeXML()" data-toggle="tooltip" data-placement="left" title="Close XML"></span>
+    <span class="glyphicon glyphicon-download downloadXML cursor" ng-click="downloadXML()" data-toggle="tooltip" data-placement="left" title="Download XML"></span>
+    <div id="xmlViewerId"></div>
   </div>
 </div>
 <div class="modal fade" id="BorrowerTransaction" role="dialog">
@@ -685,7 +690,10 @@
 
   <script type="text/javascript">
   $(document).ready(function(){
-	    $(".pageno").tooltip();   
+	    $(".pageno").tooltip();
+      $(".closeXml").tooltip();
+      $(".downloadXML").tooltip();
+         
 	});
   </script>
 

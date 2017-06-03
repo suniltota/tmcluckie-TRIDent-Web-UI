@@ -212,3 +212,10 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .ValueText{margin-top: 10px;padding:0px; font-weight: bold;}
 .ValueValue{margin-bottom: 5px;padding:0px;}
 .ausTrash{float: right;margin: -6px -35px 0px 0px;}
+
+#xmlView{position: absolute; z-index: 5; background: #fff; width: 100%; overflow:auto; padding: 20px 50px!important;}
+#xmlView .closeXml{float: right; position: absolute; top: 10px; right: 10px; font-size: 16px;}
+#xmlView .downloadXML{float: right; position: absolute; top: 10px; right: 35px; font-size: 16px;}
+#xmlView #xmlViewerId{width: 75%;}
+#xmlView .Element{border-left: 0px;}
+#xmlView .Element .Clickable{padding-right: 10px;}

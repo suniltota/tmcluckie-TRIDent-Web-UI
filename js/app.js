@@ -62,24 +62,38 @@ app.controller('validateCtrl', function ($scope, $location, $http) {
 app.controller('menuCtrl', function ($scope, loginService, staticData, $window) {
 
   $scope.fileOpen = function(){
+    xmlDestroy();
     pdfDestroy();
     angular.element($("#UCDXMLFILE")).scope().openUCDXMLFile();
   }
   $scope.saveFile = function(){
+    xmlDestroy();
     pdfDestroy();
     angular.element($("#UCDXMLFILE")).scope().saveFile();
   }
   $scope.importFile = function(){
+    xmlDestroy();
     pdfDestroy();
     angular.element($("#UCDXMLFILE")).scope().importFile();
   }
+  $scope.generateXML = function() {
+    xmlDestroy();
+    pdfDestroy();
+    if(!localStorage.documentType)
+      angular.element($("#UCDXMLFILE")).scope().generateXML();
+  }
   $scope.generatePDF = function(){
+    xmlDestroy();
     pdfDestroy();
     if(!localStorage.documentType)
       angular.element($("#UCDXMLFILE")).scope().generatePDF();
   }
   $scope.closePdfView = function() {
+    xmlDestroy();
     pdfDestroy();
+  }
+  var xmlDestroy = function(){
+    $("#xmlView").hide();
   }
   
   var pdfDestroy = function(){

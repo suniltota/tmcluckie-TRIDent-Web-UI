@@ -1860,6 +1860,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$("#spinner").hide();
     	});
     }
+
+    $scope.generateXML = function(){
+    	$("#spinner").show();
+    	cdService.genearateXmlFromJson($scope.cdformdata).success(function(data){
+    		LoadXMLString("xmlViewerId",data);
+    		$("#xmlView").show();
+    		$("#spinner").hide();
+    	}).error( function(data, status){
+    		$("#spinner").hide();
+    	});
+    }
+    
+    $scope.closeXML = function(){
+    	$("#xmlView").hide();
+    }
     
     $scope.$watchCollection('[cdformdata.loanInformation.loanTermYears, cdformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){
     	$scope.cdformdata.maturityRule.loanMaturityPeriodCount = 0;
