@@ -188,11 +188,19 @@ app.directive('zipcodeFormat', function ($filter) {
             }
 
             ctrl.$parsers.push(function (viewValue) {
-                var plainNumber = formatValue(viewValue);
-
-                ctrl.$setViewValue(plainNumber);
-                ctrl.$render();
-
+                var plainNumber = viewValue.replace(/[^0-9]/g, '');
+                plainNumber = plainNumber.toString();
+                if (plainNumber.length >= 9) {
+                  plainNumber = plainNumber.slice(0, 9);
+                } else if(plainNumber>5) {
+                  var diff = 9 - plainNumber.length;
+                  for(var i=0; i<diff; i++) 
+                    plainNumber = plainNumber+"0";
+                } else if(plainNumber<5) {
+                  var diff = 5 - plainNumber.length;
+                  for(var i=0; i<diff; i++) 
+                    plainNumber = plainNumber+"0";
+                }
                 return plainNumber;
             });
         }
