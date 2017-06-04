@@ -460,49 +460,40 @@ app.directive('months2years', function() {
 });
 
 
-app.directive('actualizeDate', ['$timeout', '$filter', 'staticData', function ($timeout, $filter, staticData)
+app.directive('actualizeDate', function ($timeout, $filter, staticData)
 {
     return {
         require: 'ngModel',
 
-        link: function ($scope, $element, $attrs, $ctrl)
+        link: function (scope, element, attr, ngModel)
         {
-            var dateFormat = staticData.dateDisplayFormat;
-            $ctrl.$parsers.push(function (viewValue)
-            {
-                //convert string input into moment data model
-                var pDate = Date.parse(viewValue);
-                if (isNaN(pDate) === false) {
-                    return new Date(pDate);
-                }
-                return undefined;
+            var regexp = /^(?:(?:(?:0?[13578]|1[02])(\/)31)\1|(?:(?:0?[1,3-9]|1[0-2])(\/)(?:29|30)\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:0?2(\/)29\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:(?:0?[1-9])|(?:1[0-2]))(\/)(?:0?[1-9]|1\d|2[0-8])\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
+            var viewDateFormat = staticData.dateDisplayFormat;
+            var xmlDateFormat = "yyyy-MM-dd";
 
-            });
-            $ctrl.$formatters.push(function (modelValue)
-            {
-                var pDate = Date.parse(modelValue);
-                if (isNaN(pDate) === false) {
-                    return $filter('date')(new Date(pDate), dateFormat);
-                }
-                return undefined;
-            });
-            $element.on('blur', function ()
-            {
-                var pDate = Date.parse($ctrl.$modelValue);
-                if (isNaN(pDate) === true) {
-                    $ctrl.$setViewValue(null);
-                    $ctrl.$render();
+            ngModel.$parsers.push(function(value){
+                if(value && !isNaN(Date.parse(value))) {
+                  return $filter('date')(new Date(Date.parse(value)), xmlDateFormat);
                 } else {
-                    if ($element.val() !== $filter('date')(new Date(pDate), dateFormat)) {
-                        $ctrl.$setViewValue($filter('date')(new Date(pDate), dateFormat));
-                        $ctrl.$render();
-                    }
+                  return undefined;
                 }
-
             });
+
+            element.on('blur', function (e) {
+                var dateVal = e.target.value;
+                if(!(regexp.test(dateVal) && !isNaN(Date.parse(dateVal)))) {
+                  ngModel.$setViewValue(null);
+                  ngModel.$render();
+                  ngModel.$modelValue = undefined;
+                } else {
+                  scope.cdformdata.closingInformation.dateIssued = $filter('date')(new Date(Date.parse(dateVal)), xmlDateFormat);
+                  scope.$apply();
+                }
+            });
+
         }
     };
-}]);
+});
 
 
 app.filter('round', function() {
