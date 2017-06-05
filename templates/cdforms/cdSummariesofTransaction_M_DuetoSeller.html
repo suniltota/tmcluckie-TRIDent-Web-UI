@@ -44,7 +44,7 @@
 		      	    <label ng-repeat="adjustmentType in sectionKadjustmentTypes" ng-if="adjustmentType.value == adjustment.closingAdjustmentItemType">{{adjustmentType.name}}</label>
 		        </td>
 		        <td ng-if="!adjustment.isFromBorrower">
-		        	<select class="form-control padding0" ng-model="adjustment.closingAdjustmentItemType">
+		        	<select class="form-control padding0" ng-model="adjustment.closingAdjustmentItemType" ng-change="sotMAchange($index)">
 		        		<option value="" selected>Select</option>
 	      				<option ng-repeat="adjustmentType in sectionKadjustmentTypes" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
 		      	    </select>

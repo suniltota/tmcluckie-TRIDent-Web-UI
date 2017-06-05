@@ -77,7 +77,7 @@
 		      <tr>
 		        <td>
 		        	<label>Is Disclosure Only?</label> 
-		        	<select class="form-control padding0" ng-model="disclosureOnly" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	<select class="form-control padding0" ng-model="disclosureOnly" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="disclosureChange()">
 		        	</select>
 		        </td>
 		        <td>
@@ -142,7 +142,7 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="pbaOtherCredit.displayLabel">  
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="pbaOtherCredit.closingAdjustmentItemType">
+		        	<select class="form-control padding0" ng-model="pbaOtherCredit.closingAdjustmentItemType" ng-change="sotLOCchange($index)">
 		        	<option value="" selected>Select</option>
 		        	<option ng-repeat="otherCredit in otherCredits" value="{{otherCredit.value}}">{{otherCredit.name}}</option>
 		        	</select>
@@ -189,7 +189,7 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="adjustmentsPaidByAlready.displaylabel">  
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="adjustmentsPaidByAlready.closingAdjustmentItemType" >
+		        	<select class="form-control padding0" ng-model="adjustmentsPaidByAlready.closingAdjustmentItemType" ng-change="sotLAchange($index)">
 			        	<option value="" selected>Select</option>
 		      			<option ng-repeat="adjustmentType in sectionLadjustmentTypes" value="{{adjustmentType.value}}" ng-disabled="adjustmentType.disabled">{{adjustmentType.name}}</option>
 		      	    </select> 
@@ -240,7 +240,7 @@
 		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes'">
 		        </td>
 		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes'">
-		        	<select class="form-control padding0" ng-model="adjustmentsUnpaidBySeller.prorationItemType">
+		        	<select class="form-control padding0" ng-model="adjustmentsUnpaidBySeller.prorationItemType" ng-change="sotLAUPchange($index)">
                         <option value="" selected>Select</option>
 		      		    <option ng-repeat="prorationItemType in prorationItemTypes" value="{{prorationItemType.value}}" ng-disabled="prorationItemType.disabled">{{prorationItemType.name}}</option>
 		        	</select>

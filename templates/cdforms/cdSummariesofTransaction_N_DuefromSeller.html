@@ -79,7 +79,7 @@
 		      </tr>
 		      <tr ng-repeat="dueFromSellerAdjustmentsAndLiability in summariesOfTransaction_NSection.liabilitesAndAdjustments track by $index">
 		        <td>
-		        	<select class="form-control padding0" ng-model="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType">
+		        	<select class="form-control padding0" ng-model="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType" ng-change="sotNchange($index)">
               			<option value="" selected>Select</option>
               			<option ng-repeat="liabilityOrAdjustment in liabilityOrAdjustments" value="{{liabilityOrAdjustment.value}}" ng-disabled="liabilityOrAdjustment.disabled">{{liabilityOrAdjustment.name}}</option>
               		</select>
@@ -88,7 +88,7 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="dueFromSellerAdjustmentsAndLiability.displayLabel">  
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="dueFromSellerAdjustmentsAndLiability.itemType">
+		        	<select class="form-control padding0" ng-model="dueFromSellerAdjustmentsAndLiability.itemType" ng-change="sotNLAchange($index)">
 			        	<option value="" selected>Select</option>
 			      		<option ng-repeat="lType in sectionNliabilityTypes" value="{{lType.value}}" ng-disabled="lType.disabled" ng-if="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType == 'Liability'">{{lType.name}}</option>
 		              	<option ng-repeat="aType in sectionNadjustmentTypes" value="{{aType.value}}" ng-disabled="aType.disabled" ng-if="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType == 'Adjustment'">{{aType.name}}</option>

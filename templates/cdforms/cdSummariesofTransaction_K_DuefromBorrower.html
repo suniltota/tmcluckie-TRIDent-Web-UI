@@ -50,7 +50,7 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="liablitySection.displayLabel">  
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="liablitySection.liabilityType" >
+		        	<select class="form-control padding0" ng-model="liablitySection.liabilityType" ng-change="sotKLchange($index)">
 			        		<option value="" selected>Select</option>
 		      				<option ng-repeat="liabilityType in liabilityTypes" value="{{liabilityType.value}}" ng-disabled="liabilityType.disabled">{{liabilityType.name}}</option>
 		      	    </select>
@@ -153,7 +153,7 @@
 		        	ng-model="adjustmentsPaidBySellerInAdvance.displayLabel">
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemType">
+		        	<select class="form-control padding0" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemType" ng-change = "sotKAchange($index)">
                         <option value="" selected>Select</option>
 		      		    <option ng-repeat="prorationItemType in prorationItemTypes" value="{{prorationItemType.value}}" ng-disabled="prorationItemType.disabled">{{prorationItemType.name}}</option>
 		        	</select>

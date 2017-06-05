@@ -1338,6 +1338,50 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			}
 		}
 	}
+    
+    //Summaries of Transactions
+    $scope.sotKLchange = function(index){
+         $scope.summariesOfTransaction_KSection.liabilites[index].liabilityTypeOtherDescription = '';
+    }
+
+    $scope.sotKAchange = function(index){
+         $scope.summariesOfTransaction_KSection.adjustmentsPaidBySeller[index].prorationItemTypeOtherDescription = '';
+    }
+
+    $scope.disclosureChange = function(){
+        $scope.summariesOfTransaction_LSection.subordinateLien.displayLabel = '';
+        $scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType = '';
+        $scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount = '';
+        $scope.cdformdata.loanDetail.totalSubordinateFinancingAmount = '';
+        $scope.cdformdata.loanDetail.subordinateFinancingIsNewIndicator = false;
+     	$scope.summariesOfTransaction_LSection.liabilites[0].liabilityDescription = '';
+     	$scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemTypeOtherDescription = '';
+    }
+
+    $scope.sotLOCchange = function(index){
+    	$scope.summariesOfTransaction_LSection.otherCredits[index].closingAdjustmentItemTypeOtherDescription = '';
+    }
+
+    $scope.sotLAchange = function(index){
+    	$scope.summariesOfTransaction_LSection.adjustments[index].closingAdjustmentItemTypeOtherDescription = '';
+    }
+
+    $scope.sotLAUPchange = function(index){
+    	$scope.summariesOfTransaction_LSection.adjustmentsUnpaidBySeller[index].prorationItemTypeOtherDescription = '';
+    }
+    
+    $scope.sotMAchange = function(index){
+    	$scope.summariesOfTransaction_MSection.adjustments[index].closingAdjustmentItemTypeOtherDescription = '';
+    }
+
+    $scope.sotNchange = function(index){
+    	$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[index].itemType = '';
+    	$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[index].otherDescription = '';
+    }
+
+    $scope.sotNLAchange = function(index){
+    	$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[index].otherDescription = '';
+    }
 
     $scope.sameBorrower = function(index){
     	var bCheck = $scope.cdformdata.transactionInformation.borrowerDetails[index];
@@ -1442,6 +1486,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
      $scope.updateSectionMAdjustments = function(index) {
      	var selectedSectionKadjustmentTypes = [];
+     	$scope.summariesOfTransaction_KSection.adjustments[index].closingAdjustmentItemTypeOtherDescription = '';
 		for(var i=0; i<$scope.summariesOfTransaction_KSection.adjustments.length; i++) {
 			if((i==0 || i==1) && $scope.summariesOfTransaction_KSection.adjustments[i].closingAdjustmentItemType) {
 				var sellerAdjustment = $scope.summariesOfTransaction_KSection.adjustments[i];
