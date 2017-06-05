@@ -9,7 +9,7 @@
 		        <td>
 		        	<span class="col-sm-12 margin5tb"> 
 	        			<span class="pull-left col-sm-2">
-	        				<select class="form-control" ng-model="cdformdata.interestRateAdjustment.indexType">
+	        				<select class="form-control" ng-model="cdformdata.interestRateAdjustment.indexType" ng-change="indexChange()">
 		        				<option value="" selected>Select</option>
 	                            <option ng-repeat="indexType in indexTypes" value="{{indexType.value}}">{{indexType.name}}</option>
 	        				</select>

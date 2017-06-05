@@ -17,6 +17,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	$scope.dropDownBooleanOptions = staticData.dropDownBooleanOptions;
 	$scope.escrowDropDownBooleanOptions = staticData.escrowDropDownBooleanOptions;
 	$scope.stateCodes = staticData.stateCodes;
+	$scope.usstateCodes = staticData.usstateCodes;
+	$scope.canadaStateCodes = staticData.canadaStateCodes;
 	$scope.countryCodes = staticData.countryCodes;
 	$scope.propertyValuationMethodTypes = staticData.propertyValuationMethodTypes;
 	$scope.borrowerPartyRoleTypes = staticData.borrowerPartyRoleTypes;
@@ -1420,6 +1422,19 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	   $scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.fullName = '';
         }
     }
+
+    $scope.bcountryChange = function(index){
+        $scope.cdformdata.transactionInformation.borrowerDetails[index].address.stateCode = '';
+    }
+
+    $scope.scountryChange = function(index){
+        $scope.cdformdata.transactionInformation.sellerDetails[index].address.stateCode = '';
+    }
+
+    $scope.indexChange = function(index){
+    	$scope.cdformdata.interestRateAdjustment.indexTypeOtherDescription = '';
+    }
+
     $scope.addProjectedPayments = function(){
     	if($scope.cdformdata.projectedPayments.paymentCalculation.length <= 3){
 	    	$scope.cdformdata.projectedPayments.paymentCalculation.push(angular.copy(paymentCalculation));
