@@ -387,6 +387,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(0, 0, angular.copy(prepaidsList));
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].prepaidItemType = 'PrepaidInterest';
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].displayLabelText = 'Prepaid Interest';
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].paymentIncludedInAPRIndicator = true;
 			
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(1, 0, angular.copy(prepaidsList));
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1].prepaidItemType = 'HomeownersInsurancePremium';
@@ -1438,7 +1439,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.repayMethodChange = function(){
     	$scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayExemptionReasonType = '';
     }
-    
+
     $scope.addProjectedPayments = function(){
     	if($scope.cdformdata.projectedPayments.paymentCalculation.length <= 3){
 	    	$scope.cdformdata.projectedPayments.paymentCalculation.push(angular.copy(paymentCalculation));
@@ -1642,7 +1643,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].spB4Closing ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].paidByOthers ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].lenderStatus ='';
-    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].paymentIncludedInAPRIndicator = true;
+    	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].paymentIncludedInAPRIndicator = false;
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
     }
     $scope.clearRecordings = function(){
@@ -1657,7 +1658,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].paidByOthers='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].lenderStatus='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeTypeOtherDescription='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].paymentIncludedInAPRIndicator = true;
+    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].paymentIncludedInAPRIndicator = false;
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].regulationZPointsAndFeesIndicator = true;
     }
     //deleteOGF
@@ -1677,7 +1678,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePercentBasisType='';
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTotalPercent='';
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTypeOtherDescription='';
-	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].paymentIncludedInAPRIndicator = true;
+	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].paymentIncludedInAPRIndicator = false;
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].regulationZPointsAndFeesIndicator = true;
     	}
     	else{
@@ -1697,7 +1698,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTotalPercent='';
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeType='';
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTypeOtherDescription='';
-	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].paymentIncludedInAPRIndicator = true;
+	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].paymentIncludedInAPRIndicator = false;
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].regulationZPointsAndFeesIndicator = true;
         }
     }
@@ -1730,7 +1731,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].lenderStatus = '';
-		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator = true;
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator = false;
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = true;
     }
     
@@ -1746,7 +1747,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].lenderStatus = '';
-		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator = true;
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator = false;
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = true;
     }
 
@@ -1767,7 +1768,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].lenderStatus = '';
-		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator = true;
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator = false;
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator = true;
     }
     
@@ -1783,7 +1784,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].lenderStatus = '';
-		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator = true;
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator = false;
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator = true;
     }
 
@@ -1804,7 +1805,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].lenderStatus = '';
-		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paymentIncludedInAPRIndicator = true;
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paymentIncludedInAPRIndicator = false;
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].regulationZPointsAndFeesIndicator = true;
     }
     $scope.deleteOthers = function(i){
