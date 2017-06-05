@@ -200,6 +200,7 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 /*.modal-header{padding:5px;}*/
 .margin2btb{margin-bottom: 2px;}
 .form-control{height:30px;padding:6px 1px 6px 3px;}
+.input-group .form-control{z-index: 0;}
 
 .AddSection{float: left; margin: 10px 0; cursor: pointer;}
 .required{color:red;}
