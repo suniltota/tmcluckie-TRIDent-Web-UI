@@ -1882,6 +1882,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.generateXML = function(){
     	$("#spinner").show();
     	cdService.genearateXmlFromJson($scope.cdformdata).success(function(data){
+    		$scope.xmlData = data;
     		LoadXMLString("xmlViewerId",data);
     		$("#xmlView").show();
     		$("#spinner").hide();
@@ -1892,6 +1893,28 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     
     $scope.closeXML = function(){
     	$("#xmlView").hide();
+    }
+    $scope.downloadXML = function() {
+    	var xmltext = $scope.xmlData;
+		var pom = document.createElement('a');
+		var loanId = '';
+		var loanIdentifiers = $scope.cdformdata.loanInformation.loanIdentifiers;
+		for(var j=0; j<loanIdentifiers.length; j++) {
+			if(loanIdentifiers[j].loanIdentifierType == 'LenderLoan')
+				loanId = loanIdentifiers[j].loanIdentifier;
+		}
+		var filename = "ClosingDisclosure_"+loanId+ "_"+new Date().getTime();
+		var pom = document.createElement('a');
+		var bb = new Blob([xmltext], {type: 'text/xml'});
+
+		pom.setAttribute('href', window.URL.createObjectURL(bb));
+		pom.setAttribute('download', filename);
+
+		pom.dataset.downloadurl = ['text/xml', pom.download, pom.href].join(':');
+		pom.draggable = true; 
+		pom.classList.add('dragout');
+
+		pom.click();
     }
     
     $scope.$watchCollection('[cdformdata.loanInformation.loanTermYears, cdformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){
