@@ -45,7 +45,7 @@
 		        	<span ng-hide="originationCharge.feeType!='Other'" class="col-sm-12 padding0">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
-			        	  <input type="text" class="form-control padding0" name="originationCharge.feeTypeOtherDescription">
+			        	  <input type="text" class="form-control padding0" ng-model="originationCharge.feeTypeOtherDescription">
 			        	</span>
 		        	</span>
 		        </td>
@@ -273,7 +273,7 @@
 		        	<span ng-show="sbDidShopFor.feeType=='Other'">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control padding0" name="" name="sbDidShopFor.feeTypeOtherDescription" name=""> 
+			        		<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feeTypeOtherDescription"> 
 			        	</span>
 		        	</span>
 		        </td>

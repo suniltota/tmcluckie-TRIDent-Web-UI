@@ -1230,15 +1230,17 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.ETIAComponentTypes.length; i++){
 			if($scope.ETIAComponentTypes[i].value == value) {
 				$scope.ETIAComponentTypes[i].disabled = true;
-				$scope.originationChargeDisplayLabelValue=$scope.sectionAfeeTypes[i].name;
 			} else if ($scope.ETIAComponentTypes[i].value == previousVal) {
 				$scope.ETIAComponentTypes[i].disabled = false;
 			}
 		}
 	}
+
 	$scope.updateSectionAfeeTypes = function(value, index) {
 		var previousAfeeVal = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.AfeeTypes[index];
        	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.AfeeTypes[index] = value;
+       	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTypeOtherDescription = '';
+       	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].displayLabel = '';
 		for(i=0; i<$scope.sectionAfeeTypes.length; i++){
 			if($scope.sectionAfeeTypes[i].value == value) {
 				$scope.sectionAfeeTypes[i].disabled = true;
@@ -1248,9 +1250,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			}
 		}
 	}
+
 	$scope.updateSectionBfeeTypes = function(value, index) {
 		var previousBfeeVal = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.BfeeTypes[index];
 		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.BfeeTypes[index] = value;
+		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feeTypeOtherDescription = '';
+		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].displayLabel = '';
 		for(i=0; i<$scope.sectionBfeeTypes.length; i++){
 			if($scope.sectionBfeeTypes[i].value == value) {
 				$scope.sectionBfeeTypes[i].disabled = true;
@@ -1263,6 +1268,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	$scope.updateSectionCfeeTypes = function(value, index) {
 		var previousCfeeVal = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.CfeeTypes[index];
 		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.CfeeTypes[index] = value;
+		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeTypeOtherDescription = '';
+		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].displayLabel = '';
 		for(i=0; i<$scope.sectionCfeeTypes.length; i++){
 			if($scope.sectionCfeeTypes[i].value == value) {
 				$scope.sectionCfeeTypes[i].disabled = true;
@@ -1275,6 +1282,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	$scope.updateSectionEfeeTypes = function(value, index) {
 		var previousEfeeVal = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes[index];
 		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes[index] = value;
+		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTypeOtherDescription = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].displayLabel = '';
 		for(i=0; i<$scope.sectionEfeeTypes.length; i++){
 			if($scope.sectionEfeeTypes[i].value == value) {
 				$scope.sectionEfeeTypes[i].disabled = true;
@@ -1288,6 +1297,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	$scope.updateSectionFprepaidTypes = function(value, index) {
 		var previousFprepaidVal = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.FprepaidTypes[index];
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.FprepaidTypes[index] = value;
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[index].prepaidItemTypeOtherDescription = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[index].displayLabel = '';
 		for(i=0; i<$scope.prepaidItems.length; i++){
 			if($scope.prepaidItems[i].value == value) {
 				$scope.prepaidItems[i].disabled = true;
@@ -1301,6 +1312,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	$scope.updateSectionGescrowTypes = function(value, index) {
 		var previousGescrowVal = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.GescrowTypes[index];
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.GescrowTypes[index] = value;
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowItemTypeOtherDescription = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].displayLabel = '';
 		for(i=0; i<$scope.escrowItemTypes.length; i++){
 			if($scope.escrowItemTypes[i].value == value) {
 				$scope.escrowItemTypes[i].disabled = true;
@@ -1314,6 +1327,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	$scope.updateSectionHfeeTypes = function(value, index) {
 		var previousHfeeVal = $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.HfeeTypes[index];
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.HfeeTypes[index] = value;
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].feeTypeOtherDescription = '';
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].displayLabel = '';
 		for(i=0; i<$scope.sectionHfeeTypes.length; i++){
 			if($scope.sectionHfeeTypes[i].value == value) {
 				$scope.sectionHfeeTypes[i].disabled = true;
@@ -1720,6 +1735,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
     $scope.sectionApaidToChange = function(index){
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToTypeOtherDescription = '';
+    	if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType == 'Lender'){
+    		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToFullName = '';
+    	}
     }
     $scope.sectionBpaidToChange = function(index){
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription = '';
