@@ -15,7 +15,7 @@
 		      <tr ng-repeat="payoffsAndPayment in payoffsAndPaymentsList track by $index">
 			        <td>
 			        	<span class="col-sm-12 ">
-				        	<select class="form-control padding0" ng-model="payoffsAndPayment.payOffType">
+				        	<select class="form-control padding0" ng-model="payoffsAndPayment.payOffType" ng-change="payOffChange($index)">
 		              			<option value="" selected>Select</option>
 		              			<option ng-repeat="liabilityOrAdjustment in liabilityOrAdjustments" value="{{liabilityOrAdjustment.value}}" ng-disabled="liabilityOrAdjustment.disabled">{{liabilityOrAdjustment.name}}</option>
 		              		</select>
@@ -28,7 +28,7 @@
 		              	</span>
 		              	<span class="col-sm-12 margin5tb">
 		              		<strong class="col-sm-12 padding0">Type :</strong>
-		              		<select class="form-control padding0" ng-model="payoffsAndPayment.itemType">
+		              		<select class="form-control padding0" ng-model="payoffsAndPayment.itemType" ng-change="itemsChange($index)">
 		              			<option value="" selected>Select</option>
 		              			<option ng-repeat="lType in liabilityTypesPayoff" value="{{lType.value}}" ng-disabled="lType.disabled" ng-if="payoffsAndPayment.payOffType == 'Liability'">{{lType.name}}</option>
 		              			<option ng-repeat="aType in otherCredits" value="{{aType.value}}" ng-disabled="aType.disabled" ng-if="payoffsAndPayment.payOffType == 'Adjustment'">{{aType.name}}</option>

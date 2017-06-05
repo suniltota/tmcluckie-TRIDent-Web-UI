@@ -357,6 +357,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				recordingFeetotal.optionalCostIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].optionalCostIndicator;
 				recordingFeetotal.regulationZPointsAndFeesIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].regulationZPointsAndFeesIndicator;
 				recordingFeetotal.paymentIncludedInAPRIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paymentIncludedInAPRIndicator;
+				recordingFeetotal.integratedDisclosureSectionType = 'TaxesAndOtherGovernmentFees';
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
 				i--;
 			}
@@ -1381,6 +1382,18 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     $scope.sotNLAchange = function(index){
     	$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[index].otherDescription = '';
+    }
+    
+    $scope.payOffChange = function(index){
+        $scope.payoffsAndPaymentsList[index].otherDescription='';
+        $scope.payoffsAndPaymentsList[index].itemType='';
+        $scope.payoffsAndPaymentsList[index].securedIndicator='';
+        $scope.payoffsAndPaymentsList[index].payoffPartialIndicator='';
+        $scope.payoffsAndPaymentsList[index].prepaymentPenaltyAmount='';
+    }
+    
+    $scope.itemsChange = function(index){
+        $scope.payoffsAndPaymentsList[index].otherDescription='';
     }
 
     $scope.sameBorrower = function(index){
