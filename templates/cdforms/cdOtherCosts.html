@@ -1059,6 +1059,12 @@
 	              		<span class="ValueText col-sm-10">Description:</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.feeTypeOtherDescription">
 		        	</span>
+		        	<span class="ValueText col-sm-10">Optional Fee Flag:</span>
+		        	<span class="ValueValue col-sm-10">
+			        	<select class="form-control padding0" ng-model="otherCostsList.optionalCostIndicator"
+		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	    </select>
+              		</span>
 		        </td>
 		        <td>
 		            <span class="LabelText col-sm-12">Type:</span>

@@ -1434,7 +1434,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.indexChange = function(index){
     	$scope.cdformdata.interestRateAdjustment.indexTypeOtherDescription = '';
     }
-
+    
+    $scope.repayMethodChange = function(){
+    	$scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayExemptionReasonType = '';
+    }
+    
     $scope.addProjectedPayments = function(){
     	if($scope.cdformdata.projectedPayments.paymentCalculation.length <= 3){
 	    	$scope.cdformdata.projectedPayments.paymentCalculation.push(angular.copy(paymentCalculation));
