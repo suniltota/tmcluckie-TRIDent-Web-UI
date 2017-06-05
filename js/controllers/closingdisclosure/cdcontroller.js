@@ -1940,6 +1940,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$("#xmlView").hide();
     }
     $scope.downloadXML = function() {
+    	window.URL = window.webkitURL || window.URL;
     	var xmltext = $scope.xmlData;
 		var pom = document.createElement('a');
 		var loanId = '';
@@ -1950,16 +1951,18 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		}
 		var filename = "ClosingDisclosure_"+loanId+ "_"+new Date().getTime();
 		var pom = document.createElement('a');
-		var bb = new Blob([xmltext], {type: 'text/xml'});
+		var bb = new Blob([xmltext], {type: 'application/octet-stream'});
 
 		pom.setAttribute('href', window.URL.createObjectURL(bb));
 		pom.setAttribute('download', filename);
 
-		pom.dataset.downloadurl = ['text/xml', pom.download, pom.href].join(':');
+		pom.dataset.downloadurl = ['application/octet-stream', pom.download, pom.href].join(':');
 		pom.draggable = true; 
 		pom.classList.add('dragout');
 
+		document.body.appendChild(pom);
 		pom.click();
+		document.body.removeChild(pom);
     }
     
     $scope.$watchCollection('[cdformdata.loanInformation.loanTermYears, cdformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){
