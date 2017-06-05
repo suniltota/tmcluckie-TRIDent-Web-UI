@@ -134,11 +134,14 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .openSlidebtn{background: #aaa; width: 100%; cursor: pointer; padding: 5px; position: absolute; left: 0; top:6px;}
 .openSlidebtn:hover{background: #eee;}
 .SidebarBtns .openSlidebtn.glyphicon{color: #555;}
-.SidebarBtns{width:4%; transition: opacity 0.3s; height:100%; text-align: center; float: left; position: fixed; left: 0; top:82px; border-right: 1px solid #ddd; z-index:1; background: #555; padding: 8px 1px 8px 5px; padding-top: 30px;}
-.SidebarBtns .pageno{font-weight: bold; width: 100%; float: left; padding: 5px; color: #eee; cursor: pointer;}
+.SidebarBtns{width:4%; transition: opacity 0.3s; height:100%; text-align: center; float: left; position: fixed; left: 0; top:82px; border-right: 1px solid #ddd; z-index:1; background: #555; padding: 8px 1px 8px 2px; padding-top: 30px;}
+.SidebarBtns .pageno{font-weight: bold; width: 100%; float: left; padding: 5px 7px; color: #eee; cursor: pointer; padding-right: 0px;}
+.SidebarBtns .pageHead{padding-left: 2px;}
+.SidebarBtns .pageno.pageHead .noTitle{width: 100%; padding-top: 2px; color: #e49319;}
+.SidebarBtns .pageHead span.glyphicon{color: #e49319; width: 18px; font-size: 11px;}
 .SidebarBtns .active, .SidebarBtns .active .glyphicon{color:#0087ff;}
-.SidebarBtns .pageno .noTitle{padding-top:8px; font-size:10px;}
-.SidebarBtns .glyphicon{color: #eee; padding-right: 3px;}
+.SidebarBtns .pageno .noTitle{padding-top:8px; font-size:10px; letter-spacing: 1px;}
+.SidebarBtns .glyphicon{color: #eee; padding-right:1px;}
 .SidebarBtns a{cursor: pointer;}
 .SidebarNavHead{width: 100%; float: left; outline: none;}
 .SidebarBtnsHead{width: 100%; float: left; outline: none;}
@@ -219,3 +222,10 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 #xmlView #xmlViewerId{width: 75%;}
 #xmlView .Element{border-left: 0px;}
 #xmlView .Element .Clickable{padding-right: 10px;}
+
+.IconsList ul{float: left;}
+#IconsList.sapling-list .sapling-item{padding-left: 0px;}
+#IconsList.sapling-list .sapling-item:before{display: none;}
+#IconsList.sapling-list li{padding-left:0px;}
+.SidebarBtns #IconsList.sapling-list .pageHead{padding-left: 5px;}
+.SidebarBtns #IconsList.sapling-list .pageno{padding-left:0px;}
