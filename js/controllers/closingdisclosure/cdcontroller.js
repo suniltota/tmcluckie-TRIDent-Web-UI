@@ -1972,10 +1972,20 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		pom.dataset.downloadurl = ['application/octet-stream', pom.download, pom.href].join(':');
 		pom.draggable = true; 
 		pom.classList.add('dragout');
+		
+		// Internet Explorer 6-11
+		var isIE = /*@cc_on!@*/false || !!document.documentMode;
 
-		document.body.appendChild(pom);
-		pom.click();
-		document.body.removeChild(pom);
+		// Edge 20+
+		var isEdge = !isIE && !!window.StyleMedia;
+
+		if(!isEdge && !isIE) {
+			document.body.appendChild(pom);
+			pom.click();
+			document.body.removeChild(pom);	
+		} else {
+			pom.click();
+		}
     }
     
     $scope.$watchCollection('[cdformdata.loanInformation.loanTermYears, cdformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){

@@ -26,9 +26,6 @@ function LoadXMLDom(ParentElementID,xmlDoc)
 		var ReferenceElement = document.createElement('div');
 		var Link = document.createElement('a');		
 		Link.setAttribute('href','http://www.levmuchnik.net/Content/ProgrammingTips/WEB/XMLDisplay/DisplayXMLFileWithJavascript.html');
-		var TextNode = document.createTextNode('Source: Lev Muchnik');
-		Link.appendChild(TextNode);
-
 		xmlHolderElement.appendChild(Link);
 		return Result;
 	}
