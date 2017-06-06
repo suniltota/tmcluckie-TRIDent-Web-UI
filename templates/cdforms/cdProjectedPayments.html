@@ -7,7 +7,7 @@
 		<table class="table" style="margin-top:15px;">
 		      <tr>
 		        <th class="col-sm-3 innerSectionHeader">Payment Calculations</th>
-		        <th class="col-sm-2 innerSectionHeader"
+		        <th class="innerSectionHeader" ng-class="{'col-sm-9': cdformdata.projectedPayments.paymentCalculation.length == 1, 'col-sm-4': cdformdata.projectedPayments.paymentCalculation.length == 2, 'col-sm-3': cdformdata.projectedPayments.paymentCalculation.length == 3, 'col-sm-2': cdformdata.projectedPayments.paymentCalculation.length == 4 }"
 		        	ng-repeat="paymentCalculation in cdformdata.projectedPayments.paymentCalculation track by $index">
 		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years</span>
 		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Year</span>
