@@ -3697,7 +3697,7 @@ this.cdformdata={
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "ServicesBorrowerDidShopFor",
 	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": true,
+	                "regulationZPointsAndFeesIndicator": false,
 	                "paymentIncludedInAPRIndicator": false
 	            }
 	        ],
