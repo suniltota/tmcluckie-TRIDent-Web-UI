@@ -106,7 +106,12 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	<label>Estimated Total Monthly Payment Amount</label> 
+		        	<label>Estimated Total &nbsp;
+				        		<select 
+				        		ng-model="cdformdata.projectedPayments.paymentFrequencyType"
+				              		ng-options="frequency.value as frequency.name for frequency in paymentFrequencyTypes">
+				        		</select>&nbsp;
+				        	Payment Amount</label>
 		        </td>
 		        <td ng-repeat="estimatedTotal in cdformdata.projectedPayments.estimatedTotal track by $index">
 		        	<div class="col-sm-6">
