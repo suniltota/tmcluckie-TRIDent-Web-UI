@@ -3567,6 +3567,7 @@ this.cdformdata={
 	    {
 	        "paymentFrequencyType": "Monthly",
 	        "miMonthsDuration": "",
+	        "miPaymentAmount":"",
 	        "paymentCalculation":
 	        [
 	            {

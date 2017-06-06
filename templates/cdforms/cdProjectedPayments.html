@@ -51,9 +51,9 @@
 			        </div>
 			        <div ng-show="cdformdata.loanDetail.miRequiredIndicator">
 				        <div class="col-sm-12 padding0 margin5tb">
-				        	<span class="col-sm-6 padding0">No. Months Duration?</span> 
-				        	<span class="col-sm-6 pull-right">
-				        		<input type="text" class="form-control" name="" ng-model="cdformdata.projectedPayments.miMonthsDuration">
+				        	<span class="col-sm-6 padding0">MI Payment Amount</span> 
+				        	<span class="col-sm-4 pull-right">
+				        		<input type="text" class="form-control" name="" ng-model="cdformdata.projectedPayments.miPaymentAmount" decimal-digits-with-number-format>
 				        	</span> 
 				        </div>
 				        <div class="col-sm-12 padding0 margin5tb">
@@ -134,7 +134,8 @@
 		</table>
 	</span>
 	<div class="col-sm-12 margin10t">
-			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('loanterms')">Back</a></span>
-			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('ETIAssessments')">Next</a></span>
+			<span class="col-sm-4" style="text-align: left;"><a class="btn btn-default" ng-click="changeTab('loanterms')">Back</a></span>
+			<span class="col-sm-4" style="text-align:center;"><a class="btn btn-success" ng-click="calculatePayments()">Calculate</a></span>
+			<span class="col-sm-4" style="text-align: right;"><a class="btn btn-primary" ng-click="changeTab('ETIAssessments')">Next</a></span>
 	</div>
 </div>

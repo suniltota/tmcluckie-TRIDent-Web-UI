@@ -289,6 +289,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.loanTerms.prepaymentPenalty['prepaymentPenaltyExpirationInYears'] = '';
 		if($scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount)
 			$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears = Math.round($scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount/12);
+		$scope.cdformdata.projectedPayments['miPaymentAmount'] = '';
+		if($scope.cdformdata.projectedPayments.mortgageInsurance.length>0) {
+			$scope.cdformdata.projectedPayments.miPaymentAmount = $scope.cdformdata.projectedPayments.mortgageInsurance[0].projectedPaymentMIPaymentAmount;
+		}
 
 		$scope.cdformdata.etiaSection['etiaTypes']=[];
 		if($scope.cdformdata.etiaSection.etiaValues!=undefined) {
@@ -2941,7 +2945,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	}, true);
 
     $scope.$watch('cdformdata.projectedPayments',function(newValue,oldValue){
-        
     	for(i=0;i<$scope.cdformdata.projectedPayments.paymentCalculation.length;i++){
     		var estimatedTotalMinimumPayment = 0;
         	var estimatedTotalMaximumPayment = 0;
