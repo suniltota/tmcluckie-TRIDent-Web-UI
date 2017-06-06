@@ -224,6 +224,13 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 #xmlView .Element{border-left: 0px;}
 #xmlView .Element .Clickable{padding-right: 10px;}
 
+#ucdXmlView{position: absolute; z-index: 5; background: #fff; width: 100%; overflow:auto; padding: 20px 50px!important;}
+#ucdXmlView .closeXml{float: right; position: absolute; top: 10px; right: 10px; font-size: 16px;}
+#ucdXmlView .downloadXML{float: right; position: absolute; top: 10px; right: 35px; font-size: 16px;}
+#ucdXmlView #ucdXmlViewerId{width: 75%;}
+#ucdXmlView .Element{border-left: 0px;}
+#ucdXmlView .Element .Clickable{padding-right: 10px;}
+
 .IconsList ul{float: left;}
 #IconsList.sapling-list .sapling-item{padding-left: 0px;}
 #IconsList.sapling-list .sapling-item:before{display: none;}
