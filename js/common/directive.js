@@ -134,7 +134,7 @@ app.directive('fileModel', ['$parse', function ($parse) {
     };
 }]);
 
-app.directive('zipcodeFormat', function ($filter) {
+app.directive('zipcodeFormat', function ($filter, $parse) {
     return {
         restrict: 'A',
         require: 'ngModel',
@@ -142,8 +142,11 @@ app.directive('zipcodeFormat', function ($filter) {
             elem.bind('blur', function (e) {
               if(e.target.value)
                  e.target.value = formatValue(e.target.value, 'formxml');
-               else
-                e.target.value = '';
+               else {
+                e.target.value = '00000';
+                $parse(attrs.ngModel).assign(scope, '00000');
+              }
+
             });
             if (!ctrl) {
                 return;
@@ -155,13 +158,12 @@ app.directive('zipcodeFormat', function ($filter) {
 
             function formatValue(viewValue, sourcefrom) {
               if(viewValue) {
-                var plainNumber = viewValue.replace(/[\-\.]/g, '');
+                var plainNumber = viewValue.replace(/[^0-9]/g, '');
                 if (plainNumber.length >= 9) {
                     var plainNumber1 = plainNumber.slice(0, 5);
                     var plainNumber2 = plainNumber.slice(5);
                     if(plainNumber2.length>4) 
                       plainNumber2 = plainNumber2.slice(0,4);
-
                     plainNumber = plainNumber1 + "-" + plainNumber2;
                 } else if (plainNumber.length > 5 && plainNumber.length < 9) {
                     var plainNumber1 = plainNumber.slice(0, 5);
@@ -201,6 +203,8 @@ app.directive('zipcodeFormat', function ($filter) {
                   for(var i=0; i<diff; i++) 
                     plainNumber = plainNumber+"0";
                 }
+                ctrl.$setViewValue(formatValue(viewValue));
+                ctrl.$render();
                 return plainNumber;
             });
         }
