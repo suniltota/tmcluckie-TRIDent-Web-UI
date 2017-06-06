@@ -1202,14 +1202,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.interestOnly.interestOnlyTermMonthsCount = '';
     }
 
-    $scope.negativeAmortizationChange = function(){
-    	if($scope.cdformdata.loanDetail.negativeAmortizationIndicator == false){
-    		$scope.cdformdata.negativeAmortization.negativeAmortizationType ='';
-    		$scope.cdformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount = '';
-    		$scope.cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount = '';
-    	}
-    }
-
     $scope.nATypeChange = function(){
     	if($scope.cdformdata.negativeAmortization.negativeAmortizationType==''){
     		$scope.cdformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount = '';
@@ -2100,7 +2092,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 					prepaidmonths = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemMonthsPaidCount ? $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemMonthsPaidCount : +0;
 					escrowAmount = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount ? $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount : +0;
 					$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = parseFloat(prepaidmonths*escrowAmount);
-			    }else{
+			    } else{
 		            $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = '';
 			    }
 		    }
@@ -2131,9 +2123,16 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     				$scope.cdformdata = jsonData;
 	    			initializeCDformData();
 	    			$("#spinner").hide();
-    			});
-    		});
+    			}).error( function(data, status){
+		    		alert('There is an error getting while converting calculations xml to json. Please provide the input data properly and check again.');
+		    		$("#spinner").hide();
+		    	});
+    		}).error( function(data, status){
+    			alert('There is an error getting while converting ucd xml to calculations xml. Please provide the input data properly and check again.');
+	    		$("#spinner").hide();
+	    	});
     	}).error( function(data, status){
+    		alert('There is an error getting while converting json to xml. Please provide the input data properly and check again.');
     		$("#spinner").hide();
     	});
     }
@@ -2275,6 +2274,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	else {
     		$scope.cdformdata.loanDetail.loanAmountIncreaseIndicator = false;
     		$scope.cdformdata.negativeAmortization.negativeAmortizationType = '';
+    		$scope.cdformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount = '';
+    		$scope.cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount = '';
     	}
     }, true);
     
