@@ -44,7 +44,7 @@
 		        	</div>
 		        </td>
 		        <td>
-		        	{{cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount}}
+		        	${{cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
 		        </td>
 		        <td>
 		        	{{true == cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
@@ -276,4 +276,97 @@
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('TotalClosingCosts')">Back</a></span>
 			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('SummariesofTransaction_K')">Next</a></span>
 	</div>
+</div>
+
+<div class="modal fade" id="cashtoCloseModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cash to Close Calculator- {{FormType}} {{LoanType}}</h4>
+      </div>
+
+      <div class="modal-body">
+            <div class="margin5tb row">
+              <div class=" col-sm-12">
+                <div class="col-sm-5 fieldTitle">Total Closing Costs (J)</div>
+                <div class="col-sm-7 fieldValue">${{cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}</div>
+              </div>
+              <div class=" col-sm-12">
+                <div class="col-sm-5 fieldTitle">Closing Costs Paid Before Closing</div>
+                <div class="col-sm-7 fieldValue">${{cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}</div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-5 fieldTitle">Loan Amount includes any assumed or taken subject to</div>
+                <div class="col-sm-7 fieldValue">$0</div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-5 fieldTitle">Sales Price</div>
+                <div class="col-sm-4">
+                    <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
+                      <span class="input-group-addon input-default">$</span>
+                      <input type="text" class="form-control" name="" ng-model="cdformdata.salesContractDetail.saleContractAmount" decimal-digits-with-number-format>
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-5 fieldTitle">Payoffs and Payments</div>
+                <div class="col-sm-4">
+                    <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+                      <span class="input-group-addon input-default">$</span>
+                      <input type="text" class="form-control" name="" ng-model="payoffsAndPaymentsTotalAmount" decimal-digits-with-number-format>
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-5 fieldTitle">Deposit</div>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                      <span class="input-group-addon input-default">$</span>
+                          <input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-5 fieldTitle">Seller Credits</div>
+                <div class="col-sm-4">
+                  <div class="input-group">
+                    <span class="input-group-addon input-default">$</span>
+                    <input type="text" class="form-control" name="" ng-model="cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+                  </div>
+                </div>
+              </div>
+               <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'alternate'">
+                <div class="col-sm-5 fieldTitle">Loan Amount</div>
+                <div class="col-sm-7 fieldValue">
+                    ${{cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}
+                </div>
+                </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'alternate'">
+                <div class="col-sm-5 fieldTitle">Total Payoffs and Payments</div>
+                <div class="col-sm-4">
+                  <div class="input-group">
+                  <span class="input-group-addon input-default">$</span>
+                  <input type="text" class="form-control" name="" ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+                  </div>
+                </div>
+              </div>
+              <div class=" col-sm-12">
+                <div class="col-sm-5 fieldTitle">Adjustments and Other Credits</div>
+                <div class="col-sm-4">
+                  <div class="input-group">
+                  <span class="input-group-addon input-default">$</span>
+                  <input type="text" class="form-control" name="" ng-model="cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+                  </div>
+                </div>
+              </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="calculateCash()">Calculate Cash to Close</button>
+        <button type="button" class="btn btn-default" ng-click="clearCalculations()">Clear Editable Values</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
