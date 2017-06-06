@@ -2653,7 +2653,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
                $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemAmountChangedIndicator = false;
         	}
         }
-        
+
     	if($scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount)
     	cashToCloseItemEstimatedAmount +=  $scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount);
     	if($scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount)
@@ -2852,12 +2852,19 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		}
 		$scope.cdformdata.summariesofTransactions.borrowerTransaction.paidAlreadyByOrOnBehalfOfBorrowerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount = $scope.summariesOfTransaction_LSection.sectionTotalAmount;
 		$scope.sotBorrowerTransactionTotalAmount = parseFloat($scope.summariesOfTransaction_KSection.sectionTotalAmount) +(-parseFloat($scope.summariesOfTransaction_LSection.sectionTotalAmount));
-
+        
+        //Seller Credit
 		for(i=0;i<$scope.summariesOfTransaction_LSection.adjustments.length;i++){
         	if($scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemType=='SellerCredit'){
         		$scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount = $scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemAmount;
         	}
         }
+        
+        //Deposit
+        if($scope.summariesOfTransaction_LSection.deposit.closingCostFundAmount && $scope.summariesOfTransaction_LSection.deposit.closingCostFundAmount!=undefined){
+           $scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount = $scope.summariesOfTransaction_LSection.deposit.closingCostFundAmount;
+        } 
+
     }, true);
 
     $scope.$watch('summariesOfTransaction_NSection', function(newValues,oldValues){
