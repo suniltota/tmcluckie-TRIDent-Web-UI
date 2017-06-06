@@ -1952,16 +1952,33 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$("#spinner").show();
     	cdService.genearateXmlFromJson($scope.cdformdata).success(function(data){
     		$scope.xmlData = data;
-    		LoadXMLString("xmlViewerId",data);
+    		LoadXMLString("xmlViewerId",$scope.xmlData);
     		$("#xmlView").show();
     		$("#spinner").hide();
     	}).error( function(data, status){
     		$("#spinner").hide();
     	});
     }
-    
+
+    $scope.generateUCDXML = function(){
+    	$("#spinner").show();
+    	cdService.genearateXmlFromJson($scope.cdformdata).success(function(data){
+    		$scope.xmlData = data;
+    		cdService.genearateUCDXml($scope.xmlData).success(function(data){
+	    		$scope.ucdxmlData = data;
+	    		LoadXMLString("ucdXmlViewerId",$scope.ucdxmlData);
+	    		$("#ucdXmlView").show();
+	    		$("#spinner").hide();
+	    	}).error( function(data, status){
+	    		$("#spinner").hide();
+	    	});
+    	});
+    }
     $scope.closeXML = function(){
     	$("#xmlView").hide();
+    }
+    $scope.closeUCDXML = function(){
+    	$("#ucdXmlView").hide();
     }
     $scope.downloadXML = function() {
     	window.URL = window.webkitURL || window.URL;
@@ -1974,6 +1991,41 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				loanId = loanIdentifiers[j].loanIdentifier;
 		}
 		var filename = "ClosingDisclosure_"+loanId+ "_"+new Date().getTime();
+		var pom = document.createElement('a');
+		var bb = new Blob([xmltext], {type: 'application/octet-stream'});
+
+		pom.setAttribute('href', window.URL.createObjectURL(bb));
+		pom.setAttribute('download', filename);
+
+		pom.dataset.downloadurl = ['application/octet-stream', pom.download, pom.href].join(':');
+		pom.draggable = true; 
+		pom.classList.add('dragout');
+		
+		// Internet Explorer 6-11
+		var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+		// Edge 20+
+		var isEdge = !isIE && !!window.StyleMedia;
+
+		if(!isEdge && !isIE) {
+			document.body.appendChild(pom);
+			pom.click();
+			document.body.removeChild(pom);	
+		} else {
+			pom.click();
+		}
+    }
+    $scope.downloadUCDXML = function() {
+    	window.URL = window.webkitURL || window.URL;
+    	var xmltext = $scope.ucdxmlData;
+		var pom = document.createElement('a');
+		var loanId = '';
+		var loanIdentifiers = $scope.cdformdata.loanInformation.loanIdentifiers;
+		for(var j=0; j<loanIdentifiers.length; j++) {
+			if(loanIdentifiers[j].loanIdentifierType == 'LenderLoan')
+				loanId = loanIdentifiers[j].loanIdentifier;
+		}
+		var filename = "ClosingDisclosure_"+loanId+"_UCD"+ "_"+new Date().getTime();
 		var pom = document.createElement('a');
 		var bb = new Blob([xmltext], {type: 'application/octet-stream'});
 

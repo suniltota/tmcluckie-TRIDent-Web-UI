@@ -62,44 +62,46 @@ app.controller('validateCtrl', function ($scope, $location, $http) {
 app.controller('menuCtrl', function ($scope, loginService, staticData, $window) {
 
   $scope.fileOpen = function(){
-    xmlDestroy();
-    pdfDestroy();
+    closeAllViews();
     angular.element($("#UCDXMLFILE")).scope().openUCDXMLFile();
   }
   $scope.saveFile = function(){
-    xmlDestroy();
-    pdfDestroy();
+    closeAllViews();
     angular.element($("#UCDXMLFILE")).scope().saveFile();
   }
   $scope.importFile = function(){
-    xmlDestroy();
-    pdfDestroy();
+    closeAllViews();
     angular.element($("#UCDXMLFILE")).scope().importFile();
   }
   $scope.generateXML = function() {
-    xmlDestroy();
-    pdfDestroy();
+    closeAllViews();
     if(!localStorage.documentType)
       angular.element($("#UCDXMLFILE")).scope().generateXML();
   }
+  $scope.generateUCDXML = function() {
+    closeAllViews();
+    if(!localStorage.documentType)
+      angular.element($("#UCDXMLFILE")).scope().generateUCDXML();
+  }
   $scope.generatePDF = function(){
-    xmlDestroy();
-    pdfDestroy();
+    closeAllViews();
     if(!localStorage.documentType)
       angular.element($("#UCDXMLFILE")).scope().generatePDF();
   }
-  $scope.closePdfView = function() {
+ var closeAllViews = function() {
     xmlDestroy();
     pdfDestroy();
+    ucdXmlDestroy();
   }
   var xmlDestroy = function(){
     $("#xmlView").hide();
   }
-  
+  var ucdXmlDestroy = function(){
+    $("#ucdXmlView").hide();
+  }
   var pdfDestroy = function(){
     $(".pdfSlider_button").click();
   }
-
   $scope.logout = function() {
       loginService.logout();
       $window.location.href="login.html" + $window.location.search;

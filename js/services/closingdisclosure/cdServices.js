@@ -20,6 +20,13 @@ app.service('cdService', function(apiService){
             formData:data
         });
     },
+    this.genearateUCDXml = function(data){
+        return apiService.request({
+            apiMethod: "services/trident/closingdisclosure/v1/ucdxml",
+            httpMethod: 'POST',
+            formData:data
+        });
+    },
     this.transformText2XML = function(textData) {
         return apiService.request({
             apiMethod: "services/actualize/textToXml",
