@@ -286,6 +286,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.loanInformation.productAdjustmentInformation.floorRatePercent = $scope.cdformdata.interestRateAdjustment.floorRatePercent;
 		}
 
+		$scope.cdformdata.loanTerms.prepaymentPenalty['prepaymentPenaltyExpirationInYears'] = '';
+		if($scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount)
+			$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears = Math.round($scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount/12);
+
 		$scope.cdformdata.etiaSection['etiaTypes']=[];
 		if($scope.cdformdata.etiaSection.etiaValues!=undefined) {
 			$scope.cdformdata.etiaSection.etiaValues.splice(0, 0, angular.copy(ETIAComponentType));
@@ -1224,14 +1228,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     $scope.temporaryChange = function(){
     	$scope.cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator = false;
-    	$scope.cdformdata.interestRateAdjustment.ceilingRatePercent = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent = '';
     }
     $scope.temporaryBuydownChange = function(){
-    	$scope.cdformdata.interestRateAdjustment.ceilingRatePercent = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount = '';
@@ -2984,22 +2986,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     $scope.$watch('cdformdata.loanInformation.productAdjustmentInformation',function(newValue,oldValue){
     	if($scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths) {
-    		$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = $scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths;
+    		$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths);
     		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths)+1;
     	} else {
     		$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = '';
     		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = '';
     	}
     	if($scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths) {
-    		$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = $scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths;
-    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = $scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths;
+    		$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths);
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths);
     	} else{
     		$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = '';
     		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = '';
     	}
     	if($scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths) {
-    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = $scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths;
-    		$scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = $scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths;
+    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths);
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths);
     	} else {
     		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = '';
     		$scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = '';
@@ -3025,6 +3027,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.interestRateAdjustment.floorRatePercent = '';
     	}
     },true);
+
+	$scope.$watch('cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears',function(newValue,oldValue){
+    	if($scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears) {
+    		$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount = parseInt($scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears) * 12; 
+    	}
+	}, true);
     
     //Total closing Costs
     $scope.$watch('cdformdata.closingCostsTotal.totalClosingCosts',function(newValue,oldValue){

@@ -33,7 +33,6 @@
 								</div>
 							</span>
 						</li>
-							
 						<li> <span class="pull-left margin5tb col-sm-5"> Can increase until year </span> <span class="col-sm-4"><input type="text" class="form-control" name="" value="{{cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount/12 | ceil}}" ng-disabled="true"></span></li>
 		        	</ul>
 		        </td>
@@ -110,14 +109,14 @@
 		        <td><label>Temporary buydown <span class="required">*</span></label></td>
 		        <td>
 		        </td>
-		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="temporaryChange()">
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator == true">
 		        		
 		        		<li><span class="pull-left margin5tb">Is the buydown reflected on the Note</span> 
 		        			<span class="col-sm-2">
-		        			<select class="form-control pull-left" ng-model="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" style="width:55px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        			<select class="form-control pull-left" ng-model="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" style="width:55px;" ng-options="option.id as option.name for option in dropDownBooleanOptions"  ng-change="temporaryBuydownChange()">
 			        	    </select>
 			        	   </span> 
 		        		</li>
@@ -216,7 +215,7 @@
 		        				</div>
 		        				</span>
 		        					<span class="pull-left margin5tb">if you pay off the loan  in the first</span>
-		        					<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount" only-digits maxlength="3"></span>
+		        					<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears" only-digits maxlength="3"></span>
 		        				<span class="pull-left margin5tb">years</span>
 		        		</li>
 			         </ul>
@@ -240,7 +239,7 @@
 		        			</span>
 		        			<span class="pull-left margin5tb">at the end of year</span>
 		        			<span class="col-sm-2">
-		        				<input type="text" class="form-control" name="" ng-model="cdformdata.maturityRule.loanMaturityPeriodCount" only-digits maxlength="3">
+		        				<input type="text" class="form-control" name="" value="{{cdformdata.maturityRule.loanMaturityPeriodCount/12 | round}}" maxlength="3" ng-disabled="true">
 		        			</span>
 		        		</li>
 		        	</ul>
