@@ -3326,7 +3326,9 @@ this.cdformdata={
 	        "transactionType": null,
 	        "documentType": "",
 	        "formType": "",
-	        "escrowAggregateAccountingAdjustmentAmount": ""
+	        "escrowAggregateAccountingAdjustmentAmount": "",
+	        "escrowAggregateAccountingAdjustmentAmountSellerPaid":"",
+	        "escrowAggregateAccountingAdjustmentAmountOthersPaid":""
 	    },
 		"loanDetail": {
 		    "assumabilityIndicator": false,
