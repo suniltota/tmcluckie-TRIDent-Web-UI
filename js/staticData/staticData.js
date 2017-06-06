@@ -3616,7 +3616,7 @@ this.cdformdata={
 	            {
 	                "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
 	                "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
-	                "projectedPaymentEscrowedType": "NotEscrowed"
+	                "projectedPaymentEscrowedType": ""
 	            }
 	        ]
 	    },
