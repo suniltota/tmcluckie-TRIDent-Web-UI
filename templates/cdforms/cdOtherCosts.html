@@ -1091,35 +1091,35 @@
 		        <td>
 		       		<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.bpAtClosing" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.bpAtClosing" decimal-digits-with-number-format ng-blur="sectionHZIndicator($index)" ng-keyup="sectionHZIndicator($index)">
 		        	</div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.bpB4Closing" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.bpB4Closing" decimal-digits-with-number-format ng-blur="sectionHZIndicator($index)" ng-keyup="sectionHZIndicator($index)">
 		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.spAtClosing" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.spAtClosing" decimal-digits-with-number-format ng-blur="sectionHZIndicator($index)" ng-keyup="sectionHZIndicator($index)">
 		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.spB4Closing" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.spB4Closing" decimal-digits-with-number-format ng-blur="sectionHZIndicator($index)" ng-keyup="sectionHZIndicator($index)">
 		        	</div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.paidByOthers" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.paidByOthers" decimal-digits-with-number-format ng-blur="sectionHZIndicator($index)" ng-keyup="sectionHZIndicator($index)">
 		        	</div>
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="otherCostsList.lenderStatus">
+		        	<input type="checkbox" name="" ng-model="otherCostsList.lenderStatus" ng-click="sectionHZIndicator($index)" ng-change="sectionHZIndicator($index)">
 		        </td>
 		       <!--  <td>
 		        	<select class="form-control padding0" ng-model="otherCostsList.optionalCostIndicator"

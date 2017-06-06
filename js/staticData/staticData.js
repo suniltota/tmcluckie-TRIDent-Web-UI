@@ -3748,7 +3748,7 @@ this.cdformdata={
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
 	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": true,
+	                "regulationZPointsAndFeesIndicator": false,
 	                "paymentIncludedInAPRIndicator": false
 	            }
 	        ],
@@ -3773,7 +3773,7 @@ this.cdformdata={
 	                "prepaidItemPerDiemCalculationMethodType": "",
 	                "prepaidItemType": "",
 	                "prepaidItemTypeOtherDescription": "",
-	                "regulationZPointsAndFeesIndicator": true,
+	                "regulationZPointsAndFeesIndicator": false,
 	                "paymentIncludedInAPRIndicator": false,
 	                "prepaidPaidToFullName": ""
 	            }
@@ -3795,7 +3795,7 @@ this.cdformdata={
 			        "feePaidToType": "ThirdPartyProvider",
 			        "feePaidToTypeOtherDescription": "",
 			        "integratedDisclosureSectionType": "InitialEscrowPaymentAtClosing",
-			        "regulationZPointsAndFeesIndicator": true,
+			        "regulationZPointsAndFeesIndicator": false,
 			        "paymentIncludedInAPRIndicator": false
 	            }
 	        ],
@@ -3820,7 +3820,7 @@ this.cdformdata={
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "",
 	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": true,
+	                "regulationZPointsAndFeesIndicator": false,
 	                "paymentIncludedInAPRIndicator": false
 	            }
 	        ]

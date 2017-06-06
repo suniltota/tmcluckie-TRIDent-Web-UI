@@ -60,7 +60,7 @@
 		        	<span ng-hide="originationCharge.feePaidToType!='Other'" class="col-sm-12 padding0">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
-			        		<select class="form-control padding0" ng-model="originationCharge.feePaidToTypeOtherDescription">
+			        		<select class="form-control padding0" ng-model="originationCharge.feePaidToTypeOtherDescription" ng-change="sectionAZIndicator($index)">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
               		    </select>
@@ -74,35 +74,35 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpAtClosing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpAtClosing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpB4Closing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpB4Closing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spAtClosing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spAtClosing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
 		        </div>
 		        </td>
 		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group" >
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spB4Closing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spB4Closing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
 		        </div>
 		        </td>
 		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group" >
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.paidByOthers" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.paidByOthers" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
 		        </div>
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="originationCharge.lenderStatus">
+		        	<input type="checkbox" name="" ng-model="originationCharge.lenderStatus" ng-change="sectionAZIndicator($index)" ng-click="sectionAZIndicator($index)">
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="originationCharge.paymentIncludedInAPRIndicator"
@@ -176,7 +176,7 @@
 		        	<span ng-show="sbDidNotShopFor.feePaidToType=='Other'">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
-			        		<select class="form-control padding0" ng-model="sbDidNotShopFor.feePaidToTypeOtherDescription">
+			        		<select class="form-control padding0" ng-model="sbDidNotShopFor.feePaidToTypeOtherDescription" ng-change="sectionBZIndicator($index)">
 		              			<option value="" selected>Select</option>
 		             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
               		    	</select>
@@ -188,35 +188,35 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.bpAtClosing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.bpAtClosing" decimal-digits-with-number-format ng-blur="sectionBZIndicator($index)" ng-keyup="sectionBZIndicator($index)">
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.bpB4Closing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.bpB4Closing" decimal-digits-with-number-format ng-blur="sectionBZIndicator($index)" ng-keyup="sectionBZIndicator($index)">
 		        </div>
 		        </td>
 		        <td  ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.spAtClosing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.spAtClosing" decimal-digits-with-number-format ng-blur="sectionBZIndicator($index)" ng-keyup="sectionBZIndicator($index)">
 		        </div>
 		        </td>
 		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group" >
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.spB4Closing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.spB4Closing" decimal-digits-with-number-format ng-blur="sectionBZIndicator($index)" ng-keyup="sectionBZIndicator($index)">
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.paidByOthers" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.paidByOthers" decimal-digits-with-number-format ng-blur="sectionBZIndicator($index)" ng-keyup="sectionBZIndicator($index)">
 		        </div>
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="sbDidNotShopFor.lenderStatus">
+		        	<input type="checkbox" name="" ng-model="sbDidNotShopFor.lenderStatus" ng-click="sectionBZIndicator($index)" ng-change="sectionBZIndicator($index)">
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="sbDidNotShopFor.paymentIncludedInAPRIndicator"
@@ -288,7 +288,7 @@
 		        	<span ng-show="sbDidShopFor.feePaidToType=='Other'">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
-			        		<select class="form-control padding0" ng-model="sbDidShopFor.feePaidToTypeOtherDescription">
+			        		<select class="form-control padding0" ng-model="sbDidShopFor.feePaidToTypeOtherDescription" ng-change="sectionCZIndicator($index)">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
               		        </select>
@@ -300,35 +300,35 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpAtClosing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpAtClosing" decimal-digits-with-number-format ng-blur="sectionCZIndicator($index)" ng-keyup="sectionCZIndicator($index)">
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpB4Closing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpB4Closing" decimal-digits-with-number-format  ng-blur="sectionCZIndicator($index)" ng-keyup="sectionCZIndicator($index)">
 		        </div>
 		        </td>
 		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spAtClosing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spAtClosing" decimal-digits-with-number-format  ng-blur="sectionCZIndicator($index)" ng-keyup="sectionCZIndicator($index)">
 		        </div>
 		        </td>
 		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group" >
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spB4Closing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spB4Closing" decimal-digits-with-number-format  ng-blur="sectionCZIndicator($index)" ng-keyup="sectionCZIndicator($index)">
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.paidByOthers" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.paidByOthers" decimal-digits-with-number-format  ng-blur="sectionCZIndicator($index)" ng-keyup="sectionCZIndicator($index)">
 		        </div>
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="sbDidShopFor.lenderStatus">
+		        	<input type="checkbox" name="" ng-model="sbDidShopFor.lenderStatus"  ng-click="sectionCZIndicator($index)" ng-change="sectionCZIndicator($index)">
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="sbDidShopFor.paymentIncludedInAPRIndicator"
