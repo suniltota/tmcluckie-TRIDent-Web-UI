@@ -3434,7 +3434,7 @@ this.cdformdata={
 				"partyRoleOtherDescription": "",
 				"address": {
 					"addressLineText": "",
-					"addressType": "",
+					"addressType": "Mailing",
 					"addressUnitDesignatorType": "",
 					"addressUnitIdentifier": "",
 					"cityName": "",
@@ -3459,7 +3459,7 @@ this.cdformdata={
 				"partyRoleOtherDescription": "",
 				"address": {
 					"addressLineText": "",
-					"addressType": "",
+					"addressType": "Mailing",
 					"addressUnitDesignatorType": "",
 					"addressUnitIdentifier": "",
 					"cityName": "",
@@ -3484,7 +3484,7 @@ this.cdformdata={
 				"partyRoleOtherDescription": "",
 				"address": {
 					"addressLineText": "",
-					"addressType": "",
+					"addressType": "Mailing",
 					"addressUnitDesignatorType": "",
 					"addressUnitIdentifier": "",
 					"cityName": "",
@@ -4198,7 +4198,7 @@ this.cdformdata={
             "address":
             {
                 "addressLineText": "",
-                "addressType": "",
+                "addressType": "Mailing",
                 "addressUnitDesignatorType": "",
                 "addressUnitIdentifier": "",
                 "cityName": "",
@@ -4244,7 +4244,7 @@ this.cdformdata={
             "address":
             {
                 "addressLineText": "",
-                "addressType": "",
+                "addressType": "Mailing",
                 "addressUnitDesignatorType": "",
                 "addressUnitIdentifier": "",
                 "cityName": "",
@@ -4289,7 +4289,7 @@ this.cdformdata={
             "address":
             {
                 "addressLineText": "",
-                "addressType": "",
+                "addressType": "Mailing",
                 "addressUnitDesignatorType": "",
                 "addressUnitIdentifier": "",
                 "cityName": "",
@@ -4334,7 +4334,7 @@ this.cdformdata={
             "address":
             {
                 "addressLineText": "",
-                "addressType": "",
+                "addressType": "Mailing",
                 "addressUnitDesignatorType": "",
                 "addressUnitIdentifier": "",
                 "cityName": "",
@@ -4380,7 +4380,7 @@ this.cdformdata={
             "address":
             {
                 "addressLineText": "",
-                "addressType": "",
+                "addressType": "Mailing",
                 "addressUnitDesignatorType": "",
                 "addressUnitIdentifier": "",
                 "cityName": "",
