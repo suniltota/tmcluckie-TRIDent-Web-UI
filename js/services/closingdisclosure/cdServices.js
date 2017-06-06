@@ -27,6 +27,13 @@ app.service('cdService', function(apiService){
             formData:data
         });
     },
+    this.calculatePayments = function(data){
+        return apiService.request({
+            apiMethod: "services/transformx/services/ucd/calculatepayments",
+            httpMethod: 'POST',
+            formData:data
+        });
+    },
     this.transformText2XML = function(textData) {
         return apiService.request({
             apiMethod: "services/actualize/textToXml",

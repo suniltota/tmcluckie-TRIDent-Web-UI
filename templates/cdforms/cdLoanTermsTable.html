@@ -65,13 +65,13 @@
 		        			<span class="pull-left margin5tb col-sm-4 padding0">Can go as high as</span> 
 		        			<span class="col-sm-3">
 							<div class="input-group">								
-		        				<input type="text" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent" class="form-control" name="" percentage-format>
+		        				<input type="text" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent" class="form-control" name="" percentage-format ng-disabled="true">
 								<span class="input-group-addon input-default">%</span>
 							</div>
 		        			</span> 
 		        			<span class="pull-left margin5tb">in year</span> 
 		        			<span class="col-sm-2">
-		        				<input type="text" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount" only-digits class="form-control" name="" maxlength="3">
+		        				<input type="text" value="{{(cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount/12)+1 | ceil}}" class="form-control" name="" maxlength="3" ng-disabled="true">
 		        			</span>
 		        		</li>
 		        		<li>
@@ -110,14 +110,14 @@
 		        <td><label>Temporary buydown <span class="required">*</span></label></td>
 		        <td>
 		        </td>
-		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions"  ng-change="temporaryChange()">
+		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator == true">
 		        		
 		        		<li><span class="pull-left margin5tb">Is the buydown reflected on the Note</span> 
 		        			<span class="col-sm-2">
-		        			<select class="form-control pull-left" ng-model="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" style="width:55px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="temporaryBuydownChange()">
+		        			<select class="form-control pull-left" ng-model="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" style="width:55px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 			        	    </select>
 			        	   </span> 
 		        		</li>
@@ -161,15 +161,15 @@
 		        		<input class="form-control" ng-model="cdformdata.payment.paymentRule.initialPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
-		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.paymentIncreaseIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions"  ng-change="principalAndInterestChange()">
+		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.paymentIncreaseIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>        	
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanDetail.paymentIncreaseIndicator == true">
 		        		<li> <span class="pull-left margin5tb">Adjusts every</span> 
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" only-digits maxlength="3"></span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name="" value="{{cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount/12 | round}}" maxlength="3" ng-disabled="true"></span> 
 		        			<span class="pull-left margin5tb">years starting in year</span>
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" only-digits maxlength="3"></span></li>
+		        			<span class="col-sm-2"><input type="text" class="form-control" name="" value="{{cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount/12 | ceil}}" maxlength="3" ng-disabled="true"></span></li>
 		        		<li><span class="pull-left margin5tb"> Can go as high as</span> 
 		        			<span class="col-sm-3">
 		        			<div class="input-group">
@@ -179,7 +179,7 @@
 							</span> 
 		        			<span class="pull-left margin5tb">in year</span> 
 		        			<span class="col-sm-2">
-		        			<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount" only-digits maxlength="3">
+		        			<input type="text" class="form-control" name="" value="{{cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount/12 | ceil}}" maxlength="3" ng-disabled="true">
 		        			</span>
 		        		</li>
 		        	</ul>
@@ -203,7 +203,7 @@
 		        <td><label></label></td>
 		        <td  style="padding-right: 0px;">
 		        	
-		        	<select class="form-control pull-left" ng-model="cdformdata.loanDetail.prepaymentPenaltyIndicator" style="margin-top:5px;width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="prepaymentPenaltyChange()">
+		        	<select class="form-control pull-left" ng-model="cdformdata.loanDetail.prepaymentPenaltyIndicator" style="margin-top:5px;width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
 		        </td>
 		        <td>
@@ -226,7 +226,7 @@
 		        <td><label>Balloon Payment <span class="required">*</span></label></td>
 		        <td><label></label></td>
 		        <td>
-		        	<select class="form-control pull-left"  ng-model="cdformdata.loanDetail.balloonIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="baloonChange()">
+		        	<select class="form-control pull-left"  ng-model="cdformdata.loanDetail.balloonIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
 		        </td>
 		        <td>
@@ -250,7 +250,8 @@
 		</table>
 	</span>
 <div class="col-sm-12 margin10t">
-			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('loanInfo')">Back</a></span>
-			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('projectedPayments')">Next</a></span>
+			<span class="col-sm-4" style="text-align: left;"><a class="btn btn-default" ng-click="changeTab('loanInfo')">Back</a></span>
+			<span class="col-sm-4" style="text-align:center;"><a class="btn btn-success" ng-click="calculatePayments()">Calculate</a></span>
+			<span class="col-sm-4" style="text-align: right;"><a class="btn btn-primary" ng-click="changeTab('projectedPayments')">Next</a></span>
 	</div>
 </div>

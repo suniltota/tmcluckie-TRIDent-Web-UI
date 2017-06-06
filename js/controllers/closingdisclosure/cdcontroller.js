@@ -271,10 +271,20 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			'subsequentChangePeriodMonths':'',
 			'loanCapRate':'',
 			'firstChangeInterestRateLimit':'',
-			'subsequentChangeInterestRateLimit' :''
+			'subsequentChangeInterestRateLimit' :'',
+			'floorRatePercent' : ''
 		};
+
 		$scope.cdformdata.loanInformation['productAdjustmentInformation'] = productAdjustmentInformation;
-		$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = false;
+		if($scope.cdformdata.loanInformation.amortizationType != 'Fixed') {
+			$scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths = $scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount;
+			$scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths = $scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount;
+			$scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths = $scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount;
+			$scope.cdformdata.loanInformation.productAdjustmentInformation.loanCapRate = $scope.cdformdata.interestRateAdjustment.ceilingRatePercent;
+			$scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangeInterestRateLimit = $scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent;
+			$scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit = $scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent;
+			$scope.cdformdata.loanInformation.productAdjustmentInformation.floorRatePercent = $scope.cdformdata.interestRateAdjustment.floorRatePercent;
+		}
 
 		$scope.cdformdata.etiaSection['etiaTypes']=[];
 		if($scope.cdformdata.etiaSection.etiaValues!=undefined) {
@@ -962,7 +972,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
 	initializeCDformData();
 
-	$scope.changeProductInfo = function() {
+	/*$scope.changeProductInfo = function() {
 		if($scope.cdformdata.loanInformation.amortizationType!='Fixed') {
 			$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = false;
 			var productInfo = $scope.cdformdata.loanInformation.productAdjustmentInformation;
@@ -982,7 +992,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		} else {
 			$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = false;
 		}
-	}
+	}*/
 
 	$scope.checkPropertyRadio = function() {
 		if(!$scope.cdformdata.closingInformation.property.legalDescription){
@@ -1152,11 +1162,24 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.amortizationChange = function(){
     	if($scope.cdformdata.loanInformation.amortizationType == 'Step'){
 			$scope.stepPaymentIndicator = true;
-		}
-		else{
+		} else {
 			$scope.stepPaymentIndicator = false;
-		}
-		$scope.cdformdata.interestRateAdjustment.totalStepCount = '';
+			$scope.cdformdata.interestRateAdjustment.totalStepCount = '';
+		} 
+    	if($scope.cdformdata.loanInformation.amortizationType == 'Fixed') {
+    		$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = false;
+    		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = false;
+    		$scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths = '';
+    		$scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths = '';
+    		$scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths = '';
+    		$scope.cdformdata.loanInformation.productAdjustmentInformation.loanCapRate = '';
+    		$scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangeInterestRateLimit = '';
+    		$scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit = '';
+    		$scope.cdformdata.loanInformation.productAdjustmentInformation.floorRatePercent = '';
+    	} else {
+    		$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = true;
+    		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = true;
+    	}
     }
 
     $scope.constructionChange = function(){
@@ -2100,6 +2123,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    }
     }
 
+    $scope.calculatePayments = function() {
+    	$("#spinner").show();
+    	cdService.genearateXmlFromJson($scope.cdformdata).success(function(xmldata){
+    		cdService.calculatePayments(xmldata).success(function(calculationsData){
+    			cdService.loadTransformData(calculationsData).success(function(jsonData){
+    				$scope.cdformdata = jsonData;
+	    			initializeCDformData();
+	    			$("#spinner").hide();
+    			});
+    		});
+    	}).error( function(data, status){
+    		$("#spinner").hide();
+    	});
+    }
+
     $scope.generatePDF = function(){
     	$("#spinner").show();
     	cdService.genearateXmlFromJson($scope.cdformdata).success(function(data){
@@ -2847,6 +2885,50 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		}
 	   	}
     }, true);
+
+    $scope.$watch('cdformdata.loanInformation.productAdjustmentInformation',function(newValue,oldValue){
+    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths) {
+    		$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = $scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths;
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths)+1;
+    	} else {
+    		$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = '';
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = '';
+    	}
+    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths) {
+    		$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = $scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths;
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = $scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths;
+    	} else{
+    		$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = '';
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = '';
+    	}
+    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths) {
+    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = $scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths;
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = $scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths;
+    	} else {
+    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = '';
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = '';
+    	}
+    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.loanCapRate) {
+    		$scope.cdformdata.interestRateAdjustment.ceilingRatePercent = $scope.cdformdata.loanInformation.productAdjustmentInformation.loanCapRate;
+    	} else {
+    		$scope.cdformdata.interestRateAdjustment.ceilingRatePercent = '';
+    	}
+    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangeInterestRateLimit) {
+    		$scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent = $scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangeInterestRateLimit;
+    	} else {
+    		$scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent = '';
+    	}
+    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit) {
+    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent = $scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit;
+    	} else {
+    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent = '';
+    	}
+    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.floorRatePercent) {
+    		$scope.cdformdata.interestRateAdjustment.floorRatePercent = $scope.cdformdata.loanInformation.productAdjustmentInformation.floorRatePercent;
+    	} else {
+    		$scope.cdformdata.interestRateAdjustment.floorRatePercent = '';
+    	}
+    },true);
 
     /*$scope.$watch('cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList',function(newValue,oldValue){
            var recordingFeeAmount = 0;
