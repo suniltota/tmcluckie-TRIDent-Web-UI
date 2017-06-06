@@ -3818,7 +3818,7 @@ this.cdformdata={
 	                "feeTotalPercent": "",
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
-	                "integratedDisclosureSectionType": "",
+	                "integratedDisclosureSectionType": "OtherCosts",
 	                "optionalCostIndicator": false,
 	                "regulationZPointsAndFeesIndicator": false,
 	                "paymentIncludedInAPRIndicator": false
