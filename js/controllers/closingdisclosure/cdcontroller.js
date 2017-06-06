@@ -1049,9 +1049,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
      	}, 500)
 
      }
-
-
-     
+    
 	$scope.addBorrower = function(){
     	$scope.cdformdata.transactionInformation.borrowerDetails.push(angular.copy(borrower));
     }
@@ -1085,15 +1083,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	       $scope.cdformdata.loanInformation.automatedUnderwritings.splice(i-1,1);
     		}
     	 }
-    }
-
-    $scope.removeSeller = function(index){
-    	$scope.cdformdata.transactionInformation.sellerDetails.splice(index,1);
-    }
-
-    $scope.addETIAComponent = function(){
-    	$scope.cdformdata.etiaSection.etiaValues.push(angular.copy(ETIAComponentType));
-    	$scope.cdformdata.etiaSection.total = $scope.cdformdata.etiaSection.etiaValues.length;
     }
 
 	$scope.addETIAComponent = function(){
@@ -1226,7 +1215,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent = '';
     }
-    $scope.tiChange = function(){
+    $scope.temporaryBuydownChange = function(){
     	$scope.cdformdata.interestRateAdjustment.ceilingRatePercent = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount = '';
@@ -1234,14 +1223,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent = '';
     }
 
-    $scope.pipaChange = function(){
+    $scope.principalAndInterestChange = function(){
        $scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = '';
        $scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = '';
        $scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount = '';
        $scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount = '';
     }
 
-    $scope.ppChange = function(){
+    $scope.prepaymentPenaltyChange = function(){
     	$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyMaximumLifeOfLoanAmount = '';
     	$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount = '';
     }
