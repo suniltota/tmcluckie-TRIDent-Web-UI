@@ -2856,10 +2856,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         //Seller Credit
 		for(i=0;i<$scope.summariesOfTransaction_LSection.adjustments.length;i++){
         	if($scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemType=='SellerCredit'){
-        		$scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount = $scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemAmount;
+        		$scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemAmount*-1);
         	}
         }
-        
+
         //Deposit
         if($scope.summariesOfTransaction_LSection.deposit.closingCostFundAmount && $scope.summariesOfTransaction_LSection.deposit.closingCostFundAmount!=undefined){
            $scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount = $scope.summariesOfTransaction_LSection.deposit.closingCostFundAmount;
