@@ -1402,25 +1402,16 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.sameBorrower = function(index){
     	var bCheck = $scope.cdformdata.transactionInformation.borrowerDetails[index];
     	if(bCheck.checkBorrower == true){
-    	   $scope.cdformdata.transactionInformation.borrowerDetails[index] = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
+    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].address = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0].address);
     	   $scope.cdformdata.transactionInformation.borrowerDetails[index].checkBorrower = true;
-    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.firstName = '';
-    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.lastName = '';
-    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.middleName = '';
-    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.suffixName = '';
-    	   $scope.cdformdata.transactionInformation.borrowerDetails[index].nameModel.fullName = '';
         }
     }
+    
     $scope.sameSeller = function(index){
     	var sCheck = $scope.cdformdata.transactionInformation.sellerDetails[index];
     	if(sCheck.checkSeller == true){
-    	   $scope.cdformdata.transactionInformation.sellerDetails[index] = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
+    	   $scope.cdformdata.transactionInformation.sellerDetails[index].address = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0].address);
     	   $scope.cdformdata.transactionInformation.sellerDetails[index].checkSeller = true;
-    	   $scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.firstName = '';
-    	   $scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.lastName = '';
-    	   $scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.middleName = '';
-    	   $scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.suffixName = '';
-    	   $scope.cdformdata.transactionInformation.sellerDetails[index].nameModel.fullName = '';
         }
     }
 
