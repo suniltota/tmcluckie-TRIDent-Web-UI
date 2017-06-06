@@ -3455,7 +3455,7 @@ this.cdformdata={
 					"suffixName": "",
 					"fullName": ""
 				},
-				"partyRoleType": "Seller",
+				"partyRoleType": "PropertySeller",
 				"partyRoleOtherDescription": "",
 				"address": {
 					"addressLineText": "",
