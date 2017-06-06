@@ -177,8 +177,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		estimatedEscrow = angular.copy($scope.cdformdata.projectedPayments.estimatedEscrow[0]);
 		estimatedTotal = angular.copy($scope.cdformdata.projectedPayments.estimatedTotal[0]);
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
-        $scope.cdformdata.closingInformation.dateIssued = new Date();
-		$scope.cdformdata.closingInformationDetail.closingDate = add_business_days($scope.cdformdata.closingInformation.dateIssued, 5);
+        $scope.cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate = new Date();
+		$scope.cdformdata.closingInformationDetail.closingDate = add_business_days($scope.cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate, 5);
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount/12;
