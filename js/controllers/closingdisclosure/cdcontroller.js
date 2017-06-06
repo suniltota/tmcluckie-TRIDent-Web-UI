@@ -1637,7 +1637,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].paymentIncludedInAPRIndicator = false;
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
     }
-    $scope.clearRecordings = function(){
+       $scope.clearRecordings = function(){
         $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToType='ThirdPartyProvider';
@@ -1650,7 +1650,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].lenderStatus='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeTypeOtherDescription='';
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].paymentIncludedInAPRIndicator = false;
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].regulationZPointsAndFeesIndicator = true;
+    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].regulationZPointsAndFeesIndicator = false;
     }
     //deleteOGF
     $scope.clearOGF = function(index){
@@ -1670,7 +1670,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTotalPercent='';
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTypeOtherDescription='';
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].paymentIncludedInAPRIndicator = false;
-	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].regulationZPointsAndFeesIndicator = true;
+	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].regulationZPointsAndFeesIndicator = false;
     	}
     	else{
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].bpAtClosing='';
@@ -1690,7 +1690,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeType='';
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTypeOtherDescription='';
 	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].paymentIncludedInAPRIndicator = false;
-	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].regulationZPointsAndFeesIndicator = true;
+	    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].regulationZPointsAndFeesIndicator = false;
         }
     }
     $scope.deleteOGF = function(index){
@@ -1709,7 +1709,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].lenderStatus = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator = true;
-		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = true;
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = false;
     }
 
     $scope.clearPrepaidInfo = function(i){
@@ -1723,7 +1723,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].lenderStatus = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator = false;
-		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = true;
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = false;
     }
     
     $scope.clearPrepaidList = function(i){
@@ -1739,7 +1739,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].lenderStatus = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator = false;
-		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = true;
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = false;
     }
 
     $scope.deletePrepaidInfo = function(i){
@@ -1760,7 +1760,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].lenderStatus = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator = false;
-		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator = true;
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator = false;
     }
     
     $scope.clearEscrowsList = function(i){
@@ -1776,7 +1776,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].lenderStatus = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator = false;
-		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator = true;
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator = false;
     }
 
     $scope.deleteEscrowsList = function(i){
@@ -1797,7 +1797,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].lenderStatus = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paymentIncludedInAPRIndicator = false;
-		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].regulationZPointsAndFeesIndicator = true;
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].regulationZPointsAndFeesIndicator = false;
     }
     $scope.deleteOthers = function(i){
     	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.splice(i,1);
@@ -1807,12 +1807,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType == 'Lender'){
     		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToFullName = '';
     	}
+    	$scope.sectionAZIndicator(index);
     }
     $scope.sectionBpaidToChange = function(index){
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription = '';
+    	$scope.sectionBZIndicator(index);
     }
     $scope.sectionCpaidToChange = function(index){
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToTypeOtherDescription = '';
+    	$scope.sectionCZIndicator(index);
     }
     $scope.sectionEpaidToChange = function(index){
     	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePaidToTypeOtherDescription = '';
@@ -1825,6 +1828,160 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
     $scope.sectionHpaidToChange = function(index){
     	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].feePaidToTypeOtherDescription = '';
+    	$scope.sectionHZIndicator(index);
+    }
+    
+    //Closing Costs Regulation Z Indicator Validations
+    $scope.sectionAZIndicator = function(index){
+        if(($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType == 'Lender' && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].bpAtClosing) || ($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType == 'Lender' && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].bpB4Closing)){
+        	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].regulationZPointsAndFeesIndicator = true;
+        }else if(($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType == 'Lender' && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].spAtClosing) || ($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType == 'Lender' && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].spB4Closing)){
+        	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].regulationZPointsAndFeesIndicator = false;
+        }else if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType == 'Lender' && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].lenderStatus == true){
+        	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].regulationZPointsAndFeesIndicator = false;
+        }else if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType == 'Lender' && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].paidByOthers){
+        	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].regulationZPointsAndFeesIndicator = false;
+        }else{
+        	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].regulationZPointsAndFeesIndicator = true;
+        }
+    }
+
+    $scope.sectionBZIndicator = function(index){
+        if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].bpAtClosing || $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].bpB4Closing){
+			if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Broker'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Investor'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Lender'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription == 'LenderAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription == 'BrokerAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'ThirdPartyProvider'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}
+        }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].spAtClosing || $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].spB4Closing){
+            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Broker'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Investor'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Lender'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription == 'LenderAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription == 'BrokerAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'ThirdPartyProvider'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}
+        }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].lenderStatus == true){
+            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Broker'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Investor'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Lender'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription == 'LenderAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription == 'BrokerAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'ThirdPartyProvider'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}
+        }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].paidByOthers){
+            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Broker'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Investor'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Lender'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription == 'LenderAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToTypeOtherDescription == 'BrokerAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feePaidToType == 'ThirdPartyProvider'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}
+        }else{
+        	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
+        }
+    }
+    
+    $scope.sectionCZIndicator = function(index){
+        if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].bpAtClosing || $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].bpB4Closing){
+			if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Broker'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Investor'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Lender'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToTypeOtherDescription == 'LenderAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToTypeOtherDescription == 'BrokerAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'ThirdPartyProvider'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}
+        }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].spAtClosing || $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].spB4Closing){
+            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Broker'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Investor'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Lender'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToTypeOtherDescription == 'LenderAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToTypeOtherDescription == 'BrokerAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'ThirdPartyProvider'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}
+        }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].lenderStatus == true){
+            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Broker'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Investor'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Lender'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToTypeOtherDescription == 'LenderAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToTypeOtherDescription == 'BrokerAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'ThirdPartyProvider'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}
+        }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].paidByOthers){
+            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Broker'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Investor'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Lender'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToTypeOtherDescription == 'LenderAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'Other' && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToTypeOtherDescription == 'BrokerAffiliate'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+			}else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feePaidToType == 'ThirdPartyProvider'){
+				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
+			}
+        }else{
+        	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = true;
+        }
+    }
+    
+    $scope.sectionHZIndicator = function(index){
+        if(($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].feePaidToType == 'ThirdPartyProvider' && $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].bpAtClosing) || ($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].feePaidToType == 'ThirdPartyProvider' && $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].bpB4Closing)){
+        	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].regulationZPointsAndFeesIndicator = false;
+        }else if(($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].feePaidToType == 'ThirdPartyProvider' && $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].spAtClosing) || ($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].feePaidToType == 'ThirdPartyProvider' && $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].spB4Closing)){
+        	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].regulationZPointsAndFeesIndicator = false;
+        }else if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].feePaidToType == 'ThirdPartyProvider' && $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].lenderStatus == true){
+        	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].regulationZPointsAndFeesIndicator = false;
+        }else if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].feePaidToType == 'ThirdPartyProvider' && $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].paidByOthers){
+        	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].regulationZPointsAndFeesIndicator = false;
+        }else{
+        	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].regulationZPointsAndFeesIndicator = true;
+        }
     }
 
     $scope.aggregateAdjustment = function(value){
