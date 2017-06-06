@@ -185,6 +185,30 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount%12;
 		}
 
+		if($scope.cdformdata.loanInformation.loanIdentifiers && $scope.cdformdata.loanInformation.loanIdentifiers.length>0){
+			var isMersMinExists = false;
+			for(var i=0; i<$scope.cdformdata.loanInformation.loanIdentifiers.length; i++) {
+				if($scope.cdformdata.loanInformation.loanIdentifiers[i].loanIdentifierType == 'MERS_MIN') {
+					isMersMinExists = true;
+				}
+			}
+			if(!isMersMinExists) {
+				$scope.cdformdata.loanInformation.loanIdentifiers.push(angular.copy(staticData.cdformdata.loanInformation.loanIdentifiers[1]));
+			}
+		}
+		$scope.cdformdata['micIdentifier'] = "";
+		if($scope.cdformdata.miDataDetail.miCertificateIdentifier){
+			$scope.cdformdata.micIdentifier = $scope.cdformdata.miDataDetail.miCertificateIdentifier;
+		} else {
+			if($scope.cdformdata.termsOfLoan.mortgageType != 'Conventional') {
+				for(var i=0; i<$scope.cdformdata.loanInformation.loanIdentifiers.length; i++) {
+					if($scope.cdformdata.loanInformation.loanIdentifiers[i].loanIdentifierType == 'AgencyCase') {
+						$scope.cdformdata.micIdentifier = $scope.cdformdata.loanInformation.loanIdentifiers[i].loanIdentifier;
+					}
+				}
+			}
+		}
+
 		for (i = $scope.cdformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
 		    $scope.cdformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
 		}
@@ -2818,6 +2842,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	    estimatedTotalMaximumPayment += parseFloat($scope.cdformdata.projectedPayments.estimatedEscrow[i].projectedPaymentEstimatedEscrowPaymentAmount);
     	    $scope.cdformdata.projectedPayments.estimatedTotal[i].projectedPaymentEstimatedTotalMaximumPaymentAmount = estimatedTotalMaximumPayment;
     	}
+    }, true);
+
+    $scope.$watch('cdformdata.micIdentifier',function(newValue,oldValue){
+    	if($scope.cdformdata.micIdentifier) {
+    		$scope.cdformdata.loanDetail.miRequiredIndicator = true;
+    		if($scope.cdformdata.termsOfLoan.mortgageType!='Conventional') {
+    			var loanIdentifier = {
+                	"loanIdentifierType": "AgencyCase",
+                	"loanIdentifier": $scope.cdformdata.micIdentifier
+	        	};
+	        	$scope.cdformdata.loanInformation.loanIdentifiers.push(loanIdentifier);
+    		} else {
+    			$scope.cdformdata.miDataDetail.miCertificateIdentifier = $scope.cdformdata.micIdentifier;
+    		}
+	   	}
     }, true);
 
     /*$scope.$watch('cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList',function(newValue,oldValue){
