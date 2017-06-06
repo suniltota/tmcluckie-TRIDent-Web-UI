@@ -42,7 +42,7 @@
 		        <td><label>Mortgage Insurance</label> 
 			        <div class="col-sm-12 padding0 margin5tb">
 			        	<span class="col-sm-6 padding0">Is Required?<span class="required">*</span></span> 
-			        	<span class="col-sm-4 pull-right">
+			        	<span class="col-sm-6 pull-right">
 			        		<select class="form-control"
 			        		ng-model="cdformdata.loanDetail.miRequiredIndicator"
 		              		ng-options="option.id as option.name for option in dropDownBooleanOptions">
@@ -52,15 +52,15 @@
 			        <div ng-show="cdformdata.loanDetail.miRequiredIndicator">
 				        <div class="col-sm-12 padding0 margin5tb">
 				        	<span class="col-sm-6 padding0">No. Months Duration?</span> 
-				        	<span class="col-sm-4 pull-right">
+				        	<span class="col-sm-6 pull-right">
 				        		<input type="text" class="form-control" name="" ng-model="cdformdata.projectedPayments.miMonthsDuration">
 				        	</span> 
 				        </div>
 				        <div class="col-sm-12 padding0 margin5tb">
 				        	<span class="col-sm-6 padding0">Scheduled Termination Date</span> 
-				        	<span class="col-sm-4 pull-right">
+				        	<span class="col-sm-6 pull-right">
 				        			<span class="col-sm-10 padding0">
-				        				<input type="text" name="ScheduledTermDate" id="ScheduledTermDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.projectedPayments.miSTDate" is-open="isScheduledTermDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.projectedPayments.miSTDate" close-text="Close" placeholder="Scheduled Termination Date format : MM/DD/YYYY" actualize-date/>
+				        				<input type="text" name="ScheduledTermDate" id="ScheduledTermDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.projectedPayments.miSTDate" is-open="isScheduledTermDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.projectedPayments.miSTDate" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
 				        			</span>
 				        			<span class="input-group-btn col-sm-2 padding0">
 		      								<button type="button" class="btn btn-default calenderBtn" ng-click="isScheduledTermDate = !isScheduledTermDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -71,7 +71,7 @@
 				        </div>
 				        <div class="col-sm-12 padding0 margin5tb">
 				        	<span class="col-sm-6 padding0">MI Company Name</span> 
-				        	<span class="col-sm-4 pull-right">
+				        	<span class="col-sm-6 pull-right">
 				        		<select class="form-control"
 				        		ng-model="cdformdata.miDataDetail.miCompanyNameType">
 					        		<option value="" selected>Select</option>
@@ -81,7 +81,7 @@
 				        </div>
 				        <div class="col-sm-12 padding0 margin5tb" ng-show="cdformdata.miDataDetail.miCompanyNameType=='Other'">
 				        	<span class="col-sm-6 padding0">MI Company Name Description</span> 
-				        	<span class="col-sm-4 pull-right">
+				        	<span class="col-sm-6 pull-right">
 				        		<input type="text" class="form-control" name="" ng-model="cdformdata.miDataDetail.miCompanyNameTypeOtherDescription">
 				        	</span> 
 				        </div>

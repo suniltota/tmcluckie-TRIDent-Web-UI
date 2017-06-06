@@ -147,6 +147,7 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .SidebarBtnsHead{width: 100%; float: left; outline: none;}
 .sidenav #doctype{background-color: #fff; font-weight: bold; padding: 5px 15px; text-align: center;}
 .SidebarBtnsHead .tooltip.right{z-index:1; position: fixed;}
+.SidebarBtnsHead > #IconsList{width: 75%;}
 .iconTooltip{cursor: pointer;}
 .sidenav {
     height: 100%;
@@ -235,5 +236,5 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 #IconsList.sapling-list .sapling-item{padding-left: 0px;}
 #IconsList.sapling-list .sapling-item:before{display: none;}
 #IconsList.sapling-list li{padding-left:0px;}
-.SidebarBtns #IconsList.sapling-list .pageHead{padding-left: 5px;}
-.SidebarBtns #IconsList.sapling-list .pageno{padding-left:0px;}
+.SidebarBtns #IconsList.sapling-list .pageHead{padding-left: 2px!important;}
+.SidebarBtns #IconsList.sapling-list .pageno{padding-left:3px;}
