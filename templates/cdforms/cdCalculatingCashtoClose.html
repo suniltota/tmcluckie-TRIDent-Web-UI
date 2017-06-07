@@ -25,7 +25,7 @@
 		        	${{cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
 		        </td>
 		        <td>
-		        	${{true == cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
+		        	{{true == cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
