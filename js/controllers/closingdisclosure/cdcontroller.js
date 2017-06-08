@@ -74,6 +74,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.disclosureOnly = true;
     $scope.toleranceCure = false;
     $scope.toleranceCureDrpdwn = false;
+    $scope.escrowWaiverFeeAmount = 0;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -2388,6 +2389,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
          	spAtClosing.originationChargeTotalspAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing) : +0;
           	spB4Closing.originationChargeTotalspB4Closing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing) : +0;
           	paidByOthers.originationChargeTotalpaidByOthers += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers) : +0;
+            
+	        //Escrow Waiver Fee Calculation
+	        if(!$scope.cdformdata.loanDetail.escrowIndicator && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType =='EscrowWaiverFee' && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing!='' && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing!=undefined){
+	          $scope.escrowWaiverFeeAmount = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing;
+	        }
          }
 
          $scope.cdformdata.closingCostDetailsLoanCosts.ocTotalAmount = bpAtClosing.originationChargeTotalbpAtClosing + bpB4Closing.originationChargeTotalbpB4Closing;

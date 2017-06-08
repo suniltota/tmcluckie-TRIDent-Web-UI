@@ -44,7 +44,7 @@
 		        	Escrow waiver Fee
 		        </td>
 		        <td>
-		        	<label ng-repeat="notShopFors in cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors" ng-if="notShopFors.feeType=='EscrowWaiverFee' && notShopFors.feeActualTotalAmount!=''">${{notShopFors.feeActualTotalAmount}}</label>
+		        	<label>${{escrowWaiverFeeAmount | number:2}}</label>
 		        	<!-- <label ng-repeat="ShopFors in cdformdata.closingCostDetailsLoanCosts.sbDidShopFors" ng-if="ShopFors.feeType=='EscrowWaiverFee' && ShopFors.feeActualTotalAmount!=''">${{ShopFors.feeActualTotalAmount}}</label> -->
 		        </td>
 		        <td>
