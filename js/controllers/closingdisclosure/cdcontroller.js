@@ -156,7 +156,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	var initializeCDformData = function() {
 		$scope.cdformdata = staticData.cdformdata;
 		$scope.cdformdata.termsOfLoan.loanPurposeType = $scope.loanBasicInfo.loanPurposeType.capitalizeFirstLetter();
-
 		borrower = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
 		seller = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
 		ausTypeIdentifier = angular.copy($scope.cdformdata.loanInformation.automatedUnderwritings[0]);
@@ -3136,7 +3135,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         //Escrow Account Table Values
 
         //Escrow Account
-        if($scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount && $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount!=undefined){
+        if($scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount && $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount!=undefined && $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount!="0.00" && $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount!="0"){
         	$scope.cdformdata.loanDetail.escrowIndicator =true;
         }else{
         	$scope.cdformdata.loanDetail.escrowIndicator =false;
@@ -3228,6 +3227,23 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         	$scope.cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing 
         }
     },true);
+
+    $scope.$watch('cdformdata.etiaSection',function(newValue,oldValue){
+    	var nonEscrowArray = [];    
+    	if($scope.cdformdata.termsOfLoan.escrowIndicator){	
+		    for(i=0;i<$scope.cdformdata.etiaSection.etiaValues.length;i++){
+		        if($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType=='NotEscrowed'){
+	                nonEscrowArray.push($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType);
+		        }
+		    }
+		    //Adding Values to Non Escrow Account
+	        $scope.cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentDescription =
+	        angular.forEach(nonEscrowArray, function(value) { 
+	        	return value;
+	        }).join(",");
+        }
+    },true);
+
     /*$scope.$watch('cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList',function(newValue,oldValue){
            var recordingFeeAmount = 0;
           //var previousValue = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpAtClosing;
