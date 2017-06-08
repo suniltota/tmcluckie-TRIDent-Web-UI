@@ -75,6 +75,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.toleranceCure = false;
     $scope.toleranceCureDrpdwn = false;
     $scope.escrowWaiverFeeAmount = 0;
+    $scope.loanMaturityPeriodTypes = staticData.loanMaturityPeriodTypes;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -1257,6 +1258,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
      $scope.baloonChange = function(){
     	$scope.cdformdata.loanDetail.balloonPaymentAmount = '';
     	$scope.cdformdata.maturityRule.loanMaturityPeriodCount = '';
+    	$scope.cdformdata.maturityRule.loanMaturityPeriodType = '';
     }
 
 	$scope.updateETIAComponentTypes = function(value, index) {
@@ -2768,6 +2770,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
         $scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount = cashToCloseItemEstimatedAmount;
         $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount = cashToCloseItemFinalAmount;
+    
     }, true);
     
     $scope.$watch('cdformdata.closingCostsTotal.lenderCredits', function(newValue,oldValue){

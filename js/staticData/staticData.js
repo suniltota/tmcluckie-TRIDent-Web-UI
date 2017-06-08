@@ -3320,6 +3320,14 @@ app.service('staticData', function($filter){
         	"value":"Weekly" 
         }
     ];
+
+    this.loanMaturityPeriodTypes = [
+        {
+        	"name":"Month",
+        	"value":"Month"
+        }
+    ];
+
 this.cdformdata={
 		"closingDisclosureDocDetails":
 	    {
