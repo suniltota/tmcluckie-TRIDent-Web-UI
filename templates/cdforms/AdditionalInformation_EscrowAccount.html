@@ -92,17 +92,17 @@
 		      </tr>
 		      <tr ng-show="!cdformdata.loanDetail.escrowIndicator">
 		        <td>
-		        	Identify the reason for No Escrow Account 
+		        	Identify the reason for No Escrow Account
 		        </td>
 		        <td colspan="2">
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="cdformdata.loanDetail.escrowAbsenceReasonType=='BorrowerDeclined'"></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="cdformdata.loanDetail.escrowAbsenceReasonType" ng-true-value="'BorrowerDeclined'" ng-false-value="'LenderDoesNotOffer'"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				The Borrower Declined to escrow property costs
 		        			</span>
 		        	</span>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="cdformdata.loanDetail.escrowAbsenceReasonType=='LenderDoesNotOffer'"></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="cdformdata.loanDetail.escrowAbsenceReasonType" ng-true-value="'LenderDoesNotOffer'" ng-false-value="'BorrowerDeclined'"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				The Lender does not offer Escrow Account
 		        			</span>
