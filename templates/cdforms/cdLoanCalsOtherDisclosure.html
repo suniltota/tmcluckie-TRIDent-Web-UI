@@ -144,9 +144,8 @@
 		</table>
 		<div class="col-sm-12 margin10t">
 			<span class="pull-left">
-				<a class="btn btn-default" ng-show="loanBasicInfo.loanFormType=='alternate'" ng-click="changeTab('AirTable')">Back</a>
-				<a class="btn btn-default" ng-show="loanBasicInfo.loanFormType!='alternate'" ng-click="changeTab('EscrowAccount')">Back</a>
+				<a class="btn btn-default" ng-show="cdformdata.loanDetail.interestRateIncreaseIndicator==true" ng-click="changeTab('AirTable')">Back</a>
+				<a class="btn btn-default" ng-show="cdformdata.loanDetail.interestRateIncreaseIndicator!=true" ng-click="changeTab('EscrowAccount')">Back</a>
 			</span>
-			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('ContactInfo')">Next</a></span>
 		</div>
 </div>
