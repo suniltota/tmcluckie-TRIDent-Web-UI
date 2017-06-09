@@ -309,7 +309,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title col-sm-6">Cash to Close Calculator- {{FormType}} {{LoanType}}</h4>
-        <h4 class="modal-title col-sm-5">Results</h4>
+        <h4 class="modal-title col-sm-5" ng-show="results">Results</h4>
       </div>
 
       <div class="modal-body">
@@ -391,50 +391,67 @@
                 </div>
               </div>
       	</div>
-      	<div class="col-sm-6 margin5tb">
+      	<div class="col-sm-6 margin5tb" ng-show="results">
       		<table class="table table-bordered table-striped">
       			<tr>
       				<th class="innerSectionHeader">Results CCC table</th>
       				<th class="innerSectionHeader">Amount</th>
       			</tr>
       			<tr>
+      				<td>Total Closing Costs(J)</td>
+      				<td>${{cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
+      			    <td>Loan Amount</td>
+      			    <td>${{cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      			</tr>
+      			<tr>
       				<td>Closing Costs Paid Before Closing</td>
-      				<td>-$0.00</td>
+      				<td>${{cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
       			</tr>
-      			<tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Closing Costs Financed (Paid from your Loan Amount)</td>
-      				<td>-$0.00</td>
+      				<td>${{cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
       			</tr>
-      			<tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Down Payment/Funds from Borrower</td>
-      				<td>$35,652.00</td>
+      				<td>${{cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
       			</tr>
-      			<tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Deposit</td>
-      				<td>-$1500.00</td>
+      				<td>${{cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
       			</tr>
-      			<tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Funds for Borrower</td>
-      				<td>$0.00</td>
+      				<td>${{cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
       			</tr>
-      			<tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Seller Credits</td>
-      				<td>-$3,500.00</td>
+      				<td>${{cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
+      			    <td>Total Payoffs and Payments</td>
+      			    <td>${{cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
       			</tr>
       			<tr>
       				<td>Adjustments and Other Credits</td>
-      				<td>$0.00</td>
+      				<td>${{cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
       			</tr>
       			<tr>
-      				<td>Cash to Close</td>
-      				<td>-$0,000.00</td>
+      				<td><label>Cash to Close</label></td>
+      				<td><label>${{cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount | number:2}}</label></td>
       			</tr>
       		</table>
       	</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="calculateCash()">Calculate Cash to Close</button>
-        <button type="button" class="btn btn-default" ng-click="clearCalculations()">Clear Editable Values</button>
+        <div style="float:left;">
+	        <button type="button" class="btn btn-primary" ng-click="calculateCash()">Calculate Cash to Close</button>
+	        <button type="button" class="btn btn-default" ng-click="clearCalculations()">Clear Editable Values</button>
+        </div>
+        <div ng-show="results">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="loadResultsToCCTable()">Load Results to CCC Table</button>
+        </div>
       </div>
     </div>
   </div>
