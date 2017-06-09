@@ -509,12 +509,18 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse)
 
 app.filter('round', function() {
     return function(input) {
+      if(input)
         return Math.round(input);
+      else
+        return input;
     };
 });
 
 app.filter('ceil', function() {
     return function(input) {
+       if(input)
         return Math.ceil(input);
+      else
+        return input;
     };
 });

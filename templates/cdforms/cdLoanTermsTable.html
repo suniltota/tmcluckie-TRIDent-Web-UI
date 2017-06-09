@@ -33,7 +33,7 @@
 								</div>
 							</span>
 						</li>
-						<li> <span class="pull-left margin5tb col-sm-5"> Can increase until year </span> <span class="col-sm-4"><input type="text" class="form-control" name="" value="{{cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount/12 | ceil}}" ng-disabled="true"></span></li>
+						<li> <span class="pull-left margin5tb col-sm-5"> Can increase until year </span> <span class="col-sm-4"><input type="text" class="form-control" name="" value="{{(cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount ? cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount/12 : '') | ceil}}" ng-disabled="true"></span></li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -53,11 +53,11 @@
 		        		<li ng-show="cdformdata.loanDetail.interestRateIncreaseIndicator">
 		        			<span class="pull-left margin5tb col-sm-4 padding0">Adjusts every</span> 
 		        			<span class="col-sm-2">
-		        				<input type="text" value="{{(cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount/12) | round}}" class="form-control" name="" ng-disabled="true">
+		        				<input type="text" value="{{(cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount ? cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount/12 : '') | round}}" class="form-control" name="" ng-disabled="true">
 		        			</span> 
 		        			<span class="pull-left margin5tb">years starting in year</span>
 		        			<span class="col-sm-2">
-		        				<input type="text" class="form-control" value="{{(cdformdata.interestRateAdjustment.firstRateChangeMonthsCount/12)+1 | ceil}}" name="" ng-disabled="true">
+		        				<input type="text" class="form-control" value="{{(cdformdata.interestRateAdjustment.firstRateChangeMonthsCount ? cdformdata.interestRateAdjustment.firstRateChangeMonthsCount/12+1 : '') | ceil}}" name="" ng-disabled="true">
 		        			</span>
 		        		</li>
 		        		<li ng-show="cdformdata.loanDetail.interestRateIncreaseIndicator">
@@ -70,7 +70,7 @@
 		        			</span> 
 		        			<span class="pull-left margin5tb">in year</span> 
 		        			<span class="col-sm-2">
-		        				<input type="text" value="{{(cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount/12)+1 | ceil}}" class="form-control" name="" maxlength="3" ng-disabled="true">
+		        				<input type="text" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveYearCount" class="form-control" name="" only-digits maxlength="2" ng-change="interestRateYearToMonthsAdjustment()">
 		        			</span>
 		        		</li>
 		        		<li>
@@ -166,9 +166,9 @@
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanDetail.paymentIncreaseIndicator == true">
 		        		<li> <span class="pull-left margin5tb">Adjusts every</span> 
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" value="{{cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount/12 | round}}" maxlength="3" ng-disabled="true"></span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name="" value="{{(cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount ? cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount/12 : '') | round}}" maxlength="3" ng-disabled="true"></span> 
 		        			<span class="pull-left margin5tb">years starting in year</span>
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" value="{{cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount/12 | ceil}}" maxlength="3" ng-disabled="true"></span></li>
+		        			<span class="col-sm-2"><input type="text" class="form-control" name="" value="{{(cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount ? cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount/12 : '') | ceil}}" maxlength="3" ng-disabled="true"></span></li>
 		        		<li><span class="pull-left margin5tb"> Can go as high as</span> 
 		        			<span class="col-sm-3">
 		        			<div class="input-group">
@@ -178,7 +178,7 @@
 							</span> 
 		        			<span class="pull-left margin5tb">in year</span> 
 		        			<span class="col-sm-2">
-		        			<input type="text" class="form-control" name="" value="{{cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount/12 | ceil}}" maxlength="3" ng-disabled="true">
+		        			<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount" only-digits maxlength="2" ng-change="principleInterestRateYearToMonthsAdjustment()">
 		        			</span>
 		        		</li>
 		        	</ul>
@@ -225,7 +225,7 @@
 		        <td><label>Balloon Payment <span class="required">*</span></label></td>
 		        <td><label></label></td>
 		        <td>
-		        	<select class="form-control pull-left"  ng-model="cdformdata.loanDetail.balloonIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	<select class="form-control pull-left"  ng-model="cdformdata.loanDetail.balloonIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="true">
 		        	</select>
 		        </td>
 		        <td>
@@ -239,7 +239,7 @@
 		        			</span>
 		        			<span class="pull-left margin5tb">at the end of year</span>
 		        			<span class="col-sm-2">
-		        				<input type="text" class="form-control" name="" value="{{cdformdata.maturityRule.loanMaturityPeriodCount/12 | round}}" maxlength="3" ng-disabled="true">
+		        				<input type="text" class="form-control" name="" value="{{(cdformdata.balloonPeriodCount ? cdformdata.balloonPeriodCount/12 : '') | round}}" maxlength="3" ng-disabled="true">
 		        			</span>
 		        		</li>
 		        	</ul>

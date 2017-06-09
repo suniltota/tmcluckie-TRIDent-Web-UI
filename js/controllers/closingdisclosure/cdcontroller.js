@@ -213,6 +213,23 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for (i = $scope.cdformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
 		    $scope.cdformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
 		}
+		if($scope.cdformdata.loanDetail.interestRateIncreaseIndicator && $scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount) {
+			$scope.cdformdata.interestRateAdjustment['ceilingRatePercentEarliestEffectiveYearCount'] = Math.ceil($scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount/12) + 1;
+		} else {
+			$scope.cdformdata.interestRateAdjustment['ceilingRatePercentEarliestEffectiveYearCount'] = '';
+		}
+		if($scope.cdformdata.loanDetail.paymentIncreaseIndicator && $scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount) {
+			$scope.cdformdata.principalAndInterestPaymentAdjustment['principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount'] = Math.ceil($scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount/12);
+		} else {
+			$scope.cdformdata.principalAndInterestPaymentAdjustment['principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount'] = '';
+		}
+		if($scope.cdformdata.loanDetail.balloonIndicator) {
+			$scope.cdformdata['balloonPeriodType'] = $scope.cdformdata.maturityRule.loanMaturityPeriodType;
+			$scope.cdformdata['balloonPeriodCount'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount;
+ 		} else {
+ 			$scope.cdformdata['balloonPeriodType'] = '';
+ 			$scope.cdformdata['balloonPeriodCount'] = '';
+		}
         
         //To Update The Interest Rate Percent
         if ($scope.cdformdata.loanTerms.temporaryBuydown.buydownReflectedInNoteIndicator==true && $scope.cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent!='') {
@@ -1212,6 +1229,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.interestOnly.interestOnlyTermMonthsCount = '';
     }
 
+    $scope.interestRateYearToMonthsAdjustment = function(){
+		if($scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveYearCount) {
+			$scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount = parseInt($scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveYearCount-1) * 12;
+		} else {
+			$scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount = '';
+		}
+    }
+    $scope.principleInterestRateYearToMonthsAdjustment = function(){
+		if($scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount) {
+			$scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount= (parseInt($scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount) -1) * 12 + 1;
+		} else {
+			$scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount = '';
+		}
+    }
+
     $scope.nATypeChange = function(){
     	if($scope.cdformdata.negativeAmortization.negativeAmortizationType==''){
     		$scope.cdformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount = '';
@@ -1258,10 +1290,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount = '';
     }
 
-     $scope.baloonChange = function(){
-    	$scope.cdformdata.loanDetail.balloonPaymentAmount = '';
-    	$scope.cdformdata.maturityRule.loanMaturityPeriodCount = '';
-    	$scope.cdformdata.maturityRule.loanMaturityPeriodType = '';
+    $scope.balloonIndicatorChange = function() {
+    	$scope.cdformdata.balloonPeriodType = '';
+ 		$scope.cdformdata.balloonPeriodCount = '';
     }
 
 	$scope.updateETIAComponentTypes = function(value, index) {
