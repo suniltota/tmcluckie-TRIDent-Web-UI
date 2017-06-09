@@ -12,31 +12,31 @@
 		      </tr>
 		      
 			  <tr>
-		        <td style="width:13%">
+		        <td class="col-sm-2">
 		        	<span class="margin5tb col-sm-10">Name</span>
 		        </td>
-		        <td style="width:13%">
+		        <td class="col-sm-2">
 		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.lender.organizationName">
 		        </td>
-		        <td style="width:13%">
+		        <td class="col-sm-2">
 		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.mortagageBroker.organizationName">
 		        </td>
-                <td>
+                <td class="col-sm-2">
 		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationName">
 		        </td>
-                <td>
+                <td class="col-sm-2">
 		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationName">
 		        </td>
-                <td>
+                <td class="col-sm-2">
 		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.settlementAgent.organizationName">
 		        </td>		        
 		      </tr>
 			  
 			  <tr>
-		        <td style="width:8%;border-right:0px;border-bottom:0px;">
+		        <td style="border-right:0px;border-bottom:0px;">
 		        	<span class="margin5tb col-sm-10">Street Address</span>
 		        </td>
-		        <td style="width:8%;border:0px;">
+		        <td style="border:0px;">
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.address.addressLineText">
 		        </td>
 		        <td style="border:0px;">
@@ -54,13 +54,13 @@
 		      </tr>
 			  
 			  <tr>
-		        <td style="width:8%;border-right:0px;border-top:0px;border-bottom:0px;">
+		        <td style="border-right:0px;border-top:0px;border-bottom:0px;">
 		        	<span class="margin5tb col-sm-10" >City</span>
 		        </td>
-		        <td style="width:8%;border:0px;">
+		        <td style="border:0px;">
 		        	<input type="text" class="form-control padding0" name=""  ng-model="cdformdata.contactInformation.lender.address.cityName">
 		        </td>
-		        <td style="width:8%;border:0px;" >
+		        <td style="border:0px;" >
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.address.cityName">
 		        </td>
                 <td style="border:0px;">
@@ -111,13 +111,13 @@
 		      </tr>
 			  
 			  <tr>
-		        <td style="width:8%;border-right:0px;border-top:0px;">
+		        <td style="border-right:0px;border-top:0px;">
 		        	<span class="margin5tb col-sm-10">Postal Code</span>
 		        </td>
-		        <td style="width:8%;border:0px;">
+		        <td style="border:0px;">
 		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.lender.address.postalCode">
 		        </td>
-		        <td style="width:8%;border:0px;" >
+		        <td style="border:0px;" >
 		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="cdformdata.contactInformation.mortagageBroker.address.postalCode">
 		        </td>
                 <td style="border:0px;border:0px;">
@@ -133,7 +133,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">NMLS ID</span>
+		        	<span class="margin5tb col-sm-12">NMLS ID</span>
 		        </td>
 		        <td >
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.licenseIdentifier">
@@ -154,7 +154,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">State License ID</span>
+		        	<span class="margin5tb col-sm-12">State License ID</span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" disabled>
@@ -175,7 +175,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">License Authority Level Type</span>
+		        	<span class="margin5tb col-sm-12">License Authority Level Type</span>
 		        </td>
 		        <td>
 		        	<select class="form-control" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.licenseAuthorityLevelType">
@@ -211,7 +211,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">License Issuing Authority Name</span>
+		        	<span class="margin5tb col-sm-12">License Issuing Authority Name</span>
 		        </td>
 		        <td >
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.licenseIssuingAuthorityName">
@@ -232,7 +232,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">License Issue Date</span>
+		        	<span class="margin5tb col-sm-12">License Issue Date</span>
 		        </td>
 		         <td>
 		        	<span class="col-sm-8 padding0">
@@ -278,7 +278,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">Issuing Agency URL</span>
+		        	<span class="margin5tb col-sm-12">Issuing Agency URL</span>
 		        </td>
 		        <td >
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.identifierOwnerURI" value="mmousebanker@fed.org">
@@ -300,24 +300,24 @@
 			 	      
 			</table>
 			
-			<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">			  
+			<table class="table LoanCostsSection table-bordered margin5tb margin10t"  style="border:0px;">			  
 		      <tr>
-		        <th class="innerSectionHeader">Individual Contact</th>
-		        <th class="innerSectionHeader">Lender </th>
-		        <th class="innerSectionHeader">Mortgage Broker</th>
-		        <th class="innerSectionHeader">Real Estate Broker (B)</th>
-		        <th class="innerSectionHeader">Real Estate Broker (S)</th>
-		        <th class="innerSectionHeader">Settlement Agent</th>
+		        <th class="innerSectionHeader col-sm-2">Individual Contact</th>
+		        <th class="innerSectionHeader col-sm-2">Lender </th>
+		        <th class="innerSectionHeader col-sm-2">Mortgage Broker</th>
+		        <th class="innerSectionHeader col-sm-2">Real Estate Broker (B)</th>
+		        <th class="innerSectionHeader col-sm-2">Real Estate Broker (S)</th>
+		        <th class="innerSectionHeader col-sm-2">Settlement Agent</th>
 		      </tr>
 		      
 			  <tr>
-		        <td style="width:13%;border-right:0px;border-bottom:0px;">
-		        	<span class="margin5tb col-sm-10">First Name</span>
+		        <td style="border-right:0px;border-bottom:0px;">
+		        	<span class="margin5tb col-sm-12">First Name</span>
 		        </td>
-		        <td style="width:13%;;border:0px;">
+		        <td style="border:0px;">
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.name.firstName">
 		        </td>
-		        <td style="width:13%;;border:0px;">
+		        <td style="border:0px;">
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.mortagageBroker.name.firstName">
 		        </td>
                 <td style="border:0px;">
@@ -332,10 +332,10 @@
 		      </tr>
 			  
 			  <tr>
-		        <td style="width:8%;border-right:0px;border-top:0px;border-bottom:0px;">
-		        	<span class="margin5tb col-sm-10">Middle Name</span>
+		        <td style="border-right:0px;border-top:0px;border-bottom:0px;">
+		        	<span class="margin5tb col-sm-12">Middle Name</span>
 		        </td>
-		        <td style="width:8%;border:0px;">
+		        <td style="border:0px;">
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.name.middleName">
 		        </td>
 		        <td style="border:0px;">
@@ -353,10 +353,10 @@
 		      </tr>
 			  
 			  <tr>
-		        <td style="width:8%;border-right:0px;border-top:0px;border-bottom:0px;">
-		        	<span class="margin5tb col-sm-10" >Last Name</span>
+		        <td style="border-right:0px;border-top:0px;border-bottom:0px;">
+		        	<span class="margin5tb col-sm-12" >Last Name</span>
 		        </td>
-		        <td style="width:8%;border:0px;">
+		        <td style="border:0px;">
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.name.lastName">
 		        </td>
 		        <td style="border:0px;">
@@ -375,9 +375,9 @@
 			  
 			  <tr>
 		        <td style="border-top:0px;border-right:0px;border-bottom:0px;">
-		        	<span class="margin5tb col-sm-10">Suffix</span>
+		        	<span class="margin5tb col-sm-12">Suffix</span>
 		        </td>
-		        <td style="width:8%;border:0px;">
+		        <td style="border:0px;">
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.name.suffixName">
 		        </td>
 		        <td style="border:0px;">
@@ -395,7 +395,7 @@
 		      </tr>			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">Email ID</span>
+		        	<span class="margin5tb col-sm-12">Email ID</span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualEmail">
@@ -416,7 +416,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">Phone</span>
+		        	<span class="margin5tb col-sm-12">Phone</span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualPhone">
@@ -437,7 +437,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">NMLS ID</span>
+		        	<span class="margin5tb col-sm-12">NMLS ID</span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.licenseIdentifier">
@@ -458,7 +458,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">State License ID</span>
+		        	<span class="margin5tb col-sm-12">State License ID</span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.licenseIdentifier" ng-disabled="true">
@@ -479,7 +479,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">License Authority Level Type</span>
+		        	<span class="margin5tb col-sm-12">License Authority Level Type</span>
 		        </td>
 		        <td>
 		            <select class="form-control" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.licenseAuthorityLevelType">
@@ -515,7 +515,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">License Issuing Authority Name</span>
+		        	<span class="margin5tb col-sm-12">License Issuing Authority Name</span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.licenseIssuingAuthorityName">
@@ -536,7 +536,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">License Issue Date</span>
+		        	<span class="margin5tb col-sm-12">License Issue Date</span>
 		        </td>
 		        <td>
 		        	<span class="col-sm-8 padding0">
@@ -582,7 +582,7 @@
 			  
 			  <tr>
 		        <td >
-		        	<span class="margin5tb col-sm-10">Issuing Agency URL</span>
+		        	<span class="margin5tb col-sm-12">Issuing Agency URL</span>
 		        </td>
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.identifierOwnerURI">
