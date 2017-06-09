@@ -13,7 +13,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" value="$0" name="" ng-model="summariesOfTransaction_LSection.deposit.closingCostFundAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0" value="$0" name="" ng-model="summariesOfTransaction_LSection.deposit" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -49,22 +49,6 @@
 		      </tr>
 		</table>
 	</span>
-	<!-- <span  class="col-sm-12 padding0">
-        <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
-		      <tr>
-		        <th class="innerSectionHeader col-sm-10">Disclosure Description</th>
-		      </tr>
-		      <tr>
-		        <td>
-		        	<span class="col-sm-7">
-		        		<input type="text" class="form-control padding0" name="" ng-module="summariesOfTransaction_LSection.liabilites[0].liabilityDescription">
-		        	</span>
-		        </td>
-		      </tr>
-		      
-		</table>
-	</span> -->
-
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
@@ -77,22 +61,22 @@
 		      <tr>
 		        <td>
 		        	<label>Is Disclosure Only?</label> 
-		        	<select class="form-control padding0" ng-model="disclosureOnly" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="disclosureChange()">
+		        	<select class="form-control padding0" ng-model="cdformdata.disclosureOnly" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="disclosureChange()">
 		        	</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.displayLabel" ng-disabled="disclosureOnly==true">  
+		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.displayLabel" ng-show="!cdformdata.disclosureOnly">  
 		        </td>
-		        <td>
-		            <span>
-		        	<select class="form-control padding0" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType" ng-disabled="disclosureOnly==true">
+		        <td style="width:30%;">
+		            <span ng-show="!cdformdata.disclosureOnly">
+		        	<select class="form-control padding0" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType" ng-change="subordinateLienChange()">
 			        	<option value="" selected>Select</option>
 	                    <option ng-repeat="sLien in subordinateLiens" value="{{sLien.value}}">{{sLien.name}}</option>
 		        	</select>
 		        	&nbsp;
-		        	<ul class="ListChain" ng-show="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType =='ProceedsOfSubordinateLiens'">
+		        	<ul class="ListChain" style="padding: 0 10px;" ng-show="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType =='ProceedsOfSubordinateLiens'">
 		        		<li><span class="pull-left margin5tb">Original Principal Balance?</span>
-		        			<span class="col-sm-6 pull-right">
+		        			<span class="col-sm-6 pull-right padding0">
 			        			<div class="input-group">
 									<span class="input-group-addon input-default">$</span>
 				        			<input type="text" class="form-control padding0" name="" ng-model="cdformdata.loanDetail.totalSubordinateFinancingAmount" decimal-digits-with-number-format>
@@ -101,25 +85,24 @@
 		        		</li>
 		        		<li><span class="pull-left margin5tb">Is the Subordinate financing New?</span>
 		        			<span class="col-sm-4 pull-right">
-		        			<select class="form-control" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-model="cdformdata.loanDetail.subordinateFinancingIsNewIndicator">
-			        		</select>
+			        			<select class="form-control padding0" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-model="cdformdata.loanDetail.subordinateFinancingIsNewIndicator">
+				        		</select>
 		        			</span>
 		        		</li>
-		        	</ul> 
-		        	<span ng-show="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType =='Other'">
-		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemTypeOtherDescription""> 
-		        	</span>
-
-		        	</span>
+		        	</ul>
+					</span>
+		        </td>
+		        <td ng-if="!cdformdata.disclosureOnly">
+		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemTypeOtherDescription" ng-disabled="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemType !='Other'">
+		        </td>
+		        <td ng-if="cdformdata.disclosureOnly">
+		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.liabilites[0].liabilityDescription">
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" ng-disabled="disclosureOnly==false" name="" ng-model="summariesOfTransaction_LSection.liabilites[0].liabilityDescription">  
-		        </td>
-		        <td>
-		        <div class="input-group">
-					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount" decimal-digits-with-number-format ng-disabled="disclosureOnly==true">
-		        </div>
+			        <div class="input-group" ng-show="!cdformdata.disclosureOnly">
+						<span class="input-group-addon input-default">$</span>
+			        	<input type="text" class="form-control padding0" name="" decimal-digits-with-number-format ng-model="summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount"  >
+			        </div>
 		        </td>
 		      </tr>
 		     
@@ -230,7 +213,7 @@
 		        <th class="innerSectionHeader col-sm-2">To Date</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
-		      <tr ng-repeat="adjustmentsUnpaidBySeller in summariesOfTransaction_LSection.adjustmentsUnpaidBySeller">
+		      <tr ng-repeat="adjustmentsUnpaidBySeller in summariesOfTransaction_LSection.adjustmentsUnpaidBySeller track by $index">
 		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
 		        	<label>{{adjustmentsUnpaidBySeller.displayLabel}}</label>
 		        </td>
@@ -239,14 +222,20 @@
 		        </td>
 		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes'">
 		        </td>
-		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes'">
+		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
+		        	<select class="form-control padding0" ng-model="adjustmentsUnpaidBySeller.prorationItemType" ng-change="sotLAUPchange($index)">
+                        <option value="" selected>Select</option>
+		      		    <option ng-repeat="prorationItemType in prorationItemAssesmentTypes" value="{{prorationItemType.value}}" ng-disabled="prorationItemType.disabled">{{prorationItemType.name}}</option>
+		        	</select>
+		        </td>
+		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes' && adjustmentsUnpaidBySeller.displayLabel !='Assessments'">
 		        	<select class="form-control padding0" ng-model="adjustmentsUnpaidBySeller.prorationItemType" ng-change="sotLAUPchange($index)">
                         <option value="" selected>Select</option>
 		      		    <option ng-repeat="prorationItemType in prorationItemTypes" value="{{prorationItemType.value}}" ng-disabled="prorationItemType.disabled">{{prorationItemType.name}}</option>
 		        	</select>
 		        </td>
-		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'"></td>
-		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes' && adjustmentsUnpaidBySeller.displayLabel !='Assessments'">
+		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes'"></td>
+		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel !='City/Town Taxes' && adjustmentsUnpaidBySeller.displayLabel !='County Taxes'">
 		        	<input type="text" class="form-control padding0" ng-disabled="adjustmentsUnpaidBySeller.prorationItemType!='Other'" name="" ng-model="adjustmentsUnpaidBySeller.prorationItemTypeOtherDescription">
 		        </td>
 		        <td>
@@ -259,7 +248,7 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					<input type="text" name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" datepicker-options="dateOptions" ng-required="true" min-date="adjustmentsUnpaidBySeller.prorationItemPaidFromDate" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isprorationItemPaidThroughDate = !isprorationItemPaidThroughDate"><i class="glyphicon glyphicon-calendar"></i></button>	        		

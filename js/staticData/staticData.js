@@ -2914,6 +2914,28 @@ app.service('staticData', function($filter){
 		    'disabled': false
 		}
     ];
+    this.prorationItemAssesmentTypes=[
+    	{
+		    "name": "Condominium Association Special Assessment",
+		    "value": "CondominiumAssociationSpecialAssessment",
+		    'disabled': false
+		},
+		{
+		    "name": "Cooperative Association Special Assessment",
+		    "value": "CooperativeAssociationSpecialAssessment",
+		    'disabled': false
+		},
+		{
+		    "name": "Homeowners Association Special Assessment",
+		    "value": "HomeownersAssociationSpecialAssessment",
+		    'disabled': false
+		},
+		{
+		    "name": "Other",
+		    "value": "Other",
+		    'disabled': false
+		}
+    ];
 
 	this.subordinateLiens = [ 
 		{ 

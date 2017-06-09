@@ -152,14 +152,20 @@
 		        	<input type="text" class="form-control padding0" name="" 
 		        	ng-model="adjustmentsPaidBySellerInAdvance.displayLabel">
 		        </td>
-		        <td>
+		        <td ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='Assessments'">
+		        	<select class="form-control padding0" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemType" ng-change = "sotKAchange($index)">
+                        <option value="" selected>Select</option>
+		      		    <option ng-repeat="prorationItemType in prorationItemAssesmentTypes" value="{{prorationItemType.value}}" ng-disabled="prorationItemType.disabled">{{prorationItemType.name}}</option>
+		        	</select>
+		        </td>
+		        <td ng-if="adjustmentsPaidBySellerInAdvance.displayLabel !='Assessments'">
 		        	<select class="form-control padding0" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemType" ng-change = "sotKAchange($index)">
                         <option value="" selected>Select</option>
 		      		    <option ng-repeat="prorationItemType in prorationItemTypes" value="{{prorationItemType.value}}" ng-disabled="prorationItemType.disabled">{{prorationItemType.name}}</option>
 		        	</select>
 		        </td>
 		        <td>
-		        	<input type="text" class="form-control padding0" ng-disabled="adjustmentsPaidBySellerInAdvance.prorationItemType!='Other'" name="" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemTypeOtherDescription" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel!='Assessments'">
+		        	<input type="text" class="form-control padding0" ng-disabled="adjustmentsPaidBySellerInAdvance.prorationItemType!='Other'" name="" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemTypeOtherDescription">
 		        </td>
 		        <td>
 		        	<span class="col-sm-10 padding0">
@@ -171,7 +177,7 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder= "MM/DD/YYYY" actualize-date/>
+					<input type="text" name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" datepicker-options="dateOptions" ng-required="true" min-date="adjustmentsPaidBySellerInAdvance.prorationItemPaidFromDate" close-text="Close" placeholder= "MM/DD/YYYY" actualize-date/>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isprorationItemPaidThroughDate = !isprorationItemPaidThroughDate"><i class="glyphicon glyphicon-calendar"></i></button>
