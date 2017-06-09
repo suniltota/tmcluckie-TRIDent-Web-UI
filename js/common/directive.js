@@ -244,8 +244,8 @@ app.directive('negativeDigits', function ($filter) {
 
         ctrl.$formatters.push(function () {
             if(ctrl.$modelValue) {
-              if(ctrl.$modelValue.indexOf("-")!=-1) {
-                var value = ctrl.$modelValue.replace(/[\-\,]/g, '');
+              if(ctrl.$modelValue.toString().indexOf("-")!=-1) {
+                var value = ctrl.$modelValue.toString().replace(/[\-\,]/g, '');
                 return $filter('number')(value, 2);
               } else {
                 return $filter('number')(ctrl.$modelValue, 2);
