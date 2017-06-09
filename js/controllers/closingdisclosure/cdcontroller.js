@@ -156,7 +156,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
 
 	var initializeCDformData = function() {
-		$scope.cdformdata = staticData.cdformdata;
+		$scope.cdformdata = angular.copy(staticData.cdformdata);
 		$scope.cdformdata.termsOfLoan.loanPurposeType = $scope.loanBasicInfo.loanPurposeType.capitalizeFirstLetter();
 		borrower = angular.copy($scope.cdformdata.transactionInformation.borrowerDetails[0]);
 		seller = angular.copy($scope.cdformdata.transactionInformation.sellerDetails[0]);
@@ -2679,13 +2679,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     	//Total Closing Costs(J)
     	if($scope.cdformdata.closingCostsTotal.totalClosingCosts){
-    		$scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.closingCostsTotal.totalClosingCosts;
+    		if($scope.loanBasicInfo.loanFormType == 'alternate'){
+                $scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.cdformdata.closingCostsTotal.totalClosingCosts*-1);    		
+            }else{
+            	$scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.cdformdata.closingCostsTotal.totalClosingCosts);
+            }
     	}
 
         if($scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing){
-        	$scope.cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing 
+        	if($scope.loanBasicInfo.loanFormType == 'alternate'){
+        	    $scope.cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing; 
+            }else{
+        	    $scope.cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing*-1); 
+            }
         }
-        
+		        
         if($scope.cdformdata.termsOfLoan.noteAmount && $scope.cdformdata.termsOfLoan.noteAmount!=undefined && $scope.loanBasicInfo.loanFormType == 'alternate'){
             $scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.termsOfLoan.noteAmount;
         }
@@ -2807,6 +2815,50 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         $scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount = cashToCloseItemEstimatedAmount;
         $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount = cashToCloseItemFinalAmount;
     
+        //Seller Credit
+        for(i=0; i<$scope.summariesOfTransaction_LSection.adjustments.length; i++) {
+			if($scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemType=='SellerCredit'){
+        		$scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemAmount = parseFloat($scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount*-1);
+        	}
+        }
+
+        //Deposit
+        $scope.summariesOfTransaction_LSection.deposit = parseFloat($scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount*-1);
+        //Funds For Borrower
+        if($scope.loanBasicInfo.loanPurposeType!='refinance'){
+        	$scope.cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount = 0;
+            $scope.cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemFinalAmount = 0;
+        }
+
+        //Sale Price
+        if($scope.loanBasicInfo.loanPurposeType == 'refinance' && $scope.loanBasicInfo.loanFormType == 'standard'){
+            $scope.cdformdata.salesContractDetail.saleContractAmount = 0;
+        }
+       
+        //Closng Costs Financed
+        var diffClosingCosts = 0;
+        var noteAmountPayOffDiff = 0;
+
+        if($scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount && $scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount!=undefined && $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing && $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing!=undefined){
+            diffClosingCosts = parseFloat($scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount-$scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing);
+        }
+        
+        if($scope.cdformdata.termsOfLoan.noteAmount && $scope.cdformdata.termsOfLoan.noteAmount!=undefined && $scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount && $scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount!=undefined){
+               noteAmountPayOffDiff = parseFloat($scope.cdformdata.termsOfLoan.noteAmount-$scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount);
+        }
+
+        if($scope.loanBasicInfo.loanFormType == 'alternate'){
+            if(diffClosingCosts<0){
+                $scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount = 0;
+            }else if(noteAmountPayOffDiff > diffClosingCosts){
+                $scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(diffClosingCosts);
+            }else if(noteAmountPayOffDiff <= diffClosingCosts){
+                $scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount = 0;
+            }else{
+                $scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(noteAmountPayOffDiff);
+            }
+        }
+        
     }, true);
     
     $scope.$watch('cdformdata.closingCostsTotal.lenderCredits', function(newValue,oldValue){
@@ -2834,7 +2886,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.$watch('payoffsAndPaymentsList', function(newValue,oldValue){
 		var totalAmount = 0;
 	   for(k=0;k<$scope.payoffsAndPaymentsList.length;k++){
-	   		if($scope.payoffsAndPaymentsList[k].payoffAmount)
+	   		if($scope.payoffsAndPaymentsList[k].payOffType!='' && $scope.payoffsAndPaymentsList[k].payoffAmount)
         		totalAmount += parseFloat($scope.payoffsAndPaymentsList[k].payoffAmount);
         }
         $scope.payoffsAndPaymentsTotalAmount = totalAmount;
@@ -2885,6 +2937,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
                 $scope.cdformdata.closingAdjustmentItemList.push(adjustmentObj);
             }
         });
+
+        $scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount =  $scope.payoffsAndPaymentsTotalAmount ? parseFloat($scope.payoffsAndPaymentsTotalAmount*-1) : +0;
     }, true);
 
     $scope.$watch('summariesOfTransaction_KSection', function(newValues,oldValues){
@@ -3024,7 +3078,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		}
     	if($scope.summariesOfTransaction_LSection.deposit) {
 			$scope.summariesOfTransaction_LSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_LSection.deposit);
-			$scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount = $scope.summariesOfTransaction_LSection.deposit;
+		    $scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.summariesOfTransaction_LSection.deposit*-1);
 			if($scope.cdformdata.closingCostFundList && $scope.cdformdata.closingCostFundList.length>0) {
 				for (var i = 0; i < $scope.cdformdata.closingCostFundList.length; i++) {
 					if($scope.cdformdata.closingCostFundList[i].fundsType=='DepositOnSalesContract' 
@@ -3347,7 +3401,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     $scope.$watch('cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing',function(newValue,oldValue){
         if($scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing){
-        	$scope.cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing 
+		   $scope.cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing*-1); 
         }
     },true);
 

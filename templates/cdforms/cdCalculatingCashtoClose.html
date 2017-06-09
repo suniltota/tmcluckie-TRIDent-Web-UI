@@ -105,7 +105,7 @@
 		      </tr>
 		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
 		        <td>
-		        	Closing Costs Financed
+		        	Closing Costs Financed (Paid from your Loan Amount)
 		        </td>
 		        <td>
 		        	<div class="input-group">
@@ -260,7 +260,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default" style="color: red;">$ -</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount" negative-digits>
 		        </div>
 		        </td>
 		        <td>
@@ -287,7 +287,7 @@
 			        	<span class="col-sm-5 pull-right">
 			        		<div class="input-group">
 								<span class="input-group-addon input-default">$</span>
-					        	<input type="text" class="form-control" name="" ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount" decimal-digits-with-number-format>
+					        	<input type="text" class="form-control" name="" ng-model="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount" decimal-digits-with-number-format>
 					        </div>
 					    </span>
 		        	</span>
@@ -313,23 +313,25 @@
       </div>
 
       <div class="modal-body">
-           <div class="margin5tb padding0 col-sm-6" ng-show="loanBasicInfo.loanFormType == 'standard'">
+           <div class="margin5tb padding0 col-sm-6" >
               <div class=" col-sm-12">
                 <div class="col-sm-6 fieldTitle">Total Closing Costs (J)</div>
                 <div class="col-sm-6 fieldValue">${{cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</div>
               </div>
               <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'alternate'">
-                <div class="col-sm-6 fieldTitle">Total Closing Costs (J)</div>
-                <div class="col-sm-6 fieldValue">${{cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</div>
+                <div class="col-sm-6 fieldTitle">Loan Amount</div>
+                <div class="col-sm-6 fieldValue">
+                   ${{cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
+                </div>
               </div>
               <div class=" col-sm-12">
                 <div class="col-sm-6 fieldTitle">Closing Costs Paid Before Closing</div>
                 <div class="col-sm-6 fieldValue">${{cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</div>
               </div>
-              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+              <!-- <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
                 <div class="col-sm-6 fieldTitle">Loan Amount includes any assumed or taken subject to</div>
                 <div class="col-sm-6 fieldValue">$0</div>
-              </div>
+              </div> -->
               <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
                 <div class="col-sm-6 fieldTitle">Sales Price</div>
                 <div class="col-sm-6">
@@ -337,9 +339,13 @@
                       <span class="input-group-addon input-default">$</span>
                       <input type="text" class="form-control" name="" ng-model="cdformdata.salesContractDetail.saleContractAmount" decimal-digits-with-number-format>
                     </div>
+                     <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+                      <span class="input-group-addon input-default">$</span>
+                      <input type="text" class="form-control" name="" ng-model="cdformdata.salesContractDetail.saleContractAmount" decimal-digits-with-number-format disabled>
+                    </div>
                 </div>
               </div>
-              <div class=" col-sm-12" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard' && loanBasicInfo.loanPurposeType == 'refinance'">
                 <div class="col-sm-6 fieldTitle">Payoffs and Payments</div>
                 <div class="col-sm-6">
                     <div class="input-group" >
@@ -366,18 +372,12 @@
                   </div>
                 </div>
               </div>
-               <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'alternate'">
-                <div class="col-sm-6 fieldTitle">Loan Amount</div>
-                <div class="col-sm-6 fieldValue">
-                    ${{cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
-                </div>
-                </div>
               <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'alternate'">
                 <div class="col-sm-6 fieldTitle">Total Payoffs and Payments</div>
                 <div class="col-sm-6">
                   <div class="input-group">
-                  <span class="input-group-addon input-default">$</span>
-                  <input type="text" class="form-control" name="" ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount" decimal-digits-with-number-format>
+                  <span class="input-group-addon input-default" style="color: red;">$ -</span>
+                  <input type="text" class="form-control" name="" ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount" negative-digits>
                   </div>
                 </div>
               </div>
