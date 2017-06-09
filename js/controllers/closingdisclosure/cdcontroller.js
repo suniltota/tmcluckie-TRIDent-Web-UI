@@ -2206,9 +2206,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }
     }
 
-    $scope.loadResultsToCCTable = function(){
-
-    }
+    $scope.resultsCalculator = function(){
+        $scope.results = false;
+    } 
 
     $scope.calculatePayments = function() {
     	$("#spinner").show();
