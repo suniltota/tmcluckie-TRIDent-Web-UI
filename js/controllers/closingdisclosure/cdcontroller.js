@@ -716,7 +716,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.closingCostFundList = staticData.cdformdata.closingCostFundList;
 		}
 		for(i=0; i<$scope.cdformdata.closingCostFundList.length; i++) {
-			f($scope.cdformdata.closingCostFundList[i].fundsType == 'DepositOnSalesContract' 
+			if($scope.cdformdata.closingCostFundList[i].fundsType == 'DepositOnSalesContract' 
 				&& $scope.cdformdata.closingCostFundList[i].integratedDisclosureSectionType == 'PaidAlreadyByOrOnBehalfOfBorrowerAtClosing') {
 				$scope.summariesOfTransaction_LSection.deposit = $scope.cdformdata.closingCostFundList[i].closingCostFundAmount;
 				$scope.cdformdata.closingCostFundList.splice(i,1);
