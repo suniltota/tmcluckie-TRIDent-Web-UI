@@ -10,89 +10,89 @@
               <li class="sapling-expanded">General Information
                     <ul>
                       <li>
-                          <span href="" class="active pagenumber" ng-class="{'active': showTab == 'closingInfo'}" ng-click="showTab = 'closingInfo'" >Closing Information</span>
+                          <span href="" class="active pagenumber" ng-class="{'active': showTab == 'closingInfo'}" ng-click="changeTab('closingInfo')" >Closing Information</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'transInfo'}" ng-click="showTab = 'transInfo'" >Transaction Information</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'transInfo'}" ng-click="changeTab('transInfo')" >Transaction Information</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanInfo'}" ng-click="showTab = 'loanInfo'" >Loan Information</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanInfo'}" ng-click="changeTab('loanInfo')" >Loan Information</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'ContactInfo'}" ng-click="showTab = 'ContactInfo'" >Contact Information</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'ContactInfo'}" ng-click="changeTab('ContactInfo')" >Contact Information</span>
                       </li>
                     </ul>
               </li>
               <li>Loan Details
                     <ul>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanterms'}" ng-click="showTab = 'loanterms'" >Loan Terms</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanterms'}" ng-click="changeTab('loanterms')" >Loan Terms</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'projectedPayments'}" ng-click="showTab = 'projectedPayments'" >Projected Payments</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'projectedPayments'}" ng-click="changeTab('projectedPayments')" >Projected Payments</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'ETIAssessments'}" ng-click="showTab = 'ETIAssessments'" >Estimated Taxes, Insurance & Assessments</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'ETIAssessments'}" ng-click="changeTab('ETIAssessments')" >Estimated Taxes, Insurance & Assessments</span>
                       </li>
                     </ul>
               </li>
               <li>Closing Cost Details
                     <ul>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCosts'}" ng-click="showTab = 'LoanCosts'" >Loan Costs</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCosts'}" ng-click="changeTab('LoanCosts')" >Loan Costs</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'OtherCosts'}" ng-click="showTab = 'OtherCosts'" >Other Costs</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'OtherCosts'}" ng-click="changeTab('OtherCosts')" >Other Costs</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'TotalClosingCosts'}" ng-click="showTab = 'TotalClosingCosts'" >Total Closing Costs</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'TotalClosingCosts'}" ng-click="changeTab('TotalClosingCosts')" >Total Closing Costs</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'CalculatingCashtoClose'}" ng-click="showTab = 'CalculatingCashtoClose'" >Calculating Cash to Close</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'CalculatingCashtoClose'}" ng-click="changeTab('CalculatingCashtoClose')" >Calculating Cash to Close</span>
                       </li>
                     </ul>
               </li>
               <li>Summaries of Transactions
                     <ul>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_K'}" ng-click="showTab = 'SummariesofTransaction_K'" >K. Due from Borrower At Closing</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_K'}" ng-click="changeTab('SummariesofTransaction_K')" >K. Due from Borrower At Closing</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_L'}" ng-click="showTab = 'SummariesofTransaction_L'" >L. Paid already</span> 
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_L'}" ng-click="changeTab('SummariesofTransaction_L')" >L. Paid already</span> 
                       </li>
                       <!-- <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_L_cv'}" ng-click="showTab = 'SummariesofTransaction_L_cv'" >L. Calculations View</span> 
                       </li> -->
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_M'}" ng-click="showTab = 'SummariesofTransaction_M'" >M. Due to seller At Closing</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_M'}" ng-click="changeTab('SummariesofTransaction_M')" >M. Due to seller At Closing</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_N'}" ng-click="showTab = 'SummariesofTransaction_N'" >N. Due from Seller At Closing</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_N'}" ng-click="changeTab('SummariesofTransaction_N')" >N. Due from Seller At Closing</span>
                       </li>
                      <!--  <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_N_cv'}" ng-click="showTab = 'SummariesofTransaction_N_cv'" >N. Calculations View</span>
                       </li> -->
                       <li ng-show="loanBasicInfo.loanFormType=='alternate'">
-                         <span href="" class="pagenumber" ng-class="{'active': showTab == 'PayoffsAndPayments'}" ng-click="showTab = 'PayoffsAndPayments'" >Payoffs And Payments </span> 
+                         <span href="" class="pagenumber" ng-class="{'active': showTab == 'PayoffsAndPayments'}" ng-click="changeTab('PayoffsAndPayments')" >Payoffs And Payments </span> 
                       </li>
                     </ul>
               </li>
               <li>Disclosures
                     <ul>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanDisclosures'}" ng-click="showTab = 'LoanDisclosures'" >Loan Disclosures</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanDisclosures'}" ng-click="changeTab('LoanDisclosures')" >Loan Disclosures</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'EscrowAccount'}" ng-click="showTab = 'EscrowAccount'" >Escrow Account</span> 
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'EscrowAccount'}" ng-click="changeTab('EscrowAccount')" >Escrow Account</span> 
                       </li>
                       <li ng-show="cdformdata.loanDetail.interestOnlyIndicator==true || cdformdata.payment.paymentRule.paymentOptionIndicator==true || cdformdata.loanInformation.amortizationType=='Step' || cdformdata.loanInformation.amortizationType=='GPM' || cdformdata.loanInformation.amortizationType=='GraduatedARM' || cdformdata.loanDetail.seasonalPaymentFeatureIndicator==true">
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'ApTable'}" ng-click="showTab = 'ApTable'" >Adjustable Payment (AP) Table</span> 
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'ApTable'}" ng-click="changeTab('ApTable')" >Adjustable Payment (AP) Table</span> 
                       </li>
                       <li ng-show="cdformdata.loanDetail.interestRateIncreaseIndicator==true">
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'AirTable'}" ng-click="showTab = 'AirTable'" >Adjustable Interest Rate (AIR) Table</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'AirTable'}" ng-click="changeTab('AirTable')" >Adjustable Interest Rate (AIR) Table</span>
                       </li>
                       <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCals'}" ng-click="showTab = 'LoanCals'" >Loan Calcs OtherDisclosure</span>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCals'}" ng-click="changeTab('LoanCals')" >Loan Calcs OtherDisclosure</span>
                       </li>
                       
                     </ul>
@@ -119,25 +119,25 @@
                   </span>
                     <ul>
                         <li>
-                          <span class="pageno active pageicon"  data-toggle="tooltip" ng-class="{'active': showTab == 'closingInfo'}" ng-click="showTab = 'closingInfo'" data-placement="right" title="Closing Information">
+                          <span class="pageno active pageicon"  data-toggle="tooltip" ng-class="{'active': showTab == 'closingInfo'}" ng-click="changeTab('closingInfo')" data-placement="right" title="Closing Information">
                             <span class="glyphicon glyphicon-file pull-left"></span> 
                             <span class="pull-left noTitle">CI</span>
                           </span>
                         </li>
                         <li>
-                            <span class="pageno pageicon" ng-class="{'active': showTab == 'transInfo'}" data-toggle="tooltip" ng-click="showTab = 'transInfo'"  data-placement="right" title="Transaction Information">
+                            <span class="pageno pageicon" ng-class="{'active': showTab == 'transInfo'}" data-toggle="tooltip" ng-click="changeTab('transInfo')"  data-placement="right" title="Transaction Information">
                               <span class="glyphicon glyphicon-file pull-left"></span> 
                               <span class="pull-left noTitle">TI</span>
                             </span>
                         </li>
                         <li>
-                            <span class="pageno pageicon" ng-class="{'active': showTab == 'loanInfo'}" data-toggle="tooltip" ng-click="showTab = 'loanInfo'"  data-placement="right" title="Loan Information">
+                            <span class="pageno pageicon" ng-class="{'active': showTab == 'loanInfo'}" data-toggle="tooltip" ng-click="changeTab('loanInfo')"  data-placement="right" title="Loan Information">
                               <span class="glyphicon glyphicon-file pull-left"></span> 
                               <span class="pull-left noTitle">LI</span>
                             </span>
                         </li>
                         <li>
-                            <span class="pageno pageicon" ng-class="{'active': showTab == 'ContactInfo'}" data-toggle="tooltip" ng-click="showTab = 'ContactInfo'"  data-placement="right" title="Contact Information">
+                            <span class="pageno pageicon" ng-class="{'active': showTab == 'ContactInfo'}" data-toggle="tooltip" ng-click="changeTab('ContactInfo')"  data-placement="right" title="Contact Information">
                               <span class="glyphicon glyphicon-file pull-left"></span>
                               <span class="pull-left noTitle">CI</span>
                             </span>
@@ -151,19 +151,19 @@
                   </span>
                   <ul>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'loanterms'}" data-toggle="tooltip" ng-click="showTab = 'loanterms'"  data-placement="right" title="Loan Terms">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'loanterms'}" data-toggle="tooltip" ng-click="changeTab('loanterms')"  data-placement="right" title="Loan Terms">
                             <span class="glyphicon glyphicon-file pull-left"></span> 
                             <span class="pull-left noTitle">LT</span>
                           </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'projectedPayments'}" data-toggle="tooltip" ng-click="showTab = 'projectedPayments'"  data-placement="right" title="Projected Payments">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'projectedPayments'}" data-toggle="tooltip" ng-click="changeTab('projectedPayments')"  data-placement="right" title="Projected Payments">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">PP</span>
                           </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'ETIAssessments'}" data-toggle="tooltip" ng-click="showTab = 'ETIAssessments'"  data-placement="right" title="Estimated Taxes, Insurance & Assessments">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'ETIAssessments'}" data-toggle="tooltip" ng-click="changeTab('ETIAssessments')"  data-placement="right" title="Estimated Taxes, Insurance & Assessments">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">ET</span>
                           </span>
@@ -177,25 +177,25 @@
                   </span>
                   <ul>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanCosts'}" data-toggle="tooltip" ng-click="showTab = 'LoanCosts'"  data-placement="right" title="Loan Costs">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanCosts'}" data-toggle="tooltip" ng-click="changeTab('LoanCosts')"  data-placement="right" title="Loan Costs">
                               <span class="glyphicon glyphicon-file pull-left"></span>
                               <span class="pull-left noTitle">LC</span>
                             </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'OtherCosts'}" data-toggle="tooltip" ng-click="showTab = 'OtherCosts'"  data-placement="right" title="Other Costs">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'OtherCosts'}" data-toggle="tooltip" ng-click="changeTab('OtherCosts')"  data-placement="right" title="Other Costs">
                               <span class="glyphicon glyphicon-file pull-left"></span>
                               <span class="pull-left noTitle">OC</span>
                             </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'TotalClosingCosts'}" data-toggle="tooltip" ng-click="showTab = 'TotalClosingCosts'"  data-placement="right" title="Total Closing Costs">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'TotalClosingCosts'}" data-toggle="tooltip" ng-click="changeTab('TotalClosingCosts')"  data-placement="right" title="Total Closing Costs">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">TC</span>
                           </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'CalculatingCashtoClose'}" data-toggle="tooltip" ng-click="showTab = 'CalculatingCashtoClose'"  data-placement="right" title="Calculating Cash to Close">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'CalculatingCashtoClose'}" data-toggle="tooltip" ng-click="changeTab('CalculatingCashtoClose')"  data-placement="right" title="Calculating Cash to Close">
                               <span class="glyphicon glyphicon-file pull-left"></span>
                               <span class="pull-left noTitle">CC</span>
                             </span>
@@ -210,25 +210,25 @@
                   </span>
                   <ul>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'SummariesofTransaction_K'}" data-toggle="tooltip" ng-click="showTab = 'SummariesofTransaction_K'"  data-placement="right" title="Summaries of Transaction - K. Due from Borrower At Closing">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'SummariesofTransaction_K'}" data-toggle="tooltip" ng-click="changeTab('SummariesofTransaction_K')"  data-placement="right" title="Summaries of Transaction - K. Due from Borrower At Closing">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">DB</span>
                           </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'SummariesofTransaction_L'}" data-toggle="tooltip" ng-click="showTab = 'SummariesofTransaction_L'"  data-placement="right" title="Summaries of Transaction - L. Paid already">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'SummariesofTransaction_L'}" data-toggle="tooltip" ng-click="changeTab('SummariesofTransaction_L')"  data-placement="right" title="Summaries of Transaction - L. Paid already">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">PA</span>
                           </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'SummariesofTransaction_M'}" data-toggle="tooltip" ng-click="showTab = 'SummariesofTransaction_M'"  data-placement="right" title="Summaries of Transaction - M. Due to seller At Closing">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'SummariesofTransaction_M'}" data-toggle="tooltip" ng-click="changeTab('SummariesofTransaction_M')"  data-placement="right" title="Summaries of Transaction - M. Due to seller At Closing">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">DT</span>
                           </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'SummariesofTransaction_N'}" data-toggle="tooltip" ng-click="showTab = 'SummariesofTransaction_N'"  data-placement="right" title="Summaries of Transaction - N. Due from Seller At Closing">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'SummariesofTransaction_N'}" data-toggle="tooltip" ng-click="changeTab('SummariesofTransaction_N')"  data-placement="right" title="Summaries of Transaction - N. Due from Seller At Closing">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">DF</span>
                           </span>
@@ -244,37 +244,37 @@
                   </span>
                   <ul>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'PayoffsAndPayments'}" data-toggle="tooltip" ng-click="showTab = 'PayoffsAndPayments'"  data-placement="right" title="Payoffs And Payments" ng-show="loanBasicInfo.loanFormType=='alternate'">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'PayoffsAndPayments'}" data-toggle="tooltip" ng-click="changeTab('PayoffsAndPayments')"  data-placement="right" title="Payoffs And Payments" ng-show="loanBasicInfo.loanFormType=='alternate'">
                               <span class="glyphicon glyphicon-file pull-left"></span>
                               <span class="pull-left noTitle">PP</span>
                             </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanDisclosures'}" data-toggle="tooltip" ng-click="showTab = 'LoanDisclosures'"  data-placement="right" title="Loan Disclosures">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanDisclosures'}" data-toggle="tooltip" ng-click="changeTab('LoanDisclosures')"  data-placement="right" title="Loan Disclosures">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">LD</span>
                           </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'EscrowAccount'}" data-toggle="tooltip" ng-click="showTab = 'EscrowAccount'"  data-placement="right" title="Escrow Account">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'EscrowAccount'}" data-toggle="tooltip" ng-click="changeTab('EscrowAccount')"  data-placement="right" title="Escrow Account">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">EA</span>
                           </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'ApTable'}" data-toggle="tooltip" ng-click="showTab = 'ApTable'"  data-placement="right" title="AP Table" ng-show="cdformdata.loanDetail.interestOnlyIndicator==true || cdformdata.payment.paymentRule.paymentOptionIndicator==true || cdformdata.loanInformation.amortizationType=='Step' || cdformdata.loanInformation.amortizationType=='GPM' || cdformdata.loanInformation.amortizationType=='GraduatedARM' || cdformdata.loanDetail.seasonalPaymentFeatureIndicator==true">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'ApTable'}" data-toggle="tooltip" ng-click="changeTab('ApTable')"  data-placement="right" title="AP Table" ng-show="cdformdata.loanDetail.interestOnlyIndicator==true || cdformdata.payment.paymentRule.paymentOptionIndicator==true || cdformdata.loanInformation.amortizationType=='Step' || cdformdata.loanInformation.amortizationType=='GPM' || cdformdata.loanInformation.amortizationType=='GraduatedARM' || cdformdata.loanDetail.seasonalPaymentFeatureIndicator==true">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">AP</span>
                           </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'AirTable'}" data-toggle="tooltip" ng-click="showTab = 'AirTable'"  data-placement="right" title="AIR Table" ng-show="cdformdata.loanDetail.interestRateIncreaseIndicator==true">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'AirTable'}" data-toggle="tooltip" ng-click="changeTab('AirTable')"  data-placement="right" title="AIR Table" ng-show="cdformdata.loanDetail.interestRateIncreaseIndicator==true">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">AR</span>
                           </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanCals'}" data-toggle="tooltip" ng-click="showTab = 'LoanCals'"  data-placement="right" title="Loan Calculation">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanCals'}" data-toggle="tooltip" ng-click="changeTab('LoanCals')"  data-placement="right" title="Loan Calculation">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">LC</span>
                           </span>

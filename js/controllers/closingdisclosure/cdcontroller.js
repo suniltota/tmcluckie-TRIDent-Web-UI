@@ -1292,6 +1292,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.prepaymentPenaltyChange = function(){
     	$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyMaximumLifeOfLoanAmount = '';
     	$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount = '';
+    	$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears = '';
     }
 
     $scope.balloonIndicatorChange = function() {
@@ -3631,6 +3632,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	$scope.$watch('cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears',function(newValue,oldValue){
     	if($scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears) {
     		$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount = parseInt($scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears) * 12; 
+    	} else {
+    		$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount = '';
     	}
 	}, true);
     

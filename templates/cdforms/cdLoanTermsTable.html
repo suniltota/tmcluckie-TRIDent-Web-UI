@@ -202,7 +202,7 @@
 		        <td><label></label></td>
 		        <td  style="padding-right: 0px;">
 		        	
-		        	<select class="form-control pull-left" ng-model="cdformdata.loanDetail.prepaymentPenaltyIndicator" style="margin-top:5px;width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	<select class="form-control pull-left" ng-model="cdformdata.loanDetail.prepaymentPenaltyIndicator" style="margin-top:5px;width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="prepaymentPenaltyChange()">
 		        	</select>
 		        </td>
 		        <td>
