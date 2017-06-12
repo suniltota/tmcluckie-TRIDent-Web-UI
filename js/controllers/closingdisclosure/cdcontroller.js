@@ -3527,6 +3527,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			}
 		}
 
+		//Adjustments And Other Credits
+        $scope.cdformdata.salesContractDetail.personalPropertyAmount = $scope.cdformdata.salesContractDetail.personalPropertyAmount ? parseFloat($scope.cdformdata.salesContractDetail.personalPropertyAmount) : +0;
+        $scope.adjustmentsAndProrationsAmountsKSection = $scope.adjustmentsAndProrationsAmountsKSection ? parseFloat($scope.adjustmentsAndProrationsAmountsKSection) : +0;
+		$scope.adjustmentsAndProrationsAmountsLSection = $scope.adjustmentsAndProrationsAmountsLSection ? parseFloat($scope.adjustmentsAndProrationsAmountsLSection) : +0;
+        $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(($scope.cdformdata.salesContractDetail.personalPropertyAmount+$scope.adjustmentsAndProrationsAmountsKSection)-$scope.adjustmentsAndProrationsAmountsLSection);
+
 	}, true);
 
     $scope.$watch('cdformdata.projectedPayments',function(newValue,oldValue){
