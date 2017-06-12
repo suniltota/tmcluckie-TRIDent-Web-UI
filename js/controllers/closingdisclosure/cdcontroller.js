@@ -287,7 +287,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		if(!isLenderTypeOrganization)
 			$scope.cdformdata.transactionInformation.lenderDetails.push(lender);
 
-		var productAdjustmentInformation = {
+		/*var productAdjustmentInformation = {
 			'fixedPeriodMonths' :'',
 			'firstChangePeriodMonths':'',
 			'subsequentChangePeriodMonths':'',
@@ -306,7 +306,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangeInterestRateLimit = $scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent;
 			$scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit = $scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent;
 			$scope.cdformdata.loanInformation.productAdjustmentInformation.floorRatePercent = $scope.cdformdata.interestRateAdjustment.floorRatePercent;
-		}
+		}*/
 
 		$scope.cdformdata.loanTerms.prepaymentPenalty['prepaymentPenaltyExpirationInYears'] = '';
 		if($scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount)
@@ -1201,13 +1201,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	if($scope.cdformdata.loanInformation.amortizationType == 'Fixed') {
     		$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = false;
     		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = false;
-    		$scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths = '';
-    		$scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths = '';
-    		$scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths = '';
-    		$scope.cdformdata.loanInformation.productAdjustmentInformation.loanCapRate = '';
-    		$scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangeInterestRateLimit = '';
-    		$scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit = '';
-    		$scope.cdformdata.loanInformation.productAdjustmentInformation.floorRatePercent = '';
+    		$scope.cdformdata.loanInformation.fixedPeriodMonths = '';
+    		$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = '';
+    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = '';
+    		$scope.cdformdata.interestRateAdjustment.ceilingRatePercent = '';
+    		$scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent = '';
+    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent = '';
+    		$scope.cdformdata.interestRateAdjustment.floorRatePercent = '';
     	} else {
     		$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = true;
     		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = true;
@@ -3595,48 +3595,29 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	   	}
     }, true);
 
-    $scope.$watch('cdformdata.loanInformation.productAdjustmentInformation',function(newValue,oldValue){
-    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths) {
-    		$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths);
-    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths)+1;
+    $scope.$watch('cdformdata.loanInformation',function(newValue,oldValue){
+    	if($scope.cdformdata.loanInformation.fixedPeriodMonths) {
+    		$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = parseInt($scope.cdformdata.loanInformation.fixedPeriodMonths);
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = parseInt($scope.cdformdata.loanInformation.fixedPeriodMonths)+1;
     	} else {
     		$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = '';
     		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = '';
     	}
-    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths) {
-    		$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths);
-    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths);
+    	if($scope.cdformdata.loanInformation.firstChangePeriodMonths) {
+    		$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.loanInformation.firstChangePeriodMonths);
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.loanInformation.firstChangePeriodMonths);
     	} else{
     		$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = '';
     		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = '';
     	}
-    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths) {
-    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths);
-    		$scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths);
+    	if($scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount) {
+    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount);
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = parseInt($scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount);
     	} else {
     		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = '';
     		$scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount = '';
     	}
-    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.loanCapRate) {
-    		$scope.cdformdata.interestRateAdjustment.ceilingRatePercent = $scope.cdformdata.loanInformation.productAdjustmentInformation.loanCapRate;
-    	} else {
-    		$scope.cdformdata.interestRateAdjustment.ceilingRatePercent = '';
-    	}
-    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangeInterestRateLimit) {
-    		$scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent = $scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangeInterestRateLimit;
-    	} else {
-    		$scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent = '';
-    	}
-    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit) {
-    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent = $scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit;
-    	} else {
-    		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent = '';
-    	}
-    	if($scope.cdformdata.loanInformation.productAdjustmentInformation.floorRatePercent) {
-    		$scope.cdformdata.interestRateAdjustment.floorRatePercent = $scope.cdformdata.loanInformation.productAdjustmentInformation.floorRatePercent;
-    	} else {
-    		$scope.cdformdata.interestRateAdjustment.floorRatePercent = '';
-    	}
+
     },true);
 
 	$scope.$watch('cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears',function(newValue,oldValue){
