@@ -1,6 +1,6 @@
 'use strict';
 
-postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService, apiService, cdXML2JsonService, $log) {
+postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService, apiService, cdJsonService, $log) {
     $scope.transactionType = 'new';
     $scope.purposeType = 'purchase';
     $scope.documentType = 'closingdisclosure';
@@ -13,7 +13,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
     	$window.location.href="login.html" + $window.location.search;
     }
 
-    $scope.$watch('xmlfile', function(newValue, oldValue) {
+    $scope.$watch('uploadfile', function(newValue, oldValue) {
          $scope.fileerror = undefined;
     });
 
@@ -32,7 +32,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
         $scope.documentType = 'closingdisclosure';
         $scope.formType = 'standard';
         angular.element("input[type='file']").val('');
-        $scope.xmlfile = undefined;
+        $scope.uploadfile = undefined;
     }
 
     $scope.submit = function() {
@@ -40,8 +40,8 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
         if($scope.transactionType == 'new') {
             location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
         } else if($scope.transactionType == 'existing') {
-            if($scope.xmlfile != undefined && $scope.xmlfile != null) {
-                cdXML2JsonService.getJsonFromXml($scope.xmlfile).success(function(data){
+            if($scope.uploadfile != undefined && $scope.uploadfile != null) {
+                cdJsonService.getJsonFromXml($scope.uploadfile).success(function(data){
                     $scope.purposeType = data.termsOfLoan.loanPurposeType.toLowerCase();
                     if($scope.purposeType == 'purchase')
                        $scope.formType = 'standard';
@@ -53,6 +53,34 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                 });
             } else {
                 $scope.fileerror = 'Please select valid xml file';
+                $("#spinner").hide();
+            }
+        } else if($scope.transactionType == 'textTemplate') {
+            if($scope.uploadfile != undefined && $scope.uploadfile != null) {
+                cdJsonService.getXMLFromTextTemplate($scope.uploadfile).success(function(xmldata) {
+                    var xmlstring= '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+                    var mismoxmlstring = '';
+                    $(xmldata).each(function(){
+                        var ucd = $("UCD_DOCUMENT",this);
+                        mismoxmlstring = $(ucd).html();
+                    });
+                   
+                    var xml = xmlstring + mismoxmlstring;
+                    cdJsonService.getJsonFromXml(xml).success(function(jsondata){
+                        $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
+                        if($scope.purposeType == 'purchase')
+                           $scope.formType = 'standard';
+                        localStorage.jsonData = JSON.stringify(jsondata);
+                        console.log(localStorage.jsonData);
+                        location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+                    }).error(function(data, status) {
+                        $("#spinner").hide();
+                    });
+                }).error(function(data, status) {
+                    $("#spinner").hide();
+                });
+            } else {
+                $scope.fileerror = 'Please select valid template file';
                 $("#spinner").hide();
             }
         }

@@ -13,7 +13,7 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 		$scope.errorMsg=""; 
 		//$scope.purposes = [{"displayName":"Purchase","value":"Purchase"},{"displayName":"Refinance","value":"Refinance"},{"displayName":"HomeEquity","value":"HomeEquity"}];;
 
-		$scope.selectedApiServer = "http://localhost:8080/actualize/";
+		$scope.selectedApiServer = "http://localhost:8080/trident/";
 		$scope.$watch('selectedApiServer', function(newValue, oldValue){
 			apiService.setBasePath(newValue);
 			localStorage.apiBasePath=newValue;
@@ -41,7 +41,7 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 			pwd = pwd.replace("&","%26");
 			//login submission logic here
 			var params={username:username, password:pwd};
-			apiService.request({apiMethod:'services/user/login',params:params,httpMethod:'POST'}).success(function(data, status) {
+			apiService.request({apiMethod:'login',params:params,httpMethod:'POST'}).success(function(data, status) {
 				$scope.waitingForLoginResponse=false;
 				$scope.loginFailure=false;
 				localStorage.userDetails = JSON.stringify(data);

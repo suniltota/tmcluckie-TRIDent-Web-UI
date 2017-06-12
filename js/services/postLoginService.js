@@ -1,11 +1,19 @@
 'use strict';
 
-postLoginApp.service('cdXML2JsonService', function(apiService){
+postLoginApp.service('cdJsonService', function(apiService){
 	this.getJsonFromXml = function(xmlData){
     	return apiService.request({
-    		apiMethod: "services/trident/closingdisclosure/v1/convertXmlToJson",
+    		apiMethod: "actualize/transformx/trident/cd/v1/ucdtojson",
             httpMethod: 'POST',
             xmlData:xmlData
         });
     }
+    this.getXMLFromTextTemplate = function(xmlData){
+    	return apiService.request({
+    		apiMethod: "actualize/transformx/transforms/v1/templatetoucd",
+            httpMethod: 'POST',
+            xmlData:xmlData
+        });
+    }
+
 });
