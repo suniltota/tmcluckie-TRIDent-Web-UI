@@ -368,7 +368,7 @@
                 <div class="col-sm-6">
                   <div class="input-group">
                     <span class="input-group-addon input-default" style="color: red;">$ -</span>
-                    <input type="text" class="form-control" name="" ng-model="cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount" negative-digits>
+                    <input type="text" class="form-control" name="" ng-model="cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount" negative-digits ng-keyup="sellerCreditsChange()" ng-blur="sellerCreditsChange()">
                   </div>
                 </div>
               </div>

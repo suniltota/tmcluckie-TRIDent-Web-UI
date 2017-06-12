@@ -2214,6 +2214,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	});
     }
 
+    $scope.sellerCreditsChange = function(){
+    	 //Seller Credit
+        for(i=0; i<$scope.summariesOfTransaction_LSection.adjustments.length; i++) {
+			if($scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemType=='SellerCredit'){
+        		$scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemAmount = parseFloat($scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount*-1);
+        	}
+        }
+    }
+
     $scope.generatePDF = function(){
     	$("#spinner").show();
     	cdService.genearateXmlFromJson($scope.cdformdata).success(function(data){
@@ -2825,11 +2834,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount = cashToCloseItemFinalAmount;
     
         //Seller Credit
-        for(i=0; i<$scope.summariesOfTransaction_LSection.adjustments.length; i++) {
+        /*for(i=0; i<$scope.summariesOfTransaction_LSection.adjustments.length; i++) {
 			if($scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemType=='SellerCredit'){
         		$scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemAmount = parseFloat($scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount*-1);
         	}
-        }
+        }*/
 
         //Deposit
         $scope.summariesOfTransaction_LSection.deposit = parseFloat($scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount*-1);
