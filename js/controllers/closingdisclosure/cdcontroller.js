@@ -1917,7 +1917,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
     
     $scope.clearEscrowsList = function(escrowValue,i){
-    	alert(escrowValue);
     	for(j=0; j<$scope.escrowItemTypes.length; j++){
             if($scope.escrowItemTypes[j].value == escrowValue) {
                 $scope.escrowItemTypes[j].disabled = false;
