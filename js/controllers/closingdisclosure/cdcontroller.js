@@ -2292,14 +2292,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	var nonEscrowAmountInCalc = 0;
         if(value!='' && value!=undefined){
         	nonEscrowAmountInCalc = value ? parseFloat(value) : +0;
-            for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length; i++) {
-	        	if($scope.cdformdata.termsOfLoan.lienPriorityType=='FirstLien' && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!='MortgageInsurance' && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!='') {
-		            etiaTotalAmountInCalc += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount) : +0; 
-		            $scope.cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount = etiaTotalAmountInCalc+nonEscrowAmountInCalc/12;
-		        }else{
-		        	$scope.cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount = 0;
-		        }
-		    }
+        	etiaTotalAmountInCalc = $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount ? parseFloat($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount) : +0;
+            $scope.cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount = parseFloat((etiaTotalAmountInCalc+nonEscrowAmountInCalc)/12);
         }
     }
 
@@ -2757,11 +2751,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	            if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!='MortgageInsurance'){
 	            	escrowArray.push($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType);
 	            }
-	            
+
 	            $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription =
 	            angular.forEach(escrowArray, function(value) { 
 	            	return value;
 	            }).join(",").replace(/([A-Z]+)/g, " $1");
+            }
+
+            if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='HomeownersInsurance' || $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='CountyPropertyTax'){
+
             }
 
          }
@@ -3813,7 +3811,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     $scope.$watch('cdformdata.etiaSection',function(newValue,oldValue){
     	var nonEscrowArray = [];    
-    	if($scope.cdformdata.termsOfLoan.escrowIndicator){	
+    	if($scope.cdformdata.loanDetail.escrowIndicator){	
 		    for(i=0;i<$scope.cdformdata.etiaSection.etiaValues.length;i++){
 		        if($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType=='NotEscrowed'){
 	                nonEscrowArray.push($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType);
