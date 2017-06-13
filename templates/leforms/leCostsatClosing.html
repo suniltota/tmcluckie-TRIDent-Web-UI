@@ -1,0 +1,42 @@
+<div class="col-sm-12">
+	<h4>Costs At Closing</h4>
+		<span class="col-sm-12 LoanTermsTable">
+		<table class="table col-sm-12">
+		    <tbody>
+		      <tr>
+		        <td class="col-sm-2"><label>Closing Costs</label></td>
+		        <td class="col-sm-2"><label>${{leformdata.closingCostsTotal.totalClosingCosts | number:2}}</label></td>
+		        <td class="col-sm-8">
+		        	<ul class="col-sm-9" >
+		        		<li><p>Includes <label>${{leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | number:2}}</label> in Loan Costs + <label>${{leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount | number:2 }}</label> in Other Costs - <label>${{leformdata.closingCostsTotal.lenderCredits}}</label> in Lender Credits.<i>
+		        		</i></p></li>
+		        	</ul>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td><label>Cash To Close</label></td>
+		        <td><label>${{leformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount | number:2}} </label></td>
+		        <td>
+		        	<ul class="col-sm-9" >
+		        		<li>Includes Closing Costs.</p></li>
+		        		<li ng-show="loanBasicInfo.loanFormType != 'standard'">
+		        			<span class="col-sm-4">
+		        				<input class="margin5" type="checkbox" name="toOrFromBorrower" ng-model="leformdata.costsAtClosing.CashToClose.fromType">
+		        				From Borrower
+		        			</span>
+		        		    <span class="col-sm-4">
+		        		    	<input class="margin5" type="checkbox" name="toOrFromBorrower" ng-model="leformdata.costsAtClosing.CashToClose.toType">
+		        		    	To Borrower
+		        		    </span>
+		        		</li>
+		        	</ul>
+		        </td>
+		      </tr>
+		    </tbody>
+		</table>
+	</span>
+	<div class="col-sm-12 margin10t">
+			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('ETIAssessments')">Back</a></span>
+			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('LoanCosts')">Next</a></span>
+	</div>
+</div>

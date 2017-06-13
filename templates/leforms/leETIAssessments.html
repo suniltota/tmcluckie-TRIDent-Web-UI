@@ -1,0 +1,66 @@
+<div class="col-sm-12">
+	<h4>LE Estimated Taxes, Insurance & Assessments</h4>
+	<span class="col-sm-12 LoanTermsTable">
+		<table class="table">
+		    <tbody>
+		      <tr>
+		        <td rowspan="{{leformdata.etiaSection.etiaValues.length + 1}}" class="innerSectionHeader col-sm-2" style="vertical-align: middle;"><label>Estimated Taxes, Insurance and Assessment</label></td>
+		        <td class="innerSectionHeader col-sm-2">
+		        	
+		        </td>
+		        <td class="innerSectionHeader col-sm-3">
+		        	<label>ETIA Items</label>
+		        </td>
+		        <td class="innerSectionHeader col-sm-3">
+		        	<label>Other Description  (if applicable)</label>
+		        </td>
+		        <td class="innerSectionHeader col-sm-2">
+		        	<label>In Escrow?</label>
+		        </td>
+		      </tr>
+		      <tr ng-repeat="etia in leformdata.etiaSection.etiaValues track by $index">
+		      		<td rowspan="{{leformdata.etiaSection.etiaValues.length}}" style="vertical-align: middle;" ng-if="$index==0">
+		      			<label>$ {{leformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount}} </label>
+		      			<br>A month</br>
+		      		</td>
+		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes'">
+			        	<span class="pull-left margin5tb">Property Taxes</span>
+			        	<span class="col-sm-1 pull-right"><input type="checkbox" name="" ng-checked="etia.projectedPaymentEscrowedType=='Escrowed'"></span>
+		      		</td>
+		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'">
+			        	<span class="pull-left margin5tb">Homeowners Insurance</span>
+			        	<span class="col-sm-1 pull-right"><input type="checkbox" name="" ng-checked="etia.projectedPaymentEscrowedType=='Escrowed'"></span>
+		      		</td>
+		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
+		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance'">
+			        	<select class="form-control" ng-model="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType" ng-change="updateETIAComponentTypes(etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType, $index)">
+			        		<option value="">Select</option>
+		      				<option ng-repeat="ETIAComponentType in ETIAComponentTypes" value="{{ETIAComponentType.value}}" ng-disabled="ETIAComponentType.disabled">{{ETIAComponentType.name}}</option>
+		      			</select>
+		      		</td>
+		      		<td class="text-center" ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' ||
+		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'">
+		      			<label> -- </label>
+		      		</td>
+		      		<td class="text-center" ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='Other'">
+		      			<input type="text" class="form-control" name="" ng-model="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription">
+		      		</td>
+		      		<td class="text-center" ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='Other' && etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
+		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance'">
+		      			<input type="text" class="form-control" name="" ng-disabled="true">
+		      		</td>
+		      		<td>
+		      			<select class="form-control" ng-options="option.id as option.name for option in escrowDropDownBooleanOptions" ng-model="etia.projectedPaymentEscrowedType">
+		      			</select>
+		      		</td>
+
+		      </tr>
+		    </tbody>
+		</table>
+		<div class="AddSection col-sm-12 text-center"><span ng-click="addETIAComponent()"><a>+ Add Additional Item</a></span></div>
+	</span>
+	<div class="col-sm-12 margin10t">
+			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('projectedPayments')">Back</a></span>
+			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('LoanCosts')">Next</a></span>
+	</div>
+</div>

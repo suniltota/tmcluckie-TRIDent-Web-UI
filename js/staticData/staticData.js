@@ -4456,4 +4456,1112 @@ this.cdformdata={
   
 	};
 
+	
+	/// Start leformdata
+	this.leformdata ={
+		
+		"closingDisclosureDocDetails":
+	    {
+	        "transactionType": null,
+	        "documentType": "",
+	        "formType": "",
+	        "escrowAggregateAccountingAdjustmentAmount": ""
+	    },
+		"loanDetail": {
+		    "assumabilityIndicator": false,
+		    "balloonIndicator": false,
+		    "balloonPaymentAmount": "",
+		    "buydownTemporarySubsidyFundingIndicator": false,
+		    "constructionLoanIndicator": false,
+		    "creditorServicingOfLoanStatementType": "",
+		    "demandFeatureIndicator": false,
+		    "escrowAbsenceReasonType": "",
+		    "escrowIndicator": false,
+		    "interestOnlyIndicator": false,
+		    "interestRateIncreaseIndicator": false,
+		    "loanAmountIncreaseIndicator": false,
+		    "miRequiredIndicator": false,
+		    "negativeAmortizationIndicator": false,
+		    "paymentIncreaseIndicator": false,
+		    "prepaymentPenaltyIndicator": false,
+		    "seasonalPaymentFeatureIndicator": false,
+		    "stepPaymentsFeatureDescription": "",
+		    "totalSubordinateFinancingAmount": "",
+		    "subordinateFinancingIsNewIndicator":false
+		},
+		"termsOfLoan": {
+		    "assumedLoanAmount": "",
+		    "disclosedFullyIndexedRatePercent": "",
+		    "lienPriorityType": "",
+		    "loanPurposeType": "",
+		    "mortgageType": "",
+		    "mortgageTypeOtherDescription": "",
+		    "noteAmount": "",
+		    "noteRatePercent": "",
+		    "weightedAverageInterestRatePercent": ""
+		},
+		"documentClassification": {
+		    "documentType": "",
+		    "documentTypeOtherDescription": "",
+		    "documentFormIssuingEntityNameType": "",
+		    "documentFormIssuingEntityVersionIdentifier": "",
+		    "documentSignatureRequiredIndicator": false
+		},
+		"closingInformation": {
+		    "property": {
+		      "addressLineText": "",
+		      "addressType": "",
+		      "addressUnitDesignatorType": "",
+		      "addressUnitIdentifier": "",
+		      "cityName": "",
+		      "countryCode": "",
+		      "postalCode": "",
+		      "stateCode": "",
+		      "unparsedLegalDescription": "",
+		      "legalDescription": false
+		    },
+		    "salePrice": "",
+		    "partyRoleType": "",
+		    "propertyValuationDetail": {
+		    	"appraisalIdentifier":"",
+		    	"identifierOwnerURI": "",
+		      	"propertyEstimatedValueAmount": "",
+		      	"propertyValuationAmount": "",
+		      	"propertyValuationMethodType": "AutomatedValuationModel",
+		      	"propertyValuationMethodTypeOtherDescription": "",
+		      	"propertyValue": "Appraised"
+		    }
+		},
+		"closingInformationDetail": {
+		    "dateIssued": "",
+			"lenderName":"Ficus Bank",
+			"closingCostExpirationDate":"",
+		    "cashFromBorrowerAtClosingAmount": "",
+		    "cashFromSellerAtClosingAmount": "",
+		    "cashToBorrowerAtClosingAmount": "",
+		    "cashToSellerAtClosingAmount": "",
+		    "closingAgentOrderNumberIdentifier": "",
+		    "closingDate": "",
+		    "closingRateSetDate": "",
+		    "currentRateSetDate": "",
+		    "disbursementDate": "",
+		    "documentOrderClassificationType": ""
+		},
+		"construction": {
+		    "constructionLoanTotalTermMonthsCount": "",
+		    "constructionLoanType": "",
+		    "constructionPeriodNumberOfMonthsCount": ""
+		},
+		"miDataDetail": {
+		    "miCertificateIdentifier": "",
+		    "miCompanyNameType": "",
+		    "miCompanyNameTypeOtherDescription": "",
+		    "miScheduledTerminationDate": "",
+		    "miInitialPremiumAmount": ""
+		},
+		"transactionInformation": {
+			"refinanceSameLenderIndicator" : false,
+			"borrowerDetails": [
+			{
+				"type": "I",
+				"nameModel": {
+					"firstName": "",
+					"lastName": "",
+					"middleName": "",
+					"suffixName": "",
+					"fullName": ""
+				},
+				"partyRoleType": "Borrower",
+				"partyRoleOtherDescription": "",
+				"address": {
+					"addressLineText": "",
+					"addressType": "",
+					"addressUnitDesignatorType": "",
+					"addressUnitIdentifier": "",
+					"cityName": "",
+					"countryCode": "",
+					"postalCode": "",
+					"stateCode": "",
+					"unparsedLegalDescription": "",
+                    "legalDescription": false
+				}
+			}
+			],
+			"sellerDetails": [{
+				"type": "I",
+				"nameModel": {
+					"firstName": "",
+					"lastName": "",
+					"middleName": "",
+					"suffixName": "",
+					"fullName": ""
+				},
+				"partyRoleType": "Seller",
+				"partyRoleOtherDescription": "",
+				"address": {
+					"addressLineText": "",
+					"addressType": "",
+					"addressUnitDesignatorType": "",
+					"addressUnitIdentifier": "",
+					"cityName": "",
+					"countryCode": "",
+					"postalCode": "",
+					"stateCode": "",
+					"unparsedLegalDescription": "",
+                    "legalDescription": false
+				}
+			}],
+			"lenderDetails": [{
+				"type": "O",
+				"nameModel": {
+					"firstName": "",
+					"lastName": "",
+					"middleName": "",
+					"suffixName": "",
+					"fullName": "",
+					"refinanceSameLender" : true
+				},
+				"partyRoleType": "NotePayTo",
+				"partyRoleOtherDescription": "",
+				"address": {
+					"addressLineText": "",
+					"addressType": "",
+					"addressUnitDesignatorType": "",
+					"addressUnitIdentifier": "",
+					"cityName": "",
+					"countryCode": "",
+					"postalCode": "",
+					"stateCode": "",
+					"unparsedLegalDescription": "",
+                    "legalDescription": false
+				}
+			}
+		  ]
+		},
+       "loanInformation": {
+		    "amortizationType": "",
+		    "loanIdentifiers": [
+		      {
+                "loanIdentifierType": "LenderLoan",
+                "loanIdentifier": ""
+	          },
+	          {
+	                "loanIdentifierType": "MERS_MIN",
+	                "loanIdentifier": ""
+	          }
+		    ],
+		    "automatedUnderwritings": [
+		      {
+		        "automatedUnderwritingCaseIdentifier": "",
+		        "automatedUnderwritingSystemType": "",
+		        "automatedUnderwritingSystemTypeOtherDescription": ""
+		      }
+		    ],
+		    "loanManualUnderwritingIndicator": false
+		},
+		"salesContractDetail": {
+		    "personalPropertyIndicator": false,
+		    "personalPropertyAmount": "",
+		    "realPropertyAmount": "",
+		    "saleContractAmount": ""
+		},
+		"integratedDisclosureDetail": {
+		    "firstYearTotalEscrowPaymentAmount": "",
+		    "firstYearTotalEscrowPaymentDescription": "",
+		    "firstYearTotalNonEscrowPaymentAmount": "",
+		    "firstYearTotalNonEscrowPaymentDescription": "",
+		    "integratedDisclosureHomeEquityLoanIndicator": false,
+		    "integratedDisclosureIssuedDate": "",
+		    "integratedDisclosureLoanProductDescription": ""
+		},
+		"negativeAmortization": {
+		    "negativeAmortizationLimitMonthsCount": "",
+		    "negativeAmortizationMaximumLoanBalanceAmount": "",
+		    "negativeAmortizationType": ""
+		},
+		"interestOnly": {
+		    "interestOnlyTermMonthsCount": ""
+		},
+		"maturityRule": {
+		    "loanMaturityPeriodCount": "",
+		    "loanMaturityPeriodType": "Month",
+		    "loanTermMaximumMonthsCount": ""
+		},
+		"loanProduct": {
+		    "loanPriceQuoteInterestRatePercent": ""
+		},
+		"loanTerms": {
+		    "prepaymentPenalty": {
+		      "prepaymentPenaltyMaximumLifeOfLoanAmount": "",
+		      "prepaymentPenaltyExpirationMonthsCount": ""
+		    },
+		    "temporaryBuydown": {
+		      "buydownInitialEffectiveInterestRatePercent": "",
+		      "gseBuydownReflectedInNoteIndicator": false,
+		      "rateAfterBuydownApplied": "",
+		      "buydownChangeFrequencyMonthsCount": "",
+		      "totalNumberOfMonths": "",
+		      "buydownIncreaseRatePercent": ""
+		    }
+		},
+		"projectedPayments":
+	    {
+	        "paymentFrequencyType": "",
+	        "miMonthsDuration": "",
+	        "paymentCalculation":
+	        [
+	            {
+	                "sequenceNumber": "",
+	                "projectedPaymentCalculationPeriodEndNumber": "",
+	                "projectedPaymentCalculationPeriodStartNumber": "",
+	                "projectedPaymentCalculationPeriodTermType": "",
+	                "projectedPaymentCalculationPeriodTermTypeOtherDescription": ""
+	            }
+	        ],
+	        "principalInterest":
+	        [
+	            {
+	                "projectedPaymentPrincipalAndInterestMaximumPaymentAmount": "",
+	                "projectedPaymentPrincipalAndInterestMinimumPaymentAmount": "",
+	                "interestOnlyStatus": false
+	            }
+	        ],
+	        "mortgageInsurance":
+	        [
+	            {
+	                "projectedPaymentMIPaymentAmount": ""
+	            }
+	        ],
+	        "estimatedEscrow":
+	        [
+	            {
+	                "projectedPaymentEstimatedEscrowPaymentAmount": ""
+	            }
+	        ],
+	        "estimatedTotal":
+	        [
+	            {
+	                "projectedPaymentEstimatedTotalMaximumPaymentAmount": "",
+	                "projectedPaymentEstimatedTotalMinimumPaymentAmount": ""
+	            }
+	        ]
+	    },
+	    "etiaSection":
+	    {
+	    	"escrowTypes":
+	        [
+	        ],
+	        "projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount": "",
+	        "etiaValues":
+	        [
+	            {
+	                "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType": "",
+	                "projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription": "",
+	                "projectedPaymentEscrowedType": "NotEscrowed"
+	            }
+	        ]
+	    },
+	    "closingCostDetailsLoanCosts":
+	    {
+	        "ocTotalAmount": "",
+	        "sbDidNotShopTotalAmount": "",
+	        "sbDidShopTotalAmount": "",
+	        "tlCostsTotalAmount": "",
+	        "originationCharges":
+	        [
+	            {
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
+	                "lenderStatus": false,
+	                "displayLabel": "",
+	                "gseDisplayLabel": "",
+	                "feePaidToFullName": "",
+	                "feeActualTotalAmount": "",
+	                "feePaidToType": "Lender",
+	                "feePaidToTypeOtherDescription": "",
+	                "feePercentBasisType": "",
+	                "feeTotalPercent": "",
+	                "feeType": "",
+	                "feeTypeOtherDescription": "",
+	                "integratedDisclosureSectionType": "OriginationCharges",
+	                "optionalCostIndicator": false,
+	                "regulationZPointsAndFeesIndicator": true,
+	                "paymentIncludedInAPRIndicator": true
+	            }
+	        ],
+	        "sbDidNotShopFors":
+	        [
+	            {
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
+	                "lenderStatus": false,
+	                "displayLabel": "",
+	                "gseDisplayLabel": "",
+	                "feePaidToFullName": "",
+	                "feeActualTotalAmount": "",
+	                "feePaidToType": "ThirdPartyProvider",
+	                "feePaidToTypeOtherDescription": "",
+	                "feePercentBasisType": "",
+	                "feeTotalPercent": "",
+	                "feeType": "",
+	                "feeTypeOtherDescription": "",
+	                "integratedDisclosureSectionType": "ServicesBorrowerDidNotShopFor",
+	                "optionalCostIndicator": false,
+	                "regulationZPointsAndFeesIndicator": true,
+	                "paymentIncludedInAPRIndicator": true
+	            }
+	        ],
+	        "sbDidShopFors":
+	        [
+	            {
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
+	                "lenderStatus": false,
+	                "displayLabel": "",
+	                "gseDisplayLabel": "",
+	                "feePaidToFullName": "",
+	                "feeActualTotalAmount": "",
+	                "feePaidToType": "ThirdPartyProvider",
+	                "feePaidToTypeOtherDescription": "",
+	                "feePercentBasisType": "",
+	                "feeTotalPercent": "",
+	                "feeType": "",
+	                "feeTypeOtherDescription": "",
+	                "integratedDisclosureSectionType": "ServicesBorrowerDidShopFor",
+	                "optionalCostIndicator": false,
+	                "regulationZPointsAndFeesIndicator": true,
+	                "paymentIncludedInAPRIndicator": true
+	            }
+	        ],
+	        "tlCosts":
+	        {
+	            "bpAtClosing": "",
+	            "bpB4Closing": "",
+	            "spAtClosing": "",
+	            "spB4Closing": "",
+	            "paidByOthers": "",
+	            "lenderStatus": false
+	        }
+	    },
+	    "closingCostDetailsOtherCosts":
+	    {
+	        "tOGovtFeesTotalAmount": "",
+	        "prepaidsTotalAmount": "",
+	        "escrowItemsTotalAmount": "",
+	        "otherTotalAmount": "",
+	        "totalOtherCostsTotalAmount": "",
+	        "totalOtherCosts":
+	        {
+	            "bpAtClosing": "",
+	            "bpB4Closing": "",
+	            "spAtClosing": "",
+	            "spB4Closing": "",
+	            "paidByOthers": "",
+	            "lenderStatus": false
+	        },
+	        "tOGovtFeesList":
+	        [
+	            {
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
+	                "lenderStatus": false,
+	                "displayLabel": "",
+	                "gseDisplayLabel": "",
+	                "feePaidToFullName": "",
+	                "feeActualTotalAmount": "",
+	                "feePaidToType": "ThirdPartyProvider",
+	                "feePaidToTypeOtherDescription": "",
+	                "feePercentBasisType": "",
+	                "feeTotalPercent": "",
+	                "feeType": "",
+	                "feeTypeOtherDescription": "",
+	                "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
+	                "optionalCostIndicator": false,
+	                "regulationZPointsAndFeesIndicator": true,
+	                "paymentIncludedInAPRIndicator": true
+	            }
+	        ],
+	        "prepaidsList":
+	        [
+	            {
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
+	                "lenderStatus": false,
+	                "gseDisplayLabelText": "",
+	                "displayLabelText": "",
+	                "feePaidToType": "ThirdPartyProvider",
+	                "feePaidToTypeOtherDescription": "",
+	                "integratedDisclosureSectionType": "Prepaids",
+	                "prepaidItemMonthsPaidCount": "",
+	                "prepaidItemPaidFromDate": "",
+	                "prepaidItemPaidThroughDate": "",
+	                "prepaidItemPerDiemAmount": "",
+	                "prepaidItemPerDiemCalculationMethodType": "",
+	                "prepaidItemType": "",
+	                "prepaidItemTypeOtherDescription": "",
+	                "regulationZPointsAndFeesIndicator": true,
+	                "paymentIncludedInAPRIndicator": true,
+	                "prepaidPaidToFullName": ""
+	            }
+	        ],
+	        "escrowItemsList":
+	        [
+	            {
+	               	"bpAtClosing": "",
+			        "bpB4Closing": "",
+			        "spAtClosing": "",
+			        "spB4Closing": "",
+			        "paidByOthers": "",
+			        "lenderStatus": false,
+			        "displayLabel": "",
+			        "escrowCollectedNumberOfMonthsCount": "",
+			        "escrowItemType": "",
+			        "escrowItemTypeOtherDescription": "",
+			        "escrowMonthlyPaymentAmount": "",
+			        "feePaidToType": "ThirdPartyProvider",
+			        "feePaidToTypeOtherDescription": "",
+			        "integratedDisclosureSectionType": "InitialEscrowPaymentAtClosing",
+			        "regulationZPointsAndFeesIndicator": true,
+			        "paymentIncludedInAPRIndicator": true
+	            }
+	        ],
+	        "otherCostsList":
+	        [
+	            {
+	                "bpAtClosing": "",
+	                "bpB4Closing": "",
+	                "spAtClosing": "",
+	                "spB4Closing": "",
+	                "paidByOthers": "",
+	                "lenderStatus": false,
+	                "displayLabel": "",
+	                "gseDisplayLabel": "",
+	                "feePaidToFullName": "",
+	                "feeActualTotalAmount": "",
+	                "feePaidToType": "ThirdPartyProvider",
+	                "feePaidToTypeOtherDescription": "",
+	                "feePercentBasisType": "",
+	                "feeTotalPercent": "",
+	                "feeType": "",
+	                "feeTypeOtherDescription": "",
+	                "integratedDisclosureSectionType": "",
+	                "optionalCostIndicator": false,
+	                "regulationZPointsAndFeesIndicator": true,
+	                "paymentIncludedInAPRIndicator": true
+	            }
+	        ]
+	    },
+	    "closingCostsTotal": {
+		    "totalClosingCosts": "",
+		    "closingCostsSubtotal": {
+		      "bpAtClosing": "",
+		      "bpB4Closing": "",
+		      "spAtClosing": "",
+		      "spB4Closing": "",
+		      "paidByOthers": "",
+		      "lenderStatus": false
+		    },
+		    "lenderCredits": "",
+		    "lenderCreditToleranceCureAmount": ""
+	  },
+	  "cashToCloses":
+    {
+        "loanAmount":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "Deposit",
+            "index": ""
+        },
+        "totalClosingCosts":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "TotalClosingCosts",
+            "index": ""
+        },
+        "closingCostsPaidBeforeClosing":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "ClosingCostsPaidBeforeClosing",
+            "index": ""
+        },
+        "closingCostsFinanced":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "ClosingCostsFinanced",
+            "index": ""
+        },
+        "downPayment":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "DownPayment",
+            "index": ""
+        },
+        "totalPayoffsAndPayments": 
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "Deposit",
+            "index": ""
+        },
+        "deposit":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "Deposit",
+            "index": ""
+        },
+        "fundsForBorrower":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "FundsForBorrower",
+            "index": ""
+        },
+        "sellerCredits":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "SellerCredits",
+            "index": ""
+        },
+        "adjustmentsAndOtherCredits":
+        {
+            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+            "integratedDisclosureCashToCloseItemChangeDescription": "",
+            "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+            "integratedDisclosureCashToCloseItemFinalAmount": "",
+            "integratedDisclosureCashToCloseItemPaymentType": "",
+            "integratedDisclosureCashToCloseItemType": "AdjustmentsAndOtherCredits",
+            "index": ""
+        },
+        "cashToCloseTotal":
+        [
+            {
+                "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+                "integratedDisclosureCashToCloseItemChangeDescription": "",
+                "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+                "integratedDisclosureCashToCloseItemFinalAmount": "",
+                "integratedDisclosureCashToCloseItemPaymentType": "",
+                "integratedDisclosureCashToCloseItemType": "CashToCloseTotal",
+                "index": ""
+            },
+            {
+                "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
+                "integratedDisclosureCashToCloseItemChangeDescription": "",
+                "integratedDisclosureCashToCloseItemEstimatedAmount": "",
+                "integratedDisclosureCashToCloseItemFinalAmount": "",
+                "integratedDisclosureCashToCloseItemPaymentType": "",
+                "integratedDisclosureCashToCloseItemType": "CashToCloseTotal",
+                "index": ""
+            }
+        ],
+        "alternateView": false
+    },
+	"prorationsList" : [
+	    {
+	      "displayLabel": "",
+ 	      "integratedDisclosureSectionType": "",
+ 	      "integratedDisclosureSubsectionType": "",
+ 	      "prorationItemAmount": "",
+ 	      "prorationItemPaidFromDate": "",
+ 	      "prorationItemPaidThroughDate": "",
+ 	      "prorationItemType": "",
+ 	      "prorationItemTypeOtherDescription": ""
+     	}
+    ],
+    "liabilityList":
+    [
+        {
+            "displayLabel": "",
+            "liabilityDescription": "",
+            "liabilityType": "",
+            "liabilityTypeOtherDescription": "",
+            "integratedDisclosureSectionType": "",
+            "liabilitySecuredBySubjectPropertyIndicator": false,
+            "liabilityHolderFullName": "",
+            "payoffAmount": "",
+            "payoffPrepaymentPenaltyAmount": "",
+            "payoffPartialIndicator":false
+        }
+	],
+	"closingAdjustmentItemList":
+    [
+        {
+            "displayLabel": "",
+            "closingAdjustmentItemAmount": "",
+            "closingAdjustmentItemPaidOutsideOfClosingIndicator": false,
+            "closingAdjustmentItemType": "",
+            "closingAdjustmentItemTypeOtherDescription": "",
+            "integratedDisclosureSectionType": "",
+            "integratedDisclosureSubsectionType": "Adjustments",
+            "paidByIndividualFullName": "",
+            "paidByEntityFullName": "",
+            "paidToEntityFullName": ""
+        }
+    ],
+	"closingCostFundList":
+    [
+        {
+            "displayLabel": null,
+            "closingCostFundAmount": "",
+            "fundsType": "ExcessDeposit",
+            "integratedDisclosureSectionType": "DueFromSellerAtClosing"
+        },
+        {
+            "displayLabel": null,
+            "closingCostFundAmount": "",
+            "fundsType": "DepositOnSalesContract",
+            "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing"
+        }
+    ],
+    "prorationList":
+    [
+        {
+            "displayLabel": "City/Town Taxes",
+            "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
+            "integratedDisclosureSubsectionType": "AdjustmentsForItemsPaidBySellerInAdvance",
+            "prorationItemAmount": "",
+            "prorationItemPaidFromDate": "",
+            "prorationItemPaidThroughDate": "",
+            "prorationItemType": "CityPropertyTax",
+            "prorationItemTypeOtherDescription": ""
+        }
+    ],
+    "summariesofTransactions":
+    {
+        "borrowerTransaction": {
+	      "dueFromBorrowerAtClosing": {
+	        "integratedDisclosureSectionSummaryDetailModel": {
+	          "integratedDisclosureSectionTotalAmount": "221495.00",
+	          "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
+	          "integratedDisclosureSubsectionTotalAmount": "",
+	          "integratedDisclosureSubsectionType": "",
+	          "integratedDisclosureSubsectionTypeOtherDescription": "",
+	          "lenderCreditToleranceCureAmount": ""
+	        },
+	        "integratedDisclosureSubsectionPayments": []
+	      },
+	      "paidAlreadyByOrOnBehalfOfBorrowerAtClosing": {
+	        "integratedDisclosureSectionSummaryDetailModel": {
+	          "integratedDisclosureSectionTotalAmount": "224737.00",
+	          "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
+	          "integratedDisclosureSubsectionTotalAmount": "",
+	          "integratedDisclosureSubsectionType": "",
+	          "integratedDisclosureSubsectionTypeOtherDescription": "",
+	          "lenderCreditToleranceCureAmount": ""
+	        },
+	        "integratedDisclosureSubsectionPayments": []
+	      }
+	    },
+	    "sellerTransaction": {
+	      "toSellerAtClosing": {
+	        "integratedDisclosureSectionSummaryDetailModel": {
+	          "integratedDisclosureSectionTotalAmount": "202800.00",
+	          "integratedDisclosureSectionType": "DueToSellerAtClosing",
+	          "integratedDisclosureSubsectionTotalAmount": "",
+	          "integratedDisclosureSubsectionType": "",
+	          "integratedDisclosureSubsectionTypeOtherDescription": "",
+	          "lenderCreditToleranceCureAmount": ""
+	        },
+	        "integratedDisclosureSubsectionPayments": []
+	      },
+	      "fromSellerAtClosing": {
+	        "integratedDisclosureSectionSummaryDetailModel": {
+	          "integratedDisclosureSectionTotalAmount": "105552.00",
+	          "integratedDisclosureSectionType": "DueFromSellerAtClosing",
+	          "integratedDisclosureSubsectionTotalAmount": "",
+	          "integratedDisclosureSubsectionType": "",
+	          "integratedDisclosureSubsectionTypeOtherDescription": "",
+	          "lenderCreditToleranceCureAmount": ""
+	        },
+	        "integratedDisclosureSubsectionPayments": []
+	      }
+	    }
+    },
+	"payoffsAndPayments":
+    {
+        "integratedDisclosureSectionSummary": 
+        {
+            "integratedDisclosureSectionSummaryDetailModel":
+            {
+                "integratedDisclosureSectionTotalAmount": "",
+                "integratedDisclosureSectionType": "",
+                "integratedDisclosureSubsectionTotalAmount": "",
+                "integratedDisclosureSubsectionType": "",
+                "integratedDisclosureSubsectionTypeOtherDescription": "",
+                "lenderCreditToleranceCureAmount": ""
+            },
+            "integratedDisclosureSubsectionPayments":
+            [
+                {
+                    "integratedDisclosureSubsectionPaidByType": "",
+                    "integratedDisclosureSubsectionPaymentAmount": "",
+                    "integratedDisclosureSubsectionPaymentTimingType": ""
+                }
+            ]
+        }
+    },
+    "interestRateAdjustment":
+    {
+        "indexType": "",
+        "indexTypeOtherDescription": "",
+        "ceilingRatePercent": "",
+        "ceilingRatePercentEarliestEffectiveMonthsCount": "",
+        "firstRateChangeMonthsCount": "",
+        "floorRatePercent": "",
+        "marginRatePercent": "",
+        "totalStepCount": "",
+        "firstAdjustmentRule": "",
+        "subsequentAdjustmentRule": "",
+        "firstPerChangeMaximumIncreaseRatePercent": "",
+        "firstPerChangeRateAdjustmentFrequencyMonthsCount": "",
+        "subsequentPerChangeMaximumIncreaseRatePercent": "",
+        "subsequentPerChangeRateAdjustmentFrequencyMonthsCount": ""
+    },
+    "principalAndInterestPaymentAdjustment":
+    {
+        "firstPrincipalAndInterestPaymentChangeMonthsCount": "",
+        "principalAndInterestPaymentMaximumAmount": "",
+        "principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount": "",
+        "firstAdjustmentRuleType": "",
+        "firstPerChangeMaximumPrincipalAndInterestPaymentAmount": "",
+        "firstPerChangeMinimumPrincipalAndInterestPaymentAmount": "",
+        "firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": "",
+        "subsequentAdjustmentRuleType": "",
+        "subsequentPerChangeMaximumPrincipalAndInterestPaymentAmount": "",
+        "subsequentPerChangeMinimumPrincipalAndInterestPaymentAmount": "",
+        "subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount": ""
+    },
+    "payment":
+    {
+        "partialPayments":
+        {
+            "partialPaymentModels":
+            [
+            ]
+        },
+        "paymentRule":
+        {
+            "fullyIndexedInitialPrincipalAndInterestPaymentAmount": "",
+            "initialPrincipalAndInterestPaymentAmount": "",
+            "partialPaymentAllowedIndicator": false,
+            "paymentFrequencyType": "Monthly",
+            "paymentOptionIndicator": false,
+            "seasonalPaymentPeriodEndMonth": "",
+            "seasonalPaymentPeriodStartMonth": "",
+            "totalOptionalPaymentCount": "",
+            "totalStepPaymentCount": ""
+        }
+    },
+    "lateChargeRule":
+    {
+        "lateChargeAmount": "",
+        "lateChargeGracePeriodDaysCount": "",
+        "lateChargeRatePercent": "",
+        "lateChargeType": "PercentOfPrincipalAndInterest"
+    },
+    "loanCalculationsQualifiedMortgage":
+    {
+        "loanCalculationModel":
+        {
+            "aprPercent": "",
+            "feeSummaryTotalAmountFinancedAmount": "",
+            "feeSummaryTotalFinanceChargeAmount": "",
+            "feeSummaryTotalInterestPercent": "",
+            "feeSummaryTotalOfAllPaymentsAmount": "",
+            "deficiencyRightsPreservedIndicator":false
+        },
+        "qualifiedMortgage":
+        {
+            "regulationZExcludedBonaFideDiscountPointsIndicator": false,
+            "regulationZExcludedBonaFideDiscountPointsPercent": "",
+            "regulationZTotalAffiliateFeesAmount": "",
+            "regulationZTotalLoanAmount": "",
+            "regulationZTotalPointsAndFeesAmount": "",
+            "averagePrimeOfferRatePercent": "",
+            "abilityToRepayMethodType":"",
+            "abilityToRepayExemptionReasonType":""
+        }
+    },
+    "contactInformation":
+    {
+        "lender":
+        {
+            "partyRoleType": "NotePayTo",
+            "organizationName": "",
+            "address":
+            {
+                "addressLineText": "",
+                "addressType": "",
+                "addressUnitDesignatorType": "",
+                "addressUnitIdentifier": "",
+                "cityName": "",
+                "countryCode": "",
+                "postalCode": "",
+                "stateCode": "",
+                "unparsedLegalDescription": "",
+                "legalDescription": false
+            },
+            "organizationLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "mmousebanker@fed.org",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "name":
+            {
+                "firstName": "",
+                "lastName": "",
+                "middleName": "",
+                "suffixName": "",
+                "fullName": ""
+            },
+            "individualLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "mmousebanker@fed.org",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "individualEmail": "",
+            "individualPhone": ""
+        },
+        "mortagageBroker":
+        {
+            "partyRoleType": "MortgageBroker",
+            "organizationName": "",
+            "address":
+            {
+                "addressLineText": "",
+                "addressType": "",
+                "addressUnitDesignatorType": "",
+                "addressUnitIdentifier": "",
+                "cityName": "",
+                "countryCode": "",
+                "postalCode": "",
+                "stateCode": "",
+                "unparsedLegalDescription": "",
+                "legalDescription": false
+            },
+            "organizationLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "mmousebanker@fed.org",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "name":
+            {
+                "firstName": "",
+                "lastName": "",
+                "middleName": "",
+                "suffixName": "",
+                "fullName": ""
+            },
+            "individualLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "mmousebanker@fed.org",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "individualEmail": "",
+            "individualPhone": ""
+        },
+        "realEstateBrokerB": {
+            "partyRoleType": "RealEstateAgent",
+            "organizationName": "",
+            "address":
+            {
+                "addressLineText": "",
+                "addressType": "",
+                "addressUnitDesignatorType": "",
+                "addressUnitIdentifier": "",
+                "cityName": "",
+                "countryCode": "",
+                "postalCode": "",
+                "stateCode": "",
+                "unparsedLegalDescription": "",
+                "legalDescription": false
+            },
+            "organizationLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "name":
+            {
+                "firstName": "",
+                "lastName": "",
+                "middleName": "",
+                "suffixName": "",
+                "fullName": ""
+            },
+            "individualLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "individualEmail": "",
+            "individualPhone": ""
+        },
+        "realEstateBrokerS": {
+            "partyRoleType": "RealEstateAgent",
+            "organizationName": "",
+            "address":
+            {
+                "addressLineText": "",
+                "addressType": "",
+                "addressUnitDesignatorType": "",
+                "addressUnitIdentifier": "",
+                "cityName": "",
+                "countryCode": "",
+                "postalCode": "",
+                "stateCode": "",
+                "unparsedLegalDescription": "",
+                "legalDescription": false
+            },
+            "organizationLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "name":
+            {
+                "firstName": "",
+                "lastName": "",
+                "middleName": "",
+                "suffixName": "",
+                "fullName": ""
+            },
+            "individualLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "individualEmail": "",
+            "individualPhone": ""
+        },
+        "settlementAgent":
+        {
+            "partyRoleType": "ClosingAgent",
+            "organizationName": "",
+            "address":
+            {
+                "addressLineText": "",
+                "addressType": "",
+                "addressUnitDesignatorType": "",
+                "addressUnitIdentifier": "",
+                "cityName": "",
+                "countryCode": "",
+                "postalCode": "",
+                "stateCode": "",
+                "unparsedLegalDescription": "",
+                "legalDescription": false
+            },
+            "organizationLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "name":
+            {
+                "firstName": "",
+                "lastName": "",
+                "middleName": "",
+                "suffixName": "",
+                "fullName": ""
+            },
+            "individualLicenseDetail":
+            {
+                "licenseAuthorityLevelType": "",
+                "licenseIdentifier": "",
+                "identifierOwnerURI": "",
+                "licenseIssueDate": "",
+                "licenseIssuingAuthorityName": "",
+                "licenseIssuingAuthorityStateCode": ""
+            },
+            "individualEmail": "",
+            "individualPhone": ""
+        }
+    }
+	};
+	/// End leformdata
+
  });

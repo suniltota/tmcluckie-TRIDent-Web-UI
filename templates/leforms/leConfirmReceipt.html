@@ -1,0 +1,21 @@
+<div class="col-sm-12">
+  <h4>Confirm Receipt</h4>
+  <div class="">
+   <div class="col-sm-6">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Confirm Receipt</div>
+            <div class="col-sm-7 radioGroup">
+              <input type="checkbox" name="borrowertype_{{$index}}" ng-model="otherconsideration.willDisplayConfirmReceipt" value="1">
+              <label>Will Display the Confirm Receipt Signature and Date Line</label>
+              <input type="checkbox" name="borrowertype_{{$index}}" ng-model="otherconsideration.willNotDisplayConfirmReceipt" value="O">
+              <label>Will Not Display the Confirm Receipt Signature and Date Line</label>
+            </div>
+          </div>
+   </div>
+</div>
+
+  <div class="col-sm-12 margin10t">
+      <span class="pull-left"><a class="btn btn-default" ng-click="changeTab('closingInfo')">Back</a></span>
+      <span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('loanInfo')">Next</a></span>
+  </div>
+</div>

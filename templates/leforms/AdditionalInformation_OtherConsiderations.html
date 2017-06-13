@@ -1,0 +1,156 @@
+<div class="col-sm-12">
+	<!-- <h4>Loan Disclosures / LE  Other Considerations</h4> -->
+	<h4>Other Considerations</h4>
+	<span  class="col-sm-12 padding0">
+        <table class="table LoanDisclosures table-bordered margin5tb"  style="border:0px;">
+		      <tr>
+		        <td class="col-sm-4">
+		        	<strong> Assumption  </strong>
+		        </td>
+		        <td>
+		        	<span class="col-sm-12">
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.assumabilityIndicator" ng-checked="leformdata.loanDetail.assumabilityIndicator == true"></span>
+		        			<span class="col-sm-11 pull-left margin5tb">
+		        				Will allow, under certain conditions, this person to assume this loan on the original terms
+		        			</span>
+		        	</span>
+		        	<span class="col-sm-12">
+		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.loanDetail.assumabilityIndicator == false"></span>
+		        			<span class="col-sm-11 pull-left margin5tb">
+		        				Will Not allow assumption on this loan on the original terms
+		        			</span>
+		        	</span>
+
+		        </td>
+		      </tr>
+		     <!--  <tr>
+		        <td>
+		        	<strong> Demand Feature  </strong>
+		        </td>
+		        <td>
+		        	<span class="col-sm-12">
+		        			<span class="pull-left"><input type="checkbox" name=""  ng-checked="leformdata.loanDetail.demandFeatureIndicator == true"></span>
+		        			<span class="col-sm-11 pull-left margin5tb">
+		        				Has a demand feature, which permits your lender to require early repayment of the loan. 
+		        			</span>
+		        	</span>
+		        	<span class="col-sm-12">
+		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.loanDetail.demandFeatureIndicator == false"></span>
+		        			<span class="col-sm-11 pull-left margin5tb">
+		        				Does not have a demand feature
+		        			</span>
+		        	</span>
+		        </td>
+		      </tr> -->
+		      <tr>
+		        <td>
+		        	<strong> Late Charges  </strong>
+		        </td>
+		        <td>
+		        	<span class="col-sm-12 margin5tb padding0">
+		        			<span class="pull-left margin5tb col-sm-3">Number of Grace Period</span>
+		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="leformdata.lateChargeRule.lateChargeGracePeriodDaysCount"></span>
+		        			<span class="pull-left margin5tb">
+		        				Days 
+		        			</span>
+		        			<span class="col-sm-4 pull-right">
+		        				<button class="btn btn-success pull-right">Input State Values</button> 
+		        			</span>
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">
+		        			<span class="pull-left margin5tb col-sm-3">Late Fee if a Percent</span>
+		        			<span class="pull-left col-sm-3">
+		        				<div class="input-group">
+									<input type="text" class="form-control" name="" ng-model="leformdata.lateChargeRule.lateChargeRatePercent" percentage-format>
+									<span class="input-group-addon input-default">%</span>
+		        				</div>
+		        			</span>
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">
+		        			<span class="pull-left margin5tb col-sm-3">Late Fee if an Amount</span>
+		        			<span class="pull-left col-sm-3">
+		        				<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+		        					<input type="text" class="form-control" name="" ng-model="leformdata.lateChargeRule.lateChargeAmount" decimal-digits-with-number-format>
+		        				</div>
+		        			</span>
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">
+		        			<span class="pull-left margin5tb col-sm-3">Late Charge Type</span>
+		        			<span class="pull-left col-sm-4">
+		        				<select class="form-control" ng-model="leformdata.lateChargeRule.lateChargeType">
+		        					<option value="" selected>Select</option>
+		        					<option ng-repeat="lateChargeType in lateChargeTypes" value="{{lateChargeType.value}}">{{lateChargeType.name}}</option>
+		        				</select>
+		        			</span>
+		        	</span>
+		        </td>
+		      </tr>
+		      <!-- <tr>
+		        <td>
+		        	<strong> Partial Payment </strong>
+		        </td>
+		        <td>
+		        	<span class="col-sm-12">
+	        			<span class="pull-left"><input type="checkbox" name="partialPayment"></span>
+	        			<span class="col-sm-11 pull-left margin5tb">
+	        				May Accept Payments that are less than full amount due and apply to the loan
+	        			</span>
+		        	</span>
+		        	<span class="col-sm-12">
+	        	        <span class="pull-left"><input type="checkbox" name="partialPayment"></span>
+	        			<span class="col-sm-11 pull-left margin5tb">
+	        				May hold them in a separate account until a full payment is received
+	        			</span>
+		        	</span>
+		        	<span class="col-sm-12">
+	        	        <span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.payment.paymentRule.partialPaymentAllowedIndicator==false"></span>
+	        			<span class="col-sm-11 pull-left margin5tb">
+	        				Does not accept any partial payment
+	        			</span>
+		        	</span>
+		        </td>
+		      </tr> -->
+		      <!-- <tr>
+		        <td>
+		        	<strong>Negative Amortization </strong>
+		        </td>
+		        <td>
+		        	<span class="col-sm-12">
+		        			<span class="col-sm-11 pull-left margin5tb">
+		        				See the <a ng-click="productDescription();" class="cursor">Product Description</a> Section for information on Negative Amortization
+		        			</span>
+		        	</span>
+		        </td>
+		      </tr> -->
+		      <tr>
+		        <td class="col-sm-4">
+		        	<strong> Servicing  </strong>
+		        </td>
+		        <td>
+		        	<span class="col-sm-12">
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.assumabilityIndicator" ng-checked="leformdata.loanDetail.assumabilityIndicator == true"></span>
+		        			<span class="col-sm-11 pull-left margin5tb">
+		        				Retail servicing for this loan
+		        			</span>
+		        	</span>
+		        	<span class="col-sm-12">
+		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.loanDetail.assumabilityIndicator == false"></span>
+		        			<span class="col-sm-11 pull-left margin5tb">
+		        				Transfer servicing for this loan
+		        			</span>
+		        	</span>
+
+		        </td>
+		      </tr>
+		</table>
+	</span>
+	<div class="col-sm-12 margin10t">
+			<span class="pull-left">
+				<a class="btn btn-default" ng-show="loanBasicInfo.loanFormType=='alternate'" ng-click="changeTab('PayoffsAndPayments')">Back</a>
+				<a class="btn btn-default" ng-show="loanBasicInfo.loanFormType !='alternate'" ng-click="changeTab('SummariesofTransaction_N_cv')">Back</a>
+			</span>
+
+			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('EscrowAccount')">Next</a></span>
+	</div>	
+</div>

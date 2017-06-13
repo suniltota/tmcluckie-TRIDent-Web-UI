@@ -1,52 +1,857 @@
 <div class="bodySection col-sm-12 padding0" style="position: relative; ">
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn glyphicon glyphicon-chevron-left" onclick="closeNav()"></a>
-    <div class="form-group col-sm-12">
+      <div class="form-group col-sm-12" style="width: 90%;">
           <div id="doctype">Loan Estimate</div>
+      </div>
+      <div side-bar-height class="SidebarNavHead modern-skin">
+
+        <ul id="demoList" class="col-sm-12 padding0" >
+              <li >General Information
+                    <ul >
+                      <li>
+                          <span href="" class="active pagenumber" ng-class="{'active': showTab == 'closingInfo'}" ng-click="showTab = 'closingInfo'" >Closing Information</span>
+                      </li>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'transInfo'}" ng-click="showTab = 'transInfo'" >Transaction Information</span>
+                      </li>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanInfo'}" ng-click="showTab = 'loanInfo'" >Loan Information</span>
+                      </li>
+                     <!--  <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'ContactInfo'}" ng-click="showTab = 'ContactInfo'" >Contact Information</span>
+                      </li> -->
+                    </ul>
+              </li>
+              <li>Loan Details
+                    <ul>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'loanterms'}" ng-click="showTab = 'loanterms'" >Loan Terms</span>
+                      </li>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'projectedPayments'}" ng-click="showTab = 'projectedPayments'" >Projected Payments</span>
+                      </li>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'ETIAssessments'}" ng-click="showTab = 'ETIAssessments'" >Estimated Taxes, Insurance & Assessments</span>
+                      </li>
+                    </ul>
+              </li>
+              <li>Closing Cost Details
+                    <ul>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCosts'}" ng-click="showTab = 'LoanCosts'" >Loan Costs</span>
+                      </li>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'OtherCosts'}" ng-click="showTab = 'OtherCosts'" >Other Costs</span>
+                      </li>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'TotalClosingCosts'}" ng-click="showTab = 'TotalClosingCosts'" >Total Closing Costs</span>
+                      </li>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'CalculatingCashtoClose'}" ng-click="showTab = 'CalculatingCashtoClose'" >Calculating Cash to Close</span>
+                      </li>
+                    </ul>
+              </li>
+              <li>Summaries of Transactions
+                    <ul>
+                      <li ng-show="loanBasicInfo.loanFormType=='alternate'">
+                         <span href="" class="pagenumber" ng-class="{'active': showTab == 'PayoffsAndPayments'}" ng-click="showTab = 'PayoffsAndPayments'">Payoffs And Payments </span> 
+                      </li>
+                    </ul>
+              </li>
+              <li class="demoListMenus">Disclosures
+                    <ul>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanDisclosures'}" ng-click="showTab = 'LoanDisclosures'" >Loan Disclosures</span>
+                      </li>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'EscrowAccount'}" ng-click="showTab = 'EscrowAccount'" >Escrow Account</span> 
+                      </li>
+                      <li ng-show="leformdata.loanDetail.interestOnlyIndicator==true || leformdata.payment.paymentRule.paymentOptionIndicator==true || leformdata.loanInformation.amortizationType=='Step' || leformdata.loanInformation.amortizationType=='GPM' || leformdata.loanInformation.amortizationType=='GraduatedARM' || leformdata.loanDetail.seasonalPaymentFeatureIndicator==true">
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'ApTable'}" ng-click="showTab = 'ApTable'" >Adjustable Payment (AP) Table</span> 
+                      </li>
+                      <li ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==true">
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'AirTable'}" ng-click="showTab = 'AirTable'" >Adjustable Interest Rate (AIR) Table</span>
+                      </li>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCals'}" ng-click="showTab = 'LoanCals'" >Loan Calcs OtherDisclosure</span>
+                      </li>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'LeConfReceipt'}" ng-click="showTab = 'LeConfReceipt'" >Confirm Receipt</span>
+                      </li>
+                    </ul>
+              </li>
+
+        </ul>
+
+        <!-- <span href="" class="pagenumber" ng-class="{'active': showTab == 'CostsAtClosing'}" ng-click="showTab = 'CostsAtClosing'" >Costs At Closing</span> -->
         
-     </div>
-    <span href="" class="active pagenumber" data-scroll="Page1" >Closing Information</span>
-     <span href="" class="pagenumber" data-scroll="Page2" >Transaction Information</span>
+      </div>
   </div>
    <div id="transparent"></div>
-  <div class="SidebarBtns" id="SidebarBtns" side-bar-width>
-  	<div class="glyphicon glyphicon-chevron-right openSlidebtn" onclick="openNav();"></div>
-  	<span class="pageno" style="font-size:14px;"  data-toggle="tooltip" data-placement="right" title="Closing Disclosure">
-  		<span class="pull-left" >LE</span>
-  	</span>
-  	<span class="pageno active pageicon"  data-toggle="tooltip" ng-click="showTab = 'closingInfo'" data-placement="right" title="Closing Information">
-  		<span class="glyphicon glyphicon-file pull-left"></span> 
-  		<span class="pull-left noTitle">1</span>
-  	</span>
-  	<span class="pageno pageicon" data-toggle="tooltip" ng-click="showTab = 'transInfo'"  data-placement="right" title="Transaction Information">
-  		<span class="glyphicon glyphicon-file pull-left"></span> 
-  		<span class="pull-left noTitle">2</span>
-  	</span>
-    <span class="pageno pageicon" data-toggle="tooltip" ng-click="showTab = 'loanInfo'"  data-placement="right" title="Loan Information">
-      <span class="glyphicon glyphicon-file pull-left"></span> 
-      <span class="pull-left noTitle">3</span>
+  <div class="SidebarBtns" id="SidebarBtns">
+    <div class="glyphicon glyphicon-chevron-right openSlidebtn" onclick="openNav();"></div>
+    <span class="pageno" style="font-size:14px;"  data-toggle="tooltip" data-placement="right" title="Closing Disclosure">
+      <span class="pull-left" >LE</span>
     </span>
+    <div class="SidebarBtnsHead modern-skin" side-bar-width>
+        <span class="pageno active pageicon"  data-toggle="tooltip" ng-class="{'active': showTab == 'closingInfo'}" ng-click="showTab = 'closingInfo'" data-placement="right" title="Closing Information">
+          <span class="glyphicon glyphicon-file pull-left"></span> 
+          <span class="pull-left noTitle">1</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'transInfo'}" data-toggle="tooltip" ng-click="showTab = 'transInfo'"  data-placement="right" title="Transaction Information">
+          <span class="glyphicon glyphicon-file pull-left"></span> 
+          <span class="pull-left noTitle">2</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'loanInfo'}" data-toggle="tooltip" ng-click="showTab = 'loanInfo'"  data-placement="right" title="Loan Information">
+          <span class="glyphicon glyphicon-file pull-left"></span> 
+          <span class="pull-left noTitle">3</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'loanterms'}" data-toggle="tooltip" ng-click="showTab = 'loanterms'"  data-placement="right" title="Loan Terms">
+          <span class="glyphicon glyphicon-file pull-left"></span> 
+          <span class="pull-left noTitle">4</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'projectedPayments'}" data-toggle="tooltip" ng-click="showTab = 'projectedPayments'"  data-placement="right" title="Projected Payments">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">5</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'ETIAssessments'}" data-toggle="tooltip" ng-click="showTab = 'ETIAssessments'"  data-placement="right" title="Estimated Taxes, Insurance & Assessments">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">6</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanCosts'}" data-toggle="tooltip" ng-click="showTab = 'LoanCosts'"  data-placement="right" title="Loan Costs">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">7</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'OtherCosts'}" data-toggle="tooltip" ng-click="showTab = 'OtherCosts'"  data-placement="right" title="Other Costs">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">8</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'TotalClosingCosts'}" data-toggle="tooltip" ng-click="showTab = 'TotalClosingCosts'"  data-placement="right" title="Total Closing Costs">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">9</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'CalculatingCashtoClose'}" data-toggle="tooltip" ng-click="showTab = 'CalculatingCashtoClose'"  data-placement="right" title="Calculating Cash to Close">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">10</span>
+        </span>
+        
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'PayoffsAndPayments'}" data-toggle="tooltip" ng-click="showTab = 'PayoffsAndPayments'"  data-placement="right" title="Payoffs And Payments" ng-show="loanBasicInfo.loanFormType=='alternate'">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">17</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanDisclosures'}" data-toggle="tooltip" ng-click="showTab = 'LoanDisclosures'"  data-placement="right" title="Loan Disclosures">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">18</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'EscrowAccount'}" data-toggle="tooltip" ng-click="showTab = 'EscrowAccount'"  data-placement="right" title="Escrow Account">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">19</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'ApTable'}" data-toggle="tooltip" ng-click="showTab = 'ApTable'"  data-placement="right" title="AP Table" ng-show="leformdata.loanDetail.interestOnlyIndicator==true || leformdata.payment.paymentRule.paymentOptionIndicator==true || leformdata.loanInformation.amortizationType=='Step' || leformdata.loanInformation.amortizationType=='GPM' || leformdata.loanInformation.amortizationType=='GraduatedARM' || leformdata.loanDetail.seasonalPaymentFeatureIndicator==true">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">20</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'AirTable'}" data-toggle="tooltip" ng-click="showTab = 'AirTable'"  data-placement="right" title="AIR Table" ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==true">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">21</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanCals'}" data-toggle="tooltip" ng-click="showTab = 'LoanCals'"  data-placement="right" title="Loan Calculation">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">22</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'ContactInfo'}" data-toggle="tooltip" ng-click="showTab = 'ContactInfo'"  data-placement="right" title="Contact Information">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">23</span>
+        </span>
+        <span class="pageno pageicon" ng-class="{'active': showTab == 'LeConfReceipt'}" data-toggle="tooltip" ng-click="showTab = 'LeConfReceipt'"  data-placement="right" title="Confirm Receipt">
+          <span class="glyphicon glyphicon-file pull-left"></span>
+          <span class="pull-left noTitle">24</span>
+        </span>
+    </div>
   </div>
   <div class="col-lg-12 PageformHeader padding0" pdf-width>
     <div class="panel panel-default">
-			<div class="panel-body" dynamic-height id="PDFviewContainer" style="overflow: auto;">
+      <div class="panel-body" dynamic-height id="PDFviewContainer" style="overflow: auto;">
 
         <div class="PDFview" data-anchor="Page1" dynamic-height-min >
-        	<span>
+          <span>
           <div class="CDHeaderSection col-lg-12">
-            <div ng-show="showTab == 'closingInfo'" ng-include='"templates/cdforms/cdClosingInformation.html"'></div>
-            <div ng-show="showTab == 'transInfo'" ng-include='"templates/cdforms/cdTransactionInformation.html"'></div>
-            <div ng-show="showTab == 'loanInfo'" ng-include='"templates/cdforms/cdLoanInformation.html"'></div>
+            <div ng-show="showTab == 'closingInfo'" ng-include='"templates/leforms/leClosingInformation.html"'></div>
+            <div ng-show="showTab == 'transInfo'" ng-include='"templates/leforms/leTransactionInformation.html"'></div>
+            <div ng-show="showTab == 'loanInfo'" ng-include='"templates/leforms/leLoanInformation.html"'></div>
+            <div ng-show="showTab == 'loanterms'" ng-include='"templates/leforms/leLoanTermsTable.html"'></div>
+            <div ng-show="showTab == 'projectedPayments'" ng-include='"templates/leforms/leProjectedPayments.html"'></div>
+            <div ng-show="showTab == 'ETIAssessments'" ng-include='"templates/leforms/leETIAssessments.html"'></div>
+            <div ng-show="showTab == 'CostsAtClosing'" ng-include='"templates/leforms/leCostsatClosing.html"'></div>
+            <div ng-show="showTab == 'LoanCosts'" ng-include='"templates/leforms/leLoanCosts.html"'></div>
+            <div ng-show="showTab == 'OtherCosts'" ng-include='"templates/leforms/leOtherCosts.html"'></div>
+            <div ng-show="showTab == 'TotalClosingCosts'" ng-include='"templates/leforms/leTotalClosingCosts.html"'></div>
+            <div ng-show="showTab == 'PayoffsAndPayments'" ng-include='"templates/leforms/lePayoffsAndPaymentsAlternateForm.html"'></div>
+            <div ng-show="showTab == 'LoanCals'" ng-include='"templates/leforms/leLoanCalsOtherDisclosure.html"'></div>
+            <div ng-show="showTab == 'LeConfReceipt'" ng-include='"templates/leforms/leConfirmReceipt.html"'></div>
+            <div ng-show="showTab == 'ContactInfo'" ng-include='"templates/leforms/leContactInformation.html"'></div>
+            <div ng-show="showTab == 'CalculatingCashtoClose'" ng-include='"templates/leforms/leCalculatingCashtoClose.html"'></div>
+            <!-- <div ng-show="showTab == 'SummariesofTransaction_K'" ng-include='"templates/cdforms/cdSummariesofTransaction_K_DuefromBorrower.html"'></div>
+             <div ng-show="showTab == 'SummariesofTransaction_L'" ng-include='"templates/cdforms/cdSummariesofTransaction_L_Paidalready.html"'></div>
+             <div ng-show="showTab == 'SummariesofTransaction_L_cv'" ng-include='"templates/cdforms/cdSummariesofTransaction_L_CalculationsView.html"'></div>
+             <div ng-show="showTab == 'SummariesofTransaction_M'" ng-include='"templates/cdforms/cdSummariesofTransaction_M_DuetoSeller.html"'></div>
+             <div ng-show="showTab == 'SummariesofTransaction_N'" ng-include='"templates/cdforms/cdSummariesofTransaction_N_DuefromSeller.html"'></div>
+             <div ng-show="showTab == 'SummariesofTransaction_N_cv'" ng-include='"templates/cdforms/cdSummariesofTransaction_N_CalculationsView.html"'></div> -->
+             <div ng-show="showTab == 'LoanDisclosures'" ng-include='"templates/leforms/AdditionalInformation_OtherConsiderations.html"'></div>
+             <div ng-show="showTab == 'EscrowAccount'" ng-include='"templates/leforms/AdditionalInformation_EscrowAccount.html"'></div>
+             <div ng-show="showTab == 'ApTable'" ng-include='"templates/leforms/AdditionalInformation_ApTable.html"'></div>
+             <div ng-show="showTab == 'AirTable'" ng-include='"templates/leforms/AdditionalInformation_AirTable.html"'></div>
             </div>
-       	 	</span>
+          </span>
         </div>
         
-	    </div>
+      </div>
     </div>
   </div>
-  <div id="pdfViewerId" style="display: none;background-color: red;">
-    <div id="carousel" style="display: none;background-color: red;">
+  <div id="pdfViewerId">
+    <div id="carousel" style="display: none;">
       <object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="original"></object>
     </div>
   </div>
 </div>
+<div class="modal fade" id="BorrowerTransaction" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Borrower</h4>
+      </div>
+      <div class="modal-body">
+        <div ng-repeat="borrower in borrowers">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Classification</div>
+            <div class="col-sm-7 radioGroup">
+              <input type="radio" ng-model="borrower.type" value="I" disabled> <label>Individual</label>
+              <input type="radio" ng-model="borrower.type" value="O" disabled> <label>Organization </label>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Name</div>
+            <div class="col-sm-7">
+                <div class="col-sm-6 padding0 padding5r"><input type="text" placeholder="First Name" class="form-control" name=""></div>
+                <div class="col-sm-6 padding0"><input type="text" placeholder="Last Name" class="form-control" name=""></div>
+                <div class="col-sm-6 margin5tb padding0 padding5r"><input type="text" placeholder="Middle Name" class="form-control" name=""></div>
+                <div class="col-sm-6 padding0 margin5tb"><input type="text" placeholder="Suffix Name" class="form-control" name=""></div>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Borrower Type</div>
+            <div class="col-sm-7">
+                <select placeholder="Organization Name" ng-model="borrower.borrowerDetails.firstName" class="form-control"><option>Borrower</option></select>
+            </div>
+          </div>
+          
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Street Address</div>
+            <div class="col-sm-7"><input type="text" ng-model="borrower.address.addressLineText" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">City Name</div>
+            <div class="col-sm-7"><input type="text" ng-model="borrower.address.cityName" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">State Code</div>
+            <div class="col-sm-7"><input type="text" ng-model="borrower.address.stateCode" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Postal Code</div>
+            <div class="col-sm-7"><input type="text" ng-model="borrower.address.postalCode" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Country Code</div>
+            <div class="col-sm-7"> <select class="form-control"><option>US</option></select></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="loadBorrowerData(true)" style="background: #5bb1dc;color:fff;">Ok</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal" >Clear</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal" >Add Borrower</button>
+      </div>
+    </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Property</h4>
+      </div>
+
+      <div class="modal-body">
+          <div class="row">
+              <div class="col-sm-5 radioGroup"><input type="radio" name="property">Street Address</div>
+              <div class="col-sm-7 radioGroup"><input type="radio" name="property">Legal Description</div>
+          </div>
+          <div class="row margin5tb">
+              <div class=" col-sm-12">
+              <div class="col-sm-5 fieldTitle">Property Street Address</div>
+              <div class="col-sm-7"><input type="text" ng-model="property.addressLineText" class="form-control"></div>
+            </div>
+          </div>
+          <div class="row margin5tb">
+            <div class=" col-sm-12">
+              <div class="col-sm-5 fieldTitle">Property City Name</div>
+              <div class="col-sm-7"><input type="text" ng-model="property.cityName" class="form-control"></div>
+            </div>
+          </div>
+          <div class="row margin5tb">
+            <div class=" col-sm-12">
+              <div class="col-sm-5 fieldTitle">Property State Code</div>
+              <div class="col-sm-7">
+                  <select ng-model="property.stateCode" class="form-control">
+                      <option>VA</option>
+                  </select>
+              </div>
+            </div>
+          </div>
+          <div class="row margin5tb">
+            <div class=" col-sm-12">
+              <div class="col-sm-5 fieldTitle">Property Postal Code</div>
+              <div class="col-sm-7"><input type="text" ng-model="property.postalCode" class="form-control"></div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="loadPropertyData(true)">OK</button>
+        <button type="button" class="btn btn-default">Clear</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="SellerTransaction" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Seller</h4>
+      </div>
+      <div class="modal-body">
+        <div ng-repeat="seller in sellers">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Seller Type</div>
+            <div class="col-sm-7">
+              <input type="radio" ng-model="seller.type" value="I" disabled> <label>Individual</label>
+              <input type="radio" ng-model="seller.type" value="O" disabled> <label>Organization </label>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb" ng-show="seller.type == 'I'">
+            <div class="col-sm-5 fieldTitle">Seller Name</div>
+            <div class="col-sm-7 padding0">
+               <div class="col-sm-6 padding0 padding5r"><input type="text" placeholder="First Name" class="form-control" name=""></div>
+                <div class="col-sm-6 padding0"><input type="text" placeholder="Last Name" class="form-control" name=""></div>
+                <div class="col-sm-6 margin5tb padding0 padding5r"><input type="text" placeholder="Middle Name" class="form-control" name=""></div>
+                <div class="col-sm-6 padding0 margin5tb"><input type="text" placeholder="Suffix Name" class="form-control" name=""></div>
+            </div>
+          </div>
+
+          <div class="row col-sm-12 margin5tb " ng-show="seller.type == 'O'">
+            <div class="col-sm-5 fieldTitle">Organization Full Name</div>
+            <div class="col-sm-7"><input type="text" placeholder="Organization Name" ng-model="seller.sellerDetails.firstName" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">seller Street Address</div>
+            <div class="col-sm-7"><input type="text" ng-model="seller.address.addressLineText" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">seller City Name</div>
+            <div class="col-sm-7"><input type="text" ng-model="seller.address.cityName" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">seller State Code</div>
+            <div class="col-sm-7"><input type="text" ng-model="seller.address.stateCode" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">seller Postal Code</div>
+            <div class="col-sm-7"><input type="text" ng-model="seller.address.postalCode" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">seller Country Code</div>
+            <div class="col-sm-7">
+                <select class="form-control"><option>US</option></select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="loadSellerData(true)">OK</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" >Clear</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal" >Add Seller</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="LenderTransaction" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Lender</h4>
+      </div>
+      <div class="modal-body">
+         <div ng-repeat="lender in lenders">
+          <!--<div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Lender Type</div>
+            <div class="col-sm-7">
+              <input type="radio" ng-model="lender.type" value="I" disabled> <label>Individual</label>
+              <input type="radio" ng-model="lender.type" value="O" disabled> <label>Organization </label>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb" ng-show="lender.type == 'I'">
+            <div class="col-sm-5 fieldTitle">Lender Name</div>
+            <div class="col-sm-7 padding0">
+              <div class="col-sm-6"><input type="text" ng-model="lender.lenderDetails.firstName" placeholder="First Name" class="form-control"></div>
+              <div class="col-sm-6"><input type="text" ng-model="lender.lenderDetails.middleName" placeholder="Middle Name" class="form-control"></div>
+              <div class="col-sm-6 margin5tb"><input type="text" ng-model="lender.lenderDetails.lastName" placeholder="Last Name" class="form-control"></div>
+            </div>
+          </div>-->
+          <div class="row col-sm-12 margin5tb ">
+            <div class="col-sm-5 fieldTitle">Organization Full Name</div>
+            <div class="col-sm-7"><input type="text" placeholder="Organization Name" ng-model="lender.lenderDetails.firstName" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Lender Address Street</div>
+            <div class="col-sm-7"><input type="text" ng-model="lender.address.addressLineText" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Lender Address City</div>
+            <div class="col-sm-7"><input type="text" ng-model="lender.address.cityName" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Lender Address State</div>
+            <div class="col-sm-7"><input type="text" ng-model="lender.address.stateCode" class="form-control"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Lender Address Zip</div>
+            <div class="col-sm-7"><input type="text" ng-model="lender.address.postalCode" class="form-control"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="loadLenderData(true)" style="background: #5bb1dc;color:fff;">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="modal fade" id="PurposeType" role="dialog" >
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+       <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Purpose Type</h4>
+        </div>
+        <div class="modal-body">
+          <form name="newForm" role="form" novalidate>
+          <div class="row margin5tb" style="margin-bottom: 10px;">
+            <div class=" col-sm-12">
+              <div class="col-sm-6  radioGroup"> <input type="radio" name="type" checked> <strong> Closing Disclosure</strong></div>
+              <div class="col-sm-6  radioGroup"> <input type="radio"  name="type"> <strong> Loan Estimate </strong></div>
+            </div>
+          </div>
+          <div class="row margin5tb">
+            <div class=" col-sm-12">
+              <div class="col-sm-9">
+                <div class="form-group" ng-class="{ 'has-error': submitted && newForm.purpose.$invalid }">
+                  <select class="form-control" ng-model="purposeType" required id="purposeType" >
+                    <option value=""> Select Purpose </option>
+                    <option >Purchase</option>
+                    <option >Refinance</option>
+                    <option >HomeEquity</option>
+                  </select>
+                  <span ng-show="submitted && newForm.purpose.$error.required">Purpose required</span>
+                </div>
+            </div>
+          </div>
+        </div>
+        </form>
+        <div class="modal-footer">          
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-disabled="newForm.$invalid" ng-click="loadNewPage()" id="loadnewbtn">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ProductLoanInfo" role="dialog" >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+       <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Product Information</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row margin5tb col-sm-12">
+            <div class="col-sm-5 fieldTitle">Product Description Name</div>
+            <div class="col-sm-7"><input type="text"  class="form-control"></div>
+          </div>
+          <div class="row margin5tb col-sm-12">
+            <div class="col-sm-5 fieldTitle">Amortization Type</div>
+            <div class="col-sm-7 radioGroup">
+                <div class="col-sm-4 padding0"><input type="radio" name="Amortization"><label>Adjustable Rate</label> </div>
+                <div class="col-sm-2 padding0"><input type="radio" name="Amortization"><label>GEM</label> </div>
+                <div class="col-sm-6 padding0"><input type="radio" name="Amortization"><label>Graduated Payment ARM</label> </div>
+                <div class="col-sm-4 padding0"><input type="radio" name="Amortization"><label>Fixed</label> </div>
+                <div class="col-sm-2 padding0"><input type="radio" name="Amortization"><label>GPM</label> </div>
+                <div class="col-sm-6 padding0"><input type="radio" name="Amortization"><label>Step</label> </div>
+            </div>
+          </div>
+          <div class="margin5tb col-sm-12 border_top">
+            <h4>Adjustable Rate Information</h4>
+            <div class="col-sm-6 padding0">
+              <div class="col-sm-9 fieldTitle">Provide the number of months for the fixed period</div>
+              <div class="col-sm-3"><input type="text"  class="form-control"></div>
+            </div>
+            <div class="col-sm-6 padding0">
+              <div class="col-sm-9 fieldTitle">Provide the life of loan Cap Rate</div>
+              <div class="col-sm-3"><input type="text"  class="form-control"></div>
+            </div>
+            <div class="col-sm-6 padding0">
+              <div class="col-sm-9 fieldTitle">Provide the number of months first change period</div>
+              <div class="col-sm-3"><input type="text"  class="form-control"></div>
+            </div>
+            <div class="col-sm-6 padding0">
+              <div class="col-sm-9 fieldTitle">Provide the first change interest rate limit</div>
+              <div class="col-sm-3"><input type="text"  class="form-control"></div>
+            </div>
+            <div class="col-sm-6 padding0">
+              <div class="col-sm-9 fieldTitle">Provide the number of months subsequent change period</div>
+              <div class="col-sm-3"><input type="text"  class="form-control"></div>
+            </div>
+            <div class="col-sm-6 padding0">
+              <div class="col-sm-9 fieldTitle">Provide the subsequent change interest rate limit</div>
+              <div class="col-sm-3"><input type="text"  class="form-control"></div>
+            </div>
+          </div>
+          <div class="margin5tb col-sm-12 border_top">
+            <h4>Construction Information</h4>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">Is this a construction loan?</div>
+              <div class="col-sm-2"><select class="form-control"><option>Yes</option><option>No</option></select></div>
+            </div>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">Identify the type of Construction Loan</div>
+              <div class="col-sm-5">
+                  <select class="form-control">
+                    <option>Construction Only</option>
+                  </select></div>
+            </div>
+          </div>
+          <div class="margin5tb col-sm-12 border_top">
+            <h4>Home Equity Loan</h4>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">Is the Loan a Home Equity Loan?</div>
+              <div class="col-sm-2"><select class="form-control"><option>Yes</option><option>No</option></select></div>
+            </div>
+          </div>
+          <div class="margin5tb col-sm-12 border_top">
+            <h4>Interest Only</h4>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">Does this loan have an interest Only feature?</div>
+              <div class="col-sm-2"><select class="form-control"><option>Yes</option><option>No</option></select></div>
+            </div>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">What is the Interest Only Period?</div>
+              <div class="col-sm-2">
+                <select class="form-control">
+                  <option>36</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="margin5tb col-sm-12 border_top">
+            <h4>Negative Amortization</h4>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">Does this loan have a Negative Amortization feature?</div>
+              <div class="col-sm-2"><select class="form-control"><option>Yes</option><option>No</option></select></div>
+            </div>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">If yes, Provide the schedule time?</div>
+              <div class="col-sm-5">
+                  <select class="form-control">
+                    <option>Scheduled Potenatial</option>
+                  </select>
+              </div>
+            </div>
+          </div>
+          <div class="margin5tb col-sm-12 border_top">
+            <h4>Other Loan Product Features</h4>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">Does the loan have a Seasonal Payment Feature</div>
+              <div class="col-sm-2"><select class="form-control"><option>Yes</option><option>No</option></select></div>
+            </div>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">If yes, provide the start and end months</div>
+              <div class="col-sm-5 padding0">
+                  <span class="col-sm-4"><select class="form-control"><option>Jan</option></select></span>
+                  <span class="col-sm-2 margin5tb">to</span>
+                  <span class="col-sm-4"><select class="form-control"><option>June</option></select></span>
+              </div>
+            </div>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">Does the loan have a Step Payment Feature?</div>
+              <div class="col-sm-2"><select class="form-control"><option>Yes</option><option>No</option></select></div>
+            </div>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">If yes, Provide the number of months in which the step feature will be in affect</div>
+              <div class="col-sm-2"><input class="form-control" type="text" name=""></div>
+            </div>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">Does the loan have an optional payment Feature?</div>
+              <div class="col-sm-2"><select class="form-control"><option>Yes</option><option>No</option></select></div>
+            </div>
+            <div class="col-sm-12 padding0">
+              <div class="col-sm-6 fieldTitle">If yes, Provide the number of months in which the optional payment feature will be in affect</div>
+              <div class="col-sm-2"><input class="form-control" type="text" name=""></div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-disabled="newForm.$invalid" ng-click="loadNewPage()" id="loadnewbtn">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="loadfile" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+       <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">File Format</h4>
+        </div>
+        <div class="modal-body">
+               <p>Please select correct file format</p>
+           </div>
+        <div class="modal-footer">          
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $(".pageno").tooltip();   
+  });
+  </script>
+
+<div class="modal fade" id="leCashtoCloseModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="col-sm-1 close" data-dismiss="modal">&times;</button>
+        <!-- <h4 class="modal-title">Cash to Close Calculator- {{FormType}} {{LoanType}}</h4> -->
+        
+        <h4 class="col-sm-7 modal-title">Cash to Close Calculator</h4>
+        <h4 class="col-sm-4 modal-title">Result</h4>
+        
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+            <div class="col col-sm-6 margin5tb" style="border-right: 2px solid #9E9E9E;">
+              <div class=" col-sm-12">
+                <div class="col-sm-6 fieldTitle">Total Closing Costs (J)</div>
+                <div class="col-sm-6 fieldValue">${{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}</div>
+              </div>
+              <div class=" col-sm-12">
+                <div class="col-sm-6 fieldTitle">Closing Costs Paid Before Closing</div>
+                <div class="col-sm-6 fieldValue">${{leformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}</div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Loan Amount includes any assumed or taken subject to</div>
+                <div class="col-sm-6 fieldValue">$0</div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Sales Price</div>
+                <div class="col-sm-6">
+                    <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
+                      <span class="input-group-addon input-default">$</span>
+                      <input type="text" class="form-control" name="" ng-model="leformdata.salesContractDetail.saleContractAmount" decimal-digits-with-number-format>
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Payoffs and Payments</div>
+                <div class="col-sm-6">
+                    <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+                      <span class="input-group-addon input-default">$</span>
+                      <input type="text" class="form-control" name="" ng-model="payoffsAndPaymentsTotalAmount" decimal-digits-with-number-format>
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Deposit</div>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                      <span class="input-group-addon input-default">$</span>
+                          <input type="text" class="form-control padding0" name="" ng-model="leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Seller Credits</div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                    <span class="input-group-addon input-default">$</span>
+                    <input type="text" class="form-control" name="" ng-model="leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+                  </div>
+                </div>
+              </div>
+               <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'alternate'">
+                <div class="col-sm-6 fieldTitle">Loan Amount</div>
+                <div class="col-sm-6 fieldValue">
+                    ${{leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}
+                </div>
+                </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'alternate'">
+                <div class="col-sm-6 fieldTitle">Total Payoffs and Payments</div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                  <span class="input-group-addon input-default">$</span>
+                  <input type="text" class="form-control" name="" ng-model="leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+                  </div>
+                </div>
+              </div>
+              <div class=" col-sm-12">
+                <div class="col-sm-6 fieldTitle">Adjustments and Other Credits</div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                  <span class="input-group-addon input-default">$</span>
+                  <input type="text" class="form-control" name="" ng-model="leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+                  </div>
+                </div>
+              </div>
+           </div>
+           <!-- second result section -->
+           <div class="col col-sm-6">
+             <div class=" col-sm-12">
+                <div class="col-sm-6 fieldTitle">Total Closing Costs (J)</div>
+                <div class="col-sm-6 fieldValue">${{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}</div>
+              </div>
+              <div class=" col-sm-12">
+                <div class="col-sm-6 fieldTitle">Closing Costs Paid Before Closing</div>
+                <div class="col-sm-6 fieldValue">${{leformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}</div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Closing Costs Financed (Paid from your Loan Amount)</div>
+                <div class="col-sm-6 fieldValue">$0</div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Down Payment/Funds from Borrower </div>
+                <div class="col-sm-6">
+                    <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
+                      <span class="input-group-addon input-default">$</span>
+                      <input type="text" class="form-control" name="" ng-model="leformdata.salesContractDetail.saleContractAmount" decimal-digits-with-number-format>
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Deposit</div>
+                <div class="col-sm-6">
+                    <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+                      <span class="input-group-addon input-default">$</span>
+                      <input type="text" class="form-control" name="" ng-model="payoffsAndPaymentsTotalAmount" decimal-digits-with-number-format>
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Funds for Borrower</div>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                      <span class="input-group-addon input-default">$</span>
+                          <input type="text" class="form-control padding0" name="" ng-model="leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Seller Credits</div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                    <span class="input-group-addon input-default">$</span>
+                    <input type="text" class="form-control" name="" ng-model="leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+                  </div>
+                </div>
+              </div>
+              <div class=" col-sm-12">
+                <div class="col-sm-6 fieldTitle">Adjustments and Other Credits</div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                  <span class="input-group-addon input-default">$</span>
+                  <input type="text" class="form-control" name="" ng-model="leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+                  </div>
+                </div>
+              </div>
+              <div class=" col-sm-12">
+                <div class="col-sm-6 fieldTitle">Cash to Close</div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                  <span class="input-group-addon input-default">$</span>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class=" col-sm-12">
+                <button type="button" class="btn btn-primary" ng-click="clearCalculations()">Load Results to CCC Table</button>
+              </div> -->
+
+           </div>
+          </div>
+      <div class="modal-footer">
+        <div class="row">
+           <div class="col-sm-4" style="margin-left: -4%;">
+                  <button type="button" class="button btn btn-primary" data-dismiss="modal" ng-click="calculateCash()">Calculate Cash to Close</button>
+          </div>
+          <div class="col-sm-4">
+                  <button type="button" class="button btn btn-default" ng-click="clearCalculations()">Clear Editable Values</button>
+          </div>
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-4">
+                  <button type="button" class="button btn btn-primary" ng-click="clearCalculations()">Load Results to CCC Table</button>
+           </div>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+       $(function(){
+              $(".SidebarNavHead").customScrollbar();
+              $(".SidebarBtnsHead").customScrollbar();
+              $('#demoList').sapling();
+            });
+       // $('#demoList').click(function(e){
+       //          console.log($('#demoList').height());
+       //          if($('#demoList').height() <321){
+       //           // $("#demoList").customScrollbar("remove");
+       //           console.log("i am in if");
+       //           $(".SidebarNavHead").customScrollbar("scrollToY", 200);
+       //          }else if($('#demoList').height() ==150){
+       //            $(".SidebarNavHead").customScrollbar(0);
+       //            console.log(" i am in elseIf");
+       //          }
+       //          else{
+       //           $(".SidebarNavHead").customScrollbar(); 
+       //           console.log("i am in else");
+       //          }
+             
+       //  });
+        
+</script>

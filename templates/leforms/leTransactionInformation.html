@@ -1,0 +1,214 @@
+<div class="col-sm-12">
+  <h4>Transaction Information</h4>
+  <div class="">
+  <div class="col-sm-12 padding0" ng-repeat= "borrower in leformdata.transactionInformation.borrowerDetails track by $index">
+    <h5 class="innerSectionHeader">Applicant Information 
+      <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="borrower.checkBorrower" ng-click="sameBorrower($index)"> Same as 1<sup>st</sup> Applicant Address</span>
+      <span class="pull-right green RemoveSection" ng-click="backToTop()" ng-show="$index != 0">
+          <a> Back To Top </a>
+      </span>
+      
+      <span class="glyphicon glyphicon-trash pull-right margin50r red RemoveSection" ng-click="removeBorrower($index)" ng-show="$index != 0">
+      </span>
+    </h5>
+     <div class="col-sm-6">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Applicant Classification</div>
+            <div class="col-sm-7 radioGroup">
+              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrower.type" value="I">
+              <label>Individual</label>
+              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrower.type" value="O">
+              <label>Organization</label>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb" ng-show="borrower.type=='I'">
+            <div class="col-sm-5 fieldTitle">Applicant Type</div>
+            <div class="col-sm-7">
+                <select placeholder="Organization Name"  class="form-control" ng-model="borrower.partyRoleType">
+                  <option value="" selected>Select</option>
+                  <option ng-repeat="borrowerPartyRoleType in borrowerPartyRoleTypes" value="{{borrowerPartyRoleType.value}}">{{borrowerPartyRoleType.name}}</option>
+                </select>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb" ng-show="borrower.type=='I' && borrower.partyRoleType == 'Other'">
+            <div class="col-sm-5 fieldTitle">Applicant Type Other Description</div>
+            <div class="col-sm-7">
+                 <input type="text" class="form-control" ng-model="borrower.partyRoleOtherDescription">
+            </div>
+          </div>
+          <!-- <div class="row col-sm-12 margin5tb" ng-show="borrower.type=='O'">
+            <div class="col-sm-5 fieldTitle">Borrower Type</div>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" value="Borrower" ng-disabled="true" ng-model="borrower.partyRoleType">
+            </div>
+          </div> -->
+          <div ng-show="borrower.type == 'I'">
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Applicant First Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="First Name"  class="form-control" ng-model="borrower.nameModel.firstName"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Applicant Middle Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="Middle Name"  class="form-control" ng-model="borrower.nameModel.middleName"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Applicant Last Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="Last Name"  class="form-control" ng-model="borrower.nameModel.lastName"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Applicant Suffix</div>
+              <div class="col-sm-7"><input type="text" class="form-control" ng-model="borrower.nameModel.suffixName"></div>
+            </div>   
+          </div>     
+          <div ng-show="borrower.type == 'O'">
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Applicant Name</div>
+              <div class="col-sm-7"><input type="text" class="form-control" placeholder="Applicant Name" ng-model="borrower.nameModel.fullName"></div>
+            </div>  
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Street Address (Mailing)</div>
+            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="borrower.address.addressLineText"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">City (Mailing)</div>
+            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="borrower.address.cityName"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">State (Mailing)</div>
+            <div class="col-sm-7">
+              <select ng-model="borrower.address.stateCode" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Postal Code (Mailing)</div>
+            <div class="col-sm-7">
+              <input type="text"  class="form-control" zipcode-format ng-model="borrower.address.postalCode">
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Country Code (Mailing)</div>
+            <div class="col-sm-7">
+              <select class="form-control" ng-model="borrower.address.countryCode">
+                <option value="" selected>Select</option>
+                <option ng-repeat="country in countryCodes" value="{{country.code}}">{{country.code}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+  </div>
+   <div class="col-sm-12">
+       <span class="AddSection" ng-click="addBorrower()">
+       <a>+ Add Additional Applicant</a></span>
+       <span class="pull-right green RemoveSection" ng-click="backToTop()">
+          <a> Back To Top </a>
+       </span>
+   </div>
+   <!--<div class="sellinfo" ng-show="loanBasicInfo.loanPurposeType=='purchase'">
+  <div class="col-sm-12 padding0"  ng-repeat= "seller in leformdata.transactionInformation.sellerDetails track by $index">
+    <h5 class="innerSectionHeader">Seller Information  
+      <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="seller.checkSeller" ng-click="sameSeller($index)"> Same as 1<sup>st</sup> Seller Address</span>
+      <span class="pull-right green RemoveSection" ng-click="backtoTop()" ng-show="$index != 0">
+          <a> Back To Top </a>
+      </span>
+      <span class="glyphicon glyphicon-trash red pull-right margin50r RemoveSection" ng-click="removeSeller($index)" ng-show="$index != 0">
+      </span>
+    </h5>
+     <div class="col-sm-6">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Seller Classification</div>
+            <div class="col-sm-7 radioGroup" ng-init="seller.type == 'I'">
+              <input type="radio" name="sellertype_{{$index}}" ng-model="seller.type" value="I"> <label>Individual</label>
+              <input type="radio" name="sellertype_{{$index}}" ng-model="seller.type"  value="O" > <label>Organization </label>
+            </div>
+          </div>
+          <div ng-show="seller.type == 'I'"> 
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Seller First Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="First Name"  class="form-control" ng-model="seller.nameModel.firstName"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Seller Middle Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="Middle Name"  class="form-control" ng-model="seller.nameModel.middleName"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Seller Last Name</div>
+              <div class="col-sm-7"><input type="text" placeholder="Last Name"  class="form-control" ng-model="seller.nameModel.lastName"></div>
+            </div>
+            <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Seller Suffix</div>
+              <div class="col-sm-7"><input type="text" class="form-control" ng-model="seller.nameModel.suffixName"></div>
+            </div>        
+          </div>
+          <div ng-show="seller.type == 'O'" > 
+             <div class="row col-sm-12 margin5tb">
+              <div class="col-sm-5 fieldTitle">Seller Name</div>
+              <div class="col-sm-7"><input type="text" class="form-control" placeholder="Seller Name" ng-model="seller.nameModel.fullName"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Street Address (Mailing)</div>
+            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="seller.address.addressLineText"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">City (Mailing)</div>
+            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="seller.address.cityName"></div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">State (Mailing)</div>
+            <div class="col-sm-7">
+              <select ng-model="seller.address.stateCode" class="form-control">
+                <option value="" selected>Select</option>
+                <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Postal Code (Mailing)</div>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" zipcode-format ng-model="seller.address.postalCode">
+            </div>
+          </div>
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Country Code (Mailing)</div>
+            <div class="col-sm-7">
+              <select class="form-control" ng-model="seller.address.countryCode">
+                <option value="" selected>Select</option>
+                <option ng-repeat="country in countryCodes" value="{{country.code}}">{{country.code}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+       
+        </div>
+   <div class="col-sm-12"><span class="AddSection" ng-click="addSeller()"><a>+ Add Additional Sellers</a></span></div>
+  </div> -->
+</div>
+<!-- <div class="col-sm-12 padding0">
+    <h5 class="innerSectionHeader">Lender Information</h5>
+      <div class="col-sm-6">
+        <div class="row col-sm-12 margin5tb" ng-repeat="lender in leformdata.transactionInformation.lenderDetails" ng-if="lender.type=='O'">
+          <div class="col-sm-5 fieldTitle">Lender Name</div>
+          <div class="col-sm-7"><input type="text" placeholder="Lender Name"  class="form-control" ng-model="lender.nameModel.fullName"></div>
+        </div>
+         <div class="row col-sm-12 margin5tb" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+          <div class="col-sm-5 fieldTitle">Refinance Same Lender?</div>
+          <div class="col-sm-7">
+              <select placeholder="Organization Name" class="form-control" ng-model="leformdata.transactionInformation.refinanceSameLenderIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+              </select>
+          </div>
+        </div>
+      </div>  
+  </div> -->
+  <div class="col-sm-12 margin10t">
+      <span class="pull-left"><a class="btn btn-default" ng-click="changeTab('closingInfo')">Back</a></span>
+      <span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('loanInfo')">Next</a></span>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="col-sm-12">
+	<h4>Adjustable Interest Rate (AIR) Table</h4>
+	<span  class="col-sm-12 padding0">
+        <table class="table table-bordered margin5tb"  style="border:0px;">
+		      <tr>
+		        <td class="col-sm-3">
+		        	<label>Index + Margin</label>
+		        </td>
+		        <td>
+		        	<span class="col-sm-12 margin5tb"> 
+	        			<span class="pull-left col-sm-2">
+	        				<select class="form-control" ng-model="leformdata.interestRateAdjustment.indexType">
+		        				<option value="" selected>Select</option>
+	                            <option ng-repeat="indexType in indexTypes" value="{{indexType.value}}">{{indexType.name}}</option>
+	        				</select>
+	        			</span>
+	        			<span class="pull-left margin5tb">+</span>
+	        			<span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<input type="text" class="form-control" name="" ng-model="leformdata.interestRateAdjustment.marginRatePercent" percentage-format>
+								<span class="input-group-addon input-default">%</span>
+	        				</div>
+	        			</span>		        			
+		        	 </span>
+		        	 <span class="col-sm-12 margin5tb" ng-show="leformdata.interestRateAdjustment.indexType=='Other'">
+		        	 		<span class="pull-left margin5tb"><label>Index Description:</label></span>
+		        	 		<span class="pull-left col-sm-2"><input type="text" class="form-control" value="My Index For Pricing" name="" ng-model="leformdata.interestRateAdjustment.indexTypeOtherDescription"></span>
+		        	 </span>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		        	<label>Initial Interest Rate</label>
+		        </td>
+		        <td>
+		        	<span class="pull-left margin5lr">{{leformdata.termsOfLoan.noteRatePercent | number:2}}%</span>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		        	<label ng-show="leformdata.interestRateAdjustment.indexType!='Other'">Minimum / Maximum Interest Rate</label>
+		        	<label ng-show="leformdata.interestRateAdjustment.indexType=='Other'">Total Step Count</label>
+		        </td>
+		        <td>
+		            <span ng-show="leformdata.interestRateAdjustment.indexType!='Other'">
+			        	<span class="pull-left margin5lr">{{leformdata.interestRateAdjustment.floorRatePercent | number:2}}%</span>
+			        	<span class="pull-left margin5lr"> Floor Rate </span>
+			        	<span class="pull-left margin5lr"> {{leformdata.interestRateAdjustment.ceilingRatePercent | number:2}}%</span>
+			        	<span class="pull-left margin5lr">Life Time Cap Rate</span>
+		        	</span>
+		        	<span ng-show="leformdata.interestRateAdjustment.indexType=='Other'">
+		        	{{leformdata.interestRateAdjustment.totalStepCount}}
+		        	</span>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td colspan="3" class="innerSectionHeader">
+		        	<strong> Change Frequency</strong>
+		        </td>
+		       </tr>
+		      <tr>
+		        <td>
+		        	First Change
+		        </td>
+		        <td>
+		        	<span class="pull-left margin5lr">Beginning of </span>
+		        	<span class="pull-left margin5lr">{{leformdata.interestRateAdjustment.firstRateChangeMonthsCount}}</span>
+		        	<span class="pull-left margin5lr"> months </span>
+		        </td>
+		      </tr>
+		       <tr>
+		        <td>
+		        	Subsequent Change 
+		        </td>
+		        <td>
+		        	<span class="pull-left margin5lr">Every </span>
+		        	<span class="pull-left margin5lr">{{leformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount}}</span>
+		        	<span class="pull-left margin5lr"> months after first change</span>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td colspan="3" class="innerSectionHeader">
+		        	<strong>Limits on Interest Rate Changes</strong>
+		        </td>
+		       </tr>
+
+		      <tr>
+		        <td>
+		        	First Change
+		        </td>
+		        <td>
+		        	<span class="pull-left margin5lr">{{leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent | number:2}}% </span>
+		        </td>
+		      </tr>
+		       <tr>
+		        <td>
+		        	Subsequent Change 
+		        </td>
+		        <td>
+		        	<span class="pull-left margin5lr">{{leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent | number:2}}% </span>
+		        </td>
+		      </tr>
+		</table>
+	</span>
+	<div class="col-sm-12 margin10t">
+			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('ApTable')">Back</a></span>
+			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('LoanCals')">Next</a></span>
+	</div>	
+</div>

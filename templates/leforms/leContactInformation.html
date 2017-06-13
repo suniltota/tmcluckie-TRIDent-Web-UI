@@ -1,0 +1,657 @@
+<div class="col-sm-12">
+	<h4>Loan Estimate Contact Information</h4>
+		<span class="col-sm-12 padding0">
+		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">			  
+		      <tr>
+		        <!-- <th class="innerSectionHeader">Organization</th> -->
+		        <th class="innerSectionHeader" colspan="2">Lender </th>
+		        <th class="innerSectionHeader" colspan="2">Mortgage Broker</th>
+		        <!-- <th class="innerSectionHeader">Real Estate Broker (B)</th>
+		        <th class="innerSectionHeader">Real Estate Broker (S)</th>
+		        <th class="innerSectionHeader">Settlement Agent</th> -->
+		      </tr>
+		      
+			 
+		      <tr>
+		        <td style="width:13%">
+		        	<span class="margin5tb col-sm-10">Name of Organization</span>
+		        </td>
+		        <td style="width:13%">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.lender.organizationName">
+		        </td>
+		        <td style="width:13%">
+		        	<span class="margin5tb col-sm-10">Name of Organization</span>
+		        </td>
+		        <td style="width:13%">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.mortagageBroker.organizationName">
+		        </td>		        
+		      </tr>
+
+		       <tr>
+		        <td style="width:auto">
+		        	<div class="row ">
+		        		<div class="col col-sm-3 margin10t"> NMLS/ </div>
+		        		<div class="col col-sm-5">
+		        		 <select class="form-control" ng-model="leformdata.contactInformation.lender.address.stateCode">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lender in stateCodes" value="{{lender.code}}">{{lender.code}}</option>
+		            		</select>
+		            		</div>
+		               <div class="col col-sm-4 margin10t"> LicenseID </div>
+		            </div>
+		        <td style="width:auto">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.lender.organizationLicenseDetail.licenseIdentifier">
+		        </td>
+		        <td style="width:auto">
+		          <div class="row ">
+		        	<div class="col col-sm-3 margin10t"> NMLS/ </div>
+		        	<div class="col col-sm-4">
+		        	     <select class="form-control" ng-model="leformdata.contactInformation.mortagageBroker.address.stateCode">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="mgbroker in stateCodes" value="{{mgbroker.code}}">{{mgbroker.code}}</option>
+		            	 </select> 
+		            </div>
+		            <div class="col col-sm-5 margin10t"> LicenseID </div>
+		          </div>
+		        </td>
+		        <td style="width:auto">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseIdentifier">
+		        </td>		        
+		      </tr>
+
+
+		      <tr>
+		      
+		        <td style="width:auto;border-right:0px;border-bottom:0px;">
+		        <span> Loan officer Name</span>
+		        	<span class="margin5tb col-sm-10 textAllignRight margin5t">First Name</span>
+		      		<span class="margin5tb col-sm-10 textAllignRight margin10t">Middle Name</span>
+		      		<span class="margin5tb col-sm-10 textAllignRight margin10t">Last Name</span>
+		      		<span class="margin5tb col-sm-10 textAllignRight margin10t">Suffix</span>
+
+		        </td>
+		        <td>
+		            <input type="text" class="form-control padding0 margin10t" name="" ng-model="leformdata.contactInformation.lender.name.firstName">
+		        	<input type="text" class="form-control padding0 margin5t" name="" ng-model="leformdata.contactInformation.lender.name.middleName">
+		        	<input type="text" class="form-control padding0 margin5t" name="" ng-model="leformdata.contactInformation.lender.name.lastName">
+		        	<input type="text" class="form-control padding0 margin5t" name="" ng-model="leformdata.contactInformation.lender.name.suffixName">
+		        </td>
+               <td style="width:auto;border-right:0px;border-bottom:0px;">
+		           <span> Loan officer Name</span>
+		        	<span class="margin5tb col-sm-10 textAllignRight margin5t">First Name</span>
+		      		<span class="margin5tb col-sm-10 textAllignRight margin10t">Middle Name</span>
+		      		<span class="margin5tb col-sm-10 textAllignRight margin10t">Last Name</span>
+		      		<span class="margin5tb col-sm-10 textAllignRight margin10t">Suffix</span>
+
+		        </td>
+		        <td>
+		            <input type="text" class="form-control padding0 margin10t" name="" ng-model="leformdata.contactInformation.mortagageBroker.name.firstName">
+		        	<input type="text" class="form-control padding0 margin5t" name="" ng-model="leformdata.contactInformation.mortagageBroker.name.middleName">
+		        	<input type="text" class="form-control padding0 margin5t" name="" ng-model="leformdata.contactInformation.mortagageBroker.name.lastName">
+		        	<input type="text" class="form-control padding0 margin5t" name="" ng-model="leformdata.contactInformation.mortagageBroker.name.suffixName">
+		        </td>
+		      </tr>
+		      <tr>
+		        <td style="width:auto">
+		        	<div class="row ">
+		        		<div class="col col-sm-3 margin10t"> NMLS/ </div>
+		        		<div class="col col-sm-5">
+		        		 <select class="form-control" ng-model="leformdata.contactInformation.lender.address.stateCode">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lender in stateCodes" value="{{lender.code}}">{{lender.code}}</option>
+		            		</select>
+		            		</div>
+		               <div class="col col-sm-4 margin10t"> LicenseID </div>
+		            </div>
+		        <td style="width:auto">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.lender.organizationLicenseDetail.licenseIdentifier">
+		        </td>
+		        <td style="width:auto">
+		          <div class="row ">
+		        	<div class="col col-sm-3 margin10t"> NMLS/ </div>
+		        	<div class="col col-sm-4">
+		        	     <select class="form-control" ng-model="leformdata.contactInformation.mortagageBroker.address.stateCode">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="mgbroker in stateCodes" value="{{mgbroker.code}}">{{mgbroker.code}}</option>
+		            	 </select> 
+		            </div>
+		            <div class="col col-sm-5 margin10t"> LicenseID </div>
+		          </div>
+		        </td>
+		        <td style="width:auto">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseIdentifier">
+		        </td>		        
+		      </tr>
+		      <tr>
+		        <td style="width:13%">
+		        	<span class="margin5tb col-sm-10">Email</span>
+		        </td>
+		        <td style="width:13%">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.individualEmail">
+		        </td>
+		        <td style="width:13%">
+		        	<span class="margin5tb col-sm-10">Email</span>
+		        </td>
+		        <td style="width:13%">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.individualEmail">
+		        </td>		        
+		      </tr>
+		      <tr>
+		        <td style="width:13%">
+		        	<span class="margin5tb col-sm-10">Phone</span>
+		        </td>
+		        <td style="width:13%">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.lender.individualPhone">
+		        </td>
+		        <td style="width:13%">
+		        	<span class="margin5tb col-sm-10">Phone</span>
+		        </td>
+		        <td style="width:13%">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.mortagageBroker.individualPhone">
+		        </td>		        
+		      </tr>
+			  <!-- <tr>
+		        <td style="width:8%;border-right:0px;border-bottom:0px;">
+		        	<span class="margin5tb col-sm-10">Street Address</span>
+		        </td>
+		        <td style="width:8%;border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.address.addressLineText">
+		        </td>
+		        <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.address.addressLineText">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.address.addressLineText">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.address.addressLineText">
+		        </td>
+                <td style="border-left:0px;border-top:0px;border-bottom:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.address.addressLineText">
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td style="width:8%;border-right:0px;border-top:0px;border-bottom:0px;">
+		        	<span class="margin5tb col-sm-10" >City</span>
+		        </td>
+		        <td style="width:8%;border:0px;">
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.lender.address.cityName">
+		        </td>
+		        <td style="width:8%;border:0px;" >
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.address.cityName">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.address.cityName">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.address.cityName">
+		        </td>
+                <td style="border-left:0px;border-top:0px;border-bottom:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.address.cityName">
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td style="border-top:0px;border-right:0px;border-bottom:0px;">
+		        	<span class="margin5tb col-sm-10">State Code</span>
+		        </td>
+		        <td style="border:0px;">
+		        	<select ng-model="leformdata.closingInformation.property.stateCode" class="form-control" ng-model="leformdata.contactInformation.lender.address.stateCode">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
+		            </select>
+		        </td>
+		        <td style="border:0px;">
+		        	<select ng-model="leformdata.closingInformation.mortagageBroker.stateCode" class="form-control" ng-model="leformdata.contactInformation.mortagageBroker.address.stateCode">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
+		            </select>
+		        </td>
+                <td style="border:0px;">
+		        	<select class="form-control" ng-model="leformdata.contactInformation.realEstateBrokerB.address.stateCode">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
+		            </select>
+		        </td>
+                <td style="border:0px;">
+		        	<select class="form-control" ng-model="leformdata.contactInformation.realEstateBrokerS.address.stateCode">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
+		            </select>
+		        </td>
+                <td style="border-left:0px;border-top:0px;border-bottom:0px;">
+		        	<select class="form-control" ng-model="leformdata.contactInformation.settlementAgent.address.stateCode">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
+		            </select>
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td style="width:8%;border-right:0px;border-top:0px;">
+		        	<span class="margin5tb col-sm-10">Postal Code</span>
+		        </td>
+		        <td style="width:8%;border:0px;">
+		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="leformdata.contactInformation.lender.address.postalCode">
+		        </td>
+		        <td style="width:8%;border:0px;" >
+		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="leformdata.contactInformation.mortagageBroker.address.postalCode">
+		        </td>
+                <td style="border:0px;border:0px;">
+		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="leformdata.contactInformation.realEstateBrokerB.address.postalCode">
+		        </td>
+                <td style="border:0px;border:0px;">
+		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="leformdata.contactInformation.realEstateBrokerS.address.postalCode">
+		        </td>
+                <td style="border-left:0px;border-top:0px;">
+		        	<input type="text" class="form-control padding0" name=""  zipcode-format ng-model="leformdata.contactInformation.settlementAgent.address.postalCode">
+		        </td>			        
+		      </tr> -->
+			  
+			  <!-- <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">NMLS ID</span>
+		        </td>
+		        <td >
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.organizationLicenseDetail.licenseIdentifier">
+		        </td>
+		        <td >
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseIdentifier">
+		        </td>
+                <td >
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.licenseIdentifier" ng-disabled="true">
+		        </td>
+                <td >
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.licenseIdentifier" ng-disabled="true">
+		        </td>
+                <td >
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.settlementAgent.organizationLicenseDetail.licenseIdentifier" ng-disabled="true">
+		        </td>		        
+		      </tr> -->
+			  
+			  <!-- <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">State License ID</span>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.organizationLicenseDetail.licenseIdentifier" ng-disabled="true">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseIdentifier" 
+		        	ng-disabled="true">
+		        </td>
+                <td >
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.licenseIdentifier">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.licenseIdentifier">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.organizationLicenseDetail.licenseIdentifier">
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">License Authority Level Type</span>
+		        </td>
+		        <td>
+		        	<select class="form-control" ng-model="leformdata.contactInformation.lender.organizationLicenseDetail.licenseAuthorityLevelType">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
+		            </select>
+		        </td>
+		        <td>
+		        	<select class="form-control" ng-model="leformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseAuthorityLevelType">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
+		            </select>
+		        </td>
+                <td>
+		        	<select class="form-control" ng-model="leformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.licenseAuthorityLevelType">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
+		            </select>
+		        </td>
+                <td>
+		        	<select class="form-control" ng-model="leformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.licenseAuthorityLevelType">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
+		            </select>
+		        </td>
+                <td>
+		        	<select class="form-control" ng-model="leformdata.contactInformation.settlementAgent.organizationLicenseDetail.licenseAuthorityLevelType">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
+		            </select>
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">License Issuing Authority Name</span>
+		        </td>
+		        <td >
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.organizationLicenseDetail.licenseIssuingAuthorityName">
+		        </td>
+		        <td >
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseIssuingAuthorityName">
+		        </td>
+                <td >
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.licenseIssuingAuthorityName">
+		        </td>
+                <td >
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.licenseIssuingAuthorityName">
+		        </td>
+                <td >
+		        	<input type="text" class="form-control padding0" name=""  ng-model="leformdata.contactInformation.settlementAgent.organizationLicenseDetail.licenseIssuingAuthorityName">
+		        </td>		        
+		      </tr> -->	      
+			</table>
+			
+			<!-- <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">			  
+		      <tr>
+		        <th class="innerSectionHeader">Individual Contact</th>
+		        <th class="innerSectionHeader">Lender </th>
+		        <th class="innerSectionHeader">Mortgage Broker</th>
+		        <th class="innerSectionHeader">Real Estate Broker (B)</th>
+		        <th class="innerSectionHeader">Real Estate Broker (S)</th>
+		        <th class="innerSectionHeader">Settlement Agent</th>
+		      </tr>
+		      
+			  <tr>
+		        <td style="width:13%;border-right:0px;border-bottom:0px;">
+		        	<span class="margin5tb col-sm-10">First Name</span>
+		        </td>
+		        <td style="width:13%;;border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.name.firstName">
+		        </td>
+		        <td style="width:13%;;border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.name.firstName">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.name.firstName">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.name.firstName">
+		        </td>
+                <td style="border-left:0px;border-top:0px;border-bottom:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.name.firstName">
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td style="width:8%;border-right:0px;border-top:0px;border-bottom:0px;">
+		        	<span class="margin5tb col-sm-10">Middle Name</span>
+		        </td>
+		        <td style="width:8%;border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.name.middleName">
+		        </td>
+		        <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.name.middleName">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.name.middleName">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.name.middleName">
+		        </td>
+                <td style="border-left:0px;border-top:0px;border-bottom:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.name.middleName">
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td style="width:8%;border-right:0px;border-top:0px;border-bottom:0px;">
+		        	<span class="margin5tb col-sm-10" >Last Name</span>
+		        </td>
+		        <td style="width:8%;border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.name.lastName">
+		        </td>
+		        <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.name.lastName">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.name.lastName">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.name.lastName">
+		        </td>
+                <td style="border-left:0px;border-top:0px;border-bottom:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.name.lastName">
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td style="border-top:0px;border-right:0px;border-bottom:0px;">
+		        	<span class="margin5tb col-sm-10">Suffix</span>
+		        </td>
+		        <td style="width:8%;border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.name.suffixName">
+		        </td>
+		        <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.name.suffixName">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.name.suffixName">
+		        </td>
+                <td style="border:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.name.suffixName">
+		        </td>
+                <td style="border-left:0px;border-top:0px;border-bottom:0px;">
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.name.suffixName">
+		        </td>		        
+		      </tr>			  
+			  <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">Email ID</span>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.individualEmail">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.individualEmail">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.individualEmail">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.individualEmail">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.individualEmail">
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">Phone</span>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.individualPhone">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.individualPhone">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.individualPhone">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.individualPhone">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.individualPhone">
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">NMLS ID</span>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.individualLicenseDetail.licenseIdentifier">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseIdentifier">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseIdentifier" ng-disabled="true">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseIdentifier" ng-disabled="true">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseIdentifier" ng-disabled="true">
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">State License ID</span>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.individualLicenseDetail.licenseIdentifier" ng-disabled="true">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseIdentifier" ng-disabled="true">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseIdentifier">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseIdentifier">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseIdentifier">
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">License Authority Level Type</span>
+		        </td>
+		        <td>
+		            <select class="form-control" ng-model="leformdata.contactInformation.lender.individualLicenseDetail.licenseAuthorityLevelType">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
+		            </select>
+		        </td>
+		        <td >
+		        	<select class="form-control" ng-model="leformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseAuthorityLevelType">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
+		            </select>
+		        </td>
+                <td >
+		        	<select class="form-control" ng-model="leformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseAuthorityLevelType">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
+		            </select>
+		        </td>
+                <td >
+		        	<select class="form-control" ng-model="leformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseAuthorityLevelType">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
+		            </select>
+		        </td>
+                <td >
+		        	<select class="form-control" ng-model="leformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseAuthorityLevelType">
+		                     <option value="" selected>Select</option>
+		                     <option ng-repeat="lALT in licenseAuthorityLevelTypes" value="{{lALT.value}}">{{lALT.name}}</option>
+		            </select>
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">License Issuing Authority Name</span>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.individualLicenseDetail.licenseIssuingAuthorityName">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseIssuingAuthorityName">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseIssuingAuthorityName">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseIssuingAuthorityName">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseIssuingAuthorityName">
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">License Issue Date</span>
+		        </td>
+		        <td>
+		        	<span class="col-sm-8 padding0">
+					<input type="text" name="lenderindividualLicenseIssueDate" id="lenderindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.contactInformation.lender.individualLicenseDetail.licenseIssueDate" is-open="isLenderindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isLenderindividualLicenseIssueDate = !isLenderindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
+		        </td>
+		        <td>
+		        	<span class="col-sm-8 padding0">
+					<input type="text" name="mortagageBrokerindividualLicenseIssueDate" id="mortagageBrokerindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseIssueDate" is-open="isMortagageBrokerindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isMortagageBrokerindividualLicenseIssueDate = !isMortagageBrokerindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
+		        </td>
+                <td>
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="realEstateBrokerBindividualLicenseIssueDate" id="realEstateBrokerBindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerBindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerBindividualLicenseIssueDate = !isRealEstateBrokerBindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
+		        </td>
+                <td>
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="mortagageBrokerindividualLicenseIssueDate" id="mortagageBrokerindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerSindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerSindividualLicenseIssueDate = !isRealEstateBrokerSindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
+		        </td>
+                <td>
+		        	<span class="col-sm-10 padding0">
+					<input type="text" name="settlementAgentindividualLicenseIssueDate" id="settlementAgentindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseIssueDate" is-open="isSettlementAgentindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" disabled/>
+					</span>
+	      			<span class="input-group-btn col-sm-2 padding0">
+	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isSettlementAgentindividualLicenseIssueDate = !isSettlementAgentindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
+	        		</span>
+		        </td>		        
+		      </tr>
+			  
+			  <tr>
+		        <td >
+		        	<span class="margin5tb col-sm-10">Issuing Agency URL</span>
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.lender.individualLicenseDetail.identifierOwnerURI">
+		        </td>
+		        <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.mortagageBroker.individualLicenseDetail.identifierOwnerURI">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.identifierOwnerURI">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.identifierOwnerURI">
+		        </td>
+                <td>
+		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.contactInformation.settlementAgent.individualLicenseDetail.identifierOwnerURI">
+		        </td>		        
+		      </tr>			 	      
+			</table> -->
+			<div class="col-sm-12 margin10t">
+				<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('LoanCals')">Back</a></span>
+			</div>			
+</div>			

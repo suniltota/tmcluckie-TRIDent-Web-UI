@@ -34,4 +34,11 @@ app.service('leService', function(apiService){
             formData:xml
         });
     }
+    this.generateXML = function(xml) {
+        return apiService.request({
+            apiMethod: "services/actualize/generateXML",
+            httpMethod: 'POST',
+            formData:xml
+        });
+    }
 });

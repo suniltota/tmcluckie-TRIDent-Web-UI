@@ -1,0 +1,443 @@
+<div class="col-sm-12">
+	<h4>Loan Information</h4>
+	<div class="col-sm-12">
+		<h5 class="innerSectionHeader">Loan Period, Type and Position</h5>
+		<div class="col-sm-12 row">
+			<div class="col-sm-4">
+				<div class="col-sm-5 fieldTitle margin5t">Loan Term:</div>
+				<div class="col-sm-7 padding0">
+					<div class="col-sm-12 padding0 paddingtop6">
+						<div class="col-sm-6 padding0 paddingtop7">No. Years:</div>
+						<div class="col-sm-6 padding0">
+							<input type="text" class="form-control" name="" ng-model="leformdata.loanInformation.loanTermYears">
+						</div>
+					</div>
+					<div class="col-sm-12 padding0 margin5tb paddingtop11">
+						<div class="col-sm-6 padding0 paddingtop5">No. Months:</div>
+						<div class="col-sm-6 padding0">
+							<input type="text" class="form-control" name="" ng-model="leformdata.loanInformation.loanTermMonths">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="FieldGroup">
+					<div class="col-sm-5 fieldTitle">Loan Type: <span class="required">*</span>
+					</div>
+					<div class="col-sm-7 padding0">
+						<select  class="form-control" ng-model="leformdata.termsOfLoan.mortgageType">
+							<option value="" selected>Select</option>
+							<option ng-repeat="loanType in loanTypes" value="{{loanType.value}}">{{loanType.name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="FieldGroup">
+					<div class="col-sm-5 fieldTitle">Other Description:</div>
+					<div class="col-sm-7 padding0 paddingtop5">
+						<input type="text" class="form-control" id="loanTypeOtherDescription" ng-model="leformdata.termsOfLoan.mortgageTypeOtherDescription" ng-disabled="leformdata.termsOfLoan.mortgageType!='Other'">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="col-sm-5 fieldTitle margin4t">Purpose:</div>
+				<div class="col-sm-7 padding0 paddingtop5">
+					<input type="text" class="form-control" style="text-transform:capitalize;" ng-model="leformdata.termsOfLoan.loanPurposeType" ng-disabled="true">
+				</div>
+			</div>
+			<div class="col-sm-4 margin8t">
+					<div class="col-sm-5 fieldTitle margin4t">Lien Position:
+					</div>
+					<div class="col-sm-7 padding0 paddingtop5">
+						<select  class="form-control" ng-model="leformdata.termsOfLoan.lienPriorityType">
+							<option value="" selected>Select</option>
+							<option ng-repeat="lienPriorityType in lienPriorityTypes" value="{{lienPriorityType.value}}">{{lienPriorityType.name}}</option>
+						</select>
+					</div>
+			</div>
+
+		</div>
+		
+		<div class="col-sm-12 row margin5tb">
+			<div class="col-sm-4">
+				<div class="col-sm-5 fieldTitle">Lender Loan Identifier: <span class="required">*</span>
+				</div>
+				<div class="col-sm-7 padding0" ng-repeat="loanIdentifier in leformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
+					<input type="text" class="form-control" name="lenderLoanIdentifier" ng-model="loanIdentifier.loanIdentifier">
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="col-sm-12 padding0">
+					<div class="col-sm-5 padding0 fieldTitle">Rate Locked?</div>
+					<div class="col-sm-7 padding0">
+						<select  class="form-control" ng-model="leformdata.loanInformation.rateLokerIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="constructionChange()">
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-4 margin4t" ng-if="leformdata.loanInformation.rateLokerIndicator == true">
+				<div class="FieldGroup marginnegative9t">
+					<span class="col-sm-10 padding0">
+				<input type="text" name="dateIssued" id="dateIssued" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.loanInformation.rateLokedDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Rate Locked Date" disabled/>
+				</span>
+      			<span class="input-group-btn col-sm-2 padding0">
+        			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
+        		</span>
+				</div>
+			</div>
+			
+		
+		<!-- <div class="col-sm-12 row margin5tb">
+			<div class="col-sm-4" ng-repeat="automatedUnderwriting in leformdata.loanInformation.automatedUnderwritings">
+				<div class="col-sm-12 padding0">
+					<div class="col-sm-5 fieldTitle">AUS Type:</div>
+					<div class="col-sm-7 padding0">
+						<select  class="form-control" ng-model="automatedUnderwriting.automatedUnderwritingSystemType">
+							<option value="" selected>Select</option>
+							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
+					<div class="FieldGroup">
+						<div class="col-sm-5 fieldTitle">AUS Description:</div>
+						<div class="col-sm-7 padding0">
+							<input type="text" class="form-control" id="aUSOtherDescription" ng-model="automatedUnderwriting.automatedUnderwritingSystemTypeOtherDescription">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 padding0">
+					<div class="FieldGroup">
+						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
+						<div class="col-sm-7 padding0">
+							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
+						</div>
+					</div>
+				</div>
+				<span class="glyphicon glyphicon-trash iconTooltip red margin5tb ausTrash" data-toggle="tooltip" title="Close" ng-click="removeAusTypeIdentifier($index)" ng-show="$index==5 || $index==8"/>
+			</div>
+		</div> -->
+	</div>
+	<div class="col-sm-12" style="text-align: left;">
+						<div class="col-sm-7"></div>
+			            <div class="col-sm-1" style="width: 100px;">
+						<select  class="form-control" ng-model="leformdata.loanInformation.rateLokedTime" ng-if="leformdata.loanInformation.rateLokedDate != null">
+							<option value="" selected>Sel</option>
+							<option ng-repeat="time in rateLokedTime" value="{{time}}">{{time}}</option>
+						</select>
+						</div>
+						<div class="col-sm-1" style="width: 100px;">
+						<select  class="form-control" ng-model="leformdata.loanInformation.rateLockedTimePeriod" ng-if="leformdata.loanInformation.rateLokedTime != null">
+							<option value="" selected>Select</option>
+							<option ng-repeat="timePeriod in rateLockedTimePeriod" value="{{timePeriod}}">{{timePeriod}}</option>
+						</select>
+						</div>
+						<div class="col-sm-1" style="width: 100px;">
+						<select  class="form-control" ng-model="leformdata.loanInformation.rateLockedTimeZone" ng-if="leformdata.loanInformation.rateLockedTimePeriod != null">
+							<option value="" selected>Select</option>
+							<option ng-repeat="timeZone in rateLockedTimeZone" value="{{timeZone}}">{{timeZone}}</option>
+						</select>
+						</div>
+			</div>
+	<div class="col-sm-12" ng-show="leformdata.loanInformation.automatedUnderwritings.length<9">
+		<span class="AddSection" ng-click="addAusTypeIdentifier()">
+			<a>+ Add Additional Automated Underwriting System Names and Identifiers</a>
+		</span>
+	</div>
+	<div class="col-sm-12">
+		<h5 class="innerSectionHeader" id="ProductDescriptionInfo">Product Description and Information</h5>
+		<div class="col-sm-6">
+			<div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">Product Description: <span class="required">*</span></div>
+				<div class="col-sm-7">
+					<input type="text" class="form-control" name="" ng-model="leformdata.integratedDisclosureDetail.integratedDisclosureLoanProductDescription">
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="FieldGroup">
+				<div class="col-sm-5 fieldTitle">Amortization Type: <span class="required">*</span></div>
+				<div class="col-sm-7">
+					<select  class="form-control" ng-model="leformdata.loanInformation.amortizationType" ng-change="amortizationChange()">
+						<option value="" selected>Select</option>
+						<option ng-repeat="amortizationType in amortizationTypes" value="{{amortizationType.value}}">{{amortizationType.name}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12" ng-show="leformdata.loanInformation.amortizationType!='Fixed'">
+			<div class="col-sm-12 tableInsideHeader">Adjustment Information</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Provide the number of months for the fixed period:</div>
+					<div class="col-sm-2 padding0">
+						<input type="text" class="form-control" name="fixedPeriodMonths" ng-model="leformdata.interestRateAdjustment.firstRateChangeMonthsCount" only-digits maxlength="3">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-9 fieldTitle">Provide the life of loan Cap Rate:</div>
+					<div class="col-sm-3 padding0">
+						<div class="input-group">
+							<input type="text" class="form-control" name="loanCapRate" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" percentage-format>
+								<span class="input-group-addon input-default">%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Provide the number of months first change period:</div>
+					<div class="col-sm-2 padding0">
+						<input type="text" class="form-control" name="firstChangePeriodMonths" ng-model="leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-9 fieldTitle">Provide the first change interest rate limit:</div>
+					<div class="col-sm-3 padding0">
+						<div class="input-group">
+							<input type="text" class="form-control" name="firstChangeInterestRateLimit" ng-model="leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent" percentage-format>
+							<span class="input-group-addon input-default">%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Provide the number of months subsequent change period:</div>
+					<div class="col-sm-2 padding0">
+						<input type="text" class="form-control" name="subsequentChangePeriodMonths" ng-model="leformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-9 fieldTitle">Provide the subsequent change interest rate limit:</div>
+					<div class="col-sm-3 padding0">
+						<div class="input-group">
+							<input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent" percentage-format>
+							<span class="input-group-addon input-default">%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6" ng-show="leformdata.loanInformation.amortizationType == 'Step'">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">If Amortization Type is Step, Provide the Total Step Count:</div>
+					<div class="col-sm-2 padding0">
+						<input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="leformdata.interestRateAdjustment.totalStepCount">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="col-sm-12 tableInsideHeader">Construction Information</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Is this transaction a construction loan?: <span class="required">*</span></div>
+					<div class="col-sm-2 padding0">
+						<select  class="form-control" ng-model="leformdata.loanDetail.constructionLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="constructionChange()">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-7 fieldTitle">What type of Construction Loan?:</div>
+					<div class="col-sm-5 padding0">
+						<select  class="form-control" ng-model="leformdata.construction.constructionLoanType" ng-disabled="leformdata.loanDetail.constructionLoanIndicator == false">
+							<option value="" selected>Select</option>
+							<option ng-repeat="constructionLoanType in constructionLoanTypes" value="{{constructionLoanType.value}}">{{constructionLoanType.name}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<span ng-show="leformdata.loanDetail.constructionLoanIndicator == true && leformdata.construction.constructionLoanType != ''">
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+						<div class="col-sm-10 fieldTitle">What is the construction period in months?:</div>
+						<div class="col-sm-2 padding0">
+							<input type="text" class="form-control" name="" ng-model="leformdata.construction.constructionPeriodNumberOfMonthsCount">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+						<div class="col-sm-10 fieldTitle">What is the total number of months for this construction transaction (Includes both construction period and permanent financed period):</div>
+						<div class="col-sm-2 padding0">
+							<input type="text" class="form-control" name="" ng-model="leformdata.construction.constructionLoanTotalTermMonthsCount">
+						</div>
+					</div>
+				</div>
+			</span>
+		</div>
+		<div class="col-sm-12" ng-show="loanBasicInfo.loanFormType =='standard'">
+			<div class="col-sm-12 tableInsideHeader">Home Equity Loan Information</div>  
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Is the Loan a Home Equity Loan?: <span class="required">*</span>
+					</div>
+					<div class="col-sm-2 padding0">
+						<select  class="form-control" ng-model="leformdata.integratedDisclosureDetail.integratedDisclosureHomeEquityLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="col-sm-12 tableInsideHeader">Interest Only Information</div>    
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Does this loan have an interest only feature?: <span class="required">*</span>
+					</div>
+					<div class="col-sm-2 padding0">
+						<select  class="form-control" ng-model="leformdata.loanDetail.interestOnlyIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">If Yes, what is the interest only period?:</div>
+					<div class="col-sm-2 padding0">
+						<input type="text" class="form-control" ng-model="leformdata.interestOnly.interestOnlyTermMonthsCount" ng-disabled="leformdata.loanDetail.interestOnlyIndicator == false">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="col-sm-12 tableInsideHeader">Negative Amortization</div>    
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Does this loan have a Negative Amortization Feature?:</div>
+					<div class="col-sm-2 padding0">
+						<select  class="form-control" ng-model="leformdata.loanDetail.negativeAmortizationIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-7 fieldTitle">Indicate if neg am is scheduled or potential:</div>
+					<div class="col-sm-5 padding0">
+						<select  class="form-control" ng-model="leformdata.negativeAmortization.negativeAmortizationType" ng-disabled="leformdata.loanDetail.negativeAmortizationIndicator == false">
+							<option value="" selected>Select</option>
+							<option ng-repeat="negativeAmortizationType in negativeAmortizationTypes" value="{{negativeAmortizationType.value}}">{{negativeAmortizationType.name}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<span ng-show="leformdata.loanDetail.negativeAmortizationIndicator == true && leformdata.negativeAmortization.negativeAmortizationType != ''">
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+						<div class="col-sm-8 fieldTitle">What is the Maximum Negative Amortization Loan Balance?:</div>
+						<div class="col-sm-4 padding0">
+							<div class="input-group">
+								<span class="input-group-addon input-default">$</span>
+								<input type="text" class="form-control" name="" ng-model="leformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount" decimal-digits-with-number-format>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+						<div class="col-sm-10 fieldTitle">What is the negative amortization limit in months count?:</div>
+						<div class="col-sm-2 padding0">
+							<input type="text" class="form-control" name="" ng-model="leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount" only-digits maxlength="3">
+						</div>
+					</div>
+				</div>
+			</span>
+		</div>
+		<div class="col-sm-12">
+			<div class="col-sm-12 tableInsideHeader">Other Loan Product Features</div> 
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Does the loan have a seasonal payment feature?: <span class="required">*</span>
+					</div>
+					<div class="col-sm-2 padding0">
+						<select  class="form-control" ng-model="leformdata.loanDetail.seasonalPaymentFeatureIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-6 fieldTitle">If yes, provide the start and end months:</div>
+					<div class="col-sm-2 padding0">
+						<select  class="form-control" ng-disabled="leformdata.loanDetail.seasonalPaymentFeatureIndicator == false" ng-model="leformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth">
+							<option value="" selected>Select</option>
+							<option ng-repeat="calendarMonth in calendarMonths" value="{{calendarMonth}}">{{calendarMonth}}</option>
+						</select>
+					</div>
+					<div class="col-sm-2 fieldTitle" style="text-align: center;">to</div>
+					<div class="col-sm-2 padding0">
+						<select  class="form-control" ng-disabled="leformdata.loanDetail.seasonalPaymentFeatureIndicator == false" ng-model="leformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth">
+							<option value="" selected>Select</option>
+							<option ng-repeat="calendarMonth in calendarMonths" value="{{calendarMonth}}">{{calendarMonth}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Does the loan have a Step payment feature?: <span class="required">*</span>
+					</div>
+					<div class="col-sm-2 padding0">
+						<select  class="form-control" ng-model="stepPaymentIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Step feature will be in affect:</div>
+					<div class="col-sm-2 padding0">
+						<input type="text" class="form-control" name="" ng-model="leformdata.payment.paymentRule.totalStepPaymentCount" only-digits maxlength="3" ng-disabled="!stepPaymentIndicator">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Does the loan have an optional payment feature?: <span class="required">*</span>
+					</div>
+					<div class="col-sm-2 padding0">
+						<select  class="form-control" ng-model="leformdata.payment.paymentRule.paymentOptionIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Optional payment will be in affect:</div>
+					<div class="col-sm-2 padding0">
+						<input type="text" class="form-control" name="" ng-model="leformdata.payment.paymentRule.totalOptionalPaymentCount" ng-disabled="!leformdata.payment.paymentRule.paymentOptionIndicator" only-digits maxlength="3">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 margin10t">
+		<span class="pull-left">
+			<a class="btn btn-default" ng-click="changeTab('transInfo')">Back</a>
+		</span>
+		<span class="pull-right">
+			<a class="btn btn-primary" ng-click="changeTab('loanterms')">Next</a>
+		</span>
+	</div>
+</div>

@@ -1,0 +1,295 @@
+<div class="col-sm-12">
+	<h4> Loan Costs</h4>
+	<span  class="col-sm-12 padding0">
+		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
+			  <tr>	  	
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2"> A. Origination Charge
+				<span class="pull-right glyphicon glyphicon-question-sign helpIcon" data-toggle="tooltip" data-placement="right" title="Help Information"></span>
+				</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{leformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}</th>
+			  </tr>
+		     <tr>
+		        <th class="innerSectionHeader FeeInfo">Fee Label</th>
+		        <th class="innerSectionHeader FeePaid">Fee Type</th>
+		        <th class="innerSectionHeader BPatClosing">Amount</th>
+		        <th class="innerSectionHeader incInApr">Included in APR?</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
+		      </tr>
+		      <tr ng-repeat="originationCharge in leformdata.closingCostDetailsLoanCosts.originationCharges">		      	
+		        <td ng-show="originationCharge.feeType == 'LoanDiscountPoints'">
+		        	 <span class="input-group">
+		        	 <input type="text" class="form-control" ng-model="originationCharge.feeTotalPercent" percentage-format>
+		        	 <span class="input-group-addon input-default">% of Loan Amount (Points)</span> 
+		        	</span>
+		        </td>
+		        <td ng-show="originationCharge.feeType != 'LoanDiscountPoints'">
+		        	<span class="col-sm-12 padding0">
+		        		<input type="text" class="form-control" ng-if="!originationChargeDisplayLabelStatus" ng-model="originationChargeDisplayLabelValue" >
+		        	</span>
+		        </td> 
+		        <td>
+		        	<span class="col-sm-12 padding0">
+		        		<select class="form-control padding0" ng-model="originationCharge.feePaidToType">
+		        		    <option value="" selected>Select</option>
+             			    <option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
+		        	    </select>
+		        	</span>
+		        	<span ng-hide="originationCharge.feePaidToType!='Other'" class="col-sm-12 padding0">
+			        	<span class="col-sm-12 margin5tb padding0">Description</span>
+			        	<span class="col-sm-12 padding0">
+			        		<input type="text" class="form-control padding0" name="originationCharge.feePaidToTypeOtherDescription">
+			        	</span>
+		        	</span>
+		        </td>
+		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpAtClosing" decimal-digits-with-number-format>
+		        </div>
+		        </td>
+		        <td>
+		        	<select class="form-control padding0" ng-model="originationCharge.paymentIncludedInAPRIndicator"
+		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	</select>
+		        </td>
+		        <td>
+		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-show="$index != 0" ng-disabled="$index == 0" ng-click="deleteOC($index)"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear"  ng-click="clearOC($index)"></span>
+		      	</td>
+		      </tr>
+		</table>
+		<span class="AddSection" ng-click="addOrganizationCharges()">
+			<a>+ Add Additional lines</a>
+		</span>
+		<span class="LeBackToTop" ng-click="backToTop()">
+			<a>Back to Top</a>
+		</span>
+	</span>
+
+	<span  class="col-sm-12 padding0">
+		<table class="table LoanCostsSection table-bordered margin5tb" style="border:0px;">
+			  <tr>	  	
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">B. Services Borrower Cannot Shop For</th>
+				
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount | number:2}}</th>
+			  </tr>
+		      <tr>
+		        <th class="innerSectionHeader FeeInfo">Fee Label</th>
+		        <th class="innerSectionHeader FeePaid">Fee Type</th>
+		        <th class="innerSectionHeader BPatClosing">Amount</th>
+		        <th class="innerSectionHeader incInApr">Included in APR?</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
+		      </tr>
+		      <tr ng-repeat="sbDidNotShopFor in leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors">
+		        <td>
+		        	<span class="col-sm-12 padding0">
+		        		<input type="text" class="form-control" ng-if="!originationChargeDisplayLabelStatus" ng-model="originationChargeDisplayLabelValue" >
+		        	</span>
+		        </td>
+		        <td>
+		        	<span class="col-sm-12 padding0">
+		        		<select class="form-control padding0" ng-model="sbDidNotShopFor.feePaidToType">
+		        		    <option value="" selected>Select</option>
+             			    <option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
+		        	</select>
+		        	</span>
+		        	<span ng-show="sbDidNotShopFor.feePaidToType=='Other'">
+			        	<span class="col-sm-12 margin5tb padding0">Description</span>
+			        	<span class="col-sm-12 padding0">
+			        		<input type="text" class="form-control padding0" name="sbDidNotShopFor.feePaidToTypeOtherDescription">
+			        	</span>
+		        	</span>
+		        </td>
+		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.bpAtClosing" decimal-digits-with-number-format>
+		        </div>
+		        </td>
+		        <td>
+		        	<select class="form-control padding0" ng-model="sbDidNotShopFor.paymentIncludedInAPRIndicator"
+		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	</select>
+		        </td>
+		        <td>
+		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-show="$index != 0" ng-click="deleteSDidNot($index)"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearSDidNot($index)"></span>
+		      	</td>
+		      </tr>
+		</table>
+		<span class="AddSection" ng-click="addsbDidNotShopFor()">
+			<a>+ Add Additional lines</a>
+		</span>
+		<span class="LeBackToTop" ng-click="backToTop()">
+			<a>Back to Top</a>
+		</span>
+	</span>
+
+	<span  class="col-sm-12 padding0">
+		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
+			  <tr>	  	
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">C. Services Borrower Can Shop For</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | number:2}}</th>
+			  </tr>
+		      <tr>
+		        <!-- <th class="innerSectionHeader FeeInfo">Fee Information</th>
+		        <th class="innerSectionHeader FeePaid">Fee Paid To Info</th>
+		        <th class="innerSectionHeader BPatClosing">Borrower Paid AT Closing</th>
+		        <th class="innerSectionHeader BPbeforeClosing">Borrower Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader SPatClosing" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">Seller Paid AT Closing</th>
+		        <th class="innerSectionHeader SPbeforeClosing" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">Seller Paid BEFORE Closing</th>
+		        <th class="innerSectionHeader PaidByOther">Paid By OTHER</th>
+		        <th class="innerSectionHeader PaidByLender">Paid By Lender</th>
+		        <th class="innerSectionHeader incInApr">Included in APR?</th>
+		        <th class="innerSectionHeader incRegZ">Included in Reg Z?</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th> -->
+		        <th class="innerSectionHeader FeeInfo">Fee Label</th>
+		        <th class="innerSectionHeader FeePaid">Fee Type</th>
+		        <th class="innerSectionHeader BPatClosing">Amount</th>
+		        <th class="innerSectionHeader incInApr">Included in APR?</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
+		      </tr>
+		      <tr ng-repeat="sbDidShopFor in leformdata.closingCostDetailsLoanCosts.sbDidShopFors">
+		     <!--  <td>
+		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
+		        	<span class="col-sm-12 padding0">
+		        		<input type="text" class="form-control"> 
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
+		        	<span class="col-sm-12 padding0">
+		        		<select class="form-control padding0" ng-model="sbDidShopFor.feeType" ng-change="updateSectionCfeeTypes(sbDidShopFor.feeType, $index)">
+              			<option value="" selected>Select</option>
+             			<option ng-repeat="feeType in sectionCfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
+              		</select> 
+		        	</span>
+		        	<span ng-show="sbDidShopFor.feeType=='Other'">
+			        	<span class="col-sm-12 margin5tb padding0">Description</span>
+			        	<span class="col-sm-12 padding0">
+			        		<input type="text" class="form-control padding0" name="" name="sbDidShopFor.feeTypeOtherDescription" name="sbDidShopFor."> 
+			        	</span>
+		        	</span>
+		        </td>
+		        <td>
+		        	<span class="col-sm-12 padding0 margin5tb">Type</span>
+		        	<span class="col-sm-12 padding0">
+		        		<select class="form-control padding0" ng-model="sbDidShopFor.feePaidToType">
+		        		<option value="" selected>Select</option>
+             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
+		        	</select>
+		        	</span>
+		        	<span ng-show="sbDidShopFor.feePaidToType=='Other'">
+			        	<span class="col-sm-12 margin5tb padding0">Description</span>
+			        	<span class="col-sm-12 padding0">
+			        		<input type="text" class="form-control padding0" name="sbDidShopFor.feePaidToTypeOtherDescription">
+			        	</span>
+		        	</span>
+		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
+		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feePaidToFullName">
+		        </td>
+ -->
+		        <td>
+		        	<span class="col-sm-12 padding0">
+		        		<input type="text" class="form-control" ng-if="!originationChargeDisplayLabelStatus" ng-model="originationChargeDisplayLabelValue" >
+		        	</span>
+		        </td>
+		        <td>
+		        	<span class="col-sm-12 padding0">
+		        		<select class="form-control padding0" ng-model="sbDidShopFor.feePaidToType">
+		        		    <option value="" selected>Select</option>
+             			    <option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
+		        	</select>
+		        	</span>
+		        	<span ng-show="sbDidNotShopFor.feePaidToType=='Other'">
+			        	<span class="col-sm-12 margin5tb padding0">Description</span>
+			        	<span class="col-sm-12 padding0">
+			        		<input type="text" class="form-control padding0" name="sbDidShopFor.feePaidToTypeOtherDescription">
+			        	</span>
+		        	</span>
+		        </td>
+		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpAtClosing" decimal-digits-with-number-format>
+		        </div>
+		        </td>
+		        <!-- <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpB4Closing" decimal-digits-with-number-format>
+		        </div>
+		        </td>
+		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spAtClosing" decimal-digits-with-number-format>
+		        </div>
+		        </td>
+		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
+		        <div class="input-group" >
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spB4Closing" decimal-digits-with-number-format>
+		        </div>
+		        </td>
+		        <td>
+		        <div class="input-group">
+					<span class="input-group-addon input-default">$</span>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.paidByOthers" decimal-digits-with-number-format>
+		        </div>
+		        </td>
+		        <td class="text-center">
+		        	<input type="checkbox" name="" ng-model="sbDidShopFor.lenderStatus">
+		        </td> -->
+		        <td>
+		        	<select class="form-control padding0" ng-model="sbDidShopFor.paymentIncludedInAPRIndicator"
+		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	</select>
+		        </td>
+		        <!-- <td>
+		        	<select class="form-control padding0" ng-model="sbDidShopFor.regulationZPointsAndFeesIndicator"
+		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	</select>
+		        </td> -->
+		        <td>
+		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-show="$index != 0" ng-click="deleteSDid($index)"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearSDid($index)"></span>
+		      	</td>
+		      </tr>
+		</table>
+		<span class="AddSection" ng-click="addsbDidShopFor()">
+			<a>+ Add Additional lines</a>
+		</span>
+		<span class="LeBackToTop" ng-click="backToTop()">
+			<a>Back to Top</a>
+		</span>
+	</span>
+
+	<span  class="col-sm-12 padding0">
+		<table class="table LoanCostsSection table-bordered margin5tb" style="border:0px;">
+			  <tr>	  	
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">D. Total Loan Costs (A + B + C)</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | number:2}}</th>
+			  </tr>
+		     <!--  <tr>
+		        <td>
+		        	Loan Costs Subtotal (A+B+C)
+		        </td>
+		        <td class="text-center BPatClosing">
+		        	${{leformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing | number:2}}
+		        </td>
+		        <td class="text-center BPbeforeClosing">
+		        	${{leformdata.closingCostDetailsLoanCosts.tlCosts.bpB4Closing | number:2}}
+		        </td>
+		      </tr> -->
+		</table>
+	</span>
+	<div class="col-sm-12 margin10t">
+			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('CostsAtClosing')">Back</a></span>
+			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('OtherCosts')">Next</a></span>
+	</div>
+</div>
+ <script type="text/javascript">
+  $(document).ready(function(){
+	    $(".iconTooltip").tooltip();   
+	    $(".helpIcon").tooltip();  
+	});
+  </script>

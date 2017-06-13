@@ -1,0 +1,161 @@
+<div class="col-sm-12">
+	<h4>LE Projected Payments</h4>
+	<span class="col-sm-12 LoanTermsTable">
+		<div class="margin5tb pull-right" ng-show="leformdata.projectedPayments.paymentCalculation.length<=3">
+			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns</a>
+		</div>
+		<table class="table" style="margin-top:15px;">
+		      <tr>
+		        <th class="col-sm-3 innerSectionHeader">Payment Calculations</th>
+		        <th class="col-sm-2 innerSectionHeader"
+		        	ng-repeat="paymentCalculation in leformdata.projectedPayments.paymentCalculation track by $index">
+		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years</span>
+		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Year</span>
+		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodStartNumber" style="text-align: center"></span>
+		        	<span class="pull-left" style="margin:5px;">-</span>
+		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodEndNumber" style="text-align: center"></span>
+		        	<span class="glyphicon glyphicon-trash iconTooltip red margin5tb pull-right padding0 text-center" title="Delete" ng-show="$index != 0" ng-click="deleteProjectedPayments($index)"></span>
+		        </th>
+		      </tr>
+		      <tr>
+		        <td><label>Principal &amp; Interest Payment</label></td>
+		        <td ng-repeat="principalInterest in leformdata.projectedPayments.principalInterest track by $index">
+		        	<div class="col-sm-6" style="padding: 0 8px;">
+		        			<div class="col-sm-12 text-center" style="position:relative;">Minimum	<span class="pull-right" style="right:-10px; position:absolute; top:-2px;">-</span>
+							</div>
+		        			<div class="input-group">
+  								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
+		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" decimal-digits-with-number-format>
+		        			</div>
+		        	</div>
+		        	<div class="col-sm-6" style="padding: 0 8px;">
+		        			<div class="col-sm-12 text-center">Maximum<span class="required" ng-show="$index==0">*</span></div>
+		        			<div class="input-group">
+  								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
+		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" decimal-digits-with-number-format>
+		        			</div>
+		        	</div>
+		        	<div class="col-sm-12 text-center" style="padding:10px;" ng-show="principalInterest.interestOnlyStatus">Only Interest</div>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td><label>Mortgage Insurance</label> 
+			        <div class="col-sm-12 padding0 margin5tb">
+			        	<span class="col-sm-6 padding0">Is Required?<span class="required">*</span></span> 
+			        	<span class="col-sm-4 pull-left">
+			        		<select class="form-control" style="width: 80px;" 
+			        		ng-model="leformdata.loanDetail.miRequiredIndicator"
+		              		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+			        		</select>
+			        	</span> 
+			        </div>
+			        <div ng-show="leformdata.loanDetail.miRequiredIndicator">
+				        <!-- <div class="col-sm-12 padding0 margin5tb">
+				        	<span class="col-sm-6 padding0">No. Months Duration?</span> 
+				        	<span class="col-sm-4 pull-left">
+				        		<input type="text" class="form-control" name="" ng-model="leformdata.projectedPayments.miMonthsDuration">
+				        	</span> 
+				        </div> -->
+				        <div class="col-sm-12 padding0 margin5tb">
+				        	<span class="col-sm-6 padding0">Scheduled Termination Date</span> 
+				        	<span class="col-sm-4 pull-left">
+				        			<span class="col-sm-10 padding0">
+				        				<input type="text" name="ScheduledTermDate" id="ScheduledTermDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.projectedPayments.miSTDate" is-open="isScheduledTermDate" datepicker-options="dateOptions" ng-required="true" min-date="leformdata.projectedPayments.miSTDate" close-text="Close" placeholder="Scheduled Termination Date" disabled/>
+				        			</span>
+				        			<span class="input-group-btn col-sm-2 padding0">
+		      								<button type="button" class="btn btn-default calenderBtn" ng-click="isScheduledTermDate = !isScheduledTermDate"><i class="glyphicon glyphicon-calendar"></i></button>
+		      						</span>
+								</span>  
+        						</span>
+				        	 
+				        </div>
+				        <div class="col-sm-12 padding0 margin5tb">
+				        	<span class="col-sm-6 padding0">MI Monthly Amount ($)</span> 
+				        	<span class="col-sm-4 pull-left">
+				        	 <input type="text" class="form-control" name="" style="width: 80px;"  ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
+							 </span>
+					    </div>
+					    <div class="col-sm-12 padding0 margin5tb">
+				        	<span class="col-sm-6 padding0">MI 1st Factor Percentage</span> 
+				        	<span class="col-sm-4 pull-left">
+							<input type="text" class="form-control" name="" style="width: 80px;"  ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
+							 </span>
+					    </div>
+					    <div class="col-sm-12 padding0 margin5tb">
+				        	<span class="col-sm-6 padding0">MI 2nd Factor Percentage</span> 
+				        	<span class="col-sm-4 pull-left">
+							<input type="text" class="form-control" name="" style="width: 80px;"  ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
+							 </span>
+					    </div>
+				        <!-- <div class="col-sm-12 padding0 margin5tb">
+				        	<span class="col-sm-6 padding0">MI Company Name</span> 
+				        	<span class="col-sm-4 pull-left">
+				        		<select class="form-control"
+				        		ng-model="leformdata.miDataDetail.miCompanyNameType">
+					        		<option value="" selected>Select</option>
+				              		<option ng-repeat="miCompanyNameType in miCompanyNameTypes" value="{{miCompanyNameType.value}}">{{miCompanyNameType.name}}</option>
+				        		</select>
+				        	</span> 
+				        </div> -->
+				        <!-- <div class="col-sm-12 padding0 margin5tb" ng-show="leformdata.miDataDetail.miCompanyNameType=='Other'">
+				        	<span class="col-sm-6 padding0">MI Company Name Description</span> 
+				        	<span class="col-sm-4 pull-right">
+				        		<input type="text" class="form-control" name="" ng-model="leformdata.miDataDetail.miCompanyNameTypeOtherDescription">
+				        	</span> 
+				        </div> -->
+			        </div>
+		        </td>
+		        <td ng-repeat="mortgageInsurance in leformdata.projectedPayments.mortgageInsurance track by $index">
+					<div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+						<input type="text" class="form-control" name="" ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
+					</div>
+					<div class="input-group margin5t" ng-show="leformdata.loanDetail.miRequiredIndicator" >
+						<span class="input-group-addon input-default">$</span>
+						<input type="text" class="form-control" name="" ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
+					</div>
+					<!-- <div class="input-group" ng-show="leformdata.loanDetail.miRequiredIndicator" ng-repeat="mortgageInsurance in leformdata.projectedPayments.mortgageInsurance track by $index">
+						<span class="input-group-addon input-default">$</span>
+						<input type="text" class="form-control" name="" ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
+					</div> -->
+  				</td>
+		      </tr>
+		      <tr>
+		        <td><label>Escrow Payment Amount</label> 
+		        </td>
+		        <td ng-repeat="estimatedEscrow in leformdata.projectedPayments.estimatedEscrow track by $index">
+		        	<div class="input-group">
+	  					<span class="input-group-addon input-default">$</span>
+			        	<input class="form-control" ng-model="estimatedEscrow.projectedPaymentEstimatedEscrowPaymentAmount" decimal-digits-with-number-format>
+			        </div>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		        	<label>Estimated Total Monthly Payment Amount</label> 
+		        </td>
+		        <td ng-repeat="estimatedTotal in leformdata.projectedPayments.estimatedTotal track by $index">
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Minimum</div>
+		        			<div class="text-center" ng-show="estimatedTotal.projectedPaymentEstimatedTotalMinimumPaymentAmount!=''">
+  							${{estimatedTotal.projectedPaymentEstimatedTotalMinimumPaymentAmount | number:2}}
+		        			</div>
+		        			<div class="text-center" ng-show="estimatedTotal.projectedPaymentEstimatedTotalMinimumPaymentAmount==''">
+  								--
+		        			</div>
+		        	</div>
+		        	<div class="col-sm-6">
+		        			<div class="col-sm-12 text-center">Maximum<span class="required" ng-show="$index==0">*</span></div>
+		        			<div class="text-center">
+							${{estimatedTotal.projectedPaymentEstimatedTotalMaximumPaymentAmount | number:2}}
+		        			</div>
+		        	</div>	
+		        </td>
+		      </tr>
+		</table>
+	</span>
+	<div class="col-sm-12 margin10t">
+			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('loanterms')">Back</a></span>
+			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('ETIAssessments')">Next</a></span>
+	</div>
+</div>
