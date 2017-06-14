@@ -188,6 +188,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount%12;
+		    $scope.loanBasicInfo.loanPurposeType = $scope.cdformdata.termsOfLoan.loanPurposeType;
+		    
+		    if($scope.loanBasicInfo.loanPurposeType == 'purchase'){
+	    		$scope.LoanType = 'Purchase'
+		    }
+		    else if($scope.loanBasicInfo.loanPurposeType == 'refinance'){
+		    	$scope.LoanType = 'Refinance'
+		    }
+		    
+            if($scope.cdformdata.documentClassification.documentTypeOtherDescription=='ClosingDisclosure:ModelForm'){
+            	$scope.loanBasicInfo.loanFormType = 'standard';
+            	$scope.FormType = 'Standard'
+            }else if($scope.cdformdata.documentClassification.documentTypeOtherDescription=='ClosingDisclosure:AlternateForm'){
+            	$scope.loanBasicInfo.loanFormType = 'alternate';
+            	$scope.FormType = 'Alternate'
+            }
 		}
 
 		if($scope.cdformdata.loanInformation.loanIdentifiers && $scope.cdformdata.loanInformation.loanIdentifiers.length>0){
