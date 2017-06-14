@@ -2765,9 +2765,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
                     }
 	            }
 
-            if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='HomeownersInsurance' || $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='CountyPropertyTax'){
-
-            }
+            $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription =
+	            angular.forEach(escrowArray, function(value) { 
+	            	return value;
+	            }).join(",").replace(/([A-Z]+)/g, " $1");
 
          }
 
