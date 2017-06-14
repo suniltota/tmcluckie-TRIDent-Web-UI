@@ -77,12 +77,8 @@
                       </li> -->
                     </ul>
               </li>
-              <li ng-show="loanBasicInfo.loanFormType=='alternate'">Payoffs And Payments
-                    <ul>
-                      <li>
-                         <span href="" class="pagenumber" ng-class="{'active': showTab == 'PayoffsAndPayments'}" ng-click="changeTab('PayoffsAndPayments')" >Payoffs And Payments </span> 
-                      </li>
-                    </ul>
+              <li>
+                   <span href="" class="pagenumber" ng-class="{'active': showTab == 'PayoffsAndPayments'}" ng-click="changeTab('PayoffsAndPayments')" ng-show="loanBasicInfo.loanFormType=='alternate'">Payoffs And Payments </span> 
               </li>
               <li>Disclosures
                     <ul>
