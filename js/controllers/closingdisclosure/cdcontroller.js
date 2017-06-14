@@ -1209,8 +1209,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent = '';
     		$scope.cdformdata.interestRateAdjustment.floorRatePercent = '';
     	} else {
-    		$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = true;
-    		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = true;
+    		if($scope.cdformdata.loanInformation.amortizationType == '') {
+	    		$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = false;
+	    		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = false;
+    	    }else{
+    	    	$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = true;
+    		    $scope.cdformdata.loanDetail.paymentIncreaseIndicator = true;
+    	    }
     	}
     }
 
