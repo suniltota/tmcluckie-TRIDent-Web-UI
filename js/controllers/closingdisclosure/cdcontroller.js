@@ -1451,6 +1451,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.sotNchange = function(index){
     	$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[index].itemType = '';
     	$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[index].otherDescription = '';
+    	$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[index].pocIndicator = '';
     }
 
     $scope.sotNLAchange = function(index){
@@ -3516,13 +3517,26 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.summariesOfTransaction_NSection.liabilitesAndAdjustments.length; i++) {
 			if($scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].amount)
 				$scope.summariesOfTransaction_NSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].amount);
-			if($scope.summariesOfTransaction_NSection.liabilitesAndAdjustments.dueFromSellerItemType == 'Liability') {
-				if($scope.summariesOfTransaction_NSection.liabilites[i].payoffAmount && $scope.summariesOfTransaction_NSection.liabilites[i].liabilityType) {
-					$scope.cdformdata.liabilityList.push($scope.summariesOfTransaction_NSection.liabilites[i]);
+			if($scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].dueFromSellerItemType == 'Liability') {
+				if($scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].amount && $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].itemType) {
+					var liability_N = angular.copy(liability);
+					liability_N.displayLabel = $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].displayLabel;
+					liability_N.liabilityType = $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].itemType;
+					liability_N.liabilityTypeOtherDescription = $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].otherDescription;
+					liability_N.integratedDisclosureSectionType = "DueFromSellerAtClosing";
+					liability_N.payoffAmount = $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].amount;
+					$scope.cdformdata.liabilityList.push(liability_N);
 				}
-			} else if($scope.summariesOfTransaction_NSection.liabilitesAndAdjustments.dueFromSellerItemType == 'Adjustment') {
-				if($scope.summariesOfTransaction_NSection.adjustments[i].closingAdjustmentItemAmount && $scope.summariesOfTransaction_NSection.adjustments[i].closingAdjustmentItemType) {
-					$scope.cdformdata.closingAdjustmentItemList.push($scope.summariesOfTransaction_NSection.adjustments[i]);
+			} else if($scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].dueFromSellerItemType == 'Adjustment') {
+				if($scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].amount && $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].itemType) {
+					var adjustment_N = angular.copy(adjustment);
+					adjustment_N.displayLabel = $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].displayLabel;
+					adjustment_N.closingAdjustmentItemType = $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].itemType;
+					adjustment_N.closingAdjustmentItemTypeOtherDescription = $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].otherDescription;
+					adjustment_N.integratedDisclosureSectionType = "DueFromSellerAtClosing";
+					adjustment_N.closingAdjustmentItemPaidOutsideOfClosingIndicator = $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].pocIndicator;
+					adjustment_N.closingAdjustmentItemAmount = $scope.summariesOfTransaction_NSection.liabilitesAndAdjustments[i].amount;
+					$scope.cdformdata.closingAdjustmentItemList.push(adjustment_N);
 				}
 			}
 		}

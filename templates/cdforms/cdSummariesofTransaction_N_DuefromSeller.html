@@ -98,7 +98,7 @@
 		        	<input type="text" class="form-control padding0" ng-disabled="dueFromSellerAdjustmentsAndLiability.itemType!='Other'" name="" ng-model="dueFromSellerAdjustmentsAndLiability.otherDescription">  
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="dueFromSellerAdjustmentsAndLiability.pocIndicator">  
+		        	<input type="checkbox" name="" ng-model="dueFromSellerAdjustmentsAndLiability.pocIndicator" ng-disabled="dueFromSellerAdjustmentsAndLiability.dueFromSellerItemType == 'Liability'">
 		        </td>
 		        <td>
 		        <div class="input-group">
