@@ -196,7 +196,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		    else if($scope.loanBasicInfo.loanPurposeType == 'refinance'){
 		    	$scope.LoanType = 'Refinance'
 		    }
-		    
+
             if($scope.cdformdata.documentClassification.documentTypeOtherDescription=='ClosingDisclosure:ModelForm'){
             	$scope.loanBasicInfo.loanFormType = 'standard';
             	$scope.FormType = 'Standard'
@@ -2749,10 +2749,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		 spB4Closing.iEPatClosingTotalspB4Closing = 0;
 		 paidByOthers.iEPatClosingTotalpaidByOthers = 0;
          var escrowArray = [];
-         var resultArray = [];
          var escrowValue = '';
          var etiaTotalAmount = 0;
          var nonEscrowAmount = 0;
+         var escrowMonthlyAmount = 0;
          for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length; i++) {
          	bpAtClosing.iEPatClosingTotalbpAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing) : +0;
          	bpB4Closing.iEPatClosingTotalbpB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing) : +0;
@@ -2760,6 +2760,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
           	spB4Closing.iEPatClosingTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing) : +0;
           	paidByOthers.iEPatClosingTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers) : +0;
             
+            //Projected Payments Escrow Monthly Payment Amount
+            if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount){
+               escrowMonthlyAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount) : +0;
+               $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount = escrowMonthlyAmount ? parseFloat(escrowMonthlyAmount) : +0;
+            }
+
+           
             //Escrow Account
 	        if(bpAtClosing.iEPatClosingTotalbpAtClosing && bpAtClosing.iEPatClosingTotalbpAtClosing!=undefined 
 	        	&& bpAtClosing.iEPatClosingTotalbpAtClosing!="0.00" && bpAtClosing.iEPatClosingTotalbpAtClosing!="0"){
@@ -3771,16 +3778,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	    $scope.cdformdata.projectedPayments.estimatedTotal[i].projectedPaymentEstimatedTotalMaximumPaymentAmount = estimatedTotalMaximumPayment;
     	}
 
-        //Escrow Account Table Values
-
-        /*//Escrow Account
-        if($scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount && $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount!=undefined && $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount!="0.00" && $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount!="0"){
-        	$scope.cdformdata.loanDetail.escrowIndicator =true;
-        }else{
-        	$scope.cdformdata.loanDetail.escrowIndicator =false;
-        }*/
-
-       
     }, true);
 
     $scope.$watch('cdformdata.micIdentifier',function(newValue,oldValue){
