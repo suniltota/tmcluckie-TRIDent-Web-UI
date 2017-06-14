@@ -524,3 +524,12 @@ app.filter('ceil', function() {
         return input;
     };
 });
+
+app.filter('num', function() {
+    return function(input) {
+      if(input)
+        return parseInt(input, 10);
+      else
+        return input;
+    };
+});

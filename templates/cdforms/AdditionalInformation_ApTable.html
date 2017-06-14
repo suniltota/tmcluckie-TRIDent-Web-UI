@@ -116,7 +116,7 @@
 		        	<span class="col-sm-12" ng-show="cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">
 		        	    <span class="pull-left margin5tb">Every</span>
 		        		<span class="pull-left col-sm-2">
-		        			<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" ng-disabled="true">
+		        			<input type="text" class="form-control" name="" value="{{cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount/12 | round}}" ng-disabled="true">
 		        		</span>
 		        		<span class="pull-left margin5tb">Years</span>
 		        	</span>
@@ -131,7 +131,7 @@
 		        <td>
 		            <ul class="loanTermsList">
 		        	<li>
-	        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount" ng-disabled="true"></span>
+	        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount" ng-disabled="true"></span>
 	        			<span class="pull-left margin5tb"> at the</span>
 	        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount" ng-disabled="true"></span>
 	        			<span class="pull-left margin5tb">payment</span>

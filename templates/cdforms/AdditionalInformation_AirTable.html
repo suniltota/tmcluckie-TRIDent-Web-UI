@@ -20,12 +20,12 @@
 								<input type="text" class="form-control" name="" ng-model="cdformdata.interestRateAdjustment.marginRatePercent" percentage-format>
 								<span class="input-group-addon input-default">%</span>
 	        				</div>
-	        			</span>		        			
-		        	 </span>
-		        	 <span class="col-sm-12 margin5tb" ng-show="cdformdata.interestRateAdjustment.indexType=='Other'">
-		        	 		<span class="pull-left margin5tb"><label>Index Description:</label></span>
-		        	 		<span class="pull-left col-sm-2"><input type="text" class="form-control" value="My Index For Pricing" name="" ng-model="cdformdata.interestRateAdjustment.indexTypeOtherDescription"></span>
-		        	 </span>
+	        			</span>
+		        	</span>
+		        	<span class="col-sm-12 margin5tb" ng-show="cdformdata.interestRateAdjustment.indexType=='Other'">
+	        	 		<span class="pull-left margin5tb"><label>Index Description:</label></span>
+	        	 		<span class="pull-left col-sm-2"><input type="text" class="form-control" value="My Index For Pricing" name="" ng-model="cdformdata.interestRateAdjustment.indexTypeOtherDescription"></span>
+		        	</span>
 		        </td>
 		      </tr>
 		      <tr>
@@ -33,23 +33,46 @@
 		        	<label>Initial Interest Rate</label>
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">{{cdformdata.termsOfLoan.noteRatePercent | number:2}}%</span>
+		        	<span class="pull-left col-sm-2">
+        				<div class="input-group">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.termsOfLoan.noteRatePercent">
+							<span class="input-group-addon input-default">%</span>
+        				</div>
+	        		</span>
+		        	<!-- <span class="pull-left margin5lr">{{cdformdata.termsOfLoan.noteRatePercent | number:2}}%</span> -->
 		        </td>
 		      </tr>
 		      <tr>
 		        <td>
 		        	<label ng-show="cdformdata.interestRateAdjustment.indexType!='Other'">Minimum / Maximum Interest Rate</label>
-		        	<label ng-show="cdformdata.interestRateAdjustment.indexType=='Other'">Total Step Count</label>
+		        	<label ng-show="cdformdata.interestRateAdjustment.indexType=='Other' && cdformdata.loanInformation.amortizationType == 'Step'">Total Step Count</label>
 		        </td>
 		        <td>
 		            <span ng-show="cdformdata.interestRateAdjustment.indexType!='Other'">
-			        	<span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.floorRatePercent | number:2}}%</span>
-			        	<span class="pull-left margin5lr"> Floor Rate </span>
-			        	<span class="pull-left margin5lr"> {{cdformdata.interestRateAdjustment.ceilingRatePercent | number:2}}%</span>
-			        	<span class="pull-left margin5lr">Life Time Cap Rate</span>
+			            <span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.floorRatePercent">
+								<span class="input-group-addon input-default">%</span>
+	        				</div>
+		        		</span>
+			        	<!-- <span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.floorRatePercent | number:2}}%</span> -->
+			        	<span class="pull-left margin5lr margin5t"> Floor Rate </span>
+			        	<span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent">
+								<span class="input-group-addon input-default">%</span>
+	        				</div>
+		        		</span>
+			        	<!-- <span class="pull-left margin5lr"> {{cdformdata.interestRateAdjustment.ceilingRatePercent | number:2}}%</span> -->
+			        	<span class="pull-left margin5lr margin5t">Life Time Cap Rate</span>
 		        	</span>
-		        	<span ng-show="cdformdata.interestRateAdjustment.indexType=='Other'">
-		        	{{cdformdata.interestRateAdjustment.totalStepCount}}
+		        	<span ng-show="cdformdata.interestRateAdjustment.indexType=='Other' && cdformdata.loanInformation.amortizationType == 'Step'">
+		        		<span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.totalStepCount">
+	        				</div>
+		        		</span>
+		        		<!-- {{cdformdata.interestRateAdjustment.totalStepCount}} -->
 		        	</span>
 		        </td>
 		      </tr>
@@ -63,9 +86,14 @@
 		        	First Change
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">Beginning of </span>
-		        	<span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.firstRateChangeMonthsCount + 1}}</span>
-		        	<span class="pull-left margin5lr"> months </span>
+		        	<span class="pull-left margin5lr margin5t">Beginning of </span>
+		        	<span class="pull-left col-sm-2">
+        				<div class="input-group">
+							<input type="text" class="form-control" name=""  ng-disabled="true" value="{{cdformdata.interestRateAdjustment.firstRateChangeMonthsCount ? (cdformdata.interestRateAdjustment.firstRateChangeMonthsCount -0) + 1 : '' }}">
+        				</div>
+	        		</span>
+		        	<!-- <span class="pull-left margin5lr">{{(cdformdata.interestRateAdjustment.firstRateChangeMonthsCount -0) + 1 }}</span> -->
+		        	<span class="pull-left margin5lr margin5t"> months </span>
 		        </td>
 		      </tr>
 		       <tr>
@@ -73,9 +101,14 @@
 		        	Subsequent Change 
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">Every </span>
-		        	<span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount}}</span>
-		        	<span class="pull-left margin5lr"> months after first change</span>
+		        	<span class="pull-left margin5lr margin5t">Every </span>
+		        	<span class="pull-left col-sm-2">
+        				<div class="input-group">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount">
+        				</div>
+	        		</span>
+		        	<!-- <span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount}}</span> -->
+		        	<span class="pull-left margin5lr margin5t"> months after first change</span>
 		        </td>
 		      </tr>
 		      <tr>
@@ -89,7 +122,13 @@
 		        	First Change
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent | number:2}}% </span>
+		        	<span class="pull-left col-sm-2">
+        				<div class="input-group">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent">
+							<span class="input-group-addon input-default">%</span>
+        				</div>
+	        		</span>
+		        	<!-- <span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent | number:2}}% </span> -->
 		        </td>
 		      </tr>
 		       <tr>
@@ -97,7 +136,13 @@
 		        	Subsequent Change 
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent | number:2}}% </span>
+		        	<span class="pull-left col-sm-2">
+        				<div class="input-group">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent">
+							<span class="input-group-addon input-default">%</span>
+        				</div>
+	        		</span>
+		        	<!-- <span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent | number:2}}% </span> -->
 		        </td>
 		      </tr>
 		</table>
