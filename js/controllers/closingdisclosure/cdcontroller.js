@@ -2749,14 +2749,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             //Adding Values to Escrow Account
             if($scope.cdformdata.loanDetail.escrowIndicator){
 	            if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!='MortgageInsurance'){
-	            	escrowArray.push($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType);
-	            }
+                    if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='CityPropertyTax' || $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='CountyPropertyTax' ||
+                    	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='DistrictPropertyTax' || $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='SchoolPropertyTax' ||
+                    	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='StatePropertyTax' || $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='TownshipPropertyTax' || 
+                    	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='VillagePropertyTax')
+                    {
+                    	 if(escrowArray.indexOf('PropertyTaxes')==-1){
+                    	    escrowArray.push('PropertyTaxes');
+                    	 }
 
-	            $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription =
-	            angular.forEach(escrowArray, function(value) { 
-	            	return value;
-	            }).join(",").replace(/([A-Z]+)/g, " $1");
-            }
+                    }else{
+                    	if(escrowArray.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType)==-1){
+	            	    	escrowArray.push($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType);
+                        }
+                    }
+	            }
 
             if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='HomeownersInsurance' || $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='CountyPropertyTax'){
 
