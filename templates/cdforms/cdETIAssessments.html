@@ -61,6 +61,9 @@
 	</span>
 	<div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('projectedPayments')">Back</a></span>
-			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('SummariesofTransaction_K')">Next</a></span>
+			<span class="pull-right">
+			<a class="btn btn-primary" ng-show="loanBasicInfo.loanFormType == 'alternate'" ng-click="changeTab('PayoffsAndPayments')">Next</a>
+			<a class="btn btn-primary" ng-show="loanBasicInfo.loanFormType == 'standard'" ng-click="changeTab('SummariesofTransaction_K')">Next</a>
+			</span>
 	</div>
 </div>

@@ -52,7 +52,7 @@
                       </li>
                     </ul>
               </li>
-              <li>Summaries of Transactions
+              <li ng-show="loanBasicInfo.loanFormType=='standard'">Summaries of Transactions
                     <ul>
                       <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_K'}" ng-click="changeTab('SummariesofTransaction_K')" >K. Due from Borrower At Closing</span>
@@ -72,7 +72,14 @@
                      <!--  <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'SummariesofTransaction_N_cv'}" ng-click="showTab = 'SummariesofTransaction_N_cv'" >N. Calculations View</span>
                       </li> -->
-                      <li ng-show="loanBasicInfo.loanFormType=='alternate'">
+                      <!-- <li ng-show="loanBasicInfo.loanFormType=='alternate'">
+                         <span href="" class="pagenumber" ng-class="{'active': showTab == 'PayoffsAndPayments'}" ng-click="changeTab('PayoffsAndPayments')" >Payoffs And Payments </span> 
+                      </li> -->
+                    </ul>
+              </li>
+              <li ng-show="loanBasicInfo.loanFormType=='alternate'">Payoffs And Payments
+                    <ul>
+                      <li>
                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'PayoffsAndPayments'}" ng-click="changeTab('PayoffsAndPayments')" >Payoffs And Payments </span> 
                       </li>
                     </ul>
@@ -203,7 +210,7 @@
                   </ul>
 
               </li>
-              <li>
+              <li ng-show="loanBasicInfo.loanFormType=='standard'">
                   <span class="pageno pageHead active pageicon"  data-toggle="tooltip" ng-class="{'active': showTab == 'SummariesofTransaction_K'}"  data-placement="right" title="Summaries of Transactions">
                       <span class="glyphicon glyphicon-folder-open pull-left"></span> 
                       <span class="pull-left noTitle">ST</span>
@@ -237,18 +244,24 @@
                   </ul>
 
               </li>
+              <li ng-show="loanBasicInfo.loanFormType=='alternate'">
+                  <span class="pageno pageicon" ng-class="{'active': showTab == 'PayoffsAndPayments'}" data-toggle="tooltip" ng-click="changeTab('PayoffsAndPayments')"  data-placement="right" title="Payoffs And Payments" >
+                    <span class="glyphicon glyphicon-file pull-left"></span>
+                    <span class="pull-left noTitle">PP</span>
+                  </span>
+              </li>
               <li>
                   <span class="pageno pageHead active pageicon"  data-toggle="tooltip" ng-class="{'active': showTab == 'SummariesofTransaction_K'}"  data-placement="right" title="Disclosures">
                       <span class="glyphicon glyphicon-folder-open pull-left"></span> 
                       <span class="pull-left noTitle">DI</span>
                   </span>
                   <ul>
-                      <li>
+                      <!-- <li>
                           <span class="pageno pageicon" ng-class="{'active': showTab == 'PayoffsAndPayments'}" data-toggle="tooltip" ng-click="changeTab('PayoffsAndPayments')"  data-placement="right" title="Payoffs And Payments" ng-show="loanBasicInfo.loanFormType=='alternate'">
                               <span class="glyphicon glyphicon-file pull-left"></span>
                               <span class="pull-left noTitle">PP</span>
                             </span>
-                      </li>
+                      </li> -->
                       <li>
                           <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanDisclosures'}" data-toggle="tooltip" ng-click="changeTab('LoanDisclosures')"  data-placement="right" title="Loan Disclosures">
                             <span class="glyphicon glyphicon-file pull-left"></span>
