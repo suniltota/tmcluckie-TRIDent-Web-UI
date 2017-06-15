@@ -1333,6 +1333,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.ETIAComponentTypes[i].disabled = false;
 			}
 		}
+		if($scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!=''){
+			$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEscrowedType='NotEscrowed';
+		}else{
+			$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEscrowedType='';
+		}
+		
 	}
 
 	$scope.updateSectionAfeeTypes = function(value, index) {
