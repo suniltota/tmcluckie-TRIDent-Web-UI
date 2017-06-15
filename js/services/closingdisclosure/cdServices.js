@@ -29,7 +29,7 @@ app.service('cdService', function(apiService){
     },
     this.calculatePayments = function(data){
         return apiService.request({
-            apiMethod: "actualize/transformx/services/ucd/calculatepayments",
+            apiMethod: "actualize/transformx/services/ucd/calculatepayments/",
             httpMethod: 'POST',
             formData:data
         });
