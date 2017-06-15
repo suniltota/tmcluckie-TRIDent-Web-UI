@@ -63,6 +63,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.partialPaymentTypes = staticData.partialPaymentTypes;
     $scope.escrowAbsenceReasons = staticData.escrowAbsenceReasons;
     $scope.paymentFrequencyTypes = staticData.paymentFrequencyTypes;
+    $scope.payoffsAndPaymentsTotalAmount = 0;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;
     $scope.salePriceAmount = 0;
@@ -327,10 +328,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		if($scope.cdformdata.etiaSection.etiaValues!=undefined) {
 			$scope.cdformdata.etiaSection.etiaValues.splice(0, 0, angular.copy(ETIAComponentType));
 			$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType = 'PropertyTaxes';
+            $scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='NotEscrowed';
 
 			$scope.cdformdata.etiaSection.etiaValues.splice(1, 0, angular.copy(ETIAComponentType));
 			$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType = 'HomeownersInsurance';
-
+            $scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='NotEscrowed';
+			
 			$scope.cdformdata.etiaSection.etiaValues.splice(2, 0, angular.copy(ETIAComponentType));
 			$scope.cdformdata.etiaSection.etiaValues[2].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType = '';
 		}
@@ -2867,6 +2870,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	            }).join(",").replace(/([A-Z]+)/g, " $1");
 
             }
+
+            if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1 || $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1){
+                
+                if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1){
+                	$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='Escrowed';
+                }else{
+                	$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='NotEscrowed';
+                }
+
+                 if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1){
+                	$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='Escrowed';
+                }else{
+                	$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='NotEscrowed';
+                }
+            }
          }
          bpAtClosing.iEPatClosingTotalbpAtClosing += ($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount == '' || undefined == $scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount) ? +0 : parseFloat($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount);
          spAtClosing.iEPatClosingTotalspAtClosing += ($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid == '' || undefined == $scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid) ? +0 : parseFloat($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid);
@@ -3261,11 +3279,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	}, true);
     
     $scope.$watch('payoffsAndPaymentsList', function(newValue,oldValue){
-		var payoffsAndPaymentsTotalAmount = 0;
+	   var totalAmount = 0;
 	   for(k=0;k<$scope.payoffsAndPaymentsList.length;k++){
 	   		if($scope.payoffsAndPaymentsList[k].payOffType!='' && $scope.payoffsAndPaymentsList[k].payoffAmount)
-        		payoffsAndPaymentsTotalAmount += parseFloat($scope.payoffsAndPaymentsList[k].payoffAmount);
+        		totalAmount += parseFloat($scope.payoffsAndPaymentsList[k].payoffAmount);
         }
+        $scope.payoffsAndPaymentsTotalAmount = totalAmount;
 
         for(i=0;i<$scope.cdformdata.liabilityList.length;i++){
            if($scope.cdformdata.liabilityList[i].integratedDisclosureSectionType == 'PayoffsAndPayments') {
@@ -3314,7 +3333,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             }
         });
 
-        $scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount =  payoffsAndPaymentsTotalAmount ? parseFloat(payoffsAndPaymentsTotalAmount*-1).toFixed(2) : +0;
+        $scope.cdformdata.payoffsAndPayments.integratedDisclosureSectionSummary.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount = $scope.payoffsAndPaymentsTotalAmount ? parseFloat($scope.payoffsAndPaymentsTotalAmount).toFixed(2) : +0;
+
+        $scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount =  $scope.payoffsAndPaymentsTotalAmount ? parseFloat($scope.payoffsAndPaymentsTotalAmount*-1).toFixed(2) : +0;
     }, true);
 
     $scope.$watch('summariesOfTransaction_KSection', function(newValues,oldValues){

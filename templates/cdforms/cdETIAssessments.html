@@ -50,7 +50,8 @@
 		      			<input type="text" class="form-control" name="" ng-disabled="true">
 		      		</td>
 		      		<td>
-		      			<select class="form-control" ng-options="option.id as option.name for option in escrowDropDownBooleanOptions" ng-model="etia.projectedPaymentEscrowedType">
+		      			<select class="form-control" ng-options="option.id as option.name for option in escrowDropDownBooleanOptions" ng-model="etia.projectedPaymentEscrowedType" ng-disabled="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' ||
+		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'">
 		      			</select>
 		      		</td>
 
