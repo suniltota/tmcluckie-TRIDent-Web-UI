@@ -2152,16 +2152,6 @@ app.service('staticData', function($filter){
 		'disabled':false
 		},
 		{
-		'name':'Homeowners Insurance Premium',     
-        'value':'HomeownersInsurancePremium', 
-		'disabled':false
-		},
-		{
-		'name':'Mortgage Insurance Premium',   
-		'value':'MortgageInsurancePremium',
-		'disabled':false
-		},
-		{
 		'name':'Other',               
 		'value':'Other',         
 		'disabled':false
