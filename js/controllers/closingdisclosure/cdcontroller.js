@@ -63,7 +63,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.partialPaymentTypes = staticData.partialPaymentTypes;
     $scope.escrowAbsenceReasons = staticData.escrowAbsenceReasons;
     $scope.paymentFrequencyTypes = staticData.paymentFrequencyTypes;
-    $scope.payoffsAndPaymentsTotalAmount = 0;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;
     $scope.salePriceAmount = 0;
@@ -1723,19 +1722,34 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodTypeOtherDescription = $scope.cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodType!='Other' ? '' : $scope.cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodTypeOtherDescription;
     }
 
-    $scope.deleteOC = function(index){
+    $scope.deleteOC = function(feeType,index){
+    	for(j=0; j<$scope.sectionAfeeTypes.length; j++){
+	        if($scope.sectionAfeeTypes[j].value == feeType) {
+	            $scope.sectionAfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.splice(index,1);
     }
 
-    $scope.deleteSDidNot = function(index){
+    $scope.deleteSDidNot = function(feeType,index){
+    	for(j=0; j<$scope.sectionBfeeTypes.length; j++){
+	        if($scope.sectionBfeeTypes[j].value == feeType) {
+	            $scope.sectionBfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.splice(index,1);
     }
 
-    $scope.deleteSDid = function(index){
+    $scope.deleteSDid = function(feeType,index){
+    	for(j=0; j<$scope.sectionCfeeTypes.length; j++){
+	        if($scope.sectionCfeeTypes[j].value == feeType) {
+	            $scope.sectionCfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.splice(index,1);
     }
 
-    $scope.clearOC = function(index){
+    $scope.clearOC = function(feeType,index){
     	if(index==0){
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTotalPercent ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType ='Lender';
@@ -1751,6 +1765,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].regulationZPointsAndFeesIndicator = true;
     	}
     	else{
+		for(j=0; j<$scope.sectionAfeeTypes.length; j++){
+	        if($scope.sectionAfeeTypes[j].value == feeType) {
+	            $scope.sectionAfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTotalPercent ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].displayLabel ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].feeType ='';
@@ -1769,7 +1788,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }
     }
 	
-	$scope.clearSDidNot = function(index){
+	$scope.clearSDidNot = function(feeType,index){
+		for(j=0; j<$scope.sectionBfeeTypes.length; j++){
+	        if($scope.sectionBfeeTypes[j].value == feeType) {
+	            $scope.sectionBfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feeTotalPercent ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].displayLabel ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feeType ='';
@@ -1787,7 +1811,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = true;
     }
 
-    $scope.clearSDid = function(index){
+    $scope.clearSDid = function(feeType,index){
+    	for(j=0; j<$scope.sectionCfeeTypes.length; j++){
+	        if($scope.sectionCfeeTypes[j].value == feeType) {
+	            $scope.sectionCfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeTotalPercent ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].displayLabel ='';
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeType ='';
@@ -3201,12 +3230,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	}, true);
     
     $scope.$watch('payoffsAndPaymentsList', function(newValue,oldValue){
-		var totalAmount = 0;
+		var payoffsAndPaymentsTotalAmount = 0;
 	   for(k=0;k<$scope.payoffsAndPaymentsList.length;k++){
 	   		if($scope.payoffsAndPaymentsList[k].payOffType!='' && $scope.payoffsAndPaymentsList[k].payoffAmount)
-        		totalAmount += parseFloat($scope.payoffsAndPaymentsList[k].payoffAmount);
+        		payoffsAndPaymentsTotalAmount += parseFloat($scope.payoffsAndPaymentsList[k].payoffAmount);
         }
-        $scope.payoffsAndPaymentsTotalAmount = totalAmount;
 
         for(i=0;i<$scope.cdformdata.liabilityList.length;i++){
            if($scope.cdformdata.liabilityList[i].integratedDisclosureSectionType == 'PayoffsAndPayments') {
@@ -3255,7 +3283,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             }
         });
 
-        $scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount =  $scope.payoffsAndPaymentsTotalAmount ? parseFloat($scope.payoffsAndPaymentsTotalAmount*-1) : +0;
+        $scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount =  payoffsAndPaymentsTotalAmount ? parseFloat(payoffsAndPaymentsTotalAmount*-1).toFixed(2) : +0;
     }, true);
 
     $scope.$watch('summariesOfTransaction_KSection', function(newValues,oldValues){
