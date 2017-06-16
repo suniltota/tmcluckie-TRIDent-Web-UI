@@ -557,6 +557,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     			$scope.cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount='';
     		}
     	}
+		if($scope.loanBasicInfo.loanFormType == 'standard') {
 
 		// Summaries of Tranaction
 		$scope.summariesOfTransaction_KSection = {
@@ -983,6 +984,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		}
 		if($scope.summariesOfTransaction_NSection.adjustmentsUnpaidBySeller!=undefined) {
 			$scope.summariesOfTransaction_NSection.adjustmentsUnpaidBySeller.push.apply($scope.summariesOfTransaction_NSection.adjustmentsUnpaidBySeller, $scope.summariesOfTransaction_LSection.adjustmentsUnpaidBySeller);
+		}
 		}
 
  		//Payoffs And Payments starts here...
@@ -2405,8 +2407,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	cdService.genearateXmlFromJson($scope.cdformdata).success(function(xmldata){
     		cdService.calculatePayments(xmldata).success(function(calculationsData){
     			cdService.loadTransformData(calculationsData).success(function(jsonData){
-    				$scope.cdformdata = jsonData;
-	    			initializeCDformData();
+					//$scope.cdformdata = jsonData;
+	    			localStorage.jsonData = JSON.stringify(jsonData);
+					initializeCDformData();
 	    			$("#spinner").hide();
     			}).error( function(data, status){
 		    		alert('There is an error getting while converting calculations xml to json. Please provide the input data properly and check again.');
@@ -3450,6 +3453,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }, true);
 
     $scope.$watch('summariesOfTransaction_KSection', function(newValues,oldValues){
+		if($scope.loanBasicInfo.loanFormType == 'standard') {
  		$scope.summariesOfTransaction_KSection.sectionTotalAmount = 0;
  		$scope.adjustmentsAndProrationsAmountsKSection = 0;
  		for(i=0; i<$scope.cdformdata.liabilityList.length; i++) {
@@ -3538,10 +3542,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         $scope.adjustmentsAndProrationsAmountsKSection = $scope.adjustmentsAndProrationsAmountsKSection ? parseFloat($scope.adjustmentsAndProrationsAmountsKSection) : +0;
 		$scope.adjustmentsAndProrationsAmountsLSection = $scope.adjustmentsAndProrationsAmountsLSection ? parseFloat($scope.adjustmentsAndProrationsAmountsLSection) : +0;
         $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(($scope.cdformdata.salesContractDetail.personalPropertyAmount+$scope.adjustmentsAndProrationsAmountsKSection)-$scope.adjustmentsAndProrationsAmountsLSection);
-
+		}
     }, true);
 
     $scope.$watch('summariesOfTransaction_MSection', function(newValues,oldValues){
+		if($scope.loanBasicInfo.loanFormType == 'standard') {
  		$scope.summariesOfTransaction_MSection.sectionTotalAmount = 0;
 		for(i=0; i<$scope.cdformdata.closingAdjustmentItemList.length; i++) {
 			if($scope.cdformdata.closingAdjustmentItemList[i].integratedDisclosureSectionType == 'DueToSellerAtClosing') {
@@ -3576,9 +3581,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		}
 		$scope.cdformdata.summariesofTransactions.sellerTransaction.toSellerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount = $scope.summariesOfTransaction_MSection.sectionTotalAmount;
 		$scope.sotSellerTransactionTotalAmount = parseFloat($scope.summariesOfTransaction_MSection.sectionTotalAmount) +(- parseFloat($scope.summariesOfTransaction_NSection.sectionTotalAmount));
+		}
     }, true);
 
     $scope.$watch('summariesOfTransaction_LSection', function(newValues,oldValues){
+		if($scope.loanBasicInfo.loanFormType == 'standard') {
  		$scope.summariesOfTransaction_LSection.sectionTotalAmount = 0;
         $scope.adjustmentsAndProrationsAmountsLSection = 0;
  		for(i=0; i<$scope.cdformdata.liabilityList.length; i++) {
@@ -3687,10 +3694,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         $scope.adjustmentsAndProrationsAmountsKSection = $scope.adjustmentsAndProrationsAmountsKSection ? parseFloat($scope.adjustmentsAndProrationsAmountsKSection) : +0;
 		$scope.adjustmentsAndProrationsAmountsLSection = $scope.adjustmentsAndProrationsAmountsLSection ? parseFloat($scope.adjustmentsAndProrationsAmountsLSection) : +0;
         $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(($scope.cdformdata.salesContractDetail.personalPropertyAmount+$scope.adjustmentsAndProrationsAmountsKSection)-$scope.adjustmentsAndProrationsAmountsLSection);
-
+		}
     }, true);
 
     $scope.$watch('summariesOfTransaction_NSection', function(newValues,oldValues){
+		if($scope.loanBasicInfo.loanFormType == 'standard') {
  		$scope.summariesOfTransaction_NSection.sectionTotalAmount = 0;
  		for(i=0; i<$scope.cdformdata.liabilityList.length; i++) {
 			if($scope.cdformdata.liabilityList[i].integratedDisclosureSectionType == 'DueFromSellerAtClosing') {
@@ -3782,6 +3790,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		}
 		$scope.cdformdata.summariesofTransactions.sellerTransaction.fromSellerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount = $scope.summariesOfTransaction_NSection.sectionTotalAmount;
 		$scope.sotSellerTransactionTotalAmount = parseFloat($scope.summariesOfTransaction_MSection.sectionTotalAmount) +(- parseFloat($scope.summariesOfTransaction_NSection.sectionTotalAmount));
+		}
     }, true);
 
     $scope.$watch('sotBorrowerTransactionTotalAmount', function(newValue,oldValue){
