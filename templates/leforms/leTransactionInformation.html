@@ -99,13 +99,13 @@
    <div class="col-sm-12">
        <span class="AddSection" ng-click="addBorrower()">
        <a>+ Add Additional Applicant</a></span>
-       <span class="pull-right green RemoveSection" ng-click="backToTop()">
+       <!-- <span class="pull-right green RemoveSection" ng-click="backToTop()">
           <a> -Back-to-top </a>
-       </span>
+       </span> -->
    </div>
-   <div class="sellinfo" ng-show="loanBasicInfo.loanPurposeType=='purchase'">
+   <div class="sellinfo" ng-show="loanBasicInfo.loanPurposeType =='purchase'">
   <div class="col-sm-12 padding0"  ng-repeat= "seller in leformdata.transactionInformation.sellerDetails track by $index">
-    <h5 class="innerSectionHeader">Seller Information  
+    <h5 class="innerSectionHeader">Seller Information (Purchase Only) 
       <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="seller.checkSeller" ng-click="sameSeller($index)"> Same as 1<sup>st</sup> Seller Address</span>
       <span class="pull-right green RemoveSection" ng-click="backtoTop()" ng-show="$index != 0">
           <a> -Back-to-top </a>
@@ -180,8 +180,7 @@
             </div>
           </div>
         </div>
-       
-        </div>
+      </div>
    <div class="col-sm-12"><span class="AddSection" ng-click="addSeller()"><a>+ Add Additional Sellers</a></span></div>
   </div> 
 </div>

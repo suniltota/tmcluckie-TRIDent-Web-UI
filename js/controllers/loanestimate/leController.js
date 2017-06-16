@@ -1369,6 +1369,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     $scope.deleteSDid = function(index){
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.splice(index,1);
     }
+    $scope.termsOfLoanMortgagaTypeClear =function(mortagageLoanTypeValue){
+    	$scope.leformdata.termsOfLoan.mortgageTypeOtherDescription='';
+    }
 
     $scope.clearOC = function(index){
     	if(index==0){

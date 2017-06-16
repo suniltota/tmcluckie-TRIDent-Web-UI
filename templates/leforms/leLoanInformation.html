@@ -25,7 +25,7 @@
 					<div class="col-sm-5 fieldTitle">Loan Type: <span class="required">*</span>
 					</div>
 					<div class="col-sm-7 padding0">
-						<select  class="form-control" ng-model="leformdata.termsOfLoan.mortgageType">
+						<select  class="form-control" ng-model="leformdata.termsOfLoan.mortgageType" ng-change="termsOfLoanMortgagaTypeClear(loanType.value)">
 							<option value="" selected>Select</option>
 							<option ng-repeat="loanType in loanTypes" value="{{loanType.value}}">{{loanType.name}}</option>
 						</select>
@@ -70,6 +70,7 @@
 					<div class="col-sm-5 padding0 fieldTitle">Rate Locked?</div>
 					<div class="col-sm-7 padding0">
 						<select  class="form-control" ng-model="leformdata.loanInformation.rateLokerIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="constructionChange()">
+						  <option value="" selected>Select</option>
 						</select>
 					</div>
 				</div>
@@ -139,11 +140,11 @@
 						</select>
 						</div>
 			</div>
-	<div class="col-sm-12" ng-show="leformdata.loanInformation.automatedUnderwritings.length<9">
+	<!-- <div class="col-sm-12" ng-show="leformdata.loanInformation.automatedUnderwritings.length<9">
 		<span class="AddSection" ng-click="addAusTypeIdentifier()">
 			<a>+ Add Additional Automated Underwriting System Names and Identifiers</a>
 		</span>
-	</div>
+	</div> -->
 	<div class="col-sm-12">
 		<h5 class="innerSectionHeader" id="ProductDescriptionInfo">Product Description and Information</h5>
 		<div class="col-sm-6">
@@ -232,6 +233,105 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-sm-6" ng-show="leformdata.loanInformation.amortizationType != 'Step'"></div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-9 fieldTitle">Provide the Floor Rate:</div>
+					<div class="col-sm-3 padding0">
+						<div class="input-group">
+							<input type="text" class="form-control" name="loanCapRate" ng-model="leformdata.interestRateAdjustment.floorRatePercent" percentage-format>
+								<span class="input-group-addon input-default">%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12" ng-show="leformdata.loanInformation.amortizationType!='Fixed'">
+			<div class="col-sm-12 tableInsideHeader">Adjustment Information - Principal and Interest Payment Adjustments</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Provide the number of months for the fixed period:</div>
+					<div class="col-sm-2 padding0">
+						<input type="text" class="form-control" name="fixedPeriodMonths" ng-model="
+						leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" only-digits maxlength="3">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-9 fieldTitle">Provide the Maximum amount payment amount:</div>
+					<div class="col-sm-3 padding0">
+						<div class="input-group">
+							<span class="input-group-addon input-default">$</span>
+							<input type="text" class="form-control" name="loanCapRate" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount" decimal-digits-with-number-format>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Provide the number of months first change period:</div>
+					<div class="col-sm-2 padding0">
+						<input type="text" class="form-control" name="firstChangePeriodMonths" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-9 fieldTitle">Provide the minimum number of months before the maximum payment amount may be reached:</div>
+					<div class="col-sm-3 padding0">
+						<div class="input-group">
+							<input type="text" class="form-control" name="firstChangeInterestRateLimit" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount" only-digits maxlength="3">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Provide the number of months subsequent change period:</div>
+					<div class="col-sm-2 padding0">
+						<input type="text" class="form-control" name="subsequentChangePeriodMonths" ng-model="leformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-12">
+			<div class="col-sm-12 tableInsideHeader">Balloon Information</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Does this transaction have a Balloon Feature </div>
+					<div class="col-sm-2 padding0">
+						<select class="form-control pull-left"  ng-model="leformdata.loanDetail.balloonIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="balloonIndicatorChange()">
+		        		</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="FieldGroup">
+					<div class="col-sm-10 fieldTitle">Provide the Amortization Period Type :</div>
+					<div class="col-sm-2 padding0">
+						<select  class="form-control" ng-model="leformdata.balloonPeriodType" ng-disabled="!leformdata.loanDetail.balloonIndicator">
+							<option value="" selected>Select</option>
+							<option ng-repeat="loanMaturityType in loanMaturityPeriodTypes" value="{{loanMaturityType.value}}">{{loanMaturityType.name}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<span ng-show="leformdata.loanDetail.balloonIndicator && leformdata.maturityRule.loanMaturityPeriodType!=''">
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+						<div class="col-sm-10 fieldTitle">Provide the Amortization Period Count :</div>
+						<div class="col-sm-2 padding0">
+							<input type="text" class="form-control" name="" ng-model="leformdata.balloonPeriodCount" only-digits maxlength="3">
+						</div>
+					</div>
+				</div>
+			</span>
 		</div>
 		<div class="col-sm-12">
 			<div class="col-sm-12 tableInsideHeader">Construction Information</div>
@@ -282,7 +382,7 @@
 				</div>
 			</span>
 		</div>
-		<div class="col-sm-12" ng-show="loanBasicInfo.loanFormType =='standard'">
+		<div class="col-sm-12" ng-show="loanBasicInfo.loanPurposeType !='purchase'">
 			<div class="col-sm-12 tableInsideHeader">Home Equity Loan Information</div>  
 			<div class="col-sm-6">
 				<div class="FieldGroup">
