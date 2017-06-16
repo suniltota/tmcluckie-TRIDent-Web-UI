@@ -379,7 +379,7 @@
                 <div class="col-sm-6">
                     <div class="input-group">
                       <span class="input-group-addon input-default" style="color: red;">$ -</span>
-                          <input type="text" class="form-control padding0" name="" ng-model="cdformdata.depositAmount" negative-digits ng-change="depositChange()">
+                          <input type="text" class="form-control padding0" name="" ng-model="cdformdata.depositAmount" negative-digits ng-change="depositChange()"  ng-keyup="depositChange()" ng-blur="depositChange()">
                     </div>
                 </div>
               </div>
