@@ -313,7 +313,7 @@
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="leformdata.balloonPeriodType" ng-disabled="!leformdata.loanDetail.balloonIndicator">
 							<option value="" selected>Select</option>
-							<option ng-repeat="loanMaturityType in loanMaturityPeriodTypes" value="{{loanMaturityType.value}}">{{loanMaturityType.name}}</option>
+							<option ng-repeat="loanMaturityType in loanMaturityPeriodTypes" value="{{loanMaturityType.value}}">{{loanMaturityType.value}}</option>
 						</select>
 					</div>
 				</div>
@@ -348,7 +348,8 @@
 				<div class="FieldGroup">
 					<div class="col-sm-7 fieldTitle">What type of Construction Loan?:</div>
 					<div class="col-sm-5 padding0">
-						<select  class="form-control" ng-model="leformdata.construction.constructionLoanType" ng-disabled="leformdata.loanDetail.constructionLoanIndicator == false">
+						<select  class="form-control" ng-model="leformdata.construction.constructionLoanType" ng-disabled="leformdata.loanDetail.constructionLoanIndicator == false" 
+						ng-change="clChange()">
 							<option value="" selected>Select</option>
 							<option ng-repeat="constructionLoanType in constructionLoanTypes" value="{{constructionLoanType.value}}">{{constructionLoanType.name}}</option>
 						</select>
@@ -403,7 +404,7 @@
 					<div class="col-sm-10 fieldTitle">Does this loan have an interest only feature?: <span class="required">*</span>
 					</div>
 					<div class="col-sm-2 padding0">
-						<select  class="form-control" ng-model="leformdata.loanDetail.interestOnlyIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+						<select  class="form-control" ng-model="leformdata.loanDetail.interestOnlyIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="interestChange()" />
 					</div>
 				</div>
 			</div>
@@ -430,7 +431,7 @@
 				<div class="FieldGroup">
 					<div class="col-sm-7 fieldTitle">Indicate if neg am is scheduled or potential:</div>
 					<div class="col-sm-5 padding0">
-						<select  class="form-control" ng-model="leformdata.negativeAmortization.negativeAmortizationType" ng-disabled="leformdata.loanDetail.negativeAmortizationIndicator == false">
+						<select  class="form-control" ng-model="leformdata.negativeAmortization.negativeAmortizationType" ng-disabled="leformdata.loanDetail.negativeAmortizationIndicator == false" ng-change="nATypeChange()">
 							<option value="" selected>Select</option>
 							<option ng-repeat="negativeAmortizationType in negativeAmortizationTypes" value="{{negativeAmortizationType.value}}">{{negativeAmortizationType.name}}</option>
 						</select>
@@ -474,7 +475,7 @@
 					<div class="col-sm-10 fieldTitle">Does the loan have a seasonal payment feature?: <span class="required">*</span>
 					</div>
 					<div class="col-sm-2 padding0">
-						<select  class="form-control" ng-model="leformdata.loanDetail.seasonalPaymentFeatureIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+						<select  class="form-control" ng-model="leformdata.loanDetail.seasonalPaymentFeatureIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="seasonalChange()" />
 					</div>
 				</div>
 			</div>
@@ -501,7 +502,7 @@
 					<div class="col-sm-10 fieldTitle">Does the loan have a Step payment feature?: <span class="required">*</span>
 					</div>
 					<div class="col-sm-2 padding0">
-						<select  class="form-control" ng-model="stepPaymentIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+						<select  class="form-control" ng-model="stepPaymentIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="stepChange()"/>
 					</div>
 				</div>
 			</div>
@@ -518,7 +519,7 @@
 					<div class="col-sm-10 fieldTitle">Does the loan have an optional payment feature?: <span class="required">*</span>
 					</div>
 					<div class="col-sm-2 padding0">
-						<select  class="form-control" ng-model="leformdata.payment.paymentRule.paymentOptionIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+						<select  class="form-control" ng-model="leformdata.payment.paymentRule.paymentOptionIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="optionalChange()" />
 					</div>
 				</div>
 			</div>

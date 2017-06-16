@@ -1103,6 +1103,15 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     $scope.constructionChange = function(){
     	if($scope.leformdata.loanDetail.constructionLoanIndicator == false){
     		$scope.leformdata.construction.constructionLoanType ='';
+    		$scope.leformdata.construction.constructionPeriodNumberOfMonthsCount = '';
+    		$scope.leformdata.construction.constructionLoanTotalTermMonthsCount = '';
+    	}
+    }
+    $scope.clChange = function(){
+    	if($scope.leformdata.construction.constructionLoanType == ''){
+    		$scope.leformdata.construction.constructionPeriodNumberOfMonthsCount = '';
+    		$scope.leformdata.construction.constructionLoanTotalTermMonthsCount = '';
+
     	}
     }
     /*$scope.negativeAmortizationChange = function(){
@@ -1311,6 +1320,34 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     	}
     }
 
+    $scope.interestChange = function(){
+    	$scope.leformdata.interestOnly.interestOnlyTermMonthsCount = '';
+    }
+
+    $scope.nATypeChange = function(){
+    	if($scope.leformdata.negativeAmortization.negativeAmortizationType==''){
+    		$scope.leformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount = '';
+    		$scope.leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount = '';
+    	}
+    }
+
+    $scope.seasonalChange = function(){
+    	$scope.leformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth = '';
+    	$scope.leformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth = '';
+    }
+
+    $scope.balloonIndicatorChange = function() {
+    	$scope.leformdata.balloonPeriodType = '';
+ 		$scope.leformdata.balloonPeriodCount = '';
+    }
+
+    $scope.stepChange = function(){
+    	$scope.leformdata.payment.paymentRule.totalStepPaymentCount = '';
+    }
+
+    $scope.optionalChange = function(){
+    	$scope.leformdata.payment.paymentRule.totalOptionalPaymentCount = '';
+    }
      $scope.updateSectionMAdjustments = function(index) {
      	var selectedSectionKadjustmentTypes = [];
 		for(var i=0; i<$scope.summariesOfTransaction_KSection.adjustments.length; i++) {
