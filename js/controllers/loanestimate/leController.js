@@ -2243,11 +2243,11 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
          
     },true);*/
     
-    $rootScope.leformdataSendToJsonService=$scope.leformdata;
-    leService.generateXML($rootScope.leformdataSendToJsonService).success(function(data){
-    		$rootScope.xmlStringData=data;
-    		LoadXMLString('xmldisplayArea',data);
-    });
+    // $rootScope.leformdataSendToJsonService=$scope.leformdata;
+    // leService.generateXML($rootScope.leformdataSendToJsonService).success(function(data){
+    // 		$rootScope.xmlStringData=data;
+    // 		LoadXMLString('xmldisplayArea',data);
+    // });
  
 });
 //date param of proper format to create date object.
