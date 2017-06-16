@@ -4061,7 +4061,7 @@ this.cdformdata={
         "borrowerTransaction": {
 	      "dueFromBorrowerAtClosing": {
 	        "integratedDisclosureSectionSummaryDetailModel": {
-	          "integratedDisclosureSectionTotalAmount": "221495.00",
+	          "integratedDisclosureSectionTotalAmount": "",
 	          "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
 	          "integratedDisclosureSubsectionTotalAmount": "",
 	          "integratedDisclosureSubsectionType": "",
@@ -4072,7 +4072,7 @@ this.cdformdata={
 	      },
 	      "paidAlreadyByOrOnBehalfOfBorrowerAtClosing": {
 	        "integratedDisclosureSectionSummaryDetailModel": {
-	          "integratedDisclosureSectionTotalAmount": "224737.00",
+	          "integratedDisclosureSectionTotalAmount": "",
 	          "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
 	          "integratedDisclosureSubsectionTotalAmount": "",
 	          "integratedDisclosureSubsectionType": "",
@@ -4085,7 +4085,7 @@ this.cdformdata={
 	    "sellerTransaction": {
 	      "toSellerAtClosing": {
 	        "integratedDisclosureSectionSummaryDetailModel": {
-	          "integratedDisclosureSectionTotalAmount": "202800.00",
+	          "integratedDisclosureSectionTotalAmount": "",
 	          "integratedDisclosureSectionType": "DueToSellerAtClosing",
 	          "integratedDisclosureSubsectionTotalAmount": "",
 	          "integratedDisclosureSubsectionType": "",
@@ -4096,7 +4096,7 @@ this.cdformdata={
 	      },
 	      "fromSellerAtClosing": {
 	        "integratedDisclosureSectionSummaryDetailModel": {
-	          "integratedDisclosureSectionTotalAmount": "105552.00",
+	          "integratedDisclosureSectionTotalAmount": "",
 	          "integratedDisclosureSectionType": "DueFromSellerAtClosing",
 	          "integratedDisclosureSubsectionTotalAmount": "",
 	          "integratedDisclosureSubsectionType": "",
@@ -5169,7 +5169,7 @@ this.cdformdata={
         "borrowerTransaction": {
 	      "dueFromBorrowerAtClosing": {
 	        "integratedDisclosureSectionSummaryDetailModel": {
-	          "integratedDisclosureSectionTotalAmount": "221495.00",
+	          "integratedDisclosureSectionTotalAmount": "",
 	          "integratedDisclosureSectionType": "DueFromBorrowerAtClosing",
 	          "integratedDisclosureSubsectionTotalAmount": "",
 	          "integratedDisclosureSubsectionType": "",
@@ -5180,7 +5180,7 @@ this.cdformdata={
 	      },
 	      "paidAlreadyByOrOnBehalfOfBorrowerAtClosing": {
 	        "integratedDisclosureSectionSummaryDetailModel": {
-	          "integratedDisclosureSectionTotalAmount": "224737.00",
+	          "integratedDisclosureSectionTotalAmount": "",
 	          "integratedDisclosureSectionType": "PaidAlreadyByOrOnBehalfOfBorrowerAtClosing",
 	          "integratedDisclosureSubsectionTotalAmount": "",
 	          "integratedDisclosureSubsectionType": "",
@@ -5193,7 +5193,7 @@ this.cdformdata={
 	    "sellerTransaction": {
 	      "toSellerAtClosing": {
 	        "integratedDisclosureSectionSummaryDetailModel": {
-	          "integratedDisclosureSectionTotalAmount": "202800.00",
+	          "integratedDisclosureSectionTotalAmount": "",
 	          "integratedDisclosureSectionType": "DueToSellerAtClosing",
 	          "integratedDisclosureSubsectionTotalAmount": "",
 	          "integratedDisclosureSubsectionType": "",
@@ -5204,7 +5204,7 @@ this.cdformdata={
 	      },
 	      "fromSellerAtClosing": {
 	        "integratedDisclosureSectionSummaryDetailModel": {
-	          "integratedDisclosureSectionTotalAmount": "105552.00",
+	          "integratedDisclosureSectionTotalAmount": "",
 	          "integratedDisclosureSectionType": "DueFromSellerAtClosing",
 	          "integratedDisclosureSubsectionTotalAmount": "",
 	          "integratedDisclosureSubsectionType": "",
@@ -5273,9 +5273,7 @@ this.cdformdata={
     {
         "partialPayments":
         {
-            "partialPaymentModels":
-            [
-            ]
+            "partialPaymentModels": []
         },
         "paymentRule":
         {
