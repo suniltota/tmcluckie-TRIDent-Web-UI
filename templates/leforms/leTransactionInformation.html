@@ -103,16 +103,16 @@
           <a> -Back-to-top </a>
        </span> -->
    </div>
-   <div class="sellinfo" ng-show="loanBasicInfo.loanPurposeType =='purchase'">
-  <div class="col-sm-12 padding0"  ng-repeat= "seller in leformdata.transactionInformation.sellerDetails track by $index">
-    <h5 class="innerSectionHeader">Seller Information (Purchase Only) 
-      <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="seller.checkSeller" ng-click="sameSeller($index)"> Same as 1<sup>st</sup> Seller Address</span>
-      <span class="pull-right green RemoveSection" ng-click="backtoTop()" ng-show="$index != 0">
+  <!--  <div class="sellinfo" ng-show="loanBasicInfo.loanPurposeType =='purchase'">
+        <div class="col-sm-12 padding0"  ng-repeat= "seller in leformdata.transactionInformation.sellerDetails track by $index">
+        <h5 class="innerSectionHeader">Seller Information (Purchase Only) 
+         <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="seller.checkSeller" ng-click="sameSeller($index)"> Same as 1<sup>st</sup> Seller Address</span>
+         <span class="pull-right green RemoveSection" ng-click="backtoTop()" ng-show="$index != 0">
           <a> -Back-to-top </a>
-      </span>
-      <span class="glyphicon glyphicon-trash red pull-right margin50r RemoveSection" ng-click="removeSeller($index)" ng-show="$index != 0">
-      </span>
-    </h5>
+         </span>
+          <span class="glyphicon glyphicon-trash red pull-right margin50r RemoveSection" ng-click="removeSeller($index)" ng-show="$index != 0">
+         </span>
+        </h5>
      <div class="col-sm-6">
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Seller Classification</div>
@@ -182,9 +182,9 @@
         </div>
       </div>
    <div class="col-sm-12"><span class="AddSection" ng-click="addSeller()"><a>+ Add Additional Sellers</a></span></div>
-  </div> 
+  </div> --> 
 </div>
-<div class="col-sm-12 padding0">
+<!-- <div class="col-sm-12 padding0">
       <h5 class="innerSectionHeader">Lender Information
          <span class="pull-right" ng-click="backtoTop()"> <a> -Back-to-top </a>
          </span>
@@ -203,7 +203,7 @@
           </div>
         </div>
       </div>  
-  </div>
+  </div> -->
   <div class="col-sm-12 margin10t">
       <span class="pull-left"><a class="btn btn-default" ng-click="changeTab('closingInfo')">Back</a></span>
       <span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('loanInfo')">Next</a></span>
