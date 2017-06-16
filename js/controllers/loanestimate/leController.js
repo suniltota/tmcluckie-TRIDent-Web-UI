@@ -159,7 +159,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 	var initializeLEformdata = function() {
 
 		$scope.leformdata = staticData.leformdata;
-		console.log($scope.leformdata.closingInformation.lenderName);
+		//console.log($scope.leformdata.closingInformation.lenderName);
 		$scope.leformdata.termsOfLoan.loanPurposeType = $scope.loanBasicInfo.loanPurposeType.capitalizeFirstLetter();
 
 		borrower = angular.copy($scope.leformdata.transactionInformation.borrowerDetails[0]);
@@ -184,14 +184,15 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		$scope.leformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
         $scope.leformdata.closingInformation.dateIssued = new Date();
 		$scope.leformdata.closingInformationDetail.closingDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
-		$scope.leformdata.closingInformation.closingCostExpirationDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
-		//console.log($scope.leformdata.closingInformation.closingCostExpirationDate);
+
+
 		if(localStorage.jsonData != undefined) {
 			$scope.leformdata = angular.fromJson(localStorage.jsonData);
 			$scope.leformdata.loanInformation['loanTermYears'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.leformdata.loanInformation['loanTermMonths'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount%12;
 		}
-
+		$scope.leformdata.closingInformationDetail.closingCostExpirationDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
+		$scope.closingCostExpirationDate=$scope.leformdata.closingInformationDetail.closingCostExpirationDate;
 		for (i = $scope.leformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
 		    $scope.leformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
 		}
@@ -1883,7 +1884,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
           	paidByOthers.iEPatClosingTotalpaidByOthers += $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers) : +0;
          }
 
-         bpAtClosing.iEPatClosingTotalbpAtClosing += ($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount == '' || undefined == $scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount) ? +0 : parseFloat($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount);
+        // bpAtClosing.iEPatClosingTotalbpAtClosing += ($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount == '' || undefined == $scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount) ? +0 : parseFloat($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount);
 
          $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount = bpAtClosing.iEPatClosingTotalbpAtClosing + bpB4Closing.iEPatClosingTotalbpB4Closing;
          $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing = parseFloat(bpAtClosing.tOGovtFeesTotalbpAtClosing) + parseFloat(bpAtClosing.prepaidsTotalbpAtClosing) + parseFloat(bpAtClosing.iEPatClosingTotalbpAtClosing) + parseFloat(bpAtClosing.otherTotalbpAtClosing);
@@ -1978,7 +1979,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     	cashToCloseItemFinalAmount +=  $scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount);
 
         $scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount = cashToCloseItemEstimatedAmount;
-        $scope.leformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount = cashToCloseItemFinalAmount;
+       //// $scope.leformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount = cashToCloseItemFinalAmount;
     }, true);
     
     $scope.$watch('leformdata.closingCostsTotal.lenderCredits', function(newValue,oldValue){

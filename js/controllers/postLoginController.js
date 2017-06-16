@@ -1,6 +1,6 @@
 'use strict';
 
-postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService, apiService, cdJsonService, $log) {
+postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService, apiService, cdJsonService,leJsonService, $log) {
     $scope.transactionType = 'new';
     $scope.purposeType = 'purchase';
     $scope.documentType = 'closingdisclosure';
@@ -41,6 +41,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
             location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
         } else if($scope.transactionType == 'existing') {
             if($scope.uploadfile != undefined && $scope.uploadfile != null) {
+                 if($scope.documentType=='closingdisclosure') { 
                 cdJsonService.getJsonFromXml($scope.uploadfile).success(function(data){
                     $scope.purposeType = data.termsOfLoan.loanPurposeType.toLowerCase();
                     if($scope.purposeType == 'purchase')
@@ -51,6 +52,19 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                 }).error(function(data, status) {
                     $("#spinner").hide();
                 });
+            }else{
+                leJsonService.getLeJsonFromXml($scope.uploadfile).success(function(data){
+                   console.log(JSON.stringify(data));
+                    $scope.purposeType = data.termsOfLoan.loanPurposeType.toLowerCase();
+                    if($scope.purposeType == 'purchase')
+                       $scope.formType = 'standard';
+                    localStorage.jsonData = JSON.stringify(data);
+                    
+                    location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+                }).error(function(data, status) {
+                    $("#spinner").hide();
+                });
+            }
             } else {
                 $scope.fileerror = 'Please select valid xml file';
                 $("#spinner").hide();

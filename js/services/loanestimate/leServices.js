@@ -8,7 +8,7 @@ app.service('leService', function(apiService){
     },
     this.loadTransformData = function(xmlData){
     	return apiService.request({
-            apiMethod: "services/actualize/ucdxml",
+            apiMethod: "actualize/transformx/trident/le/v1/letojson",
             httpMethod: 'POST',
             xmlData:xmlData
         });

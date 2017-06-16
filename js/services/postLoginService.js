@@ -17,3 +17,21 @@ postLoginApp.service('cdJsonService', function(apiService){
     }
 
 });
+/// for LE
+postLoginApp.service('leJsonService', function(apiService){
+    this.getLeJsonFromXml = function(xmlData){
+        return apiService.request({
+            apiMethod: "actualize/transformx/trident/le/v1/letojson",
+            httpMethod: 'POST',
+            xmlData:xmlData
+        });
+    }
+    this.getLeXMLFromTextTemplate = function(xmlData){
+        return apiService.request({
+            apiMethod: "actualize/transformx/transforms/v1/templatetoucd",
+            httpMethod: 'POST',
+            xmlData:xmlData
+        });
+    }
+
+});
