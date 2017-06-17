@@ -1107,11 +1107,35 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     		$scope.leformdata.construction.constructionLoanTotalTermMonthsCount = '';
     	}
     }
+    $scope.rateLockChange = function(){
+    	if($scope.leformdata.loanInformation.rateLokerIndicator ==false ||$scope.leformdata.loanInformation.rateLokerIndicator =='' || $scope.leformdata.loanInformation.rateLokerIndicator==null)
+  		{
+  			$scope.leformdata.loanInformation.rateLokedDate= '';
+  			$scope.leformdata.loanInformation.rateLokedTime=='';
+    		$scope.leformdata.loanInformation.rateLockedTimePeriod ='';
+    		$scope.leformdata.loanInformation.rateLockedTimeZone='';
+  		}
+  		else if($scope.leformdata.loanInformation.rateLokerIndicator ==true){ 
+  			$scope.leformdata.loanInformation.rateLokedTime=null;
+  		}
+    }
+
     $scope.clChange = function(){
     	if($scope.leformdata.construction.constructionLoanType == ''){
     		$scope.leformdata.construction.constructionPeriodNumberOfMonthsCount = '';
     		$scope.leformdata.construction.constructionLoanTotalTermMonthsCount = '';
 
+    	}
+    }
+    $scope.timeClr = function(){
+    	if( $scope.leformdata.loanInformation.rateLokedTime==''){
+    		$scope.leformdata.loanInformation.rateLockedTimePeriod ='';
+    		$scope.leformdata.loanInformation.rateLockedTimeZone='';
+    	}
+    }
+    $scope.timePeriodClr = function(){
+    	if( $scope.leformdata.loanInformation.rateLockedTimePeriod==''){
+    		$scope.leformdata.loanInformation.rateLockedTimeZone='';
     	}
     }
     /*$scope.negativeAmortizationChange = function(){
