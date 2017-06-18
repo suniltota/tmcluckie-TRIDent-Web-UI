@@ -345,7 +345,7 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
 });
 
 
-app.directive('negativeDecimalDigitsWithNumberFormat', function ($compile, $filter) {
+app.directive('decimalDigitsWithNumberFormatAllowNegative', function ($compile, $filter) {
      return {
       require: 'ngModel',
       restrict: 'A',
@@ -363,10 +363,13 @@ app.directive('negativeDecimalDigitsWithNumberFormat', function ($compile, $filt
 
         function inputValue(val) {
           if (val) {
-            var digits = val.replace(/[^0-9.]/g, '');
+            var digits = val.replace(/[^0-9.-]/g, '');
+            if(digits.charAt(0)!='-')
+              digits = digits.replace(/[^0-9.]/g, '');
+            else
+              digits = digits.charAt(0) + digits.substring(1, digits.length).replace(/[^0-9.]/g, '');
             var isContainsDecimal = digits.indexOf(".");
             var viewValue = "";
-            var minusSymbol ="- ";
             if(isContainsDecimal != -1) {
                 var decimalSplitValues = digits.split('.');
                 if(decimalSplitValues[0].length>9)
@@ -387,7 +390,7 @@ app.directive('negativeDecimalDigitsWithNumberFormat', function ($compile, $filt
                 digits = digits.substring(0, 9);
               viewValue = $filter('number')(digits);
             }
-            ctrl.$setViewValue(minusSymbol + viewValue);
+            ctrl.$setViewValue(viewValue);
             ctrl.$render();
 
             return parseFloat(digits).toFixed(2);
