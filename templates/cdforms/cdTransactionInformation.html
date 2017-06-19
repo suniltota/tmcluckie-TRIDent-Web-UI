@@ -199,9 +199,9 @@
     </span>
     </h5>
       <div class="col-sm-6">
-        <div class="row col-sm-12 margin5tb" ng-repeat="lender in cdformdata.transactionInformation.lenderDetails" ng-if="lender.type=='O'">
+        <div class="row col-sm-12 margin5tb">
           <div class="col-sm-5 fieldTitle">Lender Name</div>
-          <div class="col-sm-7"><input type="text" placeholder="Lender Name"  class="form-control" ng-model="lender.nameModel.fullName"></div>
+          <div class="col-sm-7"><input type="text" placeholder="Lender Name"  class="form-control" ng-model="cdformdata.contactInformation.lender.organizationName"></div>
         </div>
          <div class="row col-sm-12 margin5tb" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
           <div class="col-sm-5 fieldTitle">Refinance Same Lender?</div>

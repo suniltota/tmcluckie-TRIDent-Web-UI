@@ -2653,8 +2653,18 @@ app.service('staticData', function($filter){
 	        "disabled":false
     	},
     	{
+    		"name":"Delinquent Taxes",
+	        "value":"DelinquentTaxes",
+	        "disabled":false
+    	},
+    	{
     		"name":"Garnishments",
 	        "value":"Garnishments",
+	        "disabled":false
+    	},
+    	{
+    		"name":"HELOC",
+	        "value":"HELOC",
 	        "disabled":false
     	},
     	{
@@ -2680,6 +2690,21 @@ app.service('staticData', function($filter){
     	{
     		"name":"Revolving",
 	        "value":"Revolving",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Taxes",
+	        "value":"Taxes",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Tax Lien",
+	        "value":"TaxLien",
+	        "disabled":false
+    	},
+    	{
+    		"name":"Third Position Mortgage Lien",
+	        "value":"ThirdPositionMortgageLien",
 	        "disabled":false
     	},
     	{
