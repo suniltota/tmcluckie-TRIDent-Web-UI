@@ -519,13 +519,13 @@
 		        <td>
 		        	<div class="input-group">
 						
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosingMonths" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosingAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <!-- <td>
@@ -766,7 +766,7 @@
 		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3"></span> -->
 		        </td>
 		         <td>
-		            <span class="LabelText col-sm-10">Type</span>
+		            <!-- <span class="LabelText col-sm-10">Type</span> -->
 		        	<select class="form-control padding0" ng-model="escrowItemsList.feePaidToType">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
@@ -779,7 +779,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosingAmountPerMonth" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <td>
@@ -864,7 +864,7 @@
 		        	</span>
 		        </td>
 		        <td>
-		        	<span class="LabelValue col-sm-10">
+		        	<span class="LabelValue col-sm-10" style="width:132px;">
 			        	<select class="form-control padding0" ng-model="otherCostsList.feePaidToType">
 			        		<option value="" selected>Select</option>
 	             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
