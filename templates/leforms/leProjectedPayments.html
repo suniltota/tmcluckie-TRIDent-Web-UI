@@ -1,5 +1,5 @@
 <div class="col-sm-12">
-	<h4>LE Projected Payments</h4>
+	<h4>Projected Payments</h4>
 	<span class="col-sm-12 LoanTermsTable">
 		<div class="margin5tb pull-right" ng-show="leformdata.projectedPayments.paymentCalculation.length<=3">
 			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns</a>
@@ -60,7 +60,7 @@
 				        	<span class="col-sm-6 padding0">Scheduled Termination Date</span> 
 				        	<span class="col-sm-4 pull-left">
 				        			<span class="col-sm-10 padding0">
-				        				<input type="text" name="ScheduledTermDate" id="ScheduledTermDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.projectedPayments.miSTDate" is-open="isScheduledTermDate" datepicker-options="dateOptions" ng-required="true" min-date="leformdata.projectedPayments.miSTDate" close-text="Close" placeholder="Scheduled Termination Date" disabled/>
+				        				<input type="text" name="ScheduledTermDate" id="ScheduledTermDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.projectedPayments.miSTDate" is-open="isScheduledTermDate" datepicker-options="dateOptions" ng-required="true" min-date="leformdata.projectedPayments.miSTDate" close-text="Close" placeholder="MM/DD/YYYY" disabled/>
 				        			</span>
 				        			<span class="input-group-btn col-sm-2 padding0">
 		      								<button type="button" class="btn btn-default calenderBtn" ng-click="isScheduledTermDate = !isScheduledTermDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -70,21 +70,23 @@
 				        	 
 				        </div>
 				        <div class="col-sm-12 padding0 margin5tb">
-				        	<span class="col-sm-6 padding0">MI Monthly Amount ($)</span> 
-				        	<span class="col-sm-4 pull-left">
-				        	 <input type="text" class="form-control" name="" style="width: 80px;"  ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
+				        	<div class="col-sm-6 padding0">MI Monthly Amount</span> 
+				        	<div class="col-sm-4 pull-left">
+				        	 <input type="text" class="form-control" name="" ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
 							 </span>
 					    </div>
 					    <div class="col-sm-12 padding0 margin5tb">
-				        	<span class="col-sm-6 padding0">MI 1st Factor Percentage</span> 
+				        	<span class="col-sm-6 padding0">MI 1st Factor</span> 
 				        	<span class="col-sm-4 pull-left">
-							<input type="text" class="form-control" name="" style="width: 80px;"  ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
+							<input type="text" class="form-control" name="" style="width: 80px;"  ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" percentage-format>
+							<span class="input-group-addon input-default">%</span>
 							 </span>
 					    </div>
 					    <div class="col-sm-12 padding0 margin5tb">
 				        	<span class="col-sm-6 padding0">MI 2nd Factor Percentage</span> 
-				        	<span class="col-sm-4 pull-left">
-							<input type="text" class="form-control" name="" style="width: 80px;"  ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
+				        	<span class="col-sm-3 pull-left">
+							<input type="text" class="form-control" name="" style="width: 80px;"  ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" percentage-format>
+							<span class="input-group-addon input-default">%</span>
 							 </span>
 					    </div>
 				        <!-- <div class="col-sm-12 padding0 margin5tb">
