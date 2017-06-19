@@ -52,7 +52,7 @@
 		        <td>
 		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
 		        		<li>See Total Loan Costs (D) And Total Other Costs (I)</li>
-		        		<li ng-show="cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount !=0.00 && cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount != '' ">Increase exceeds legal limits by {{cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount | number:2}}</li>
+		        		<li ng-show="cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount">Increase exceeds legal limits by {{cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount | number:2}}</li>
 		        		<li>See Lender credits  on page 2 for credit of excess amount.</li>
 		        	</ul>
 		        </td>
@@ -280,8 +280,8 @@
 		        	${{cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}
 		        	<span ng-show="loanBasicInfo.loanFormType == 'alternate'">
 			        	<span class="col-sm-12">
-			        			<input type="checkbox" name="" ng-model="cdformdata.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType" ng-true-value="'FromBorrower'" ng-false-value="'ToBorrower'">From
-			        			<input type="checkbox" name="" ng-model="cdformdata.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType" ng-true-value="'ToBorrower'" ng-false-value="'FromBorrower'">To
+			        			<input type="checkbox" name="" ng-model="cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType" ng-true-value="'FromBorrower'" ng-false-value="'ToBorrower'">From
+			        			<input type="checkbox" name="" ng-model="cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType" ng-true-value="'ToBorrower'" ng-false-value="'FromBorrower'">To
 			        			<span class="col-sm-11 pull-left margin5tb">Borrower
 			        			</span>
 			        	</span>
@@ -292,8 +292,8 @@
 
 		        	<span ng-show="loanBasicInfo.loanFormType == 'alternate'">
 			        	<span class="col-sm-12">
-			        			<input type="checkbox" name="" ng-model="cdformdata.cashToCloseTotal[1].integratedDisclosureCashToCloseItemPaymentType" ng-true-value="'FromBorrower'" ng-false-value="'ToBorrower'">From
-			        			<input type="checkbox" name="" ng-model="cdformdata.cashToCloseTotal[1].integratedDisclosureCashToCloseItemPaymentType" ng-true-value="'ToBorrower'" ng-false-value="'FromBorrower'">To
+			        			<input type="checkbox" name="" ng-model="cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemPaymentType" ng-true-value="'FromBorrower'" ng-false-value="'ToBorrower'">From
+			        			<input type="checkbox" name="" ng-model="cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemPaymentType" ng-true-value="'ToBorrower'" ng-false-value="'FromBorrower'">To
 			        			<span class="col-sm-11 pull-left margin5tb">Borrower
 			        			</span>
 			        	</span>
