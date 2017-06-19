@@ -213,7 +213,7 @@ httpServiceModule.factory('apiService', ['$http', '$q', function($http, $q) {
 		  				}).error(function(data, status, headers, config) {
 		  					$("#pageSpinner").hide();
 		  					if(status===401){ //user has been logged out server-side. redirect to login pg
-		  						window.location.href="/login" + window.location.search;
+		  						//window.location.href="/login" + window.location.search;
 		  					}
 							// called asynchronously if an error occurs
 						    // or server returns response with an error status.
