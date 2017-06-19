@@ -1132,9 +1132,17 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.removeBorrower = function(index){
     	$scope.cdformdata.transactionInformation.borrowerDetails.splice(index,1);
     }
-    $scope.backtoTop = function(){
-    	console.log("i am here");
-    	$('#PDFviewContainer').scrollTop(0);
+    $scope.backtoTopborrower = function(){
+    	$location.hash();
+    	$anchorScroll('borrowerinfo');
+    }
+    $scope.backtoTopSeller = function(){
+    	$location.hash();
+    	$anchorScroll('Sellerinfo');
+    }
+    $scope.backtoTopLender = function(){
+    	$location.hash();
+    	$anchorScroll('lenderinfo');
     }
 
     $scope.addSeller = function(){
