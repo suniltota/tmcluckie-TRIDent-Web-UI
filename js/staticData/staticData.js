@@ -4572,7 +4572,11 @@ this.cdformdata={
 		    "miCompanyNameType": "",
 		    "miCompanyNameTypeOtherDescription": "",
 		    "miScheduledTerminationDate": "",
-		    "miInitialPremiumAmount": ""
+		    "miInitialPremiumAmount": "",
+		    "miMonthlyAmount": "",
+		    "miFirstFactor": "",
+            "miSecondFactorPercentage": "",
+
 		},
 		"transactionInformation": {
 			"refinanceSameLenderIndicator" : false,
@@ -4931,7 +4935,11 @@ this.cdformdata={
 	                "prepaidItemTypeOtherDescription": "",
 	                "regulationZPointsAndFeesIndicator": true,
 	                "paymentIncludedInAPRIndicator": true,
-	                "prepaidPaidToFullName": ""
+	                "prepaidPaidToFullName": "",
+	                "perDiemAmount":"",
+	                "numberOfDays":"",
+	                "prepaidInterestRate":""
+
 	            }
 	        ],
 	        "escrowItemsList":
