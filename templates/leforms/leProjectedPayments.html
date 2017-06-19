@@ -25,14 +25,14 @@
 							</div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
-		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" decimal-digits-with-number-format>
+		        				<input class="form-control width58" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" decimal-digits-with-number-format>
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-6" style="padding: 0 8px;">
 		        			<div class="col-sm-12 text-center">Maximum<span class="required" ng-show="$index==0">*</span></div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
-		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" decimal-digits-with-number-format>
+		        				<input class="form-control width58" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" decimal-digits-with-number-format>
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-12 text-center" style="padding:10px;" ng-show="principalInterest.interestOnlyStatus">Only Interest</div>
@@ -136,7 +136,7 @@
 		        </td>
 		        <td ng-repeat="estimatedTotal in leformdata.projectedPayments.estimatedTotal track by $index">
 		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Minimum</div>
+		        			<div class="col-sm-12 text-center paddingleft2">Minimum</div>
 		        			<div class="text-center" ng-show="estimatedTotal.projectedPaymentEstimatedTotalMinimumPaymentAmount!=''">
   							${{estimatedTotal.projectedPaymentEstimatedTotalMinimumPaymentAmount | number:2}}
 		        			</div>
@@ -145,7 +145,7 @@
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-6">
-		        			<div class="col-sm-12 text-center">Maximum<span class="required" ng-show="$index==0">*</span></div>
+		        			<div class="col-sm-12 text-center paddingleft2">Maximum<span class="required" ng-show="$index==0">*</span></div>
 		        			<div class="text-center">
 							${{estimatedTotal.projectedPaymentEstimatedTotalMaximumPaymentAmount | number:2}}
 		        			</div>
