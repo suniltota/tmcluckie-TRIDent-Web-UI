@@ -2330,9 +2330,30 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     // 		LoadXMLString('xmldisplayArea',data);
     // });
 
+    $scope.generatePDF = function(){
+
+    	console.log("I am in leservice generateXML -1");
+    	$("#spinner").show();
+    	leService.genearateXmlFromJson($scope.leformdata, true).success(function(data){
+    		leService.generatePDF(data).success(function(pdfData){
+
+    	console.log("I am in leservice generateXML");
+    			if(pdfData!=null && pdfData.length>0){
+    				$("#pdfViewerId").show();
+    				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
+					$("#carousel").pdfSlider();
+    			}
+    			$("#spinner").hide();
+    		}).error( function(pdfData, status){
+    			$("#spinner").hide();
+    		});
+    	}).error( function(data, status){
+    		$("#spinner").hide();
+    	});
+    }
+
     $scope.generateXML = function(embeddedPDF){
     	$("#spinner").show();
-    	console.log("I am in leservice generateXML");
     	leService.genearateXmlFromJson($scope.leformdata, embeddedPDF).success(function(data){
 
     		$scope.xmlData = data;

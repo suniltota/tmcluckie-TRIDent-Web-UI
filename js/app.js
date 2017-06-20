@@ -103,7 +103,7 @@ app.controller('menuCtrl', function ($scope, loginService, staticData, $window) 
 
   $scope.generatePDF = function(){
     closeAllViews();
-    if(!localStorage.documentType)
+    //if(!localStorage.documentType)
       angular.element($("#UCDXMLFILE")).scope().generatePDF();
   }
   var closeAllViews = function() {

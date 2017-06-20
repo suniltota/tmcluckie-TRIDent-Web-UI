@@ -29,7 +29,7 @@ app.service('leService', function(apiService){
     },
     this.generatePDF = function(xml) {
         return apiService.request({
-            apiMethod: "services/actualize/generatePDF",
+            apiMethod: "/actualize/transformx/documents/ucd/le/v1/pdf",
             httpMethod: 'POST',
             formData:xml
         });
