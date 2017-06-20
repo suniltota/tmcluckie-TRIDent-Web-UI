@@ -33,7 +33,7 @@ app.service('leService', function(apiService){
             httpMethod: 'POST',
             formData:xml
         });
-    }
+    },
     this.genearateXmlFromJson = function(data, embeddedPDF){
         if(data != undefined)
             data.embeddedPDF = embeddedPDF;
