@@ -60,38 +60,53 @@ app.controller('validateCtrl', function ($scope, $location, $http) {
 
 
 app.controller('menuCtrl', function ($scope, loginService, staticData, $window) {
+  
   $scope.fileNew = function(){
+    closeAllViews();
     var postLoginScope = angular.element($("#ChooseFormType")).scope();
     postLoginScope.transactionType = "new";
     $('#ChooseFormType').modal('show');
   }
   $scope.fileOpen = function(){
+    closeAllViews();
     var postLoginScope = angular.element($("#ChooseFormType")).scope();
     postLoginScope.transactionType = "existing";
     $('#ChooseFormType').modal('show');
   }
   
   $scope.importFile = function(){
+    closeAllViews();
     var postLoginScope = angular.element($("#ChooseFormType")).scope();
     postLoginScope.transactionType = "existing";
     $('#ChooseFormType').modal('show');
   }
+
   $scope.generateXML = function() {
     closeAllViews();
-    if(!localStorage.documentType)
-      angular.element($("#UCDXMLFILE")).scope().generateXML();
+    if(!localStorage.documentType){
+      var viewMenuScope = angular.element($("#ChooseEmbeddedPDF")).scope();
+      viewMenuScope.xmlTitle = "XML";
+      viewMenuScope.embeddedPDF=true;
+      $('#ChooseEmbeddedPDF').modal('show');    
+    }
   }
+
   $scope.generateUCDXML = function() {
     closeAllViews();
-    if(!localStorage.documentType)
-      angular.element($("#UCDXMLFILE")).scope().generateUCDXML();
+    if(!localStorage.documentType){
+      var viewMenuScope = angular.element($("#ChooseEmbeddedPDF")).scope();
+      viewMenuScope.xmlTitle = "UCD XML";
+      viewMenuScope.embeddedPDF=true;
+      $('#ChooseEmbeddedPDF').modal('show');
+    }
   }
+
   $scope.generatePDF = function(){
     closeAllViews();
     if(!localStorage.documentType)
       angular.element($("#UCDXMLFILE")).scope().generatePDF();
   }
- var closeAllViews = function() {
+  var closeAllViews = function() {
     xmlDestroy();
     pdfDestroy();
     ucdXmlDestroy();
@@ -203,4 +218,15 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
             }
         }
     }
-})
+});
+app.controller('viewMenuCtrl', function($scope, staticData){
+  $scope.dropDownBooleanOptions = staticData.dropDownBooleanOptions;
+  $scope.embeddedPDF = true;
+  $scope.generateXMLPDF= function(title){
+    $('#ChooseEmbeddedPDF').modal('hide');
+    if(title == "XML")
+      angular.element($("#UCDXMLFILE")).scope().generateXML($scope.embeddedPDF);
+    else
+      angular.element($("#UCDXMLFILE")).scope().generateUCDXML($scope.embeddedPDF);
+  }
+});

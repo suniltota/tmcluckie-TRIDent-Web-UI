@@ -13,7 +13,9 @@ app.service('cdService', function(apiService){
             xmlData:xmlData
         });
     },
-    this.genearateXmlFromJson = function(data){
+    this.genearateXmlFromJson = function(data, embeddedPDF){
+        if(data != undefined)
+            data.embeddedPDF = embeddedPDF;
         return apiService.request({
             apiMethod: "actualize/transformx/trident/cd/v1/jsontoucd",
             httpMethod: 'POST',

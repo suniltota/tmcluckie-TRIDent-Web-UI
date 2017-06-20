@@ -2356,7 +2356,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     $scope.calculatePayments = function() {
     	$("#spinner").show();
-    	cdService.genearateXmlFromJson($scope.cdformdata).success(function(xmldata){
+    	cdService.genearateXmlFromJson($scope.cdformdata, false).success(function(xmldata){
     		cdService.calculatePayments(xmldata).success(function(calculationsData){
     			cdService.loadTransformData(calculationsData).success(function(jsonData){
 					//$scope.cdformdata = jsonData;
@@ -2379,7 +2379,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     $scope.generatePDF = function(){
     	$("#spinner").show();
-    	cdService.genearateXmlFromJson($scope.cdformdata).success(function(data){
+    	cdService.genearateXmlFromJson($scope.cdformdata, true).success(function(data){
     		cdService.generatePDF(data).success(function(pdfData){
     			if(pdfData!=null && pdfData.length>0){
     				$("#pdfViewerId").show();
@@ -2395,9 +2395,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	});
     }
 
-    $scope.generateXML = function(){
+    $scope.generateXML = function(embeddedPDF){
     	$("#spinner").show();
-    	cdService.genearateXmlFromJson($scope.cdformdata).success(function(data){
+    	cdService.genearateXmlFromJson($scope.cdformdata, embeddedPDF).success(function(data){
     		$scope.xmlData = data;
     		LoadXMLString("xmlViewerId",$scope.xmlData);
     		$("#xmlView").show();
@@ -2407,11 +2407,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	});
     }
 
-    $scope.generateUCDXML = function(){
+    $scope.generateUCDXML = function(embeddedPDF){
     	$("#spinner").show();
-    	cdService.genearateXmlFromJson($scope.cdformdata).success(function(data){
+    	cdService.genearateXmlFromJson($scope.initializeCDformData, embeddedPDF).success(function(data){
     		$scope.xmlData = data;
-    		cdService.genearateUCDXml($scope.xmlData).success(function(data){
+    		cdService.genearateUCDXml($scope.xmlData, false).success(function(data){
 	    		$scope.ucdxmlData = data;
 	    		LoadXMLString("ucdXmlViewerId",$scope.ucdxmlData);
 	    		$("#ucdXmlView").show();

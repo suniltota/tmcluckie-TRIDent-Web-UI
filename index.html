@@ -58,86 +58,112 @@ function closeNav() {
 </script>
 </head>
 <body ng-app="actualizeWebApp">
-    <div class="col-lg-12 col-md-12 col-sm-12" style="padding: 0px;">
-        <div style="z-index:2;" header-width>
-            <div ng-include='"templates/header.html"'></div>
+  <div class="col-lg-12 col-md-12 col-sm-12" style="padding: 0px;">
+      <div style="z-index:2;" header-width>
+          <div ng-include='"templates/header.html"'></div>
+      </div>
+      <div style="top:80px; clear:both;">
+          <div ng-view></div>
+      </div>
+          <div class="footer" ng-include='"templates/footer.html"'></div>
+  </div>
+  <div class="pageSpinner" id="spinner"></div>
+
+  <!-- File menu popup-->
+  <div class="modal fade" id="ChooseFormType" role="dialog" data-keyboard="false" data-backdrop="static" data-ng-controller="fileMenuCtrl">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Choose Form type and Loan purpose Type</h4>
         </div>
-        <div style="top:80px; clear:both;">
-            <div ng-view></div>
-        </div>
-            <div class="footer" ng-include='"templates/footer.html"'></div>
-    </div>
-    <div class="pageSpinner" id="spinner"></div>
-    <div class="modal fade" id="ChooseFormType" role="dialog" data-keyboard="false" data-backdrop="static" data-ng-controller="fileMenuCtrl">
-      <div class="modal-dialog modal-md">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Choose Form type and Loan purpose Type</h4>
-          </div>
-          <div class="modal-body">
-            <div class="row margin5tb" style="margin-bottom: 10px;">
-              <div class=" col-sm-12" ng-show="transactionType == 'new'">
-                <div class="col-sm-12 popup_innerHeader">
-                  <strong>Choose one radio button for the Loan Purpose for the transaction</strong>
-                </div>
-                <div class="col-sm-6  radioGroup margin5tb">
-                  <input type="radio" name="purpose" ng-model="purposeType" value="purchase" ng-change="purposeTypeChange()">
-                  <strong>Purchase</strong>
-                </div>
-                <div class="col-sm-6  radioGroup  margin5tb">
-                  <input type="radio"  name="purpose" ng-model="purposeType" value="refinance" ng-change="purposeTypeChange()">
-                  <strong>Refinance</strong>
-                </div>
+        <div class="modal-body">
+          <div class="row margin5tb" style="margin-bottom: 10px;">
+            <div class=" col-sm-12" ng-show="transactionType == 'new'">
+              <div class="col-sm-12 popup_innerHeader">
+                <strong>Choose one radio button for the Loan Purpose for the transaction</strong>
               </div>
-              <div class=" col-sm-12">
-                <div class="col-sm-12 popup_innerHeader">
-                  <strong>Choose one radio button for the Document Type</strong>
-                </div>
-                <div class="col-sm-6  radioGroup margin5tb">
-                  <input type="radio" name="Document" ng-model="documentType" value="loanestimate">
-                  <strong>Loan Estimate</strong>
-                </div>
-                <div class="col-sm-6  radioGroup  margin5tb">
-                  <input type="radio"  name="Document" ng-model="documentType" value="closingdisclosure">
-                  <strong>Closing Disclosure</strong>
-                </div>
+              <div class="col-sm-6  radioGroup margin5tb">
+                <input type="radio" name="purpose" ng-model="purposeType" value="purchase" ng-change="purposeTypeChange()">
+                <strong>Purchase</strong>
               </div>
-              <div class=" col-sm-12">
-                <div class="col-sm-12 popup_innerHeader">
-                  <strong>Choose one radio button for the Form</strong>
-                </div>
-                <div class="col-sm-6  radioGroup margin5tb">
-                  <input type="radio" name="Form" ng-model="formType" value="standard">
-                  <strong>Standard</strong>
-                </div>
-                <div class="col-sm-6  radioGroup  margin5tb">
-                  <input type="radio"  name="Form" ng-model="formType" value="alternate" ng-disabled="transactionType == 'new' && purposeType == 'purchase'">
-                  <strong>Alternate</strong>
-                </div>
-                <!-- <div class="col-sm-4  radioGroup  margin5tb">
-                  <input type="radio"  name="Form" ng-model="formType" value="selleronly">
-                  <strong>Seller Only</strong>
-                </div> -->
+              <div class="col-sm-6  radioGroup  margin5tb">
+                <input type="radio"  name="purpose" ng-model="purposeType" value="refinance" ng-change="purposeTypeChange()">
+                <strong>Refinance</strong>
               </div>
-              <div class=" col-sm-12" ng-show="transactionType != 'new'">
-                <div class="col-sm-12 popup_innerHeader">
-                  <strong>Choose file</strong>
-                </div>
-                <div class="col-sm-8  radioGroup margin5tb">
-                  <input type="file" name="uploadfile" id="uploadfile" accept=".xml,.txt" file-model="uploadfile">
-                </div>
-                <div class="col-sm-8  radioGroup margin5tb" ng-show="fileerror">
-                  <label style="color: red;">{{fileerror}}</label>
-                </div>
+            </div>
+            <div class=" col-sm-12">
+              <div class="col-sm-12 popup_innerHeader">
+                <strong>Choose one radio button for the Document Type</strong>
+              </div>
+              <div class="col-sm-6  radioGroup margin5tb">
+                <input type="radio" name="Document" ng-model="documentType" value="loanestimate">
+                <strong>Loan Estimate</strong>
+              </div>
+              <div class="col-sm-6  radioGroup  margin5tb">
+                <input type="radio"  name="Document" ng-model="documentType" value="closingdisclosure">
+                <strong>Closing Disclosure</strong>
+              </div>
+            </div>
+            <div class=" col-sm-12">
+              <div class="col-sm-12 popup_innerHeader">
+                <strong>Choose one radio button for the Form</strong>
+              </div>
+              <div class="col-sm-6  radioGroup margin5tb">
+                <input type="radio" name="Form" ng-model="formType" value="standard">
+                <strong>Standard</strong>
+              </div>
+              <div class="col-sm-6  radioGroup  margin5tb">
+                <input type="radio"  name="Form" ng-model="formType" value="alternate" ng-disabled="transactionType == 'new' && purposeType == 'purchase'">
+                <strong>Alternate</strong>
+              </div>
+              <!-- <div class="col-sm-4  radioGroup  margin5tb">
+                <input type="radio"  name="Form" ng-model="formType" value="selleronly">
+                <strong>Seller Only</strong>
+              </div> -->
+            </div>
+            <div class=" col-sm-12" ng-show="transactionType != 'new'">
+              <div class="col-sm-12 popup_innerHeader">
+                <strong>Choose file</strong>
+              </div>
+              <div class="col-sm-8  radioGroup margin5tb">
+                <input type="file" name="uploadfile" id="uploadfile" accept=".xml,.txt" file-model="uploadfile">
+              </div>
+              <div class="col-sm-8  radioGroup margin5tb" ng-show="fileerror">
+                <label style="color: red;">{{fileerror}}</label>
               </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" ng-click="submit()">Submit</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Cancel</button>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" ng-click="submit()">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Cancel</button>
         </div>
       </div>
     </div>
+  </div>
+  <!--  -->
+
+  <div class="modal fade" id="ChooseEmbeddedPDF" role="dialog" data-keyboard="false" data-backdrop="static" data-ng-controller="viewMenuCtrl">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{xmlTitle}}</h4>
+        </div>
+        <div class="modal-body">
+           <div class="col-sm-12 row margin5tb">
+              <div class="col-sm-8">Do you want embedded PDF </div>
+              <div class="col-sm-4">
+                <select class="form-control" ng-model="embeddedPDF" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+                </select>
+              </div>
+           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" ng-click="generateXMLPDF(xmlTitle)">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
