@@ -1,7 +1,6 @@
 <div class="col-sm-12">
   <h4>Confirm Receipt</h4>
-  <div class="">
-   <div class="col-sm-6">
+   <!-- <div class="col-sm-6">
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Confirm Receipt</div>
             <div class="col-sm-7 radioGroup">
@@ -11,7 +10,30 @@
               <label>Will Not Display the Confirm Receipt Signature and Date Line</label>
             </div>
           </div>
-   </div>
+   </div> -->
+   <span  class="col-sm-12 padding0">
+        <table class="table LoanDisclosures table-bordered margin5tb"  style="border:0px;">
+          <tr>
+              <td class="col-sm-4">
+                  <strong> View  </strong>
+              </td>
+            <td>
+                 <span class="col-sm-12">
+                  <span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.assumabilityIndicator" ng-checked="leformdata.loanDetail.assumabilityIndicator == true"></span>
+                  <span class="col-sm-11 pull-left margin5tb">
+                    Will Display the Confirm Receipt Signature and Date Line
+                  </span>
+                </span>
+                <span class="col-sm-12">
+                    <span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.loanDetail.assumabilityIndicator == false"></span>
+                    <span class="col-sm-11 pull-left margin5tb">
+                      Will Not Display the Confirm Receipt Signature and Date Line
+                    </span>
+                </span>
+            </td>
+          </tr>
+        </table>
+   </span>
 </div>
 
   <div class="col-sm-12 margin10t">
