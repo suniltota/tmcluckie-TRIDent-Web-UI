@@ -278,6 +278,11 @@
       <object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="original"></object>
     </div>
   </div>
+  <div id="xmlView" style="display: none;" dynamic-height>
+    <span class="closeXml glyphicon glyphicon-remove-circle cursor" ng-click="closeXML()" data-toggle="tooltip" data-placement="left" title="Close"></span>
+    <span class="glyphicon glyphicon-download downloadXML cursor" ng-click="downloadXML()" data-toggle="tooltip" data-placement="left" title="Download"></span>
+    <div id="xmlViewerId"></div>
+  </div>
 </div>
 <div class="modal fade" id="BorrowerTransaction" role="dialog">
   <div class="modal-dialog">
