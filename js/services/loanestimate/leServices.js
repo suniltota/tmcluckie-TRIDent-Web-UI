@@ -34,11 +34,13 @@ app.service('leService', function(apiService){
             formData:xml
         });
     }
-    this.generateXML = function(xml) {
+    this.genearateXmlFromJson = function(data, embeddedPDF){
+        if(data != undefined)
+            data.embeddedPDF = embeddedPDF;
         return apiService.request({
-            apiMethod: "services/actualize/generateXML",
+            apiMethod: "actualize/transformx/trident/le/v1/jsontole",
             httpMethod: 'POST',
-            formData:xml
+            formData:data
         });
     }
 });

@@ -83,22 +83,22 @@ app.controller('menuCtrl', function ($scope, loginService, staticData, $window) 
 
   $scope.generateXML = function() {
     closeAllViews();
-    if(!localStorage.documentType){
+    //if(!localStorage.documentType){
       var viewMenuScope = angular.element($("#ChooseEmbeddedPDF")).scope();
       viewMenuScope.xmlTitle = "XML";
       viewMenuScope.embeddedPDF=true;
       $('#ChooseEmbeddedPDF').modal('show');    
-    }
+    //}
   }
 
   $scope.generateUCDXML = function() {
     closeAllViews();
-    if(!localStorage.documentType){
+    //if(!localStorage.documentType){
       var viewMenuScope = angular.element($("#ChooseEmbeddedPDF")).scope();
       viewMenuScope.xmlTitle = "UCD XML";
       viewMenuScope.embeddedPDF=true;
       $('#ChooseEmbeddedPDF').modal('show');
-    }
+    //}
   }
 
   $scope.generatePDF = function(){
@@ -158,6 +158,8 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
         $("#spinner").show();
         $('#ChooseFormType').modal('hide');
         localStorage.removeItem("jsonData");
+        localStorage.documentType = $scope.documentType;
+        angular.element($("#menuCtrlId")).scope().documentType = $scope.documentType;
         if($scope.transactionType == 'new') {
             location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
         } else if($scope.transactionType == 'existing') {

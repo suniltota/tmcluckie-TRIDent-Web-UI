@@ -2329,7 +2329,19 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     // 		$rootScope.xmlStringData=data;
     // 		LoadXMLString('xmldisplayArea',data);
     // });
- 
+
+    $scope.generateXML = function(embeddedPDF){
+    	$("#spinner").show();
+    	leService.genearateXmlFromJson($scope.leformdata, embeddedPDF).success(function(data){
+    		$scope.xmlData = data;
+    		LoadXMLString("xmlViewerId",$scope.xmlData);
+    		$("#xmlView").show();
+    		$("#spinner").hide();
+    	}).error( function(data, status){
+    		$("#spinner").hide();
+    	});
+    }
+
 });
 //date param of proper format to create date object.
 // ex:- 04/25/2008

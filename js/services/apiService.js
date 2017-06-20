@@ -120,7 +120,7 @@ httpServiceModule.factory('apiService', ['$http', '$q', function($http, $q) {
 					$("#pageSpinner").hide();
 					//check to see if request has been redirected to login page, suggesting user has been logged out
 					if(typeof data==='string' && data.substr(0,44)==='<html><head><title>Login Page</title></head>'){
-    					window.location.href="/login" + window.location.search;
+    					window.location.href="login.html" + window.location.search;
 					}
 
 					var req;
@@ -139,7 +139,7 @@ httpServiceModule.factory('apiService', ['$http', '$q', function($http, $q) {
   				}).error(function(data, status, headers, config) {
   					$("#pageSpinner").hide();
 		  			if(status===401){ //user has been logged out server-side. redirect to login pg
-		  				window.location.href="/login" + window.location.search;
+		  				window.location.href="login.html" + window.location.search;
 		  			}
 					// called asynchronously if an error occurs
 				    // or server returns response with an error status.
@@ -158,7 +158,7 @@ httpServiceModule.factory('apiService', ['$http', '$q', function($http, $q) {
 							$("#pageSpinner").hide();
 							//check to see if request has been redirected to login page, suggesting user has been logged out
 							if(typeof data==='string' && data.substr(0,44)==='<html><head><title>Login Page</title></head>'){
-            					window.location.href="/login" + window.location.search;
+            					window.location.href="login.html" + window.location.search;
 							}
 
 							var req;
@@ -176,7 +176,7 @@ httpServiceModule.factory('apiService', ['$http', '$q', function($http, $q) {
 		  				}).error(function(data, status, headers, config) {
 		  					$("#pageSpinner").hide();
 		  					if(status===401){ //user has been logged out server-side. redirect to login pg
-		  						window.location.href="/login" + window.location.search;
+		  						window.location.href="login.html" + window.location.search;
 		  					}
 							// called asynchronously if an error occurs
 						    // or server returns response with an error status.
@@ -194,7 +194,7 @@ httpServiceModule.factory('apiService', ['$http', '$q', function($http, $q) {
 							$("#pageSpinner").hide();
 							//check to see if request has been redirected to login page, suggesting user has been logged out
 							if(typeof data==='string' && data.substr(0,44)==='<html><head><title>Login Page</title></head>'){
-            					window.location.href="/login" + window.location.search;
+            					window.location.href="login.html" + window.location.search;
 							}
 							
 							var req;
@@ -213,7 +213,7 @@ httpServiceModule.factory('apiService', ['$http', '$q', function($http, $q) {
 		  				}).error(function(data, status, headers, config) {
 		  					$("#pageSpinner").hide();
 		  					if(status===401){ //user has been logged out server-side. redirect to login pg
-		  						//window.location.href="/login" + window.location.search;
+		  						window.location.href="login.html" + window.location.search;
 		  					}
 							// called asynchronously if an error occurs
 						    // or server returns response with an error status.
