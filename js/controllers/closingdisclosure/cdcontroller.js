@@ -448,6 +448,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(0, 0, angular.copy(prepaidsList));
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].prepaidItemType = 'PrepaidInterest';
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].displayLabelText = 'Prepaid Interest';
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].feePaidToType = 'Lender';
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].paymentIncludedInAPRIndicator = true;
 			
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(1, 0, angular.copy(prepaidsList));
@@ -1892,6 +1893,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
     //Prepaid Interest
     $scope.clearPrepaid = function(i){
+    	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToType = 'Lender';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemCalculationMethodType = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidFromDate = '';
