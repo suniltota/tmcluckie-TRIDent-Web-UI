@@ -3566,7 +3566,7 @@ this.cdformdata={
 		    "loanManualUnderwritingIndicator": false
 		},
 		"salesContractDetail": {
-		    "personalPropertyIndicator": false,
+		    "personalPropertyIndicator": "",
 		    "personalPropertyAmount": "",
 		    "realPropertyAmount": "",
 		    "saleContractAmount": ""
@@ -4679,7 +4679,7 @@ this.cdformdata={
 		    "loanManualUnderwritingIndicator": false
 		},
 		"salesContractDetail": {
-		    "personalPropertyIndicator": false,
+		    "personalPropertyIndicator": "",
 		    "personalPropertyAmount": "",
 		    "realPropertyAmount": "",
 		    "saleContractAmount": ""
