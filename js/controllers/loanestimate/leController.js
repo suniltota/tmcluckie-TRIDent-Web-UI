@@ -968,6 +968,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 
 	$scope.checkRadio = function() {
 		console.log($scope.leformdata.closingInformation.property.legalDescription);
+		if(!$scope.leformdata.closingInformation.property.legalDescription){
+			$scope.leformdata.closingInformation.property.unparsedLegalDescription = "";
+			$scope.leformdata.closingInformation.property.addressLineText = '';
+		}
 	}
 	$scope.scrollTo = function(id) {
            $location.hash(id);
