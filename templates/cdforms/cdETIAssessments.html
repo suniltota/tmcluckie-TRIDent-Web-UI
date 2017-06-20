@@ -25,11 +25,11 @@
 		      		</td>
 		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes'">
 			        	<span class="pull-left margin5tb">Property Taxes</span>
-			        	<span class="col-sm-1 pull-right"><input type="checkbox" name="" ng-checked="cdformdata.etiaSection.propertyTaxesCheck" ng-model="cdformdata.etiaSection.propertyTaxesCheck"></span>
+			        	<span class="col-sm-1 pull-right"><input type="checkbox" name="" ng-checked="cdformdata.etiaSection.propertyTaxesCheck" ng-model="cdformdata.etiaSection.propertyTaxesCheck" ng-disabled="etia.insuranceTaxCheck"></span>
 		      		</td>
 		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'">
 			        	<span class="pull-left margin5tb">Homeowners Insurance</span>
-			        	<span class="col-sm-1 pull-right"><input type="checkbox" name="" ng-checked="cdformdata.etiaSection.HomeownersInsuranceCheck" ng-model="cdformdata.etiaSection.HomeownersInsuranceCheck"></span>
+			        	<span class="col-sm-1 pull-right"><input type="checkbox" name="" ng-checked="cdformdata.etiaSection.HomeownersInsuranceCheck" ng-model="cdformdata.etiaSection.HomeownersInsuranceCheck" ng-disabled="etia.insuranceTaxCheck"></span>
 		      		</td>
 		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
 		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance'">
