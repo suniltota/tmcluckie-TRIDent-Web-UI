@@ -44,8 +44,17 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                  if($scope.documentType=='closingdisclosure') { 
                 cdJsonService.getJsonFromXml($scope.uploadfile).success(function(data){
                     $scope.purposeType = data.termsOfLoan.loanPurposeType.toLowerCase();
-                    if($scope.purposeType == 'purchase')
+                    $scope.loanformtype = data.closingDisclosureDocDetails.formType;
+                    if($scope.purposeType == 'purchase'){
                        $scope.formType = 'standard';
+                    }
+                    else if($scope.purposeType == 'refinance'){
+                        if($scope.loanformtype == 'AlternateForm'){
+                            $scope.formType = 'alternate';
+                        }else if($scope.loanformtype == 'ModelForm'){
+                            $scope.formType = 'standard';
+                        }
+                    }
                     localStorage.jsonData = JSON.stringify(data);
                     console.log(localStorage.jsonData);
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
@@ -56,8 +65,17 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                 leJsonService.getLeJsonFromXml($scope.uploadfile).success(function(data){
                    console.log(JSON.stringify(data));
                     $scope.purposeType = data.termsOfLoan.loanPurposeType.toLowerCase();
-                    if($scope.purposeType == 'purchase')
+                    $scope.loanformtype = data.closingDisclosureDocDetails.formType;
+                    if($scope.purposeType == 'purchase'){
                        $scope.formType = 'standard';
+                    }
+                    else if($scope.purposeType == 'refinance'){
+                        if($scope.loanformtype == 'AlternateForm'){
+                            $scope.formType = 'alternate';
+                        }else if($scope.loanformtype == 'ModelForm'){
+                            $scope.formType = 'standard';
+                        }
+                    }
                     localStorage.jsonData = JSON.stringify(data);
                     
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
@@ -79,8 +97,17 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                         var xml = $(this).html();
                         cdJsonService.getJsonFromXml(xml).success(function(jsondata){
                             $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
-                            if($scope.purposeType == 'purchase')
+                            $scope.loanformtype = jsondata.closingDisclosureDocDetails.formType;
+                            if($scope.purposeType == 'purchase'){
                                $scope.formType = 'standard';
+                            }
+                            else if($scope.purposeType == 'refinance'){
+                                if($scope.loanformtype == 'AlternateForm'){
+                                    $scope.formType = 'alternate';
+                                }else if($scope.loanformtype == 'ModelForm'){
+                                    $scope.formType = 'standard';
+                                }
+                            }
                             localStorage.jsonData = JSON.stringify(jsondata);
                             console.log(localStorage.jsonData);
                             location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
