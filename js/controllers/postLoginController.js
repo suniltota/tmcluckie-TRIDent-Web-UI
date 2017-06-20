@@ -65,7 +65,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                 leJsonService.getLeJsonFromXml($scope.uploadfile).success(function(data){
                    console.log(JSON.stringify(data));
                     $scope.purposeType = data.termsOfLoan.loanPurposeType.toLowerCase();
-                    $scope.loanformtype = data.closingDisclosureDocDetails.formType;
+                    $scope.loanformtype = data.loanEstimateDocDetails.formType;
                     if($scope.purposeType == 'purchase'){
                        $scope.formType = 'standard';
                     }
