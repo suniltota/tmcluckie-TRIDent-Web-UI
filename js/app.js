@@ -59,8 +59,8 @@ app.controller('validateCtrl', function ($scope, $location, $http) {
 
 
 
-app.controller('menuCtrl', function ($scope, loginService, staticData, $window) {
-  
+app.controller('menuCtrl', function ($scope, loginService,  $routeParams, $location, staticData, $window) {
+  $scope.documentType = $location.$$search.documentType;
   $scope.fileNew = function(){
     closeAllViews();
     var postLoginScope = angular.element($("#ChooseFormType")).scope();
