@@ -2331,16 +2331,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     // });
 
     $scope.generatePDF = function(){
-
-    	console.log("I am in leservice generateXML -1");
     	$("#spinner").show();
     	leService.genearateXmlFromJson($scope.leformdata, true).success(function(data){
     		leService.generatePDF(data).success(function(pdfData){
-
-    	console.log("I am in leservice generateXML");
-    			if(pdfData!=null && pdfData.length>0){
+    			if(pdfData!=null){
     				$("#pdfViewerId").show();
-    				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
+    				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData.responseData;
 					$("#carousel").pdfSlider();
     			}
     			$("#spinner").hide();
