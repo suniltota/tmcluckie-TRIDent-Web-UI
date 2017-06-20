@@ -183,17 +183,17 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
         $scope.cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate = new Date();
 		$scope.cdformdata.closingInformationDetail.closingDate = add_business_days($scope.cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate, 5);
+		
+		if($scope.loanBasicInfo.loanPurposeType == 'purchase') {
+			$scope.cdformdata.salesContractDetail.personalPropertyIndicator = false;
+		}
+		
 		if(localStorage.jsonData != undefined) {
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount%12;
 		}
-
-		if($scope.loanBasicInfo.loanFormType != 'refinance') {
-			$scope.cdformdata.salesContractDetail.personalPropertyIndicator = false;
-		}else{
-			$scope.cdformdata.salesContractDetail.personalPropertyIndicator = null;
-		}
+		
         //Adding Form and Document types for AML & PDF Generation
         $scope.cdformdata.closingDisclosureDocDetails.documentType='ClosingDisclosure';
 
