@@ -184,7 +184,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		$scope.leformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
         $scope.leformdata.closingInformation.dateIssued = new Date();
 		$scope.leformdata.closingInformationDetail.closingDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
-
+		$scope.leformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate = $scope.leformdata.closingInformation.dateIssued;
 
 		if(localStorage.jsonData != undefined) {
 			$scope.leformdata = angular.fromJson(localStorage.jsonData);
