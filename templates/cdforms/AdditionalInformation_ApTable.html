@@ -97,7 +97,10 @@
 		        	<ul class="loanTermsList" ng-switch="cdformdata.loanInformation.amortizationType">
 			        	<li ng-if="cdformdata.loanDetail.interestOnlyIndicator && cdformdata.loanInformation.amortizationType=='Fixed'">
 		        			<span class="pull-left col-sm-2">
-		        				<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount">
+		        				<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+		        					<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
+		        				</div>
 		        			</span>
 		        			<span class="pull-left margin5tb"> at the</span>
 		        			<span class="pull-left col-sm-2">
@@ -106,14 +109,30 @@
 		        			<span class="pull-left margin5tb">payment</span>
 			        	</li>
 			        	<li ng-if="cdformdata.loanDetail.interestOnlyIndicator && cdformdata.loanInformation.amortizationType!='Fixed'"> 
-			        		<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangeMinimumPrincipalAndInterestPaymentAmount"> - </span>
-		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount"></span>
+			        		<span class="pull-left col-sm-2">
+			        			<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+			        				<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangeMinimumPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
+			        			</div>
+			        		</span>
+			        		<span class="pull-left margin5tb"> - </span>			        			
+		        			<span class="pull-left col-sm-2">
+		        				<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+		        					<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
+		        				</div>
+		        			</span>
 		        			<span class="pull-left margin5tb"> at the</span>
 		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" ng-disabled="true"></span>
 		        			<span class="pull-left margin5tb">payment</span>
 			        	</li>
 			        	<li ng-if="!cdformdata.loanDetail.interestOnlyIndicator"> 
-			        		<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount"></span>
+			        		<span class="pull-left col-sm-3">
+			        			<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+			        				<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
+			        			</div>
+			        		</span>
 		        			<span class="pull-left margin5tb"> at the</span>
 		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" ng-disabled="true"></span>
 		        			<span class="pull-left margin5tb">payment</span>
@@ -148,15 +167,28 @@
 		        <td>
 		            <ul class="loanTermsList">
 		        	<li ng-if="cdformdata.loanDetail.interestOnlyIndicator && cdformdata.loanInformation.amortizationType=='Fixed'">
-	        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount"></span>
+	        			<span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<span class="input-group-addon input-default">$</span>
+	        					<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
+	        				</div>
+	        			</span>
 	        			<span class="pull-left margin5tb"> at the</span>
-	        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" value="{{cdformdata.interestOnly.interestOnlyTermMonthsCount ? (cdformdata.interestOnly.interestOnlyTermMonthsCount -0) + 1 : '' }}" ng-disabled="true"></span>
+	        			<span class="pull-left col-sm-2">
+	        					<input type="text" class="form-control" name="" value="{{cdformdata.interestOnly.interestOnlyTermMonthsCount ? (cdformdata.interestOnly.interestOnlyTermMonthsCount -0) + 1 : '' }}" ng-disabled="true">
+	        				</span>
 	        			<span class="pull-left margin5tb">payment</span>
 		        	 </li>
 		        	 <li ng-if="!cdformdata.loanDetail.interestOnlyIndicator || cdformdata.loanInformation.amortizationType!='Fixed'">
-	        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount"></span>
+	        			<span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<span class="input-group-addon input-default">$</span>
+	        					<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount" decimal-digits-with-number-format>
+	        				</div>
+       					</span>
 	        			<span class="pull-left margin5tb"> at the</span>
-	        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount"></span>
+	        			<span class="pull-left col-sm-2">
+	        				<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount"></span>
 	        			<span class="pull-left margin5tb">payment</span>
 		        	 </li>
 		        	 </ul>
