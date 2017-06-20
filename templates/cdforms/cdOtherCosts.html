@@ -481,7 +481,6 @@
 		        <td>
 		        	<span class="LabelText col-sm-12">Label:</span>
 		        	<span class="LabelValue col-sm-12">Property Taxes</span><br>
-
 		        	<span class="LabelText col-sm-12">Type:</span>
 		        	<select class="form-control col-sm-12 padding0" ng-model="prepaidsList.prepaidItemType" ng-change="updateSectionFprepaidTypes(prepaidsList.prepaidItemType, $index)">
               		<option value="" selected>Select</option>
@@ -631,9 +630,8 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<!-- <select class="form-control padding0" ng-model="prepaidsList.regulationZPointsAndFeesIndicator"
-		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select> -->
+		        	<select class="form-control padding0" ng-if="!prepaidsList.prepaidItemType.includes('Tax')  && prepaidsList.prepaidItemType!='Tax Service Fee'" ng-model="prepaidsList.regulationZPointsAndFeesIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	</select>
 		        </td>
 		        <td>
 		           <span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Close" ng-click="deletePrepaidInfo(prepaidsList.prepaidItemType,$index)"></span>
@@ -969,9 +967,9 @@
 		        	</select>
 		        </td>
 		        <td>
-		        	<!-- <select class="form-control padding0" ng-model="escrowItemsList.regulationZPointsAndFeesIndicator"
+		        	<select class="form-control padding0" ng-if="!escrowItemsList.escrowItemType.includes('Tax')  && escrowItemsList.escrowItemType!='Tax Service Fee'" ng-model="escrowItemsList.regulationZPointsAndFeesIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select> -->
+		        	</select>
 		        </td>
 		        <td>
 		        	<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Close" ng-click="deleteEscrowsList(escrowItemsList.escrowItemType,$index)"></span>
