@@ -215,7 +215,7 @@
 
 		        <td>
 		        	<div class="input-group">
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" only-digits maxlength="3">
 		        	</div>	
 		        </td>
 		        <!-- <td>
@@ -285,7 +285,7 @@
 
 		        <td>
 		        	<div class="input-group">
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" max="3" only-digits>
 		        	</div>	
 		        </td>
 		         <td>
@@ -350,13 +350,13 @@
 		           <div class="row col-sm-12">
                     <div class="col-sm-8 padding0">Per Diem Amount</div>
                     <div class="col-sm-4">
-                    <input type="text" class="form-control width50" name="" ng-model="prepaidsList.perDiemAmount">
+                    <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidItemPerDiemAmount">
                     </div>
                     </div>
                     <div class="row col-sm-12 paddingtop5">
                     <div class="col-sm-8 padding0 paddingtop5">Number of Days</div>
                     <div class="col-sm-4">
-                    <input type="text" class="form-control width50" name="" ng-model="prepaidsList.numberOfDays">
+                    <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" only-digits maxlength="3"">
                     </div>
                     </div>
                     <div class="row col-sm-12 paddingtop5">
@@ -600,21 +600,21 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.hiAtClosingAmountPerMonth" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        
 		        <td >
 		        	<div class="input-group">
 						
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" only-digits maxlength="3">
 		        	</div>	
 		        </td>
 		        
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
 		        	</div>	
 		        </td>
 		        
@@ -644,7 +644,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.miAtClosingAmountPerMonth" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
@@ -655,7 +655,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <td>
@@ -703,7 +703,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.ptAtClosingAmountPerMonth" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        
@@ -719,7 +719,7 @@
 		        <td>
 		        <div class="input-group">
 					
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.ptpaidByOthers" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3">
 		        </div>
 		        </td>
 		        <!-- <td class="text-center">
@@ -728,7 +728,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.othersAtClosingAmountPerMonth" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <td>
@@ -779,19 +779,19 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosingAmountPerMonth" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" only-digits>
 		        	</div>
 		        </td>
 		        
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        
