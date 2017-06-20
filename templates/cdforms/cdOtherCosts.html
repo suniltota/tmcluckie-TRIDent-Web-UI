@@ -18,36 +18,36 @@
 		        <th class="innerSectionHeader incInApr">Include in APR?</th>
 		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
-		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-if="tOGovtFee.feeType == 'RecordingFee'">		      	
+		      <tr>
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0" style="font-weight: bold;">Recording Fee Total</span>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fee For Deed</span>
 		        	<span class="col-sm-10 padding0 pull-right">
 			        	<div class="input-group">
 							<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-			        		<input type="text" class="form-control" ng-model="tOGovtFee.recordingFeeForDeed" decimal-digits-with-number-format ng-blur="recordingTotal()">
+			        		<input type="text" class="form-control" ng-model="recordingFeetotalObj.recordingFeeForDeed" decimal-digits-with-number-format>
 			        	</div>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fee For Mortgage</span>
 		        	<span class="col-sm-10 padding0 pull-right">
 		        		<div class="input-group">
 							<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        			<input type="text" class="form-control" ng-model="tOGovtFee.recordingFeeForMortgage" decimal-digits-with-number-format ng-blur="recordingTotal()">
+		        			<input type="text" class="form-control" ng-model="recordingFeetotalObj.recordingFeeForMortgage" decimal-digits-with-number-format>
 		        		</div>
 		        	</span>
 		        </td> 
 		        <td>
 		        	<span class="col-sm-12 padding0 margin5tb">Type</span>
 		        	<span class="col-sm-12 padding0">
-		        		<select class="form-control padding0" ng-model="tOGovtFee.feePaidToType" ng-change="sectionEpaidToChange('0')">
+		        		<select class="form-control padding0" ng-model="recordingFeetotalObj.feePaidToType" ng-change="sectionEpaidToChange('0')">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
 		        	</span>
-		        	<span ng-show="tOGovtFee.feePaidToType=='Other'">
+		        	<span ng-show="recordingFeetotalObj.feePaidToType=='Other'">
 		        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
-			        		<select class="form-control padding0" ng-model="tOGovtFee.feePaidToTypeOtherDescription">
+			        		<select class="form-control padding0" ng-model="recordingFeetotalObj.feePaidToTypeOtherDescription">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
               		        </select> 
@@ -57,38 +57,38 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpAtClosing" decimal-digits-with-number-format>
+			        	<input type="text" class="form-control padding0" name="" ng-model="recordingFeetotalObj.bpAtClosing" decimal-digits-with-number-format>
 			        </div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpB4Closing" decimal-digits-with-number-format>
+			        	<input type="text" class="form-control padding0" name="" ng-model="recordingFeetotalObj.bpB4Closing" decimal-digits-with-number-format>
 			        </div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spAtClosing" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="recordingFeetotalObj.spAtClosing" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spB4Closing" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="recordingFeetotalObj.spB4Closing" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.paidByOthers" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="recordingFeetotalObj.paidByOthers" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="tOGovtFee.lenderStatus">
+		        	<input type="checkbox" name="" ng-model="recordingFeetotalObj.lenderStatus">
 		        </td>
 		        <td>
-		        <select class="form-control padding0" ng-model="tOGovtFee.paymentIncludedInAPRIndicator"
+		        <select class="form-control padding0" ng-model="recordingFeetotalObj.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        </select>
 		        </td>
@@ -96,7 +96,7 @@
 		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearRecordings()"></span>
 		      	</td>
 		      </tr>
-		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-show="tOGovtFee.feeType !='RecordingFeeForDeed' && tOGovtFee.feeType!='RecordingFeeForMortgage' && tOGovtFee.feeType!='RecordingFeeTotal' && tOGovtFee.feeType!='RecordingFee'">		         
+		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-show="tOGovtFee.feeType !='RecordingFeeForDeed' && tOGovtFee.feeType!='RecordingFeeForMortgage' && tOGovtFee.feeType!='RecordingFeeTotal' && tOGovtFee.feeType!='RecordingFee'">
 		        <td>
 		            <span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType =='TransferTaxTotal'">Transfer Taxes</span>
 		        	<span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType !='TransferTaxTotal'">Label Name</span>

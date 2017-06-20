@@ -112,7 +112,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
           "partialPayoffIndicator":"",
           "prepaymentPenaltyAmount":""
     };
-    var recordingFeetotalObj = {
+    $scope.recordingFeetotalObj = {
         "bpAtClosing": "",
         "bpB4Closing": "",
         "spAtClosing": "",
@@ -120,18 +120,17 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         "paidByOthers": "",
         "lenderStatus": false,
         "displayLabel": "",
-        "gseDisplayLabel": "",
         "feePaidToFullName": "",
         "feeActualTotalAmount": "",
         "feePaidToType": "ThirdPartyProvider",
         "feePaidToTypeOtherDescription": "",
         "feePercentBasisType": "",
         "feeTotalPercent": "",
-        "feeType": "",
+        "feeType": "RecordingFeeTotal",
         "feeTypeOtherDescription": "",
-        "integratedDisclosureSectionType": "",
+        "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
         "optionalCostIndicator": false,
-        "regulationZPointsAndFeesIndicator": true,
+        "regulationZPointsAndFeesIndicator": false,
         "paymentIncludedInAPRIndicator": false,
         "recordingFeeForDeed":"",
         "recordingFeeForMortgage":""
@@ -295,27 +294,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		if(!isLenderTypeOrganization)
 			$scope.cdformdata.transactionInformation.lenderDetails.push(lender);
 
-		/*var productAdjustmentInformation = {
-			'fixedPeriodMonths' :'',
-			'firstChangePeriodMonths':'',
-			'subsequentChangePeriodMonths':'',
-			'loanCapRate':'',
-			'firstChangeInterestRateLimit':'',
-			'subsequentChangeInterestRateLimit' :'',
-			'floorRatePercent' : ''
-		};
-
-		$scope.cdformdata.loanInformation['productAdjustmentInformation'] = productAdjustmentInformation;
-		if($scope.cdformdata.loanInformation.amortizationType != 'Fixed') {
-			$scope.cdformdata.loanInformation.productAdjustmentInformation.fixedPeriodMonths = $scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount;
-			$scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangePeriodMonths = $scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount;
-			$scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangePeriodMonths = $scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount;
-			$scope.cdformdata.loanInformation.productAdjustmentInformation.loanCapRate = $scope.cdformdata.interestRateAdjustment.ceilingRatePercent;
-			$scope.cdformdata.loanInformation.productAdjustmentInformation.firstChangeInterestRateLimit = $scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent;
-			$scope.cdformdata.loanInformation.productAdjustmentInformation.subsequentChangeInterestRateLimit = $scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent;
-			$scope.cdformdata.loanInformation.productAdjustmentInformation.floorRatePercent = $scope.cdformdata.interestRateAdjustment.floorRatePercent;
-		}*/
-
 		$scope.cdformdata.loanTerms.prepaymentPenalty['prepaymentPenaltyExpirationInYears'] = '';
 		if($scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount)
 			$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears = Math.round($scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount/12);
@@ -394,15 +372,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		};
 		
 		if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList!=undefined) {
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(0, 0, angular.copy(recordingFeetotalObj));
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeType = 'RecordingFee';
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].displayLabel = 'Recording Fees Total';
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(0, 0, angular.copy(tOGovtFees));
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeType = 'TransferTaxTotal';
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].displayLabel = 'Transfer Taxes';
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToType = 'ThirdPartyProvider';
-
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(1, 0, angular.copy(tOGovtFees));
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeType = 'TransferTaxTotal';
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].displayLabel = 'Transfer Taxes';
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feePaidToType = 'ThirdPartyProvider';
             for(i=0;i<$scope.sectionEfeeTypes.length;i++){
             	if($scope.sectionEfeeTypes[i].value=='TransferTaxTotal'){
                    $scope.sectionEfeeTypes[i].disabled=true;
@@ -410,52 +383,46 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             }
 		}
 
-
 		var temp=0;
         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++){
-	     	var recordingFeetotal = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0];
 			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForDeed') {
-				recordingFeetotal.recordingFeeForDeed = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeActualTotalAmount;
+				$scope.recordingFeetotalObj.recordingFeeForDeed = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeActualTotalAmount;
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
 				i--;
 			}
 			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForMortgage') {
-				recordingFeetotal.recordingFeeForMortgage = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeActualTotalAmount;
+				$scope.recordingFeetotalObj.recordingFeeForMortgage = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeActualTotalAmount;
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
 				i--;
 			}
 			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeTotal') {
-				recordingFeetotal.bpAtClosing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing;
-				recordingFeetotal.bpB4Closing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing;
-				recordingFeetotal.spAtClosing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing;
-				recordingFeetotal.spB4Closing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing;
-				recordingFeetotal.lenderStatus = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].lenderStatus;
-				recordingFeetotal.gseDisplayLabel = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].gseDisplayLabel;
-				recordingFeetotal.feePaidToFullName = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToFullName;
-				recordingFeetotal.feePaidToType = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToType;
-				recordingFeetotal.feePaidToTypeOtherDescription = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToTypeOtherDescription;
-				recordingFeetotal.feeTotalPercent = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeTotalPercent;
-				recordingFeetotal.optionalCostIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].optionalCostIndicator;
-				recordingFeetotal.regulationZPointsAndFeesIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].regulationZPointsAndFeesIndicator;
-				recordingFeetotal.paymentIncludedInAPRIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paymentIncludedInAPRIndicator;
-				recordingFeetotal.integratedDisclosureSectionType = 'TaxesAndOtherGovernmentFees';
+				$scope.recordingFeetotalObj.bpAtClosing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing;
+				$scope.recordingFeetotalObj.bpB4Closing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing;
+				$scope.recordingFeetotalObj.spAtClosing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing;
+				$scope.recordingFeetotalObj.spB4Closing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing;
+				$scope.recordingFeetotalObj.lenderStatus = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].lenderStatus;
+				$scope.recordingFeetotalObj.gseDisplayLabel = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].gseDisplayLabel;
+				$scope.recordingFeetotalObj.feePaidToFullName = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToFullName;
+				$scope.recordingFeetotalObj.feePaidToType = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToType;
+				$scope.recordingFeetotalObj.feePaidToTypeOtherDescription = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToTypeOtherDescription;
+				$scope.recordingFeetotalObj.feeTotalPercent = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeTotalPercent;
+				$scope.recordingFeetotalObj.optionalCostIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].optionalCostIndicator;
+				$scope.recordingFeetotalObj.regulationZPointsAndFeesIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].regulationZPointsAndFeesIndicator;
+				$scope.recordingFeetotalObj.paymentIncludedInAPRIndicator = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paymentIncludedInAPRIndicator;
+				$scope.recordingFeetotalObj.integratedDisclosureSectionType = 'TaxesAndOtherGovernmentFees';
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
 				i--;
 			}
-			if(i!=1 && temp==0 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'TransferTaxTotal') {
-				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1] = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
+			if(i!=0 && temp==0 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'TransferTaxTotal') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0] = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
 				i--;
 				temp++;
 			}
 
-			if(i>1 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == '') {
-				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
-				i--;
-			}
-
-			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType)==-1)
+			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType)==-1) {
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.push($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType);
+			}
 				
 		}
         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.length; i++){
@@ -1037,28 +1004,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
 	initializeCDformData();
 
-	/*$scope.changeProductInfo = function() {
-		if($scope.cdformdata.loanInformation.amortizationType!='Fixed') {
-			$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = false;
-			var productInfo = $scope.cdformdata.loanInformation.productAdjustmentInformation;
-			if(productInfo.fixedPeriodMonths) {
-				productInfo['fixedPeriodYears'] = productInfo.fixedPeriodMonths/12;
-				productInfo['firstChangeStartYear'] = productInfo.fixedPeriodYears+1;
-				$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = true;
-			}
-			if(productInfo.firstChangePeriodMonths){
-				productInfo['firstChangePeriodYears'] = productInfo.firstChangePeriodMonths/12;
-				$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = true;
-			}
-			if(productInfo.subsequentChangePeriodMonths){
-				productInfo['subsequentChangePeriodYears'] = productInfo.subsequentChangePeriodMonths/12;
-				$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = true;
-			}
-		} else {
-			$scope.cdformdata.loanInformation.isProductAdjustmentinfoPresent = false;
-		}
-	}*/
-
 	$scope.checkPropertyRadio = function() {
 		if(!$scope.cdformdata.closingInformation.property.legalDescription){
 			$scope.cdformdata.closingInformation.property.unparsedLegalDescription = "";
@@ -1226,7 +1171,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.payoffsAndPaymentsList[index].paidByFullName='';
     	$scope.payoffsAndPaymentsList[index].securedIndicator='';
     	$scope.payoffsAndPaymentsList[index].partialPayoffIndicator='';
-    	//if($scope.payoffsAndPaymentsList[index].payOffType='')
     	$scope.payoffsAndPaymentsList[index].prepaymentPenaltyAmount='';
     }
     $scope.deletePayoff = function(index){
@@ -1863,19 +1807,18 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].regulationZPointsAndFeesIndicator = false;
     }
        $scope.clearRecordings = function(){
-        $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToType='ThirdPartyProvider';
-	    $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToTypeOtherDescription='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpAtClosing='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpB4Closing='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].spAtClosing='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].spB4Closing='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].paidByOthers='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].lenderStatus='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeTypeOtherDescription='';
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].paymentIncludedInAPRIndicator = false;
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].regulationZPointsAndFeesIndicator = false;
+        $scope.recordingFeetotalObj.recordingFeeForDeed='';
+    	$scope.recordingFeetotalObj.recordingFeeForMortgage='';
+    	$scope.recordingFeetotalObj.feePaidToType='ThirdPartyProvider';
+	    $scope.recordingFeetotalObj.feePaidToTypeOtherDescription='';
+    	$scope.recordingFeetotalObj.bpAtClosing='';
+    	$scope.recordingFeetotalObj.bpB4Closing='';
+    	$scope.recordingFeetotalObj.spAtClosing='';
+    	$scope.recordingFeetotalObj.spB4Closing='';
+    	$scope.recordingFeetotalObj.paidByOthers='';
+    	$scope.recordingFeetotalObj.lenderStatus=false;
+    	$scope.recordingFeetotalObj.feeTypeOtherDescription='';
+    	$scope.recordingFeetotalObj.paymentIncludedInAPRIndicator = false;
     }
     //deleteOGF
     $scope.clearOGF = function(feeType,index){
@@ -2082,7 +2025,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.sectionCZIndicator(index);
     }
     $scope.sectionEpaidToChange = function(index){
-    	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePaidToTypeOtherDescription = '';
+    	if(index == 0 || index == '0')
+    		$scope.recordingFeetotalObj.feePaidToTypeOtherDescription='';
+    	else
+    		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePaidToTypeOtherDescription = '';
     }
     $scope.sectionFpaidToChange = function(index){
     	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[index].feePaidToTypeOtherDescription = '';
@@ -2325,15 +2271,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
 
     $scope.recordingTotal = function(){
-    	var recordingFeeAmount = 0;
-        if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed)
-        recordingFeeAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed);
-        if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage)
-        recordingFeeAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage);
-        if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed!="" || $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage!="")
-        {
-          $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpAtClosing = recordingFeeAmount;
-        }
+    	$scope.recordingFeetotalObj.feeActualTotalAmount = 0;
+        if($scope.recordingFeetotalObj.recordingFeeForDeed)
+        	$scope.recordingFeetotalObj.feeActualTotalAmount += parseFloat($scope.recordingFeetotalObj.recordingFeeForDeed);
+        if($scope.recordingFeetotalObj.recordingFeeForMortgage)
+        	$scope.recordingFeetotalObj.feeActualTotalAmount += parseFloat($scope.recordingFeetotalObj.recordingFeeForMortgage);
     }
     
     $scope.perDiemCalc = function(){
@@ -2822,6 +2764,90 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }
 
     }, true);
+
+	$scope.$watch('recordingFeetotalObj', function(newValue, oldValue) {
+		if(newValue.recordingFeeForDeed!=oldValue.recordingFeeForDeed || newValue.recordingFeeForMortgage!=oldValue.recordingFeeForMortgage) {
+			newValue.bpAtClosing = 0;
+			if(newValue.recordingFeeForDeed)
+				newValue.bpAtClosing += parseFloat(newValue.recordingFeeForDeed);
+			if(newValue.recordingFeeForMortgage)
+				newValue.bpAtClosing += parseFloat(newValue.recordingFeeForMortgage);
+		}
+		var recordingFeeForDeed = {
+            "bpAtClosing": "",
+            "bpB4Closing": "",
+            "spAtClosing": "",
+            "spB4Closing": "",
+            "paidByOthers": "",
+            "lenderStatus": false,
+            "displayLabel": null,
+            "feePaidToFullName": "",
+            "feeActualTotalAmount": $scope.recordingFeetotalObj.recordingFeeForDeed,
+            "feePaidToType": "",
+            "feePaidToTypeOtherDescription": "",
+            "feePercentBasisType": "",
+            "feeTotalPercent": "",
+            "feeType": "RecordingFeeForDeed",
+            "feeTypeOtherDescription": "",
+            "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
+            "optionalCostIndicator": false,
+            "regulationZPointsAndFeesIndicator": false,
+            "paymentIncludedInAPRIndicator": false
+        };
+		var recordingFeeForMortgage = {
+            "bpAtClosing": "",
+            "bpB4Closing": "",
+            "spAtClosing": "",
+            "spB4Closing": "",
+            "paidByOthers": "",
+            "lenderStatus": false,
+            "displayLabel": null,
+            "feePaidToFullName": "",
+            "feeActualTotalAmount": $scope.recordingFeetotalObj.recordingFeeForMortgage,
+            "feePaidToType": "",
+            "feePaidToTypeOtherDescription": "",
+            "feePercentBasisType": "",
+            "feeTotalPercent": "",
+            "feeType": "RecordingFeeForMortgage",
+            "feeTypeOtherDescription": "",
+            "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
+            "optionalCostIndicator": false,
+            "regulationZPointsAndFeesIndicator": false,
+            "paymentIncludedInAPRIndicator": false
+        };
+		var recordingFeeForTotal = {
+            "bpAtClosing": $scope.recordingFeetotalObj.bpAtClosing,
+            "bpB4Closing": $scope.recordingFeetotalObj.bpB4Closing,
+            "spAtClosing": $scope.recordingFeetotalObj.spAtClosing,
+            "spB4Closing": $scope.recordingFeetotalObj.spB4Closing,
+            "paidByOthers": $scope.recordingFeetotalObj.paidByOthers,
+            "lenderStatus": $scope.recordingFeetotalObj.lenderStatus,
+            "displayLabel": "Recording Fee Total",
+            "feePaidToFullName": "",
+            "feeActualTotalAmount": "",
+            "feePaidToType": $scope.recordingFeetotalObj.feePaidToType,
+            "feePaidToTypeOtherDescription": $scope.recordingFeetotalObj.feePaidToTypeOtherDescription,
+            "feePercentBasisType": "",
+            "feeTotalPercent": "",
+            "feeType": "RecordingFeeTotal",
+            "feeTypeOtherDescription": "",
+            "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
+            "optionalCostIndicator": false,
+            "regulationZPointsAndFeesIndicator": false,
+            "paymentIncludedInAPRIndicator": $scope.recordingFeetotalObj.paymentIncludedInAPRIndicator
+        };
+        for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++) {
+        	if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType=='RecordingFeeForDeed' ||
+        		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType=='RecordingFeeForMortgage' ||
+        		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType=='RecordingFeeTotal') {
+        		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
+        		i--;
+        	}
+        }
+        $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.push(recordingFeeForDeed);
+        $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.push(recordingFeeForMortgage);
+        $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.push(recordingFeeForTotal);
+ 	}, true);
 
     $scope.$watch('cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList', function(newValue, oldValue) {
 		 bpAtClosing.tOGovtFeesTotalbpAtClosing = 0;
