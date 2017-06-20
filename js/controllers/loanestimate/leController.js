@@ -973,6 +973,18 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 			$scope.leformdata.closingInformation.property.addressLineText = '';
 		}
 	}
+
+	$scope.applicantCheck = function(index){
+    	if($scope.leformdata.transactionInformation.borrowerDetails[index].type == 'O'){
+    		$scope.leformdata.transactionInformation.borrowerDetails[index].partyRoleType ='Borrower';
+    		$scope.leformdata.transactionInformation.borrowerDetails[index].nameModel.firstName ='';
+    		$scope.leformdata.transactionInformation.borrowerDetails[index].nameModel.middleName ='';
+    		$scope.leformdata.transactionInformation.borrowerDetails[index].nameModel.lastName ='';
+    		$scope.leformdata.transactionInformation.borrowerDetails[index].nameModel.suffixName ='';
+    	}else{
+    		$scope.leformdata.transactionInformation.borrowerDetails[index].nameModel.fullName ='';
+    	}
+    }
 	$scope.scrollTo = function(id) {
            $location.hash(id);
            $anchorScroll();
@@ -2153,6 +2165,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		}
 		$scope.leformdata.summariesofTransactions.borrowerTransaction.dueFromBorrowerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount = $scope.summariesOfTransaction_KSection.sectionTotalAmount;
 		$scope.sotBorrowerTransactionTotalAmount = parseFloat($scope.summariesOfTransaction_KSection.sectionTotalAmount) + (-parseFloat($scope.summariesOfTransaction_LSection.sectionTotalAmount));
+    
     }, true);
 
     $scope.$watch('summariesOfTransaction_MSection', function(newValues,oldValues){

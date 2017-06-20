@@ -16,9 +16,9 @@
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Applicant Classification</div>
             <div class="col-sm-7 radioGroup">
-              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrower.type" value="I">
+              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrower.type" value="I" ng-click="applicantCheck($index)">
               <label>Individual</label>
-              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrower.type" value="O">
+              <input type="radio" name="borrowertype_{{$index}}" ng-model="borrower.type" value="O" ng-click="applicantCheck($index)">
               <label>Organization</label>
             </div>
           </div>
