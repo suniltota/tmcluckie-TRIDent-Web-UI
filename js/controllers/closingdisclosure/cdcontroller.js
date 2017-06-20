@@ -2442,7 +2442,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		var bb = new Blob([xmltext], {type: 'application/octet-stream'});
 
 		pom.setAttribute('href', window.URL.createObjectURL(bb));
-		pom.setAttribute('download', filename);
+		pom.setAttribute('download', filename +'.xml');
 
 		pom.dataset.downloadurl = ['application/octet-stream', pom.download, pom.href].join(':');
 		pom.draggable = true; 
