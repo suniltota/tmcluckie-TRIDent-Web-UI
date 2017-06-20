@@ -116,7 +116,8 @@
 		        		
 		        		<li><span class="pull-left margin5tb">Is the buydown reflected on the Note</span> 
 		        			<span class="col-sm-2">
-		        			<select class="form-control pull-left" ng-model="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" style="width:55px;" ng-options="option.id as option.name for option in dropDownBooleanOptions"  ng-change="temporaryBuydownChange()">
+		        			<select class="form-control pull-left" ng-model="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" style="width:55px;" ng-change="temporaryBuydownChange()" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        			<option value="" selected="selected">Select</option>
 			        	    </select>
 			        	   </span> 
 		        		</li>

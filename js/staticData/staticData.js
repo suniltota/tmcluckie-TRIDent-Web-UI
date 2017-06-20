@@ -3566,7 +3566,7 @@ this.cdformdata={
 		    "loanManualUnderwritingIndicator": false
 		},
 		"salesContractDetail": {
-		    "personalPropertyIndicator": "",
+		    "personalPropertyIndicator": null,
 		    "personalPropertyAmount": "",
 		    "realPropertyAmount": "",
 		    "saleContractAmount": ""
@@ -3603,7 +3603,7 @@ this.cdformdata={
 		    },
 		    "temporaryBuydown": {
 		      "buydownInitialEffectiveInterestRatePercent": "",
-		      "gseBuydownReflectedInNoteIndicator": false,
+		      "gseBuydownReflectedInNoteIndicator": null,
 		      "rateAfterBuydownApplied": "",
 		      "buydownChangeFrequencyMonthsCount": "",
 		      "totalNumberOfMonths": "",

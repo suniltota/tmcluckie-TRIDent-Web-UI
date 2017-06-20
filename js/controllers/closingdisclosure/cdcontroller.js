@@ -1028,10 +1028,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	}
 	
 	$scope.changePropertyPrice = function() {
-		if($scope.cdformdata.salesContractDetail.personalPropertyIndicator) {
+		if($scope.cdformdata.salesContractDetail.personalPropertyIndicator == true) {
 			$scope.cdformdata.salesContractDetail.saleContractAmount = "";
-		} else 
+		} else if($scope.cdformdata.salesContractDetail.personalPropertyIndicator == false) {
 			$scope.cdformdata.salesContractDetail.realPropertyAmount = "";
+		} else {
+			$scope.cdformdata.salesContractDetail.saleContractAmount = "";
+			$scope.cdformdata.salesContractDetail.realPropertyAmount = "";
+		}
 	}
 
 	$scope.changePropertyValueAmount = function() {
@@ -1276,7 +1280,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
 
     $scope.temporaryChange = function(){
-    	$scope.cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator = false;
+    	$scope.cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator = null;
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount = '';
