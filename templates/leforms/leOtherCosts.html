@@ -647,7 +647,7 @@
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
+		        <td>
 		        	<div class="input-group">
 						<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3">
 		        	</div>
@@ -902,21 +902,18 @@
 	<span  class="col-sm-6 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader col-sm-8">Section I. Total Other Costs (Borrower Paid)</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="5">Section I. Total Other Costs (E + F + G + H)</th>
 				
-				<th class="innerSectionHeader innerSectionMainHeader text-center col-sm-4" colspan="2">${{leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount | number:2 }}</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount | number:2 }}</th>
 			  </tr>
-		      <tr>
+		      <!-- <tr>
 		        <td>
 		        	Other Costs Subtotal (E + F + G + H)
 		        </td>
 		        <td class="text-center">
 		        	${{leformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing | number:2}}
 		        </td>
-		        <!-- <td class="text-center">
-		        	${{leformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing  | number:2}}
-		        </td> -->
-		      </tr>
+		      </tr> -->
 		</table>
 	</span>
 	<div class="col-sm-12 margin10t">
