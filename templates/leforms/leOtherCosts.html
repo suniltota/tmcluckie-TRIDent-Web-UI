@@ -330,7 +330,7 @@
 		        </td>
 		      </tr>
 		     <!--  <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList"> -->
-		     <tr >
+		     <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='PrepaidInterest'">
 		        <td>
 		        	<!-- <span class="LabelText col-sm-12">Label:</span> -->
 		        	<span class="LabelValue col-sm-12">Prepaid Interests</span>
@@ -347,21 +347,24 @@
 		        </td>
 		        <td></td>
 		        <td>
-		           <div class="row col-sm-12">
-                    <div class="col-sm-8 padding0">Per Diem Amount</div>
-                    <div class="col-sm-4">
+		           <div class="col-sm-12 padding0">
+                    <div class="col-sm-5 padding0">Per Diem Amount</div>
+                    <div class="col-sm-1 padding0 input-group">
+                    <span class="input-group-addon input-default">$</span>
                     <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidItemPerDiemAmount">
                     </div>
                     </div>
                     <div class="row col-sm-12 paddingtop5">
                     <div class="col-sm-8 padding0 paddingtop5">Number of Days</div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 padding0">
+
                     <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" only-digits maxlength="3"">
                     </div>
                     </div>
-                    <div class="row col-sm-12 paddingtop5">
-                    <div class="col-sm-8 padding0 paddingtop5">Interest rate %</div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-12 padding0 margin5t">
+                    <div class="col-sm-5 padding0">Interest rate</div>
+                    <div class="col-sm-1 padding0 input-group">
+                    <span class="input-group-addon input-default">%</span>
                     <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidInterestRate">
                     </div>
                     </div>
@@ -403,10 +406,14 @@
 		        	<!-- <select class="form-control padding0" ng-model="prepaidsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select> -->
-		        	<select class="form-control padding0" ng-model="prepaidsList.paymentIncludedInAPRIndicator"
+		        	<select class="form-control padding0" 
+		        	    ng-model="prepaidsList.paymentIncludedInAPRIndicator"
+		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		            </select> 
+		        	<!-- <select class="form-control padding0" ng-model="prepaidsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
-		        </td>
+ -->		        </td>
 		        <td>
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
