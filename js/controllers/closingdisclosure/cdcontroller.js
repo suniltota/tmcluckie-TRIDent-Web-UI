@@ -188,7 +188,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount%12;
 		}
-		if($scope.loanBasicInfo.loanFormType != 'alternate') {
+
+		if($scope.loanBasicInfo.loanFormType != 'refinance') {
 			$scope.cdformdata.salesContractDetail.personalPropertyIndicator = false;
 		}else{
 			$scope.cdformdata.salesContractDetail.personalPropertyIndicator = null;
@@ -201,7 +202,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }else if($scope.loanBasicInfo.loanFormType == 'alternate'){
         	$scope.cdformdata.closingDisclosureDocDetails.formType = 'AlternateForm';
         }
-
+    
 		if($scope.cdformdata.loanInformation.loanIdentifiers && $scope.cdformdata.loanInformation.loanIdentifiers.length>0){
 			var isMersMinExists = false;
 			for(var i=0; i<$scope.cdformdata.loanInformation.loanIdentifiers.length; i++) {
@@ -340,6 +341,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			}
 		};
 
+        $scope.insuranceCheck = {"insuranceTaxCheck" :false};
+	    for(i=0;i<$scope.cdformdata.etiaSection.etiaValues.length;i++){
+	    	if($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' 
+	    		|| $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'){
+	    		$scope.cdformdata.etiaSection.etiaValues[i]['insuranceTaxCheck'] = false;
+	    	}
+	    }
+
+	   
 		if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges!=undefined) {
    			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.splice(0, 0, angular.copy(originationCharges));
 			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0].feeType = 'LoanDiscountPoints';
@@ -3026,17 +3036,42 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
                 
                 if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1){
                 	$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='Escrowed';
+                	$scope.cdformdata.etiaSection.HomeownersInsuranceCheck = true;
+                	$scope.cdformdata.etiaSection.etiaValues[0].insuranceTaxCheck = true; 
                 }else{
                 	$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='NotEscrowed';
+                	$scope.cdformdata.etiaSection.etiaValues[0].insuranceTaxCheck = false; 
                 }
 
                  if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1){
                 	$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='Escrowed';
+                	$scope.cdformdata.etiaSection.propertyTaxesCheck = true;
+                	$scope.cdformdata.etiaSection.etiaValues[1].insuranceTaxCheck = true; 
                 }else{
                 	$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='NotEscrowed';
+                	$scope.cdformdata.etiaSection.etiaValues[1].insuranceTaxCheck = false; 
                 }
             }
+
+            /*if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription){
+
+			    for(i=0;i<$scope.ETIAComponentTypes.length;i++){
+					if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim($scope.ETIAComponentTypes[i].name).indexOf()!=-1 
+						&& $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1 
+						&& $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1)
+					{
+						for(j=0;j<$scope.etiaSection.etiaValues.length;j++){
+							if($scope.etiaSection.etiaValues[j].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == $scope.ETIAComponentTypes[i].value){
+							   $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType='Escrowed';
+							}else{
+								$scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType='NotEscrowed';
+							}
+						}
+				    }
+                }
+            }*/
          }
+
          bpAtClosing.iEPatClosingTotalbpAtClosing += ($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount == '' || undefined == $scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount) ? +0 : parseFloat($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount);
          spAtClosing.iEPatClosingTotalspAtClosing += ($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid == '' || undefined == $scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid) ? +0 : parseFloat($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid);
          paidByOthers.iEPatClosingTotalpaidByOthers += ($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountOthersPaid == '' || undefined == $scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountOthersPaid) ? +0 : parseFloat($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountOthersPaid);
@@ -4083,8 +4118,30 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }
     },true);
 
+    $scope.cdformdata.etiaSection['propertyTaxesCheck'] = false;
+    $scope.cdformdata.etiaSection['HomeownersInsuranceCheck'] = false;
     $scope.$watch('cdformdata.etiaSection',function(newValue,oldValue){
-    	var nonEscrowArray = [];    
+    	var nonEscrowArray = [];  
+        if($scope.cdformdata.etiaSection.propertyTaxesCheck == true){
+        	if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1){
+        		$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType ='Escrowed'
+        		$scope.cdformdata.etiaSection.etiaValues[0].insuranceTaxCheck = true; 
+        	}else if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')==-1){
+        		$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType ='NotEscrowed'
+        		$scope.cdformdata.etiaSection.etiaValues[0].insuranceTaxCheck = false;
+        	}
+        }
+
+        if($scope.cdformdata.etiaSection.HomeownersInsuranceCheck == true){
+        	if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1){
+        		$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType ='Escrowed'
+        		$scope.cdformdata.etiaSection.etiaValues[1].insuranceTaxCheck = true;
+        	}else if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')==-1){
+        		$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType ='NotEscrowed'
+        		$scope.cdformdata.etiaSection.etiaValues[1].insuranceTaxCheck = false;
+        	}
+        }    
+
     	if($scope.cdformdata.loanDetail.escrowIndicator){	
 		    for(i=0;i<$scope.cdformdata.etiaSection.etiaValues.length;i++){
                 if($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType=='NotEscrowed' && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance' && $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes'){
