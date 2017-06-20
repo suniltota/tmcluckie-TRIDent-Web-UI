@@ -2332,7 +2332,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 
     $scope.generateXML = function(embeddedPDF){
     	$("#spinner").show();
+    	console.log("I am in leservice generateXML");
     	leService.genearateXmlFromJson($scope.leformdata, embeddedPDF).success(function(data){
+
     		$scope.xmlData = data;
     		LoadXMLString("xmlViewerId",$scope.xmlData);
     		$("#xmlView").show();
