@@ -12,6 +12,7 @@ app.controller('homeCtrl', function ($scope, $routeParams, $location) {
 		localStorage.documentType = $routeParams.documentType;
 		$location.url( "/loanEstimate" );
 	} else {
+		localStorage.documentType = $routeParams.documentType;
 		$location.url( "/closingDisclosure");
 	}
 

@@ -40,7 +40,7 @@
                     <a href="" class="dir">View</a>
                     <ul>
                         <li><a href="" ng-click="generateXML()">XML</a></li>
-                        <li><a href="" ng-click="generateUCDXML()">UCDXML</a></li>
+                        <li ng-show="localStorage.documentType=='closingdisclosure'"><a href="" ng-click="generateUCDXML()">UCDXML</a></li>
                         <li><a href="" ng-click="generatePDF()">PDF</a></li> 
                     </ul>
                 </li>

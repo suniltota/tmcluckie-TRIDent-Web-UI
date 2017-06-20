@@ -2432,7 +2432,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     $scope.generateUCDXML = function(embeddedPDF){
     	$("#spinner").show();
-    	cdService.genearateXmlFromJson($scope.initializeCDformData, embeddedPDF).success(function(data){
+    	cdService.genearateXmlFromJson($scope.cdformdata, embeddedPDF).success(function(data){
     		$scope.xmlData = data;
     		cdService.genearateUCDXml($scope.xmlData, false).success(function(data){
 	    		$scope.ucdxmlData = data;
