@@ -2343,6 +2343,44 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     		$("#spinner").hide();
     	});
     }
+    $scope.closeXML = function(){
+    	$("#xmlView").hide();
+    }
+    $scope.downloadXML = function() {
+    	window.URL = window.webkitURL || window.URL;
+    	var xmltext = $scope.xmlData;
+		var pom = document.createElement('a');
+		var loanId = '';
+		var loanIdentifiers = $scope.leformdata.loanInformation.loanIdentifiers;
+		for(var j=0; j<loanIdentifiers.length; j++) {
+			if(loanIdentifiers[j].loanIdentifierType == 'LenderLoan')
+				loanId = loanIdentifiers[j].loanIdentifier;
+		}
+		var filename = "LoanEstimate_"+loanId+ "_"+new Date().getTime();
+		var pom = document.createElement('a');
+		var bb = new Blob([xmltext], {type: 'application/octet-stream'});
+
+		pom.setAttribute('href', window.URL.createObjectURL(bb));
+		pom.setAttribute('download', filename +'.xml');
+
+		pom.dataset.downloadurl = ['application/octet-stream', pom.download, pom.href].join(':');
+		pom.draggable = true; 
+		pom.classList.add('dragout');
+		
+		// Internet Explorer 6-11
+		var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+		// Edge 20+
+		var isEdge = !isIE && !!window.StyleMedia;
+
+		if(!isEdge && !isIE) {
+			document.body.appendChild(pom);
+			pom.click();
+			document.body.removeChild(pom);	
+		} else {
+			pom.click();
+		}
+    }
 
 });
 //date param of proper format to create date object.
