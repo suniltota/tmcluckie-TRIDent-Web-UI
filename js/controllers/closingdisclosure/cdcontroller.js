@@ -1340,7 +1340,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
        	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[index].displayLabel = '';
 		for(i=0; i<$scope.sectionAfeeTypes.length; i++){
 			if($scope.sectionAfeeTypes[i].value == value) {
-				$scope.sectionAfeeTypes[i].disabled = true;
+				if(value!='Other'){
+				   $scope.sectionAfeeTypes[i].disabled = true;
+				}
 			} else if ($scope.sectionAfeeTypes[i].value == previousAfeeVal) {
 				$scope.sectionAfeeTypes[i].disabled = false;
 			}
@@ -1354,7 +1356,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].displayLabel = '';
 		for(i=0; i<$scope.sectionBfeeTypes.length; i++){
 			if($scope.sectionBfeeTypes[i].value == value) {
-				$scope.sectionBfeeTypes[i].disabled = true;
+				if(value!='Other'){
+				   $scope.sectionBfeeTypes[i].disabled = true;
+			    }
 			} else if ($scope.sectionBfeeTypes[i].value == previousBfeeVal) {
 				$scope.sectionBfeeTypes[i].disabled = false;
 			}
@@ -1367,7 +1371,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].displayLabel = '';
 		for(i=0; i<$scope.sectionCfeeTypes.length; i++){
 			if($scope.sectionCfeeTypes[i].value == value) {
-				$scope.sectionCfeeTypes[i].disabled = true;
+				if(value!='Other'){
+				   $scope.sectionCfeeTypes[i].disabled = true;
+				}
 			} else if ($scope.sectionCfeeTypes[i].value == previousCfeeVal) {
 				$scope.sectionCfeeTypes[i].disabled = false;
 			}
@@ -1380,7 +1386,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].displayLabel = '';
 		for(i=0; i<$scope.sectionEfeeTypes.length; i++){
 			if($scope.sectionEfeeTypes[i].value == value) {
-				$scope.sectionEfeeTypes[i].disabled = true;
+				if(value!='Other'){
+				   $scope.sectionEfeeTypes[i].disabled = true;
+			    }
 			} else if ($scope.sectionEfeeTypes[i].value == previousEfeeVal) {
 				$scope.sectionEfeeTypes[i].disabled = false;
 			}
@@ -1394,7 +1402,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[index].displayLabel = '';
 		for(i=0; i<$scope.prepaidItems.length; i++){
 			if($scope.prepaidItems[i].value == value) {
-				$scope.prepaidItems[i].disabled = true;
+				if(value!='Other'){
+				   $scope.prepaidItems[i].disabled = true;
+				}
 			} else if ($scope.prepaidItems[i].value == previousFprepaidVal) {
 				$scope.prepaidItems[i].disabled = false;
 			}
@@ -1408,7 +1418,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[index].displayLabel = '';
 		for(i=0; i<$scope.escrowItemTypes.length; i++){
 			if($scope.escrowItemTypes[i].value == value) {
-				$scope.escrowItemTypes[i].disabled = true;
+				if(value!='Other'){
+				   $scope.escrowItemTypes[i].disabled = true;
+				}
 			} else if ($scope.escrowItemTypes[i].value == previousGescrowVal) {
 				$scope.escrowItemTypes[i].disabled = false;
 			}
@@ -1422,7 +1434,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[index].displayLabel = '';
 		for(i=0; i<$scope.sectionHfeeTypes.length; i++){
 			if($scope.sectionHfeeTypes[i].value == value) {
-				$scope.sectionHfeeTypes[i].disabled = true;
+				if(value!='Other'){
+				   $scope.sectionHfeeTypes[i].disabled = true;
+				}
 			} else if ($scope.sectionHfeeTypes[i].value == previousHfeeVal) {
 				$scope.sectionHfeeTypes[i].disabled = false;
 			}
@@ -2627,6 +2641,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
          	spAtClosing.originationChargeTotalspAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing) : +0;
           	spB4Closing.originationChargeTotalspB4Closing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing) : +0;
           	paidByOthers.originationChargeTotalpaidByOthers += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers) : +0;
+            
+            for(j=0; j<$scope.sectionAfeeTypes.length; j++){
+				if($scope.sectionAfeeTypes[j].value == $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType) {
+					if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType!='Other'){
+					   $scope.sectionAfeeTypes[j].disabled = true;
+					}
+				} 
+		    }
          }
 
          $scope.cdformdata.closingCostDetailsLoanCosts.ocTotalAmount = bpAtClosing.originationChargeTotalbpAtClosing + bpB4Closing.originationChargeTotalbpB4Closing;
@@ -2681,6 +2703,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	               $scope.escrowWaiverFeeAmount = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing) : +0;
 	            }
 	        }
+
+	        for(j=0; j<$scope.sectionBfeeTypes.length; j++){
+				if($scope.sectionBfeeTypes[j].value == $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType) {
+					if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType!='Other'){
+					   $scope.sectionBfeeTypes[j].disabled = true;
+					}
+				} 
+		    }
          }
 
          for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.length; i++) {
@@ -2756,6 +2786,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			        }
 		        }
 	        }
+
+	        for(j=0; j<$scope.sectionCfeeTypes.length; j++){
+				if($scope.sectionCfeeTypes[j].value == $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType) {
+					if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType!='Other'){
+					   $scope.sectionCfeeTypes[j].disabled = true;
+					}
+				} 
+		    }
          }
          $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount = bpAtClosing.sbDidShopTotalbpAtClosing + bpB4Closing.sbDidShopTotalbpB4Closing;
          $scope.cdformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing = parseFloat(bpAtClosing.originationChargeTotalbpAtClosing) + parseFloat(bpAtClosing.sbDidNotShopTotalbpAtClosing) + parseFloat(bpAtClosing.sbDidShopTotalbpAtClosing);
@@ -2885,6 +2923,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
          	spAtClosing.tOGovtFeesTotalspAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing) : +0;
           	spB4Closing.tOGovtFeesTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing) : +0;
           	paidByOthers.tOGovtFeesTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paidByOthers) : +0;
+            
+            for(j=0; j<$scope.sectionEfeeTypes.length; j++){
+				if($scope.sectionEfeeTypes[j].value == $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType) {
+					if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType!='Other'){
+					   $scope.sectionEfeeTypes[j].disabled = true;
+					}
+				} 
+		    }
          }
 
          $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount = bpAtClosing.tOGovtFeesTotalbpAtClosing + bpB4Closing.tOGovtFeesTotalbpB4Closing;
@@ -2931,6 +2977,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
          	spAtClosing.prepaidsTotalspAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing) : +0;
           	spB4Closing.prepaidsTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing) : +0;
           	paidByOthers.prepaidsTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers) : +0;
+
+          	for(j=0; j<$scope.prepaidItems.length; j++){
+				if($scope.prepaidItems[j].value == $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType) {
+					if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType!='Other'){
+					   $scope.prepaidItems[j].disabled = true;
+					}
+				} 
+		    }
          }
 
          $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount = bpAtClosing.prepaidsTotalbpAtClosing + bpB4Closing.prepaidsTotalbpB4Closing;
@@ -2982,6 +3036,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
           	spB4Closing.iEPatClosingTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing) : +0;
           	paidByOthers.iEPatClosingTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers) : +0;
             
+            for(j=0; j<$scope.escrowItemTypes.length; j++){
+				if($scope.escrowItemTypes[j].value == $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType) {
+					if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!='Other'){
+					   $scope.escrowItemTypes[j].disabled = true;
+					}
+				} 
+		    }
+
             //Projected Payments Escrow Monthly Payment Amount
             if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount){
                escrowMonthlyAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount) : +0;
@@ -3131,6 +3193,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
          	spAtClosing.otherTotalspAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing) : +0;
           	spB4Closing.otherTotalspB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing) : +0;
           	paidByOthers.otherTotalpaidByOthers += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers) : +0;
+         
+            for(j=0; j<$scope.sectionHfeeTypes.length; j++){
+				if($scope.sectionHfeeTypes[j].value == $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType) {
+					if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType!='Other'){
+					   $scope.sectionHfeeTypes[j].disabled = true;
+					}
+				} 
+		    }
          }
 
          $scope.cdformdata.closingCostDetailsOtherCosts.otherTotalAmount = bpAtClosing.otherTotalbpAtClosing + bpB4Closing.otherTotalbpB4Closing;
