@@ -139,7 +139,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
  	};
     $scope.FormType = '';
     $scope.LoanType = '';
-
+    $scope.DocumentType = 'LoanEstimate';
     if($scope.loanBasicInfo!=undefined){
 	    if($scope.loanBasicInfo.loanFormType == 'standard'){
 	    	$scope.FormType = 'Standard'
@@ -216,7 +216,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		else if($scope.leformdata.payment.paymentRule.fullyIndexedInitialPrincipalAndInterestPaymentAmount!=''){
             $scope.piAmount = $scope.leformdata.payment.paymentRule.fullyIndexedInitialPrincipalAndInterestPaymentAmount;
 		}
-		
+		$scope.leformdata.loanEstimateDocDetails.formType=$scope.FormType;
+		$scope.leformdata.loanEstimateDocDetails.documentType=$scope.DocumentType;
 		var lender = {
 				"type": "O",
 				"nameModel": {
@@ -2335,6 +2336,13 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     // });
 
     $scope.generatePDF = function(){
+    	$scope.leformdata.documentClassification.documentType="Other";
+    	if($scope.leformdata.loanEstimateDocDetails.formType=='StandardForm')
+    		{
+    				$scope.leformdata.documentClassification.documentTypeOtherDescription="LoanEstimate:ModelForm";
+    		}else{
+   				 	$scope.leformdata.documentClassification.documentTypeOtherDescription="LoanEstimate:AlternateForm";
+   			 }
     	$("#spinner").show();
     	leService.genearateXmlFromJson($scope.leformdata, true).success(function(data){
     		leService.generatePDF(data).success(function(pdfData){

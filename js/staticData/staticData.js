@@ -4735,17 +4735,19 @@ this.cdformdata={
 		
 		"closingDisclosureDocDetails":
 	    {
-	        "transactionType": null,
+	        "transactionType": "",
 	        "documentType": "",
 	        "formType": "",
 	        "escrowAggregateAccountingAdjustmentAmount": ""
 	    },
 	    "loanEstimateDocDetails":
 	    {
-	        "transactionType": null,
+	        "transactionType": "",
 	        "documentType": "",
 	        "formType": "",
-	        "escrowAggregateAccountingAdjustmentAmount": ""
+	        "escrowAggregateAccountingAdjustmentAmount": "",
+       		"escrowAggregateAccountingAdjustmentAmountSellerPaid" : "",
+            "escrowAggregateAccountingAdjustmentAmountOthersPaid" : ""
 	    },
 		"loanDetail": {
 		    "assumabilityIndicator": false,
