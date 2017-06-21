@@ -205,14 +205,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }
     
 		if($scope.cdformdata.loanInformation.loanIdentifiers && $scope.cdformdata.loanInformation.loanIdentifiers.length>0){
-			var isMersMinExists = false;
+			$scope.MERS_MIN_ID = '';
 			for(var i=0; i<$scope.cdformdata.loanInformation.loanIdentifiers.length; i++) {
 				if($scope.cdformdata.loanInformation.loanIdentifiers[i].loanIdentifierType == 'MERS_MIN') {
-					isMersMinExists = true;
+					$scope.MERS_MIN_ID = $scope.cdformdata.loanInformation.loanIdentifiers[i].loanIdentifier;
 				}
-			}
-			if(!isMersMinExists) {
-				$scope.cdformdata.loanInformation.loanIdentifiers.push(angular.copy(staticData.cdformdata.loanInformation.loanIdentifiers[1]));
 			}
 		}
 		$scope.cdformdata['micIdentifier'] = "";
@@ -4164,6 +4161,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	    $scope.cdformdata.projectedPayments.estimatedTotal[i].projectedPaymentEstimatedTotalMaximumPaymentAmount = estimatedTotalMaximumPayment;
     	}
 
+    }, true);
+
+    $scope.$watch('MERS_MIN_ID',function(newValue,oldValue){
+     	for(var i=0; i<$scope.cdformdata.loanInformation.loanIdentifiers.length; i++) {
+			if($scope.cdformdata.loanInformation.loanIdentifiers[i].loanIdentifierType == 'MERS_MIN') {
+				$scope.cdformdata.loanInformation.loanIdentifiers.splice(i,1);
+				i--;
+			}
+		}
+    	if($scope.MERS_MIN_ID) {
+			var loanIdentifier = {
+            	"loanIdentifierType": "MERS_MIN",
+            	"loanIdentifier": $scope.MERS_MIN_ID
+        	};
+        	$scope.cdformdata.loanInformation.loanIdentifiers.push(loanIdentifier);
+	   	}
     }, true);
 
     $scope.$watch('cdformdata.micIdentifier',function(newValue,oldValue){
