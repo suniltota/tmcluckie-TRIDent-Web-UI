@@ -95,7 +95,7 @@
 		            <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">State</div>
 		              <div class="col-sm-7">
-		                  <select ng-model="cdformdata.closingInformation.property.stateCode" class="form-control">
+		                  <select ng-model="cdformdata.closingInformation.property.stateCode" class="form-control" ng-change="liabilityForeClosure()">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
 		                  </select>

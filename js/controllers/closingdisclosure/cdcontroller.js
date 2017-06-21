@@ -63,6 +63,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.partialPaymentTypes = staticData.partialPaymentTypes;
     $scope.escrowAbsenceReasons = staticData.escrowAbsenceReasons;
     $scope.paymentFrequencyTypes = staticData.paymentFrequencyTypes;
+    $scope.stateProperty = staticData.stateProperty;
     $scope.payoffsAndPaymentsTotalAmount = 0;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;
@@ -2390,6 +2391,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	}
     }
 
+    $scope.liabilityForeClosure = function(){
+    	for(i=0;i<$scope.stateProperty.length;i++){
+    		if($scope.stateProperty[i].state == $scope.cdformdata.closingInformation.property.stateCode){
+    			$scope.cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator = $scope.stateProperty[i].value;
+    		}
+    	}
+    }
 
     $scope.calculatePayments = function() {
     	$("#spinner").show();
