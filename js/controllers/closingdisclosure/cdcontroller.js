@@ -2891,7 +2891,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             "spB4Closing": $scope.recordingFeetotalObj.spB4Closing,
             "paidByOthers": $scope.recordingFeetotalObj.paidByOthers,
             "lenderStatus": $scope.recordingFeetotalObj.lenderStatus,
-            "displayLabel": "Recording Fee Total",
+            "displayLabel": "",
             "feePaidToFullName": "",
             "feeActualTotalAmount": "",
             "feePaidToType": $scope.recordingFeetotalObj.feePaidToType,
