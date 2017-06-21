@@ -5122,8 +5122,8 @@ this.cdformdata={
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "ServicesBorrowerDidShopFor",
 	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": true,
-	                "paymentIncludedInAPRIndicator": true
+	                "regulationZPointsAndFeesIndicator": false,
+	                "paymentIncludedInAPRIndicator": false
 	            }
 	        ],
 	        "tlCosts":
@@ -5174,7 +5174,7 @@ this.cdformdata={
 	                "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
 	                "optionalCostIndicator": false,
 	                "regulationZPointsAndFeesIndicator": true,
-	                "paymentIncludedInAPRIndicator": true
+	                "paymentIncludedInAPRIndicator": false
 	            }
 	        ],
 	        "prepaidsList":
@@ -5199,7 +5199,7 @@ this.cdformdata={
 	                "prepaidItemType": "",
 	                "prepaidItemTypeOtherDescription": "",
 	                "regulationZPointsAndFeesIndicator": true,
-	                "paymentIncludedInAPRIndicator": true,
+	                "paymentIncludedInAPRIndicator": false,
 	                "prepaidPaidToFullName": "",
 	                "perDiemAmount":"",
 	                "numberOfDays":"",
@@ -5225,7 +5225,7 @@ this.cdformdata={
 			        "feePaidToTypeOtherDescription": "",
 			        "integratedDisclosureSectionType": "InitialEscrowPaymentAtClosing",
 			        "regulationZPointsAndFeesIndicator": true,
-			        "paymentIncludedInAPRIndicator": true
+			        "paymentIncludedInAPRIndicator": false
 	            }
 	        ],
 	        "otherCostsList":
@@ -5250,7 +5250,7 @@ this.cdformdata={
 	                "integratedDisclosureSectionType": "",
 	                "optionalCostIndicator": false,
 	                "regulationZPointsAndFeesIndicator": true,
-	                "paymentIncludedInAPRIndicator": true
+	                "paymentIncludedInAPRIndicator": false
 	            }
 	        ]
 	    },

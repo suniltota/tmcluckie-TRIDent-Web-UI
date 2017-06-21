@@ -86,29 +86,28 @@
         		</span>
 				</div>
 			</div>
-				<div class="col marginleft0"  ng-show=" leformdata.loanInformation.rateLokerIndicator == true && leformdata.loanInformation.rateLokedDate != null ">
-			            <div class="col-sm-1 width100">
-						<select  class="form-control" ng-model="leformdata.loanInformation.rateLokedTime" ng-disabled="leformdata.loanInformation.rateLokedDate == null ||
-						leformdata.loanInformation.rateLokedDate == '' " ng-change="timeClr()">
-							<option value="" selected>Time</option>
-							<option ng-repeat="time in rateLokedTime" value="{{time}}">{{time}}</option>
-						</select>
-						</div>
-						<div class="col-sm-1 width100">
-						<select  class="form-control" ng-model="leformdata.loanInformation.rateLockedTimePeriod" ng-disabled="leformdata.loanInformation.rateLokedTime == null || leformdata.loanInformation.rateLokedTime == '' || 
-						leformdata.loanInformation.rateLokedDate == '' " ng-change="timePeriodClr();" >
-							<option value="" selected>Select</option>
-							<option ng-repeat="timePeriod in rateLockedTimePeriod" value="{{timePeriod}}">{{timePeriod}}</option>
-						</select>
-						</div>
-						<div class="col-sm-2 width100">
-						<select  class="form-control" ng-model="leformdata.loanInformation.rateLockedTimeZone" ng-disabled="leformdata.loanInformation.rateLockedTimePeriod == null || leformdata.loanInformation.rateLockedTimePeriod == '' || 
-						leformdata.loanInformation.rateLokedTime == ''">
-							<option value="" selected>TimeZone</option>
-							<option ng-repeat="timeZone in rateLockedTimeZone" value="{{timeZone}}">{{timeZone}}</option>
-						</select>
-						</div>
-			
+			<div class="col marginleft0"  ng-show=" leformdata.loanInformation.rateLokerIndicator == true">
+		        <div class="col-sm-1 width100">
+					<select  class="form-control" ng-model="leformdata.loanInformation.rateLokedTime" ng-disabled="leformdata.loanInformation.rateLokedDate == null ||
+					leformdata.loanInformation.rateLokedDate == '' " ng-change="timeClr()">
+						<option value="" selected>Time</option>
+						<option ng-repeat="time in rateLokedTime" value="{{time}}">{{time}}</option>
+					</select>
+				</div>
+				<div class="col-sm-1 width100">
+					<select  class="form-control" ng-model="leformdata.loanInformation.rateLockedTimePeriod" ng-disabled="leformdata.loanInformation.rateLokedTime == null || leformdata.loanInformation.rateLokedTime == '' || 
+					leformdata.loanInformation.rateLokedDate == '' " ng-change="timePeriodClr();" >
+						<option value="" selected>Select</option>
+						<option ng-repeat="timePeriod in rateLockedTimePeriod" value="{{timePeriod}}">{{timePeriod}}</option>
+					</select>
+				</div>
+				<div class="col-sm-1 width100">
+					<select  class="form-control" ng-model="leformdata.loanInformation.rateLockedTimeZone" ng-disabled="leformdata.loanInformation.rateLockedTimePeriod == null || leformdata.loanInformation.rateLockedTimePeriod == '' || 
+					leformdata.loanInformation.rateLokedTime == ''">
+						<option value="" selected>Select</option>
+						<option ng-repeat="timeZone in rateLockedTimeZone" value="{{timeZone}}">{{timeZone}}</option>
+					</select>
+				</div>
 			</div>
 			
 		
