@@ -103,11 +103,12 @@
 			</div>
 		</div>
 		<div class="col-sm-12 row margin5tb">
-			<div class="col-sm-4" ng-repeat="automatedUnderwriting in cdformdata.loanInformation.automatedUnderwritings track by $index">
+			<div class="col-sm-12 pull-left">
+			<div class="col-sm-4" ng-repeat="automatedUnderwriting in cdformdata.loanInformation.automatedUnderwritings | limitTo: 3 : 0 track by $index">
 				<div class="col-sm-12 padding0">
 					<div class="col-sm-5 fieldTitle">AUS Type:</div>
 					<div class="col-sm-7 padding0">
-						<select  class="form-control" ng-model="automatedUnderwriting.automatedUnderwritingSystemType" ng-change=ausChange($index)>
+						<select  class="form-control" ng-model="automatedUnderwriting.automatedUnderwritingSystemType" ng-change="ausChange($index)">
 							<option value="" selected>Select</option>
 							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
 						</select>
@@ -129,7 +130,67 @@
 						</div>
 					</div>
 				</div>
-				<span class="glyphicon glyphicon-trash iconTooltip red margin5tb ausTrash" data-toggle="tooltip" title="Close" ng-click="removeAusTypeIdentifier($index)" ng-show="$index==5 || $index==8"/>
+			</div>
+			</div>
+			<div class="col-sm-12 pull-left" ng-if="cdformdata.loanInformation.automatedUnderwritings.length>3">
+			<div class="col-sm-4" ng-repeat="automatedUnderwriting in cdformdata.loanInformation.automatedUnderwritings | limitTo: 3 : 3 track by $index">
+				<div class="col-sm-12 padding0">
+					<div class="col-sm-5 fieldTitle">AUS Type:</div>
+					<div class="col-sm-7 padding0">
+						<select  class="form-control" ng-model="automatedUnderwriting.automatedUnderwritingSystemType" ng-change="ausChange($index+3)">
+							<option value="" selected>Select</option>
+							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
+					<div class="FieldGroup">
+						<div class="col-sm-5 fieldTitle">AUS Description:</div>
+						<div class="col-sm-7 padding0">
+							<input type="text" class="form-control" id="aUSOtherDescription" ng-model="automatedUnderwriting.automatedUnderwritingSystemTypeOtherDescription">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 padding0">
+					<div class="FieldGroup">
+						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
+						<div class="col-sm-7 padding0">
+							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
+						</div>
+					</div>
+				</div>
+				<span class="glyphicon glyphicon-trash iconTooltip red margin5tb ausTrash" data-toggle="tooltip" title="Close" ng-click="removeAusTypeIdentifier($index)" ng-show="$index+3==5"/>
+			</div>
+			</div>
+			<div class="col-sm-12 pull-left" ng-if="cdformdata.loanInformation.automatedUnderwritings.length>6">
+			<div class="col-sm-4" ng-repeat="automatedUnderwriting in cdformdata.loanInformation.automatedUnderwritings | limitTo : 3 : 6 track by $index">
+				<div class="col-sm-12 padding0">
+					<div class="col-sm-5 fieldTitle">AUS Type:</div>
+					<div class="col-sm-7 padding0">
+						<select  class="form-control" ng-model="automatedUnderwriting.automatedUnderwritingSystemType" ng-change="ausChange($index+6)">
+							<option value="" selected>Select</option>
+							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
+					<div class="FieldGroup">
+						<div class="col-sm-5 fieldTitle">AUS Description:</div>
+						<div class="col-sm-7 padding0">
+							<input type="text" class="form-control" id="aUSOtherDescription" ng-model="automatedUnderwriting.automatedUnderwritingSystemTypeOtherDescription">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 padding0">
+					<div class="FieldGroup">
+						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
+						<div class="col-sm-7 padding0">
+							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
+						</div>
+					</div>
+				</div>
+				<span class="glyphicon glyphicon-trash iconTooltip red margin5tb ausTrash" data-toggle="tooltip" title="Close" ng-click="removeAusTypeIdentifier($index)" ng-show="$index+6==8"/>
+			</div>
 			</div>
 		</div>
 	</div>

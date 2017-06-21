@@ -187,6 +187,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		
 		if($scope.loanBasicInfo.loanPurposeType == 'purchase') {
 			$scope.cdformdata.salesContractDetail.personalPropertyIndicator = false;
+		} else {
+			$scope.cdformdata.transactionInformation.refinanceSameLenderIndicator = false;
 		}
 		
 		if(localStorage.jsonData != undefined) {

@@ -3724,7 +3724,7 @@ this.cdformdata={
 		    "miInitialPremiumAmount": ""
 		},
 		"transactionInformation": {
-			"refinanceSameLenderIndicator" : false,
+			"refinanceSameLenderIndicator" : null,
 			"borrowerDetails": [
 			{
 				"type": "I",
