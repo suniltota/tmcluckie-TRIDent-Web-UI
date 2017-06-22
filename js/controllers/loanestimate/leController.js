@@ -77,6 +77,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     $scope.disclosureOnly = true;
     $scope.toleranceCure = false;
     $scope.toleranceCureDrpdwn = false;
+    $scope.loanMaturityPeriodTypes = staticData.loanMaturityPeriodTypes;
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -216,6 +217,15 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		else if($scope.leformdata.payment.paymentRule.fullyIndexedInitialPrincipalAndInterestPaymentAmount!=''){
             $scope.piAmount = $scope.leformdata.payment.paymentRule.fullyIndexedInitialPrincipalAndInterestPaymentAmount;
 		}
+
+		if($scope.leformdata.loanDetail.balloonIndicator) {
+			$scope.leformdata['balloonPeriodType'] = $scope.leformdata.maturityRule.loanMaturityPeriodType;
+			$scope.leformdata['balloonPeriodCount'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount;
+ 		} else {
+ 			$scope.leformdata['balloonPeriodType'] = '';
+ 			$scope.leformdata['balloonPeriodCount'] = '';
+		}
+
 		$scope.leformdata.loanEstimateDocDetails.formType=$scope.FormType;
 		$scope.leformdata.loanEstimateDocDetails.documentType=$scope.DocumentType;
 		var lender = {
