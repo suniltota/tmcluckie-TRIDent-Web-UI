@@ -4054,7 +4054,7 @@ this.cdformdata={
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
 	                "optionalCostIndicator": null,
-	                "regulationZPointsAndFeesIndicator": false,
+	                "regulationZPointsAndFeesIndicator": null,
 	                "paymentIncludedInAPRIndicator": false
 	            }
 	        ],
