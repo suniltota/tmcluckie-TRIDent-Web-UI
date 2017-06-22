@@ -130,7 +130,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         "feeType": "RecordingFeeTotal",
         "feeTypeOtherDescription": "",
         "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
-        "optionalCostIndicator": false,
+        "optionalCostIndicator": null,
         "regulationZPointsAndFeesIndicator": false,
         "paymentIncludedInAPRIndicator": false,
         "recordingFeeForDeed":"",
@@ -2471,75 +2471,33 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.closeUCDXML = function(){
     	$("#ucdXmlView").hide();
     }
+    
     $scope.downloadXML = function() {
     	window.URL = window.webkitURL || window.URL;
     	var xmltext = $scope.xmlData;
-		var pom = document.createElement('a');
 		var loanId = '';
 		var loanIdentifiers = $scope.cdformdata.loanInformation.loanIdentifiers;
 		for(var j=0; j<loanIdentifiers.length; j++) {
 			if(loanIdentifiers[j].loanIdentifierType == 'LenderLoan')
 				loanId = loanIdentifiers[j].loanIdentifier;
 		}
-		var filename = "ClosingDisclosure_"+loanId+ "_"+new Date().getTime();
-		var pom = document.createElement('a');
+		var filename = "ClosingDisclosure_"+loanId+ "_"+new Date().getTime()+'.xml';
 		var bb = new Blob([xmltext], {type: 'application/octet-stream'});
-
-		pom.setAttribute('href', window.URL.createObjectURL(bb));
-		pom.setAttribute('download', filename +'.xml');
-
-		pom.dataset.downloadurl = ['application/octet-stream', pom.download, pom.href].join(':');
-		pom.draggable = true; 
-		pom.classList.add('dragout');
-		
-		// Internet Explorer 6-11
-		var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-		// Edge 20+
-		var isEdge = !isIE && !!window.StyleMedia;
-
-		if(!isEdge && !isIE) {
-			document.body.appendChild(pom);
-			pom.click();
-			document.body.removeChild(pom);	
-		} else {
-			pom.click();
-		}
+        saveAs(bb, filename);
     }
+
     $scope.downloadUCDXML = function() {
     	window.URL = window.webkitURL || window.URL;
     	var xmltext = $scope.ucdxmlData;
-		var pom = document.createElement('a');
 		var loanId = '';
 		var loanIdentifiers = $scope.cdformdata.loanInformation.loanIdentifiers;
 		for(var j=0; j<loanIdentifiers.length; j++) {
 			if(loanIdentifiers[j].loanIdentifierType == 'LenderLoan')
 				loanId = loanIdentifiers[j].loanIdentifier;
 		}
-		var filename = "ClosingDisclosure_"+loanId+"_UCD"+ "_"+new Date().getTime();
-		var pom = document.createElement('a');
+		var filename = "ClosingDisclosure_"+loanId+"_UCD"+ "_"+new Date().getTime()+'.xml';
 		var bb = new Blob([xmltext], {type: 'application/octet-stream'});
-
-		pom.setAttribute('href', window.URL.createObjectURL(bb));
-		pom.setAttribute('download', filename);
-
-		pom.dataset.downloadurl = ['application/octet-stream', pom.download, pom.href].join(':');
-		pom.draggable = true; 
-		pom.classList.add('dragout');
-		
-		// Internet Explorer 6-11
-		var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-		// Edge 20+
-		var isEdge = !isIE && !!window.StyleMedia;
-
-		if(!isEdge && !isIE) {
-			document.body.appendChild(pom);
-			pom.click();
-			document.body.removeChild(pom);	
-		} else {
-			pom.click();
-		}
+        saveAs(bb, filename);
     }
     
     $scope.$watchCollection('[cdformdata.loanInformation.loanTermYears, cdformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){
@@ -2858,7 +2816,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             "feeType": "RecordingFeeForDeed",
             "feeTypeOtherDescription": "",
             "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
-            "optionalCostIndicator": false,
+            "optionalCostIndicator": null,
             "regulationZPointsAndFeesIndicator": false,
             "paymentIncludedInAPRIndicator": false
         };
@@ -2879,7 +2837,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             "feeType": "RecordingFeeForMortgage",
             "feeTypeOtherDescription": "",
             "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
-            "optionalCostIndicator": false,
+            "optionalCostIndicator": null,
             "regulationZPointsAndFeesIndicator": false,
             "paymentIncludedInAPRIndicator": false
         };
@@ -2900,7 +2858,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             "feeType": "RecordingFeeTotal",
             "feeTypeOtherDescription": "",
             "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
-            "optionalCostIndicator": false,
+            "optionalCostIndicator": null,
             "regulationZPointsAndFeesIndicator": false,
             "paymentIncludedInAPRIndicator": $scope.recordingFeetotalObj.paymentIncludedInAPRIndicator
         };

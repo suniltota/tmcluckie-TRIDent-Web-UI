@@ -3952,7 +3952,7 @@ this.cdformdata={
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "OriginationCharges",
-	                "optionalCostIndicator": false,
+	                "optionalCostIndicator": null,
 	                "regulationZPointsAndFeesIndicator": true,
 	                "paymentIncludedInAPRIndicator": true
 	            }
@@ -3977,7 +3977,7 @@ this.cdformdata={
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "ServicesBorrowerDidNotShopFor",
-	                "optionalCostIndicator": false,
+	                "optionalCostIndicator": null,
 	                "regulationZPointsAndFeesIndicator": true,
 	                "paymentIncludedInAPRIndicator": true
 	            }
@@ -4002,7 +4002,7 @@ this.cdformdata={
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "ServicesBorrowerDidShopFor",
-	                "optionalCostIndicator": false,
+	                "optionalCostIndicator": null,
 	                "regulationZPointsAndFeesIndicator": false,
 	                "paymentIncludedInAPRIndicator": false
 	            }
@@ -4053,7 +4053,7 @@ this.cdformdata={
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
-	                "optionalCostIndicator": false,
+	                "optionalCostIndicator": null,
 	                "regulationZPointsAndFeesIndicator": false,
 	                "paymentIncludedInAPRIndicator": false
 	            }
