@@ -2970,6 +2970,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		    if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator==null){
             	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator='';
             }
+
+            if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType=='CityPropertyTax' || $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType=='CountyPropertyTax' ||
+            	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType=='DistrictPropertyTax' || $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType=='SchoolPropertyTax' ||
+            	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType=='StatePropertyTax' || $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType=='TownshipPropertyTax' || 
+            	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType=='VillagePropertyTax' || $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType=='TownPropertyTax')
+            {
+            	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = null;
+            }
          }
 
          $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount = bpAtClosing.prepaidsTotalbpAtClosing + bpB4Closing.prepaidsTotalbpB4Closing;
@@ -3031,6 +3039,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
 		    if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator==null){
             	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator='';
+            }
+
+            if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='CityPropertyTax' || $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='CountyPropertyTax' ||
+            	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='DistrictPropertyTax' || $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='SchoolPropertyTax' ||
+            	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='StatePropertyTax' || $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='TownshipPropertyTax' || 
+            	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='VillagePropertyTax' || $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='TownPropertyTax')
+            {
+            	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator = null;
             }
 
             //Projected Payments Escrow Monthly Payment Amount
