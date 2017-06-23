@@ -2829,7 +2829,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             "feeTypeOtherDescription": "",
             "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
             "optionalCostIndicator": null,
-            "regulationZPointsAndFeesIndicator": false,
+            "regulationZPointsAndFeesIndicator": null,
             "paymentIncludedInAPRIndicator": false
         };
 		var recordingFeeForMortgage = {
@@ -2850,7 +2850,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             "feeTypeOtherDescription": "",
             "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
             "optionalCostIndicator": null,
-            "regulationZPointsAndFeesIndicator": false,
+            "regulationZPointsAndFeesIndicator": null,
             "paymentIncludedInAPRIndicator": false
         };
 		var recordingFeeForTotal = {
@@ -2871,7 +2871,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             "feeTypeOtherDescription": "",
             "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
             "optionalCostIndicator": null,
-            "regulationZPointsAndFeesIndicator": false,
+            "regulationZPointsAndFeesIndicator": null,
             "paymentIncludedInAPRIndicator": $scope.recordingFeetotalObj.paymentIncludedInAPRIndicator
         };
         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++) {
@@ -3125,25 +3125,18 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
                 	$scope.cdformdata.etiaSection.etiaValues[1].insuranceTaxCheck = false; 
                 }
             }
-
-            /*if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription){
-
-			    for(i=0;i<$scope.ETIAComponentTypes.length;i++){
-					if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim($scope.ETIAComponentTypes[i].name).indexOf()!=-1 
-						&& $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1 
-						&& $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1)
-					{
-						for(j=0;j<$scope.etiaSection.etiaValues.length;j++){
-							if($scope.etiaSection.etiaValues[j].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == $scope.ETIAComponentTypes[i].value){
-							   $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType='Escrowed';
-							}else{
-								$scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType='NotEscrowed';
-							}
+            /*for(i=0;i<escrowArray.length;i++){
+            	if(escrowArray[i]!='HomeownersInsurance' && escrowArray[i]!='PropertyTaxes'){
+				    for(j=0;j<$scope.etiaSection.etiaValues.length;j++){
+						if($scope.etiaSection.etiaValues[j].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == escrowArray[i]){
+						    $scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType='Escrowed';
+						}else{
+							$scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType='NotEscrowed';
 						}
-				    }
-                }
-            }*/
-         }
+					}
+			    }
+			}*/
+        }
 
          bpAtClosing.iEPatClosingTotalbpAtClosing += ($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount == '' || undefined == $scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount) ? +0 : parseFloat($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount);
          spAtClosing.iEPatClosingTotalspAtClosing += ($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid == '' || undefined == $scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid) ? +0 : parseFloat($scope.cdformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid);
