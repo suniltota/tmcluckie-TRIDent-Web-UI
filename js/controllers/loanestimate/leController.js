@@ -1410,6 +1410,71 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     $scope.stepChange = function(){
     	$scope.leformdata.payment.paymentRule.totalStepPaymentCount = '';
     }
+    $scope.resultsCalculator = function(){
+        $scope.results = false;
+        $scope.leformdata['salePrice'] = $scope.leformdata.salesContractDetail.saleContractAmount ? parseFloat($scope.leformdata.salesContractDetail.saleContractAmount) : +0;
+		$scope.leformdata['depositAmount'] = $scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount) : +0;
+		$scope.leformdata['sellerCreditsAmount'] = $scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount) : +0;
+		$scope.leformdata['adjustmentsAmount'] = $scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount) : +0;
+		$scope.leformdata['totalPayoffAmount'] = $scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount) : +0;
+
+    } 
+    $scope.calculateCash = function(){
+
+        $scope.leformdata['totalFinalAmount'] = 0;
+	    if($scope.leformdata.cashToCloses.totalClosingCosts != null)
+		$scope.leformdata.totalFinalAmount += $scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount);
+    	if($scope.leformdata.cashToCloses.closingCostsPaidBeforeClosing != null)
+    	$scope.leformdata.totalFinalAmount += $scope.leformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount);
+		if($scope.leformdata.depositAmount)
+		$scope.leformdata.totalFinalAmount += $scope.leformdata.depositAmount ? parseFloat($scope.leformdata.depositAmount) : +0;
+    	if($scope.leformdata.sellerCreditsAmount)
+    	$scope.leformdata.totalFinalAmount += $scope.leformdata.sellerCreditsAmount ? parseFloat($scope.leformdata.sellerCreditsAmount) : +0;
+    	if($scope.leformdata.cashToCloses.loanAmount != null)
+    	$scope.leformdata.totalFinalAmount += $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount);
+    	if($scope.leformdata.adjustmentsAmount)
+    	$scope.leformdata.totalFinalAmount += $scope.leformdata.adjustmentsAmount ? parseFloat($scope.leformdata.adjustmentsAmount) : +0;
+    	if($scope.leformdata.totalPayoffAmount)
+    	$scope.leformdata.totalFinalAmount += $scope.leformdata.totalPayoffAmount ? parseFloat($scope.leformdata.totalPayoffAmount) : +0;
+	    
+	    if($scope.leformdata.totalFinalAmount!=0 && $scope.leformdata.totalFinalAmount){
+	       $scope.results = true;
+	    }else{
+	    	$scope.results = false;
+	    }
+	}
+
+	$scope.clearCalculations = function(){
+    	$scope.leformdata.salesContractDetail.saleContractAmount = '';
+    	$scope.leformdata.salePrice = '';
+	    $scope.leformdata.depositAmount = '';
+	    $scope.leformdata.sellerCreditsAmount = '';
+	    $scope.leformdata.adjustmentsAmount = '';
+	    $scope.leformdata.totalPayoffAmount = '';
+    }
+
+    $scope.loadResultsToCCTable = function(){
+
+        $scope.leformdata.salesContractDetail.saleContractAmount = $scope.leformdata.salePrice ? parseFloat($scope.leformdata.salePrice) : +0;                                                                                          
+		$scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount = $scope.leformdata.depositAmount ? parseFloat($scope.leformdata.depositAmount) : +0;                                
+		$scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount = $scope.leformdata.sellerCreditsAmount ? parseFloat($scope.leformdata.sellerCreditsAmount) : +0;                    
+		$scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = $scope.leformdata.adjustmentsAmount ? parseFloat($scope.leformdata.adjustmentsAmount) : +0;
+		$scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount = $scope.leformdata.totalPayoffAmount ? parseFloat($scope.leformdata.totalPayoffAmount) : +0;
+   
+	    $scope.leformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount = $scope.leformdata.totalFinalAmount;
+	    
+	  //   for(i=0; i<$scope.summariesOfTransaction_LSection.adjustments.length; i++) {
+			// if($scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemType=='SellerCredit'){
+   //      		$scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemAmount = $scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount*-1) : +0;
+   //      	}
+   //      }
+
+        if($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount) {
+    	   // $scope.summariesOfTransaction_LSection.deposit = $scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount*-1) : +0; 
+    	}else{
+    		// $scope.summariesOfTransaction_LSection.deposit = 0;
+    	}
+    }
 
     $scope.optionalChange = function(){
     	$scope.leformdata.payment.paymentRule.totalOptionalPaymentCount = '';

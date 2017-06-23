@@ -1,5 +1,5 @@
 <div class="col-sm-12">
-	<h4>Calculating Cash to Close</h4><button class="pull-right btn btn-warning" data-toggle="modal" data-target="#leCashtoCloseModal">Cash to Close Calculator</button>
+	<h4>Calculating Cash to Close</h4><button class="pull-right btn btn-warning" data-toggle="modal" data-target="#cashtoCloseModal">Cash to Close Calculator</button>
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb" style="border:0px;">
 		      <tr>
@@ -299,4 +299,166 @@
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('TotalClosingCosts')">Back</a></span>
 			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('LoanDisclosures')">Next</a></span>
 	</div>
+</div>
+<div class="modal fade" id="cashtoCloseModal" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="resultsCalculator()">&times;</button>
+        <h4 class="modal-title col-sm-6">Cash to Close Calculator- {{FormType}} {{LoanType}}</h4>
+        <h4 class="modal-title col-sm-5" ng-show="results">Results</h4>
+      </div>
+
+      <div class="modal-body">
+           <div class="margin5tb padding0 col-sm-6" >
+              <div class=" col-sm-12">
+                <div class="col-sm-6 fieldTitle">Total Closing Costs (J)</div>
+                <div class="col-sm-6 fieldValue">${{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</div>
+              </div>
+              <div class=" col-sm-12">
+                <div class="col-sm-6 fieldTitle">Closing Costs Paid Before Closing</div>
+                <div class="col-sm-6 fieldValue">${{leformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</div>
+              </div>
+              
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'alternate'">
+                <div class="col-sm-6 fieldTitle">Loan Amount</div>
+                <div class="col-sm-6 fieldValue">
+                   $${{leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Loan Amount includes any assumed or taken subject to</div>
+                <div class="col-sm-6 fieldValue">
+                   ${{leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
+                </div>
+              </div>
+              
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Sales Price (Purchase Only)</div>
+                <div class="col-sm-6">
+                    <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
+                      <span class="input-group-addon input-default">$</span>
+                      <input type="text" class="form-control" name="" ng-model="leformdata.salesContractDetail.saleContractAmount" decimal-digits-with-number-format>
+                    </div>
+                     <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
+                      <span class="input-group-addon input-default">$</span>
+                      <input type="text" class="form-control" name="" ng-model="leformdata.salesContractDetail.saleContractAmount" decimal-digits-with-number-format disabled>
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard' && loanBasicInfo.loanPurposeType == 'refinance'">
+                <div class="col-sm-6 fieldTitle">Payoffs and Payments (Refinance Only)</div>
+                <div class="col-sm-6">
+                    <div class="input-group" >
+                      <span class="input-group-addon input-default">$</span>
+                      <input type="text" class="form-control" name="" ng-model="payoffsAndPaymentsTotalAmount" decimal-digits-with-number-format>
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Deposit (Purchase Only)</div>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                      <span class="input-group-addon input-default" style="color: red;">$ -</span>
+                          <input type="text" class="form-control padding0" name="" ng-model="leformdata.depositAmount" negative-digits ng-change="depositChange()"  ng-keyup="depositChange()" ng-blur="depositChange()">
+                    </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldTitle">Seller Credits (Purchase Only)</div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                    <span class="input-group-addon input-default" style="color: red;">$ -</span>
+                    <input type="text" class="form-control" name="" ng-model="leformdata.sellerCreditsAmount" negative-digits ng-blur="sellerCreditsChange()" ng-keyup="sellerCreditsChange()">
+                  </div>
+                </div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'alternate'">
+                <div class="col-sm-6 fieldTitle">Total Payoffs and Payments</div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                  <span class="input-group-addon input-default" style="color: red;">$ -</span>
+                  <input type="text" class="form-control" name="" ng-model="leformdata.totalPayoffAmount" negative-digits ng-keyup="totalPayoffChangeCC()">
+                  </div>
+                </div>
+              </div>
+              <div class=" col-sm-12">
+                <div class="col-sm-6 fieldTitle">Adjustments and Other Credits</div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                  <span class="input-group-addon input-default">$</span>
+                  <input type="text" class="form-control" name="" ng-model="leformdata.adjustmentsAmount" decimal-digits-with-number-format ng-keyup="adjustmentsAndOtherCreditsChange()">
+                  </div>
+                </div>
+              </div>
+      	</div>
+      	<div class="col-sm-6 margin5tb" >
+      		<table class="table table-bordered table-striped">
+      			<tr>
+      				<th class="innerSectionHeader">Results CCC table</th>
+      				<th class="innerSectionHeader">Amount</th>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
+      			    <td>Loan Amount</td>
+      			    <td>${{leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
+      				<td>Total Closing Costs(J)</td>
+      				<td>-${{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
+      				<td>Total Closing Costs(J)</td>
+      				<td>${{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
+      				<td>Closing Costs Paid Before Closing</td>
+      				<td>${{leformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
+      				<td>Closing Costs Financed (Paid from your Loan Amount)</td>
+      				<td>${{leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
+      				<td>Down Payment/Funds from Borrower</td>
+      				<td>${{leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
+      				<td>Deposit</td>
+      				<td>-${{leformdata.depositAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
+      				<td>Funds for Borrower</td>
+      				<td>${{leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
+      				<td>Seller Credits</td>
+      				<td>-${{leformdata.sellerCreditsAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
+      			    <td>Total Payoffs and Payments (K)</td>
+      			    <td>-${{leformdata.totalPayoffAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
+      				<td>Adjustments and Other Credits</td>
+      				<td>${{leformdata.adjustmentsAmount | number:2}}</td>
+      			</tr>
+      			<tr>
+      				<td><label>Cash to Close</label></td>
+      				<td><label>${{leformdata.totalFinalAmount | number:2}}</label></td>
+      			</tr>
+      		</table>
+      	</div>
+      </div>
+      <div class="modal-footer">
+        <div style="float:left;">
+	        <button type="button" class="btn btn-primary" ng-click="calculateCash()">Calculate Cash to Close</button>
+	        <button type="button" class="btn btn-default" ng-click="clearCalculations()">Clear Editable Values</button>
+        </div>
+        <div >
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="loadResultsToCCTable()">Load Results to CCC Table</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
