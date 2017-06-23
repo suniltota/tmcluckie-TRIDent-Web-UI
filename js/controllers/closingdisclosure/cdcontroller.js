@@ -1644,6 +1644,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.totalFinalAmount += $scope.cdformdata.adjustmentsAmount ? parseFloat($scope.cdformdata.adjustmentsAmount) : +0;
     	if($scope.cdformdata.totalPayoffAmount)
     	$scope.cdformdata.totalFinalAmount += $scope.cdformdata.totalPayoffAmount ? parseFloat($scope.cdformdata.totalPayoffAmount) : +0;
+        if($scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount)
+    	$scope.cdformdata.totalFinalAmount += $scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount) : +0;
 	    
 	    if($scope.cdformdata.totalFinalAmount!=0 && $scope.cdformdata.totalFinalAmount){
 	       $scope.results = true;
