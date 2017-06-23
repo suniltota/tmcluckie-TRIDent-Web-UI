@@ -22,7 +22,7 @@
 				    </div>
 				        </td> -->
 		        <td>
-		        	$ {{leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount}}
+		        	${{leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
 		        </td>
 		        <!-- <td>
 		        	${{true == leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
@@ -44,7 +44,7 @@
 		        	</div> -->
 		        	<!-- <span class="input-group-addon input-default">$</span> -->
 		        	<span>
-		        	${{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount}} </span>
+		        	${{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount | number:2}} </span>
 		        </td>
 		       <!--  <td>
 		        	{{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount}}
@@ -66,7 +66,7 @@
 		        </td>
 		        <td>
 		        	<div class="input-group">
-						<span class="input-group-addon input-default">$</span>
+						<span class="input-group-addon input-default">$ -</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="leformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
@@ -138,7 +138,7 @@
 		        </td>
 		        <td>
 		        <div class="input-group">
-						<span class="input-group-addon input-default">$</span>
+						<span class="input-group-addon input-default">$ -</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
@@ -160,7 +160,7 @@
 		        </td>
 		        <td>
 		        	<div class="input-group">
-						<span class="input-group-addon input-default">$</span>
+						<span class="input-group-addon input-default">$ -</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
@@ -185,7 +185,7 @@
 		        </td>
 		        <td>
 		        <div class="input-group">
-					<span class="input-group-addon input-default">$</span>
+					<span class="input-group-addon input-default">$ -</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
@@ -261,7 +261,7 @@
 				        	<strong class="marginleft18">Borrower</strong>
 				        </td>
 				        <td>
-				        	$ <span ng-show="leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount >= 1">{{leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}</span>
+				        	${{leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}
 				        </td>
 		        </tr>
 		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
@@ -269,7 +269,7 @@
 		        	<strong>Cash To Close</strong>
 		        </td>
 		        <td>
-		        	$ <span ng-show="leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount >= 1"> {{leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}} </span>
+		        	${{leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}
 		        </td>
 		        <!-- <td>
 		        	${{leformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount | number:2}}
