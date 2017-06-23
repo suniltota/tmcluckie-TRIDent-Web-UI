@@ -74,14 +74,14 @@
 						</select>
 					</div>
 				</div>
-			</div>
+			 </div>
 
 			<div class="col-sm-3 margin4t marginleft45n" ng-if="leformdata.loanInformation.rateLokerIndicator == true">
 				<div class="FieldGroup marginnegative9t">
-					<span class="col-sm-4 padding0">
-				<input type="text" name="dateIssued" id="dateIssued" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.loanInformation.rateLokedDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Rate Locked Date : MM/DD/YYYY" actualize-date/>
+					<span class="col-sm-4 padding0" style="width:70%">
+				<input type="text" name="dateIssued" id="dateIssued" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.loanInformation.rateLokedDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Rate Locked Date" actualize-date/>
 				</span>
-      			<span class="input-group-btn col-sm-2 padding0">
+      			<span class="input-group-btn col-sm-2 padding0" >
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
         		</span>
 				</div>

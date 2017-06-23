@@ -11,28 +11,28 @@
 		        	<button class="pull-right btn btn-warning" data-toggle="modal" data-target="#cashtoCloseModal">Cash to Close Calculator</button>
 		        </th>   
 		      </tr> -->
-		      <!-- <tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
+		      <tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
 		        <td>
 		        	Loan Amount
 		        </td>
-		        <td>
+		        <!-- <td>
 		        	<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
 				        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
 				    </div>
-				        </td>
+				        </td> -->
 		        <td>
 		        	${{leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
 		        </td>
-		        <td>
+		        <!-- <td>
 		        	${{true == leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show="leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
 		        		<li>This amount (increased or decreased), ensure the word increased or decreased </li>
 		        	</ul>
-		        </td>
-		      </tr> -->
+		        </td> -->
+		      </tr>
 		      <tr>
 		        <td>
 		        	Total Closing Costs (J)
@@ -60,7 +60,7 @@
 		        	</ul>
 		        </td> -->
 		      </tr>
-		      <tr>
+		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
 		        <td>
 		        	Closing Costs Paid Before Closing
 		        </td>
@@ -226,9 +226,9 @@
 		        	</ul>
 		        </td> -->
 		      </tr>
-		      <!-- <tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
+		       <tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
 		        <td>
-		        	Total Payments and Payoffs (K)
+		        	Estimate Total Payoffs  and Payments
 		        </td>
 		        <td>
 		        <div class="input-group">
@@ -236,7 +236,7 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
 		        </div>	
 		        </td>
-		        <td>
+		       <!--  <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount" decimal-digits-with-number-format>
@@ -249,9 +249,22 @@
 		        	<ul class="ListChain" ng-show="leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
 		        		<li>See requirements to the left for al specified bullet verbiage.</li>
 		        	</ul>
-		        </td>
-		      </tr> -->
-		      <tr>
+		        </td> -->
+		      </tr> 
+		       <tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
+				        <td>
+				        	<strong> Estimated Cash To Close </strong>
+				        	<strong class="marginleft18">From </strong>
+				        	<input type="checkbox" name="" ng-model="leformdata.cashToCloses.fromBorrowerCheckBox">
+				        	<strong class="marginleft18">To</strong>
+				        	<input type="checkbox" name="" ng-model="leformdata.cashToCloses.toBorrowerCheckBox">
+				        	<strong class="marginleft18">Borrower</strong>
+				        </td>
+				        <td>
+				        	${{leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}
+				        </td>
+		        </tr>
+		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
 		        <td>
 		        	<strong>Cash To Close</strong>
 		        </td>
@@ -272,6 +285,13 @@
 		        	</span>
 		        </td> -->
 		      </tr>
+		      <tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
+      			    <td>Estimated Closing Costs Financed</td>
+      			    <td><div class="input-group">
+						<span class="input-group-addon input-default">$</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+			        </div></td>
+      			</tr>
 		</table>
 			
 	</span>
