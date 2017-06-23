@@ -18,26 +18,26 @@
 		      <tr ng-repeat="originationCharge in leformdata.closingCostDetailsLoanCosts.originationCharges">		      	
 		        <td ng-show="originationCharge.feeType == 'LoanDiscountPoints'">
 		        	 <span class="input-group">
-		        	 <input type="text" class="form-control" ng-model="originationCharge.feeTotalPercent" percentage-format>
+		        	 <input type="text" class="form-control" ng-model="originationCharge.feeTotalPercent" percentage-format ng-blur="loanDiscount($index)" ng-keyup="loanDiscount($index)">
 		        	 <span class="input-group-addon input-default">% of Loan Amount (Points)</span> 
 		        	</span>
 		        </td>
 		        <td ng-show="originationCharge.feeType != 'LoanDiscountPoints'">
 		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control" ng-if="!originationChargeDisplayLabelStatus" ng-model="originationChargeDisplayLabelValue" >
+		        		<input type="text" class="form-control" name="" ng-model="originationCharge.displayLabel"s>
 		        	</span>
 		        </td> 
 		        <td>
 		        	<span class="col-sm-12 padding0">
-		        		<select class="form-control padding0" ng-model="originationCharge.feePaidToType">
-		        		    <option value="" selected>Select</option>
-             			    <option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	    </select>
+		        		<select class="form-control padding0" ng-model="originationCharge.feeType" ng-change="updateSectionAfeeTypes(originationCharge.feeType, $index)">
+	              			<option value="" selected>Select</option>
+	             			<option ng-repeat="feeType in sectionAfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
+              		    </select> 
 		        	</span>
-		        	<span ng-hide="originationCharge.feePaidToType!='Other'" class="col-sm-12 padding0">
+		        	<span ng-hide="originationCharge.feeType!='Other'" class="col-sm-12 padding0">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control padding0" name="originationCharge.feePaidToTypeOtherDescription">
+			        	  <input type="text" class="form-control padding0" ng-model="originationCharge.feeTypeOtherDescription">
 			        	</span>
 		        	</span>
 		        </td>
@@ -83,22 +83,22 @@
 		      <tr ng-repeat="sbDidNotShopFor in leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors">
 		        <td>
 		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control" ng-if="!originationChargeDisplayLabelStatus" ng-model="originationChargeDisplayLabelValue" >
+		        		<input type="text" class="form-control" ng-model="sbDidNotShopFor.displayLabel"> 
 		        	</span>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12 padding0">
-		        		<select class="form-control padding0" ng-model="sbDidNotShopFor.feePaidToType">
-		        		    <option value="" selected>Select</option>
-             			    <option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
+		        		<select class="form-control padding0" ng-model="sbDidNotShopFor.feeType" ng-change="updateSectionBfeeTypes(sbDidNotShopFor.feeType, $index)">
+	              			<option value="" selected>Select</option>
+	             			<option ng-repeat="feeType in sectionBfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
+              		    </select>
 		        	</span>
-		        	<span ng-show="sbDidNotShopFor.feePaidToType=='Other'">
+		        	<span ng-show="sbDidNotShopFor.feeType=='Other'">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control padding0" name="sbDidNotShopFor.feePaidToTypeOtherDescription">
+			        		<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.feeTypeOtherDescription">
 			        	</span>
-		        	</span>
+			        </span>
 		        </td>
 		        <td>
 		        <div class="input-group">
@@ -135,17 +135,6 @@
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | number:2}}</th>
 			  </tr>
 		      <tr>
-		        <!-- <th class="innerSectionHeader FeeInfo">Fee Information</th>
-		        <th class="innerSectionHeader FeePaid">Fee Paid To Info</th>
-		        <th class="innerSectionHeader BPatClosing">Borrower Paid AT Closing</th>
-		        <th class="innerSectionHeader BPbeforeClosing">Borrower Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader SPatClosing" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">Seller Paid AT Closing</th>
-		        <th class="innerSectionHeader SPbeforeClosing" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">Seller Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader PaidByOther">Paid By OTHER</th>
-		        <th class="innerSectionHeader PaidByLender">Paid By Lender</th>
-		        <th class="innerSectionHeader incInApr">Included in APR?</th>
-		        <th class="innerSectionHeader incRegZ">Included in Reg Z?</th>
-		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th> -->
 		        <th class="innerSectionHeader FeeInfo">Fee Label</th>
 		        <th class="innerSectionHeader FeePaid">Fee Type</th>
 		        <th class="innerSectionHeader BPatClosing">Amount</th>
@@ -153,12 +142,12 @@
 		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="sbDidShopFor in leformdata.closingCostDetailsLoanCosts.sbDidShopFors">
-		     <!--  <td>
-		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
+		        <td>
 		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control"> 
+		        		<input type="text" class="form-control" ng-model="sbDidShopFor.displayLabel"> 
 		        	</span>
-		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
+		        </td>
+		        <td>
 		        	<span class="col-sm-12 padding0">
 		        		<select class="form-control padding0" ng-model="sbDidShopFor.feeType" ng-change="updateSectionCfeeTypes(sbDidShopFor.feeType, $index)">
               			<option value="" selected>Select</option>
@@ -168,44 +157,7 @@
 		        	<span ng-show="sbDidShopFor.feeType=='Other'">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control padding0" name="" name="sbDidShopFor.feeTypeOtherDescription" name="sbDidShopFor."> 
-			        	</span>
-		        	</span>
-		        </td>
-		        <td>
-		        	<span class="col-sm-12 padding0 margin5tb">Type</span>
-		        	<span class="col-sm-12 padding0">
-		        		<select class="form-control padding0" ng-model="sbDidShopFor.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
-		        	</span>
-		        	<span ng-show="sbDidShopFor.feePaidToType=='Other'">
-			        	<span class="col-sm-12 margin5tb padding0">Description</span>
-			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control padding0" name="sbDidShopFor.feePaidToTypeOtherDescription">
-			        	</span>
-		        	</span>
-		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feePaidToFullName">
-		        </td>
- -->
-		        <td>
-		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control" ng-if="!originationChargeDisplayLabelStatus" ng-model="originationChargeDisplayLabelValue" >
-		        	</span>
-		        </td>
-		        <td>
-		        	<span class="col-sm-12 padding0">
-		        		<select class="form-control padding0" ng-model="sbDidShopFor.feePaidToType">
-		        		    <option value="" selected>Select</option>
-             			    <option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
-		        	</span>
-		        	<span ng-show="sbDidNotShopFor.feePaidToType=='Other'">
-			        	<span class="col-sm-12 margin5tb padding0">Description</span>
-			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control padding0" name="sbDidShopFor.feePaidToTypeOtherDescription">
+			        		<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feeTypeOtherDescription"> 
 			        	</span>
 		        	</span>
 		        </td>
