@@ -9,67 +9,19 @@
 		      <tr>
 		        <th class="innerSectionHeader col-sm-2">Fee Label</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
-		        <!-- <th class="innerSectionHeader col-sm-1">Borrower Paid AT Closing</th>
-		        <th class="innerSectionHeader  col-sm-1">Borrower Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader">Paid By OTHER</th>
-		        <th class="innerSectionHeader">Paid By Lender</th> -->
 		        <th class="innerSectionHeader col-sm-2">Include in APR?</th>
-		        <th class="innerSectionHeader col-sm-2">Delete / Clear</th>
+		        <th class="innerSectionHeader col-sm-2">Clear</th>
 		      </tr>
 		      <tr ng-repeat="tOGovtFee in leformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-if="tOGovtFee.feeType == 'RecordingFee'">		      	
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fees and Other Taxes</span>
 		        </td> 
-		        <!-- <td>
-		        	<span class="col-sm-3 padding0 margin5tb">Type</span>
-		        	<span class="col-sm-9">
-		        		<select class="form-control padding0" ng-model="tOGovtFee.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
-		        	</span>
-		        	<span ng-show="tOGovtFee.feePaidToType=='Other'">
-		        	<span class="col-sm-12 margin5tb padding0">Description</span>
-			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control" ng-model="tOGovtFee.feePaidToTypeOtherDescription"> 
-			        	</span>
-			        </span>
-		        </td> -->
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpAtClosing" decimal-digits-with-number-format>
 			        </div>
 		        </td>
-		        <!-- <td>
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpB4Closing" decimal-digits-with-number-format>
-			        </div>
-		        </td> -->
-		        <!-- <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spAtClosing" decimal-digits-with-number-format>
-		        	</div>
-		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spB4Closing" decimal-digits-with-number-format>
-		        	</div>
-		        </td>
-		        <td>
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.paidByOthers" decimal-digits-with-number-format>
-		        	</div>
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="tOGovtFee.lenderStatus">
-		        </td> -->
 		        <td>
 		        <select class="form-control padding0" ng-model="tOGovtFee.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
@@ -82,91 +34,23 @@
 		      <tr ng-repeat="tOGovtFee in leformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-show="tOGovtFee.feeType !='RecordingFeeForDeed' && tOGovtFee.feeType!='RecordingFeeForMortgage' && tOGovtFee.feeType!='RecordingFeeTotal' && tOGovtFee.feeType!='RecordingFee'">		         
 		        <td>
 		            <span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType =='TransferTaxTotal'">Transfer Taxes</span>
-		        	<!-- <span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType !='TransferTaxTotal'">Label Name</span>
-		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control" ng-model="tOGovtFee.displayLabel"> 
-		        	</span>
-		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
-		        	<span class="col-sm-12 padding0">
-		        		<select class="form-control padding0" ng-model="tOGovtFee.feeType" ng-disabled="tOGovtFee.feeType == 'RecordingFeeTotal'" ng-change="updateSectionEfeeTypes(tOGovtFee.feeType, $index)">
-	              		<option value="" selected>Select</option>
-	             	    <option ng-repeat="feeType in sectionEfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
-              		    </select>
-		        	</span>
-		        	<span ng-show="tOGovtFee.feeType == 'Other'">
-			        	<span class="col-sm-12 margin5tb padding0">Description</span>
-			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control" ng-model="tOGovtFee.feeTypeOtherDescription"> 
-			        	</span>
-		        	</span> -->
 		        </td>
-		        <!-- <td>
-		        	<span class="col-sm-3 padding0 margin5tb">Type</span>
-		        	<span class="col-sm-9">
-		        		<select class="form-control padding0" ng-model="tOGovtFee.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
-		        	</span>
-		        	<span ng-show="tOGovtFee.feePaidToType == 'Other'">
-			        	<span class="col-sm-12 margin5tb padding0">Description</span>
-			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control" ng-model="tOGovtFee.feePaidToTypeOtherDescription"> 
-			        	</span>
-		        	</span>
-		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
-		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.feePaidToFullName">
-		        	</span>
-		        </td> -->
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpAtClosing" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
-		        <!-- <td>
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.bpB4Closing" decimal-digits-with-number-format>
-		        	</div>
-		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spAtClosing" decimal-digits-with-number-format>
-			        </div>
-		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.spB4Closing" decimal-digits-with-number-format>
-		        	</div>	
-		        <td>
-		            <div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        	    <input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.paidByOthers" decimal-digits-with-number-format>
-		        	</div>    
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="tOGovtFee.lenderStatus">
-		        </td> -->
 		        <td>
 		        	<select class="form-control padding0" ng-model="tOGovtFee.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
 		        </td>
 		        <td>
-		            <span>
-		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Close" ng-click="deleteOGF($index)"></span>
 		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear"  ng-click="clearOGF($index)"></span>
-		      		</span>
 		      	</td>
 		      </tr>
 		</table>
-		<!-- <span class="AddSection" ng-click="addtOGovtFeesList()">
-			<a>+ Add Additional lines</a>
-		</span> -->
 	</span>
 
 	<span  class="col-sm-12 padding0">
@@ -180,71 +64,20 @@
 		        <th class="innerSectionHeader col-sm-2">Prepaid Type</th>
 		        <th class="innerSectionHeader  col-sm-2">No.of Months(Except for prepaid interest)</th>
 		        <th class="innerSectionHeader  col-sm-2">Amount</th>
-		        <!-- <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid AT Closing</th>
-		        <th class="innerSectionHeader" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">Seller Paid BEFORE Closing</th>
-		        <th class="innerSectionHeader">Paid By OTHER</th>
-		        <th class="innerSectionHeader">Paid By Lender</th> -->
 		        <th class="innerSectionHeader col-sm-2" >Include in APR?</th>
-		        <!-- <th class="innerSectionHeader">Included In Reg Z?</th> -->
 		        <th class="innerSectionHeader col-sm-1">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='HomeownersInsurancePremium'">
 		        <td>
-		            <!-- <span class="col-sm-12 LabelText">Label:</span> -->
-		        	<span class="LabelValue col-sm-12 padding0">
-		        	   Homeowners Insurance Premium</span>
-		        	<!-- <span class="col-sm-12 LabelValue">Homeowners Insurance</span><br>
-
-		        	<span class="col-sm-12 ValueText">Valid Value:</span>
-		        	<span class="col-sm-12 LabelValue">Homeowners Insurance Premium</span> -->
-		        	<!-- <span clacss="col-sm-12 ValueValue" ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span> -->
+		        	<span class="LabelValue col-sm-12 padding0">Homeowners Insurance Premium</span>
 		        </td>
 		        <td>
-                    <!-- <span class="LabelText col-sm-10">Type:</span>
-		        	<select class="form-control padding0" ng-model="prepaidsList.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
-		        	<span ng-show="prepaidsList.feePaidToType =='Other'">
-		        	<span class="col-sm-12 LabelText">Description:</span>
-	              	     	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription">
-			        </span>
-                    <span class="LabelText col-sm-10">Full Name:</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName"> -->
 		        </td>
-
 		        <td>
 		        	<div class="input-group">
 		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" only-digits maxlength="3">
 		        	</div>	
 		        </td>
-		        <!-- <td>
-		         	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
-		        	</div>	
-		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
-		        	</div>
-		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
-		        	</div>	
-		        </td>
-		        <td>
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        	    <input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
-		        	</div>
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="prepaidsList.lenderStatus">
-		        </td> -->
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
@@ -262,27 +95,10 @@
 		      </tr>
 		      <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='MortgageInsurancePremium'">
 		        <td>
-		            <!-- <span class="LabelText col-sm-12">Label:</span>
-		        	<span class="LabelValue col-sm-12 padding0">Mortgage Insurance</span><br>
-
-		        	<span class="ValueText col-sm-12 ">Valid Value:</span> -->
 		        	<span class="LabelValue col-sm-12 padding0">Mortgage Insurance Premium</span>
-		        	<!-- <span class="ValueValue col-sm-5 " ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span> -->
 		        </td>
 		        <td>
-                    <!-- <span class="LabelText col-sm-12">Type:</span>
-		        	<select class="form-control padding0" ng-model="prepaidsList.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
-		        	<span ng-show="prepaidsList.feePaidToType =='Other'">
-	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription">
-			        </span>
-                    <span class="LabelText col-sm-12">Full Name:</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName"> -->
 		        </td>
-
 		        <td>
 		        	<div class="input-group">
 		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" max="3" only-digits>
@@ -294,56 +110,20 @@
 		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
 		        	</div>	
 		        </td>
-		       <!-- <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
-		        	</div>
-		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
-		        	</div>	
-		        </td>
-		        <td>
-		            <div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        	    <input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
-		        	</div>    
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="prepaidsList.lenderStatus">
-		        </td> -->
+		      
 		        <td>
 		        	<select class="form-control padding0" ng-model="prepaidsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
 		        </td>
-		        <!-- <td>
-		        	<select class="form-control padding0" ng-model="prepaidsList.regulationZPointsAndFeesIndicator"
-		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select>
-		        </td> -->
+
 		        <td>
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
-		     <!--  <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList"> -->
 		     <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='PrepaidInterest'">
 		        <td>
-		        	<!-- <span class="LabelText col-sm-12">Label:</span> -->
 		        	<span class="LabelValue col-sm-12">Prepaid Interests</span>
-
-		        	<!-- <span class="LabelText col-sm-10">Type:</span>
-		        	<select class="form-control col-sm-12 padding0" ng-model="prepaidsList.prepaidItemType" ng-change="updateSectionFprepaidTypes(prepaidsList.prepaidItemType, $index)">
-              		<option value="" selected>Select</option>
-             			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem.value}}" ng-disabled="prepaidItem.disabled">{{prepaidItem.name}}</option>
-              		</select>
-                    <span ng-show="prepaidsList.feeType =='Other'">
-	              		<span class="LabelText col-sm-10">Description:</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feeTypeOtherDescription">
-			        </span> -->
 		        </td>
 		        <td></td>
 		        <td>
@@ -370,82 +150,28 @@
                     </div>
                     </div>
 		        </td>
-		        <!-- <td>
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
-		        	</div>	
-		        </td> -->
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
 		        	</div>	
 		        </td>
-		        <!-- <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        	    <input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
-		        	</div>    
-		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
-		        	</div>	
-		        </td>
 		        <td>
-		            <div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
-		        	</div>	
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="prepaidsList.lenderStatus">
-		        </td> -->
-		        <td>
-		        	<!-- <select class="form-control padding0" ng-model="prepaidsList.paymentIncludedInAPRIndicator"
-		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select> -->
+
 		        	<select class="form-control padding0" 
 		        	    ng-model="prepaidsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		            </select> 
-		        	<!-- <select class="form-control padding0" ng-model="prepaidsList.paymentIncludedInAPRIndicator"
-		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select>
- -->		        </td>
+		        </td>
 		        <td>
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
 		      <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='CountyPropertyTax'">
 		        <td>
-		        	<!-- <span class="LabelText col-sm-12">Label:</span> -->
 		        	<span class="LabelValue col-sm-12">Property Taxes</span>
-
-		        	<!-- <span class="LabelText col-sm-10">Type:</span>
-		        	<select class="form-control col-sm-12 padding0" ng-model="prepaidsList.prepaidItemType" ng-change="updateSectionFprepaidTypes(prepaidsList.prepaidItemType, $index)">
-              		<option value="" selected>Select</option>
-             			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem.value}}" ng-disabled="prepaidItem.disabled">{{prepaidItem.name}}</option>
-              		</select>
-                    <span ng-show="prepaidsList.feeType =='Other'">
-	              		<span class="LabelText col-sm-10">Description:</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feeTypeOtherDescription">
-			        </span> -->
 		        </td>
 		        <td>
-                    <!-- <span class="margin5tb col-sm-10">Type:</span> -->
-		        	<!-- <select class="form-control padding0" ng-model="prepaidsList.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
-                    <span ng-show="prepaidsList.feePaidToType =='Other'">
-	              		<span class="margin5tb col-sm-10">Description:</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" >
-			        </span>
-                    <span class="margin5tb col-sm-10">Full Name:</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName"> -->
 		        </td>
 		        <td>
 		        	<div class="input-group">
@@ -458,27 +184,6 @@
 		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
 		        	</div>	
 		        </td>
-		        <!-- <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        	    <input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
-		        	</div>    
-		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
-		        	</div>	
-		        </td>
-		        <td>
-		            <div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
-		        	</div>	
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="prepaidsList.lenderStatus">
-		        </td> -->
 		        <td>
 		        	<select class="form-control padding0" ng-model="prepaidsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
@@ -491,17 +196,6 @@
               <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType!='HomeownersInsurancePremium' && prepaidsList.prepaidItemType!='MortgageInsurancePremium' && prepaidsList.prepaidItemType!='PrepaidInterest' && prepaidsList.prepaidItemType!='CountyPropertyTax'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" >
-		        	<!-- <span class="LabelValue col-sm-10"><input type="text" class="form-control padding0" name="" ng-model="prepaidsList.displayLabel"></span>
-
-		        	<span class="ValueText col-sm-10">Type:</span>
-              		<select class="form-control col-sm-12 padding0" ng-model="prepaidsList.prepaidItemType" ng-change="updateSectionFprepaidTypes(prepaidsList.prepaidItemType, $index)">
-              		<option value="" selected>Select</option>
-             			<option ng-repeat="prepaidItem in prepaidItems track by $index" value="{{prepaidItem.value}}" ng-disabled="prepaidItem.disabled">{{prepaidItem.name}}</option>
-              		</select>
-                    <span ng-show="prepaidsList.prepaidItemType =='Other'">
-                    	<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
-	              		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemTypeOtherDescription" >
-			        </span> -->
 		        </td>
 		        <td>
 		            <select class="LabelValue form-control" ng-model="prepaidsList.prepaidItemType">
@@ -512,17 +206,6 @@
 	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" >
 			        </span>
-                    <!-- <span class="LabelText col-sm-10">Type:</span>
-		        	<select class="LabelValue form-control" ng-model="prepaidsList.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
-		        	<span ng-show="prepaidsList.feePaidToType =='Other'">
-	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" >
-			        </span>
-                    <span class="ValueText col-sm-10">Full Name:</span>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidPaidToFullName"> -->
 		        </td>
 		        <td>
 		        	<div class="input-group">
@@ -536,33 +219,6 @@
 		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosingAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
-		        <!-- <td>
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
-		        	</div>
-		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		            <div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
-		        	</div>	
-		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        	    <input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
-		        	</div>
-		        </td>
-		        <td>
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
-		        	</div>
-		        </td>
-		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="prepaidsList.lenderStatus">
-		        </td> -->
 		        <td>
 		        	<select class="form-control padding0" ng-model="prepaidsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
@@ -638,13 +294,6 @@
 		      <tr ng-repeat="escrowItemsList in leformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'MortgageInsurance'}">
 		        <td>
 		        	<span class="LabelValue col-sm-10">Mortgage Insurance</span>
-		        	
-		        	<!-- <span class="ValueText col-sm-10">Amount Per Month</span>
-		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format></span>
-		        	<span class="ValueText col-sm-10">No. of Months</span>
-		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3"></span> -->
 		        </td>
 		       <td>
 		            
@@ -679,34 +328,8 @@
 		      <tr ng-repeat="escrowItemsList in leformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType: 'CountyPropertyTax'}">
 		        <td>
 		        	<span class="LabelValue col-sm-10">Property Taxes</span>
-		        	<!-- <span class="ValueText col-sm-10">Valid Value:</span>
-		        	<span class="ValueValue col-sm-10">
-			        	<select class="form-control" ng-model="escrowItemsList.escrowItemType" ng-change="updateSectionGescrowTypes(escrowItemsList.escrowItemType,$index)">
-	              		    <option value="" selected>Select</option>
-	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType.value}}" ng-disabled="escrowItemType.disabled">{{escrowItemType.name}}</option>
-	              		</select>
-              		</span><br>
-              		<span  ng-show="escrowItemsList.escrowItemType=='Other'">
-	              		<span class="ValueText col-sm-10">Description:</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemTypeOtherDescription">
-		        	</span><br>
-		        	<span class="ValueText col-sm-10">Amount Per Month</span>
-		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format></span>
-		        	<span class="ValueText col-sm-10">No. of Months</span>
-		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3"></span> -->
 		        </td>
 		       <td>
-		            <!-- <span class="LabelText col-sm-10">Type</span>
-		        	<select class="form-control LabelValue" ng-model="escrowItemsList.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
-		        	<span ng-show="escrowItemsList.feePaidToType =='Other'">
-	              		<span class="LabelText col-sm-10">Description:</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.feePaidToTypeOtherDescription">
-			        </span> -->
 		        </td>
 		        <td>
 		        	<div class="input-group">
@@ -714,25 +337,12 @@
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
-		        
-		        <!-- <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		            <div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
-		        	</div>
-		        </td>
-		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
-		        	
-		        </td> -->
 		        <td>
 		        <div class="input-group">
 					
 		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3">
 		        </div>
 		        </td>
-		        <!-- <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="escrowItemsList.lenderStatus">
-		        </td> -->
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
@@ -755,23 +365,6 @@
 		        	<span class="LabelValue col-sm-10">
 		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.displayLabel">
 		        	</span>
-		        	<!-- <span class="ValueText col-sm-10">Valid Value:</span>
-		        	<span class="ValueValue col-sm-10">
-			        	<select class="form-control" ng-model="escrowItemsList.escrowItemType" ng-change="updateSectionGescrowTypes(escrowItemsList.escrowItemType,$index)">
-	              		    <option value="" selected>Select</option>
-	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType.value}}" ng-disabled="escrowItemType.disabled">{{escrowItemType.name}}</option>
-	              		</select>
-              		</span><br>
-              		<span  ng-show="escrowItemsList.escrowItemType=='Other'">
-	              		<span class="ValueText col-sm-10">Description:</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemTypeOtherDescription">
-		        	</span><br>
-		        	<span class="ValueText col-sm-10">Amount Per Month</span>
-		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format></span>
-		        	<span class="ValueText col-sm-10">No. of Months</span>
-		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3"></span> -->
 		        </td>
 		         <td>
 		            <!-- <span class="LabelText col-sm-10">Type</span> -->
@@ -779,10 +372,6 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="escrowItemType in escrowItemTypes" value="{{escrowItemType.value}}">{{escrowItemType.name}}</option>
 		        	</select>
-		        	<!-- <span ng-show="escrowItemsList.feePaidToType =='Other'">
-	              		<span class="LabelText col-sm-10">Description:</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.feePaidToTypeOtherDescription" >
-			        </span> -->
 		        </td>
 		        <td>
 		        	<div class="input-group">
@@ -814,35 +403,6 @@
 		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearEscrowsList($index)"></span>
 		        </td>
 		      </tr>
-		      <!-- <tr>
-		        <td>
-		            <input type="text" class="form-control padding0" name="">
-		        </td>
-		        <td>
-		        	<div class="input-group">
-						<select class="form-control padding0" ng-model="escrowItemsList.feePaidToType">
-		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	</select>
-		        	</div>
-		        </td>
-		        <td>
-		        	<div class="input-group">
-		        		<input type="text" class="form-control padding0" name="">
-		        	</div>
-		        </td>
-		        <td>
-		        	<div class="input-group">
-						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="">
-		        	</div>
-		        </td>
-		        <td>
-		        	<select class="form-control padding0" ng-model="escrowItemsList.paymentIncludedInAPRIndicator"
-		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select>
-		        </td>
-		      </tr> -->
 		</table>
 		<span class="AddSection" ng-click="addescrowItemsList()">
 			<a>+ Add Additional Escrow Items</a>
@@ -914,14 +474,6 @@
 				
 				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount | number:2 }}</th>
 			  </tr>
-		      <!-- <tr>
-		        <td>
-		        	Other Costs Subtotal (E + F + G + H)
-		        </td>
-		        <td class="text-center">
-		        	${{leformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing | number:2}}
-		        </td>
-		      </tr> -->
 		</table>
 	</span>
 	<div class="col-sm-12 margin10t">
