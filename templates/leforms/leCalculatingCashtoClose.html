@@ -22,7 +22,7 @@
 				    </div>
 				        </td> -->
 		        <td>
-		        	${{leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount | number:2}}
+		        	$ {{leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount}}
 		        </td>
 		        <!-- <td>
 		        	${{true == leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemAmountChangedIndicator ? 'Yes' : 'No' }}
@@ -261,7 +261,7 @@
 				        	<strong class="marginleft18">Borrower</strong>
 				        </td>
 				        <td>
-				        	${{leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}
+				        	$ <span ng-show="leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount >= 1">{{leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}</span>
 				        </td>
 		        </tr>
 		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
@@ -269,7 +269,7 @@
 		        	<strong>Cash To Close</strong>
 		        </td>
 		        <td>
-		        	${{leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}
+		        	$ <span ng-show="leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount >= 1"> {{leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}} </span>
 		        </td>
 		        <!-- <td>
 		        	${{leformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount | number:2}}
