@@ -1084,11 +1084,11 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     $scope.addtOGovtFeesList = function(){
     	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList.push(angular.copy(tOGovtFees));
     }
-
+    $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
     $scope.addprepaidsList = function(){
     	$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
     }
-   
+   $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
     $scope.addescrowItemsList = function(){
     	$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
     }
