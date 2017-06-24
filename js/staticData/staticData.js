@@ -5213,7 +5213,7 @@ this.cdformdata={
 	                "prepaidItemType": "",
 	                "prepaidItemTypeOtherDescription": "",
 	                "regulationZPointsAndFeesIndicator": true,
-	                "paymentIncludedInAPRIndicator": false,
+	                "paymentIncludedInAPRIndicator": true,
 	                "prepaidPaidToFullName": "",
 	                "perDiemAmount":"",
 	                "numberOfDays":"",
@@ -5239,7 +5239,7 @@ this.cdformdata={
 			        "feePaidToTypeOtherDescription": "",
 			        "integratedDisclosureSectionType": "InitialEscrowPaymentAtClosing",
 			        "regulationZPointsAndFeesIndicator": true,
-			        "paymentIncludedInAPRIndicator": false
+			        "paymentIncludedInAPRIndicator": true
 	            }
 	        ],
 	        "otherCostsList":
