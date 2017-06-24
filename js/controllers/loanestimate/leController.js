@@ -1068,7 +1068,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		$scope.leformdata.etiaSection.etiaValues.push(angular.copy(ETIAComponentType));
 		$scope.leformdata.etiaSection.total = $scope.leformdata.etiaSection.etiaValues.length;
     }
-
+    $scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
     $scope.addOrganizationCharges = function(){
     	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
     }
@@ -1190,6 +1190,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 			}
 		}
 	}
+	///
 	$scope.updateSectionAfeeTypes = function(value, index) {
 		var previousAfeeVal = $scope.leformdata.closingCostDetailsLoanCosts.originationCharges.AfeeTypes[index];
        	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.AfeeTypes[index] = value;
@@ -2067,6 +2068,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
          $scope.leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCosts.paidByOthers);
     }, true);
 
+	
     $scope.$watch('leformdata.closingCostDetailsOtherCosts.escrowItemsList', function(newValue, oldValue) {
 		 bpAtClosing.iEPatClosingTotalbpAtClosing = 0;
 		 bpB4Closing.iEPatClosingTotalbpB4Closing = 0;
