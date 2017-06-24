@@ -312,9 +312,13 @@
 
       <div class="modal-body">
            <div class="margin5tb padding0 col-sm-6" >
-              <div class=" col-sm-12">
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
                 <div class="col-sm-6 fieldTitle">Total Closing Costs (J)</div>
                 <div class="col-sm-6 fieldValue">${{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'alternate'">
+                <div class="col-sm-6 fieldTitle">Total Closing Costs (J)</div>
+                <div class="col-sm-6 fieldValue">-${{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</div>
               </div>
               <div class=" col-sm-12">
                 <div class="col-sm-6 fieldTitle">Closing Costs Paid Before Closing</div>
@@ -410,6 +414,10 @@
       			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Total Closing Costs(J)</td>
       				<td>${{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      			</tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
+      				<td>Closing Costs Paid Before Closing</td>
+      				<td>-${{leformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
       			</tr>
       			<tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
       				<td>Closing Costs Paid Before Closing</td>

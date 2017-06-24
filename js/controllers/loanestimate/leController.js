@@ -1444,7 +1444,11 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 	    	$scope.results = false;
 	    }
 	}
-
+       $scope.leformdata.salesContractDetail.saleContractAmount = '';
+    	$scope.leformdata.salePrice = '';
+	    $scope.leformdata.depositAmount = '';
+	    $scope.leformdata.sellerCreditsAmount = '';
+	    $scope.leformdata.adjustmentsAmount = '';
 	$scope.clearCalculations = function(){
     	$scope.leformdata.salesContractDetail.saleContractAmount = '';
     	$scope.leformdata.salePrice = '';
