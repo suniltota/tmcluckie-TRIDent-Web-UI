@@ -198,9 +198,9 @@
 		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" >
 		        </td>
 		        <td>
-		            <select class="LabelValue form-control" ng-model="prepaidsList.prepaidItemType">
+		            <select class="LabelValue form-control" ng-model="prepaidsList.prepaidItemType" ng-change="updateSectionFprepaidTypes(prepaidsList.prepaidItemType, $index)">
 		        		<option value="" selected>Select</option>
-             			<option ng-repeat="feePaidToType in prepaidItems" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
+             			<option ng-repeat="prepaidType in prepaidItems" ng-disabled="prepaidType.disabled" value="{{prepaidType.value}}">{{prepaidType.name}}</option>
 		        	</select>
 		        	<span ng-show="prepaidsList.prepaidItemType =='Other'">
 	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
@@ -368,9 +368,9 @@
 		        </td>
 		         <td>
 		            <!-- <span class="LabelText col-sm-10">Type</span> -->
-		        	<select class="form-control padding0" ng-model="escrowItemsList.escrowItemType">
+		        	<select class="form-control padding0" ng-model="escrowItemsList.escrowItemType" ng-change="updateSectionGescrowTypes(escrowItemsList.escrowItemType,$index)">
 		        		<option value="" selected>Select</option>
-             			<option ng-repeat="escrowItemType in escrowItemTypes" value="{{escrowItemType.value}}">{{escrowItemType.name}}</option>
+             			<option ng-repeat="escrowItemType in escrowItemTypes" ng-disabled="escrowItemType.disabled" value="{{escrowItemType.value}}">{{escrowItemType.name}}</option>
 		        	</select>
 		        </td>
 		        <td>
@@ -433,9 +433,9 @@
 		        </td>
 		        <td>
 		        	<span class="LabelValue col-sm-10" style="width:132px;">
-			        	<select class="form-control padding0" ng-model="otherCostsList.feeType">
+			        	<select class="form-control padding0" ng-model="otherCostsList.feeType" ng-change="updateSectionHfeeTypes(otherCostsList.feeType, $index)">
 			        		<option value="" selected>Select</option>
-	             			<option ng-repeat="feeType in sectionHfeeTypes" value="{{feeType.value}}">{{feeType.name}}</option>
+	             			<option ng-repeat="feeType in sectionHfeeTypes" ng-disabled="feeType.disabled" value="{{feeType.value}}">{{feeType.name}}</option>
 			        	</select>
 		        	</span>
 		        	<span ng-show="otherCostsList.feeType=='Other'">
