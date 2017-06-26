@@ -536,3 +536,79 @@ app.filter('num', function() {
         return input;
     };
 });
+app.directive('number', function() {
+  var NUMBER_REGEXP = /^(\d+)$/;
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+      ctrl.$validators.number = function(modelValue, viewValue) {
+        return NUMBER_REGEXP.test(viewValue);
+      };
+    }
+  };
+});
+app.directive('alpha', function() {
+  return {
+    require: 'ngModel',
+    restrict: 'A',
+    link: function(scope, elem, attr, ngModel) {
+
+      var validator = function(value) {
+        if (/^[a-zA-Z]*$/.test(value)) {
+          ngModel.$setValidity('alpha', true);
+          return value;
+        } else {
+          ngModel.$setValidity('alpha', false);
+          return undefined;
+        }
+      };
+      ngModel.$parsers.unshift(validator);
+      ngModel.$formatters.unshift(validator);
+    }
+  };
+});
+app.directive('actualizeInput', function($compile, $sce) {
+  return {
+    require: 'ngModel',
+    restrict: 'EA',
+    link: function($scope, elem, attr, ngModel) {
+      var allowedInput = false;
+      var toolTipPos =  "top";
+      if(attr.tooltippos)
+        toolTipPos =  attr.tooltippos;
+      var message = "";
+      if(attr.alpha!=undefined){
+        message +=' alapha, ';
+        allowedInput=true;
+      }
+      if(attr.numeric!=undefined){
+        message +=' numeric, ';
+        allowedInput=true;
+      }
+      if(attr.specialcharacters!=undefined){
+        message +=' special characters ';
+        allowedInput=true;
+      }
+      if(allowedInput)
+        message = "Please enter" + message + "<br>";
+      
+      if(attr.min!=undefined)
+        message += 'Minimum '+attr.min+' length <br>'
+      if(attr.max!=undefined)
+        message += 'Maximum '+attr.max+' length <br>'
+      if(attr.pincode!=undefined)
+        message += 'Pincode minimum 5  and maximum 9 characters'
+      
+      $scope.htmlTooltip = $sce.trustAsHtml(message);
+      var template='<div class="form-group">';
+      template += '<input type="text" ng-model="'+attr.ngModel+'" name="'+attr.name+'" class="form-control" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="click" uib-tooltip-html="htmlTooltip"';
+
+      if(attr.dependencies)
+      template +=attr.dependencies;
+      template +='>';
+      template += '</div>';
+      elem.html(template);
+      $compile(elem.contents())($scope);
+    }
+  };
+});
