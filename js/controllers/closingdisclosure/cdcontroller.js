@@ -3104,11 +3104,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
                         }
                     }
 	            }
-
-            $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription =
-	            angular.forEach(escrowArray, function(value) { 
-	            	return value;
-	            }).join(",").replace(/([A-Z]+)/g, " $1");
+            if(escrowArray.length>0){
+	            $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription =
+		            angular.forEach(escrowArray, function(value) { 
+		            	return value;
+		            }).join(",").replace(/([A-Z]+)/g, " $1");
+            }
 
             }
 
@@ -3116,20 +3117,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
                 
                 if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1){
                 	$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='Escrowed';
-                	$scope.cdformdata.etiaSection.HomeownersInsuranceCheck = true;
                 	$scope.cdformdata.etiaSection.etiaValues[0].insuranceTaxCheck = true; 
+                	$scope.cdformdata.etiaSection.propertyTaxesCheck = true;
                 }else{
                 	$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='NotEscrowed';
                 	$scope.cdformdata.etiaSection.etiaValues[0].insuranceTaxCheck = false; 
+                	$scope.cdformdata.etiaSection.propertyTaxesCheck = false;
                 }
 
                  if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1){
                 	$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='Escrowed';
-                	$scope.cdformdata.etiaSection.propertyTaxesCheck = true;
                 	$scope.cdformdata.etiaSection.etiaValues[1].insuranceTaxCheck = true; 
+                	$scope.cdformdata.etiaSection.HomeownersInsuranceCheck = true;
                 }else{
                 	$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='NotEscrowed';
                 	$scope.cdformdata.etiaSection.etiaValues[1].insuranceTaxCheck = false; 
+                	$scope.cdformdata.etiaSection.HomeownersInsuranceCheck = false;
                 }
             }
             /*for(i=0;i<escrowArray.length;i++){
@@ -4250,10 +4253,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		        }
 		    }
 		    //Adding Values to Non Escrow Account
-	        $scope.cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentDescription =
-	        angular.forEach(nonEscrowArray, function(value) { 
-	        	return value;
-	        }).join(",").replace(/([A-Z]+)/g, " $1");
+		    if(nonEscrowArray.length>0){
+		        $scope.cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentDescription =
+		        angular.forEach(nonEscrowArray, function(value) { 
+		        	return value;
+		        }).join(",").replace(/([A-Z]+)/g, " $1");
+		    }
         }
     },true);
 

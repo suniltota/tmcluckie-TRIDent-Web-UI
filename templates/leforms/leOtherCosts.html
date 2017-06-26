@@ -334,7 +334,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('2')">
 		        	</div>
 		        </td>
 		        <td>
@@ -346,7 +346,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('2')">
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        <td>
