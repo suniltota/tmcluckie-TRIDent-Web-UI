@@ -2018,7 +2018,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		 paidByOthers.tOGovtFeesTotalpaidByOthers = 0;
 
          for(i=0; i<$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++) {
-         	bpAtClosing.tOGovtFeesTotalbpAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing) : +0;
+         	bpAtClosing.tOGovtFeesTotalbpAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeEstimatedTotalAmount ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeEstimatedTotalAmount) : +0;
          	bpB4Closing.tOGovtFeesTotalbpB4Closing += $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing) : +0;
          	spAtClosing.tOGovtFeesTotalspAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing) : +0;
           	spB4Closing.tOGovtFeesTotalspB4Closing += $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing) : +0;
@@ -2049,7 +2049,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		 paidByOthers.prepaidsTotalpaidByOthers = 0;
 
          for(i=0; i<$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.length; i++) {
-         	bpAtClosing.prepaidsTotalbpAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing) : +0;
+         	bpAtClosing.prepaidsTotalbpAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemEstimatedTotalAmount ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemEstimatedTotalAmount) : +0;
          	bpB4Closing.prepaidsTotalbpB4Closing += $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing) : +0;
          	spAtClosing.prepaidsTotalspAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing) : +0;
           	spB4Closing.prepaidsTotalspB4Closing += $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing) : +0;
@@ -2085,8 +2085,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 			var months = 0;
 			amount = $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount ? $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount : +0;
 			months = $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowCollectedNumberOfMonthsCount ? $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowCollectedNumberOfMonthsCount : +0;
-			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing = parseFloat(amount*months);
-         	bpAtClosing.iEPatClosingTotalbpAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing) : +0;
+			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemEstimatedTotalAmount = parseFloat(amount*months);
+         	bpAtClosing.iEPatClosingTotalbpAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemEstimatedTotalAmount ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemEstimatedTotalAmount) : +0;
          	bpB4Closing.iEPatClosingTotalbpB4Closing += $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing) : +0;
          	spAtClosing.iEPatClosingTotalspAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing) : +0;
           	spB4Closing.iEPatClosingTotalspB4Closing += $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing) : +0;
@@ -2119,7 +2119,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		 paidByOthers.otherTotalpaidByOthers = 0;
 
          for(i=0; i<$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.length; i++) {
-         	bpAtClosing.otherTotalbpAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing) : +0;
+         	bpAtClosing.otherTotalbpAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeEstimatedTotalAmount ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeEstimatedTotalAmount) : +0;
          	bpB4Closing.otherTotalbpB4Closing += $scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing) : +0;
          	spAtClosing.otherTotalspAtClosing += $scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing) : +0;
           	spB4Closing.otherTotalspB4Closing += $scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing ? parseFloat($scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing) : +0;
