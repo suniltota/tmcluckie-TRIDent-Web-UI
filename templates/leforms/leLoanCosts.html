@@ -29,7 +29,7 @@
 		        </td> 
 		        <td>
 		        	<span class="col-sm-12 padding0">
-		        		<select class="form-control padding0" ng-model="originationCharge.feeType" ng-change="updateSectionAfeeTypes(originationCharge.feeType, $index)">
+		        		<select class="form-control padding0" ng-model="originationCharge.feeType" ng-change="updateSectionAfeeTypes(originationCharge.feeType, $index)" ng-disabled="originationCharge.feeType == 'LoanDiscountPoints'">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="feeType in sectionAfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
               		    </select> 
@@ -53,8 +53,8 @@
 		        	</select>
 		        </td>
 		        <td>
-		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-show="$index > 2" ng-disabled="$index == 0" ng-click="deleteOC($index)"></span>
-		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear"  ng-click="clearOC($index)"></span>
+		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-show="$index > 2" ng-disabled="$index == 0" ng-click="deleteOC(originationCharge.feeType,$index)"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear"  ng-click="clearOC(originationCharge.feeType,$index)"></span>
 		      	</td>
 		      </tr>
 		</table>
@@ -112,8 +112,8 @@
 		        	</select>
 		        </td>
 		        <td>
-		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-click="deleteSDidNot($index)"></span>
-		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearSDidNot($index)"></span>
+		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-click="deleteSDidNot(sbDidNotShopFor.feeType,$index)"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearSDidNot(sbDidNotShopFor.feeType,$index)"></span>
 		      	</td>
 		      </tr>
 		</table>
@@ -174,8 +174,8 @@
 		        	</select>
 		        </td>
 		        <td>
-		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-click="deleteSDid($index)"></span>
-		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearSDid($index)"></span>
+		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-click="deleteSDid(sbDidShopFor.feeType,$index)"></span>
+		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearSDid(sbDidShopFor.feeType,$index)"></span>
 		      	</td>
 		      </tr>
 		</table>

@@ -1531,22 +1531,37 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     	$scope.leformdata.closingInformation.propertyValuationDetail.propertyValuationMethodTypeOtherDescription = $scope.leformdata.closingInformation.propertyValuationDetail.propertyValuationMethodType!='Other' ? '' : $scope.leformdata.closingInformation.propertyValuationDetail.propertyValuationMethodTypeOtherDescription;
     }
 
-    $scope.deleteOC = function(index){
+    $scope.deleteOC = function(feeType,index){
+    	for(j=0; j<$scope.sectionAfeeTypes.length; j++){
+	        if($scope.sectionAfeeTypes[j].value == feeType) {
+	            $scope.sectionAfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.splice(index,1);
     }
 
-    $scope.deleteSDidNot = function(index){
+    $scope.deleteSDidNot = function(feeType,index){
+    	for(j=0; j<$scope.sectionBfeeTypes.length; j++){
+	        if($scope.sectionBfeeTypes[j].value == feeType) {
+	            $scope.sectionBfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.splice(index,1);
     }
 
-    $scope.deleteSDid = function(index){
+    $scope.deleteSDid = function(feeType,index){
+    	for(j=0; j<$scope.sectionCfeeTypes.length; j++){
+	        if($scope.sectionCfeeTypes[j].value == feeType) {
+	            $scope.sectionCfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.splice(index,1);
     }
     $scope.termsOfLoanMortgagaTypeClear =function(mortagageLoanTypeValue){
     	$scope.leformdata.termsOfLoan.mortgageTypeOtherDescription='';
     }
 
-    $scope.clearOC = function(index){
+    $scope.clearOC = function(feeType,index){
     	if(index==0){
     	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTotalPercent ='';
     	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges[index].feePaidToType ='';
@@ -1563,6 +1578,11 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges[index].regulationZPointsAndFeesIndicator = null;
     	}
     	else{
+    		for(j=0; j<$scope.sectionAfeeTypes.length; j++){
+	        if($scope.sectionAfeeTypes[j].value == feeType) {
+	            $scope.sectionAfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges[index].feeTotalPercent ='';
     	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges[index].displayLabel ='';
     	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges[index].feeType ='';
@@ -1582,7 +1602,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
         }
     }
 	
-	$scope.clearSDidNot = function(index){
+	$scope.clearSDidNot = function(feeType,index){
+		for(j=0; j<$scope.sectionBfeeTypes.length; j++){
+	        if($scope.sectionBfeeTypes[j].value == feeType) {
+	            $scope.sectionBfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feeTotalPercent ='';
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].displayLabel ='';
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].feeType ='';
@@ -1601,7 +1626,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[index].regulationZPointsAndFeesIndicator = null;
     }
 
-    $scope.clearSDid = function(index){
+    $scope.clearSDid = function(feeType,index){
+    	for(j=0; j<$scope.sectionCfeeTypes.length; j++){
+	        if($scope.sectionCfeeTypes[j].value == feeType) {
+	            $scope.sectionCfeeTypes[j].disabled = false;
+	        } 
+        }
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeTotalPercent ='';
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].displayLabel ='';
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors[index].feeType ='';
