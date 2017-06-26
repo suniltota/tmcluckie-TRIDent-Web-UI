@@ -21,6 +21,9 @@
                      <!--  <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'ContactInfo'}" ng-click="showTab = 'ContactInfo'" >Contact Information</span>
                       </li> -->
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'Comparison'}" ng-click="showTab = 'Comparison'" >Comparison</span>
+                      </li> 
                     </ul>
               </li>
               <li>Loan Details
@@ -242,6 +245,7 @@
           <span>
           <div class="CDHeaderSection col-lg-12">
             <div ng-show="showTab == 'closingInfo'" ng-include='"templates/leforms/leClosingInformation.html"'></div>
+            <div ng-show="showTab == 'Comparison'" ng-include='"templates/leforms/leComparison.html"'></div>
             <div ng-show="showTab == 'transInfo'" ng-include='"templates/leforms/leTransactionInformation.html"'></div>
             <div ng-show="showTab == 'loanInfo'" ng-include='"templates/leforms/leLoanInformation.html"'></div>
             <div ng-show="showTab == 'loanterms'" ng-include='"templates/leforms/leLoanTermsTable.html"'></div>

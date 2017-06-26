@@ -1,0 +1,66 @@
+ <div class="col-sm-12">
+	<h4>Comparison </h4>
+	<span class="col-sm-12 LoanTermsTable">
+		<table class="table">
+		    <thead>
+		      <tr>
+		        <th class="col-sm-4 innerSectionHeader" colspan="2"> Comparison</th>
+		        <th  class="col-sm-4 innerSectionHeader" colspan="1">
+		        	<button class="pull-right btn btn-warning"  ng-click="resultsComparisonCalculate()">Calculate</button>
+		        </th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+		        <td><label>In 5 Years </label></td>
+		        <td>
+		        	<div class="input-group">
+  							<input class="form-control" ng-model="leformdata.comparison.totalInterestsForFiveYears" percentage-format>
+  							<span class="input-group-addon input-default">%</span>
+		        	</div>
+		        	<div class="input-group margin10t">
+  							<input class="form-control" ng-model="leformdata.comparison.principalInterestsForFiveYears" percentage-format>
+  							<span class="input-group-addon input-default">%</span>
+		        	</div>
+		        </td>
+		        <td class="col-sm-1">
+			        <div>Total you will have paid in principal, interest, mortgage insurance an loan costs
+					</div>
+					<div class="margin10t">Principal you will have paid off
+					</div>
+		        </td>
+		      </tr>
+		       <tr>
+		        <td><label>Annual Percentage Rate (APR) </label></td>
+		        <td>
+		        	<div class="input-group">
+  							<input class="form-control" ng-model="leformdata.comparison.annualPercentageRate" percentage-format>
+  							<span class="input-group-addon input-default">%</span>
+		        	</div>
+		        </td>
+		        <td class="col-sm-1">
+			        <div>Your costs over the loan term expressed as a rate.  This is not your interest rate
+					</div>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td><label>Total Interest Percentage (TIP) </label></td>
+		        <td>
+		        	<div class="input-group">
+  							<input class="form-control" ng-model="leformdata.comparison.totalInterestPercentage" percentage-format>
+  							<span class="input-group-addon input-default">%</span>
+		        	</div>
+		        </td>
+		        <td class="col-sm-1">
+			        <div>The total amount of interest you will pay over the loan terms as a percentage of your loan amount.
+					</div>
+		        </td>
+		      </tr>
+		    </tbody>
+		</table>
+	</span>
+    <div class="col-sm-12 margin10t">
+			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('')">Back</a></span>
+			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('')">Next</a></span>
+	</div>
+</div>

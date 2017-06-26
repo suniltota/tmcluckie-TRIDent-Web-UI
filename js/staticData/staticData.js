@@ -5859,6 +5859,12 @@ this.cdformdata={
             },
             "individualEmail": "",
             "individualPhone": ""
+        },
+        "comparison":{
+        	"totalInterestsForFiveYears":"",
+        	"principalInterestsForFiveYears":"",
+        	"annualPercentageRate":"",
+        	"totalInterestPercentage":""
         }
     }
 	};
