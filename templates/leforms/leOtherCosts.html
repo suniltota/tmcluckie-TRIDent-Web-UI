@@ -131,21 +131,21 @@
                     <div class="col-sm-5 padding0">Per Diem Amount</div>
                     <div class="col-sm-1 padding0 input-group">
                     <span class="input-group-addon input-default">$</span>
-                    <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidItemPerDiemAmount">
+                    <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidItemPerDiemAmount" ng-blur="perDiemCalc()" ng-keyup="perDiemCalc()">
                     </div>
                     </div>
                     <div class="row col-sm-12 paddingtop5">
                     <div class="col-sm-8 padding0 paddingtop5">Number of Days</div>
                     <div class="col-sm-4 padding0">
 
-                    <input type="text" class="form-control width50" name="" ng-model="prepaidsList.numberOfDays" only-digits maxlength="3"">
+                    <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidItemNumberOfDaysCount" only-digits maxlength="3" ng-blur="perDiemCalc()" ng-keyup="perDiemCalc()">
                     </div>
                     </div>
                     <div class="col-sm-12 padding0 margin5t">
                     <div class="col-sm-5 padding0">Interest rate</div>
                     <div class="col-sm-1 padding0 input-group">
                     
-                    <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidInterestRate">
+                    <input type="text" class="form-control width50" name="" ng-model="leformdata.termsOfLoan.noteRatePercent" ng-disabled="true">
                     <span class="input-group-addon input-default">%</span>
                     </div>
                     </div>

@@ -1897,13 +1897,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     $scope.perDiemCalc = function(){
     	for(i=0; i<$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.length; i++) {
 	    	if($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'PrepaidInterest'){
-				var fromDate = new Date($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidFromDate);
-				var toDate = new Date($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidThroughDate);
-				var diemAmount = 0;
-				var timeDiff = Math.abs(toDate.getTime() - fromDate.getTime());
-				var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+			    var diemAmount = 0;
+				var diffDays = $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemNumberOfDaysCount;
 				diemAmount =  $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount ? $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount : +0;
-				$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = parseFloat(diemAmount*diffDays);
+				$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemEstimatedTotalAmount = Math.round(parseFloat(diemAmount*diffDays));
 		    }
 	    }
     }
