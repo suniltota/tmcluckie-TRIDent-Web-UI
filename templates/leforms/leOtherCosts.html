@@ -301,12 +301,12 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('1')">
 		        	</div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
-						<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3">
+						<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" ng-blur="amountPerMonth('1')">
 		        	</div>
 		        </td>
 		        <td>
@@ -340,13 +340,13 @@
 		        <td>
 		        <div class="input-group">
 					
-		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3">
+		        	<input type="text" class="form-control padding0" name="" only-digits ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" ng-blur="amountPerMonth('2')">
 		        </div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('2')">
 		        	</div>
 		        </td>
 		        <td>
@@ -376,12 +376,12 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth($index)">
 		        	</div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
-		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" only-digits>
+		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" only-digits ng-blur="amountPerMonth($index)">
 		        	</div>
 		        </td>
 		        
