@@ -6,21 +6,21 @@
 		        <th colspan="2" class="innerSectionHeader col-sm-6">Loan Calculations</th>
 				<th colspan="2" class="innerSectionHeader col-sm-6">Qualified Mortgage</th>
 		      </tr>
-		      <tr>
+		      <tr> 
 		        <td>
 		        	<span class="margin5tb col-sm-10">Total of Payments <span class="required">*</span></span>
 		        </td>
 				<td>
 					<div class="input-group">
 						<span class="input-group-addon input-default">$</span>
-		        		<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalOfAllPaymentsAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0 col-sm-4" ng-model="leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalOfAllPaymentsAmount" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg.Z Excluded Bonna Fide Discount Points Indicator <span class="required">*</span></span>
 		        </td>
 		        <td>
-		        	<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" >
+		        	<select class="form-control padding0" ng-model="leformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" >
               		</select>
 		        </td>
 		      </tr>
@@ -32,7 +32,7 @@
 				<td>
 				<div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalFinanceChargeAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalFinanceChargeAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 				<td valign="middle">
@@ -40,7 +40,7 @@
 		        </td>
 		        <td>
 		        <div class="input-group">
-						<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent" percentage-format>
+						<input type="text" class="form-control padding0 col-sm-4" ng-model="leformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent" percentage-format>
 						<span class="input-group-addon input-default">%</span>
 		        </div>
 		        </td>
@@ -53,7 +53,7 @@
 				<td>
 				<div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalAmountFinancedAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalAmountFinancedAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 				<td valign="middle">
@@ -62,7 +62,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="leformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -73,7 +73,7 @@
 		        </td>
 				<td>
 				<div class="input-group">
-					<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent" percentage-format>
+					<input type="text" class="form-control padding0 col-sm-4" ng-model="leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent" percentage-format>
 					<span class="input-group-addon input-default">%</span>
 		        </div>
 		        </td>
@@ -83,7 +83,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalLoanAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="leformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalLoanAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		      </tr>
@@ -94,7 +94,7 @@
 		        </td>
 				<td>
 				<div class="input-group">
-					   	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent" percentage-format>
+					   	<input type="text" class="form-control padding0 col-sm-4" ng-model="leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent" percentage-format>
 					   	<span class="input-group-addon input-default">%</span>
 		        </td>
 				<td valign="middle">
@@ -103,7 +103,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalPointsAndFeesAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="leformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalPointsAndFeesAmount" decimal-digits-with-number-format>
 		        </div>	
 		        </td>
 		      </tr>
@@ -114,22 +114,22 @@
 		      		</td>
 					<td rowspan="2" style="vertical-align: middle;" >
 		      			<span class="text-center">Will Protect Borrower</span>
-			        	<span class="text-center pull-right"><input type="checkbox" name="" ng-checked="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator == true"></span>
+			        	<span class="text-center pull-right"><input type="checkbox" name="" ng-checked="leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator == true"></span>
 						<br>
 						<span class="text-center">Will Not Protect Borrower</span>
-			        	<span class="text-center pull-right"><input type="checkbox" name="" ng-checked="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator != true"></span>
+			        	<span class="text-center pull-right"><input type="checkbox" name="" ng-checked="leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator != true"></span>
 		      		</td>
 					<td rowspan="2" style="vertical-align: middle;">
 		      			<span class="text-left margin5lr">Ability to Repay Method Type <span class="required">*</span></span>							
 						<br><br>
-						<span class="text-left margin5lr" ng-show="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType!='General'">Ability to Repay Exemption Reason Type</span>			        							
+						<span class="text-left margin5lr" ng-show="leformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType!='General'">Ability to Repay Exemption Reason Type</span>			        							
 		      		</td>
 		      		<td rowspan="2">
-		      			<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType">
+		      			<select class="form-control padding0" ng-model="leformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType">
 							 <option value="" selected>Select</option>
 		                     <option ng-repeat="rMType in repayMethodType" value="{{rMType.value}}">{{rMType.name}}</option>
 						</select>&nbsp;
-						<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayExemptionReasonType" ng-show="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType!='General'">
+						<select class="form-control padding0" ng-model="leformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayExemptionReasonType" ng-show="leformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType!='General'">
 							 <option value="" selected>Select</option>
 		                     <option ng-repeat="rERType in repayExemptionReasonType" value="{{rERType.value}}">{{rERType.name}}</option>
 						</select>
@@ -137,9 +137,13 @@
 		      </tr>
 		</table>
 		<div class="col-sm-12 margin10t">
-			<span class="pull-left">
+			<!-- <span class="pull-left">
 				<a class="btn btn-default" ng-show="loanBasicInfo.loanFormType=='alternate'" ng-click="changeTab('AirTable')">Back</a>
-				<a class="btn btn-default" ng-show="loanBasicInfo.loanFormType!='alternate'" ng-click="changeTab('EscrowAccount')">Back</a>
+				<a class="btn btn-default" ng-show="loanBasicInfo.loanFormType!='alternate'" ng-click="changeTab('LoanCals')">Back</a>
+			</span> -->
+			<a class="btn btn-primary" ng-show="leformdata.loanDetail.interestOnlyIndicator==true || leformdata.payment.paymentRule.paymentOptionIndicator==true || leformdata.loanInformation.amortizationType=='Step' || leformdata.loanInformation.amortizationType=='GPM' || leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanDetail.seasonalPaymentFeatureIndicator==true" ng-click="changeTab('ApTable')">Back</a>
+			<a class="btn btn-primary" ng-show="leformdata.loanDetail.interestOnlyIndicator==false && leformdata.payment.paymentRule.paymentOptionIndicator==false && leformdata.loanInformation.amortizationType !='Step' && leformdata.loanInformation.amortizationType !='GPM' && leformdata.loanInformation.amortizationType !='GraduatedPaymentARM' && leformdata.loanDetail.seasonalPaymentFeatureIndicator==false && leformdata.loanDetail.interestRateIncreaseIndicator==false" ng-click="changeTab('LoanDisclosures')">Back</a>
+			<a class="btn btn-default" ng-show="leformdata.loanDetail.interestOnlyIndicator==false && leformdata.payment.paymentRule.paymentOptionIndicator==false && leformdata.loanInformation.amortizationType !='Step' && leformdata.loanInformation.amortizationType !='GPM' && leformdata.loanInformation.amortizationType !='GraduatedPaymentARM' && leformdata.loanDetail.seasonalPaymentFeatureIndicator==false && leformdata.loanDetail.interestRateIncreaseIndicator==true" ng-click="changeTab('AirTable')">Back</a>
 			</span>
 			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('ContactInfo')">Next</a></span>
 		</div>

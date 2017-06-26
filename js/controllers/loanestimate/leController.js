@@ -2459,6 +2459,32 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     // 		LoadXMLString('xmldisplayArea',data);
     // });
 
+    $scope.amountPerMonth = function(index){
+    	var amount = 0;
+		var months = 0;
+		if($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount && $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowCollectedNumberOfMonthsCount){
+			amount = $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount ? $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount : +0;
+			months = $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowCollectedNumberOfMonthsCount ? $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowCollectedNumberOfMonthsCount : +0;
+			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].bpAtClosing = parseFloat(amount*months);
+	    }else{
+            $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].bpAtClosing = '';
+	    }
+        
+        //Calculating Prepaids bpAtClosing amount
+	    var prepaidmonths = 0;
+		var escrowAmount = 0;
+		for(i=0;i<$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.length;i++){
+			if($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType.indexOf($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowItemType)!=-1 && $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowItemType){
+				if($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemMonthsPaidCount && $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount){
+					prepaidmonths = $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemMonthsPaidCount ? $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemMonthsPaidCount : +0;
+					escrowAmount = $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount ? $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[index].escrowMonthlyPaymentAmount : +0;
+					$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = parseFloat(prepaidmonths*escrowAmount);
+			    } else{
+		            $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = '';
+			    }
+		    }
+	    }
+    }
     $scope.generatePDF = function(){
     	$scope.leformdata.documentClassification.documentType="Other";
     	if($scope.leformdata.loanEstimateDocDetails.formType=='StandardForm')

@@ -5,104 +5,104 @@
         	  <tr>
 		        <th class="innerSectionHeader col-sm-3">Escrow Account:</th>
 		        <th class="innerSectionHeader col-sm-3">
-		        	<span class="pull-left margin5lr"><input type="radio" name="transactionStatus" ng-model="cdformdata.loanDetail.escrowIndicator" ng-value="true" disabled></span> 
+		        	<span class="pull-left margin5lr"><input type="radio" name="transactionStatus" ng-model="leformdata.loanDetail.escrowIndicator" ng-value="true" disabled></span> 
 		        	<span class="pull-left margin5tb">Is Present in Transaction</span>
 		        </th>
 		        <th class="innerSectionHeader">
-		        	<span class="pull-left margin5lr"><input type="radio" name="transactionStatus" ng-model="cdformdata.loanDetail.escrowIndicator" ng-value="false" disabled></span> 
+		        	<span class="pull-left margin5lr"><input type="radio" name="transactionStatus" ng-model="leformdata.loanDetail.escrowIndicator" ng-value="false" disabled></span> 
 		        	<span class="pull-left margin5tb">NO Escrow Account In Transaction</span>
 		        </th>
 		      </tr>
-		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
+		      <tr ng-show="leformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Escrowed Property Costs over Year 1
 		        </td>
 		        <td>
-		        	<label>${{cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount | number:2}}</label>
+		        	<label>${{leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount | number:2}}</label>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> Escrowed Property Costs includes </span>
-		        	<span class="col-sm-12">{{cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription}}</span><!-- Need To check with Section G.IEPAT -->
+		        	<span class="col-sm-12">{{leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription}}</span><!-- Need To check with Section G.IEPAT -->
 		        </td>
 		      </tr>
-		      <tr ng-show="!cdformdata.loanDetail.escrowIndicator">
+		      <tr ng-show="!leformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Escrowed Property Costs over Year 1
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control" name="" ng-model="cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control" name="" ng-model="leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12">User must total up all estimated property costs over year 1</span><!-- Need To check with Section G.IEPAT -->
 		        </td>
 		      </tr>
-		      <tr ng-show="!cdformdata.loanDetail.escrowIndicator">
+		      <tr ng-show="!leformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Escrow waiver Fee
 		        </td>
 		        <td>
-		        	<label ng-repeat="notShopFors in cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors" ng-if="notShopFors.feeType=='EscrowWaiverFee' && notShopFors.feeActualTotalAmount!=''">${{notShopFors.feeActualTotalAmount}}</label>
-		        	<!-- <label ng-repeat="ShopFors in cdformdata.closingCostDetailsLoanCosts.sbDidShopFors" ng-if="ShopFors.feeType=='EscrowWaiverFee' && ShopFors.feeActualTotalAmount!=''">${{ShopFors.feeActualTotalAmount}}</label> -->
+		        	<label ng-repeat="notShopFors in leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors" ng-if="notShopFors.feeType=='EscrowWaiverFee' && notShopFors.feeActualTotalAmount!=''">${{notShopFors.feeActualTotalAmount}}</label>
+		        	<!-- <label ng-repeat="ShopFors in leformdata.closingCostDetailsLoanCosts.sbDidShopFors" ng-if="ShopFors.feeType=='EscrowWaiverFee' && ShopFors.feeActualTotalAmount!=''">${{ShopFors.feeActualTotalAmount}}</label> -->
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> Identified On the Closing Costs Details Section in<a ng-click="changeTab('LoanCosts')"> Loan Costs </a></span>
 		        </td>
 		      </tr>
-		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
+		      <tr ng-show="leformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Non-Escrowed Property Costs over Year 1
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control" name="" ng-model="cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control" name="" ng-model="leformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> Non Escrowed Property Costs Includes </span>
-		        	<span class="col-sm-12">{{cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentDescription}}</span>
+		        	<span class="col-sm-12">{{leformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentDescription}}</span>
 		        </td>
 		      </tr>
-		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
+		      <tr ng-show="leformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Initial Escrow Payment  
 		        </td>
 		        <td>
-		        	<label>${{cdformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount | number:2}}</label>
+		        	<label>${{leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount | number:2}}</label>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> A cushion for the escrow account see </span>
 		        	<a class="col-sm-12" ng-click="navigateTo('OtherCosts', 'sectionG_Ecsrow')">Section G. Initial Escrow At Closing </a>
 		        </td>
 		      </tr>
-		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
+		      <tr ng-show="leformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Monthly Escrow Payment  
 		        </td>
 		        <td>
-		        	<label>${{cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount | number:2}}</label>
+		        	<label>${{leformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount | number:2}}</label>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> The amount included in your total monthly payment, see </span>
 		        	<a class="col-sm-12" ng-click="changeTab('projectedPayments')">Projected Payments  </a>
 		        </td>
 		      </tr>
-		      <tr ng-show="!cdformdata.loanDetail.escrowIndicator">
+		      <tr ng-show="!leformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Identify the reason for No Escrow Account 
 		        </td>
 		        <td colspan="2">
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="cdformdata.loanDetail.escrowAbsenceReasonType=='BorrowerDeclined'"></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.loanDetail.escrowAbsenceReasonType=='BorrowerDeclined'"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				The Borrower Declined to escrow property costs
 		        			</span>
 		        	</span>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="cdformdata.loanDetail.escrowAbsenceReasonType=='LenderDoesNotOffer'"></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.loanDetail.escrowAbsenceReasonType=='LenderDoesNotOffer'"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				The Lender does not offer Escrow Account
 		        			</span>
@@ -112,10 +112,10 @@
 		</table>
 	</span>
 	<div class="col-sm-12 margin10t">
-			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('LoanDisclosures')">Back</a></span>
+			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('OtherCosts')">Back</a></span>
 			<span class="pull-right">
-				<a class="btn btn-primary" ng-show="loanBasicInfo.loanFormType=='alternate'" ng-click="changeTab('ApTable')">Next</a>
-				<a class="btn btn-primary" ng-show="loanBasicInfo.loanFormType!='alternate'" ng-click="changeTab('LoanCals')">Next</a>
+				<a class="btn btn-primary" ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==true" ng-click="changeTab('projectedPayments')">Next</a>
+				<a class="btn btn-primary" ng-show="leformdata.loanDetail.interestRateIncreaseIndicator!=true" ng-click="changeTab('projectedPayments')">Next</a>
 			</span>
 	</div>	
 </div>

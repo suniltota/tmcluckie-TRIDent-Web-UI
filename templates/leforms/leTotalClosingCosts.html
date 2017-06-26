@@ -1,4 +1,4 @@
-
+ 
 <div class="col-sm-12 col-md-12 collg-12">
 	<h4>Total Closing Costs</h4>
     <span class="col-sm-12 padding0">
@@ -98,8 +98,12 @@
             </div> -->
  				<!--Modal End -->
 	<div class="col-sm-12 margin10t">
-			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('OtherCosts')">Back</a></span>
-			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('CalculatingCashtoClose')">Next</a></span>
+			<span class="pull-left">
+	 		<a class="btn btn-default" ng-click="changeTab('ETIAssessments')">Back</a></span>
+			<span class="pull-right">
+			<a class="btn btn-primary" ng-show="loanBasicInfo.loanFormType == 'alternate'" ng-click="changeTab('PayoffsAndPayments')">Next</a>
+			<a class="btn btn-primary" ng-show="loanBasicInfo.loanFormType == 'standard'" ng-click="changeTab('CalculatingCashtoClose')">Next</a>
+			</span>
 	</div>
 </div>
 

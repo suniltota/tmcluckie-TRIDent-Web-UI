@@ -264,14 +264,14 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" ng-blur="amountPerMonth('0')" decimal-digits-with-number-format>
 		        	</div>
 		        </td>
 		        
 		        <td >
 		        	<div class="input-group">
 						
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" only-digits maxlength="3">
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" ng-blur="amountPerMonth('0')" only-digits maxlength="3">
 		        	</div>	
 		        </td>
 		        
@@ -478,6 +478,6 @@
 	</span>
 	<div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('LoanCosts')">Back</a></span>
-			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('TotalClosingCosts')">Next</a></span>
+			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('EscrowAccount')">Next</a></span>
 	</div>
 </div>
