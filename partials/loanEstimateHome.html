@@ -66,10 +66,10 @@
                       <li ng-show="leformdata.loanDetail.interestOnlyIndicator==true || leformdata.payment.paymentRule.paymentOptionIndicator==true || leformdata.loanInformation.amortizationType=='Step' || leformdata.loanInformation.amortizationType=='GPM' || leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanDetail.seasonalPaymentFeatureIndicator==true">
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'ApTable'}" ng-click="showTab = 'ApTable'" >Adjustable Payment (AP) Table</span> 
                       </li>
-                      <li ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==true">
+                      <li ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==true ||leformdata.loanInformation.amortizationType=='AdjustableRate' ||leformdata.loanInformation.amortizationType=='GEM'"">
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'AirTable'}" ng-click="showTab = 'AirTable'" >Adjustable Interest Rate (AIR) Table</span>
                       </li>
-                      <li>
+                      <li> 
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCals'}" ng-click="showTab = 'LoanCals'" >Loan Calcs OtherDisclosure</span>
                       </li>
                       <li>
