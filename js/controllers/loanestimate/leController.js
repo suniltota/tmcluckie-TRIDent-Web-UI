@@ -1665,8 +1665,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].regulationZPointsAndFeesIndicator = null;
     }
     //deleteOGF
-    $scope.clearOGF = function(index){
-
+    $scope.clearOGF = function(feeType,index){
     	if($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeType =='TransferTaxTotal'){
 	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].bpAtClosing='';
 	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].bpB4Closing='';
@@ -1728,7 +1727,6 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
     }
 
     $scope.clearPrepaidInfo = function(i){
-    	console.log(i);
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToType = 'ThirdPartyProvider';
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidPaidToFullName = '';
     	$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemEstimatedTotalAmount ='';
@@ -1747,7 +1745,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidInterestRate='';
     }
     
-    $scope.clearPrepaidList = function(i){
+    $scope.clearPrepaidList = function(prepaidType,i){
+    	for(j=0; j<$scope.prepaidItems.length; j++){
+	        if($scope.prepaidItems[j].value == prepaidType) {
+	            $scope.prepaidItems[j].disabled = false;
+	        } 
+        }
     	$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType = '';
     	$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel = '';
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToType = 'ThirdPartyProvider';
@@ -1768,7 +1771,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemMonthsPaidCount='';
     }
 
-    $scope.deletePrepaidInfo = function(i){
+    $scope.deletePrepaidInfo = function(prepaidType,i){
+    	for(j=0; j<$scope.prepaidItems.length; j++){
+	        if($scope.prepaidItems[j].value == prepaidType) {
+	            $scope.prepaidItems[j].disabled = false;
+	        } 
+        }
     	$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i,1);
     }
 
@@ -1789,7 +1797,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator = true;
     }
     
-    $scope.clearEscrowsList = function(i){
+    $scope.clearEscrowsList = function(escrowValue,i){
+    	for(j=0; j<$scope.escrowItemTypes.length; j++){
+            if($scope.escrowItemTypes[j].value == escrowValue) {
+                $scope.escrowItemTypes[j].disabled = false;
+            } 
+        }
     	$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType = '';
     	$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].displayLabel = '';
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].feePaidToType = 'ThirdPartyProvider';
@@ -1807,11 +1820,21 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount = '';
     }
 
-    $scope.deleteEscrowsList = function(i){
+    $scope.deleteEscrowsList = function(escrowValue,i){
+    	for(j=0; j<$scope.escrowItemTypes.length; j++){
+            if($scope.escrowItemTypes[j].value == escrowValue) {
+                $scope.escrowItemTypes[j].disabled = false;
+            } 
+        }
     	$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(i,1);
     }
     
-    $scope.clearOthers = function(i){
+    $scope.clearOthers = function(feeType,i){
+    	for(j=0; j<$scope.sectionHfeeTypes.length; j++){
+            if($scope.sectionHfeeTypes[j].value == feeType) {
+                $scope.sectionHfeeTypes[j].disabled = false;
+            } 
+        }
     	$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].displayLabel = '';
     	$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType = '';
     	$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeTypeOtherDescription = '';
@@ -1828,7 +1851,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 		$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].paymentIncludedInAPRIndicator = false;
 		$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].regulationZPointsAndFeesIndicator = true;
     }
-    $scope.deleteOthers = function(i){
+    $scope.deleteOthers = function(feeType,i){
+    	for(j=0; j<$scope.sectionHfeeTypes.length; j++){
+            if($scope.sectionHfeeTypes[j].value == feeType) {
+                $scope.sectionHfeeTypes[j].disabled = false;
+            } 
+        }
     	$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.splice(i,1);
     }
 
