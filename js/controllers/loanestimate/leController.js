@@ -1935,6 +1935,48 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter, s
 	    }
     }
 
+    $scope.prepaidPerMonth = function(ideType,index){
+		var months = 0;
+		var prepaidAmount = 0;
+		for(i=0;i<$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.length;i++){
+			if(ideType.indexOf($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType)!=-1 && $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType){
+				if($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[index].prepaidItemMonthsPaidCount && $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount){
+					months = $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[index].prepaidItemMonthsPaidCount ? $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[index].prepaidItemMonthsPaidCount : +0;
+					prepaidAmount = $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount ? $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount : +0;
+					$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[index].prepaidItemEstimatedTotalAmount = parseFloat(months*prepaidAmount);
+			    }else{
+		            $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[index].prepaidItemEstimatedTotalAmount = '';
+			    }
+		    }
+	    }
+    }
+    
+    $scope.nonEscrowCalc = function(value){
+    	var etiaTotalAmountInCalc = 0;
+    	var nonEscrowAmountInCalc = 0;
+        if(value!='' && value!=undefined){
+        	nonEscrowAmountInCalc = value ? parseFloat(value) : +0;
+        	etiaTotalAmountInCalc = $scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount ? parseFloat($scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount) : +0;
+            $scope.leformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount = parseFloat((etiaTotalAmountInCalc+nonEscrowAmountInCalc)/12);
+        }
+    }
+
+    $scope.updateDepositAmount = function(){
+    	if($scope.summariesOfTransaction_LSection.deposit) {
+    	    $scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.summariesOfTransaction_LSection.deposit*-1);
+    	}else{
+    		$scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount = 0;
+    	}
+    }
+
+    $scope.liabilityForeClosure = function(){
+    	for(i=0;i<$scope.stateProperty.length;i++){
+    		if($scope.stateProperty[i].state == $scope.leformdata.closingInformation.property.stateCode){
+    			$scope.leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.deficiencyRightsPreservedIndicator = $scope.stateProperty[i].value;
+    		}
+    	}
+    }
+
     $scope.generatePDF = function(){
     	$scope.leformdata.documentClassification.documentType="Other";
     	if($scope.leformdata.loanEstimateDocDetails.formType=='StandardForm')

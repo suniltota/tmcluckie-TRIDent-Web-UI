@@ -75,7 +75,7 @@
 		        </td>
 		        <td>
 		        	<div class="input-group">
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" only-digits maxlength="3">
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" only-digits maxlength="3" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)">
 		        	</div>	
 		        </td>
 		        <td>
@@ -101,7 +101,7 @@
 		        </td>
 		        <td>
 		        	<div class="input-group">
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" only-digits>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" only-digits ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)">
 		        	</div>	
 		        </td>
 		         <td>
@@ -175,7 +175,7 @@
 		        </td>
 		        <td>
 		        	<div class="input-group">
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" only-digits maxlength="3">
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" only-digits maxlength="3" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)">
 		        	</div>	
 		        </td>
 		        <td>
