@@ -2472,6 +2472,27 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    	});
     	});
     }
+
+	$scope.validateUCD = function() {
+    	$("#spinner").show();
+    	cdService.genearateXmlFromJson($scope.cdformdata, true).success(function(data){
+    		$scope.xmlData = data;
+    		cdService.genearateUCDXml($scope.xmlData, false).success(function(data){
+	    		$scope.ucdxmlData = data;
+	    		cdService.validateUCDXml($scope.ucdxmlData).success(function(validationdata){
+	    			var x2js = new X2JS();
+				    var errors = x2js.xml_str2json(validationdata);
+				    $scope.validation_errors = errors.VALIDATION_ERRORS.VALIDATION_ERROR;
+                    console.log($scope.validation_errors);
+                    $('#UCDValidationModalPopup').modal('show');
+	    			$("#spinner").hide();
+	    		});
+	    	}).error( function(data, status){
+	    		$("#spinner").hide();
+	    	});
+    	});
+    }
+    
     $scope.closeXML = function(){
     	$("#xmlView").hide();
     }

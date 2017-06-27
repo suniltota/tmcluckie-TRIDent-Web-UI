@@ -29,6 +29,13 @@ app.service('cdService', function(apiService){
             formData:data
         });
     },
+    this.validateUCDXml = function(data){
+        return apiService.request({
+            apiMethod: "actualize/transformx/services/ucd/cd/validate",
+            httpMethod: 'POST',
+            formData:data
+        });
+    },
     this.calculatePayments = function(data){
         return apiService.request({
             apiMethod: "actualize/transformx/services/ucd/calculatepayments/",

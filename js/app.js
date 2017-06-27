@@ -101,6 +101,11 @@ app.controller('menuCtrl', function ($scope, loginService,  $routeParams, $locat
     //}
   }
 
+  $scope.validateUCD = function() {
+    closeAllViews();
+    angular.element($("#UCDXMLFILE")).scope().validateUCD();
+  }
+
   $scope.generatePDF = function(){
     closeAllViews();
     //if(!localStorage.documentType)
