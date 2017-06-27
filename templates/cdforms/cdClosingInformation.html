@@ -12,7 +12,9 @@
 			</div> -->
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
-				<input type="text" name="dateIssued" id="dateIssued" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Issued  format: MM/DD/YYYY" actualize-date/>
+				
+				<actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isDateIssued" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                </actualize-input>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -138,7 +140,7 @@
 						   	 <div class="input-group">
   								<span class="input-group-addon input-default">$</span>		        				
 		        				<actualize-input ng-model="cdformdata.salesContractDetail.saleContractAmount" name="saleContractAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
-                		</actualize-input>
+                				</actualize-input>
 		        			</div>
 						</div>
 		             </div>
@@ -149,7 +151,8 @@
 		              	<div class="col-sm-7 radioGroup">
 						   	<div class="input-group">
   								<span class="input-group-addon input-default">$</span>
-		        				<input type="text" class="form-control" ng-model="cdformdata.salesContractDetail.realPropertyAmount" decimal-digits-with-number-format>
+		        				  <actualize-input ng-model="cdformdata.salesContractDetail.realPropertyAmount" name="realPropertyAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+                				</actualize-input>
 		        			</div>
 						</div>
 		             </div>
