@@ -3575,8 +3575,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	        $scope.cdformdata.salesContractDetail.personalPropertyAmount = $scope.cdformdata.salesContractDetail.personalPropertyAmount ? parseFloat($scope.cdformdata.salesContractDetail.personalPropertyAmount) : +0;
 	        $scope.adjustmentsAndProrationsAmountsKSection = $scope.adjustmentsAndProrationsAmountsKSection ? parseFloat($scope.adjustmentsAndProrationsAmountsKSection) : +0;
 			$scope.adjustmentsAndProrationsAmountsLSection = $scope.adjustmentsAndProrationsAmountsLSection ? parseFloat($scope.adjustmentsAndProrationsAmountsLSection) : +0;
-			$scope.cdformdata.loanDetail.totalSubordinateFinancingAmount = $scope.cdformdata.loanDetail.totalSubordinateFinancingAmount ? parseFloat($scope.cdformdata.loanDetail.totalSubordinateFinancingAmount) : +0;
-	        $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(($scope.cdformdata.salesContractDetail.personalPropertyAmount+$scope.adjustmentsAndProrationsAmountsKSection)-$scope.adjustmentsAndProrationsAmountsLSection-$scope.cdformdata.loanDetail.totalSubordinateFinancingAmount);
+			$scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount = $scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount ? parseFloat($scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount) : +0;
+	        $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(($scope.cdformdata.salesContractDetail.personalPropertyAmount+$scope.adjustmentsAndProrationsAmountsKSection)-$scope.adjustmentsAndProrationsAmountsLSection-$scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount);
         }
 	}, true);
     
@@ -3729,8 +3729,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         $scope.cdformdata.salesContractDetail.personalPropertyAmount = $scope.cdformdata.salesContractDetail.personalPropertyAmount ? parseFloat($scope.cdformdata.salesContractDetail.personalPropertyAmount) : +0;
         $scope.adjustmentsAndProrationsAmountsKSection = $scope.adjustmentsAndProrationsAmountsKSection ? parseFloat($scope.adjustmentsAndProrationsAmountsKSection) : +0;
 		$scope.adjustmentsAndProrationsAmountsLSection = $scope.adjustmentsAndProrationsAmountsLSection ? parseFloat($scope.adjustmentsAndProrationsAmountsLSection) : +0;
-        $scope.cdformdata.loanDetail.totalSubordinateFinancingAmount = $scope.cdformdata.loanDetail.totalSubordinateFinancingAmount ? parseFloat($scope.cdformdata.loanDetail.totalSubordinateFinancingAmount) : +0;
-        $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(($scope.cdformdata.salesContractDetail.personalPropertyAmount+$scope.adjustmentsAndProrationsAmountsKSection)-$scope.adjustmentsAndProrationsAmountsLSection-$scope.cdformdata.loanDetail.totalSubordinateFinancingAmount);
+        $scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount = $scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount ? parseFloat($scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount) : +0;
+        $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(($scope.cdformdata.salesContractDetail.personalPropertyAmount+$scope.adjustmentsAndProrationsAmountsKSection)-$scope.adjustmentsAndProrationsAmountsLSection-$scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount);
 		}
     }, true);
 
@@ -3884,8 +3884,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         $scope.cdformdata.salesContractDetail.personalPropertyAmount = $scope.cdformdata.salesContractDetail.personalPropertyAmount ? parseFloat($scope.cdformdata.salesContractDetail.personalPropertyAmount) : +0;
         $scope.adjustmentsAndProrationsAmountsKSection = $scope.adjustmentsAndProrationsAmountsKSection ? parseFloat($scope.adjustmentsAndProrationsAmountsKSection) : +0;
 		$scope.adjustmentsAndProrationsAmountsLSection = $scope.adjustmentsAndProrationsAmountsLSection ? parseFloat($scope.adjustmentsAndProrationsAmountsLSection) : +0;
-        $scope.cdformdata.loanDetail.totalSubordinateFinancingAmount = $scope.cdformdata.loanDetail.totalSubordinateFinancingAmount ? parseFloat($scope.cdformdata.loanDetail.totalSubordinateFinancingAmount) : +0;
-        $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(($scope.cdformdata.salesContractDetail.personalPropertyAmount+$scope.adjustmentsAndProrationsAmountsKSection)-$scope.adjustmentsAndProrationsAmountsLSection- $scope.cdformdata.loanDetail.totalSubordinateFinancingAmount);
+        $scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount = $scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount ? parseFloat($scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount) : +0;
+        $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(($scope.cdformdata.salesContractDetail.personalPropertyAmount+$scope.adjustmentsAndProrationsAmountsKSection)-$scope.adjustmentsAndProrationsAmountsLSection- $scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount);
 		}
     }, true);
 
@@ -4115,8 +4115,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	        $scope.cdformdata.salesContractDetail.personalPropertyAmount = $scope.cdformdata.salesContractDetail.personalPropertyAmount ? parseFloat($scope.cdformdata.salesContractDetail.personalPropertyAmount) : +0;
 	        $scope.adjustmentsAndProrationsAmountsKSection = $scope.adjustmentsAndProrationsAmountsKSection ? parseFloat($scope.adjustmentsAndProrationsAmountsKSection) : +0;
 			$scope.adjustmentsAndProrationsAmountsLSection = $scope.adjustmentsAndProrationsAmountsLSection ? parseFloat($scope.adjustmentsAndProrationsAmountsLSection) : +0;
-            $scope.cdformdata.loanDetail.totalSubordinateFinancingAmount = $scope.cdformdata.loanDetail.totalSubordinateFinancingAmount ? parseFloat($scope.cdformdata.loanDetail.totalSubordinateFinancingAmount) : +0;
-	        $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(($scope.cdformdata.salesContractDetail.personalPropertyAmount+$scope.adjustmentsAndProrationsAmountsKSection)-$scope.adjustmentsAndProrationsAmountsLSection-$scope.cdformdata.loanDetail.totalSubordinateFinancingAmount);
+            $scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount = $scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount ? parseFloat($scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount) : +0;
+	        $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(($scope.cdformdata.salesContractDetail.personalPropertyAmount+$scope.adjustmentsAndProrationsAmountsKSection)-$scope.adjustmentsAndProrationsAmountsLSection-$scope.summariesOfTransaction_LSection.subordinateLien.closingAdjustmentItemAmount);
         }
          var etiaTotalAmount = 0;
          var nonEscrowAmount = 0;
