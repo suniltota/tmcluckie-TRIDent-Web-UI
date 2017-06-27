@@ -582,11 +582,15 @@ app.directive('actualizeInput', function($compile, $sce) {
         allowedInput=true;
       }
       if(attr.numeric!=undefined){
-        message +=' numeric, ';
+        message +='numeric, ';
         allowedInput=true;
       }
       if(attr.specialcharacters!=undefined){
         message +=' special characters ';
+        allowedInput=true;
+      }
+      if(attr.dateFormat!=undefined){
+        message +=' date format ';
         allowedInput=true;
       }
       if(allowedInput)
@@ -604,8 +608,12 @@ app.directive('actualizeInput', function($compile, $sce) {
         $scope.htmlTooltip = {}
       $scope.htmlTooltip[attr.name.toLowerCase()] = $sce.trustAsHtml(message);
       
-      var template='<div class="form-group">';
-      template += '<input type="text" ng-model="'+attr.ngModel+'" name="'+attr.name+'" class="form-control InputTooltip" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
+      var template='<div >';
+      if(attr.type != undefined && attr.type == "date"){
+        template += '<input type="text" id="input_'+attr.id+'" uib-datepicker-popup="'+attr.dateformat+'" ng-model="'+attr.ngModel+'" min-date="'+attr.minDate+'" is-open="'+attr.isOpen+'" datepicker-options="dateOptions" ng-required="'+attr.ngRequired+'" close-text="Close" placeholder="'+attr.placeholder+'" name="'+attr.name+'" class="form-control InputTooltip calenderInput" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
+      }else{
+        template += '<input type="text" ng-model="input_'+attr.ngModel+'" name="'+attr.name+'" class="form-control InputTooltip" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
+      }
 
       if(attr.dependencies)
       template +=attr.dependencies;
@@ -616,3 +624,4 @@ app.directive('actualizeInput', function($compile, $sce) {
     }
   };
 });
+

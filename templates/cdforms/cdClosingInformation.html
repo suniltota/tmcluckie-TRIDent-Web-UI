@@ -23,7 +23,9 @@
 			<div class="col-sm-5 fieldTitle">Closing Date <span class="required">*</span></div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
-				<input type="text" name="closingDate" id="closingDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.closingDate" is-open="isClosingDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="Closing Date  format: MM/DD/YYYY" actualize-date/>
+				<actualize-input name="closingDate" id="closingDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.closingDate" min-date="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isClosingDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Closing Date cannot occur prior to Issue Date." placeholder="Closing Date  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                </actualize-input>
+
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isClosingDate = !isClosingDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -34,7 +36,8 @@
 			<div class="col-sm-5 fieldTitle">Disbursement Date <span class="required">*</span></div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
-				<input type="text" name="disbursementDate" id="disbursementDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.disbursementDate" min-date="cdformdata.closingInformationDetail.closingDate" is-open="isDisbursementDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Disbursement Date  format: MM/DD/YYYY" actualize-date/>
+				<actualize-input name="disbursementDate" id="disbursementDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.disbursementDate" min-date="cdformdata.closingInformationDetail.closingDate" is-open="isDisbursementDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Disbursement Date cannot occur before the Closing Date." placeholder="Disbursement Date  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                </actualize-input>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDisbursementDate = !isDisbursementDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -47,8 +50,7 @@
 				(organization)
 			</div>
 			<div class="col-sm-7" class="form-group" >
-				<actualize-input ng-model="cdformdata.contactInformation.settlementAgent.organizationName" name="organizationName" toolTipPos = "top" alpha  min="3" max="10"  dependencies="decimal-digits-with-number-format number">
-                </actualize-input>
+				<input type="text" ng-model="cdformdata.contactInformation.settlementAgent.organizationName" class="form-control">
 			</div>
 		</div>
 		<div class="FieldGroup">
@@ -57,8 +59,7 @@
 				(settlement Agent Number)
 			</div>
 			<div class="col-sm-7">
-				<actualize-input ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" name="closingAgentOrderNumberIdentifier" toolTipPos = "top" numeric  min="3" max="10"  dependencies="decimal-digits-with-number-format number">
-                </actualize-input>
+				<input type="text" ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" class="form-control">
 			</div>
 		</div>
 	</div>
@@ -111,7 +112,7 @@
 		              <div class="col-sm-5 fieldTitle">Postal Code <span class="required">*</span></div>
 		              <div class="col-sm-7">
 
-		              	<actualize-input ng-model="cdformdata.closingInformation.property.postalCode" name="postalCode" toolTipPos = "top" pincode  dependencies="zipcode-format">
+		              	<actualize-input ng-model="cdformdata.closingInformation.property.postalCode" name="postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format">
                 		</actualize-input>
 		              </div>
 		            </div>
@@ -135,8 +136,9 @@
 					    <div class="col-sm-5 fieldTitle">Sales Price</div>
 		              	<div class="col-sm-7 radioGroup">
 						   	 <div class="input-group">
-  								<span class="input-group-addon input-default">$</span>
-		        				<input type="text" class="form-control" ng-model="cdformdata.salesContractDetail.saleContractAmount" decimal-digits-with-number-format>
+  								<span class="input-group-addon input-default">$</span>		        				
+		        				<actualize-input ng-model="cdformdata.salesContractDetail.saleContractAmount" name="saleContractAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+                		</actualize-input>
 		        			</div>
 						</div>
 		             </div>
