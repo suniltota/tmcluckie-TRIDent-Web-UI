@@ -57,7 +57,19 @@ input, select, textarea, .form-control{font-size: 12px;}
 .white{color:#fff;}
 .green{color:#009688;}
 .cursor{cursor: pointer;}
-.helpIcon{font-size: 14px; color:#fff;}
+.helpIcon{font-size: 14px; color:#777;}
+.helpIcon + .tooltip .tooltip-arrow{border-right-color: #5bb1dc; }
+.helpIcon + .tooltip .tooltip-inner{background-color: #5bb1dc;}
+
+
+.InputTooltip + .tooltip{min-width: 200px;}
+.InputTooltip + .tooltip.right .tooltip-arrow{border-right-color:#e49319; }
+.InputTooltip + .tooltip.top .tooltip-arrow{border-top-color:#e49319; }
+.InputTooltip + .tooltip.left .tooltip-arrow{border-left-color:#e49319; }
+.InputTooltip + .tooltip.bottom .tooltip-arrow{border-bottom-color:#e49319; }
+.InputTooltip + .tooltip .tooltip-inner{background:#e49319;}
+
+
 .backtotop{padding-right  : 15px; color:#fff;}
 ul li{list-style: none;}
 .popup_innerHeader{background:#eee; padding:7px 10px; margin: 5px 0px;}

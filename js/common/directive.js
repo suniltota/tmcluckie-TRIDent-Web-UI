@@ -598,10 +598,14 @@ app.directive('actualizeInput', function($compile, $sce) {
         message += 'Maximum '+attr.max+' length <br>'
       if(attr.pincode!=undefined)
         message += 'Pincode minimum 5  and maximum 9 characters'
+      if(attr.custommessage)
+        message += attr.custommessage;
+      if($scope.htmlTooltip == undefined)
+        $scope.htmlTooltip = {}
+      $scope.htmlTooltip[attr.name.toLowerCase()] = $sce.trustAsHtml(message);
       
-      $scope.htmlTooltip = $sce.trustAsHtml(message);
       var template='<div class="form-group">';
-      template += '<input type="text" ng-model="'+attr.ngModel+'" name="'+attr.name+'" class="form-control" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="click" uib-tooltip-html="htmlTooltip"';
+      template += '<input type="text" ng-model="'+attr.ngModel+'" name="'+attr.name+'" class="form-control InputTooltip" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
 
       if(attr.dependencies)
       template +=attr.dependencies;

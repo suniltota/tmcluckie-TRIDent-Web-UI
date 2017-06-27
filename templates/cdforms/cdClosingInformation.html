@@ -47,7 +47,8 @@
 				(organization)
 			</div>
 			<div class="col-sm-7" class="form-group" >
-				<input type="text" ng-model="cdformdata.contactInformation.settlementAgent.organizationName" class="form-control">
+				<actualize-input ng-model="cdformdata.contactInformation.settlementAgent.organizationName" name="organizationName" toolTipPos = "top" alpha  min="3" max="10"  dependencies="decimal-digits-with-number-format number">
+                </actualize-input>
 			</div>
 		</div>
 		<div class="FieldGroup">
@@ -55,7 +56,10 @@
 				File # <span class="required">*</span><br>
 				(settlement Agent Number)
 			</div>
-			<div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" class="form-control"></div>
+			<div class="col-sm-7">
+				<actualize-input ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" name="closingAgentOrderNumberIdentifier" toolTipPos = "top" numeric  min="3" max="10"  dependencies="decimal-digits-with-number-format number">
+                </actualize-input>
+			</div>
 		</div>
 	</div>
 
@@ -105,7 +109,11 @@
 		          <div class="row margin5tb">
 		            <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Postal Code <span class="required">*</span></div>
-		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.postalCode" class="form-control" zipcode-format></div>
+		              <div class="col-sm-7">
+
+		              	<actualize-input ng-model="cdformdata.closingInformation.property.postalCode" name="postalCode" toolTipPos = "top" pincode  dependencies="zipcode-format">
+                		</actualize-input>
+		              </div>
 		            </div>
 		          </div>
 		</div>
