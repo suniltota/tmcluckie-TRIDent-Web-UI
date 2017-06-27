@@ -4985,12 +4985,16 @@ this.cdformdata={
 		    "loanMaturityPeriodType": "Month",
 		    "loanTermMaximumMonthsCount": ""
 		},
-		"loanProduct": {
-		    "loanPriceQuoteInterestRatePercent": "",
-		    "lockExpirationDatetime" :"",
-		    "lockStatusType":"",
-		    "lockExpirationTimezoneType":""
-		},
+		"loanProduct":
+	    {
+	        "loanPriceQuoteInterestRatePercent": "",
+	        "lock":
+	        {
+	            "lockExpirationDatetime": "",
+	            "lockStatusType": "None",
+	            "lockExpirationTimezoneType": ""
+	        }
+	    },
 		"loanTerms": {
 		    "prepaymentPenalty": {
 		      "prepaymentPenaltyMaximumLifeOfLoanAmount": "",
