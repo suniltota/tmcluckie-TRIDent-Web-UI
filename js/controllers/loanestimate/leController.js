@@ -1077,14 +1077,18 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		$scope.leformdata.etiaSection.total = $scope.leformdata.etiaSection.etiaValues.length;
     }
     $scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
+    $scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
     $scope.addOrganizationCharges = function(){
     	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
     }
 
+    $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
+    $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
     $scope.addsbDidNotShopFor = function(){
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
     }
-
+    $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
+    $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
     $scope.addsbDidShopFor = function(){
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
     }
@@ -1689,7 +1693,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTotalPercent='';
 	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTypeOtherDescription='';
     	    $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeEstimatedTotalAmount ='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].paymentIncludedInAPRIndicator = false;
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].paymentIncludedInAPRIndicator = true;
 	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].regulationZPointsAndFeesIndicator = true;
     	}
     	else{
@@ -1744,7 +1748,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing = '';
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers = '';
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].lenderStatus = '';
-		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator = false;
+		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator = true;
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = true;
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemMonthsPaidCount='';
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToTypeOtherDescription='';
@@ -1770,7 +1774,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing = '';
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers = '';
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].lenderStatus = '';
-		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator = false;
+		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator = true;
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = true;
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToTypeOtherDescription='';
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount='';
@@ -1801,7 +1805,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing = '';
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers = '';
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].lenderStatus = '';
-		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator = false;
+		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator = true;
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator = true;
     }
     
@@ -1823,7 +1827,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing = '';
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers = '';
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].lenderStatus = '';
-		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator = false;
+		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator = true;
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator = true;
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount = '';
     }
