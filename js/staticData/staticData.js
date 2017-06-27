@@ -4986,7 +4986,10 @@ this.cdformdata={
 		    "loanTermMaximumMonthsCount": ""
 		},
 		"loanProduct": {
-		    "loanPriceQuoteInterestRatePercent": ""
+		    "loanPriceQuoteInterestRatePercent": "",
+		    "lockExpirationDatetime" :"",
+		    "lockStatusType":"",
+		    "lockExpirationTimezoneType":""
 		},
 		"loanTerms": {
 		    "prepaymentPenalty": {

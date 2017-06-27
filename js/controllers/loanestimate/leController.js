@@ -2068,6 +2068,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     		$scope.leformdata.maturityRule.loanMaturityPeriodCount = parseInt($scope.leformdata.loanInformation.loanTermYears * 12);
     	if($scope.leformdata.loanInformation.loanTermMonths)
     		$scope.leformdata.maturityRule.loanMaturityPeriodCount = $scope.leformdata.maturityRule.loanMaturityPeriodCount + parseInt($scope.leformdata.loanInformation.loanTermMonths);
+    	if($scope.leformdata.loanInformation.rateLokerIndicator)
+    		$scope.leformdata.loanProduct.lockExpirationDatetime=$scope.leformdata.loanInformation.rateLokedDate;
+    	$scope.leformdata.loanProduct.lockStatusType=$scope.leformdata.loanInformation.rateLokerIndicator;
+    	$scope.leformdata.loanProduct.lockExpirationTimezoneType=$scope.leformdata.loanInformation.rateLockedTimeZone;
+    	//$scope.fullDate = new Date(Date.UTC.apply(undefined,$scope.leformdata.loanInformation.rateLokedDate.split('/').concat($scope.leformdata.loanInformation.rateLockedTimePeriod.split(':')))).toISOString();
+    	//console.log($scope.fullDate);
     	$scope.leformdata.maturityRule.loanMaturityPeriodType = 'Month';
     });
 
