@@ -348,29 +348,33 @@
                 <div class="col-sm-6 fieldTitle">Closing Costs Paid Before Closing</div>
                 <div class="col-sm-6 fieldValue">${{cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</div>
               </div>
-              <!-- <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
                 <div class="col-sm-6 fieldTitle">Loan Amount includes any assumed or taken subject to</div>
-                <div class="col-sm-6 fieldValue">$0</div>
-              </div> -->
-             <!--  <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
+                <div class="col-sm-6 fieldValue">${{cdformdata.loanAssumedAmount | number:2}}</div>
+              </div>
+              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard'">
                 <div class="col-sm-6 fieldTitle">Sales Price</div>
                 <div class="col-sm-6">
                     <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
                       <span class="input-group-addon input-default">$</span>
-                      <input type="text" class="form-control" name="" ng-model="cdformdata.salesContractDetail.saleContractAmount" decimal-digits-with-number-format>
+                      <input type="text" class="form-control" name="" ng-model="cdformdata.salePrice" decimal-digits-with-number-format>
                     </div>
                      <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
                       <span class="input-group-addon input-default">$</span>
                       <input type="text" class="form-control" name="" ng-model="cdformdata.salesContractDetail.saleContractAmount" decimal-digits-with-number-format disabled>
                     </div>
                 </div>
-              </div> -->
-              <div class=" col-sm-12" ng-show="loanBasicInfo.loanFormType == 'standard' && loanBasicInfo.loanPurposeType == 'refinance'">
+              </div>
+              <div class=" col-sm-12">
                 <div class="col-sm-6 fieldTitle">Payoffs and Payments</div>
                 <div class="col-sm-6">
-                    <div class="input-group" >
+                    <div class="input-group" ng-show="loanBasicInfo.loanFormType == 'standard' && loanBasicInfo.loanPurposeType == 'refinance'">
                       <span class="input-group-addon input-default">$</span>
                       <input type="text" class="form-control" name="" ng-model="payoffsAndPaymentsTotalAmount" decimal-digits-with-number-format>
+                    </div>
+                    <div class="input-group" ng-show="loanBasicInfo.loanFormType == 'standard' && loanBasicInfo.loanPurposeType == 'purchase'">
+                      <span class="input-group-addon input-default">$</span>
+                      <input type="text" class="form-control" name="" value="0.00" disabled>
                     </div>
                 </div>
               </div>
