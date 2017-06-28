@@ -5195,7 +5195,7 @@ this.cdformdata={
 	                "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
 	                "optionalCostIndicator": false,
 	                "regulationZPointsAndFeesIndicator": true,
-	                "paymentIncludedInAPRIndicator": false
+	                "paymentIncludedInAPRIndicator": true
 	            }
 	        ],
 	        "prepaidsList":

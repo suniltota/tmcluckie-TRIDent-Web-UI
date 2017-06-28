@@ -1674,28 +1674,29 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].paidByOthers='';
     	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].lenderStatus='';
     	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeTypeOtherDescription='';
-    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].paymentIncludedInAPRIndicator = false;
+    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].paymentIncludedInAPRIndicator = true;
     	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].regulationZPointsAndFeesIndicator = null;
     }
     //deleteOGF
     $scope.clearOGF = function(feeType,index){
-    	if($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeType =='TransferTaxTotal'){
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].bpAtClosing='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].bpB4Closing='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].spAtClosing='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].spB4Closing='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].paidByOthers='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].lenderStatus='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePaidToFullName='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeActualTotalAmount='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePaidToType='ThirdPartyProvider';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePaidToTypeOtherDescription='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feePercentBasisType='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTotalPercent='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeTypeOtherDescription='';
-    	    $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].feeEstimatedTotalAmount ='';
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].paymentIncludedInAPRIndicator = true;
-	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].regulationZPointsAndFeesIndicator = true;
+
+    	if($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeType =='TransferTaxTotal'){
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].bpAtClosing='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].bpB4Closing='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].spAtClosing='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].spB4Closing='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].paidByOthers='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].lenderStatus='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feePaidToFullName='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeActualTotalAmount='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feePaidToType='ThirdPartyProvider';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feePaidToTypeOtherDescription='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feePercentBasisType='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeTotalPercent='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeTypeOtherDescription='';
+    	    $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeEstimatedTotalAmount ='';
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].paymentIncludedInAPRIndicator = true;
+	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].regulationZPointsAndFeesIndicator = true;
     	}
     	else{
 	    	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[index].bpAtClosing='';
@@ -1756,6 +1757,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount='';
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].numberOfDays='';
 		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidInterestRate='';
+		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemNumberOfDaysCount='';
     }
     
     $scope.clearPrepaidList = function(prepaidType,i){
