@@ -195,8 +195,13 @@
 		              <div class="col-sm-7">
 		              		<div class="input-group">
 		  						<span class="input-group-addon input-default">$</span>
-				        		<input class="form-control" ng-show="cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyValuationAmount" decimal-digits-with-number-format></input>
-				        		<input class="form-control" ng-show="cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated'"  ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount" decimal-digits-with-number-format></input>
+				        		
+				        		<actualize-input ng-show="cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyValuationAmount" name="propertyValuationAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+                				</actualize-input>
+
+
+				        		<actualize-input ng-show="cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated'" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount" name="propertyEstimatedValueAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+                				</actualize-input>
 				        	</div>
 		              </div>
 		            </div>
