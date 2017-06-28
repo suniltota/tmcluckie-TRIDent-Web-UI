@@ -457,7 +457,7 @@
       			    <td>Total Payoffs and Payments</td>
       			    <td>${{cdformdata.totalPayoffAmount | number:2}}</td>
       			</tr>
-      			<tr>
+      			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Adjustments and Other Credits</td>
       				<td>${{cdformdata.adjustmentsAmount | number:2}}</td>
       			</tr>
