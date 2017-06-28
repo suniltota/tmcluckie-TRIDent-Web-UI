@@ -1076,6 +1076,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		$scope.leformdata.etiaSection.etiaValues.push(angular.copy(ETIAComponentType));
 		$scope.leformdata.etiaSection.total = $scope.leformdata.etiaSection.etiaValues.length;
     }
+    $scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
+
     $scope.addOrganizationCharges = function(){
     	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
     }
@@ -1102,7 +1104,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.addescrowItemsList = function(){
     	$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
     }
-
+	$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
+	$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
     $scope.addotherCostsList = function(){
     	$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
     }
