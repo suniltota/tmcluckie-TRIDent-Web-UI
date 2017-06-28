@@ -9,13 +9,15 @@
 					<div class="col-sm-12 padding0 paddingtop6">
 						<div class="col-sm-6 padding0 paddingtop7">No. Years:</div>
 						<div class="col-sm-6 padding0">
-							<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.loanTermYears">
+							<actualize-input name="loanTermYears" ng-model="cdformdata.loanInformation.loanTermYears" toolTipPos = "top" custommessage="Please enter a valid whole number" >
+                			</actualize-input>
 						</div>
 					</div>
 					<div class="col-sm-12 padding0 margin5tb paddingtop11">
 						<div class="col-sm-6 padding0 paddingtop5">No. Months:</div>
 						<div class="col-sm-6 padding0">
-							<input type="text" class="form-control" name="" ng-model="cdformdata.loanInformation.loanTermMonths">
+							<actualize-input name="loanTermMonths" ng-model="cdformdata.loanInformation.loanTermMonths" toolTipPos = "top" custommessage="Please enter a valid whole number" >
+                			</actualize-input>
 						</div>
 					</div>
 				</div>
@@ -417,7 +419,8 @@
 					<div class="FieldGroup">
 						<div class="col-sm-10 fieldTitle">What is the construction period in months?:</div>
 						<div class="col-sm-2 padding0">
-							<input type="text" class="form-control" name="" ng-model="cdformdata.construction.constructionPeriodNumberOfMonthsCount" only-digits maxlength="3">
+							<actualize-input name="constructionPeriodNumberOfMonthsCount" ng-model="cdformdata.construction.constructionPeriodNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="only-digits" maxlength="3">
+                			</actualize-input>
 						</div>
 					</div>
 				</div>
@@ -429,7 +432,8 @@
 					<div class="FieldGroup">
 						<div class="col-sm-10 fieldTitle">What is the total number of months for this construction transaction (Includes both construction period and permanent financed period):</div>
 						<div class="col-sm-2 padding0">
-							<input type="text" class="form-control" name="" ng-model="cdformdata.construction.constructionLoanTotalTermMonthsCount" only-digits maxlength="3">
+							<actualize-input name="constructionLoanTotalTermMonthsCount" ng-model="cdformdata.construction.constructionLoanTotalTermMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="only-digits" maxlength="3">
+                			</actualize-input>
 						</div>
 					</div>
 				</div>
