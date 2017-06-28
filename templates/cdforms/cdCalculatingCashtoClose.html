@@ -357,7 +357,7 @@
                 <div class="col-sm-6">
                     <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
                       <span class="input-group-addon input-default">$</span>
-                      <input type="text" class="form-control" name="" ng-model="cdformdata.salePrice" decimal-digits-with-number-format>
+                      <input type="text" class="form-control" name="" ng-model="cdformdata.salePrice" decimal-digits-with-number-format ng-change="salePriceChange()">
                     </div>
                      <div class="input-group" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
                       <span class="input-group-addon input-default">$</span>
@@ -435,11 +435,11 @@
       			</tr>
       			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Closing Costs Financed (Paid from your Loan Amount)</td>
-      				<td>${{cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      				<td>${{cdformdata.closingCostsFinanced | number:2}}</td>
       			</tr>
       			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Down Payment/Funds from Borrower</td>
-      				<td>${{cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      				<td>${{cdformdata.downPayment | number:2}}</td>
       			</tr>
       			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Deposit</td>
@@ -447,7 +447,7 @@
       			</tr>
       			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Funds for Borrower</td>
-      				<td>${{cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemFinalAmount | number:2}}</td>
+      				<td>${{cdformdata.fundsForBorrower | number:2}}</td>
       			</tr>
       			<tr ng-show="loanBasicInfo.loanFormType == 'standard'">
       				<td>Seller Credits</td>
