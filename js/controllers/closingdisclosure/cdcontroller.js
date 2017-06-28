@@ -1649,7 +1649,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	}
 
     $scope.clearCalculations = function(){
-    	$scope.cdformdata.salesContractDetail.saleContractAmount = '';
     	$scope.cdformdata.salePrice = '';
 	    $scope.cdformdata.depositAmount = '';
 	    $scope.cdformdata.sellerCreditsAmount = '';
@@ -1659,7 +1658,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     
     $scope.loadResultsToCCTable = function(){
         
-        $scope.cdformdata.salesContractDetail.saleContractAmount = $scope.cdformdata.salePrice ? parseFloat($scope.cdformdata.salePrice) : +0;                                                                                          
 		$scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.depositAmount ? parseFloat($scope.cdformdata.depositAmount) : +0;                                
 		$scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.sellerCreditsAmount ? parseFloat($scope.cdformdata.sellerCreditsAmount) : +0;                    
 		$scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.adjustmentsAmount ? parseFloat($scope.cdformdata.adjustmentsAmount) : +0;
