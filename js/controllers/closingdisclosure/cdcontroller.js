@@ -1564,7 +1564,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata['sellerCreditsAmount'] = $scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemFinalAmount) : +0;
 		$scope.cdformdata['adjustmentsAmount'] = $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemFinalAmount) : +0;
 		$scope.cdformdata['totalPayoffAmount'] = $scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount) : +0;
-        $scope.cdformdata['loanAssumedAmount'] = parseFloat($scope.cdformdata.termsOfLoan.noteAmount) + parseFloat($scope.summariesOfTransaction_LSection.assumedLoanAmount ? parseFloat($scope.summariesOfTransaction_LSection.assumedLoanAmount) : +0);
+        if($scope.loanBasicInfo.loanFormType == 'standard'){
+           $scope.cdformdata['loanAssumedAmount'] = parseFloat($scope.cdformdata.termsOfLoan.noteAmount) + parseFloat($scope.summariesOfTransaction_LSection.assumedLoanAmount ? parseFloat($scope.summariesOfTransaction_LSection.assumedLoanAmount) : +0);
+        }
     } 
     
     $scope.depositChange = function(){
