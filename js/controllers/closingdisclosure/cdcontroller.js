@@ -3242,6 +3242,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.$watch('cdformdata.cashToCloses', function(newValue,oldValue){
     	var cashToCloseItemEstimatedAmount = 0;
     	var cashToCloseItemFinalAmount = 0;
+        
+        $scope.cdformdata.salesContractDetail.personalPropertyAmount = $scope.cdformdata.salesContractDetail.personalPropertyAmount ? parseFloat($scope.cdformdata.salesContractDetail.personalPropertyAmount) : +0;
+    	$scope.cdformdata.salesContractDetail.saleContractAmount = $scope.cdformdata.salesContractDetail.saleContractAmount ? parseFloat($scope.cdformdata.salesContractDetail.saleContractAmount) : +0;
+    	$scope.cdformdata.salesContractDetail.realPropertyAmount = $scope.cdformdata.salesContractDetail.realPropertyAmount ? parseFloat($scope.cdformdata.salesContractDetail.realPropertyAmount) : +0;
 
     	//Total Closing Costs(J)
     	if($scope.cdformdata.closingCostsTotal.totalClosingCosts){
@@ -3492,6 +3496,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			}
 	    }
 
+	    $scope.cdformdata.salesContractDetail.personalPropertyAmount = $scope.cdformdata.salesContractDetail.personalPropertyAmount ? parseFloat($scope.cdformdata.salesContractDetail.personalPropertyAmount) : +0;
+    	$scope.cdformdata.salesContractDetail.saleContractAmount = $scope.cdformdata.salesContractDetail.saleContractAmount ? parseFloat($scope.cdformdata.salesContractDetail.saleContractAmount) : +0;
+    	$scope.cdformdata.salesContractDetail.realPropertyAmount = $scope.cdformdata.salesContractDetail.realPropertyAmount ? parseFloat($scope.cdformdata.salesContractDetail.realPropertyAmount) : +0;
+
+
 	//Calculating Cash To Close Calculations
     
         //Closng Costs Financed
@@ -3676,7 +3685,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		if($scope.summariesOfTransaction_KSection.salePricePersonalProperty) {
 			 $scope.summariesOfTransaction_KSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_KSection.salePricePersonalProperty);
 			 $scope.summariesOfTransaction_MSection.salePricePersonalProperty = $scope.summariesOfTransaction_KSection.salePricePersonalProperty;
-			 $scope.cdformdata.salesContractDetail.personalPropertyAmount = $scope.summariesOfTransaction_KSection.salePricePersonalProperty;
+			 $scope.cdformdata.salesContractDetail.personalPropertyAmount = parseFloat($scope.summariesOfTransaction_KSection.salePricePersonalProperty);
 		}
 		if($scope.summariesOfTransaction_KSection.closingCostsPaidAtClosing)
 			$scope.summariesOfTransaction_KSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_KSection.closingCostsPaidAtClosing);
@@ -4021,6 +4030,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.summariesOfTransaction_LSection.loanAmount = 0;
 			}
 		}
+		
+    $scope.cdformdata.salesContractDetail.personalPropertyAmount = $scope.cdformdata.salesContractDetail.personalPropertyAmount ? parseFloat($scope.cdformdata.salesContractDetail.personalPropertyAmount) : +0;
+	$scope.cdformdata.salesContractDetail.saleContractAmount = $scope.cdformdata.salesContractDetail.saleContractAmount ? parseFloat($scope.cdformdata.salesContractDetail.saleContractAmount) : +0;
+	$scope.cdformdata.salesContractDetail.realPropertyAmount = $scope.cdformdata.salesContractDetail.realPropertyAmount ? parseFloat($scope.cdformdata.salesContractDetail.realPropertyAmount) : +0;
 
 	//Calculations regarding Loan Discount Percentage in Section A. Origination Charge of Other Costs
  	for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++){
