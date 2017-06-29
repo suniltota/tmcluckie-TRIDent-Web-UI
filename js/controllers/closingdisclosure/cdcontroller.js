@@ -2709,6 +2709,24 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount = '';
     	}
     }, true);
+
+    $scope.$watch('cdformdata.interestRateAdjustment', function(newValue, oldValue){
+    	if($scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent || $scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount) {
+    		$scope.cdformdata.interestRateAdjustment.firstAdjustmentRule = 'First';
+    	}
+    	if($scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent || $scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount) {
+    		$scope.cdformdata.interestRateAdjustment.subsequentAdjustmentRule = 'Subsequent';
+    	}
+    }, true);
+
+    $scope.$watch('cdformdata.principalAndInterestPaymentAdjustment', function(newValue, oldValue){
+    	if($scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount) {
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstAdjustmentRuleType = 'First';
+    	}
+    	if($scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount) {
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentAdjustmentRuleType = 'Subsequent';
+    	}
+    }, true);
     
     $scope.$watch('cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing', function(newValue, oldValue){
     	if($scope.loanBasicInfo.loanFormType == 'standard'){
