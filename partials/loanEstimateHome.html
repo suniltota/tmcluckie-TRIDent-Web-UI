@@ -60,18 +60,18 @@
                       <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanDisclosures'}" ng-click="showTab = 'LoanDisclosures'" >Other Considerations</span>
                       </li>
-                      <li>
+                      <!-- <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'EscrowAccount'}" ng-click="showTab = 'EscrowAccount'" >Escrow Account</span> 
-                      </li>
+                      </li> -->
                       <li ng-show="leformdata.loanDetail.interestOnlyIndicator==true || leformdata.payment.paymentRule.paymentOptionIndicator==true || leformdata.loanInformation.amortizationType=='Step' || leformdata.loanInformation.amortizationType=='GPM' || leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanDetail.seasonalPaymentFeatureIndicator==true">
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'ApTable'}" ng-click="showTab = 'ApTable'" >Adjustable Payment (AP) Table</span> 
                       </li>
                       <li ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==true ||leformdata.loanInformation.amortizationType=='AdjustableRate' ||leformdata.loanInformation.amortizationType=='GEM'">
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'AirTable'}" ng-click="showTab = 'AirTable'" >Adjustable Interest Rate (AIR) Table</span>
                       </li>
-                      <li> 
+                      <!-- <li> 
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCals'}" ng-click="showTab = 'LoanCals'" >Loan Calcs OtherDisclosure</span>
-                      </li>
+                      </li> -->
                       <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'LeConfReceipt'}" ng-click="showTab = 'LeConfReceipt'" >Confirm Receipt</span>
                       </li>
@@ -200,12 +200,12 @@
                             <span class="pull-left noTitle">OC</span>
                           </span>
                       </li>
-                      <li>
+                      <!-- <li>
                           <span class="pageno pageicon" ng-class="{'active': showTab == 'EscrowAccount'}" data-toggle="tooltip" ng-click="showTab = 'EscrowAccount'"  data-placement="right" title="Escrow Account">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">EA</span>
                           </span>
-                      </li>
+                      </li> -->
                       <li>
                          <span class="pageno pageicon" ng-class="{'active': showTab == 'ApTable'}" data-toggle="tooltip" ng-click="showTab = 'ApTable'"  data-placement="right" title="AP Table" ng-show="leformdata.loanDetail.interestOnlyIndicator==true || leformdata.payment.paymentRule.paymentOptionIndicator==true || leformdata.loanInformation.amortizationType=='Step' || leformdata.loanInformation.amortizationType=='GPM' || leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanDetail.seasonalPaymentFeatureIndicator==true" 
                          >
@@ -214,17 +214,18 @@
                         </span>
                       </li>
                       <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'AirTable'}" data-toggle="tooltip" ng-click="showTab = 'AirTable'"  data-placement="right" title="AIR Table" ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==true ||leformdata.loanInformation.amortizationType=='AdjustableRate' ||leformdata.loanInformation.amortizationType=='GEM'">
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'AirTable'}" data-toggle="tooltip" ng-click="showTab = 'AirTable'"  data-placement="right" title="AIR Table" ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==true ||
+                          leformdata.loanInformation.amortizationType=='AdjustableRate' ||leformdata.loanInformation.amortizationType=='GEM'">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">AT</span>
                           </span>
                       </li>
-                      <li>
+                      <!-- <li>
                           <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanCals'}" data-toggle="tooltip" ng-click="showTab = 'LoanCals'"  data-placement="right" title="Loan Calculation">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">LC</span>
                           </span>
-                      </li>
+                      </li> -->
                       <li>
                           <span class="pageno pageicon" ng-class="{'active': showTab == 'LeConfReceipt'}" data-toggle="tooltip" ng-click="showTab = 'LeConfReceipt'"  data-placement="right" title="Confirm Receipt">
                             <span class="glyphicon glyphicon-file pull-left"></span>
