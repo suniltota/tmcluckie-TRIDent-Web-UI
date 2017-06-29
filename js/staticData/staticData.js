@@ -5092,8 +5092,8 @@ this.cdformdata={
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "OriginationCharges",
-	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": true,
+	                "optionalCostIndicator": null,
+	                "regulationZPointsAndFeesIndicator": null,
 	                "paymentIncludedInAPRIndicator": true
 	            }
 	        ],
@@ -5117,8 +5117,8 @@ this.cdformdata={
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "ServicesBorrowerDidNotShopFor",
-	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": true,
+	                "optionalCostIndicator": null,
+	                "regulationZPointsAndFeesIndicator": null,
 	                "paymentIncludedInAPRIndicator": true
 	            }
 	        ],
@@ -5142,8 +5142,8 @@ this.cdformdata={
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "ServicesBorrowerDidShopFor",
-	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": false,
+	                "optionalCostIndicator": null,
+	                "regulationZPointsAndFeesIndicator": null,
 	                "paymentIncludedInAPRIndicator": true
 	            }
 	        ],
@@ -5193,8 +5193,8 @@ this.cdformdata={
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
-	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": true,
+	                "optionalCostIndicator": null,
+	                "regulationZPointsAndFeesIndicator": null,
 	                "paymentIncludedInAPRIndicator": false
 	            }
 	        ],
@@ -5269,8 +5269,8 @@ this.cdformdata={
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "",
-	                "optionalCostIndicator": false,
-	                "regulationZPointsAndFeesIndicator": true,
+	                "optionalCostIndicator": null,
+	                "regulationZPointsAndFeesIndicator": null,
 	                "paymentIncludedInAPRIndicator": false
 	            }
 	        ]
