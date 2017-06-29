@@ -25,7 +25,8 @@
 		        <td ng-show="originationCharge.feeType == 'LoanDiscountPoints'">
 		        	 <span class="col-sm-12 margin5tb padding0">Label Name</span>
 		        	 <span class="input-group">
-		        	 <input type="text" class="form-control" ng-model="originationCharge.feeTotalPercent" percentage-format ng-blur=loanDiscount($index)>
+		        	 <actualize-input ng-model="originationCharge.feeTotalPercent" name="feeTotalPercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format">
+                	</actualize-input>
 		        	 <span class="input-group-addon input-default">%</span> 
 		        	</span>
 		        	<span class="margin5tb col-sm-9 padding0">{{originationCharge.displayLabel}}</span>
@@ -74,7 +75,8 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpAtClosing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
+		        	<actualize-input ng-model="originationCharge.bpAtClosing" name="bpAtClosing" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)"  dependencies="decimal-digits-with-number-format">
+                	</actualize-input>
 		        </div>
 		        </td>
 		        <td>
