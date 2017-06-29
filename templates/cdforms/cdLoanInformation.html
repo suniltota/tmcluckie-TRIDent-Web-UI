@@ -2,7 +2,7 @@
 	<h4>Loan Information</h4>
 	<div class="col-sm-12">
 		<h5 class="innerSectionHeader">Loan Period, Type and Position</h5>
-		<div class="col-sm-12 row">
+		<div class="col-sm-12 row margin5tb margin8t">
 			<div class="col-sm-4">
 				<div class="col-sm-5 fieldTitle margin5t">Loan Term:</div>
 				<div class="col-sm-7 padding0">
@@ -77,10 +77,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-12 row margin5tb">
+		<div class="col-sm-12 row margin5tb margin8t">
 			<div class="col-sm-4">
-				<div class="col-sm-5 fieldTitle">Lender Loan Identifier: <span class="required">*</span>
-				</div>
+				<div class="col-sm-5 fieldTitle" style="padding: 8 0">Lender Loan Identifier: <span class="required">*</span></div>
 				<div class="col-sm-7 padding0" ng-repeat="loanIdentifier in cdformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
 					<input type="text" class="form-control" name="lenderLoanIdentifier" ng-model="loanIdentifier.loanIdentifier">
 				</div>
@@ -104,8 +103,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-12 row margin5tb">
-			<div class="col-sm-12 pull-left">
+		<div class="col-sm-12 row margin5tb margin8t">
+			<div class="col-sm-12 padding0">
 			<div class="col-sm-4" ng-repeat="automatedUnderwriting in cdformdata.loanInformation.automatedUnderwritings | limitTo: 3 : 0 track by $index">
 				<div class="col-sm-12 padding0">
 					<div class="col-sm-5 fieldTitle">AUS Type:</div>
@@ -134,7 +133,7 @@
 				</div>
 			</div>
 			</div>
-			<div class="col-sm-12 pull-left" ng-if="cdformdata.loanInformation.automatedUnderwritings.length>3">
+			<div class="col-sm-12 padding0" ng-if="cdformdata.loanInformation.automatedUnderwritings.length>3">
 			<div class="col-sm-4" ng-repeat="automatedUnderwriting in cdformdata.loanInformation.automatedUnderwritings | limitTo: 3 : 3 track by $index">
 				<div class="col-sm-12 padding0">
 					<div class="col-sm-5 fieldTitle">AUS Type:</div>
@@ -164,7 +163,7 @@
 				<span class="glyphicon glyphicon-trash iconTooltip red margin5tb ausTrash" data-toggle="tooltip" title="Close" ng-click="removeAusTypeIdentifier($index+3)" ng-show="$index+3==5"/>
 			</div>
 			</div>
-			<div class="col-sm-12 pull-left" ng-if="cdformdata.loanInformation.automatedUnderwritings.length>6">
+			<div class="col-sm-12 padding0" ng-if="cdformdata.loanInformation.automatedUnderwritings.length>6">
 			<div class="col-sm-4" ng-repeat="automatedUnderwriting in cdformdata.loanInformation.automatedUnderwritings | limitTo : 3 : 6 track by $index">
 				<div class="col-sm-12 padding0">
 					<div class="col-sm-5 fieldTitle">AUS Type:</div>
