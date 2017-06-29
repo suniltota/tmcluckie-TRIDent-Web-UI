@@ -983,7 +983,7 @@ app.service('staticData', function($filter){
 		"disabled":false
 		},
 		{
-		"name":"RateLock Fee",
+		"name":"Rate Lock Fee",
 		"value":"RateLockFee",
 		"disabled":false
 		},
@@ -5195,7 +5195,7 @@ this.cdformdata={
 	                "integratedDisclosureSectionType": "TaxesAndOtherGovernmentFees",
 	                "optionalCostIndicator": false,
 	                "regulationZPointsAndFeesIndicator": true,
-	                "paymentIncludedInAPRIndicator": true
+	                "paymentIncludedInAPRIndicator": false
 	            }
 	        ],
 	        "prepaidsList":
@@ -5219,8 +5219,8 @@ this.cdformdata={
 	                "prepaidItemPerDiemCalculationMethodType": "",
 	                "prepaidItemType": "",
 	                "prepaidItemTypeOtherDescription": "",
-	                "regulationZPointsAndFeesIndicator": true,
-	                "paymentIncludedInAPRIndicator": true,
+	                "regulationZPointsAndFeesIndicator": null,
+	                "paymentIncludedInAPRIndicator": false,
 	                "prepaidPaidToFullName": "",
 	                "perDiemAmount":"",
 	                "numberOfDays":"",
@@ -5245,8 +5245,8 @@ this.cdformdata={
 			        "feePaidToType": "ThirdPartyProvider",
 			        "feePaidToTypeOtherDescription": "",
 			        "integratedDisclosureSectionType": "InitialEscrowPaymentAtClosing",
-			        "regulationZPointsAndFeesIndicator": true,
-			        "paymentIncludedInAPRIndicator": true
+			        "regulationZPointsAndFeesIndicator": null,
+			        "paymentIncludedInAPRIndicator": false
 	            }
 	        ],
 	        "otherCostsList":
