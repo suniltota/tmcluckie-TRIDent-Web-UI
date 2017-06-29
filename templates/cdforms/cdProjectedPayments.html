@@ -20,19 +20,21 @@
 		      <tr>
 		        <td><label>Principal &amp; Interest Payment</label></td>
 		        <td ng-repeat="principalInterest in cdformdata.projectedPayments.principalInterest track by $index">
-		        	<div class="col-sm-6" style="padding: 0 8px;">
+		        	<div class="col-sm-6 padding0" style="padding-right:8px;">
 		        			<div class="col-sm-12 text-center" style="position:relative;">Minimum	<span class="pull-right" style="right:-10px; position:absolute; top:-2px;">-</span>
 							</div>
 		        			<div class="input-group">
-  								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
-		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" decimal-digits-with-number-format>
+  								<span class="input-group-addon input-default" ng-style="{ 'padding' : cdformdata.projectedPayments.paymentCalculation.length == 4 ? '3px 6px' : ''}">$</span>
+		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" name="projectedPaymentPrincipalAndInterestMinimumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+                				</actualize-input>
 		        			</div>
 		        	</div>
-		        	<div class="col-sm-6" style="padding: 0 8px;">
+		        	<div class="col-sm-6 padding0" style="padding-left: 8px;">
 		        			<div class="col-sm-12 text-center">Maximum<span class="required" ng-show="$index==0">*</span></div>
 		        			<div class="input-group">
-  								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
-		        				<input class="form-control" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" decimal-digits-with-number-format>
+  								<span class="input-group-addon input-default" ng-style="{ 'padding' : cdformdata.projectedPayments.paymentCalculation.length == 4 ? '3px 6px' : ''}">$</span>
+		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" name="projectedPaymentPrincipalAndInterestMaximumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+                				</actualize-input>
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-12 text-center" style="padding:10px;" ng-show="principalInterest.interestOnlyStatus">Only Interest</div>
@@ -55,7 +57,8 @@
 				        	<span class="col-sm-6 pull-right">
 				        	<div class="input-group">
   								<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-				        		<input type="text" class="form-control" name="" ng-model="cdformdata.projectedPayments.miPaymentAmount" decimal-digits-with-number-format>
+				        		<actualize-input ng-model="cdformdata.projectedPayments.miPaymentAmount" name="miPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+                				</actualize-input>
 				        	</div>
 				        	</span> 
 				        </div>
@@ -93,7 +96,8 @@
 		        <td ng-repeat="mortgageInsurance in cdformdata.projectedPayments.mortgageInsurance track by $index">
 					<div class="input-group">
 						<span class="input-group-addon input-default">$</span>
-						<input type="text" class="form-control" name="" ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" decimal-digits-with-number-format>
+						<actualize-input ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" name="projectedPaymentMIPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+                				</actualize-input>
 					</div>
   				</td>
 		      </tr>
@@ -103,18 +107,21 @@
 		        <td ng-repeat="estimatedEscrow in cdformdata.projectedPayments.estimatedEscrow track by $index">
 		        	<div class="input-group">
 	  					<span class="input-group-addon input-default">$</span>
-			        	<input class="form-control" ng-model="estimatedEscrow.projectedPaymentEstimatedEscrowPaymentAmount" decimal-digits-with-number-format>
+			        	<actualize-input ng-model="estimatedEscrow.projectedPaymentEstimatedEscrowPaymentAmount" name="projectedPaymentEstimatedEscrowPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+                		</actualize-input>
+
 			        </div>
 		        </td>
 		      </tr>
 		      <tr>
 		        <td>
-		        	<label>Estimated Total &nbsp;
-				        		<select 
+		        	<label><span class="pull-left margin5tb">Estimated Total</span>
+				        		<span class="col-sm-5"><select class="form-control" 
 				        		ng-model="cdformdata.projectedPayments.paymentFrequencyType"
 				              		ng-options="frequency.value as frequency.name for frequency in paymentFrequencyTypes">
-				        		</select>&nbsp;
-				        	Payment Amount</label>
+				        		</select>
+				        		</span>
+				        	<span class="pull-left margin5tb">Payment Amount</span></label>
 		        </td>
 		        <td ng-repeat="estimatedTotal in cdformdata.projectedPayments.estimatedTotal track by $index">
 		        	<div class="col-sm-6">
