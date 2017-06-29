@@ -340,6 +340,15 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
           return undefined;
         }            
         ctrl.$parsers.push(inputValue);
+
+        element.on('blur', function (e) {
+            var elementValue = e.target.value;
+            if(elementValue) {
+              elementValue = elementValue.replace(/[^0-9.]/g, '');
+              e.target.value = $filter('number')(elementValue, 2);
+              scope.$apply();
+            }
+        });
       }
     };
 });
@@ -398,6 +407,15 @@ app.directive('decimalDigitsWithNumberFormatAllowNegative', function ($compile, 
           return undefined;
         }            
         ctrl.$parsers.push(inputValue);
+
+        element.on('blur', function (e) {
+            var elementValue = e.target.value;
+            if(elementValue) {
+              elementValue = elementValue.replace(/[^0-9.]/g, '');
+              e.target.value = $filter('number')(elementValue, 2);
+              scope.$apply();
+            }
+        });
       }
     };
 });
