@@ -2626,10 +2626,6 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			}*/
         }
 
-         bpAtClosing.iEPatClosingTotalbpAtClosing += ($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount == '' || undefined == $scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount) ? +0 : parseFloat($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount);
-         spAtClosing.iEPatClosingTotalspAtClosing += ($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid == '' || undefined == $scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid) ? +0 : parseFloat($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountSellerPaid);
-         paidByOthers.iEPatClosingTotalpaidByOthers += ($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountOthersPaid == '' || undefined == $scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountOthersPaid) ? +0 : parseFloat($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmountOthersPaid);
-
          $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount = bpAtClosing.iEPatClosingTotalbpAtClosing + bpB4Closing.iEPatClosingTotalbpB4Closing;
          $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing = parseFloat(bpAtClosing.tOGovtFeesTotalbpAtClosing) + parseFloat(bpAtClosing.prepaidsTotalbpAtClosing) + parseFloat(bpAtClosing.iEPatClosingTotalbpAtClosing) + parseFloat(bpAtClosing.otherTotalbpAtClosing);
          $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpB4Closing = parseFloat(bpB4Closing.tOGovtFeesTotalbpB4Closing) + parseFloat(bpB4Closing.prepaidsTotalbpB4Closing) + parseFloat(bpB4Closing.iEPatClosingTotalbpB4Closing) + parseFloat(bpB4Closing.otherTotalbpB4Closing);
@@ -3394,33 +3390,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	        }).join(",").replace(/([A-Z]+)/g, " $1");
         }
     },true);
-
-    /*$scope.$watch('leformdata.closingCostDetailsOtherCosts.tOGovtFeesList',function(newValue,oldValue){
-           var recordingFeeAmount = 0;
-          //var previousValue = $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpAtClosing;
-           if($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed)
-           recordingFeeAmount += parseFloat($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed);
-           if($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage)
-           recordingFeeAmount += parseFloat($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage);
-           if($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForDeed!="" || $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].recordingFeeForMortgage!=""){
-              $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].bpAtClosing = recordingFeeAmount;
-           }
-    },true);*/
-
-   /* $scope.$watch('leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount',function(newValue,oldValue){
-       var adjustmentAmount = 0;
-       if($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount)
-       	  adjustmentAmount += parseFloat($scope.leformdata.closingDisclosureDocDetails.escrowAggregateAccountingAdjustmentAmount)
-
-        bpAtClosing.iEPatClosingTotalbpAtClosing += adjustmentAmount;
-        $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount = bpAtClosing.iEPatClosingTotalbpAtClosing + bpB4Closing.iEPatClosingTotalbpB4Closing;
-        $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount;
-        $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing = parseFloat(bpAtClosing.tOGovtFeesTotalbpAtClosing) + parseFloat(bpAtClosing.prepaidsTotalbpAtClosing) + parseFloat(bpAtClosing.iEPatClosingTotalbpAtClosing) + parseFloat(bpAtClosing.otherTotalbpAtClosing);
-        $scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCosts.bpAtClosing);
-        $scope.leformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount) + parseFloat($scope.leformdata.closingCostsTotal.lenderCredits=='' || $scope.leformdata.closingCostsTotal.lenderCredits==undefined ? +0 : $scope.leformdata.closingCostsTotal.lenderCredits);
-         
-    },true);*/
-    
+   
     // $rootScope.leformdataSendToJsonService=$scope.leformdata;
     // leService.generateXML($rootScope.leformdataSendToJsonService).success(function(data){
     // 		$rootScope.xmlStringData=data;
