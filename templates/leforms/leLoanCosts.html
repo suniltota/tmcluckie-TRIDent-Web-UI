@@ -4,22 +4,99 @@
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="2"> Section A. Origination Charge
-				<span class="pull-right glyphicon glyphicon-question-sign helpIcon" data-toggle="tooltip" data-placement="right" title="Help Information"></span>
+				<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>Each Section in the Closing Cost Details is highlighted at the top of the section.</p>
+				           	 <ul><li>The first section is called “Origination Charges”.
+									Has a different row for Row 01 than the rest of the section</li></ul>
+				          </span>
+				 </span>
+
 				</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}
+				<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Applicant At Closing or Before Closing columns</p>
+				          </span>
+				 </span></th>
+				
 			  </tr>
 		     <tr>
-		        <th class="innerSectionHeader FeeInfo" style="width: 10%;">Fee Label</th>
-		        <th class="innerSectionHeader FeePaid">Fee Type</th>
-		        <th class="innerSectionHeader BPatClosing">Amount</th>
-		        <th class="innerSectionHeader incInApr">Included in APR?</th>
-		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
+		        <th class="innerSectionHeader FeeInfo" style="width: 10%;">Fee Label
+		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.</p>
+				           	 <ul><li>
+				           	 		Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
+				           	 		<li>
+									If YES, both the percentage of the Loan Amount must be disclosed in the label section
+
+				           	 </li></ul>
+				          </span>
+				 </span></th>
+		        <th class="innerSectionHeader FeePaid">Fee Type 
+		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>Specify the general type of fees associated with a real estate finance transaction.</p>
+				           	 <ul><li>
+				           	 		Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name.</li><li>
+									If other is chosen, then the user will be provided another text box (see below).
+
+				           	 </li></ul>
+				          </span>
+				 </span>
+				</th>
+		        <th class="innerSectionHeader BPatClosing">Amount
+		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+			        <b></b>	
+			         <span> 
+			           	 <p>This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Applicant At Closing or Before Closing columns</p>
+			          </span>
+				</span>
+				</th>
+		        <th class="innerSectionHeader incInApr">Included in APR? 
+		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>For each record included must Indicate if the fee is included in the APR calculation.</p>
+				           	 <ul><li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+				           	 <li>Format is a Boolean value, using a drop-down box with a Yes or No value</li></ul>
+				          </span>
+				 </span>
+				</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete
+		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+			        <b></b>	
+			         <span> 
+			           	 <p>The Trash Can symbol at the end of the record will delete the entire row including all data.</p>
+			          </span>
+					 </span> / Clear
+		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+			        <b></b>	
+			         <span> 
+			           	 <p>The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.</p>
+			          </span>
+			 </span></th>
 		      </tr>
 		      <tr ng-repeat="originationCharge in leformdata.closingCostDetailsLoanCosts.originationCharges">		      	
 		        <td ng-show="originationCharge.feeType == 'LoanDiscountPoints'">
 		        	 <span class="input-group">
 		        	 <input type="text" class="form-control" ng-model="originationCharge.feeTotalPercent" percentage-format ng-blur="loanDiscount($index)" ng-keyup="loanDiscount($index)">
-		        	 <span class="input-group-addon input-default">% of Loan Amount (Points)</span> 
+		        	 <span class="input-group-addon input-default">% of Loan Amount (Points) 
+					</span> 
+					<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+					        <b></b>	
+					         <span> 
+					           	 <p>In every transaction, the line 01 item called Loan Amount (Points) is provided on the form.  The transaction may or may not have discount points.</p>
+					           	 <p>The Label name “Loan Amount (Points)” is referred to as predefined text by the CFPB.</p>
+					           	 <ul><li>If NO, “0” must be disclosed in the Label section.</li>
+					           	 <li>If YES, both the percentage of the Loan Amount must be disclosed in the label section.</li></ul>
+					          </span>
+					 </span>
 		        	</span>
 		        </td>
 		        <td ng-show="originationCharge.feeType != 'LoanDiscountPoints'">
@@ -35,7 +112,18 @@
               		    </select> 
 		        	</span>
 		        	<span ng-hide="originationCharge.feeType!='Other'" class="col-sm-12 padding0">
-			        	<span class="col-sm-12 margin5tb padding0">Description</span>
+			        	<span class="col-sm-12 margin5tb padding0">Description 
+			        		<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+						        <b></b>	
+						         <span> 
+						           	 <p>This field is required to be filled-in if the Fee Type is Other.</p>
+						           	 <ul><li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type.</li>
+						           	 <li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li></ul>
+						          </span>
+						 </span>
+
+
+			        	</span>
 			        	<span class="col-sm-12 padding0">
 			        	  <input type="text" class="form-control padding0" ng-model="originationCharge.feeTypeOtherDescription">
 			        	</span>
@@ -55,12 +143,20 @@
 		        <td>
 		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-show="$index > 2" ng-disabled="$index == 0" ng-click="deleteOC(originationCharge.feeType,$index)"></span>
 		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear"  ng-click="clearOC(originationCharge.feeType,$index)"></span>
+
 		      	</td>
 		      </tr>
 		</table>
 		<span class="AddSection" ng-click="addOrganizationCharges()">
 			<a>+ Add Additional Fees</a>
 		</span>
+		<span class="glyphicon glyphicon-question-sign helpIcon paddingTopLeft10 tooltip-msg" ng-mouseouver>
+		        <b></b>	
+		         <span> 
+		           	 <p>To add more fees to the section the user may click on the link to add another row</p>
+		          </span>
+		 </span>
+
 		<span class="LeBackToTop pull-right" ng-click="backToTop()">
 			<a>Back to Top</a>
 		</span>
@@ -78,7 +174,21 @@
 		        <th class="innerSectionHeader FeePaid">Fee Type</th>
 		        <th class="innerSectionHeader BPatClosing">Amount</th>
 		        <th class="innerSectionHeader incInApr">Included in APR?</th>
-		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete
+		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+			        <b></b>	
+			         <span> 
+			           	 <p>The Trash Can symbol at the end of the record will delete the entire row including all data.</p>
+			          </span>
+					 </span>
+					 / Clear 
+				 <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+			        <b></b>	
+			         <span> 
+			           	 <p>The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.</p>
+			          </span>
+			 </span>
+			</th>
 		      </tr>
 		      <tr ng-repeat="sbDidNotShopFor in leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors">
 		        <td>
