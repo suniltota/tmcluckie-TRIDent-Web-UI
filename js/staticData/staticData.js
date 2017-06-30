@@ -3367,10 +3367,6 @@ app.service('staticData', function($filter){
         {
         	"name":"Month",
         	"value":"Month"
-        },
-        {
-        	"name":"Year",
-        	"value":"Year"
         }
     ];
 
@@ -4749,12 +4745,11 @@ this.cdformdata={
 	/// Start leformdata
 	this.leformdata ={
 		
-		"closingDisclosureDocDetails":
+		"loanEstimateDocDetails":
 	    {
 	        "transactionType": "",
-	        "documentType": "",
-	        "formType": "",
-	        "escrowAggregateAccountingAdjustmentAmount": ""
+	        "documentType": "LoanEstimate",
+	        "formType": ""
 	    },
 	    "loanEstimateDocDetails":
 	    {
@@ -4974,7 +4969,9 @@ this.cdformdata={
 		    "firstYearTotalNonEscrowPaymentDescription": "",
 		    "integratedDisclosureHomeEquityLoanIndicator": false,
 		    "integratedDisclosureIssuedDate": "",
-		    "integratedDisclosureLoanProductDescription": ""
+		    "integratedDisclosureLoanProductDescription": "",
+		    "fiveYearTotalOfPaymentsComparisonAmount":"",
+            "fiveYearPrincipalReductionComparisonAmount":""
 		},
 		"negativeAmortization": {
 		    "negativeAmortizationLimitMonthsCount": "",
@@ -5079,12 +5076,6 @@ this.cdformdata={
 	        "originationCharges":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
@@ -5104,12 +5095,6 @@ this.cdformdata={
 	        "sbDidNotShopFors":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
@@ -5129,12 +5114,6 @@ this.cdformdata={
 	        "sbDidShopFors":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
@@ -5180,12 +5159,6 @@ this.cdformdata={
 	        "tOGovtFeesList":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
@@ -5205,12 +5178,6 @@ this.cdformdata={
 	        "prepaidsList":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "gseDisplayLabelText": "",
 	                "displayLabelText": "",
 	                "feePaidToType": "ThirdPartyProvider",
@@ -5225,6 +5192,7 @@ this.cdformdata={
 	                "prepaidItemTypeOtherDescription": "",
 	                "regulationZPointsAndFeesIndicator": null,
 	                "paymentIncludedInAPRIndicator": false,
+			        "optionalCostIndicator": null,
 	                "prepaidPaidToFullName": "",
 	                "perDiemAmount":"",
 	                "numberOfDays":"",
@@ -5235,12 +5203,6 @@ this.cdformdata={
 	        "escrowItemsList":
 	        [
 	            {
-	               	"bpAtClosing": "",
-			        "bpB4Closing": "",
-			        "spAtClosing": "",
-			        "spB4Closing": "",
-			        "paidByOthers": "",
-			        "lenderStatus": false,
 			        "displayLabel": "",
 			        "escrowCollectedNumberOfMonthsCount": "",
 			        "escrowItemType": "",
@@ -5250,18 +5212,13 @@ this.cdformdata={
 			        "feePaidToTypeOtherDescription": "",
 			        "integratedDisclosureSectionType": "InitialEscrowPaymentAtClosing",
 			        "regulationZPointsAndFeesIndicator": null,
-			        "paymentIncludedInAPRIndicator": false
+			        "paymentIncludedInAPRIndicator": false,
+			        "optionalCostIndicator": null
 	            }
 	        ],
 	        "otherCostsList":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
