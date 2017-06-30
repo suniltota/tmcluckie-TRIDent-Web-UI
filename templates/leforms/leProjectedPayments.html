@@ -3,6 +3,16 @@
 	<span class="col-sm-12 LoanTermsTable">
 		<div class="margin5tb pull-right" ng-show="leformdata.projectedPayments.paymentCalculation.length<=3">
 			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns</a>
+			<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+			        <b></b>	
+			         <span> 
+			           	 <p>The Projected Payment section is driven off several pieces of information:</p>
+			           	 <ul><li>¥	Product Description – Amortization Type if Fixed then typically only one column or multiple columns of the Amortization Type is Adjustable Rate (ARM) or Not Fixed</li>
+			           	 <li>Upload of multiple instances of data will automatically provide the additional columns with values</li></ul>
+			           	 <p>If the user is manual data entry and requires additional columns, then the user may click on the Add Additional Column Link that will add 3 additional columns one at time up to a total of total columns.</p>
+			          </span>
+			 </span>
+
 		</div>
 		<table class="table" style="margin-top:15px;">
 		      <tr>
@@ -18,7 +28,15 @@
 		        </th>
 		      </tr>
 		      <tr>
-		        <td><label>Principal &amp; Interest Payment</label></td>
+		        <td><label>Principal &amp; Interest Payment <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>In each column (1-4) a Minimum amount and Maximum amount text boxes are available to the user for input.</p>
+				           	 <ul><li>¥	Minimum Amount - The minimum amount of the principal and interest payment during the projected payment period. Typically this is not used for the first column due to any fixed periods would be identified in the first period.</li>
+				           	 <li>¥	Maximum Amount - The maximum amount of the principal and interest payment during the projected payment period.</li></ul>
+				          </span>
+				 </span>
+			</label></td>
 		        <td ng-repeat="principalInterest in leformdata.projectedPayments.principalInterest track by $index">
 		        	<div class="col-sm-6" style="padding: 0 8px;">
 		        			<div class="col-sm-12 text-center marginleft40n" style="position:relative;">Minimum	<span class="pull-right" style="right:-10px; position:absolute; top:-2px;">-</span>
@@ -39,10 +57,26 @@
 		        </td>
 		      </tr>
 		      <tr>
-		        <td><label>Mortgage Insurance</label> 
+		        <td><label>Mortgage Insurance 
+					</label> 
 		        
 			        <div class="col-sm-12 padding0 margin5tb">
-			        	<span class="col-sm-6 padding0"><b class="boldComma">.</b>Is Required?<span class="required">*</span></span> 
+			        	<span class="col-sm-6 padding0"><b class="boldComma">.</b>Is Required? <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+					        <b></b>	
+					         <span> 
+					           	 <p>This information is required for every transaction, must identify if there is MI present in the transaction.</p>
+					           	 <ul><li>If NO, then nothing else needs to be done</li>
+					           	 <li>If Yes, provide the following information that is found under the Mortgage Insurance Label in the far-left column
+					           	 <ul>
+					           	 	<li>No. Months Duration?</li>
+					           	 	<li>Scheduled Termination Date</li>
+					           	 	<li>MI Company Name </li>
+					           	 	<li>MI Company Name Description, if other</li>
+					           	 </ul></li></ul>
+					           	 <p>If yes, provide the amount of MI this will drive the need for additional columns due to displaying the amount per change period until the MI is no longer required</p>
+					          </span>
+					 </span>
+					 <span class="required">*</span></span> 
 			        	<span class="col-sm-4 pull-left">
 			        		<select class="form-control" style="width: 80px;" 
 			        		ng-model="leformdata.loanDetail.miRequiredIndicator"
@@ -127,7 +161,14 @@
   				</td>
 		      </tr>
 		      <tr>
-		        <td><label>Escrow Payment Amount</label> 
+		        <td><label>Escrow Payment Amount <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>In every transaction, there will be an indication of Escrow present or NOT present in the transaction, IFIf there is an Escrow Account then a user would input the value in this row.</p>
+				           	 <p>Note that the system will input the value from the Section G. Initial Escrow Payment At Closing into this row for all columns there is no change of the amount per the CFPB regulation.</p>
+				          </span>
+				 </span>
+				</label> 
 		        </td>
 		        <td ng-repeat="estimatedEscrow in leformdata.projectedPayments.estimatedEscrow track by $index">
 		        	<div class="input-group">
@@ -138,7 +179,14 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	<label>Estimated Total Monthly Payment Amount</label> 
+		        	<label>Estimated Total Monthly Payment Amount
+		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+					        <b></b>	
+					         <span> 
+					           	 <p>Every Column will have a total for both the minimum amount and the maximum amount, this is not an editable field and the system provides the value to the user in the user interface.</p>
+					          </span>
+					 </span>
+					</label> 
 		        </td>
 		        <td ng-repeat="estimatedTotal in leformdata.projectedPayments.estimatedTotal track by $index">
 		        	<div class="col-sm-6">
