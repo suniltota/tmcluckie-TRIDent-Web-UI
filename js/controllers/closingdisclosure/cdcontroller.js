@@ -70,6 +70,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.salePriceAmount = 0;
     $scope.payOffTypeSelection = '';
     $scope.stepPaymentIndicator = false;
+    $scope.stepPaymentIndicatorValue = false;
     $scope.checkBorrower = false;
     $scope.interestRatePercent = 0;
     $scope.piAmount = 0;
@@ -1202,12 +1203,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.payoffsAndPaymentsList.splice(index,1);
     }
     $scope.amortizationChange = function(){
-    	if($scope.cdformdata.loanInformation.amortizationType == 'Step'){
-			$scope.stepPaymentIndicator = true;
-		} else {
-			$scope.stepPaymentIndicator = false;
-			$scope.cdformdata.interestRateAdjustment.totalStepCount = '';
-		} 
+    	 
     	if($scope.cdformdata.loanInformation.amortizationType == 'Fixed') {
     		$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = false;
     		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = false;
@@ -1276,7 +1272,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth = '';
     }
 
-    $scope.stepChange = function(){
+    $scope.stepChange = function(val){
+    	if(val==true){
+    		$scope.stepPaymentIndicator = true;
+    	}else{
+    		$scope.stepPaymentIndicator = false;
+    	}
+		$scope.cdformdata.interestRateAdjustment.totalStepCount = '';
     	$scope.cdformdata.payment.paymentRule.totalStepPaymentCount = '';
     }
 
