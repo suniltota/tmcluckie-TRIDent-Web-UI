@@ -188,6 +188,22 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			$scope.leformdata.loanInformation['loanTermYears'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.leformdata.loanInformation['loanTermMonths'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount%12;
 		}
+
+		 //Adding Form and Document types for AML & PDF Generation
+        $scope.leformdata.loanEstimateDocDetails.documentType='LoanEstimate';
+
+		if($scope.loanBasicInfo.loanFormType == 'standard'){
+        	$scope.leformdata.loanEstimateDocDetails.formType = 'StandardForm';
+        }else if($scope.loanBasicInfo.loanFormType == 'alternate'){
+        	$scope.leformdata.loanEstimateDocDetails.formType = 'AlternateForm';
+        }
+
+        if($scope.loanBasicInfo.loanPurposeType == 'purchase') {
+			$scope.leformdata.salesContractDetail.personalPropertyIndicator = false;
+		} else {
+			$scope.leformdata.transactionInformation.refinanceSameLenderIndicator = false;
+		}
+		
 		$scope.leformdata.closingInformationDetail.closingCostExpirationDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
 		$scope.closingCostExpirationDate=$scope.leformdata.closingInformationDetail.closingCostExpirationDate;
 		for (i = $scope.leformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 

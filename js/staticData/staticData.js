@@ -4745,12 +4745,11 @@ this.cdformdata={
 	/// Start leformdata
 	this.leformdata ={
 		
-		"closingDisclosureDocDetails":
+		"loanEstimateDocDetails":
 	    {
 	        "transactionType": "",
-	        "documentType": "",
-	        "formType": "",
-	        "escrowAggregateAccountingAdjustmentAmount": ""
+	        "documentType": "LoanEstimate",
+	        "formType": ""
 	    },
 	    "loanEstimateDocDetails":
 	    {
