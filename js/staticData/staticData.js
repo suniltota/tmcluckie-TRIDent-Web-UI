@@ -4970,7 +4970,9 @@ this.cdformdata={
 		    "firstYearTotalNonEscrowPaymentDescription": "",
 		    "integratedDisclosureHomeEquityLoanIndicator": false,
 		    "integratedDisclosureIssuedDate": "",
-		    "integratedDisclosureLoanProductDescription": ""
+		    "integratedDisclosureLoanProductDescription": "",
+		    "fiveYearTotalOfPaymentsComparisonAmount":"",
+            "fiveYearPrincipalReductionComparisonAmount":""
 		},
 		"negativeAmortization": {
 		    "negativeAmortizationLimitMonthsCount": "",
