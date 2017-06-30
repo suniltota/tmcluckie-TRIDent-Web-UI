@@ -3367,6 +3367,10 @@ app.service('staticData', function($filter){
         {
         	"name":"Month",
         	"value":"Month"
+        },
+        {
+         	"name":"Year",
+         	"value":"Year"
         }
     ];
 
