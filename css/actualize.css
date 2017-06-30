@@ -60,6 +60,9 @@ input, select, textarea, .form-control{font-size: 12px;}
 .helpIcon{font-size: 14px; color:#777;}
 .helpIcon + .tooltip .tooltip-arrow{border-right-color: #5bb1dc; }
 .helpIcon + .tooltip .tooltip-inner{background-color: #5bb1dc;}
+.helpIcon span{color: #555;}
+.helpIcon span ul{float: left; padding-left:15px;}
+.helpIcon span ul li{list-style-type:circle; float: left; padding:3px 0;}
 .tooltip-msg{
     outline: none;
     position: relative;
