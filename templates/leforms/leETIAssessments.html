@@ -12,23 +12,60 @@
 		        	<label>ETIA Items</label>
 		        </td>
 		        <td class="innerSectionHeader col-sm-3">
-		        	<label>Other Description  (if applicable)</label>
+		        	<label>Other Description  (if applicable) 
+		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>The user may enter one or many Other items, the purpose of adding many when the Loan Estimate only has one on the PDF if for support of the GSE requirements in the UCD XML file.</p>
+					          <ul><li>Format is a list of Enumerated values to choose
+								If other is Chosen, then the Description box will be enabled for the user to input the value.</li></ul>
+				          </span>
+				 </span>
+				</label>
 		        </td>
 		        <td class="innerSectionHeader col-sm-2">
-		        	<label>In Escrow?</label>
+		        	<label>In Escrow? 
+		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+					        <b></b>	
+					         <span> 
+					           	 <p>The user may select from a drop down whether the item is in an escrow account or not.</p>
+					           	 <ul><li>Format is a drop-down box with Yes or No.
+									Will default based on the information in Closing Cost Details Section G. Initial Escrow at Closing.
+								 </li></ul>
+					          </span>
+					 </span>
+					</label>
 		        </td>
 		      </tr>
 		      <tr ng-repeat="etia in leformdata.etiaSection.etiaValues track by $index">
 		      		<td rowspan="{{leformdata.etiaSection.etiaValues.length}}" style="vertical-align: middle;" ng-if="$index==0">
 		      			<label>$ {{leformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount | number:2}} </label>
-		      			<br>A month</br>
+		      			<br>A month</br><span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+					        <b></b>	
+					         <span> 
+					           <p>This amount is calculated via the Calculate button.</p>
+					          </span>
+					 </span>
+
 		      		</td>
 		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes'">
-			        	<span class="pull-left margin5tb">Property Taxes</span>
+			        	<span class="pull-left margin5tb">Property Taxes
+			        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+					        <b></b>	
+					         <span> 
+					           	 <p>The user may select neither, both or just one.</p>
+					          </span>
+					 </span>
+					</span>
 			        	<span class="col-sm-1 pull-right"><input type="checkbox" name="" ng-checked="leformdata.etiaSection.propertyTaxesCheck" ng-model="leformdata.etiaSection.propertyTaxesCheck" ng-disabled="etia.insuranceTaxCheck"></span>
 		      		</td>
 		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'">
-			        	<span class="pull-left margin5tb">Homeowners Insurance</span>
+			        	<span class="pull-left margin5tb">Homeowners Insurance <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+					        <b></b>	
+					         <span> 
+					           	 <p>The user may select neither, both or just one.</p>
+					          </span>
+					 </span></span>
 			        	<span class="col-sm-1 pull-right"><input type="checkbox" name="" ng-checked="leformdata.etiaSection.HomeownersInsuranceCheck" ng-model="leformdata.etiaSection.HomeownersInsuranceCheck" ng-disabled="etia.insuranceTaxCheck"></span>
 		      		</td>
 		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
@@ -61,7 +98,14 @@
 		      </tr>
 		    </tbody>
 		</table>
-		<div class="AddSection col-sm-12 text-center"><span ng-click="addETIAComponent()"><a>+ Add Additional Item</a></span></div>
+		<div class="AddSection col-sm-12 text-center"><span ng-click="addETIAComponent()"><a>+ Add Additional Item</a></span>
+			<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+		        <b></b>	
+		         <span> 
+		           	 <p>This link will all you to add another row to choose from the drop down and indicate if in escrow or not in escrow.</p>
+		          </span>
+		 </span>
+		</div>
 	</span>
 	<div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('projectedPayments')">Back</a></span>
