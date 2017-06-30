@@ -203,7 +203,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		} else {
 			$scope.leformdata.transactionInformation.refinanceSameLenderIndicator = false;
 		}
-		
+
 		$scope.leformdata.closingInformationDetail.closingCostExpirationDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
 		$scope.closingCostExpirationDate=$scope.leformdata.closingInformationDetail.closingCostExpirationDate;
 		for (i = $scope.leformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
@@ -1472,7 +1472,6 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    	$scope.results = false;
 	    }
 	}
-       $scope.leformdata.salesContractDetail.saleContractAmount = '';
     	$scope.leformdata.salePrice = '';
 	    $scope.leformdata.depositAmount = '';
 	    $scope.leformdata.sellerCreditsAmount = '';
