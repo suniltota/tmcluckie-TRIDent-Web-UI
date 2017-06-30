@@ -750,7 +750,7 @@
 					<div class="col-sm-10 fieldTitle">Does the loan have a Step payment feature?: <span class="required">*</span>
 					</div>
 					<div class="col-sm-2 padding0">
-						<select  class="form-control" ng-model="stepPaymentIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="stepChange()"/>
+						<select  class="form-control" ng-model="stepPaymentIndicatorValue" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="stepChange(stepPaymentIndicatorValue)"/>
 					</div>
 				</div>
 			</div>
@@ -758,7 +758,7 @@
 				<div class="FieldGroup">
 					<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Step feature will be in affect:</div>
 					<div class="col-sm-2 padding0">
-						<input type="text" class="form-control" name="" ng-model="leformdata.payment.paymentRule.totalStepPaymentCount" only-digits maxlength="3" ng-disabled="!stepPaymentIndicator">
+						<input type="text" class="form-control" name="" ng-model="leformdata.payment.paymentRule.totalStepPaymentCount" only-digits maxlength="3" ng-disabled="!stepPaymentIndicatorValue">
 					</div>
 				</div>
 			</div>
