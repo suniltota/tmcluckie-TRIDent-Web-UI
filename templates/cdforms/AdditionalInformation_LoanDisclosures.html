@@ -60,7 +60,8 @@
 		        			<span class="pull-left margin5tb col-sm-3">Late Fee if a Percent</span>
 		        			<span class="pull-left col-sm-3">
 		        				<div class="input-group">
-									<input type="text" class="form-control" name="" ng-model="cdformdata.lateChargeRule.lateChargeRatePercent" percentage-format>
+									<actualize-input ng-model="cdformdata.lateChargeRule.lateChargeRatePercent" name="lateChargeRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format">
+                					</actualize-input>
 									<span class="input-group-addon input-default">%</span>
 		        				</div>
 		        			</span>
@@ -70,7 +71,8 @@
 		        			<span class="pull-left col-sm-3">
 		        				<div class="input-group">
 									<span class="input-group-addon input-default">$</span>
-		        					<input type="text" class="form-control" name="" ng-model="cdformdata.lateChargeRule.lateChargeAmount" decimal-digits-with-number-format>
+		        					<actualize-input ng-model="cdformdata.lateChargeRule.lateChargeAmount" name="lateChargeAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount"  dependencies="decimal-digits-with-number-format">
+                					</actualize-input>
 		        				</div>
 		        			</span>
 		        	</span>
