@@ -75,36 +75,31 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<actualize-input ng-model="originationCharge.bpAtClosing" name="bpAtClosing" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)"  dependencies="decimal-digits-with-number-format">
-                	</actualize-input>
+                	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpAtClosing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<actualize-input ng-model="originationCharge.bpB4Closing" name="bpB4Closing" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)"  dependencies="decimal-digits-with-number-format">
-                	</actualize-input>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpB4Closing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<actualize-input ng-model="originationCharge.spAtClosing" name="spAtClosing" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)"  dependencies="decimal-digits-with-number-format">
-                	</actualize-input>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spAtClosing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
 		        </div>
 		        </td>
 		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group" >
 					<span class="input-group-addon input-default">$</span>
-		        	<actualize-input ng-model="originationCharge.spB4Closing" name="spB4Closing" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)"  dependencies="decimal-digits-with-number-format">
-                	</actualize-input>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spB4Closing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
 		        </div>
 		        </td>
 		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group" >
 					<span class="input-group-addon input-default">$</span>
-		        	<actualize-input ng-model="originationCharge.paidByOthers" name="paidByOthers" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)"  dependencies="decimal-digits-with-number-format">
-                	</actualize-input>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.paidByOthers" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
 		        </div>
 		        </td>
 		        <td class="text-center">
