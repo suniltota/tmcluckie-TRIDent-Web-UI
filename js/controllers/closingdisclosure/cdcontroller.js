@@ -1540,12 +1540,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
 
     $scope.addProjectedPayments = function(){
+    	var ppLength = $scope.cdformdata.projectedPayments.paymentCalculation.length;
     	if($scope.cdformdata.projectedPayments.paymentCalculation.length <= 3){
 	    	$scope.cdformdata.projectedPayments.paymentCalculation.push(angular.copy(paymentCalculation));
 			$scope.cdformdata.projectedPayments.principalInterest.push(angular.copy(principalInterest));
 			$scope.cdformdata.projectedPayments.mortgageInsurance.push(angular.copy(mortgageInsurance));
 			$scope.cdformdata.projectedPayments.estimatedEscrow.push(angular.copy(estimatedEscrow));
 			$scope.cdformdata.projectedPayments.estimatedTotal.push(angular.copy(estimatedTotal));
+			$scope.cdformdata.projectedPayments.estimatedEscrow[ppLength].projectedPaymentEstimatedEscrowPaymentAmount = $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount;
 	    }
     }
     $scope.deleteProjectedPayments = function(index){
@@ -3249,7 +3251,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             //Projected Payments Escrow Monthly Payment Amount
             if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!='MortgageInsurance'){
                escrowMonthlyAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount) : +0;
-               $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount = escrowMonthlyAmount ? parseFloat(escrowMonthlyAmount) : +0;
+               for(j=0;j<$scope.cdformdata.projectedPayments.estimatedEscrow.length;j++){
+               	$scope.cdformdata.projectedPayments.estimatedEscrow[j].projectedPaymentEstimatedEscrowPaymentAmount = escrowMonthlyAmount ? parseFloat(escrowMonthlyAmount) : +0;
+               }
             }
 
            
@@ -4110,7 +4114,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	for(i=0;i<$scope.cdformdata.projectedPayments.paymentCalculation.length;i++){
     		var estimatedTotalMinimumPayment = 0;
         	var estimatedTotalMaximumPayment = 0;
-
+            
         	//Minimum Payment Calculation
     		if($scope.cdformdata.projectedPayments.principalInterest[i].projectedPaymentPrincipalAndInterestMinimumPaymentAmount){
 	    		estimatedTotalMinimumPayment += parseFloat($scope.cdformdata.projectedPayments.principalInterest[i].projectedPaymentPrincipalAndInterestMinimumPaymentAmount);
