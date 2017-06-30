@@ -4755,15 +4755,6 @@ this.cdformdata={
 	        "documentType": "LoanEstimate",
 	        "formType": ""
 	    },
-	    "loanEstimateDocDetails":
-	    {
-	        "transactionType": "",
-	        "documentType": "",
-	        "formType": "",
-	        "escrowAggregateAccountingAdjustmentAmount": "",
-       		"escrowAggregateAccountingAdjustmentAmountSellerPaid" : "",
-            "escrowAggregateAccountingAdjustmentAmountOthersPaid" : ""
-	    },
 		"loanDetail": {
 		    "assumabilityIndicator": false,
 		    "balloonIndicator": false,
