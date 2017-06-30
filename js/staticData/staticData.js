@@ -5075,12 +5075,6 @@ this.cdformdata={
 	        "originationCharges":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
@@ -5100,12 +5094,6 @@ this.cdformdata={
 	        "sbDidNotShopFors":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
@@ -5125,12 +5113,6 @@ this.cdformdata={
 	        "sbDidShopFors":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
@@ -5176,12 +5158,6 @@ this.cdformdata={
 	        "tOGovtFeesList":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
@@ -5201,12 +5177,6 @@ this.cdformdata={
 	        "prepaidsList":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "gseDisplayLabelText": "",
 	                "displayLabelText": "",
 	                "feePaidToType": "ThirdPartyProvider",
@@ -5221,6 +5191,7 @@ this.cdformdata={
 	                "prepaidItemTypeOtherDescription": "",
 	                "regulationZPointsAndFeesIndicator": null,
 	                "paymentIncludedInAPRIndicator": false,
+			        "optionalCostIndicator": null,
 	                "prepaidPaidToFullName": "",
 	                "perDiemAmount":"",
 	                "numberOfDays":"",
@@ -5231,12 +5202,6 @@ this.cdformdata={
 	        "escrowItemsList":
 	        [
 	            {
-	               	"bpAtClosing": "",
-			        "bpB4Closing": "",
-			        "spAtClosing": "",
-			        "spB4Closing": "",
-			        "paidByOthers": "",
-			        "lenderStatus": false,
 			        "displayLabel": "",
 			        "escrowCollectedNumberOfMonthsCount": "",
 			        "escrowItemType": "",
@@ -5246,18 +5211,13 @@ this.cdformdata={
 			        "feePaidToTypeOtherDescription": "",
 			        "integratedDisclosureSectionType": "InitialEscrowPaymentAtClosing",
 			        "regulationZPointsAndFeesIndicator": null,
-			        "paymentIncludedInAPRIndicator": false
+			        "paymentIncludedInAPRIndicator": false,
+			        "optionalCostIndicator": null
 	            }
 	        ],
 	        "otherCostsList":
 	        [
 	            {
-	                "bpAtClosing": "",
-	                "bpB4Closing": "",
-	                "spAtClosing": "",
-	                "spB4Closing": "",
-	                "paidByOthers": "",
-	                "lenderStatus": false,
 	                "displayLabel": "",
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
