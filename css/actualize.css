@@ -137,7 +137,10 @@ input, select, textarea, .form-control{font-size: 12px;}
     border-top: 1px solid #bbb;
     border-right: 1px solid #bbb;
 }
-
+.helpIconLink {
+    padding-top: 4px;
+    padding-left: 5px;
+}
 .InputTooltip + .tooltip{min-width: 200px;}
 .InputTooltip + .tooltip.right .tooltip-arrow{border-right-color:#e49319; }
 .InputTooltip + .tooltip.top .tooltip-arrow{border-top-color:#e49319; }
