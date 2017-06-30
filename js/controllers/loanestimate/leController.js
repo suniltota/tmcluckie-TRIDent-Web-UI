@@ -2927,6 +2927,20 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	   	}
     }, true);
 
+    // $scope.$watch('leformdata.integratedDisclosureDetail',function(newValue,oldValue){
+    //     if(leformdata.integratedDisclosureDetail){ 
+    //        $scope.leformdata.integratedDisclosureDetail.fiveYearTotalOfPaymentsComparisonAmount = parseFloat(leformdata.integratedDisclosureDetail.fiveYearTotalOfPaymentsComparisonAmount);
+    //        $scope.leformdata.integratedDisclosureDetail.fiveYearPrincipalReductionComparisonAmount = parseFloat(leformdata.integratedDisclosureDetail.fiveYearPrincipalReductionComparisonAmount);
+    //    }
+    // },true);
+
+    // $scope.$watch('leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel',function(newValue,oldValue){
+    //    if(leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel){ 
+    //     $scope.leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent = $scope.leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent;
+    //     $scope.leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent = $scope.leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent;
+    //    }
+    // },true);
+    
     $scope.$watch('leformdata.micIdentifier',function(newValue,oldValue){
     	if($scope.leformdata.micIdentifier) {
     		$scope.leformdata.loanDetail.miRequiredIndicator = true;
@@ -2962,6 +2976,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		   $scope.leformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing*-1); 
         }
     },true);
+
+    
 
     $scope.leformdata.etiaSection['propertyTaxesCheck'] = false;
     $scope.leformdata.etiaSection['HomeownersInsuranceCheck'] = false;

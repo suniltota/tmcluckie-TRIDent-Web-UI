@@ -1,5 +1,5 @@
  <div class="col-sm-12">
-	<h4>Comparison </h4>
+	<h4>Comparison </h4> 
 	<span class="col-sm-12 LoanTermsTable">
 		<table class="table">
 		    <thead>
@@ -15,12 +15,13 @@
 		        <td><label>In 5 Years </label></td>
 		        <td>
 		        	<div class="input-group">
-  							<input class="form-control" ng-model="leformdata.integratedDisclosureDetail.fiveYearTotalOfPaymentsComparisonAmount" percentage-format>
-  							<span class="input-group-addon input-default">%</span>
+		        	        <span class="input-group-addon input-default">$</span>
+  							<input class="form-control" ng-model="leformdata.integratedDisclosureDetail.fiveYearTotalOfPaymentsComparisonAmount" decimal-digits-with-number-format>
 		        	</div>
 		        	<div class="input-group margin10t">
-  							<input class="form-control" ng-model="leformdata.integratedDisclosureDetail.fiveYearPrincipalReductionComparisonAmount" percentage-format>
-  							<span class="input-group-addon input-default">%</span>
+		        			<span class="input-group-addon input-default">$</span>
+  							<input class="form-control" ng-model="leformdata.integratedDisclosureDetail.fiveYearPrincipalReductionComparisonAmount" decimal-digits-with-number-format>
+  							
 		        	</div>
 		        </td>
 		        <td class="col-sm-1">
