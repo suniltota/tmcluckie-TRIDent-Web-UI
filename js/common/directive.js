@@ -287,6 +287,14 @@ app.directive('negativeDigits', function ($filter) {
           return undefined;
         }            
         ctrl.$parsers.push(inputValue);
+        element.on('blur', function (e) {
+            var elementValue = e.target.value;
+            if(elementValue) {
+              elementValue = elementValue.replace(/[^0-9.]/g, '');
+              e.target.value = $filter('number')(elementValue, 2);
+              scope.$apply();
+            }
+        });
       }
     };
 });
@@ -395,23 +403,29 @@ app.directive('decimalDigitsWithNumberFormatAllowNegative', function ($compile, 
                 }
                 digits = decimalSplitValues[0] + "." +decimalSplitValues[1];
             } else {
-              if( digits.length>9)
-                digits = digits.substring(0, 9);
-              viewValue = $filter('number')(digits);
+              if(digits.length==1 && digits.charAt(0)=='-') {
+                viewValue = digits;
+              } else {
+                if( digits.length>9)
+                  digits = digits.substring(0, 9);
+                viewValue = $filter('number')(digits);
+              }
             }
             ctrl.$setViewValue(viewValue);
             ctrl.$render();
-
+            if(digits.length==1 && digits.charAt(0)=='-') {
+              return parseFloat(0).toFixed(2);
+            }
             return parseFloat(digits).toFixed(2);
           }
           return undefined;
-        }            
+        }
         ctrl.$parsers.push(inputValue);
 
         element.on('blur', function (e) {
             var elementValue = e.target.value;
             if(elementValue) {
-              elementValue = elementValue.replace(/[^0-9.]/g, '');
+              elementValue = elementValue.replace(/[^0-9.-]/g, '');
               e.target.value = $filter('number')(elementValue, 2);
               scope.$apply();
             }
