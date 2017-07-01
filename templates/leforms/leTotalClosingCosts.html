@@ -11,13 +11,40 @@
 				<th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center ng-binding col-sm-3">Paid By Others</th>
 			  </tr> -->
               <tr>
-                <th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader" colspan="1"><strong>Section J. Total Closing Costs</strong></th>	  	
+                <th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader" colspan="1"><strong>Section J. Total Closing Costs</strong>
+                	<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>Each Section in the Closing Cost Details is highlighted at the top of the section.</p>
+				           	 <ul><li>This section is called “Total Closing Costs”</li></ul>
+				          </span>
+				 </span>
+
+                </th>	  	
 				<!-- <th colspan="2" style="" class="innerSectionHeader innerSectionMainHeader text-center">${{leformdata.closingCostsTotal.totalClosingCosts | number:2}}</th> -->
-				<th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader" colspan="1"> ${{leformdata.closingCostsTotal.totalClosingCosts | number:2}}</th>
+				<th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader" colspan="1"> ${{leformdata.closingCostsTotal.totalClosingCosts | number:2}}
+				<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>This provides the user an ability to view the total amount of all Closing Costs </p>
+				           	 <ul><li>Un-editable field.</li>
+				           	 <li>Is a calculation within the system that sums all for a total amount</li></ul>
+				          </span>
+				 </span>
+
+				</th>
 			  </tr>
 
                <tr>
-                <td  class="  text-center"><strong>Closing Costs Subtotal (D + I)</strong></td>
+                <td  class="  text-center"><strong>Closing Costs Subtotal (D + I)</strong> 
+                <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>Describes the amount of Loan Costs + Other Cost </p>
+				           	 <ul><li>Label is D+I </li></ul>
+				          </span>
+				 </span>
+				</td>
 				<td style="width: 12.5%;" class="text-center" >${{leformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing | number:2}}</td>
 				<!-- <td style="width: 12.5%;" class="text-center">${{leformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing | number:2}}</td>
 				<td style=" width: 12.5%;" class="  text-center">${{leformdata.closingCostsTotal.closingCostsSubtotal.spAtClosing | number:2}}</td>
@@ -25,7 +52,15 @@
                 <td style="" class="text-center">${{leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers | number:2}}</td> -->
 			  </tr>
               <tr>
-                <td class="text-center"><strong>Lender Credits</strong></td>	  	
+                <td class="text-center"><strong>Lender Credits</strong> 
+                <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+				        <b></b>	
+				         <span> 
+				           	 <p>The amount of lender credits if known</p>
+				           	 <ul><li>Value is provided as a negative amount</li></ul>
+				          </span>
+				 </span>
+				</td>	  	
 				<td  class="text-center">
 					<span class="margin5tb col-sm-12 padding0">
 						<div class="input-group">
