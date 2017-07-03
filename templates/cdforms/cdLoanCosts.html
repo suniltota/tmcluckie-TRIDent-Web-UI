@@ -103,7 +103,7 @@
 		        </div>
 		        </td>
 		        <td class="text-center">
-		        	<input type="checkbox" name="" ng-model="originationCharge.lenderStatus" ng-change="sectionAZIndicator($index)" ng-click="sectionAZIndicator($index)">
+		        	<input type="checkbox" name="" ng-model="originationCharge.lenderStatus" ng-change="sectionAZIndicator($index)" ng-click="sectionAZIndicator($index)" ng-disabled="originationCharge.paidByOthers==''||originationCharge.paidByOthers==null || originationCharge.paidByOthers=='0' || originationCharge.paidByOthers=='0.00'">
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="originationCharge.paymentIncludedInAPRIndicator"
