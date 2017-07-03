@@ -28,9 +28,9 @@
                 	<b></b>
                    <span> <p>The date the integrated disclosure was mailed or delivered to the borrower as reflected on a single instance of the integrated disclosure document.</p>
 					<ul> 
-						<li>• Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date.</li> 
-						<li>• There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated Loan Estimate document from the past.</li>
-						<li>• Is a Required field</li>
+						<li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date.</li> 
+						<li>There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated Loan Estimate document from the past.</li>
+						<li>Is a Required field</li>
 					</ul>
 				   </span>
                 </span>
@@ -78,10 +78,10 @@
 				                	<b></b>
 				                   <span> In any transaction, the subject property location must be made clear and concise on the Loan Estimate, thus the user interface provides two options: 
 									<ul>
-									    <li>• Street Address</li>
-										<li>• The format is a Dollar amount in $9.2
+									    <li>Street Address</li>
+										<li>The format is a Dollar amount in $9.2
 											Legal Description, use if no street address exists.</li>
- 										<li>• The format is a Dollar amount in $9.2
+ 										<li>The format is a Dollar amount in $9.2
 										The function requires that a radio button is chosen to indicate one or the other as this field is required.</li>
 									</ul>
 								   </span>
@@ -113,7 +113,7 @@
 				                <span>
 				                	<b></b>
 				                   <span> The full, unparsed legal description of a parcel of real property.
-   									 <ul> <li>•	The format is a Dollar amount in $9.2
+   									 <ul> <li>The format is a Dollar amount in $9.2
 										Must be in a format of a String value with no more than 150 characters</li></ul>
 
 								   </span>
@@ -131,7 +131,7 @@
 				                <span>
 				                	<b></b>
 				                   <span> The name of the city.
-   									 <ul> <li>•	Must be in a format of a String value with no more than 50 characters format is a string Value with a character limit of 50 characters.</li></ul>
+   									 <ul> <li>Must be in a format of a String value with no more than 50 characters format is a string Value with a character limit of 50 characters.</li></ul>
 
 								   </span>
 				                </span>
@@ -160,14 +160,16 @@
 		          <div class="row margin5tb">
 		            <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Postal Code 
+		              <span class="required">*</span>
 		              <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
 				                <span>
 				                	<b></b>
 				                   <span> The postal code (ZIP Code in the US) for the address. ZIP Code may be either 5 or 9 digits.
-                                     <ul> <li>• This value is required regardless if of other property Information is available.</li></ul>
+                                     <ul> <li>This value is required regardless if of other property Information is available.</li></ul>
 								   </span>
 				                </span>
-				            </span><span class="required">*</span></div>
+				            </span>
+				            </div>
 		              <div class="col-sm-7"><input type="text" ng-model="leformdata.closingInformation.property.postalCode" class="form-control" zipcode-format></div>
 		            </div>
 		          </div>
@@ -181,7 +183,7 @@
 			                <span>
 			                	<b></b>
 			                   <span> In a  purchase transaction must provide the Sales Price of the Subject property that the Loan Estimate is supporting.
-                                 <ul> <li>•	The format is an amount that cannot exceed $9.2</li></ul>
+                                 <ul> <li>The format is an amount that cannot exceed $9.2</li></ul>
 							   </span>
 			                </span>
 			            </span></div>
@@ -202,9 +204,9 @@
 				                <span>
 				                	<b></b>
 				                   <span> If the transaction is a Refinance, choose from the drop-down menu  selectthen select either the Appraised Property Value or the Estimated Property Value
-                                     <ul> <li>•	See the CFPBs Integrated Mortgage Disclosure regulation to determine which one to choose.</li>
-                                     <li>• The Default is the Appraised Property Value.</li>
-                                     <li>• The format is a set of enumerated values seen in the drop-down box</li></ul>
+                                     <ul> <li>See the CFPBs Integrated Mortgage Disclosure regulation to determine which one to choose.</li>
+                                     <li>The Default is the Appraised Property Value.</li>
+                                     <li>The format is a set of enumerated values seen in the drop-down box</li></ul>
 								   </span>
 				                </span>
 				            </span>
@@ -215,12 +217,13 @@
 		              			<option value="Estimated">Estimated Property Value</option>
 		              		</select>
 		              	</div>
-		              	<span class="col-sm-1 glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
+		              	<span class="col-sm-1 glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg
+		              	top" ng-mouseouver >
 				                <span>
 				                	<b></b>
 				                   <span> Provide the Statement of value of the property from a valid property valuation source
-                                     <ul> <li>•	This amount is different than the estimated property value amount</li>
-                                     <li>• The format is a Dollar amount in $9.2</li></ul>
+                                     <ul> <li>This amount is different than the estimated property value amount</li>
+                                     <li>The format is a Dollar amount in $9.2</li></ul>
 								   </span>
 				                </span>
 				            </span>
