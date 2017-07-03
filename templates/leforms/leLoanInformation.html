@@ -7,7 +7,7 @@
 				<div class="col-sm-5 fieldTitle margin5t">Loan Term:</div>
 				<div class="col-sm-7 padding0">
 					<div class="col-sm-12 padding0 paddingtop6">
-						<div class="col-sm-6 padding0 paddingtop7">No. Years
+						<div class="col-sm-7 padding0 paddingtop7">No. Years
 						<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
 						        <b></b>	
 						         <span> 
@@ -17,12 +17,12 @@
 						          </span>
 						 </span>
 						</div>
-						<div class="col-sm-6 padding0">
+						<div class="col-sm-5 padding0">
 							<input type="text" class="form-control" name="" ng-model="leformdata.loanInformation.loanTermYears">
 						</div>
 					</div>
 					<div class="col-sm-12 padding0 margin5tb paddingtop11">
-						<div class="col-sm-6 padding0 paddingtop5">No. Months
+						<div class="col-sm-7 padding0 paddingtop5">No. Months
 						<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
 						        <b></b>	
 						         <span> 
@@ -33,7 +33,7 @@
 						          </span>
 						 </span>
 						</div>
-						<div class="col-sm-6 padding0">
+						<div class="col-sm-5 padding0">
 							<input type="text" class="form-control" name="" ng-model="leformdata.loanInformation.loanTermMonths" only-digits maxlength="3">
 						</div>
 					</div>
@@ -110,7 +110,7 @@
 		
 		<div class="col-sm-12 row margin5tb">
 			<div class="col-sm-4">
-				<div class="col-sm-6 fieldTitle paddingtop0 margin5tb">Lender Loan Identifier 
+				<div class="col-sm-7 fieldTitle paddingtop0 margin5tb">Lender Loan Identifier 
 				<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
 				        <b></b>	
 				         <span> 
@@ -121,13 +121,13 @@
 				 </span>
 				<span class="required">*</span>
 				</div>
-				<div class="col-sm-6 padding0" ng-repeat="loanIdentifier in leformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
+				<div class="col-sm-5 padding0" ng-repeat="loanIdentifier in leformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
 					<input type="text" class="form-control" name="lenderLoanIdentifier" ng-model="loanIdentifier.loanIdentifier">
 				</div>
 			</div>
 			<div class="col-sm-4">
 				<div class="col-sm-12 padding0">
-					<div class="col-sm-4 padding0 fieldTitle paddingtop0 margin5tb">Rate Locked? <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+					<div class="col-sm-5 padding0 fieldTitle paddingtop0 margin5tb">Rate Locked? <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
 					        <b></b>	
 					         <span> 
 					           	 <p>The Rate Locked indicator is required information, 
