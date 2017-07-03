@@ -4,7 +4,7 @@
   <div class="col-sm-12 padding0" ng-repeat= "borrower in leformdata.transactionInformation.borrowerDetails track by $index">
     <h5 class="innerSectionHeader">Applicant Information 
       <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="borrower.checkBorrower" ng-click="sameBorrower($index)"> Same as 1<sup>st</sup> Applicant Address</span>
-      <span class="glyphicon glyphicon-trash pull-right red  RemoveSection margin5tb" ng-click="removeBorrower($index)" ng-show="$index != 0"> <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver>
+      <span class="glyphicon glyphicon-trash pull-right red  RemoveSection" ng-click="removeBorrower($index)" ng-show="$index != 0"> <span class="glyphicon glyphicon-question-sign helpIcon margin5n tooltip-msg" ng-mouseouver>
                       <b></b>
                       <span> 
                             <p>A link that, when selected, will remove an added Applicant section in the user interface, if any data I input when removing this will remove all information.
@@ -198,10 +198,10 @@
             </div>
           </div>
         </div>
-  </div>
+  </div> 
    <div class="col-sm-12">
        <span class="AddSection" ng-click="addBorrower()">
-       <a>+ Add Additional Applicant </a></span> <span class="glyphicon glyphicon-question-sign helpIcon tooltip-msg helpIconLink" ng-mouseouver>
+       <a>+ Add Additional Applicant </a></span> <span class="glyphicon glyphicon-question-sign helpIcon paddingTopLeft10 tooltip-msg " ng-mouseouver>
                       <b></b>
                       <span> 
                             <p>A link that, when selected, will add another section in the User Interface to add another Applicant to the transaction.
