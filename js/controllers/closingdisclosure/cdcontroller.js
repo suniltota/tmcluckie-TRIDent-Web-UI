@@ -1139,6 +1139,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	 }
     }
 
+    $scope.updateProjectedPaymentsMI = function () {
+    	if(!$scope.cdformdata.loanDetail.miRequiredIndicator) {
+    		for(var i=0; i<$scope.cdformdata.projectedPayments.mortgageInsurance.length;i++) {
+    			$scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount = '0';
+    		}
+    	}
+    }
+
 	$scope.addETIAComponent = function(){
 		$scope.cdformdata.etiaSection.etiaValues.push(angular.copy(ETIAComponentType));
 		$scope.cdformdata.etiaSection.total = $scope.cdformdata.etiaSection.etiaValues.length;
@@ -1202,8 +1210,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.deletePayoff = function(index){
     	$scope.payoffsAndPaymentsList.splice(index,1);
     }
-    $scope.amortizationChange = function(){
-    	 
+    $scope.amortizationChange = function(){ 
     	if($scope.cdformdata.loanInformation.amortizationType == 'Fixed') {
     		$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = false;
     		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = false;
@@ -1215,6 +1222,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent = '';
     		$scope.cdformdata.interestRateAdjustment.floorRatePercent = '';
     	} else {
+    		if($scope.cdformdata.loanInformation.amortizationType == 'Step') {
+    			$scope.stepPaymentIndicatorValue = true;
+    		}
     		if($scope.cdformdata.loanInformation.amortizationType == '') {
 	    		$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = false;
 	    		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = false;
@@ -2398,6 +2408,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	}
     }
 
+    $scope.updateOptionalPaymentMonthsCount = function() {
+    	if($scope.cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount) {
+    		$scope.cdformdata.payment.paymentRule.totalOptionalPaymentCount = $scope.cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount;
+    	}
+    }
+
     $scope.calculatePayments = function() {
     	$("#spinner").show();
     	cdService.genearateXmlFromJson($scope.cdformdata, false).success(function(xmldata){
@@ -2704,6 +2720,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.$watch('cdformdata.loanDetail.negativeAmortizationIndicator', function(newValue, oldValue){
     	if($scope.cdformdata.loanDetail.negativeAmortizationIndicator) {
     		$scope.cdformdata.loanDetail.loanAmountIncreaseIndicator = true;
+    		$scope.cdformdata.payment.paymentRule.paymentOptionIndicator = true;
     	}
     	else {
     		$scope.cdformdata.loanDetail.loanAmountIncreaseIndicator = false;

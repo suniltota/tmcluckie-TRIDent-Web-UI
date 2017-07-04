@@ -82,7 +82,7 @@
   							<span class="input-group-addon input-default">%</span>
 		        	</div>
 		        </td>
-		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.interestRateIncreaseIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.interestRateIncreaseIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="true">
 		        	</select>
 		        </td>
 		        <td>
@@ -234,7 +234,7 @@
                 		</actualize-input>
 		        	</div>
 		        </td>
-		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.paymentIncreaseIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="principalAndInterestChange()">
+		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.paymentIncreaseIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="true">
 		        	</select>        	
 		        </td>
 		        <td>

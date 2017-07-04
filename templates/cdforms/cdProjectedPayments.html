@@ -3,43 +3,14 @@
 	<span class="col-sm-12 LoanTermsTable">
 		<div class="margin5tb pull-right" ng-show="cdformdata.projectedPayments.paymentCalculation.length<=3">
 			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns</a>
-			<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The Projected Payment section is driven off several pieces of information:</p>
-			           	 <ul><li>Product Description – Amortization Type if Fixed then typically only one column or multiple columns of the Amortization Type is Adjustable Rate (ARM) or Not Fixed</li>
-			           	 <li>Upload of multiple instances of data will automatically provide the additional columns with values</li></ul>
-			           	 <p>If the user is manual data entry and requires additional columns, then the user may click on the Add Additional Column Link that will add 3 additional columns one at time up to a total of total columns.</p>
-			          </span>
-			 </span>
 		</div>
 		<table class="table" style="margin-top:15px;">
 		      <tr>
 		        <th class="col-sm-3 innerSectionHeader">Payment Calculations</th>
 		        <th class="innerSectionHeader" ng-class="{'col-sm-9': cdformdata.projectedPayments.paymentCalculation.length == 1, 'col-sm-4': cdformdata.projectedPayments.paymentCalculation.length == 2, 'col-sm-3': cdformdata.projectedPayments.paymentCalculation.length == 3, 'col-sm-2': cdformdata.projectedPayments.paymentCalculation.length == 4 }"
 		        	ng-repeat="paymentCalculation in cdformdata.projectedPayments.paymentCalculation track by $index">
-		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Each column must be expressed in whole years.</p>
-				           	 <ul><li>Years 1 - 30</li><li>Years 1 -   5, etc.….</li></ul>
-				           	 <p>Whole years are defined as twelve-month intervals that begin on the due date of the initial periodic payment. When the same Estimated Total Periodic Payment amount is valid for several years before a payment change event occurs, then that Year Range is identified as a column heading. </p>
-				           	 <p>The entire loan term must be represented by the Year Range Columns that can only have a maximum of 4 columns in the transaction.</p>
-				           	 <p>See the Know Before You Owe regulation for the rules of what drives a payment adjustment.</p>
-				          </span>
-				 </span></span>
-		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Year
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Each column must be expressed in whole years.</p>
-				           	 <ul><li>Years 1 - 30</li><li>Years 1 -   5, etc.….</li></ul>
-				           	 <p>Whole years are defined as twelve-month intervals that begin on the due date of the initial periodic payment. When the same Estimated Total Periodic Payment amount is valid for several years before a payment change event occurs, then that Year Range is identified as a column heading. </p>
-				           	 <p>The entire loan term must be represented by the Year Range Columns that can only have a maximum of 4 columns in the transaction.</p>
-				           	 <p>See the Know Before You Owe regulation for the rules of what drives a payment adjustment.</p>
-				          </span>
-				 </span></span>
+		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years</span>
+		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Year</span>
 		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodStartNumber" style="text-align: center"></span>
 		        	<span class="pull-left" style="margin:5px;">-</span>
 		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodEndNumber" style="text-align: center"></span>
@@ -47,15 +18,7 @@
 		        </th>
 		      </tr>
 		      <tr>
-		        <td><label>Principal &amp; Interest Payment
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>In each column (1-4) a Minimum amount and Maximum amount text boxes are available to the user for input.</p>
-				           	 <ul><li>Minimum Amount - The minimum amount of the principal and interest payment during the projected payment period. Typically this is not used for the first column due to any fixed periods would be identified in the first period.</li>
-				           	 <li>Maximum Amount - The maximum amount of the principal and interest payment during the projected payment period.</li></ul>
-				          </span>
-				 </span></label></td>
+		        <td><label>Principal &amp; Interest Payment</label></td>
 		        <td ng-repeat="principalInterest in cdformdata.projectedPayments.principalInterest track by $index">
 		        	<div class="col-sm-6 padding0" style="padding-right:8px;">
 		        			<div class="col-sm-12 text-center" style="position:relative;">Minimum	<span class="pull-right" style="right:-10px; position:absolute; top:-2px;">-</span>
@@ -79,52 +42,35 @@
 		      </tr>
 		      <tr>
 		        <td><label>Mortgage Insurance</label> 
-			        <div class="col-sm-12 padding0 margin5tb">
-			        	<span class="col-sm-6 padding0">Is Required?<span class="required">*</span>
-			        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-						        <b></b>	
-						         <span> 
-						           	 <p>This information is required for every transaction, must identify if there is MI present in the transaction.</p>
-						           	 <ul><li>If NO, then nothing else needs to be done</li>
-						           	 <li>If Yes, provide the following information that is found under the Mortgage Insurance Label in the far-left column
-						           	 <ul><li>No. Months Duration?</li>
-						           	 <li>Scheduled Termination Date</li>
-						           	 <li>MI Company Name </li>
-						           	 <li>MI Company Name Description, if other</li></ul>
-						           	 </li>
-						           	 <li>If yes, provide the amount of MI this will drive the need for additional columns due to displaying the amount per change period until the MI is no longer required.</li></ul>
-						          </span>
-						 </span></span> 
+			        <!--<div class="col-sm-12 padding0 margin5tb">
+			        	<span class="col-sm-6 padding0">Is Required?<span class="required">*</span></span> 
 			        	<span class="col-sm-6 pull-right">
-			        		<select class="form-control"
-			        		ng-model="cdformdata.loanDetail.miRequiredIndicator"
+			        		<select class="form-control" ng-model="cdformdata.loanDetail.miRequiredIndicator"
 		              		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 			        		</select>
-			        	</span> 
+			        	</span>
 			        </div>
 			        <div ng-show="cdformdata.loanDetail.miRequiredIndicator">
 				        <div class="col-sm-12 padding0 margin5tb">
 				        	<span class="col-sm-6 padding0">MI Payment Amount</span> 
 				        	<span class="col-sm-6 pull-right">
-				        	<div class="input-group">
-  								<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-				        		<actualize-input ng-model="cdformdata.projectedPayments.miPaymentAmount" name="miPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
-                				</actualize-input>
-				        	</div>
+					        	<div class="input-group">
+	  								<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
+					        		<actualize-input ng-model="cdformdata.projectedPayments.miPaymentAmount" name="miPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+	                				</actualize-input>
+					        	</div>
 				        	</span> 
 				        </div>
 				        <div class="col-sm-12 padding0 margin5tb">
 				        	<span class="col-sm-6 padding0">Scheduled Termination Date</span> 
 				        	<span class="col-sm-6 pull-right">
-				        			<span class="col-sm-10 padding0">
-				        				<input type="text" name="ScheduledTermDate" id="ScheduledTermDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.projectedPayments.miSTDate" is-open="isScheduledTermDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.projectedPayments.miSTDate" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
-				        			</span>
-				        			<span class="input-group-btn col-sm-2 padding0">
-		      								<button type="button" class="btn btn-default calenderBtn" ng-click="isScheduledTermDate = !isScheduledTermDate"><i class="glyphicon glyphicon-calendar"></i></button>
-		      						</span>
-							</span>  
-        				</span>
-				        	</span> 
+				        		<span class="col-sm-10 padding0">
+				        			<input type="text" name="ScheduledTermDate" id="ScheduledTermDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.projectedPayments.miSTDate" is-open="isScheduledTermDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.projectedPayments.miSTDate" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+				        		</span>
+				        		<span class="input-group-btn col-sm-2 padding0">
+		      						<button type="button" class="btn btn-default calenderBtn" ng-click="isScheduledTermDate = !isScheduledTermDate"><i class="glyphicon glyphicon-calendar"></i></button>
+		      					</span>
+							</span>
 				        </div>
 				        <div class="col-sm-12 padding0 margin5tb">
 				        	<span class="col-sm-6 padding0">MI Company Name</span> 
@@ -142,25 +88,17 @@
 				        		<input type="text" class="form-control" name="" ng-model="cdformdata.miDataDetail.miCompanyNameTypeOtherDescription">
 				        	</span> 
 				        </div>
-			        </div>
+			        </div>-->
 		        </td>
 		        <td ng-repeat="mortgageInsurance in cdformdata.projectedPayments.mortgageInsurance track by $index">
 					<div class="input-group">
 						<span class="input-group-addon input-default">$</span>
-						<actualize-input ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" name="projectedPaymentMIPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
-                				</actualize-input>
+						<actualize-input ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" name="projectedPaymentMIPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format"></actualize-input>
 					</div>
   				</td>
 		      </tr>
 		      <tr>
-		        <td><label>Escrow Payment Amount
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>In every transaction, there will be an indication of Escrow present or NOT present in the transaction, If there is an Escrow Account then a user would input the value in this row.</p>
-			           	 <p>Note that the system will input the value from the Section G. Initial Escrow Payment At Closing into this row for all columns there is no change of the amount per the CFPB regulation.</p>	
-			          </span>
-			 </span></label> 
+		        <td><label>Escrow Payment Amount</label> 
 		        </td>
 		        <td ng-repeat="estimatedEscrow in cdformdata.projectedPayments.estimatedEscrow track by $index">
 		        	<div class="input-group">
@@ -179,13 +117,7 @@
 				              		ng-options="frequency.value as frequency.name for frequency in paymentFrequencyTypes">
 				        		</select>
 				        		</span>
-				        	<span class="pull-left margin5tb">Payment Amount</span> 
-				        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
-					         <span> 
-					           	 <p>Every Column will have a total for both the minimum amount and the maximum amount, this is not an editable field and the system provides the value to the user in the user interface.</p>
-					          </span>
-					 </span></label>
+				        	<span class="pull-left margin5tb">Payment Amount</span></label>
 		        </td>
 		        <td ng-repeat="estimatedTotal in cdformdata.projectedPayments.estimatedTotal track by $index">
 		        	<div class="col-sm-6">

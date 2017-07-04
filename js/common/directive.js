@@ -644,7 +644,7 @@ app.directive('actualizeInput', function($compile, $sce) {
       if(attr.type != undefined && attr.type == "date"){
         template += '<input type="text" id="input_'+attr.id+'" uib-datepicker-popup="'+attr.dateformat+'" ng-change="'+attr.ngChange+'"  ng-blur="'+attr.ngBlur+'" ng-model="'+attr.ngModel+'" min-date="'+attr.minDate+'" is-open="'+attr.isOpen+'" datepicker-options="dateOptions" ng-required="'+attr.ngRequired+'" close-text="Close" placeholder="'+attr.placeholder+'" name="'+attr.name+'" class="form-control InputTooltip calenderInput" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
       }else{
-        template += '<input type="text" ng-model="'+attr.ngModel+'" ng-blur="'+attr.ngBlur+'" ng-keyup="'+attr.ngKeyup+'" maxlength="'+attr.maxlength+'" name="'+attr.name+'" class="form-control InputTooltip" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
+        template += '<input type="text" ng-model="'+attr.ngModel+'" ng-blur="'+attr.ngBlur+'" ng-keyup="'+attr.ngKeyup+'" ng-change="'+attr.ngChange+'" maxlength="'+attr.maxlength+'" name="'+attr.name+'" class="form-control InputTooltip" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
       }
 
       if(attr.dependencies)
