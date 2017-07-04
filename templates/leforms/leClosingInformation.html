@@ -43,6 +43,8 @@
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
 					<input type="text" name="dateIssued" id="dateIssued" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.closingInformation.dateIssued" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" disabled/>
+					<!-- <actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="leformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isDateIssued" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                </actualize-input> -->
 				</span>
       			<!-- <span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -60,7 +62,10 @@
             </span></div>
 			<div class="col-sm-7">
 				<span class="col-sm-9 padding0">
-				<input type="text" name="closingCostExpirationDate" id="closingCostExpirationDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="closingCostExpirationDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" min-date="leformdata.closingInformation.dateIssued" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+				<!-- <input type="text" name="closingCostExpirationDate" id="closingCostExpirationDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="closingCostExpirationDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" min-date="leformdata.closingInformation.dateIssued" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/> -->
+
+				<actualize-input name="closingCostExpirationDate" id="closingCostExpirationDate" dateFormat="{{dateFormat}}" ng-model="closingCostExpirationDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" min-date="leformdata.closingInformation.dateIssued" is-open="isDateIssued" toolTipPos = "top" custommessage="Please enter a vaild date. Closing expiration Date cannot occur prior to Issue Date." placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                </actualize-input>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -170,7 +175,9 @@
 				                </span>
 				            </span>
 				            </div>
-		              <div class="col-sm-7"><input type="text" ng-model="leformdata.closingInformation.property.postalCode" class="form-control" zipcode-format></div>
+		              <div class="col-sm-7">
+		              <actualize-input ng-model="leformdata.closingInformation.property.postalCode" name="postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format" ></actualize-input>
+		              </div>
 		            </div>
 		          </div>
 		</div>
@@ -190,7 +197,7 @@
 	              	<div class="col-sm-7 radioGroup">
 					   	 <div class="input-group">
 								<span class="input-group-addon input-default">$</span>
-	        				<input type="text" class="form-control" ng-model="leformdata.salesContractDetail.saleContractAmount" decimal-digits-with-number-format>
+	        				<actualize-input name="saleContractAmount" ng-model="leformdata.salesContractDetail.saleContractAmount" dependencies="decimal-digits-with-number-format" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ></actualize-input>
 	        			</div>
 					</div>
 	             </div>
@@ -230,8 +237,9 @@
 		              	<div class="col-sm-5">
 		              		<div class="input-group">
 		  						<span class="input-group-addon input-default">$</span>
-				        		<input class="form-control" ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'" ng-model="leformdata.closingInformation.propertyValuationDetail.propertyValuationAmount" decimal-digits-with-number-format></input>
-				        		<input class="form-control" ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated'"  ng-model="leformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount" decimal-digits-with-number-format></input>
+				        		<actualize-input ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'" ng-model="leformdata.closingInformation.propertyValuationDetail.propertyValuationAmount" toolTipPos = "top" name="propertyValuationAmount" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format"></actualize-input>
+				        		<!-- <input class="form-control" ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated'"  ng-model="leformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount" decimal-digits-with-number-format></input> -->
+				        		<actualize-input ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated'" ng-model="leformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount" name="propertyEstimatedValueAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format"></actualize-input>
 				        	</div>
 		              </div>
 		             </div>

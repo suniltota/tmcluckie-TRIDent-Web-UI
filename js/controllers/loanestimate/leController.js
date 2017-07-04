@@ -1004,7 +1004,6 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	}
 
 	$scope.checkRadio = function() {
-		console.log($scope.leformdata.closingInformation.property.legalDescription);
 		if(!$scope.leformdata.closingInformation.property.legalDescription){
 			$scope.leformdata.closingInformation.property.unparsedLegalDescription = "";
 			$scope.leformdata.closingInformation.property.addressLineText = '';
@@ -2930,8 +2929,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.$watch('leformdata.integratedDisclosureDetail',function(newValue,oldValue){
            $scope.leformdata.integratedDisclosureDetail.fiveYearTotalOfPaymentsComparisonAmount = parseFloat($scope.leformdata.integratedDisclosureDetail.fiveYearTotalOfPaymentsComparisonAmount);
            $scope.leformdata.integratedDisclosureDetail.fiveYearPrincipalReductionComparisonAmount = parseFloat($scope.leformdata.integratedDisclosureDetail.fiveYearPrincipalReductionComparisonAmount);
-           console.log($scope.leformdata.integratedDisclosureDetail.fiveYearTotalOfPaymentsComparisonAmount);
-           console.log($scope.leformdata.integratedDisclosureDetail.fiveYearPrincipalReductionComparisonAmount);
+           
     },true);
 
     $scope.$watch('leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel',function(newValue,oldValue){
