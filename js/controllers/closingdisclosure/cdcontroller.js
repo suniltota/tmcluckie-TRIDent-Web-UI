@@ -1229,7 +1229,40 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		    $scope.cdformdata.loanDetail.paymentIncreaseIndicator = true;
     	    }
     	}
+    	projectedPaymentsCalculation();
     }
+
+    var projectedPaymentsCalculation = function(){
+    	if($scope.cdformdata.loanInformation.amortizationType == '' || $scope.cdformdata.loanInformation.amortizationType == 'Fixed') {
+    	    for(i=$scope.cdformdata.projectedPayments.paymentCalculation.length; i>0; i--){
+    			$scope.cdformdata.projectedPayments.paymentCalculation.splice(i,1);
+				$scope.cdformdata.projectedPayments.principalInterest.splice(i,1);
+				$scope.cdformdata.projectedPayments.mortgageInsurance.splice(i,1);
+				$scope.cdformdata.projectedPayments.estimatedEscrow.splice(i,1);
+				$scope.cdformdata.projectedPayments.estimatedTotal.splice(i,1);
+	        }
+	        if($scope.cdformdata.projectedPayments.paymentCalculation.length==0){
+	        	$scope.cdformdata.projectedPayments.paymentCalculation.push(angular.copy(paymentCalculation));
+				$scope.cdformdata.projectedPayments.principalInterest.push(angular.copy(principalInterest));
+				$scope.cdformdata.projectedPayments.mortgageInsurance.push(angular.copy(mortgageInsurance));
+				$scope.cdformdata.projectedPayments.estimatedEscrow.push(angular.copy(estimatedEscrow));
+				$scope.cdformdata.projectedPayments.estimatedTotal.push(angular.copy(estimatedTotal));
+	        }
+	    }
+	    else
+	    {
+            if($scope.cdformdata.projectedPayments.paymentCalculation.length == 1){
+	            for(i=1;i<=3;i++){
+			    	$scope.cdformdata.projectedPayments.paymentCalculation.push(angular.copy(paymentCalculation));
+					$scope.cdformdata.projectedPayments.principalInterest.push(angular.copy(principalInterest));
+					$scope.cdformdata.projectedPayments.mortgageInsurance.push(angular.copy(mortgageInsurance));
+					$scope.cdformdata.projectedPayments.estimatedEscrow.push(angular.copy(estimatedEscrow));
+					$scope.cdformdata.projectedPayments.estimatedTotal.push(angular.copy(estimatedTotal));
+		        }
+	        }
+	    }
+    }
+	
 
     $scope.constructionChange = function(){
     	if($scope.cdformdata.loanDetail.constructionLoanIndicator == false){
