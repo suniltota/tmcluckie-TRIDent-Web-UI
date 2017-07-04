@@ -2972,7 +2972,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		   $scope.leformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing*-1); 
         }
     },true);
-
+    $scope.$watch('leformdata.contactInformation', function(newValue,oldValue){
+		$scope.leformdata.contactInformation.lender.name.fullName=$scope.leformdata.contactInformation.lender.name.fullName;
+		$scope.leformdata.contactInformation.mortagageBroker.name.fullName=$scope.leformdata.contactInformation.mortagageBroker.name.fullName;
+    },true);
     
 
     $scope.leformdata.etiaSection['propertyTaxesCheck'] = false;
