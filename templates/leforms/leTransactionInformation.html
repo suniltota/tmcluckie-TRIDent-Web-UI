@@ -178,7 +178,7 @@
                      </span>
             </span></div>
             <div class="col-sm-7">
-              <input type="text"  class="form-control" zipcode-format ng-model="borrower.address.postalCode">
+              <actualize-input   name="postalCode" ng-model="borrower.address.postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format"></actualize-input>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
