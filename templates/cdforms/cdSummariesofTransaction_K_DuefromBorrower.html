@@ -126,7 +126,9 @@
 		        <td></td>
 		        <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="prorationItemPaidFromDate" id="prorationItemPaidFromDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemPaidFromDate" is-open="isProrationItemPaidFromDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					<actualize-input name="prorationItemPaidFromDate" id="prorationItemPaidFromDate" dateFormat="{{dateFormat}}" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemPaidFromDate" is-open="isProrationItemPaidFromDate" ng-required="true" toolTipPos = "top" min-date="cdformdata.closingInformation.dateIssued" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
+
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isProrationItemPaidFromDate = !isProrationItemPaidFromDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -134,7 +136,8 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					<actualize-input name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" dateFormat="{{dateFormat}}" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" ng-required="true" toolTipPos = "top" min-date="cdformdata.closingInformation.dateIssued" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isprorationItemPaidThroughDate = !isprorationItemPaidThroughDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -169,7 +172,8 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="prorationItemPaidFromDate" id="prorationItemPaidFromDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemPaidFromDate" is-open="isProrationItemPaidFromDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.closingInformation.dateIssued" close-text="Close" placeholder= "MM/DD/YYYY" actualize-date/>
+					<actualize-input name="prorationItemPaidFromDate" id="prorationItemPaidFromDate" dateFormat="{{dateFormat}}" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemPaidFromDate" is-open="isProrationItemPaidFromDate" ng-required="true" toolTipPos = "top" min-date="cdformdata.closingInformation.dateIssued" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isProrationItemPaidFromDate = !isProrationItemPaidFromDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -177,7 +181,8 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-10 padding0">
-					<input type="text" name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" datepicker-options="dateOptions" ng-required="true" min-date="adjustmentsPaidBySellerInAdvance.prorationItemPaidFromDate" close-text="Close" placeholder= "MM/DD/YYYY" actualize-date/>
+					<actualize-input name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" dateFormat="{{dateFormat}}" ng-model="adjustmentsPaidBySellerInAdvance.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" ng-required="true" toolTipPos = "top" min-date="adjustmentsPaidBySellerInAdvance.prorationItemPaidFromDate" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isprorationItemPaidThroughDate = !isprorationItemPaidThroughDate"><i class="glyphicon glyphicon-calendar"></i></button>

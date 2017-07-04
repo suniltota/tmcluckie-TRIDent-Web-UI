@@ -78,7 +78,9 @@
 				</div>
 				<div class="col-sm-12 padding0 innerSectionRow">
 					<span class="col-sm-10 padding0">
-					<input type="text" name="lenderorganizationLicenseIssueDate" id="lenderorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.licenseIssueDate" is-open="isLenderorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					
+					<actualize-input name="lenderorganizationLicenseIssueDate" id="lenderorganizationLicenseIssueDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.contactInformation.lender.organizationLicenseDetail.licenseIssueDate" is-open="isLenderorganizationLicenseIssueDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isLenderorganizationLicenseIssueDate = !isLenderorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -127,7 +129,8 @@
 				</div>
 				<div class="col-sm-12 padding0 innerSectionRow">
 					<span class="col-sm-10 padding0">
-					<input type="text" name="mortagageBrokerorganizationLicenseIssueDate" id="mortagageBrokerorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseIssueDate" is-open="isMortagageBrokerorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					<actualize-input name="mortagageBrokerorganizationLicenseIssueDate" id="mortagageBrokerorganizationLicenseIssueDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.contactInformation.mortagageBroker.organizationLicenseDetail.licenseIssueDate" is-open="isMortagageBrokerorganizationLicenseIssueDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isMortagageBrokerorganizationLicenseIssueDate = !isMortagageBrokerorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -176,7 +179,9 @@
 				</div>
 				<div class="col-sm-12 padding0 innerSectionRow">
 					<span class="col-sm-10 padding0">
-					<input type="text" name="realEstateBrokerBorganizationLicenseIssueDate" id="realEstateBrokerBorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerBorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					
+					<actualize-input name="realEstateBrokerBorganizationLicenseIssueDate" id="realEstateBrokerBorganizationLicenseIssueDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerB.organizationLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerBorganizationLicenseIssueDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerBorganizationLicenseIssueDate = !isRealEstateBrokerBorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -225,7 +230,8 @@
 				</div>
 				<div class="col-sm-12 padding0 innerSectionRow">
 					<span class="col-sm-10 padding0">
-					<input type="text" name="realEstateBrokerSorganizationLicenseIssueDate" id="realEstateBrokerSorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerSorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					<actualize-input name="realEstateBrokerSorganizationLicenseIssueDate" id="realEstateBrokerSorganizationLicenseIssueDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerS.organizationLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerSorganizationLicenseIssueDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerSorganizationLicenseIssueDate = !isRealEstateBrokerSorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -274,7 +280,8 @@
 				</div>
 				<div class="col-sm-12 padding0 innerSectionRow">
 					<span class="col-sm-10 padding0">
-					<input type="text" name="settlementAgentorganizationLicenseIssueDate" id="settlementAgentorganizationLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseDetail.licenseIssueDate" is-open="isSettlementAgentorganizationLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					<actualize-input name="settlementAgentorganizationLicenseIssueDate" id="settlementAgentorganizationLicenseIssueDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.contactInformation.settlementAgent.organizationLicenseDetail.licenseIssueDate" is-open="isSettlementAgentorganizationLicenseIssueDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isSettlementAgentorganizationLicenseIssueDate = !isSettlementAgentorganizationLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -367,7 +374,9 @@
 				</div>
 				<div class="col-sm-12 padding0 innerSectionRow">
 					<span class="col-sm-10 padding0">
-					<input type="text" name="lenderindividualLicenseIssueDate" id="lenderindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.licenseIssueDate" is-open="isLenderindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					
+					<actualize-input name="lenderindividualLicenseIssueDate" id="lenderindividualLicenseIssueDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.contactInformation.lender.individualLicenseDetail.licenseIssueDate" is-open="isLenderindividualLicenseIssueDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isLenderindividualLicenseIssueDate = !isLenderindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -416,7 +425,8 @@
 				</div>
 				<div class="col-sm-12 padding0 innerSectionRow">
 					<span class="col-sm-10 padding0">
-					<input type="text" name="mortagageBrokerindividualLicenseIssueDate" id="mortagageBrokerindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseIssueDate" is-open="isMortagageBrokerindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					<actualize-input name="mortagageBrokerindividualLicenseIssueDate" id="mortagageBrokerindividualLicenseIssueDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.contactInformation.mortagageBroker.individualLicenseDetail.licenseIssueDate" is-open="isMortagageBrokerindividualLicenseIssueDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isMortagageBrokerindividualLicenseIssueDate = !isMortagageBrokerindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -465,7 +475,8 @@
 				</div>
 				<div class="col-sm-12 padding0 innerSectionRow">
 					<span class="col-sm-10 padding0">
-					<input type="text" name="realEstateBrokerBindividualLicenseIssueDate" id="realEstateBrokerBindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerBindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					<actualize-input name="realEstateBrokerBindividualLicenseIssueDate" id="realEstateBrokerBindividualLicenseIssueDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerB.individualLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerBindividualLicenseIssueDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerBindividualLicenseIssueDate = !isRealEstateBrokerBindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -514,7 +525,8 @@
 				</div>
 				<div class="col-sm-12 padding0 innerSectionRow">
 					<span class="col-sm-10 padding0">
-					<input type="text" name="realEstateBrokerSindividualLicenseIssueDate" id="realEstateBrokerSindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerSindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					<actualize-input name="realEstateBrokerSindividualLicenseIssueDate" id="realEstateBrokerSindividualLicenseIssueDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.contactInformation.realEstateBrokerS.individualLicenseDetail.licenseIssueDate" is-open="isRealEstateBrokerSindividualLicenseIssueDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isRealEstateBrokerSindividualLicenseIssueDate = !isRealEstateBrokerSindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -563,7 +575,8 @@
 				</div>
 				<div class="col-sm-12 padding0 innerSectionRow">
 					<span class="col-sm-10 padding0">
-					<input type="text" name="settlementAgentindividualLicenseIssueDate" id="settlementAgentindividualLicenseIssueDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseIssueDate" is-open="isSettlementAgentindividualLicenseIssueDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+					<actualize-input name="settlementAgentindividualLicenseIssueDate" id="settlementAgentindividualLicenseIssueDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.contactInformation.settlementAgent.individualLicenseDetail.licenseIssueDate" is-open="isSettlementAgentindividualLicenseIssueDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
 	        			<button type="button" class="btn btn-default calenderBtn" ng-click="isSettlementAgentindividualLicenseIssueDate = !isSettlementAgentindividualLicenseIssueDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -575,9 +588,6 @@
 			</div>
 
 		</span>
-
-
-			
 			<div class="col-sm-12 margin10t">
 				<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('LoanCals')">Back</a></span>
 				<!-- <span class="pull-right">

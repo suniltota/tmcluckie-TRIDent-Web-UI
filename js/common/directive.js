@@ -134,19 +134,25 @@ app.directive('fileModel', ['$parse', function ($parse) {
     };
 }]);
 
-app.directive('zipcodeFormat', function ($filter, $parse) {
+app.directive('zipcodeFormat', function ($filter, $parse, $sce) {
     return {
         restrict: 'A',
         require: 'ngModel',
         link: function (scope, elem, attrs, ctrl) {
+           var allowedInput = false;
+           var message = ""
             elem.bind('blur', function (e) {
-              if(e.target.value)
+              if(e.target.value){
                  e.target.value = formatValue(e.target.value, 'formxml');
-               else {
-                e.target.value = '00000';
+                e.currentTarget.style.border="";
+                message = "";
+               }else {
+               // e.target.value = '00000';
                 $parse(attrs.ngModel).assign(scope, '00000');
+                e.currentTarget.style.border="1px solid #f17777";
+                message = "Must be a 5 or 9 digit value";
               }
-
+              scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
             });
             if (!ctrl) {
                 return;
@@ -206,6 +212,7 @@ app.directive('zipcodeFormat', function ($filter, $parse) {
                 ctrl.$setViewValue(formatValue(viewValue));
                 ctrl.$render();
                 return plainNumber;
+
             });
         }
     };
@@ -304,6 +311,8 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
       require: 'ngModel',
       restrict: 'A',
       link: function (scope, element, attr, ctrl) {
+         var allowedInput = false;
+           var message = ""
         if (!ctrl) {
             return;
         }
@@ -374,6 +383,7 @@ app.directive('decimalDigitsWithNumberFormatAllowNegative', function ($compile, 
         ctrl.$formatters.push(function () {
             if(ctrl.$modelValue)
               return $filter('number')(ctrl.$modelValue, 2);
+
             else
               return (ctrl.$modelValue);
         });
@@ -507,39 +517,6 @@ app.directive('months2years', function() {
 });
 
 
-app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse)
-{
-    return {
-        require: 'ngModel',
-        link: function (scope, element, attr, ngModel)
-        {
-            var regexp = /^(?:(?:(?:0?[13578]|1[02])(\/)31)\1|(?:(?:0?[1,3-9]|1[0-2])(\/)(?:29|30)\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:0?2(\/)29\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:(?:0?[1-9])|(?:1[0-2]))(\/)(?:0?[1-9]|1\d|2[0-8])\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
-            var viewDateFormat = staticData.dateDisplayFormat;
-            var xmlDateFormat = "yyyy-MM-dd";
-
-            ngModel.$parsers.push(function(value){
-                if(value && !isNaN(Date.parse(value))) {
-                  return $filter('date')(new Date(Date.parse(value)), xmlDateFormat);
-                } else {
-                  return undefined;
-                }
-            });
-
-            element.on('blur', function (e) {
-                var dateVal = e.target.value;
-                if(!(regexp.test(dateVal) && !isNaN(Date.parse(dateVal)))) {
-                  ngModel.$setViewValue(null);
-                  ngModel.$render();
-                  ngModel.$modelValue = undefined;
-                } else {
-                  $parse(attr.ngModel).assign(scope, $filter('date')(new Date(Date.parse(dateVal)), xmlDateFormat));
-                  scope.$apply();
-                }
-            });
-
-        }
-    };
-});
 
 
 app.filter('round', function() {
@@ -599,48 +576,65 @@ app.directive('alpha', function() {
     }
   };
 });
-app.directive('actualizeInput', function($compile, $sce) {
+
+
+app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, $sce)
+{
+    return {
+        require: 'ngModel',
+        link: function (scope, element, attr, ngModel)
+        {
+            var regexp = /^(?:(?:(?:0?[13578]|1[02])(\/)31)\1|(?:(?:0?[1,3-9]|1[0-2])(\/)(?:29|30)\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:0?2(\/)29\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:(?:0?[1-9])|(?:1[0-2]))(\/)(?:0?[1-9]|1\d|2[0-8])\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
+            var viewDateFormat = staticData.dateDisplayFormat;
+            var xmlDateFormat = "yyyy-MM-dd";
+            var allowedInput = false;
+            var message = ""
+
+            ngModel.$parsers.push(function(value){
+                if(value && !isNaN(Date.parse(value))) {
+                  return $filter('date')(new Date(Date.parse(value)), xmlDateFormat);
+                } else {
+                   return undefined;
+                }
+            });
+
+            element.on('change', function (e) {
+                var dateVal = e.target.value;
+                if(!(regexp.test(dateVal) && !isNaN(Date.parse(dateVal)))) {
+                  ngModel.$setViewValue(null);
+                  //ngModel.$render();
+                  ngModel.$modelValue = undefined;
+                  e.currentTarget.style.border="1px solid #f17777"
+                  message = "Please enter a vaild date";
+                } else {
+                  $parse(attr.ngModel).assign(scope, $filter('date')(new Date(Date.parse(dateVal)), xmlDateFormat));
+                  e.currentTarget.style.border=""
+                  message = "";
+                  scope.$apply();
+                }
+                scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+            });
+            
+        }
+    };
+});
+
+app.directive('actualizeInput', function($compile, $sce, staticData, $parse, $timeout, $filter) {
   return {
     require: 'ngModel',
-    restrict: 'EA',
     link: function($scope, elem, attr, ngModel) {
       var allowedInput = false;
       var toolTipPos =  "top";
+       
       if(attr.tooltippos)
         toolTipPos =  attr.tooltippos;
-      var message = "";
-      if(attr.alpha!=undefined){
-        message +=' alapha, ';
-        allowedInput=true;
-      }
-      if(attr.numeric!=undefined){
-        message +='numeric, ';
-        allowedInput=true;
-      }
-      if(attr.specialcharacters!=undefined){
-        message +=' special characters ';
-        allowedInput=true;
-      }
-      if(attr.dateFormat!=undefined){
-        message +=' date format ';
-        allowedInput=true;
-      }
-      if(allowedInput)
-        message = "Please enter" + message + "<br>";
+        var message = "";
       
-      if(attr.min!=undefined)
-        message += 'Minimum '+attr.min+' length <br>'
-      if(attr.max!=undefined)
-        message += 'Maximum '+attr.max+' length <br>'
-      if(attr.pincode!=undefined)
-        message += 'Pincode minimum 5  and maximum 9 characters'
-      if(attr.custommessage)
-        message += attr.custommessage;
       if($scope.htmlTooltip == undefined)
         $scope.htmlTooltip = {}
       $scope.htmlTooltip[attr.name.toLowerCase()] = $sce.trustAsHtml(message);
       
-      var template='<div >';
+      var template='<div>';
       if(attr.type != undefined && attr.type == "date"){
         template += '<input type="text" id="input_'+attr.id+'" uib-datepicker-popup="'+attr.dateformat+'" ng-change="'+attr.ngChange+'"  ng-blur="'+attr.ngBlur+'" ng-model="'+attr.ngModel+'" min-date="'+attr.minDate+'" is-open="'+attr.isOpen+'" datepicker-options="dateOptions" ng-required="'+attr.ngRequired+'" close-text="Close" placeholder="'+attr.placeholder+'" name="'+attr.name+'" class="form-control InputTooltip calenderInput" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
       }else{
