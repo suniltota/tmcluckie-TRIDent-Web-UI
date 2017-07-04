@@ -237,19 +237,19 @@
 			              			<option value="" selected="selected">Select</option>
 	                            </select>
 			              </div>
-			              <span ng-show="cdformdata.salesContractDetail.personalPropertyIndicator==false" class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+		           	 </div>
+		          	</div>
+				 <div class="row" ng-show="cdformdata.salesContractDetail.personalPropertyIndicator == false">
+				 	 <div class=" col-sm-12">
+					    <div class="col-sm-5 fieldTitle">Sales Price
+			              <span  class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
 					        <b></b>	
 					         <span> 
 					           	 <p>In a transaction where there is NO personal property itemized and included then provide the amount of money the contract is for.</p>
 					           	 <ul><li>The format is an amount that cannot exceed $9.2</li>
 					           	 <li>Is considered conditionally required based of the personal property included indicator</li></ul>
 					          </span>
-					 </span>
-		           	 </div>
-		          	</div>
-				 <div class="row" ng-show="cdformdata.salesContractDetail.personalPropertyIndicator == false">
-				 	 <div class=" col-sm-12">
-					    <div class="col-sm-5 fieldTitle">Sales Price</div>
+					 	  </span></div>
 		              	<div class="col-sm-7 radioGroup">
 						   	 <div class="input-group">
   								<span class="input-group-addon input-default">$</span>		        				
@@ -321,7 +321,14 @@
 		          </div>
 		          <div class="row margin5tb" ng-show="cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'">
 		              <div class=" col-sm-12">
-		              <div class="col-sm-5 fieldTitle">If, Other is the property Value Method Used provide the description</div>
+		              <div class="col-sm-5 fieldTitle">If, Other is the property Value Method Used provide the description <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+					        <b></b>	
+					         <span> 
+					           	 <p>A free-form text field used to capture a description of the Property Valuation Method Type when Other is selected.</p>
+					           	 <ul><li>The format is a string value that cannot exceed 150 characters
+					           	 </li></ul>
+					          </span>
+					 </span></div>
 		              <div class="col-sm-7">
 		              		<input class="form-control" ng-disabled="cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodType != 'Other'" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyValuationMethodTypeOtherDescription"/>
 		              </div>
