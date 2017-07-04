@@ -86,9 +86,13 @@
 		        	Closing Costs Paid Before Closing
 		        </td>
 		        <td>
-		        	<div class="input-group">
+		        	<div class="input-group" ng-show="loanBasicInfo.loanFormType=='standard'">
 						<span class="input-group-addon input-default" style="color: red;">$ -</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemEstimatedAmount" negative-digits>
+		        	</div>
+		        	<div class="input-group" ng-show="loanBasicInfo.loanFormType=='alternate'">
+						<span class="input-group-addon input-default">$</span>
+		        		<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemEstimatedAmount">
 		        	</div>
 		        </td>
 		        <td>
