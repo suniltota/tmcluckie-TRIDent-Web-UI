@@ -86,7 +86,7 @@ app.controller('menuCtrl', function ($scope, loginService,  $routeParams, $locat
     //if(!localStorage.documentType){
       var viewMenuScope = angular.element($("#ChooseEmbeddedPDF")).scope();
       viewMenuScope.xmlTitle = "XML";
-      viewMenuScope.embeddedPDF=true;
+      viewMenuScope.embeddedPDF=false;
       $('#ChooseEmbeddedPDF').modal('show');    
     //}
   }
@@ -96,7 +96,7 @@ app.controller('menuCtrl', function ($scope, loginService,  $routeParams, $locat
     //if(!localStorage.documentType){
       var viewMenuScope = angular.element($("#ChooseEmbeddedPDF")).scope();
       viewMenuScope.xmlTitle = "UCD XML";
-      viewMenuScope.embeddedPDF=true;
+      viewMenuScope.embeddedPDF=false;
       $('#ChooseEmbeddedPDF').modal('show');
     //}
   }
@@ -255,7 +255,7 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
 });
 app.controller('viewMenuCtrl', function($scope, staticData){
   $scope.dropDownBooleanOptions = staticData.dropDownBooleanOptions;
-  $scope.embeddedPDF = true;
+  $scope.embeddedPDF = false;
   $scope.generateXMLPDF= function(title){
     $('#ChooseEmbeddedPDF').modal('hide');
     if(title == "XML")
