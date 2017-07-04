@@ -391,32 +391,23 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.CfeeTypes.indexOf($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType)==-1)
 				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.CfeeTypes.push($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType);
 		};
-		
-		if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList!=undefined) {
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(0, 0, angular.copy(tOGovtFees));
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeType = 'TransferTaxTotal';
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].displayLabel = 'Transfer Taxes';
-			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToType = 'ThirdPartyProvider';
-            for(i=0;i<$scope.sectionEfeeTypes.length;i++){
-            	if($scope.sectionEfeeTypes[i].value=='TransferTaxTotal'){
-                   $scope.sectionEfeeTypes[i].disabled=true;
-            	}
-            }
-		}
-
-		var temp=0;
-        for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++){
-			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForDeed') {
+		var hasTOGovtFees = false;
+		for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++){
+			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType=='') {
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
+				i--;
+			} else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForDeed') {
+				hasTOGovtFees = true;
 				$scope.recordingFeetotalObj.recordingFeeForDeed = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeActualTotalAmount;
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
 				i--;
-			}
-			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForMortgage') {
+			} else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForMortgage') {
+				hasTOGovtFees = true;
 				$scope.recordingFeetotalObj.recordingFeeForMortgage = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeActualTotalAmount;
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
 				i--;
-			}
-			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeTotal') {
+			} else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeTotal') {
+				hasTOGovtFees = true;
 				$scope.recordingFeetotalObj.bpAtClosing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing;
 				$scope.recordingFeetotalObj.bpB4Closing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing;
 				$scope.recordingFeetotalObj.spAtClosing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing;
@@ -433,18 +424,23 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.recordingFeetotalObj.integratedDisclosureSectionType = 'TaxesAndOtherGovernmentFees';
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
 				i--;
-			}
-			if(i!=0 && temp==0 && $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'TransferTaxTotal') {
-				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0] = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
-				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
-				i--;
-				temp++;
-			}
-
-			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType)==-1) {
+			} else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType)==-1) {
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.push($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType);
 			}
-				
+		}
+		if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length==0 && !hasTOGovtFees) {
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(0, 0, angular.copy(tOGovtFees));
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeType = 'TransferTaxTotal';
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].displayLabel = 'Transfer Taxes';
+			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToType = 'ThirdPartyProvider';
+            for(i=0;i<$scope.sectionEfeeTypes.length;i++){
+            	if($scope.sectionEfeeTypes[i].value=='TransferTaxTotal'){
+                   $scope.sectionEfeeTypes[i].disabled=true;
+            	}
+            }
+            if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.indexOf('TransferTaxTotal')==-1) {
+				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.push('TransferTaxTotal');
+			}
 		}
         for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.length; i++){
 			if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.HfeeTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType)==-1)
