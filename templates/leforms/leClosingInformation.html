@@ -41,18 +41,18 @@
 				</span>
 			</div> -->
 			<div class="col-sm-7">
-				<span class="col-sm-10 padding0">
-					<input type="text" name="dateIssued" id="dateIssued" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.closingInformation.dateIssued" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" disabled/>
-					<!-- <actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="leformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isDateIssued" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
-                </actualize-input> -->
+				<span class="col-sm-9 padding0">
+					<!-- <input type="text" name="dateIssued" id="dateIssued" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.closingInformation.dateIssued" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY"/> -->
+                <actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="leformdata.closingInformation.dateIssued" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date." placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                </actualize-input>
 				</span>
-      			<!-- <span class="input-group-btn col-sm-2 padding0">
+      			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
-        		</span> -->
+        		</span>
 			</div>
 		</div>
 		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Closing Cost Expiration Date <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
+			<div class="col-sm-5 fieldTitle">Closing Cost Expiration Date <span class="required">*</span> <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
                 <span>
                 	<b></b>
                    <span> <p>The date in which the closing costs are expired and a new Loan Estimate must be issues, see CFPBs Integrate Mortgage Disclosure Regulation for more information on timing.</p>
@@ -62,7 +62,6 @@
             </span></div>
 			<div class="col-sm-7">
 				<span class="col-sm-9 padding0">
-				<!-- <input type="text" name="closingCostExpirationDate" id="closingCostExpirationDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="closingCostExpirationDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" min-date="leformdata.closingInformation.dateIssued" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/> -->
 
 				<actualize-input name="closingCostExpirationDate" id="closingCostExpirationDate" dateFormat="{{dateFormat}}" ng-model="closingCostExpirationDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" min-date="leformdata.closingInformation.dateIssued" is-open="isDateIssued" toolTipPos = "top" custommessage="Please enter a vaild date. Closing expiration Date cannot occur prior to Issue Date." placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
