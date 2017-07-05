@@ -1347,6 +1347,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount = '';
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent = '';
+    	$scope.cdformdata.termsOfLoan.noteRatePercent = '';
+    	$scope.cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent = '';
     }
     $scope.temporaryBuydownChange = function(){
     	$scope.cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent = '';

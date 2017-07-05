@@ -77,8 +77,11 @@
 		        </label></td>
 		        <td>
 		        	<div class="input-group">
-  							<actualize-input ng-model="cdformdata.termsOfLoan.noteRatePercent" name="noteRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format">
-                				</actualize-input>
+  							<actualize-input ng-model="cdformdata.termsOfLoan.noteRatePercent" name="noteRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format" ng-disabled="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" ng-show="cdformdata.loanInformation.amortizationType!='GraduatedPaymentARM' && cdformdata.loanInformation.amortizationType!='AdjustableRate'">
+                			</actualize-input>
+            				<actualize-input ng-model="cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent" name="noteRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format" ng-disabled="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" ng-show="cdformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || cdformdata.loanInformation.amortizationType=='AdjustableRate'">
+            				</actualize-input>
+
   							<span class="input-group-addon input-default">%</span>
 		        	</div>
 		        </td>
@@ -181,7 +184,7 @@
 							<span class="pull-left margin5tb">What is the Rate as reflected without the Buydown?</span> 
 		        			<span class="col-sm-3">
 								<div class="input-group">
-									<actualize-input ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent" name="ceilingRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format">
+									<actualize-input ng-model="cdformdata.termsOfLoan.noteRatePercent" name="ceilingRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format">
                 				</actualize-input>
 									<span class="input-group-addon input-default">%</span>
 								</div>
