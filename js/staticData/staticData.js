@@ -4466,6 +4466,10 @@ this.cdformdata={
         {
             "partialPaymentModels":
             [
+               {
+               	'partialPaymentApplicationMethodType':'',
+               	'partialPaymentApplicationMethodTypeOtherDescription':''
+               }
             ]
         },
         "paymentRule":

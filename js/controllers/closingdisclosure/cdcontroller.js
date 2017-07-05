@@ -1015,6 +1015,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		if($scope.payoffsAndPaymentsList.length==0) {
 			$scope.payoffsAndPaymentsList.push(angular.copy(payoffsAndPaymentObj));
 		}
+	    $scope.cdformdata.payment.paymentRule['partialPaymentAllowedIndicatorAPP'] = false;
+	    $scope.cdformdata.payment.paymentRule['partialPaymentAllowedIndicatorHUCA'] = false;
+	    $scope.cdformdata.payment.paymentRule['partialPaymentAllowedIndicatorNotAccept'] = true;
+        if($scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicator){
+			if($scope.cdformdata.payment.partialPayments.partialPaymentModels[0].partialPaymentApplicationMethodType=='ApplyPartialPayment'){
+				$scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorAPP = true;
+				$scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorHUCA = false;
+				$scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorNotAccept = false;
+			}else if($scope.cdformdata.payment.partialPayments.partialPaymentModels[0].partialPaymentApplicationMethodType=='HoldUntilCompleteAmount'){
+				$scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorHUCA = true;
+				$scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorAPP = false;
+				$scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorNotAccept = false;
+			}
+        }else{
+           $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorNotAccept = true;
+        }
 
 		setTimeout(function(){$("#spinner").hide();}, 3000);
 		
@@ -2442,6 +2458,49 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	if($scope.cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount) {
     		$scope.cdformdata.payment.paymentRule.totalOptionalPaymentCount = $scope.cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount;
     	}
+    }
+
+    $scope.partialPaymentCheckAPP = function(){
+        if($scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorAPP == true){
+           $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicator = true;
+           $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorHUCA = false;
+           $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorNotAccept = false;
+           $scope.cdformdata.payment.partialPayments.partialPaymentModels[0].partialPaymentApplicationMethodType = 'ApplyPartialPayment';
+        }else{
+        	if($scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorAPP == false 
+        		&& $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorHUCA == false 
+        		&& $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorNotAccept == false){
+        		$scope.cdformdata.payment.partialPayments.partialPaymentModels[0].partialPaymentApplicationMethodType = '';
+            }
+        }
+    }
+    $scope.partialPaymentCheckHUCA = function(){
+        if($scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorHUCA == true){
+           $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicator = true;
+           $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorAPP = false;
+           $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorNotAccept = false;
+           $scope.cdformdata.payment.partialPayments.partialPaymentModels[0].partialPaymentApplicationMethodType = 'HoldUntilCompleteAmount';
+        }else{
+        	if($scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorAPP == false 
+        		&& $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorHUCA == false 
+        		&& $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorNotAccept == false){
+        		$scope.cdformdata.payment.partialPayments.partialPaymentModels[0].partialPaymentApplicationMethodType = '';
+            }
+        }
+    }
+    $scope.partialPaymentCheckNotAccept = function(){
+        if($scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorNotAccept){
+           $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicator = false;
+           $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorHUCA = false;
+           $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorAPP = false;
+           $scope.cdformdata.payment.partialPayments.partialPaymentModels[0].partialPaymentApplicationMethodType = '';
+        }else{
+        	if($scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorAPP == false 
+        		&& $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorHUCA == false 
+        		&& $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorNotAccept == false){
+        		$scope.cdformdata.payment.partialPayments.partialPaymentModels[0].partialPaymentApplicationMethodType = '';
+            }
+        }
     }
 
     $scope.calculatePayments = function() {
@@ -4252,7 +4311,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		    }
         }
     },true);
-
+    
 });
 //date param of proper format to create date object.
 // ex:- 04/25/2008
