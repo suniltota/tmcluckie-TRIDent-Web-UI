@@ -3,28 +3,41 @@
 	<span  class="col-sm-12 padding0">
         <table class="table table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <td class="col-sm-3">
-		        	<label>Index + Margin</label>
+		        <td class="col-sm-3" >
+		        	<label ng-show="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator && !stepPaymentIndicator">Index + Margin</label>
+		        	<label ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator || stepPaymentIndicator">Number of Adjustments</label>
 		        </td>
 		        <td>
-		        	<span class="col-sm-12 margin5tb"> 
+		            <span ng-show="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator && !stepPaymentIndicator">
+			        	<span class="col-sm-12 margin5tb"> 
+		        			<span class="pull-left col-sm-2">
+		        				<select class="form-control" ng-model="cdformdata.interestRateAdjustment.indexType" ng-change="indexChange()">
+			        				<option value="" selected>Select</option>
+		                            <option ng-repeat="indexType in indexTypes" value="{{indexType.value}}">{{indexType.name}}</option>
+		        				</select>
+		        			</span>
+		        			<span class="pull-left margin5tb">+</span>
+		        			<span class="pull-left col-sm-2">
+		        				<div class="input-group">
+									<input type="text" class="form-control" name="" ng-model="cdformdata.interestRateAdjustment.marginRatePercent" percentage-format>
+									<span class="input-group-addon input-default">%</span>
+		        				</div>
+		        			</span>
+			        	</span>
+			        	<span class="col-sm-12 margin5tb" ng-show="cdformdata.interestRateAdjustment.indexType=='Other'">
+		        	 		<span class="pull-left margin5tb"><label>Index Description:</label></span>
+		        	 		<span class="pull-left col-sm-2"><input type="text" class="form-control" value="My Index For Pricing" name="" ng-model="cdformdata.interestRateAdjustment.indexTypeOtherDescription"></span>
+			        	</span>
+		        	</span>
+		        	<span ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator && !stepPaymentIndicator">
 	        			<span class="pull-left col-sm-2">
-	        				<select class="form-control" ng-model="cdformdata.interestRateAdjustment.indexType" ng-change="indexChange()">
-		        				<option value="" selected>Select</option>
-	                            <option ng-repeat="indexType in indexTypes" value="{{indexType.value}}">{{indexType.name}}</option>
-	        				</select>
-	        			</span>
-	        			<span class="pull-left margin5tb">+</span>
-	        			<span class="pull-left col-sm-2">
-	        				<div class="input-group">
-								<input type="text" class="form-control" name="" ng-model="cdformdata.interestRateAdjustment.marginRatePercent" percentage-format>
-								<span class="input-group-addon input-default">%</span>
-	        				</div>
+	        				<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount">
 	        			</span>
 		        	</span>
-		        	<span class="col-sm-12 margin5tb" ng-show="cdformdata.interestRateAdjustment.indexType=='Other'">
-	        	 		<span class="pull-left margin5tb"><label>Index Description:</label></span>
-	        	 		<span class="pull-left col-sm-2"><input type="text" class="form-control" value="My Index For Pricing" name="" ng-model="cdformdata.interestRateAdjustment.indexTypeOtherDescription"></span>
+		        	<span ng-show="stepPaymentIndicator && !cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+	        			<span class="pull-left col-sm-2">
+	        				<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.totalStepCount">
+	        			</span>
 		        	</span>
 		        </td>
 		      </tr>
@@ -35,7 +48,9 @@
 		        <td>
 		        	<span class="pull-left col-sm-2">
         				<div class="input-group">
-							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.termsOfLoan.noteRatePercent">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.termsOfLoan.noteRatePercent" ng-show="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator && !stepPaymentIndicator">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="	cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator && !stepPaymentIndicator">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.totalStepCount" ng-show="stepPaymentIndicator && !cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
 							<span class="input-group-addon input-default">%</span>
         				</div>
 	        		</span>
@@ -48,7 +63,7 @@
 		        	<label ng-show="cdformdata.interestRateAdjustment.indexType=='Other' && cdformdata.loanInformation.amortizationType == 'Step'">Total Step Count</label>
 		        </td>
 		        <td>
-		            <span ng-show="cdformdata.interestRateAdjustment.indexType!='Other'">
+		            <span ng-show="cdformdata.interestRateAdjustment.indexType!='Other' && !stepPaymentIndicator && !cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
 			            <span class="pull-left col-sm-2">
 	        				<div class="input-group">
 								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.floorRatePercent">
@@ -74,6 +89,22 @@
 		        		</span>
 		        		<!-- {{cdformdata.interestRateAdjustment.totalStepCount}} -->
 		        	</span>
+		        	<span ng-show="stepPaymentIndicator || cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+		        	    <span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent" ng-show="stepPaymentIndicator">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="	cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+								<span class="input-group-addon input-default">%</span>
+	        				</div>
+		        		</span>
+		        		<span class="pull-left margin5lr margin5t"> / </span>
+		        		<span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.termsOfLoan.noteRatePercent">
+								<span class="input-group-addon input-default">%</span>
+	        				</div>
+		        		</span>
+		        	</span>
 		        </td>
 		      </tr>
 		      <tr>
@@ -89,7 +120,8 @@
 		        	<span class="pull-left margin5lr margin5t">Beginning of </span>
 		        	<span class="pull-left col-sm-2">
         				<div class="input-group">
-							<input type="text" class="form-control" name=""  ng-disabled="true" value="{{cdformdata.interestRateAdjustment.firstRateChangeMonthsCount ? (cdformdata.interestRateAdjustment.firstRateChangeMonthsCount -0) + 1 : '' }}">
+							<input type="text" class="form-control" name=""  ng-disabled="true" value="{{cdformdata.interestRateAdjustment.firstRateChangeMonthsCount ? (cdformdata.interestRateAdjustment.firstRateChangeMonthsCount -0) + 1 : '' }}" ng-show="!cdfromdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+							<input type="text" class="form-control" name=""  ng-disabled="true" value="{{cdformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount ? (cdformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount -0) + 1 : '' }}" ng-show="cdfromdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
         				</div>
 	        		</span>
 		        	<!-- <span class="pull-left margin5lr">{{(cdformdata.interestRateAdjustment.firstRateChangeMonthsCount -0) + 1 }}</span> -->
@@ -104,7 +136,8 @@
 		        	<span class="pull-left margin5lr margin5t">Every </span>
 		        	<span class="pull-left col-sm-2">
         				<div class="input-group">
-							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount" ng-show="!cdfromdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount" ng-show="cdfromdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
         				</div>
 	        		</span>
 		        	<!-- <span class="pull-left margin5lr">{{cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount}}</span> -->
@@ -124,7 +157,8 @@
 		        <td>
 		        	<span class="pull-left col-sm-2">
         				<div class="input-group">
-							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent" ng-show="!cdfromdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent" ng-show="cdfromdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
 							<span class="input-group-addon input-default">%</span>
         				</div>
 	        		</span>
@@ -138,7 +172,8 @@
 		        <td>
 		        	<span class="pull-left col-sm-2">
         				<div class="input-group">
-							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent"  ng-show="!cdfromdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent" ng-show="cdfromdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
 							<span class="input-group-addon input-default">%</span>
         				</div>
 	        		</span>
