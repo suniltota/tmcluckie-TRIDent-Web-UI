@@ -19,17 +19,19 @@ app.config(function ($routeProvider, $locationProvider) {
     .when("/loanEstimate", {templateUrl: "partials/loanEstimateHome.html", controller: "loanEstimateCtrl"})
     .otherwise({ redirectTo: '/home' });
   $locationProvider.hashPrefix('');
-}).run(['loginService', 'apiService', '$rootScope', '$window', function(loginService, apiService, $rootScope, $window){
+}).run(['loginService', 'apiService', '$rootScope', '$window', function(loginService, apiService, $rootScope, $location, $window){
     //executed once, after all modules are loaded
     $rootScope.alerts=[];
     apiService.setBasePath(localStorage.apiBasePath);
-    loginService.setSessionId();
-    var res= loginService.isUserLoggedIn();
-    
-    if(!res) {window.location.href="login.html" + $window.location.search}
-
-    // Set $rootScope.userName.
-    loginService.setUserName();
+    apiService.request({apiMethod:'isLoggedIn',httpMethod:'GET'}).success(function(data, status) {
+      loginService.setSessionId();
+      var res= loginService.isUserLoggedIn();
+      if(!res) {
+        window.location.href="login.html" + $window.location.search;
+      } else {
+        loginService.setUserName();
+      }
+    });
 
     //Below flag is to display Loading spinner while loading home page after login.
     $rootScope.showHomePageSpinner = true;
@@ -59,8 +61,17 @@ app.controller('validateCtrl', function ($scope, $location, $http) {
 
 
 
-app.controller('menuCtrl', function ($scope, loginService,  $routeParams, $location, staticData, $window) {
-  $scope.documentType = $location.$$search.documentType;
+app.controller('menuCtrl', function ($scope, loginService, apiService, $routeParams, $location, staticData, $window) {
+  if($location.$$url.indexOf("/home")!=-1) {
+    $scope.documentType = $location.$$search.documentType;
+    $scope.$
+  } else if($location.$$path.indexOf("/loanEstimate") != -1) {
+    $scope.documentType = 'loanestimate';
+    localStorage.documentType = 'loanestimate';
+  } else {
+    $scope.documentType = 'closingdisclosure';
+    localStorage.documentType = 'closingdisclosure';
+  }
   $scope.fileNew = function(){
     closeAllViews();
     var postLoginScope = angular.element($("#ChooseFormType")).scope();
@@ -127,6 +138,7 @@ app.controller('menuCtrl', function ($scope, loginService,  $routeParams, $locat
   }
   $scope.logout = function() {
       loginService.logout();
+      apiService.request({apiMethod: "logout",httpMethod: 'POST'});
       $window.location.href="login.html" + $window.location.search;
   }
 });

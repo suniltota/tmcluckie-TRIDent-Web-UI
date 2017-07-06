@@ -5,11 +5,17 @@ var postLoginApp = angular.module('postLoginApp', [
 ]).
 
 run(['loginService', 'apiService', '$rootScope', '$window', function(loginService, apiService, $rootScope, $window){
-	apiService.setBasePath(localStorage.apiBasePath);
-	loginService.setSessionId();
-	var res= loginService.isUserLoggedIn();
-    
-    if(!res) {$window.location.href="login.html" + $window.location.search};
+    apiService.setBasePath(localStorage.apiBasePath);
+    apiService.request({apiMethod:'isLoggedIn',httpMethod:'GET'}).success(function(data, status) {
+      loginService.setSessionId();
+      var res= loginService.isUserLoggedIn();
+      if(!res) {
+        window.location.href="login.html" + $window.location.search;
+      } else {
+        // Set $rootScope.userName.
+        loginService.setUserName();
+      }
+    });
 }]);
 
 postLoginApp.directive('fileModel', ['$parse', function ($parse) {

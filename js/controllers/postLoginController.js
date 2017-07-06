@@ -10,6 +10,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
 
     $scope.logUserOut = function() {
     	loginService.logout();
+        apiService.request({apiMethod: "logout",httpMethod: 'POST'});
     	$window.location.href="login.html" + $window.location.search;
     }
 
