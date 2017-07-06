@@ -1734,7 +1734,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		}
 
 	    $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.totalFinalAmount;
-	    
     }
 
     $scope.lenderTolerance = function(){
@@ -3695,6 +3694,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }else{
         	$scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount = cashToCloseItemEstimatedAmount;
 	        $scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemFinalAmount = cashToCloseItemFinalAmount;
+        }
+
+        if($scope.loanBasicInfo.loanFormType == 'alternate'){
+        	if($scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount>0){
+	    	    $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemPaymentType = 'ToBorrower';
+		    }else if($scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount<0){
+		    	$scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemPaymentType = 'FromBorrower';
+		    }
         }
        
         //Sale Price
