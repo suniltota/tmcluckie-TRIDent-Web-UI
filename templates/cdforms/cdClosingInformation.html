@@ -6,15 +6,7 @@
 		<h5 class="innerSectionHeader">General Closing Information</h5>
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle">Date Issued
-			<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The date the integrated disclosure was mailed or delivered to the borrower as reflected on a single instance of the integrated disclosure document.</p>
-			           	 <ul><li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
-			           	 <li>There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past.</li>
-			           	 <li>Is a Required field</li></ul>
-			          </span>
-			 </span></div>
+			</div>
 			<!--<div class="col-sm-7">
 			    <span class="col-sm-10 padding0">{{cdformdata.closingInformation.dateIssued | date : dateFormat}}
 				</span>
@@ -22,17 +14,35 @@
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
 				
-				<actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isDateIssued" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+				<actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isDateIssued" min-date="1/1/2015" max-date="12/31/2045" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
+                <span class="helpText tooltip-msg">?
+                	<span>
+                		<b></b>	
+			         <span> 
+			           	 <p>The date the integrated disclosure was mailed or delivered to the borrower as reflected on a single instance of the integrated disclosure document.</p>
+			           	 <ul><li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
+			           	 <li>There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past.</li>
+			           	 <li>Is a Required field</li></ul>
+			          </span>
+                	</span>
+                </span>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
         		</span>
+
 			</div>
 		</div>
 		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Closing Date <span class="required">*</span> <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
+			<div class="col-sm-5 fieldTitle">Closing Date <span class="required">*</span> </div>
+			<div class="col-sm-7">
+				<span class="col-sm-10 padding0">
+				<actualize-input name="closingDate" id="closingDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.closingDate" min-date="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" max-date="12/31/2045" is-open="isClosingDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Closing Date cannot occur prior to Issue Date." placeholder="Closing Date  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                </actualize-input>
+                <span class="helpText tooltip-msg">?
+                	<span style="width: 500px;">
+                		<b></b>	
 			         <span> 
 			           	 <p>The date the closing documents were fully executed and the borrower becomes contractually responsible for the debt. Depending on the location (wet-sign, dry-sign, table-funded and/or escrow state) of the loan closing, the Closing Date may be the same date as either the Document Preparation Date and/or the Execution Date and/or the Recorded Date.</p>
 			           	 <ul><li>This date is defaulted to 5 days after the issue date if conducting data entry.  Otherwise, the date will be rendered per the information in the upload process will be displayed</li>
@@ -40,12 +50,8 @@
 			           	 <li>There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past.</li>
 			           	 <li>Is a Required Field</li></ul>
 			          </span>
-			 </span></div>
-			<div class="col-sm-7">
-				<span class="col-sm-10 padding0">
-				<actualize-input name="closingDate" id="closingDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.closingDate" min-date="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isClosingDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Closing Date cannot occur prior to Issue Date." placeholder="Closing Date  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
-                </actualize-input>
-
+                	</span>
+                </span>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isClosingDate = !isClosingDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -54,19 +60,22 @@
 		</div>
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle">Disbursement Date <span class="required">*</span>
-			<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The date the loan funds are disbursed to the borrower or another party on the borrower's behalf.</p>
-			           	 <ul><li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
-			           	 <li>Constraint on the date as it cannot be a date prior to the issue date or the closing date.</li>
-			           	 <li>Is a Required Field</li></ul>
-			          </span>
-			 </span></div>
+			</div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
 				<actualize-input name="disbursementDate" id="disbursementDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.disbursementDate" min-date="cdformdata.closingInformationDetail.closingDate" is-open="isDisbursementDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Disbursement Date cannot occur before the Closing Date." placeholder="Disbursement Date  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
+				 <span class="helpText tooltip-msg">?
+                	<span>
+                		<b></b>	
+			         <span> 
+				           	 <p>The date the loan funds are disbursed to the borrower or another party on the borrower's behalf.</p>
+				           	 <ul><li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
+				           	 <li>Constraint on the date as it cannot be a date prior to the issue date or the closing date.</li>
+				           	 <li>Is a Required Field</li></ul>
+				          </span>
+                	</span>
+                </span>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDisbursementDate = !isDisbursementDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -76,35 +85,41 @@
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle">
 				Settlement Agent Name<span class="required">*</span>
-				<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The unparsed legal name of the Legal entity conducting the closing or settlement functions.  This is typically an organization name.</p>
-			           	 <ul><li>Must be in a format of a string with no more than 100 characters</li>
-			           	 <li>Is a Required Field</li></ul>
-			          </span>
-			 </span><br>
+				<br>
 				(organization)
 			</div>
 			<div class="col-sm-7" class="form-group" >
 				<input type="text" ng-model="cdformdata.contactInformation.settlementAgent.organizationName" class="form-control">
+				<span class="helpText tooltip-msg" style="right: 16px;">?
+                	<span>
+                		<b></b>	
+			         <span> 
+				           	 <p>The unparsed legal name of the Legal entity conducting the closing or settlement functions.  This is typically an organization name.</p>
+			           	 <ul><li>Must be in a format of a string with no more than 100 characters</li>
+			           	 <li>Is a Required Field</li></ul>
+				          </span>
+                	</span>
+                </span>
 			</div>
 		</div>
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle">
 				File # <span class="required">*</span>
-				<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The identifying file number assigned to the transaction by the Closing Agent also known as a Settlement Agent.</p>
-			           	 <ul><li>Must be in a format of a String value with no more than 30 characters</li>
-			           	 <li>Is a required Field</li></ul>
-			          </span>
-			 </span><br>
+				<br>
 				(settlement Agent Number)
 			</div>
 			<div class="col-sm-7">
 				<input type="text" ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" class="form-control">
+				<span class="helpText tooltip-msg" style="right: 16px;">?
+                	<span>
+                		<b></b>	
+			         <span> 
+				           	  <p>The identifying file number assigned to the transaction by the Closing Agent also known as a Settlement Agent.</p>
+			           	 <ul><li>Must be in a format of a String value with no more than 30 characters</li>
+			           	 <li>Is a required Field</li></ul>
+				          </span>
+                	</span>
+                </span>
 			</div>
 		</div>
 	</div>
@@ -115,30 +130,34 @@
 				 	 <div class=" col-sm-12">
 		              	<div class="col-sm-5 fieldTitle">Choose One
 		              	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>In any transaction, the subject property location must be made clear and concise on the Closing Disclosure, thus the user interface provides two options:</p>
-				           	 <ul><li>Street Address </li>
-				           	 <li>Legal Description </li></ul>
-				           	 <p>The function requires that a radio button is chosen to indicate one or the other as this field is required.</p>
-				          </span>
+					       <span>
+					        <b></b>	
+					         <span> 
+					           	 <p>In any transaction, the subject property location must be made clear and concise on the Closing Disclosure, thus the user interface provides two options:</p>
+					           	 <ul><li>Street Address </li>
+					           	 <li>Legal Description </li></ul>
+					           	 <p>The function requires that a radio button is chosen to indicate one or the other as this field is required.</p>
+					          </span>
+					         </span>
 				 </span></div>
 		              	<div class="col-sm-7 radioGroup">
 		              		<span class="col-sm-6 padding0">
 		              		<input type="radio" name="property"  ng-value="false" ng-model="cdformdata.closingInformation.property.legalDescription" ng-click="checkPropertyRadio()">Street Address
 		              		<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-							        <b></b>	
+							        <span><b></b>	
 							         <span> 
 							           	 <p>The address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value</p>
 							           	 <ul><li></li></ul>
 							          </span>
+							          </span>
 							 </span></span>
 		              		<span class="col-sm-6 padding0"><input type="radio" name="property" ng-model="cdformdata.closingInformation.property.legalDescription"  ng-value="true" ng-click="checkPropertyRadio()">Legal Description
 		              		<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-						        <b></b>	
+						        <span><b></b>	
 						         <span> 
 						           	 <p>The full, unparsed legal description of a parcel of real property.</p>
 						           	 <ul><li>Must be in a format of a String value with no more than 150 characters</li></ul>
+						          </span>
 						          </span>
 						 </span></span>
 		              	</div>
@@ -148,9 +167,10 @@
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Street Address
 		              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
+					        <span><b></b>	
 					         <span> 
 					           	 <p>The address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value</p>
+					          </span>
 					          </span>
 					 </span></div>
 		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.addressLineText" class="form-control"></div>
@@ -160,10 +180,11 @@
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Legal Description
 		              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
+					        <span><b></b>	
 					         <span> 
 					           	 <p>The full, unparsed legal description of a parcel of real property.</p>
 					           	 <ul><li>Must be in a format of a String value with no more than 150 characters</li></ul>
+					          </span>
 					          </span>
 					 </span></div>
 		              <div class="col-sm-7">
@@ -175,10 +196,11 @@
 		            <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">City
 		              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
+					        <span><b></b>	
 					         <span> 
 					           	 <p>The name of the city.</p>
 					           	 <ul><li>Must be in a format of a String value with no more than 50 characters.</li></ul>
+					          </span>
 					          </span>
 					 </span></div>
 		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.cityName" class="form-control"></div>
@@ -187,9 +209,10 @@
 		          <div class="row margin5tb">
 		            <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">State <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
+					        <span><b></b>	
 					         <span> 
 					           	 <p>The two-character representation of the US state, US Territory, Canadian Province, Military APO FPO, or Territory.</p>
+					          </span>
 					          </span>
 					 </span></div>
 		              <div class="col-sm-7">
@@ -197,6 +220,7 @@
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
 		                  </select>
+		                 
 		              </div>
 		            </div>
 		          </div>
@@ -204,10 +228,11 @@
 		            <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Postal Code <span class="required">*</span>
 		              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
+					        <span><b></b>	
 					         <span> 
 					           	 <p>The postal code (ZIP Code in the US) for the address. ZIP Code may be either 5 or 9 digits.</p>
 					           	 <ul><li>This value is required regardless if of other property Information is available.</li></ul>
+					          </span>
 					          </span>
 					 </span></div>
 		              <div class="col-sm-7">
@@ -224,11 +249,12 @@
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Personal Property Included? 
 		              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-						        <b></b>	
+						       <span> <b></b>	
 						         <span> 
 						           	 <p>In a purchase transaction, the regulation requires that if personal property is included and itemized separately in the sales contract that this must be disclosed. The user is provided a dropdown box to indicate if personal property is included or not.</p>
 						           	 <ul><li>The format is a Boolean choice of Yes or No</li>
 						           	 <li>Is a required field</li></ul>
+						          </span>
 						          </span>
 						 </span></div>
 			              <div class="col-sm-3">
@@ -243,11 +269,12 @@
 				 	 <div class=" col-sm-12">
 					    <div class="col-sm-5 fieldTitle">Sales Price
 			              <span  class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
+					        <span><b></b>	
 					         <span> 
 					           	 <p>In a transaction where there is NO personal property itemized and included then provide the amount of money the contract is for.</p>
 					           	 <ul><li>The format is an amount that cannot exceed $9.2</li>
 					           	 <li>Is considered conditionally required based of the personal property included indicator</li></ul>
+					          </span>
 					          </span>
 					 	  </span></div>
 		              	<div class="col-sm-7 radioGroup">
@@ -263,11 +290,12 @@
 				 	 <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Real Property Price 
 		              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-						        <b></b>	
+						        <span><b></b>	
 						         <span> 
 						           	 <p>In a transaction where there IS personal property itemized and included then provide the dollar amount of real property included in the Sales Contract Amount.</p>
 						           	 <ul><li>The format is an amount that cannot exceed $9.2</li>
 						           	 <li>Is considered conditionally required based of the personal property included indicator</li></ul>
+						          </span>
 						          </span>
 						 </span></div>
 		              	<div class="col-sm-7 radioGroup">

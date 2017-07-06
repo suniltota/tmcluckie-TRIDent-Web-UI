@@ -57,15 +57,32 @@ input, select, textarea, .form-control{font-size: 12px;}
 .white{color:#fff;}
 .green{color:#009688;}
 .cursor{cursor: pointer;}
+
+.helpText{    width: 12px;
+    background: #5bb1dc;
+    color: #fff;
+    position: absolute!important;
+    right: 0px;
+    top: 0;
+    border-radius: 0 5px;
+    font-size: 10px;
+    padding: 0 4px;
+    font-weight: bold;
+    float: left;
+    font-family: monospace;}
+.helpText span{font-weight: normal;}
+.helpText span{color: #555; width: 200px;}
+.helpText span ul{float: left; padding-left:15px;}
+.helpText span ul li{list-style-type:circle; float: left; padding:3px 0;}
+
 .helpIcon{font-size: 14px; color:#777;}
 .helpIcon + .tooltip .tooltip-arrow{border-right-color: #5bb1dc; }
 .helpIcon + .tooltip .tooltip-inner{background-color: #5bb1dc;}
-.helpIcon span{color: #555;}
+.helpIcon span{color: #555; width: 200px;}
 .helpIcon span ul{float: left; padding-left:15px;}
 .helpIcon span ul li{list-style-type:circle; float: left; padding:3px 0;}
 .tooltip-msg{
     outline: none;
-    position: relative;
 }
 
 .tooltip-msg strong {
@@ -73,12 +90,12 @@ input, select, textarea, .form-control{font-size: 12px;}
 }
 
 .tooltip-msg > span {
-    width: 250px;
+    width: 350px;
     padding: 10px 20px;
     margin-top: 0;
     margin-left: -120px;
     opacity: 0;
-    visibility: hidden;
+    display: none;
     z-index: 10;
     position: absolute;
     font-family: Arial;
@@ -99,11 +116,12 @@ input, select, textarea, .form-control{font-size: 12px;}
 .tooltip-msg:hover > span {
     opacity: 1;
     text-decoration: none;
-    visibility: visible;
+    display: block;
     overflow: visible;
     margin-top:10px;
     display: inline;
     margin-left: -90px;
+    width: 350px;
 }
 
 .tooltip-msg span b {
