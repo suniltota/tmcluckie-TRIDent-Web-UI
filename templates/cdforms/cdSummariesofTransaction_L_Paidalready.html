@@ -240,7 +240,7 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-10 padding0">
-					<actualize-input name="prorationItemPaidFromDate" id="prorationItemPaidFromDate" dateFormat="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidFromDate" is-open="isProrationItemPaidFromDate" ng-required="true" toolTipPos = "top" min-date="cdformdata.closingInformation.dateIssued" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+					<actualize-input name="prorationItemPaidFromDate" id="prorationItemPaidFromDate" dateFormat="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidFromDate" is-open="isProrationItemPaidFromDate" ng-required="true" toolTipPos = "top" min-date="cdformdata.closingInformation.dateIssued" max-date="12/31/2045" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
@@ -249,7 +249,7 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-10 padding0">
-					<actualize-input name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" dateFormat="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" ng-required="true" toolTipPos = "top" min-date="adjustmentsUnpaidBySeller.prorationItemPaidFromDate" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+					<actualize-input name="prorationItemPaidThroughDate" id="prorationItemPaidThroughDate" dateFormat="{{dateFormat}}" ng-model="adjustmentsUnpaidBySeller.prorationItemPaidThroughDate" is-open="isprorationItemPaidThroughDate" ng-required="true" toolTipPos = "top" min-date="adjustmentsUnpaidBySeller.prorationItemPaidFromDate" max-date="12/31/2045" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 	</actualize-input>
 					</span>
 	      			<span class="input-group-btn col-sm-2 padding0">
