@@ -445,7 +445,7 @@ app.directive('decimalDigitsWithNumberFormatAllowNegative', function ($compile, 
 });
 
 
-app.directive('percentageFormat', function () {
+app.directive('percentageFormat', function ($filter, $sce) {
     return {
       require: 'ngModel',
       restrict: 'A',
@@ -484,6 +484,29 @@ app.directive('percentageFormat', function () {
           return undefined;
         }
         ctrl.$parsers.push(inputValue);
+
+        element.on('blur', function (e) {
+            var elementValue = e.target.value;
+            var elementValue = elementValue.replace(/[^0-9.]/g, '');
+            var decimalSplitValues = elementValue.split('.');
+            if(decimalSplitValues[0] == 25){
+                decimalSplitValues[1] = "00"
+                elementValue = decimalSplitValues[0] + '.'+ decimalSplitValues[1]
+              }
+            if(decimalSplitValues[0].length <= 3 && decimalSplitValues[0] <= 25 && elementValue != "") {
+              elementValue = elementValue.replace(/[^0-9.-]/g, '');
+              e.target.value = $filter('number')(elementValue, 2);
+              e.currentTarget.style.border=""
+              message = "";
+              scope.$apply();
+            }else{
+              e.currentTarget.style.border="1px solid #f17777"
+              message = "Please enter a vaild percent";
+              //e.target.value = "";
+              scope.$apply();
+            }
+            scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+        });
       }
     };
 });

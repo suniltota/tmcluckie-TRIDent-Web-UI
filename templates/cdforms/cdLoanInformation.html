@@ -236,7 +236,8 @@
 					<div class="col-sm-9 fieldTitle">Provide the life of loan Cap Rate:</div>
 					<div class="col-sm-3 padding0">
 						<div class="input-group">
-							<input type="text" class="form-control" name="loanCapRate" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent" percentage-format>
+							<actualize-input name="loanCapRate" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+                			</actualize-input>
 								<span class="input-group-addon input-default">%</span>
 						</div>
 					</div>
@@ -255,7 +256,8 @@
 					<div class="col-sm-9 fieldTitle">Provide the first change interest rate limit:</div>
 					<div class="col-sm-3 padding0">
 						<div class="input-group">
-							<input type="text" class="form-control" name="firstChangeInterestRateLimit" ng-model="cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent" percentage-format>
+							<actualize-input name="firstChangeInterestRateLimit" ng-model="cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+                			</actualize-input>
 							<span class="input-group-addon input-default">%</span>
 						</div>
 					</div>
@@ -274,7 +276,8 @@
 					<div class="col-sm-9 fieldTitle">Provide the subsequent change interest rate limit:</div>
 					<div class="col-sm-3 padding0">
 						<div class="input-group">
-							<input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent" percentage-format>
+							<actualize-input name="subsequentChangeInterestRateLimit" ng-model="cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+                			</actualize-input>
 							<span class="input-group-addon input-default">%</span>
 						</div>
 					</div>
@@ -294,7 +297,8 @@
 					<div class="col-sm-9 fieldTitle">Provide the Floor Rate:</div>
 					<div class="col-sm-3 padding0">
 						<div class="input-group">
-							<input type="text" class="form-control" name="loanCapRate" ng-model="cdformdata.interestRateAdjustment.floorRatePercent" percentage-format>
+							<actualize-input name="loanCapRate" ng-model="cdformdata.interestRateAdjustment.floorRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+                			</actualize-input>
 								<span class="input-group-addon input-default">%</span>
 						</div>
 					</div>

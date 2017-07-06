@@ -64,7 +64,8 @@
 		        </td>
 		        <td>
 		        <div class="input-group">
-						<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent" percentage-format>
+						<actualize-input name="regulationZExcludedBonaFideDiscountPointsPercent" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+                		</actualize-input>
 						<span class="input-group-addon input-default">%</span>
 		        </div>
 		        </td>
@@ -116,7 +117,8 @@
 		        </td>
 				<td>
 				<div class="input-group">
-					<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent" percentage-format>
+					<actualize-input name="aprPercent" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+                		</actualize-input>
 					<span class="input-group-addon input-default">%</span>
 		        </div>
 		        </td>
@@ -149,7 +151,8 @@
 		        </td>
 				<td>
 				<div class="input-group">
-					   	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent" percentage-format>
+					   	<actualize-input name="feeSummaryTotalInterestPercent" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+                		</actualize-input>
 					   	<span class="input-group-addon input-default">%</span>
 		        </td>
 				<td valign="middle">
