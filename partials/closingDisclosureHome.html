@@ -809,12 +809,14 @@
             <table class="table ng-table-responsive table-bordered">
               <thead>      
                 <th class="innerSectionHeader innerSectionMainHeader">Parent Container</th>
+                <th class="innerSectionHeader innerSectionMainHeader">Line Number</th>
                 <th class="innerSectionHeader innerSectionMainHeader">Error Message</th>
                 <th class="innerSectionHeader innerSectionMainHeader">XPATH</th>
               </thead>
               <tbody>
                 <tr ng-repeat="validationError in validation_errors">
                   <td>{{validationError.PARENT_CONTAINER}}</td>
+                  <td>{{validationError.LINE_NUMBER}}</td>
                   <td>{{validationError.ERROR_MESSAGE}}</td>
                   <td>{{validationError.XPATH}}</td>
                 </tr>
@@ -828,22 +830,19 @@
     </div>
 </div>
 
-  <script type="text/javascript">
+<script type="text/javascript">
   $(document).ready(function(){
-	    $(".pageno").tooltip();
+      $(".pageno").tooltip();
       $(".closeXml").tooltip();
       $(".downloadXML").tooltip();
-         
-	});
-  </script>
-
+  });
+</script>
 
 <script type="text/javascript">
-       $(function(){
-              //$(".SidebarNavHead").customScrollbar();
-              //$(".SidebarBtnsHead").customScrollbar();
-              $('#demoList').sapling();
-              $('#IconsList').sapling();
-            });
-        
+  $(function(){
+        //$(".SidebarNavHead").customScrollbar();
+        //$(".SidebarBtnsHead").customScrollbar();
+        $('#demoList').sapling();
+        $('#IconsList').sapling();
+  });
 </script>
