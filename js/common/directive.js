@@ -623,12 +623,14 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
 
             element.on('change', function (e) {
                 var dateVal = e.target.value;
+                if(minDate > dateVal){
+                  e.currentTarget.style.border="1px solid #f17777"
+                  message = "Please enter a vaild date";
+                }
                 if(!(regexp.test(dateVal) && !isNaN(Date.parse(dateVal)))) {
                   ngModel.$setViewValue(null);
                   //ngModel.$render();
                   ngModel.$modelValue = undefined;
-                  e.currentTarget.style.border="1px solid #f17777"
-                  message = "Please enter a vaild date";
                 } else {
                   $parse(attr.ngModel).assign(scope, $filter('date')(new Date(Date.parse(dateVal)), xmlDateFormat));
                   e.currentTarget.style.border=""
@@ -661,8 +663,15 @@ app.directive('actualizeInput', function($compile, $sce, staticData, $parse, $ti
       if(attr.type != undefined && attr.type == "date"){
         if($scope.dateValidate ==  undefined)
           $scope.dateValidate={}
-        $scope.dateValidate[attr.name.toLowerCase()] = {"maxDate": new Date(attr.maxDate), "minDate":new Date(attr.minDate)}
-        template += '<input type="text" id="input_'+attr.id+'" uib-datepicker-popup="'+attr.dateformat+'" ng-change="'+attr.ngChange+'"  ng-blur="'+attr.ngBlur+'" ng-model="'+attr.ngModel+'" min-date="dateValidate.'+attr.name.toLowerCase()+'.minDate" max-date="dateValidate.'+attr.name.toLowerCase()+'.maxDate" is-open="'+attr.isOpen+'" datepicker-options="dateOptions" ng-required="'+attr.ngRequired+'" close-text="Close" placeholder="'+attr.placeholder+'" name="'+attr.name+'" class="form-control InputTooltip calenderInput" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
+        $scope.dateValidate[attr.name.toLowerCase()] = {"maxDate": new Date(attr.maxDate)}
+        template += '<input type="text" id="input_'+attr.id+'" uib-datepicker-popup="'+attr.dateformat+'" ng-change="'+attr.ngChange+'"  ng-blur="'+attr.ngBlur+'" ng-model="'+attr.ngModel+'" max-date="dateValidate.'+attr.name.toLowerCase()+'.maxDate" is-open="'+attr.isOpen+'" datepicker-options="dateOptions" ng-required="'+attr.ngRequired+'" close-text="Close" placeholder="'+attr.placeholder+'" name="'+attr.name+'" class="form-control InputTooltip calenderInput" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
+        if(attr.minDateVar){
+           template += 'min-date="'+attr.minDateVar+'"';
+        }else{
+            $scope.dateValidate[attr.name.toLowerCase()].minDate=new Date(attr.minDate);
+            template += 'min-date="dateValidate.'+attr.name.toLowerCase()+'.minDate"';
+        }
+        //template += '<input type="text" id="input_'+attr.id+'" uib-datepicker-popup="'+attr.dateformat+'" ng-change="'+attr.ngChange+'"  ng-blur="'+attr.ngBlur+'" ng-model="'+attr.ngModel+'" min-date="dateValidate.'+attr.name.toLowerCase()+'.minDate" max-date="dateValidate.'+attr.name.toLowerCase()+'.maxDate" is-open="'+attr.isOpen+'" datepicker-options="dateOptions" ng-required="'+attr.ngRequired+'" close-text="Close" placeholder="'+attr.placeholder+'" name="'+attr.name+'" class="form-control InputTooltip calenderInput" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
       }else{
         template += '<input type="text" ng-model="'+attr.ngModel+'" ng-disabled="'+attr.ngDisabled+'" ng-blur="'+attr.ngBlur+'" ng-keyup="'+attr.ngKeyup+'" ng-change="'+attr.ngChange+'" maxlength="'+attr.maxlength+'" name="'+attr.name+'" class="form-control InputTooltip" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
       }
