@@ -3710,6 +3710,26 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }
       
     }, true);
+
+    $scope.$watch('sotBorrowerTransactionTotalAmount', function(newValue,oldValue){
+     	$scope.cdformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = '';
+     	$scope.cdformdata.closingInformationDetail.cashToBorrowerAtClosingAmount = '';
+ 		if($scope.sotBorrowerTransactionTotalAmount >= 0 ){
+ 			$scope.cdformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = $scope.sotBorrowerTransactionTotalAmount;
+ 		} else {
+ 			$scope.cdformdata.closingInformationDetail.cashToBorrowerAtClosingAmount = 0-$scope.sotBorrowerTransactionTotalAmount;
+ 		}
+ 	}, true);
+ 
+ 	$scope.$watch('sotSellerTransactionTotalAmount', function(newValue,oldValue){
+ 		$scope.cdformdata.closingInformationDetail.cashToSellerAtClosingAmount = '';
+ 		$scope.cdformdata.closingInformationDetail.cashFromSellerAtClosingAmount = '';
+ 		if($scope.sotSellerTransactionTotalAmount >= 0) {
+			$scope.cdformdata.closingInformationDetail.cashToSellerAtClosingAmount = $scope.sotSellerTransactionTotalAmount;
+ 		} else {
+ 			$scope.cdformdata.closingInformationDetail.cashFromSellerAtClosingAmount = 0-$scope.sotSellerTransactionTotalAmount;
+		}
+	}, true);
     
     $scope.$watch('cdformdata.closingCostsTotal.lenderCredits', function(newValue,oldValue){
     	var totalClosingCosts = 0;
