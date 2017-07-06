@@ -382,3 +382,7 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .paddingTopLeft10{padding-left: 10px;padding-top: 10px;}
 .margin5n{margin:-5px !important;}
 .widthPercent90{width: 90% !important;}
+.helpcontainer .subtab{margin-bottom:2px; width: 100%; float: left;}
+.helpcontainer .subtab .subHeading{width: 100%; padding:7px 15px; background-color:#eee; border-radius: 3px;}
+.helpcontainer .subtab .subHeading .directionIcon{cursor: pointer; padding:3px 5px; background-color: #ddd; border-radius: 3px;}
+.helpcontainer .subtab .subContainer{padding: 5px 15px; float: left; width: 100%;}

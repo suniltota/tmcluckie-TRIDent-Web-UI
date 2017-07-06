@@ -4,17 +4,37 @@
   <h4>General Information</h4>
 </div>
 
-<div class="container"> 
-    <button type="button" class="pull-left btn btn-info btn-block widthPercent90" data-toggle="collapse" data-target="#LE_DateIssued_Help"  ng-click="LE_DateIssued_Help = LE_DateIssued_Help + 1" ng-init="LE_DateIssued_Help=0" > Date Issued <span class="pull-right glyphicon glyphicon-chevron-right" ng-show="LE_DateIssued_Help%2==0" ></span>
-  <span class="pull-right glyphicon glyphicon-chevron-down" ng-show="LE_DateIssued_Help%2==1"></span></button>
-<div id="LE_DateIssued_Help" class="collapse widthPercent90">
-  In any transaction, the subject property location must be made clear and concise on the Closing Disclosure, thus the user interface provides two options: <br>
-    • Street Address <br>
-    • Legal Description <br>
-  The function requires that a radio button is chosen to indicate one or the other as this field is required.
-
-  </div>
+<div class="helpcontainer"> 
+  <span class="subtab">
+      <span class="pull-left subHeading" data-toggle="collapse" data-target="#LE_DateIssued_Help"  ng-click="LE_DateIssued_Help = LE_DateIssued_Help + 1" ng-init="LE_DateIssued_Help=0" > Date Issued
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_DateIssued_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_DateIssued_Help%2==1">
+        
+      </span>
+      </span>
   
+       <div id="LE_DateIssued_Help" class="collapse subContainer">
+        In any transaction, the subject property location must be made clear and concise on the Closing Disclosure, thus the user interface provides two options: <br>
+          • Street Address <br>
+          • Legal Description <br>
+        The function requires that a radio button is chosen to indicate one or the other as this field is required.
+       </div>
+   </span>
+   <span class="subtab">
+      <span class="pull-left subHeading" data-toggle="collapse" data-target="#LE_LenderName_Help"  ng-click="LE_LenderName_Help = LE_LenderName_Help + 1" ng-init="LE_LenderName_Help=0" > Lender Name
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_LenderName_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_LenderName_Help%2==1">
+        
+      </span>
+      </span>
+  
+       <div id="LE_LenderName_Help" class="collapse subContainer">
+        In any transaction, the subject property location must be made clear and concise on the Closing Disclosure, thus the user interface provides two options: <br>
+          • Street Address <br>
+          • Legal Description <br>
+        The function requires that a radio button is chosen to indicate one or the other as this field is required.
+       </div>
+   </span>
 </div>
 </div>
 
