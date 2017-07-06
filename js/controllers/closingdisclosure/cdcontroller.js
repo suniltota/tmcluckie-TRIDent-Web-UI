@@ -1734,7 +1734,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		}
 
 	    $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.totalFinalAmount;
-	    $scope.cdformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount;
+	    
     }
 
     $scope.lenderTolerance = function(){
@@ -3691,7 +3691,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         if($scope.cdformdata.cashToCloses.cashToCloseTotal.length>1){
 	        $scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount = cashToCloseItemEstimatedAmount;
 	        $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount = cashToCloseItemFinalAmount;
-	        $scope.cdformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount;
+	        
         }else{
         	$scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount = cashToCloseItemEstimatedAmount;
 	        $scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemFinalAmount = cashToCloseItemFinalAmount;
