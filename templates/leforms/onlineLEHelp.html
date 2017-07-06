@@ -1,27 +1,12 @@
 <div class="bodySection col-sm-12 padding0" style="position: relative; ">
   
-<div class="container">
-  <h4>General Information</h4>
-</div>
+ <div class="container">
+   <h4>General Information</h4>
+ </div>
 
-<div class="helpcontainer"> 
-  <span class="subtab">
-      <span class="pull-left subHeading" data-toggle="collapse" data-target="#LE_DateIssued_Help"  ng-click="LE_DateIssued_Help = LE_DateIssued_Help + 1" ng-init="LE_DateIssued_Help=0" > Date Issued
-      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_DateIssued_Help%2==0" ></span>
-      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_DateIssued_Help%2==1">
-        
-      </span>
-      </span>
-  
-       <div id="LE_DateIssued_Help" class="collapse subContainer">
-        In any transaction, the subject property location must be made clear and concise on the Closing Disclosure, thus the user interface provides two options: <br>
-          • Street Address <br>
-          • Legal Description <br>
-        The function requires that a radio button is chosen to indicate one or the other as this field is required.
-       </div>
-   </span>
+ <div class="helpcontainer">
    <span class="subtab">
-      <span class="pull-left subHeading" data-toggle="collapse" data-target="#LE_LenderName_Help"  ng-click="LE_LenderName_Help = LE_LenderName_Help + 1" ng-init="LE_LenderName_Help=0" > Lender Name
+      <span class="pull-left subHeading" data-toggle="collapse" data-target="#LE_LenderName_Help"  ng-click="LE_LenderName_Help = LE_LenderName_Help + 1" ng-init="LE_LenderName_Help=0" > General Information
       <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_LenderName_Help%2==0" ></span>
       <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_LenderName_Help%2==1">
         
@@ -29,13 +14,67 @@
       </span>
   
        <div id="LE_LenderName_Help" class="collapse subContainer">
-        In any transaction, the subject property location must be made clear and concise on the Closing Disclosure, thus the user interface provides two options: <br>
-          • Street Address <br>
-          • Legal Description <br>
-        The function requires that a radio button is chosen to indicate one or the other as this field is required.
+        <table class="bodySection col-sm-12 padding0 table" id="helpGeneralInformation">
+              <thead>
+                <tr >
+                  <th class="col col-sm-4 innerSectionHeader" >Web User Interface - Label Name</th>
+                  <th class="col col-sm-8 innerSectionHeader" >Online Help Verbiage</th>
+               </tr>
+              </thead>
+              <tbody>
+                <tr >
+                   <td class="col col-sm-4">Lender Name</td>
+                   <td class="col col-sm-8">
+                      <div id="LenderName">
+                          Name of the creditor extending the estimated cost for obtaining a loan for real property.
+                      </div>
+                   </td>
+                </tr>
+                <tr >
+                  <td class="col col-sm-4">Date Issued</td>
+                  <td class="col col-sm-8">
+                    <div id="DateIssued" >
+                      <strong>The date the integrated disclosure was mailed or delivered to the borrower as reflected on a single instance of the integrated disclosure document.</strong>
+                      <ul style="list-style-type:circle">
+                      <li>• Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
+                      <li>• There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past</li>
+                      <li>• Is a Required field</li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr >
+                  <td class="col col-sm-4">Closing Date </td>
+                  <td class="col col-sm-8">
+                   <div id="ClosingDate" class="collapse">
+                      The date the closing documents were fully executed and the borrower becomes contractually responsible for the debt. Depending on the location (wet-sign, dry-sign, table-funded and/or escrow state) of the loan closing, the Closing Date may be the same date as either the Document Preparation Date and/or the Execution Date and/or the Recorded Date.
+                     
+                      • This date is defaulted to 5 days after the issue date if conducting data entry.  Otherwise, the date will be rendered per the information in the upload process will be displayed 
+                      • Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date.
+                      • There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past.
+                      • Is a Required field
+                    </div>
+                 </td>
+                </tr>
+                <tr >
+                  <td class="col col-sm-4">Disbursement  Date</td>
+                  <td class="col col-sm-8">
+                      <div id="DisbursementDate" >
+                          <p><strong>The date the loan funds are disbursed to the borrower or another party on the borrower's behalf.</strong></p>
+                          <ul style="list-style-type:circle">
+                          <li>• Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
+                          <li>• Constraint on the date as it cannot be a date prior to the issue date or the closing date.</li>
+                          <li>• Is a Required field</li>
+                          </ul>
+                      </div>
+                  </td>
+                </tr>
+                
+              </tbody>
+              </table>
        </div>
-   </span>
-</div>
+    </span> 
+ </div>
 </div>
 
   
