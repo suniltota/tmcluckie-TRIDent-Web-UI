@@ -752,7 +752,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
 			//Summaries of Transaction : L.Paid Already by or on Behalf of Borrower at Closing --- Starts from here.
 			if($scope.cdformdata.closingCostFundList==undefined || $scope.cdformdata.closingCostFundList.length==0) {
-				$scope.cdformdata.closingCostFundList = staticData.cdformdata.closingCostFundList;
+				$scope.cdformdata.closingCostFundList = angular.copy(staticData.cdformdata.closingCostFundList);
 			}
 			for(i=0; i<$scope.cdformdata.closingCostFundList.length; i++) {
 				if($scope.cdformdata.closingCostFundList[i].fundsType == 'DepositOnSalesContract' 
