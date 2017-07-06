@@ -18,7 +18,9 @@
 						 </span>
 						</div>
 						<div class="col-sm-5 padding0">
-							<input type="text" class="form-control" name="" ng-model="leformdata.loanInformation.loanTermYears">
+							<!-- <input type="text" class="form-control" name="" ng-model="leformdata.loanInformation.loanTermYears"> -->
+							<actualize-input name="loanTermYears" ng-model="leformdata.loanInformation.loanTermYears" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="only-digits" >
+                			</actualize-input>
 						</div>
 					</div>
 					<div class="col-sm-12 padding0 margin5tb paddingtop11">
@@ -34,7 +36,9 @@
 						 </span>
 						</div>
 						<div class="col-sm-5 padding0">
-							<input type="text" class="form-control" name="" ng-model="leformdata.loanInformation.loanTermMonths" only-digits maxlength="3">
+							<!-- <input type="text" class="form-control" name="" ng-model="leformdata.loanInformation.loanTermMonths" only-digits maxlength="3"> -->
+							<actualize-input name="loanTermMonths" ng-model="leformdata.loanInformation.loanTermMonths" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="only-digits" >
+                			</actualize-input>
 						</div>
 					</div>
 				</div>
@@ -665,7 +669,7 @@
 					<div class="col-sm-3 padding0">
 						<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
-							<input type="text" class="form-control" name="loanCapRate" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount" decimal-digits-with-number-format>
+							<actualize-input id="principalAndInterestPaymentMaximumAmount" name="principalAndInterestPaymentMaximumAmount" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount" dependencies="decimal-digits-with-number-format" toolTipPos = "top" custommessage="Please enter a valid dollar amount."></actualize-input>
 						</div>
 					</div>
 				</div>
@@ -794,7 +798,9 @@
 						 </span>
 						</div>
 						<div class="col-sm-2 padding0">
-							<input type="text" class="form-control" name="" ng-model="leformdata.construction.constructionPeriodNumberOfMonthsCount" only-digits maxlength="3">
+							<!-- <input type="text" class="form-control" name="" ng-model="leformdata.construction.constructionPeriodNumberOfMonthsCount" only-digits maxlength="3"> -->
+							<actualize-input name="constructionPeriodNumberOfMonthsCount" ng-model="leformdata.construction.constructionPeriodNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="only-digits" maxlength="3">
+                			</actualize-input>
 						</div>
 					</div>
 				</div>
@@ -815,7 +821,9 @@
 						 </span>
 						</div>
 						<div class="col-sm-2 padding0">
-							<input type="text" class="form-control" name="" ng-model="leformdata.construction.constructionLoanTotalTermMonthsCount" only-digits maxlength="3">
+							<!-- <input type="text" class="form-control" name="" ng-model="leformdata.construction.constructionLoanTotalTermMonthsCount" only-digits maxlength="3"> -->
+							<actualize-input name="constructionLoanTotalTermMonthsCount" ng-model="leformdata.construction.constructionLoanTotalTermMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="only-digits" maxlength="3">
+                			</actualize-input>
 						</div>
 					</div>
 				</div>
