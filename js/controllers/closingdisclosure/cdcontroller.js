@@ -1236,6 +1236,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	} else {
     		if($scope.cdformdata.loanInformation.amortizationType == 'Step') {
     			$scope.stepPaymentIndicatorValue = true;
+    			$scope.stepChange($scope.stepPaymentIndicatorValue);
     		}
     		if($scope.cdformdata.loanInformation.amortizationType == '') {
 	    		$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = false;

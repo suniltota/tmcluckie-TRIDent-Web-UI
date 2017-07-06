@@ -4,11 +4,11 @@
         <table class="table table-bordered margin5tb"  style="border:0px;">
 		      <tr>
 		        <td class="col-sm-3" >
-		        	<label ng-show="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator && !stepPaymentIndicator">Index + Margin</label>
-		        	<label ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator || stepPaymentIndicator">Number of Adjustments</label>
+		        	<label ng-show="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator && cdformdata.loanInformation.amortizationType !='Step'">Index + Margin</label>
+		        	<label ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator || cdformdata.loanInformation.amortizationType =='Step'">Number of Adjustments</label>
 		        </td>
 		        <td>
-		            <span ng-show="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator && !stepPaymentIndicator">
+		            <span ng-show="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator && !cdformdata.loanInformation.amortizationType =='Step'">
 			        	<span class="col-sm-12 margin5tb"> 
 		        			<span class="pull-left col-sm-2">
 		        				<select class="form-control" ng-model="cdformdata.interestRateAdjustment.indexType" ng-change="indexChange()">
@@ -34,7 +34,7 @@
 	        				<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount">
 	        			</span>
 		        	</span>
-		        	<span ng-show="stepPaymentIndicator" ng-if="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+		        	<span ng-show="cdformdata.loanInformation.amortizationType =='Step'" ng-if="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
 	        			<span class="pull-left col-sm-2">
 	        				<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.totalStepCount">
 	        			</span>
@@ -48,10 +48,12 @@
 		        <td>
 		        	<span class="pull-left col-sm-2">
         				<div class="input-group">
-							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.termsOfLoan.noteRatePercent" ng-show="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator && !stepPaymentIndicator">
-							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="	cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
-							<span ng-if="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
-								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.totalStepCount" ng-show="stepPaymentIndicator">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.termsOfLoan.noteRatePercent" ng-show="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator && cdformdata.loanInformation.amortizationType !='Step'">
+							<span ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator || cdformdata.loanInformation.amortizationType =='Step'">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="	cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+								<span ng-if="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+									<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.termsOfLoan.noteRatePercent" ng-show="cdformdata.loanInformation.amortizationType =='Step'">
+								</span>
 							</span>
 							<span class="input-group-addon input-default">%</span>
         				</div>
@@ -65,7 +67,7 @@
 		        	<label ng-show="cdformdata.interestRateAdjustment.indexType=='Other' && cdformdata.loanInformation.amortizationType == 'Step'">Total Step Count</label>
 		        </td>
 		        <td>
-		            <span ng-show="cdformdata.interestRateAdjustment.indexType!='Other' && !stepPaymentIndicator && !cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+		            <span ng-show="cdformdata.interestRateAdjustment.indexType!='Other' && !cdformdata.loanInformation.amortizationType =='Step' && !cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
 			            <span class="pull-left col-sm-2">
 	        				<div class="input-group">
 								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.floorRatePercent">
@@ -91,11 +93,11 @@
 		        		</span>
 		        		<!-- {{cdformdata.interestRateAdjustment.totalStepCount}} -->
 		        	</span>
-		        	<span ng-show="stepPaymentIndicator || cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
+		        	<span ng-show="cdformdata.loanInformation.amortizationType =='Step' || cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
 		        	    <span class="pull-left col-sm-2">
 	        				<div class="input-group">
 		        				<span ng-if="!cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
-									<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent" ng-show="stepPaymentIndicator">
+									<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent" ng-show="cdformdata.loanInformation.amortizationType =='Step'">
 								</span>
 								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="	cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" ng-show="cdformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator">
 								<span class="input-group-addon input-default">%</span>
