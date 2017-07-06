@@ -90,7 +90,7 @@
 			</div>
 			<div class="col-sm-7" class="form-group" >
 				<input type="text" ng-model="cdformdata.contactInformation.settlementAgent.organizationName" class="form-control">
-				<span class="helpText tooltip-msg" style="right: 16px;">?
+				<span class="helpText tooltip-msg inputright">?
                 	<span>
                 		<b></b>	
 			         <span> 
@@ -110,7 +110,7 @@
 			</div>
 			<div class="col-sm-7">
 				<input type="text" ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" class="form-control">
-				<span class="helpText tooltip-msg" style="right: 16px;">?
+				<span class="helpText tooltip-msg inputright">?
                 	<span>
                 		<b></b>	
 			         <span> 
@@ -150,8 +150,12 @@
 							           	 <ul><li></li></ul>
 							          </span>
 							          </span>
-							 </span></span>
-		              		<span class="col-sm-6 padding0"><input type="radio" name="property" ng-model="cdformdata.closingInformation.property.legalDescription"  ng-value="true" ng-click="checkPropertyRadio()">Legal Description
+							 </span>
+
+							 </span>
+		              		<span class="col-sm-6 padding0">
+		              		<input type="radio" name="property" ng-model="cdformdata.closingInformation.property.legalDescription"  ng-value="true" ng-click="checkPropertyRadio()">
+		              		Legal Description
 		              		<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
 						        <span><b></b>	
 						         <span> 
@@ -166,14 +170,17 @@
 		          <div class="row margin5tb" ng-show="cdformdata.closingInformation.property.legalDescription == false">
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Street Address
-		              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <span><b></b>	
+		              </div>
+		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.addressLineText" class="form-control">
+		              	<span class="helpText tooltip-msg left inputright">?
+		                	<span>
+		                		<b></b>	
 					         <span> 
-					           	 <p>The address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value</p>
+					           	<p>The address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value</p>
 					          </span>
-					          </span>
-					 </span></div>
-		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.addressLineText" class="form-control"></div>
+		                	</span>
+		                </span>
+		              </div>
 		            </div>
 		          </div>
 		          <div class="row margin5tb" ng-show="cdformdata.closingInformation.property.legalDescription == true">

@@ -74,6 +74,9 @@ input, select, textarea, .form-control{font-size: 12px;}
 .helpText span{color: #555; width: 200px;}
 .helpText span ul{float: left; padding-left:15px;}
 .helpText span ul li{list-style-type:circle; float: left; padding:3px 0;}
+.helpText.left > span{left:-240px;}
+.helpText.left > span > b{margin-left:310px;}
+.helpText.inputright{right: 16px;}
 
 .helpIcon{font-size: 14px; color:#777;}
 .helpIcon + .tooltip .tooltip-arrow{border-right-color: #5bb1dc; }
