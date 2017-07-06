@@ -3698,10 +3698,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }
 
         if($scope.loanBasicInfo.loanFormType == 'alternate'){
-        	if($scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount>0){
+        	if($scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount>=0){
 	    	    $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemPaymentType = 'ToBorrower';
+	    	    $scope.cdformdata.closingInformationDetail.cashToBorrowerAtClosingAmount = $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount;
 		    }else if($scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount<0){
 		    	$scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemPaymentType = 'FromBorrower';
+		    	$scope.cdformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = 0-$scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount;
 		    }
         }
        
