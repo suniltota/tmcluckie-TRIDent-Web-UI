@@ -77,9 +77,11 @@
 		        </label></td>
 		        <td>
 		        	<div class="input-group">
-  							<actualize-input ng-model="cdformdata.termsOfLoan.noteRatePercent" name="noteRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format" ng-disabled="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" ng-show="cdformdata.loanInformation.amortizationType!='GraduatedPaymentARM' && cdformdata.loanInformation.amortizationType!='AdjustableRate'">
+  							<actualize-input ng-model="cdformdata.termsOfLoan.noteRatePercent" name="noteRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format" ng-disabled="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" ng-show="cdformdata.loanInformation.amortizationType!='GraduatedPaymentARM' && cdformdata.loanInformation.amortizationType!='AdjustableRate' && !cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator">
                 			</actualize-input>
-            				<actualize-input ng-model="cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent" name="noteRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format" ng-disabled="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" ng-show="cdformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || cdformdata.loanInformation.amortizationType=='AdjustableRate'">
+            				<actualize-input ng-model="cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent" name="noteRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format" ng-disabled="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" ng-show="cdformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || cdformdata.loanInformation.amortizationType=='AdjustableRate' && !cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator">
+            				</actualize-input>
+            				<actualize-input ng-model="cdformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" name="noteRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format" ng-disabled="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator" ng-show="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator">
             				</actualize-input>
 
   							<span class="input-group-addon input-default">%</span>
