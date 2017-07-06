@@ -188,288 +188,11 @@
 			</div>
 			
 		
-		<!-- <div class="col-sm-12 row margin5tb">
-			<div class="col-sm-4" ng-repeat="automatedUnderwriting in leformdata.loanInformation.automatedUnderwritings">
-				<div class="col-sm-12 padding0">
-					<div class="col-sm-5 fieldTitle">AUS Type:</div>
-					<div class="col-sm-7 padding0">
-						<select  class="form-control" ng-model="automatedUnderwriting.automatedUnderwritingSystemType">
-							<option value="" selected>Select</option>
-							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
-					<div class="FieldGroup">
-						<div class="col-sm-5 fieldTitle">AUS Description:</div>
-						<div class="col-sm-7 padding0">
-							<input type="text" class="form-control" id="aUSOtherDescription" ng-model="automatedUnderwriting.automatedUnderwritingSystemTypeOtherDescription">
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-12 padding0">
-					<div class="FieldGroup">
-						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
-						<div class="col-sm-7 padding0">
-							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
-						</div>
-					</div>
-				</div>
-				<span class="glyphicon glyphicon-trash iconTooltip red margin5tb ausTrash" data-toggle="tooltip" title="Close" ng-click="removeAusTypeIdentifier($index)" ng-show="$index==5 || $index==8"/>
-			</div>
-		</div> -->
+		
 	</div>
 	
 
-	 <!-- <div class="col-sm-12">
-		<h5 class="innerSectionHeader">Loan Period, Type and Position</h5>
-		<div class="col-sm-12 row">
-			<div class="col-sm-4">
-				<div class="col-sm-5 fieldTitle margin5t">Loan Term:</div>
-				<div class="col-sm-7 padding0">
-					<div class="col-sm-12 padding0 paddingtop6">
-						<div class="col-sm-6 padding0 paddingtop7">No. Years:</div>
-						<div class="col-sm-6 padding0">
-							<input type="text" class="form-control" name="" ng-model="leformdata.loanInformation.loanTermYears">
-						</div>
-					</div>
-					<div class="col-sm-12 padding0 margin5tb paddingtop11">
-						<div class="col-sm-6 padding0 paddingtop5">No. Months:</div>
-						<div class="col-sm-6 padding0">
-							<input type="text" class="form-control" name="" ng-model="leformdata.loanInformation.loanTermMonths">
-						</div>
-					</div> 
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="FieldGroup">
-					<div class="col-sm-5 fieldTitle">Loan Type: <span class="required">*</span>
-					</div>
-					<div class="col-sm-7 padding0">
-						<select  class="form-control" ng-model="leformdata.termsOfLoan.mortgageType" ng-change="loanChange()">
-							<option value="" selected>Select</option>
-							<option ng-repeat="loanType in loanTypes" value="{{loanType.value}}">{{loanType.name}}</option>
-						</select>
-					</div>
-				</div>
-				<div class="FieldGroup">
-					<div class="col-sm-5 fieldTitle">Description:</div>
-					<div class="col-sm-7 padding0 paddingtop5">
-						<input type="text" class="form-control" id="loanTypeOtherDescription" ng-model="leformdata.termsOfLoan.mortgageTypeOtherDescription" ng-disabled="leformdata.termsOfLoan.mortgageType!='Other'">
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="col-sm-5 fieldTitle margin4t">Purpose:</div>
-				<div class="col-sm-7 padding0 paddingtop5">
-					<input type="text" class="form-control" style="text-transform:capitalize;" ng-model="leformdata.termsOfLoan.loanPurposeType" ng-disabled="true">
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-12 row margin5tb margin8t">
-			<div class="col-sm-4">
-				<div class="col-sm-12 padding0" >
-					<div class="col-sm-5 padding0 fieldTitle">MIC#:</div>
-					<div class="col-sm-7 padding0">
-						<input type="text" class="form-control" name="" ng-model="leformdata.micIdentifier">
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="col-sm-12 padding0">
-					<div class="col-sm-5 padding0 fieldTitle">MERS MIN ID:</div>
-					<div class="col-sm-7 padding0">
-						<input type="text" class="form-control" ng-model="MERS_MIN_ID">
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="FieldGroup marginnegative4t">
-					<div class="col-sm-5 fieldTitle paddingtop5">Lien Position: <span class="required">*</span>
-					</div>
-					<div class="col-sm-7 padding0">
-						<select  class="form-control" ng-model="leformdata.termsOfLoan.lienPriorityType">
-							<option value="" selected>Select</option>
-							<option ng-repeat="lienPriorityType in lienPriorityTypes" value="{{lienPriorityType.value}}">{{lienPriorityType.name}}</option>
-						</select>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-12 row margin5tb">
-			<div class="col-sm-4">
-				
-			</div>
-			<div class="col-sm-3 marginleft100n">
-				<div class="col-sm-12 padding0">
-					<div class="col-sm-5 padding0 fieldTitle paddingtop0">Rate Locked?</div>
-					<div class="col-sm-3 padding0">
-						<select  class="form-control width75" ng-model="leformdata.loanInformation.rateLokerIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="rateLockChange()">
-						  <option value="" selected>Select</option>
-						</select>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-3 margin4t marginleft45n" ng-if="leformdata.loanInformation.rateLokerIndicator == true">
-				<div class="FieldGroup marginnegative9t">
-					<span class="col-sm-4 padding0">
-				<input type="text" name="dateIssued" id="dateIssued" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.loanInformation.rateLokedDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Rate Locked Date : MM/DD/YYYY" actualize-date/>
-				</span>
-      			<span class="input-group-btn col-sm-2 padding0">
-        			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
-        		</span>
-				</div>
-			</div>
-			<div class="col marginleft0"  ng-show=" leformdata.loanInformation.rateLokerIndicator == true">
-		        <div class="col-sm-1 width100">
-					<select  class="form-control" ng-model="leformdata.loanInformation.rateLokedTime" ng-disabled="leformdata.loanInformation.rateLokedDate == null ||
-					leformdata.loanInformation.rateLokedDate == '' " ng-change="timeClr()">
-						<option value="" selected>Time</option>
-						<option ng-repeat="time in rateLokedTime" value="{{time}}">{{time}}</option>
-					</select>
-				</div>
-				<div class="col-sm-1 width100">
-					<select  class="form-control" ng-model="leformdata.loanInformation.rateLockedTimePeriod" ng-disabled="leformdata.loanInformation.rateLokedTime == null || leformdata.loanInformation.rateLokedTime == '' || 
-					leformdata.loanInformation.rateLokedDate == '' " ng-change="timePeriodClr();" >
-						<option value="" selected>Select</option>
-						<option ng-repeat="timePeriod in rateLockedTimePeriod" value="{{timePeriod}}">{{timePeriod}}</option>
-					</select>
-				</div>
-				<div class="col-sm-1 width100">
-					<select  class="form-control" ng-model="leformdata.loanInformation.rateLockedTimeZone" ng-disabled="leformdata.loanInformation.rateLockedTimePeriod == null || leformdata.loanInformation.rateLockedTimePeriod == '' || 
-					leformdata.loanInformation.rateLokedTime == ''">
-						<option value="" selected>Select</option>
-						<option ng-repeat="timeZone in rateLockedTimeZone" value="{{timeZone}}">{{timeZone}}</option>
-					</select>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-12 row margin5tb">
-			<div class="col-sm-4">
-				<div class="col-sm-5 fieldTitle">Lender Loan Identifier: <span class="required">*</span>
-				</div>
-				<div class="col-sm-7 padding0" ng-repeat="loanIdentifier in leformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
-					<input type="text" class="form-control" name="lenderLoanIdentifier" ng-model="loanIdentifier.loanIdentifier">
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="col-sm-12 padding0">
-					<div class="col-sm-5 padding0 fieldTitle">Appraisal ID:</div>
-					<div class="col-sm-7 padding0">
-						<input type="text" class="form-control" name="" ng-model="leformdata.closingInformation.propertyValuationDetail.appraisalIdentifier">
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="FieldGroup marginnegative9t">
-					<div class="col-sm-5 fieldTitle paddingtop10">Manual Underwriting Flag: <span class="required">*</span>
-					</div>
-					<div class="col-sm-7 padding0 paddingtop5">
-						<select  class="form-control" ng-model="leformdata.loanInformation.loanManualUnderwritingIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
-						</select>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-12 row margin5tb">
-			<div class="col-sm-12 pull-left">
-			<div class="col-sm-4" ng-repeat="automatedUnderwriting in leformdata.loanInformation.automatedUnderwritings | limitTo: 3 : 0 track by $index">
-				<div class="col-sm-12 padding0">
-					<div class="col-sm-5 fieldTitle">AUS Type:</div>
-					<div class="col-sm-7 padding0">
-						<select  class="form-control" ng-model="automatedUnderwriting.automatedUnderwritingSystemType" ng-change="ausChange($index)">
-							<option value="" selected>Select</option>
-							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
-					<div class="FieldGroup">
-						<div class="col-sm-5 fieldTitle">AUS Description:</div>
-						<div class="col-sm-7 padding0">
-							<input type="text" class="form-control" id="aUSOtherDescription" ng-model="automatedUnderwriting.automatedUnderwritingSystemTypeOtherDescription">
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-12 padding0">
-					<div class="FieldGroup">
-						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
-						<div class="col-sm-7 padding0">
-							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
-						</div>
-					</div>
-				</div>
-			</div>
-			</div>
-			<div class="col-sm-12 pull-left" ng-if="leformdata.loanInformation.automatedUnderwritings.length>3">
-			<div class="col-sm-4" ng-repeat="automatedUnderwriting in leformdata.loanInformation.automatedUnderwritings | limitTo: 3 : 3 track by $index">
-				<div class="col-sm-12 padding0">
-					<div class="col-sm-5 fieldTitle">AUS Type:</div>
-					<div class="col-sm-7 padding0">
-						<select  class="form-control" ng-model="automatedUnderwriting.automatedUnderwritingSystemType" ng-change="ausChange($index+3)">
-							<option value="" selected>Select</option>
-							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
-					<div class="FieldGroup">
-						<div class="col-sm-5 fieldTitle">AUS Description:</div>
-						<div class="col-sm-7 padding0">
-							<input type="text" class="form-control" id="aUSOtherDescription" ng-model="automatedUnderwriting.automatedUnderwritingSystemTypeOtherDescription">
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-12 padding0">
-					<div class="FieldGroup">
-						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
-						<div class="col-sm-7 padding0">
-							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
-						</div>
-					</div>
-				</div>
-				<span class="glyphicon glyphicon-trash iconTooltip red margin5tb ausTrash" data-toggle="tooltip" title="Close" ng-click="removeAusTypeIdentifier($index)" ng-show="$index+3==5"/>
-			</div>
-			</div>
-			<div class="col-sm-12 pull-left" ng-if="leformdata.loanInformation.automatedUnderwritings.length>6">
-			<div class="col-sm-4" ng-repeat="automatedUnderwriting in leformdata.loanInformation.automatedUnderwritings | limitTo : 3 : 6 track by $index">
-				<div class="col-sm-12 padding0">
-					<div class="col-sm-5 fieldTitle">AUS Type:</div>
-					<div class="col-sm-7 padding0">
-						<select  class="form-control" ng-model="automatedUnderwriting.automatedUnderwritingSystemType" ng-change="ausChange($index+6)">
-							<option value="" selected>Select</option>
-							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
-					<div class="FieldGroup">
-						<div class="col-sm-5 fieldTitle">AUS Description:</div>
-						<div class="col-sm-7 padding0">
-							<input type="text" class="form-control" id="aUSOtherDescription" ng-model="automatedUnderwriting.automatedUnderwritingSystemTypeOtherDescription">
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-12 padding0">
-					<div class="FieldGroup">
-						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
-						<div class="col-sm-7 padding0">
-							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
-						</div>
-					</div>
-				</div>
-				<span class="glyphicon glyphicon-trash iconTooltip red margin5tb ausTrash" data-toggle="tooltip" title="Close" ng-click="removeAusTypeIdentifier($index)" ng-show="$index+6==8"/>
-			</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-sm-12" ng-show="leformdata.loanInformation.automatedUnderwritings.length<9">
-		<span class="AddSection" ng-click="addAusTypeIdentifier()">
-			<a>+ Add Additional Automated Underwriting System Names and Identifiers</a>
-		</span>
-	</div> -->
-
+	
 	<div class="col-sm-12">
 		<h5 class="innerSectionHeader" id="ProductDescriptionInfo">Product Description and Information</h5>
 		<div class="col-sm-6">
@@ -647,56 +370,41 @@
 		</div>
 		<div class="col-sm-12" ng-show="leformdata.loanInformation.amortizationType!='Fixed'">
 			<div class="col-sm-12 tableInsideHeader">Adjustment Information - Principal and Interest Payment Adjustments</div>
-			<div class="col-sm-6">
-				<div class="FieldGroup">
-					<div class="col-sm-10 fieldTitle">Provide the number of months for the fixed period <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
-					         <span> 
-					           	 <p>The number of months after origination in which the first interest rate adjustment occurs, if the interest rate on the subject loan can change.</p>
-					           	 <ul><li>Format is numeric up to 3 characters</li></ul>
-					          </span>
-					 </span>
-					</div>
-					<div class="col-sm-2 padding0">
-						<input type="text" class="form-control" name="fixedPeriodMonths" ng-model="
-						leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" only-digits maxlength="3">
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="FieldGroup">
-					<div class="col-sm-9 fieldTitle">Provide the Maximum amount payment amount:</div>
-					<div class="col-sm-3 padding0">
-						<div class="input-group">
-							<span class="input-group-addon input-default">$</span>
-							<actualize-input id="principalAndInterestPaymentMaximumAmount" name="principalAndInterestPaymentMaximumAmount" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount" dependencies="decimal-digits-with-number-format" toolTipPos = "top" custommessage="Please enter a valid dollar amount."></actualize-input>
+			<div class="col-sm-12 padding0">
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+						<div class="col-sm-10 fieldTitle">Provide the number of months for the fixed period <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+						        <b></b>	
+						         <span> 
+						           	 <p>The number of months after origination in which the first interest rate adjustment occurs, if the interest rate on the subject loan can change.</p>
+						           	 <ul><li>Format is numeric up to 3 characters</li></ul>
+						          </span>
+						 </span>
+						</div>
+						<div class="col-sm-2 padding0">
+							<input type="text" class="form-control" name="fixedPeriodMonths" ng-model="
+							leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" only-digits maxlength="3">
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6">
-				<div class="FieldGroup">
-					<div class="col-sm-10 fieldTitle">Provide the number of months first change period:</div>
-					<div class="col-sm-2 padding0">
-						<input type="text" class="form-control" name="firstChangePeriodMonths" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="FieldGroup">
-					<div class="col-sm-9 fieldTitle">Provide the minimum number of months before the maximum payment amount may be reached:</div>
-					<div class="col-sm-3 padding0">
-						<div class="input-group">
-							<input type="text" class="form-control" name="firstChangeInterestRateLimit" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount" only-digits maxlength="3">
+            <div class="col-sm-12 padding0">
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+						<div class="col-sm-10 fieldTitle">Provide the number of months first change period:</div>
+						<div class="col-sm-2 padding0">
+							<input type="text" class="form-control" name="firstChangePeriodMonths" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6">
-				<div class="FieldGroup">
-					<div class="col-sm-10 fieldTitle">Provide the number of months subsequent change period:</div>
-					<div class="col-sm-2 padding0">
-						<input type="text" class="form-control" name="subsequentChangePeriodMonths" ng-model="leformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+			<div class="col-sm-12 padding0">
+				<div class="col-sm-6">
+					<div class="FieldGroup">
+						<div class="col-sm-10 fieldTitle">Provide the number of months subsequent change period:</div>
+						<div class="col-sm-2 padding0">
+							<input type="text" class="form-control" name="subsequentChangePeriodMonths" ng-model="leformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+						</div>
 					</div>
 				</div>
 			</div>
