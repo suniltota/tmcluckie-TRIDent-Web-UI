@@ -383,6 +383,12 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .margin5n{margin:-5px !important;}
 .widthPercent90{width: 90% !important;}
 .helpcontainer .subtab{margin-bottom:2px; width: 100%; float: left;}
-.helpcontainer .subtab .subHeading{width: 100%; padding:7px 15px; background-color:#eee; border-radius: 3px;}
-.helpcontainer .subtab .subHeading .directionIcon{cursor: pointer; padding:3px 5px; background-color: #ddd; border-radius: 3px;}
-.helpcontainer .subtab .subContainer{padding: 5px 15px; float: left; width: 100%;}
+.helpcontainer .subtab .MainHeadingHelp{width: 100%; padding:7px 15px; background-color:#ddd; border-radius: 3px;}
+.helpcontainer .subtab .MainHeadingHelp .directionIcon{cursor: pointer; padding:3px 5px; background-color: #ccc; border-radius: 3px;}
+.helpcontainer .subtab .subHeadingHelp{width: 100%; padding:7px 15px; background-color:#eee; border-radius: 3px;}
+.helpcontainer .subtab .subHeadingHelp .directionIcon{cursor: pointer; padding:3px 5px; background-color: #ddd; border-radius: 3px;}
+.helpcontainer .subtab .subContainer{padding:5px 0 5px 15px; float: left; width: 100%;}
+.helpcontainer .subtab .subContainer .field_help{float: left; width: 100%; padding: 5px 0;}
+.helpcontainer .subtab .subContainer .field_help ul{margin: 0px;}
+.helpcontainer .subtab .subContainer .field_help ul li{list-style-type: disc; float: left; padding: 2px 5px;}
+.innerHelpSectionHeader{background-color: #afafaf;}

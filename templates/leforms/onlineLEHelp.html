@@ -1,80 +1,441 @@
 <div class="bodySection col-sm-12 padding0" style="position: relative; ">
   
  <div class="container">
-   <h4>General Information</h4>
+   <h4>Online Help</h4>
  </div>
 
  <div class="helpcontainer">
    <span class="subtab">
-      <span class="pull-left subHeading" data-toggle="collapse" data-target="#LE_LenderName_Help"  ng-click="LE_LenderName_Help = LE_LenderName_Help + 1" ng-init="LE_LenderName_Help=0" > General Information
-      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_LenderName_Help%2==0" ></span>
-      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_LenderName_Help%2==1">
-        
-      </span>
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_ClosingInformation_Help"  ng-click="LE_ClosingInformation_Help = LE_ClosingInformation_Help + 1" ng-init="LE_ClosingInformation_Help=0" > 
+      <strong>Closing Information</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_ClosingInformation_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_ClosingInformation_Help%2==1"></span>
       </span>
   
-       <div id="LE_LenderName_Help" class="collapse subContainer">
-        <table class="bodySection col-sm-12 padding0 table" id="helpGeneralInformation">
-              <thead>
-                <tr >
-                  <th class="col col-sm-4 innerSectionHeader" >Web User Interface - Label Name</th>
-                  <th class="col col-sm-8 innerSectionHeader" >Online Help Verbiage</th>
-               </tr>
-              </thead>
-              <tbody>
-                <tr >
-                   <td class="col col-sm-4">Lender Name</td>
-                   <td class="col col-sm-8">
-                      <div id="LenderName">
-                          Name of the creditor extending the estimated cost for obtaining a loan for real property.
-                      </div>
-                   </td>
-                </tr>
-                <tr >
-                  <td class="col col-sm-4">Date Issued</td>
-                  <td class="col col-sm-8">
-                    <div id="DateIssued" >
-                      <strong>The date the integrated disclosure was mailed or delivered to the borrower as reflected on a single instance of the integrated disclosure document.</strong>
-                      <ul style="list-style-type:circle">
-                      <li>• Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
-                      <li>• There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past</li>
-                      <li>• Is a Required field</li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-                <tr >
-                  <td class="col col-sm-4">Closing Date </td>
-                  <td class="col col-sm-8">
-                   <div id="ClosingDate" class="collapse">
-                      The date the closing documents were fully executed and the borrower becomes contractually responsible for the debt. Depending on the location (wet-sign, dry-sign, table-funded and/or escrow state) of the loan closing, the Closing Date may be the same date as either the Document Preparation Date and/or the Execution Date and/or the Recorded Date.
-                     
-                      • This date is defaulted to 5 days after the issue date if conducting data entry.  Otherwise, the date will be rendered per the information in the upload process will be displayed 
-                      • Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date.
-                      • There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past.
-                      • Is a Required field
-                    </div>
-                 </td>
-                </tr>
-                <tr >
-                  <td class="col col-sm-4">Disbursement  Date</td>
-                  <td class="col col-sm-8">
-                      <div id="DisbursementDate" >
-                          <p><strong>The date the loan funds are disbursed to the borrower or another party on the borrower's behalf.</strong></p>
-                          <ul style="list-style-type:circle">
-                          <li>• Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
-                          <li>• Constraint on the date as it cannot be a date prior to the issue date or the closing date.</li>
-                          <li>• Is a Required field</li>
-                          </ul>
-                      </div>
-                  </td>
-                </tr>
-                
-              </tbody>
-              </table>
+       <div id="LE_ClosingInformation_Help" class="collapse subContainer">
+          
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEGeneralInformationHelp"  ng-click="LEGeneralInformationHelp = LEGeneralInformationHelp + 1" ng-init="LEGeneralInformationHelp=0" > 
+          <span>General Information</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEGeneralInformationHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEGeneralInformationHelp%2==1"></span>
+          </span>
+
+          
+          <div class="col-sm-12" id="LEGeneralInformationHelp">
+            <span class="field_help">
+              <h5>Lender Name : </h5>
+              <div id="LE_lenderName_Help">
+                  Name of the creditor extending the estimated cost for obtaining a loan for real property.
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Date Issued : </h5>
+              <div id="LE_dateIssued_Help">The date the integrated disclosure was mailed or delivered to the borrower as reflected on a single instance of the integrated disclosure document.
+                <ul>
+                    <li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date.</li>
+                    <li>There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated Loan Estimate document from the past.</li>
+                    <li>Is a Required field</li>
+                </ul>
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Closing Cost Expiration Date : </h5>
+              <div id="LE_dateIssued_Help">The date in which the closing costs are expired and a new Loan Estimate must be issues, see CFPBs Integrate Mortgage Disclosure Regulation for more information on timing.
+              </div>
+            </span>
+          </div>
+
+       <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEPropertyInformationHelp"  ng-click="LEPropertyInformationHelp = LEPropertyInformationHelp + 1" ng-init="LEPropertyInformationHelp=0" > 
+       <span>Property Information</span>
+       <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEPropertyInformationHelp%2==0" ></span>
+       <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEPropertyInformationHelp%2==1"></span>
+       </span>
+          <div class="col-sm-12" id="LEPropertyInformationHelp">
+            <span class="field_help">
+              <h5>Choose one: Street Address or Legal Description : </h5>
+              <div id="LE_dateIssued_Help">In any transaction, the subject property location must be made clear and concise on the Loan Estimate, thus the user interface provides two options:
+              <ul>
+                <li>Street Address</li>
+                <li>Legal Description, use if no street address exists.</li>
+              </ul>
+              <p>The function requires that a radio button is chosen to indicate one or the other as this field is required.</p>
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Street Address</h5>
+              <div id="LE_streetAddress_Help">The address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Legal Description</h5>
+              <div id="LE_addressLineText_Help">The full, unparsed legal description of a parcel of real property.<ul>
+                <li>Must be in a format of a String value with no more than 150 characters</li>
+              </ul>
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>City Name</h5>
+              <div id="LE_cityName_Help"> The name of the city.
+              <ul>
+                <li>Must be in a format of a String value with no more than 150 characters</li>
+              </ul>
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>State Code</h5>
+              <div id="LE_statecode_Help"> The two-character representation of the US state, US Territory, Canadian Province, Military APO FPO, or Territory.
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Postal Code</h5>
+              <div id="LE_postalCode_Help">The postal code (ZIP Code in the US) for the address. ZIP Code may be either 5 or 9 digits.
+              <ul>
+                <li>This value is required regardless if of other property Information is available.</li>
+              </ul>
+              </div>
+            </span>
+          </div>
+
+
+       <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEPriceInformationHelp"  ng-click="LEPriceInformationHelp = LEPriceInformationHelp + 1" ng-init="LEPriceInformationHelp=0" > 
+       <span>Price Information (purchase transaction only)</span>
+       <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEPriceInformationHelp%2==0" ></span>
+       <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEPriceInformationHelp%2==1"></span>
+       </span>
+          <div class="col-sm-12" id="LEPriceInformationHelp">
+            <span class="field_help">
+              <h5>Sales Price (Purchase Only) : </h5>
+              <div id="LE_salesPrice_Help">In a purchase transaction must provide the Sales Price of the Subject property that the Loan Estimate is supporting.
+              <ul>
+                <li>The format is an amount that cannot exceed $9.2</li>
+              </ul>
+              </div>
+            </span>
+          </div>
+
+      <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEvalueAmountHelp"  ng-click="LEvalueAmountHelp = LEvalueAmountHelp + 1" ng-init="LEvalueAmountHelp=0" > 
+       <span>Value Amount (refinance transaction only)</span>
+       <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEvalueAmountHelp%2==0" ></span>
+       <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEvalueAmountHelp%2==1"></span>
+       </span>
+       <div class="col-sm-12" id="LEvalueAmountHelp">
+            <span class="field_help">
+              <h5>Choose either "Appraised Property Value" OR "Estimated Property Value" :</h5>
+              <div id="LE_salesPrice_Help">If the transaction is a Refinance, choose from the drop-down menu  selectthen select either the Appraised Property Value or the Estimated Property Value.
+              <ul>
+                <li>See the CFPBs Integrated Mortgage Disclosure regulation to determine which one to choose.</li>
+                <li>The Default is the Appraised Property Value</li>
+                <li>The format is a set of enumerated values seen in the drop-down box</li>
+              </ul>
+              </div>
+            </span> 
+
+            <span class="field_help">
+              <h5>Amount of Value :</h5>
+              <div id="LE_salesPrice_Help">Provide the Statement of value of the property from a valid property valuation source.
+              <ul>
+                <li>This amount is different than the estimated property value amount</li>
+                <li>The format is a Dollar amount in $9.2</li>
+              </ul>
+              </div>
+            </span>
+       </div>
+
        </div>
     </span> 
  </div>
+ <div class="helpcontainer">
+ <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_TransactionInformation_Help"  ng-click="LE_TransactionInformation_Help = LE_TransactionInformation_Help + 1" ng-init="LE_TransactionInformation_Help=0" > 
+      <strong>Transaction Information -  Standard and Alternate</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_TransactionInformation_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_TransactionInformation_Help%2==1"></span>
+      </span>
+  
+       <div id="LE_TransactionInformation_Help" class="collapse subContainer">
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LETransactionInformationApplicantHelp"  ng-click="LETransactionInformationApplicantHelp = LETransactionInformationApplicantHelp + 1" ng-init="LETransactionInformationApplicantHelp=0" > 
+         <span>Applicant</span>
+         <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LETransactionInformationApplicantHelp%2==0" ></span>
+         <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LETransactionInformationApplicantHelp%2==1"></span>
+         </span>
+           <div class="col-sm-12" id="LETransactionInformationApplicantHelp">
+                <span class="field_help">
+                  <h5>Applicant First Name : </h5>
+                  <div id="">The first name of the individual, must have a t least one if the Applicant is an individual.
+                  <ul>
+                    <li>Format is a String value up to 30 characters</li>
+                  </ul>
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>Applicant Middle Name : </h5>
+                  <div id="">The middle name of the individual, if this does not exist is it not required when the Applicant is an individual.
+                  <ul>
+                    <li>Format is a String value up to 30 characters</li>
+                  </ul>
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>Applicant Last Name : </h5>
+                  <div id="">The last name of the individual, must have at least one if the Applicant is an individual.
+                  <ul>
+                    <li>Format is a String value up to 30 characters</li>
+                  </ul>
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>Applicant Suffix : </h5>
+                  <div id="">The suffix of the individual, if this does not exist is it not required when the Applicant is an individual.
+                  <ul>
+                    <li>Format is a String value up to 30 characters</li>
+                  </ul>
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>Applicant Organisation Name : </h5>
+                  <div id="">The unparsed name of the legal entity.
+                  <ul>
+                    <li>Example; Smith Family Trust</li>
+                  </ul>
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>Street Address (mailing) : </h5>
+                  <div id="">The mailing address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value.
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>City Name (Mailing) : </h5>
+                  <div id="">The name of the city of the Applicants mailing address.   Must be in a format of a String value with no more than 50 characters.
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>State Code (Mailing) : </h5>
+                  <div id="">The two-character representation of the US state, US Territory, Canadian Province, Military APO FPO, or Territory of the Applicants mailing address
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>Postal Code (Mailing) : </h5>
+                  <div id="">The postal code (ZIP Code in the US) for the address. ZIP Code may be either 5 or 9 digits of the Applicants mailing address.
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>Add Additional Applicants link : </h5>
+                  <div id="">A link that, when selected, will add another section in the User Interface to add another Applicant to the transaction.
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>Remove additional Applicant link : </h5>
+                  <div id="">A link that, when selected, will remove an added Applicant section in the user interface, if any data I input when removing this will remove all information. 
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>Back to Top Link : </h5>
+                  <div id="">For each section added the user must scroll to get back to the top, a user can click the link and will immediately be taken back to the top of the Web Page. 
+                  </div>
+                </span>
+                <span class="field_help">
+                  <h5>Number of Applicants in a transaction : </h5>
+                  <div id="">The allowable max number of Applicants in the user interface is 10 total including the 1st Applicant.
+                  </div>
+                </span>
+            </div>
+       </div>
+    </span>
+ </div>
+<div class="helpcontainer">
+ <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_LenderInformation_Help"  ng-click="LE_LenderInformation_Help = LE_LenderInformation_Help + 1" ng-init="LE_LenderInformation_Help=0" > 
+      <strong>Lender Information</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_LenderInformation_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_LenderInformation_Help%2==1"></span>
+      </span>
+  
+       <div id="LE_LenderInformation_Help" class="collapse subContainer">
+            <span class="field_help">
+                 <h5>Lender – Name of Organization : </h5>
+                  <div id="">The unparsed name of the organization that is providing the credit.
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Lender - NMLS License ID : </h5>
+                  <div id="">The identifier of the license or certificate issued to the Lender
+                  <ul><li>Format is a string value up to 50 characters.</li></ul>
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Loan Officer  Name - Full Name : </h5>
+                  <div id="">If applicable see the CFPB “Know Before You Owe” regulation when to include this value in the Closing Disclosure.
+                  <ul><li>When required, include the unparsed name of Loan Officer.</li></ul>
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Loan Officer - NMLS License ID : </h5>
+                  <div id="">The identifier of the license or certificate issued to the Lender
+                  <ul><li>Format is a string value up to 50 characters.</li></ul>
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Loan Officer - Email : </h5>
+                  <div id="">The email address for the Loan Officer.
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Loan Officer - Phone : </h5>
+                  <div id="">The phone address for the Loan Officer.
+                  </div>
+            </span>
+             <span class="field_help">
+                 <h5>Mortgage Broker – Name of Organization : </h5>
+                  <div id="">The unparsed name of the organization that is providing the credit.
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Mortgage Broker - NMLS License ID : </h5>
+                  <div id="">The identifier of the license or certificate issued to the Lender <ul><li>Format is a string value up to 50 characters.</li></ul>
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Mortgage Broker - Full Name : </h5>
+                  <div id="">If applicable see the CFPB “Know Before You Owe” regulation when to include this value in the Closing Disclosure. <ul><li>When required, include the unparsed name of Loan Officer.</li></ul>
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Mortgage Broker - NMLS License ID : </h5>
+                  <div id="">The identifier of the license or certificate issued to the Lender 
+                  <ul><li>Format is a string value up to 50 characters.</li></ul>
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Mortgage Broker - Email : </h5>
+                  <div id="">The email address for the Loan Officer.
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Mortgage Broker - Phone : </h5>
+                  <div id="">The phone number  for the Loan Officer.
+                  </div>
+            </span>
+       </div>
+    </span>
+ </div>
+
+ <!-- -->
+ <div class="helpcontainer">
+ <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_LoanInformation_Help"  ng-click="LE_LoanInformation_Help = LE_LoanInformation_Help + 1" ng-init="LE_LoanInformation_Help=0" > 
+      <strong>Loan Information</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_LoanInformation_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_LoanInformation_Help%2==1"></span>
+      </span>
+  
+       <div id="LE_LoanInformation_Help" class="collapse subContainer">
+       <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LELoanPeriodTypePositionHelp"  ng-click="LELoanPeriodTypePositionHelp = LELoanPeriodTypePositionHelp + 1" ng-init="LELoanPeriodTypePositionHelp=0" > 
+         <span>Loan Period, Type and Position</span>
+         <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LELoanPeriodTypePositionHelp%2==0" ></span>
+         <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LELoanPeriodTypePositionHelp%2==1"></span>
+         </span>
+           <div class="col-sm-12" id="LELoanPeriodTypePositionHelp">
+            <span class="field_help">
+                 <h5>Loan Term – No. of Years : </h5>
+                  <div id="">In each transaction in accordance with the CFPB “Know Before You owe” Regulation must provide the entire term of the loan in years.  Using the text box must input the number of years of the term
+                  <ul>
+                    <li>Example, lenders typically use months so 360 months equates to 30 years.</li>
+                    <li>Format is numeric up to 3 digits</li>
+                  </ul>
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Loan Term – No. of Months : </h5>
+                  <div id="">In some transactions, such as construction to permanent or construction the term may be less than a year, so the user must input the number of months.
+                  <ul><li>Example Construction Loan of 11 months.</li>
+                  <li>Example Construction to Permanent with a single close would have both the number of years and the number of months potentially, ex: 30 years and 11 months.</li>
+                  <li>Format is numerical up to 2 digits.
+                    </li></ul>
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Loan Type : </h5>
+                  <div id="">Identifies the highest level private or public sector entity under whose guidelines the mortgage is originated.
+                  <ul><li>Acceptable values are: Conventional | FHA | Local Agency | Other | Public and Indian Housing | State Agency | USDA Rural Development | VA</li>
+                  <li>Format is are the only enumerated values seen above.</li></ul>
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Description : </h5>
+                  <div id="">If the Other enumerated value is chosen for the Loan Type, then provide a string value describing the loan type in the description field.
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Purpose : </h5>
+                  <div id="">Specifies the purpose for which the loan proceeds will be used.  This field is not uneditable as it is set when the user logs in to the application.
+                  <ul><li>If the transaction needs to change the user must start a new transaction, cannot change the purpose</li></ul>
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Lien Position : </h5>
+                  <div id="">Specifies the priority of the lien against the subject property.
+                  <ul><li>Format is enumerated values that include the following: First Lien | Fourth Lien | Second Lien | Third Lien</li></ul>
+                  </div>
+            </span>
+             <span class="field_help">
+                 <h5>Lender Loan Identifier : </h5>
+                  <div id="">The unique loan identifier for a specific transaction for a specific lender.
+                  <ul><li>Format is a string value up to 30 characters.
+                      This is a required value and must be present in the transaction.
+                      </li></ul>
+                  </div>
+            </span>
+            <span class="field_help">
+                 <h5>Rate Locked : </h5>
+                  <div id="">The Rate Locked indicator is required information, 
+                          If Yes is selected, then additional information is required
+                          User must include the following information.
+                  <ul>
+                    <li>Date in which the rate was locked, use the calendar function or key  in the MM/DD/YYYY</li>
+                    <li>Select the Time from the Drop-Down box</li>
+                    <li>Next to the Time, once the user choses a time, the Select drop down will give the user the ability to choose AM or PM</li> 
+                    <li>Once that is selected then the next drop down box is made available to provide the user the ability to select the Time zone.</li>
+                  </ul> 
+                  </div>
+            </span> 
+            </div>
+
+            <!-- -->
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEProductDescriptionInformationHelp"  ng-click="LEProductDescriptionInformationHelp = LEProductDescriptionInformationHelp + 1" ng-init="LEProductDescriptionInformationHelp=0" > 
+           <span>Product Description and Information</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEProductDescriptionInformationHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEProductDescriptionInformationHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEProductDescriptionInformationHelp">
+                <span class="field_help">
+                     <h5>Product Description : </h5>
+                      <div id="">A description of the loan product which includes, when applicable, certain loan features added to the loan product that may change the periodic loan payment.
+                      <ul>
+                        <li>Required for every transaction.</li>
+                        <li>Value is driven by the CFPB’s “Know Before You Owe” regulation.</li>
+                        <li>Format is a String Value up to 50 Characters.</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>Amortization Type : </h5>
+                      <div id="">A classification or description of a loan or a group of loans generally based on the changeability of the rate or payment over time.
+                      <ul>
+                        <li>Required for every transaction.</li>
+                        <li>Value is driven by the CFPB’s “Know Before You Owe” regulation.</li>
+                        <li>Format is a String Value up to 50 Characters.</li>
+                      </ul>
+                      </div>
+                </span>
+              </div>
+            <!-- -->
+       </div>
+    </span>
+ </div>
+ <!-- -->
+
+
 </div>
 
   

@@ -2977,7 +2977,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		$scope.leformdata.contactInformation.mortagageBroker.name.fullName=$scope.leformdata.contactInformation.mortagageBroker.name.fullName;
     },true);
     
-
+    $scope.showLEhelp= function(){
+    	console.log("hi");
+    	 window.location = "#/template/onlineLEHelp.html";
+    }
     $scope.leformdata.etiaSection['propertyTaxesCheck'] = false;
     $scope.leformdata.etiaSection['HomeownersInsuranceCheck'] = false;
     $scope.$watch('leformdata.etiaSection',function(newValue,oldValue){

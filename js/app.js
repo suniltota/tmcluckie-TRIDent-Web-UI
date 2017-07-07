@@ -17,6 +17,8 @@ app.config(function ($routeProvider, $locationProvider) {
     .when("/home", {templateUrl: "partials/home.html", controller: "homeCtrl"})
     .when("/closingDisclosure", {templateUrl: "partials/closingDisclosureHome.html", controller: "closingDisclosureCtrl"})
     .when("/loanEstimate", {templateUrl: "partials/loanEstimateHome.html", controller: "loanEstimateCtrl"})
+    .when("/leHelp", {templateUrl: "template/onlineLEHelp.html", controller: "loanEstimateCtrl"})
+    .when("/cdHelp", {templateUrl:"template/onlineCDHelp.html", controller: "closingDisclosureCtrl"})
     .otherwise({ redirectTo: '/home' });
   $locationProvider.hashPrefix('');
 }).run(['loginService', 'apiService', '$rootScope', '$window', function(loginService, apiService, $rootScope, $location, $window){
