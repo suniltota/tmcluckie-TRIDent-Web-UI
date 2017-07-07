@@ -5,6 +5,7 @@ html, body {
 }
 body { font-family: Helvetica,Arial,sans-serif; color: #555; font-size: 12px; }
 input:focus,select:focus,textarea:focus,button:focus {outline: none;}
+.logo{width: 350px;}
 .vertical_middle{vertical-align: middle !important;}
 .CommonTable{margin-top: 20px;}
 .CommonTable .tableHeader{padding: 0px !important;}
