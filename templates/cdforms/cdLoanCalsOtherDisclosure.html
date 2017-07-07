@@ -19,7 +19,8 @@
 				<td>
 					<div class="input-group">
 						<span class="input-group-addon input-default">$</span>
-		        		<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalOfAllPaymentsAmount" decimal-digits-with-number-format>
+		        		<actualize-input ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalOfAllPaymentsAmount" name="feeSummaryTotalOfAllPaymentsAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
+                		</actualize-input>
 		        	</div>
 		        </td>
 				<td valign="middle">
@@ -50,7 +51,8 @@
 				<td>
 				<div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalFinanceChargeAmount" decimal-digits-with-number-format>
+		        	<actualize-input ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalFinanceChargeAmount" name="feeSummaryTotalFinanceChargeAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
+                	</actualize-input>
 		        </div>
 		        </td>
 				<td valign="middle">
@@ -84,7 +86,8 @@
 				<td>
 				<div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalAmountFinancedAmount" decimal-digits-with-number-format>
+		        	<actualize-input ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalAmountFinancedAmount" name="feeSummaryTotalAmountFinancedAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
+                	</actualize-input>
 		        </div>
 		        </td>
 				<td valign="middle">
@@ -134,7 +137,8 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalLoanAmount" decimal-digits-with-number-format>
+		        	<actualize-input ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalLoanAmount" name="regulationZTotalLoanAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
+                	</actualize-input>
 		        </div>
 		        </td>
 		      </tr>
@@ -168,7 +172,8 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalPointsAndFeesAmount" decimal-digits-with-number-format>
+		        	<actualize-input ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalPointsAndFeesAmount" name="regulationZTotalPointsAndFeesAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
+                	</actualize-input>
 		        </div>	
 		        </td>
 		      </tr>
