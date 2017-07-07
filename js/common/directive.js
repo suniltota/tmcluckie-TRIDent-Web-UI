@@ -601,7 +601,7 @@ app.directive('alpha', function() {
 });
 
 
-app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, $sce)
+app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, $sce, $compile,)
 {
     return {
         require: 'ngModel',
@@ -612,6 +612,7 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
             var xmlDateFormat = "yyyy-MM-dd";
             var allowedInput = false;
             var message = ""
+            var toolTipPos =  "top";
 
             ngModel.$parsers.push(function(value){
                 if(value && !isNaN(Date.parse(value))) {
@@ -621,12 +622,9 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
                 }
             });
 
-            element.on('change', function (e) {
+            element.on('blur', function (e) {
                 var dateVal = e.target.value;
-                if(minDate > dateVal){
-                  e.currentTarget.style.border="1px solid #f17777"
-                  message = "Please enter a vaild date";
-                }
+                
                 if(!(regexp.test(dateVal) && !isNaN(Date.parse(dateVal)))) {
                   ngModel.$setViewValue(null);
                   //ngModel.$render();
@@ -638,6 +636,30 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
                   scope.$apply();
                 }
                 scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+
+                var template='<div>';
+                  if(attr.type != undefined && attr.type == "date"){
+                    if($scope.dateValidate ==  undefined)
+                      $scope.dateValidate={}
+                    $scope.dateValidate[attr.name.toLowerCase()] = {"maxDate": new Date(attr.maxDate)}
+                    template += '<input type="text" id="input_'+attr.id+'" uib-datepicker-popup="'+attr.dateformat+'" ng-change="'+attr.ngChange+'"  ng-blur="'+attr.ngBlur+'" ng-model="'+attr.ngModel+'" max-date="dateValidate.'+attr.name.toLowerCase()+'.maxDate" is-open="'+attr.isOpen+'" datepicker-options="dateOptions" ng-required="'+attr.ngRequired+'" close-text="Close" placeholder="'+attr.placeholder+'" name="'+attr.name+'" class="form-control InputTooltip calenderInput" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
+                    if(attr.minDateVar){
+                       template += 'min-date="'+attr.minDateVar+'"';
+                    }else{
+                        $scope.dateValidate[attr.name.toLowerCase()].minDate=new Date(attr.minDate);
+                        template += 'min-date="dateValidate.'+attr.name.toLowerCase()+'.minDate"';
+                    }
+                    //template += '<input type="text" id="input_'+attr.id+'" uib-datepicker-popup="'+attr.dateformat+'" ng-change="'+attr.ngChange+'"  ng-blur="'+attr.ngBlur+'" ng-model="'+attr.ngModel+'" min-date="dateValidate.'+attr.name.toLowerCase()+'.minDate" max-date="dateValidate.'+attr.name.toLowerCase()+'.maxDate" is-open="'+attr.isOpen+'" datepicker-options="dateOptions" ng-required="'+attr.ngRequired+'" close-text="Close" placeholder="'+attr.placeholder+'" name="'+attr.name+'" class="form-control InputTooltip calenderInput" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
+                  }else{
+                    template += '<input type="text" ng-model="'+attr.ngModel+'" ng-disabled="'+attr.ngDisabled+'" ng-blur="'+attr.ngBlur+'" ng-keyup="'+attr.ngKeyup+'" ng-change="'+attr.ngChange+'" maxlength="'+attr.maxlength+'" name="'+attr.name+'" class="form-control InputTooltip" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
+                  }
+
+                  if(attr.dependencies)
+                  template +=attr.dependencies;
+                  template +='>';
+                  template += '</div>';
+                  element.html(template);
+                  $compile(element.contents())(scope);
             });
             
         }
