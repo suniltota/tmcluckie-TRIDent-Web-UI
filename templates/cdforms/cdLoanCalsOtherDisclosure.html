@@ -66,7 +66,7 @@
 		        </td>
 		        <td>
 		        <div class="input-group">
-						<actualize-input name="regulationZExcludedBonaFideDiscountPointsPercent" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+						<actualize-input name="regulationZExcludedBonaFideDiscountPointsPercent" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" ng-disabled="!cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsIndicator">
                 		</actualize-input>
 						<span class="input-group-addon input-default">%</span>
 		        </div>
