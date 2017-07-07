@@ -370,6 +370,29 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList['GescrowTypes']=[];
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList['HfeeTypes']=[];
 
+		//RegulationZTotalLoanAmount, RegulationZTotalAffiliateFeesAmount, RegulationZTotalPointsAndFeesAmount
+
+		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges['RegulationZTotalAffiliateFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges['RegulationZTotalLoanAmount']=0;
+		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges['RegulationZTotalPointsAndFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors['RegulationZTotalAffiliateFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors['RegulationZTotalLoanAmount']=0;
+		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors['RegulationZTotalPointsAndFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors['RegulationZTotalAffiliateFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors['RegulationZTotalLoanAmount']=0;
+		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors['RegulationZTotalPointsAndFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList['RegulationZTotalAffiliateFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList['RegulationZTotalLoanAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList['RegulationZTotalPointsAndFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList['RegulationZTotalAffiliateFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList['RegulationZTotalLoanAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList['RegulationZTotalPointsAndFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList['RegulationZTotalAffiliateFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList['RegulationZTotalLoanAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList['RegulationZTotalPointsAndFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList['RegulationZTotalAffiliateFeesAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList['RegulationZTotalLoanAmount']=0;
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList['RegulationZTotalPointsAndFeesAmount']=0;
 
        	for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++){
 			if (i!=0 && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints') {
@@ -2441,6 +2464,37 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }
     }
 
+    $scope.qualififiedCalculations = function(){
+
+    	$scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount = 
+    	parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalAffiliateFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalAffiliateFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalAffiliateFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalAffiliateFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalAffiliateFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalAffiliateFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalAffiliateFeesAmount);
+
+    	$scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalLoanAmount = 
+    	parseFloat($scope.cdformdata.termsOfLoan.noteAmount ? $scope.cdformdata.termsOfLoan.noteAmount : +0)-
+    	parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalLoanAmount + 
+    		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalLoanAmount + 
+    		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalLoanAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalLoanAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalLoanAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalLoanAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalLoanAmount);
+
+    	$scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalPointsAndFeesAmount = 
+    	parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalPointsAndFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalPointsAndFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalPointsAndFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalPointsAndFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalPointsAndFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalPointsAndFeesAmount + 
+    		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalPointsAndFeesAmount);
+    }
+
     $scope.calculatePayments = function() {
     	$("#spinner").show();
     	cdService.genearateXmlFromJson($scope.cdformdata, false).success(function(xmldata){
@@ -2724,6 +2778,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		'prepaidsTotalbpAtClosing' : 0,
 		'iEPatClosingTotalbpAtClosing' : 0,
 		'otherTotalbpAtClosing' : 0
+
 	};
 	var bpB4Closing = {
 		'originationChargeTotalbpB4Closing' : 0,
@@ -2770,6 +2825,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		 spB4Closing.originationChargeTotalspB4Closing = 0;
 		 paidByOthers.originationChargeTotalpaidByOthers = 0;
 		 $scope.escrowWaiverFeeAmount = 0;
+		 $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalAffiliateFeesAmount=0;
+		 $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalLoanAmount=0;
+		 $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalPointsAndFeesAmount=0;
          
         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++) {
          	bpAtClosing.originationChargeTotalbpAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing) : +0;
@@ -2799,13 +2857,46 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		        }
 		    }
 
-            //Total Affiliate Amount
+            //RegulationZTotalLoanAmount, RegulationZTotalAffiliateFeesAmount, RegulationZTotalPointsAndFeesAmount
 
             if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feePaidToTypeOtherDescription=='BrokerAffiliate' 
             	|| $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feePaidToTypeOtherDescription=='LenderAffiliate'){
-               $scope.cdformdata.totalAffiliateAmount += parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ? $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing :+0);
-               $scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount = $scope.cdformdata.totalAffiliateAmount;
+                if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers) : +0;
+	            }
             }
+
+            if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paymentIncludedInAPRIndicator==true){
+                if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].regulationZPointsAndFeesIndicator==true){
+                if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers) : +0;
+	            }
+            }
+
+            //
          }
 
         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length; i++) {
@@ -2858,6 +2949,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    	}
 	    }
 
+	    $scope.qualififiedCalculations();
+
     }, true);
 
     $scope.$watch('cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors', function(newValue, oldValue) {
@@ -2867,7 +2960,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		 spB4Closing.sbDidNotShopTotalspB4Closing = 0;
 		 paidByOthers.sbDidNotShopTotalpaidByOthers = 0;
          $scope.escrowWaiverFeeAmount = 0;
-         
+         $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalAffiliateFeesAmount=0;
+		 $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalLoanAmount=0;
+		 $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalPointsAndFeesAmount=0;
+
         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++) {
             if(($scope.escrowWaiverFeeAmount=="0.00" || $scope.escrowWaiverFeeAmount=="0") && $scope.escrowWaiverFeeAmount==''){
 		        if($scope.cdformdata.loanDetail.escrowIndicator==false && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType =='EscrowWaiverFee'){
@@ -2906,13 +3002,43 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paymentIncludedInAPRIndicator='';
             }
 
-            //Total Affiliate Amount
-
             if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feePaidToTypeOtherDescription=='BrokerAffiliate' 
             	|| $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feePaidToTypeOtherDescription=='LenderAffiliate'){
-               $scope.cdformdata.totalAffiliateAmount += parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing ? $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing :+0);
-               $scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount = $scope.cdformdata.totalAffiliateAmount;
+                if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paidByOthers) : +0;
+	            }
             }
+
+            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paymentIncludedInAPRIndicator==true){
+                if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].regulationZPointsAndFeesIndicator==true){
+                if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].paidByOthers) : +0;
+	            }
+            }
+
          }
 
          for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.length; i++) {
@@ -2953,6 +3079,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    		$scope.summariesOfTransaction_NSection.closingCostsPaidAtClosing = 0;
 	    	}
         }
+        
+        $scope.qualififiedCalculations();
 
     }, true);
 
@@ -2962,7 +3090,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	 spAtClosing.sbDidShopTotalspAtClosing = 0;
 		 spB4Closing.sbDidShopTotalspB4Closing = 0;
 		 paidByOthers.sbDidShopTotalpaidByOthers = 0;
-        
+         $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalAffiliateFeesAmount=0;
+		 $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalLoanAmount=0;
+		 $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalPointsAndFeesAmount=0;
+
          //Escrow Waiver Fee Calculation
          $scope.escrowWaiverFeeAmount = 0;
          for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++) {
@@ -3011,12 +3142,43 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].paymentIncludedInAPRIndicator='';
             }
 
-             //Total Affiliate Amount
+             //RegulationZTotalLoanAmount, RegulationZTotalAffiliateFeesAmount, RegulationZTotalPointsAndFeesAmount
 
             if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feePaidToTypeOtherDescription=='BrokerAffiliate' 
             	|| $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feePaidToTypeOtherDescription=='LenderAffiliate'){
-               $scope.cdformdata.totalAffiliateAmount += parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing ? $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing :+0);
-               $scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount = $scope.cdformdata.totalAffiliateAmount;
+                if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].paidByOthers) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].paymentIncludedInAPRIndicator==true){
+                if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].regulationZPointsAndFeesIndicator==true){
+                if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].paidByOthers) : +0;
+	            }
             }
          }
          $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount = bpAtClosing.sbDidShopTotalbpAtClosing + bpB4Closing.sbDidShopTotalbpB4Closing;
@@ -3047,6 +3209,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    		$scope.summariesOfTransaction_NSection.closingCostsPaidAtClosing = 0;
 	    	}
         }
+        
+        $scope.qualififiedCalculations();
 
     }, true);
 
@@ -3140,6 +3304,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		 spAtClosing.tOGovtFeesTotalspAtClosing = 0;
 		 spB4Closing.tOGovtFeesTotalspB4Closing = 0;
 		 paidByOthers.tOGovtFeesTotalpaidByOthers = 0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalAffiliateFeesAmount=0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalLoanAmount=0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalPointsAndFeesAmount=0;
 
          for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++) {
          	bpAtClosing.tOGovtFeesTotalbpAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing) : +0;
@@ -3160,12 +3327,43 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paymentIncludedInAPRIndicator='';
             }
 
-            //Total Affiliate Amount
+            //RegulationZTotalLoanAmount, RegulationZTotalAffiliateFeesAmount, RegulationZTotalPointsAndFeesAmount
 
             if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToTypeOtherDescription=='BrokerAffiliate' 
             	|| $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToTypeOtherDescription=='LenderAffiliate'){
-               $scope.cdformdata.totalAffiliateAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing ? $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing :+0);
-               $scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount = $scope.cdformdata.totalAffiliateAmount;
+                if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paidByOthers) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paymentIncludedInAPRIndicator==true){
+                if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].regulationZPointsAndFeesIndicator==true){
+                if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].paidByOthers) : +0;
+	            }
             }
          }
 
@@ -3197,6 +3395,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    		$scope.summariesOfTransaction_NSection.closingCostsPaidAtClosing = 0;
 	    	}
         }
+        
+        $scope.qualififiedCalculations();
 
     }, true);
 
@@ -3206,6 +3406,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		 spAtClosing.prepaidsTotalspAtClosing = 0;
 		 spB4Closing.prepaidsTotalspB4Closing = 0;
 		 paidByOthers.prepaidsTotalpaidByOthers = 0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalAffiliateFeesAmount=0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalLoanAmount=0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalPointsAndFeesAmount=0;
 
          for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.length; i++) {
          	bpAtClosing.prepaidsTotalbpAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing) : +0;
@@ -3234,12 +3437,43 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator = null;
             }
 
-            //Total Affiliate Amount
+            //RegulationZTotalLoanAmount, RegulationZTotalAffiliateFeesAmount, RegulationZTotalPointsAndFeesAmount
 
             if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToTypeOtherDescription=='BrokerAffiliate' 
             	|| $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToTypeOtherDescription=='LenderAffiliate'){
-               $scope.cdformdata.totalAffiliateAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing ? $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing :+0);
-               $scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount = $scope.cdformdata.totalAffiliateAmount;
+                if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator==true){
+                if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].regulationZPointsAndFeesIndicator==true){
+                if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paidByOthers) : +0;
+	            }
             }
          }
 
@@ -3272,6 +3506,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    	}
         }
 
+        $scope.qualififiedCalculations();
+
     }, true);
 
     $scope.$watch('cdformdata.closingCostDetailsOtherCosts.escrowItemsList', function(newValue, oldValue) {
@@ -3280,6 +3516,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		 spAtClosing.iEPatClosingTotalspAtClosing = 0;
 		 spB4Closing.iEPatClosingTotalspB4Closing = 0;
 		 paidByOthers.iEPatClosingTotalpaidByOthers = 0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalAffiliateFeesAmount=0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalLoanAmount=0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalPointsAndFeesAmount=0;
          var escrowArray = [];
          var escrowValue = '';
          var etiaTotalAmount = 0;
@@ -3312,12 +3551,43 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             	$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator = null;
             }
 
-            //Total Affiliate Amount
+            //RegulationZTotalLoanAmount, RegulationZTotalAffiliateFeesAmount, RegulationZTotalPointsAndFeesAmount
 
             if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].feePaidToTypeOtherDescription=='BrokerAffiliate' 
             	|| $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].feePaidToTypeOtherDescription=='LenderAffiliate'){
-               $scope.cdformdata.totalAffiliateAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing ? $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing :+0);
-               $scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount = $scope.cdformdata.totalAffiliateAmount;
+                if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paymentIncludedInAPRIndicator==true){
+                if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].regulationZPointsAndFeesIndicator==true){
+                if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].paidByOthers) : +0;
+	            }
             }
 
             //Projected Payments Escrow Monthly Payment Amount
@@ -3452,6 +3722,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    	}
         }
 
+        $scope.qualififiedCalculations();
+
     }, true);
 
     $scope.$watch('cdformdata.closingCostDetailsOtherCosts.otherCostsList', function(newValue, oldValue) {
@@ -3460,6 +3732,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		 spAtClosing.otherTotalspAtClosing = 0;
 		 spB4Closing.otherTotalspB4Closing = 0;
 		 paidByOthers.otherTotalpaidByOthers = 0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalAffiliateFeesAmount=0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalLoanAmount=0;
+		 $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalPointsAndFeesAmount=0;
 
          for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.length; i++) {
          	bpAtClosing.otherTotalbpAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing) : +0;
@@ -3480,12 +3755,43 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             	$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paymentIncludedInAPRIndicator='';
             }
 
-            //Total Affiliate Amount
+            //RegulationZTotalLoanAmount, RegulationZTotalAffiliateFeesAmount, RegulationZTotalPointsAndFeesAmount
 
             if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feePaidToTypeOtherDescription=='BrokerAffiliate' 
             	|| $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feePaidToTypeOtherDescription=='LenderAffiliate'){
-               $scope.cdformdata.totalAffiliateAmount += parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing ? $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing :+0);
-               $scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount = $scope.cdformdata.totalAffiliateAmount;
+                if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalAffiliateFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paymentIncludedInAPRIndicator==true){
+                if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalLoanAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing) : +0;
+	            }
+            }
+
+            if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].regulationZPointsAndFeesIndicator==true){
+                if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].bpB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spAtClosing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].spB4Closing) : +0;
+	            }else if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers){
+	               $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalPointsAndFeesAmount += $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paidByOthers) : +0;
+	            }
             }
          }
 
@@ -3517,6 +3823,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    		$scope.summariesOfTransaction_NSection.closingCostsPaidAtClosing = 0;
 	    	}
         }
+
+        $scope.qualififiedCalculations();
 
     }, true);
 
