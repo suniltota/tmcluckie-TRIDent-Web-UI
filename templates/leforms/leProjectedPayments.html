@@ -178,16 +178,31 @@
 		        </td>
 		      </tr>
 		      <tr>
-		        <td>
-		        	<label>Estimated Total Monthly Payment Amount
+		      <td>
+		        	<label><span class="pull-left margin5tb">Estimated Total</span>
+				        		<!-- <span class="col-sm-5">
+				        		<select class="form-control" 
+				        		ng-model="leformdata.projectedPayments.paymentFrequencyType"
+				              		ng-options="frequency.value as frequency.name for frequency in paymentFrequencyTypes">
+				        		</select>
+				        		</span>  -->
+				        		<select class="form-control"
+				        		ng-model="leformdata.projectedPayments.paymentFrequencyType">
+					        		<option value="" selected>Select</option>
+				              		<option ng-repeat="frequency.value as frequency.name for frequency in paymentFrequencyTypes" value="{{frequency.value}}">{{frequency.name}}</option>
+				        		</select>
+				        	<span class="pull-left margin5tb">Payment Amount</span></label>
+		        </td>
+		        <!-- <td>
+		        	<label>Estimated Total  Payment Amount
 		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
 					        <b></b>	
-					         <span> 
+					         <span>  
 					           	 <p>Every Column will have a total for both the minimum amount and the maximum amount, this is not an editable field and the system provides the value to the user in the user interface.</p>
 					          </span>
 					 </span>
 					</label> 
-		        </td>
+		        </td> -->
 		        <td ng-repeat="estimatedTotal in leformdata.projectedPayments.estimatedTotal track by $index">
 		        	<div class="col-sm-6">
 		        			<div class="col-sm-12 text-center paddingleft2">Minimum</div>

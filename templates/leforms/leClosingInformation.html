@@ -6,11 +6,8 @@
 		<h5 class="innerSectionHeader">Loan Estimate General Information</h5>
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle" >Lender Name  
-			<span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
-                <span>
-                	<b></b>
-                   <span>Name of the creditor extending the estimated cost for obtaining a loan for real property.</span>
-                </span>
+			<span id="LE_lenderName_Help" class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseover="showtooltip($event)" >
+                {{tooltipmessage}}
             </span>
 			
             </div>
