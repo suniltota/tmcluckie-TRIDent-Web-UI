@@ -429,11 +429,1296 @@
                       </div>
                 </span>
               </div>
+              <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEAdjustmentInformationHelp"  ng-click="LEAdjustmentInformationHelp = LEAdjustmentInformationHelp + 1" ng-init="LEAdjustmentInformationHelp=0" > 
+           <span>Adjustment Information, </span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEAdjustmentInformationHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEAdjustmentInformationHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEAdjustmentInformationHelp">
+                <span class="field_help">
+                     <h5>Provide the number of months for the fixed period : </h5>
+                      <div id="">The number of months after origination in which the first interest rate adjustment occurs, if the interest rate on the subject loan can change.
+                      <ul>
+                        <li>Format is numeric up to 3 characters.</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>Provide the life of loan Cap Rate : </h5>
+                      <div id="">The stated maximum percentage “ceiling rate” to which the interest rate can increase over the life of the loan.
+                      <ul>
+                        <li>Format is a percent 3.4.</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>Provide the number of months first change period : </h5>
+                      <div id="">The number of months between rate adjustments for the first changed after the fixed period, if the interest rate on the subject loan can change.
+                      <ul>
+                        <li>Format is a numeric 3</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>Provide the first change interest rate limit : </h5>
+                      <div id="">The maximum number of percentage points by which the rate can increase from the previous interest rate for the First Change after the fixed period
+                      <ul>
+                        <li>Format is a percent 3.4</li>
+                      </ul>
+                      </div>
+                </span>
+                 <span class="field_help">
+                     <h5>Provide the number of months subsequent change period : </h5>
+                      <div id="">The number of months between rate adjustments for the subsequent changes after the first period change from the fixed period, if the interest rate on the subject loan can change.
+                      <ul>
+                        <li>Format is numeric 3</li>
+                        <li>At times the number of months between the interest rate changes can be different from the first change after the fixed period</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>Provide the subsequent change interest rate limit : </h5>
+                      <div id="">The maximum number of percentage points by which the rate can increase from the previous interest rate for the Subsequent changes after the first change after the fixed period.
+                      <ul>
+                        <li>Format is a percent 3.4.</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>If Amortization Type is Step, Provide the Total Step Count  : </h5>
+                      <div id="">For a loan with a step provision, the total number of step rate adjustments allowed under the step agreement.
+                      <ul>
+                        <li>Format is a numeric 3</li>
+                      </ul>
+                      </div>
+                </span>
+              </div>
+              <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEConstructionLoanInformationHelp"  ng-click="LEConstructionLoanInformationHelp = LEConstructionLoanInformationHelp + 1" ng-init="LEConstructionLoanInformationHelp=0" > 
+           <span>Construction Loan Information</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEConstructionLoanInformationHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEConstructionLoanInformationHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEConstructionLoanInformationHelp">
+                <span class="field_help">
+                     <h5>Is this transaction a construction loan? : </h5>
+                      <div id="">In every transaction user, must Indicate if this is a construction loan.
+                      <ul>
+                        <li>Format is Boolean, the user see a drop-down list with Yes or No.</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>What type of Construction Loan? : </h5>
+                      <div id="">If the loan is a construction Loan, yes from the dropdown list, then provide the type of construction loan the user may only choose construction only or construction to permanent.
+                      <ul>
+                        <li>Format is a list of enumerated values</li>
+                        <li>Conditionally required only if the indicator is equal to Yes</li>
+                      </ul>
+                      <p>Other information is required…</p>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>What is the construction period in months? : </h5>
+                      <div id="">If a construction loan type has been indicated must provide the length of the construction period expressed in number of months.
+                      <ul>
+                        <li>Format is a numeric 3</li>
+                        <li>Conditionally required based off the Boolean Yes if a construction loan</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>What is the total number of months for the construction transaction : </h5>
+                      <div id="">If a construction loan type has been indicated the total term of a construction loan, including the construction phase plus any fully amortizing phase combined.
+                      <ul>
+                        <li>Format is a numeric 3</li>
+                        <li>Conditionally required based off the Boolean Yes if a construction loan</li>
+                      </ul>
+                      </div>
+                </span>
+              </div>
             <!-- -->
+         <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEHomeEquityLoanInformationHelp"  ng-click="LEHomeEquityLoanInformationHelp = LEHomeEquityLoanInformationHelp + 1" ng-init="LEHomeEquityLoanInformationHelp=0" > 
+           <span>Home Equity Loan Information</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEHomeEquityLoanInformationHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEHomeEquityLoanInformationHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEHomeEquityLoanInformationHelp">
+                <span class="field_help">
+                     <h5>Is the Loan a Home Equity Loan? : </h5>
+                      <div id="">In all transaction, must indicate the loan is an extension of credit that does not involve the purchase of real property or the initial construction of a dwelling and will not be used to refinance an existing obligation.<br>
+                      In other words, this may be similar to a refinance transaction; however, in accordance with the CFPB “Know Bbefore you You oweOwe”, the different is there are NO liens against the subject property to pay off. 
+
+                      <ul>
+                        <li>Required to be addressed.</li>
+                        <li>Boolean values of Yes or No in a drop down</li>
+                      </ul>
+                      </div>
+                </span>
+              </div>
+              <!-- -->
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEInterestOnlyInformationHelp"  ng-click="LEInterestOnlyInformationHelp = LEInterestOnlyInformationHelp + 1" ng-init="LEInterestOnlyInformationHelp=0" > 
+           <span>Product Description and Information</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEInterestOnlyInformationHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEInterestOnlyInformationHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEInterestOnlyInformationHelp">
+                <span class="field_help">
+                     <h5>Does this loan have an interest only feature? </h5>
+                      <div id="">In all transaction, must Indicate whether loan is set up with interest only payments.
+                      <ul>
+                        <li>Required to be addressed.</li>
+                        <li>Boolean values of Yes or No in a drop down</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>If Yes, what is the interest only period </h5>
+                      <div id="">IFIf the interest only feature answer is YES, then provide the number of months the loan remains interest only in the text box provided.
+                      <ul>
+                        <li>Format is numeric 3</li>
+                      </ul>
+                      </div>
+                </span>
+              </div>
+              <!-- -->
+         <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LENegativeAmortizationInformationHelp"  ng-click="LENegativeAmortizationInformationHelp = LENegativeAmortizationInformationHelp + 1" ng-init="LENegativeAmortizationInformationHelp=0" > 
+           <span>Negative Amortization Information</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LENegativeAmortizationInformationHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LENegativeAmortizationInformationHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LENegativeAmortizationInformationHelp">
+                <span class="field_help">
+                     <h5>Does this loan have a Negative Amortization Feature? </h5>
+                      <div id="">In every transaction, the user must Indicate whether the loan allows negative amortization.
+                      <ul>
+                        <li>Required to be addressed.</li>
+                        <li>Boolean values of Yes or No in a drop down</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>Indicate if Nnegative am Amortization is Scheduled or Potential</h5>
+                      <div id="">If the transaction has negative amortization and user has chosen YES in the provided dropdown box, then the user must indicate if the Negative Amortization is either Scheduled or Potential using the dropdown box provided.
+                      <ul>
+                        <li>Format is a list of enumerated values that include:  Scheduled | Potential.</li>
+                        <li>Is conditionally required based on the answer if Yes for negative amortization feature.</li>
+                      </ul>
+                      <p>Once the user chooses this value then other information is required.</p>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>What is the Maximum Negative Amortization Loan Balance? </h5>
+                      <div id="">In the two pieces of information is the maximum negative amortization loan balance must be provided in the text box.  Note that the maximum loan balance with accrued increase from negative amortization. (The initial loan amount plus any balance increase that may accrue from the negative amortization provision).
+                      <ul>
+                        <li>Amount field 9.2-character length.</li>
+                      </ul>
+                      <p>Conditionally required if Neg Am is part of the transaction</p>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>What is the negative amortization limit in month's count? </h5>
+                      <div id="">If Negative Amortization exists period or count of months in which the negative amortization limit will reach.  The user must input this information if the Neg AM is present.
+                      <ul>
+                        <li>Format is numeric 3</li>
+                        <li>Is conditionally required based on the answer if Yes is selected for negative amortization feature</li>
+                      </ul>
+                       </div>
+               </span>
+              </div>
+              <!-- -->
+              <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEOtherLoanProductFeaturesHelp"  ng-click="LEOtherLoanProductFeaturesHelp = LEOtherLoanProductFeaturesHelp + 1" ng-init="LEOtherLoanProductFeaturesHelp=0" > 
+           <span>Other Loan Product Features</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEOtherLoanProductFeaturesHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEOtherLoanProductFeaturesHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEOtherLoanProductFeaturesHelp">
+                <span class="field_help">
+                     <h5>Does the loan have a seasonal payment feature? </h5>
+                      <div id="">In every transaction, the user must provide a Yes or No to indicate the loan contains a seasonal payment feature.
+                      <ul>
+                        <li>Format is Boolean through a drop-down Yes or No.</li>
+                        <li>Is required to provide the value.</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>If yes, provide the start and end months </h5>
+                      <div id="">If the answer to “Does the loan have a seasonal payment feature?” is YES, then must provide both the starting month and ending month of the season in which no payment will be expected by the lender.
+                      <ul>
+                        <li>Format is drop down of the months for both text boxes.</li>
+                        <li>Conditionally required if the first question is Yes.</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>Does the loan have a Step payment feature? </h5>
+                      <div id="">The amortization type of Step will drive this value; the user must choose the drop down of yes or no to finalize the step amortization.
+                      <ul>
+                        <li>Boolean format of Yes | No in a drop-down box.</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>If yes, provide the no. of months in which the Step feature will be in affect </h5>
+                      <div id="">If the transaction has a step amortization type, then provide the total number of step rate adjustments allowed under the step agreement.
+                      <ul>
+                        <li>Format is numeric 3.</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>Does the loan have an optional payment feature? </h5>
+                      <div id="">A Yes | No drop-down box that Specifies that the loan instrument allows the Applicant(s) to determine and change on a month-to-month basis the amount of any payment to be paid on the loan for a specified period.
+                      <ul>
+                        <li>Boolean format of Yes | No in a drop-down box.</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>If yes, provide the no. of months in which the Optional payment will be in affect </h5>
+                      <div id="">IFIf the value for the statement “Does the loan have an optional payment feature” is yes, then provide the total number of optional payments allowed during the life of the loan when this choice is permitted under the terms of the loan.
+                      <ul>
+                        <li>Format is numeric 3</li>
+                      </ul>
+                      </div>
+                </span>
+              </div>
        </div>
     </span>
  </div>
  <!-- -->
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_LoanTerms_Help"  ng-click="LE_LoanTerms_Help = LE_LoanTerms_Help + 1" ng-init="LE_LoanTerms_Help=0" > 
+      <strong>Loan Terms</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_LoanTerms_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_LoanTerms_Help%2==1"></span>
+      </span>
+  
+       <div id="LE_LoanTerms_Help" class="collapse subContainer">
+          
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LE_LoanTermsInformation_Help"  ng-click="LE_LoanTermsInformation_Help = LE_LoanTermsInformation_Help + 1" ng-init="LE_LoanTermsInformation_Help=0" > 
+          <span>Loan Terms Information</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_LoanTermsInformation_Help%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_LoanTermsInformation_Help%2==1"></span>
+          </span>
+
+          
+          <div class="col-sm-12" id="LE_LoanTermsInformation_Help">
+            <span class="field_help">
+              <h5>Loan Amount : </h5>
+              <div id="LE_lenderName_Help">Enter the value of the loan or upload the amount through a template or file.
+              <ul>
+                <li>Format is an amount 9.2</li>
+                <li>The amount will be either the Note amount which is the amount to be repaid as disclosed on the note -  If the Interest rate and note amount are known at consummation</li>
+                <li>The Fully indexed principal and interest amount which is the dollar amount of the principal and interest payment when calculated using the loan amount and fully-indexed interest rate (in place of Note Interest Rate) to arrive at full amortization during the loan term.  If the Interest Rate and Note amount are NOT known at consummation.</li>
+                <li>The system defaults the yes/no drop-down box to NO for the question “Does this change after closing?” using the information from the product description section (negative amortization indicator = false is no in the drop down).</li>
+                <li>The User may change the yes/no drop down </li>
+                <li>User May enter in the Dollar amount the bullet stating "Can go as high as" for the loan amount maximum limit, otherwise it will pull from the product description section under negative amortization. <br>
+                User May enter the number of months in the text box next to the Statement "Can Increase Until Year" for the second bullet, or the system will pull in the values from the product description section under Negative amortization.</li>
+              </ul>
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Interest Rate : </h5>
+              <div id="LE_lenderName_Help">Enter or Upload the interest rate as it will be disclosed on the note or the Fully Disclosed Index Rate. 
+                <ul>
+                  <li>If manually entered interest rate, the system defaults for the question “Does this change after closing?” Yes | No drop-down box to NO until the user completes the Product Description section.
+                    <ul>
+                        <li>If the Amortization Type in the product description section is equal to Fixed, then the “Does this change after closing?” remains No</li>
+                        <li>If the Amortization Type in the product description section is NOT Equal to Fixed, then the “Does this change after closing?” changes to Yes with additional bullet points to be filled in using the information from the Product Description section, however these fields are editable by the user.</li>
+                        <li>The following fields must have values if the Amortization Type is NOT fixed:  
+                            <ul>
+                              <li>Adjusts every   ______  years starting in year______ -  Provide the number of Years for the adjustment AND the year in which the adjustment will start plus one month because interest changes in arrears.  So if the interest rate is due to change  inchange in month 60 (aka 5 years) then the form needs to state in year 6 because the payment will actually change in year 6.</li>
+                              <li>Can go as high as  _____ in year ________  - The can go as high as statement is the ceiling rate for the life of the loan, then in year again is the year in which the ceiling will be reached.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                  </li>
+                  <li>Regardless of Amortization Type the user must Provideprovide the values for; current rate set date, the loan price quote and the Average Prime Offer Rate (APOR) in the 3 text boxes allotted for the values.
+                  <ul>
+                    <li>Current Rate Set Date is the Date on which the interest rate for the loan was set by the lender for the final time before closing.</li>
+                    <li>Loan Price Quote is the mortgage loan interest rate for which the price quote is calculated.<br>
+                    The APOR is an annual percentage rate that is derived from average interest rates, points, and other loan pricing terms currently offered to consumers by a representative sample of creditors for mortgage transactions that have low-risk pricing characteristics. The Federal Reserve Board publishes average prime offer rates for a broad range of types of transactions in a table updated at least weekly. This rate is used in determining Higher Priced Mortgage Loans (HPML).</li>
+                  </ul>
+                  </li>
+
+
+                </ul>
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Temporary Buydown :</h5>
+              <div id="LE_lenderName_Help">The temporary buydown information is only needed when the buydown is listed within the NOTE itself.  The Drop-down must be edited by the user, it will default to NO automatically and the use may change to yes.  If the user changes the default value to yes then additional information will be required dependent upon answers additional information may be needed.<br>
+              If changed to YES, then provide
+
+                <ul>
+                  <li> Is the buydown reflected on the Note, If NO nothing else is needed.
+                  </li>
+                </ul>
+                <p>If yes</p>
+                <ul>
+                <li>What is the Rate as reflected without the Buydown? There is a text box in which the user must input the note rate that would be reflected in the note if there was not a buydown that the user may provide in the text box</li>
+                <li>Provide the rate the Applicant will pay after the buydown is applied – this will a rate percent value in the text box.</li>
+                <li>Provide the Time interval in months between the interest rate increases        during the buydown period this will be a numeric value in which the user will enter the value in the text box.</li>
+                <li>Provide the total number of months which the buydown is in affect which the user will input into the text box.</li>
+                <li>Provide the amount by which the interest rate can increase at each adjustment within the buydown period.</li>
+                </ul>
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Principal and interest Payment Amount :</h5>
+              <div id="LE_lenderName_Help">The P&I payment is required to be filled-in, calculated by the calculate button on the user interface, or upload through a template/ xml file/ PDF file.  
+              <ul>
+                <li>The drop down will indicate yes or no; this is always defaulted to NO if manual data entry.</li>
+                <li>The drop is also driven by the information input in to the product description section.</li>
+              </ul><p>If yes, amortization type is NOT equal to Fixed then the user will provide the following information either through entry of information in the product description section or can manually enter the information into the User interface for this row:</p>
+              <ul><li>Adjusts every ________ years starting in year______;</li></ul>
+              <p>Can go as high as   ________ in year_______; </p>
+              </div>
+            </span>
+            <span class="field_help">
+                     <h5> Payment Frequency :</h5>
+                      <div id="">In all transactions, the user must provide the payment frequency which specifies the frequency of the mortgage payment through a list of enumerated values that will be used to calculate the payment.
+                      <ul>
+                        <li>Enumerated Values are: Annual | At Maturity | Biweekly | Monthly | Quarterly | Semiannual | Semimonthly | Weekly</li>
+                      </ul>
+                      </div>
+            </span>
+            <span class="field_help">
+                     <h5> Prepayment Penalty :</h5>
+                      <div id="">For the question, can this change after closing there is a drop-down box that Indicates whether the prepayment penalty can change after closing.  
+                      <ul>
+                        <li>The default is set to NO.
+                        <br>The user may change to YES, which triggers the ability to see the bullet points required by the CFPB Know before You Owe regulation that indicates the highest amount of the prepayment penalty and the last scheduled year in which the prepayment penalty would be in affect noting that this amount is provided to the Applicant as a disclosure.</li>
+                      </ul>
+                      </div>
+            </span>
+            <span class="field_help">
+                     <h5>Balloon Payment : </h5>
+                      <div id="">For the question, can this change after closing, there is a drop-down box that Indicates whether the balloon payment, if one exists, can change after closing.
+                      <ul>
+                        <li>The default is NO</li>
+                        <li>If YES, indicate how much will need to be paid via a text box and the year the balloon payment will be due in full.</li>
+                      </ul>
+                      </div>
+            </span>
+          </div>
+        </div>
+    </span>
+  </div>
+ <!-- -->
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_ProjectedPayments_Help"  ng-click="LE_ProjectedPayments_Help = LE_ProjectedPayments_Help + 1" ng-init="LE_ProjectedPayments_Help=0" > 
+      <strong>Projected Payments</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_ProjectedPayments_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_ProjectedPayments_Help%2==1"></span>
+      </span>
+       <div id="LE_ProjectedPayments_Help" class="collapse subContainer">
+                <span class="field_help">
+                     <h5> Years :</h5>
+                      <div id="">Each column must be expressed in whole years
+                          <ul>
+                            <li>Years 1 - 30</li>
+                            <li>Years 1 -   5, etcetc.….</li>
+                          </ul>
+                          <p>Whole years are defined as twelve-month intervals that begin on the due date of the initial periodic payment. When the same Estimated Total Periodic Payment amount is valid for several years before a payment change event occurs, then that Year Range is identified as a column heading. </p>
+                          <p>The entire loan term must be represented by the Year Range Columns that can only have a maximum of 4 columns in the transaction. </p>
+                          <p>See the Know Before You Owe regulation for the rules of what drives a payment adjustment.</p>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Add Additional Column Link :</h5>
+                      <div id="">The Projected Payment section is driven off several pieces of information:
+                          <ul>
+                            <li>Product Description – Amortization Type if Fixed then typically only one column or multiple columns of the Amortization Type is Adjustable Rate (ARM) or Not Fixed</li>
+                            <li>Upload of multiple instances of data will automatically provide the additional columns with values</li>
+                          </ul>
+                          <div>If the user is manual data entry and requires additional columns, then the user may click on the Add Additional Column Link that will add 3 additional columns one at time up to a total of total columns.</div>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Principal and Interest Payment</h5>
+                      <div id="LE_PrincipalandInterestPayment_Help">In each column (1-4) a Minimum amount and Maximum amount text boxes are available to the user for input.
+                          <ul>
+                            <li>Minimum Amount - The minimum amount of the principal and interest payment during the projected payment period. Typically this is not used for the first column due to any fixed periods would be identified in the first period.</li>
+                            <li>Maximum Amount - The maximum amount of the principal and interest payment during the projected payment period.</li>    
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Mortgage Insurance – Is required?</h5>
+                      <div id="LE_PrincipalandInterestPayment_Help">This information is required for every transaction, must identify if there is MI present in the transaction.  
+                          <ul>
+                            <li>If NO, then nothing else needs to be done</li>
+                            <li>If Yes, provide the following information that is found under the Mortgage Insurance Label in the far-left column
+                            <ul>
+                            <li>No. Months Duration?</li>
+                            <li>Scheduled Termination Date</li>
+                            <li>MI Company Name</li>
+                            <li>MI Company Name Description, if other</li>
+                            <div>If yes, provide the amount of MI this will drive the need for additional columns due to displaying the amount per change period until the MI is no longer required.</div>
+                            </ul>
+                            </li>    
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5> Escrow Payment Amount :</h5>
+                      <div id="">In every transaction, there will be an indication of Escrow present or NOT present in the transaction, IFIf there is an Escrow Account then a user would input the value in this row.
+                      <div>Note that the system will input the value from the Section G. Initial Escrow Payment At Closing into this row for all columns there is no change of the amount per the CFPB regulation.</div>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Estimated Total Monthly Payment Amount :</h5>
+                      <div id="">Every Column will have a total for both the minimum amount and the maximum amount, this is not an editable field and the system provides the value to the user in the user interface.
+                      </div>
+                 </span>
+              
+       </div>
+  </span>
+</div>
+<!-- -->
+<div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_ETIA_Help"  ng-click="LE_ETIA_Help = LE_ETIA_Help + 1" ng-init="LE_ETIA_Help=0" > 
+      <strong>Estimated Taxes, Insurance and Assessment of projected payments</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_ETIA_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_ETIA_Help%2==1"></span>
+      </span>
+  
+       <div id="LE_ETIA_Help" class="collapse subContainer">
+                <span class="field_help">
+                     <h5> $ amount  per month :</h5>
+                      <div id="">This amount is calculated via the Calculate button.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Check Boxes – Property Taxes and Homeowners Insurance</h5>
+                      <div id="">The user may enter one or many Other items, the purpose of adding many when the Loan Estimate only has one on the PDF if for support of the GSE requirements in the UCD XML file.
+                          <ul>
+                            <li>Format is a list of Enumerated values to choose
+                                If other is Chosen, then the Description box will be enabled for the user to input the value.
+                            </li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5> In Escrow? :</h5>
+                      <div id="">The user may select from a drop down whether the item is in an escrow account or not.
+                          <ul>
+                            <li>Format is a drop-down box with Yes or No.
+                                Will default based on the information in Closing Cost Details Section G. Initial Escrow at Closing</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5> Add Additional Item</h5>
+                      <div id="">This link will all you to add another row to choose from the drop down and indicate if in escrow or not in escrow.
+                      </div>
+                 </span>
+        </div>
+  </span>
+</div>
+<!-- -->
+<div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_CostAtClosing_Help"  ng-click="LE_CostAtClosing_Help = LE_CostAtClosing_Help + 1" ng-init="LE_CostAtClosing_Help=0" > 
+      <strong>Costs AT Closing</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_CostAtClosing_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_CostAtClosing_Help%2==1"></span>
+      </span>
+       <div id="LE_CostAtClosing_Help" class="collapse subContainer">
+             <div class="col-sm-12" id="LE_CostAtClosing_Help">
+                <span class="field_help">
+                     <h5> The costs at closing section is not shown in the user interface</h5>
+                      <div id="">
+                          <ul>
+                            <li>Help search must sear on "Costs at Closing".</li>
+                            <li>The section is non-editable field due to pulling information from other locations in the form</li>
+                          </ul>
+                      </div>
+                 </span>
+            </div>
+       </div>
+  </span>
+</div>
+<!-- -->
+<div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_ClosingCostFeePage_Help"  ng-click="LE_ClosingCostFeePage_Help = LE_ClosingCostFeePage_Help + 1" ng-init="LE_ClosingCostFeePage_Help=0" > 
+      <strong>Closing Cost Details (Fee Page)
+</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_ClosingCostFeePage_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_ClosingCostFeePage_Help%2==1"></span>
+      </span>
+       <div id="LE_ClosingCostFeePage_Help" class="collapse subContainer">
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEoriginationChargesHelp"  ng-click="LEoriginationChargesHelp = LEoriginationChargesHelp + 1" ng-init="LEoriginationChargesHelp=0" > 
+           <span>A. Origination Charges</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEoriginationChargesHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEoriginationChargesHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEoriginationChargesHelp">
+              <div>In each section, most information is a repeatable structure. Simply put the user can provide a label name to show up on the form, choose the valid value for the xml file that goes to the GSEs, enters additional information to support that specific record (row) and supply the information required by the CFPB Know Before You Owe regulation requirements for disclosure to the Applicant.<br>
+              The table below demonstrates specifics about each row and all the information needed to support origination charges.  Any questions about the regulation is directed to the CFPB website and final rule.
+              </div>
+                <span class="field_help">
+                     <h5> Section Header Name :</h5>
+                      <div id="SectionHeaderName">Each Section in the Closing Cost Details is highlighted at the top of the section.
+                          <ul>
+                            <li>The first section is called "Origination Charges".</li>
+                            <li>Has a different row for Row 01 than the rest of the section</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5> Section Total Amount : </h5>
+                      <div id="SectionTotalAmount ">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Applicant At Closing or Before Closing columns.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5> *Percentage * Loan Amount (Points) - Label :</h5>
+                      <div id="">
+                      In every transaction, the line 01 item called Loan Amount (Points) is provided on the form.  The transaction may or may not have discount points.  
+                      The Label name “Loan Amount (Points)” is referred to as predefined text by the CFPB.
+
+                          <ul>
+                            <li>If NO, “0” must be disclosed in the Label section.
+                                If YES, both the percentage of the Loan Amount must be disclosed in the label section.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Label Name</h5>
+                      <div id="FeeLabelName">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+
+                          <ul>
+                            <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.Format is a String Value up to 150 character.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Type : </h5>
+                      <div id="FeeType">Specify the general type of fees associated with a real estate finance transaction.
+                          <ul>
+                            <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name.If other is chosen, then the user will be provided another text box (see below).</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Type Other Description  :</h5>
+                      <div id="">This field is required to be filled-in if the Fee Type is Other.
+                          <ul>
+                            <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type.Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Include in APR Calculation : </h5>
+                      <div id="">For each record included must Indicate if the fee is included in the APR calculation.
+                          <ul>
+                            <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12   C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+                            <li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Additional Lines can be added :</h5>
+                      <div id="AdditionalLinescanbeadded.">
+                      To add more fees to the section the user may click on the link to add another row.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Trash Symbol :</h5>
+                      <div id="TrashSymbol">The Trash Can symbol at the end of the record will delete the entire row including all data.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Clear Symbol :</h5>
+                      <div id="ClearSymbol">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+                      </div>
+                 </span>
+          </div>
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEBServicesApplicantDidNotShopForHelp"  ng-click="LEBServicesApplicantDidNotShopForHelp = LEBServicesApplicantDidNotShopForHelp + 1" ng-init="LEBServicesApplicantDidNotShopForHelp=0" > 
+           <span>B. Services Applicant Did Not Shop For</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEBServicesApplicantDidNotShopForHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEBServicesApplicantDidNotShopForHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEBServicesApplicantDidNotShopForHelp">
+                <span class="field_help">
+                     <h5>Section Header Name :</h5>
+                      <div id="">Each Section in the Closing Cost Details is highlighted at the top of the section.
+                          <ul>
+                            <li>The first section is called "Services Applicant Did Not Shop For"</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Section Total Amount Applicant Paid</h5>
+                      <div id="">This provides the user an ability to view the total amount of the section, this is automatically calculated once fees and amounts are input into the section.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Label Name :</h5>
+                      <div id="">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+                          <ul>
+                            <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
+                            <li>Format is a String Value up to 150 characters</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Type :</h5>
+                      <div id="">Specify the general type of fees associated with a real estate finance transaction.
+                          <ul>
+                            <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name.</li>
+                            <li>If other is chosen, then the user will be provided another text box (see below).</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Type Fee Type Other Description :</h5>
+                      <div id="">This field is required to be filled-in if the Fee Type is Other.
+                          <ul>
+                            <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type.</li>
+                          </ul>
+                        <div>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</div>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Include in APR Calculation  :</h5>
+                      <div id="">For each record included must Indicate if the fee is included in the APR calculation. 
+                          <ul>
+                            <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12   C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+                            <li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Additional Lines can be added :</h5>
+                      <div id="">To add more fees to the section the user may click on the link to add another row.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Trash Symbol :</h5>
+                      <div id="">The Trash Can symbol at the end of the record will delete the entire row including all data.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Clear Symbol :</h5>
+                      <div id="">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+                      </div>
+                 </span>
+              </div>
+              <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEServicesApplicantDidShopForHelp"  ng-click="LEServicesApplicantDidShopForHelp = LEServicesApplicantDidShopForHelp + 1" ng-init="LEServicesApplicantDidShopForHelp=0" > 
+           <span>C. Services Applicant Did Shop For</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEServicesApplicantDidShopForHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEServicesApplicantDidShopForHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEServicesApplicantDidShopForHelp">
+                <span class="field_help">
+                     <h5>Section Header Name :</h5>
+                      <div id="">Each Section in the Closing Cost Details is highlighted at the top of the section.
+                          <ul>
+                            <li>The first section is called “Services Applicant Did Shop For”.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Section Total Amount Applicant Paid :</h5>
+                      <div id="">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a row.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Label Name :</h5>
+                      <div id="">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+                          <ul>
+                            <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
+                            <li>Format is a String Value up to 150 characters</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Type  :</h5>
+                      <div id="">Specify the general type of fees associated with a real estate finance transaction.
+                          <ul>
+                            <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name.</li>
+                            <li>If other is chosen, then the user will be provided another text box (see below).</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Type Other Description  :</h5>
+                      <div id="">This field is required to be filled-in if the Fee Type is Other.
+                          <ul>
+                            <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type.</li>
+                            <li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
+                            <li></li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Include in APR Calculation :</h5>
+                      <div id="">For each record included must Indicate if the fee is included in the APR calculation. 
+                          <ul>
+                            <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12   C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+                            <li>Format is a Boolean value, using a drop-down box with a Yes or No value</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Additional Lines can be added :</h5>
+                      <div id="">To add more fees to the section the user may click on the link to add another row.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Trash Symbol :</h5>
+                      <div id="">The Trash Can symbol at the end of the record will delete the entire row including all data.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                   <h5>Clear Symbol :</h5>
+                   <div id="">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+                   </div>
+                 </span>
+              </div>
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LETotalLoanCostHelp"  ng-click="LETotalLoanCostHelp = LETotalLoanCostHelp + 1" ng-init="LETotalLoanCostHelp=0" > 
+           <span>D. Total Loan Costs</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LETotalLoanCostHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LETotalLoanCostHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LETotalLoanCostHelp">
+             The Total Loan costs section will depict the total amount of all Applicant only paid fees.  The Section also will include a breakdown of costs paid at closing and before closing.
+                <span class="field_help">
+                     <h5>D. Total Loan Costs (Amount) :</h5>
+                      <div id="">Read Only on the User Interface that provides the Total 
+                          <ul>
+                            <li>Not able to edit this value</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Loan Costs (A+B+C) :</h5>
+                      <div id="">Read Only on the User Interface that provide the subtotal amount for each of the Applicant Paid columns. 
+                          <ul>
+                            <li>Not able to edit this value</li>
+                          </ul>
+                      </div>
+                 </span>
+              </div>
+        </div>
+  </span>
+</div>
+<!-- -->
+<div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_OtherCost_Help"  ng-click="LE_OtherCost_Help = LE_OtherCost_Help + 1" ng-init="LE_OtherCost_Help=0" > 
+      <strong>Other Costs</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_OtherCost_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_OtherCost_Help%2==1"></span>
+      </span>
+       <div id="LE_OtherCost_Help" class="collapse subContainer">
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LETaxesandOtherGovernmentFeesHelp"  ng-click="LETaxesandOtherGovernmentFeesHelp = LETaxesandOtherGovernmentFeesHelp + 1" ng-init="LETaxesandOtherGovernmentFeesHelp=0" > 
+           <span>E. Taxes and Other Government Fees</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LETaxesandOtherGovernmentFeesHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LETaxesandOtherGovernmentFeesHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LETaxesandOtherGovernmentFeesHelp">
+                <span class="field_help">
+                     <h5>Section Header Name :</h5>
+                      <div id="">Each Section in the Closing Cost Details is highlighted at the top of the section.
+                          <ul>
+                            <li>The first section is called "Taxes and Other Government Fees"</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Section Total Amount Applicant Paid :</h5>
+                      <div id="">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a row.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Recording Fee and Other Taxes :</h5>
+                      <div id="">Total Amount of estimated recording fees and other government taxes Label name.  This label is a predefined label and cannot be changed.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Transfer Taxes :</h5>
+                      <div id="">Total amount of estimated transfer taxes if applicable to the transaction.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Include in APR Calculation :</h5>
+                      <div id="">For each record included must Indicate if the fee is included in the APR calculation. 
+                          <ul>
+                            <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12   C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+                            <li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Additional Lines can be added :</h5>
+                      <div id="">To add more fees to the section the user may click on the link to add another row.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Trash Symbol :</h5>
+                      <div id="">The Trash Can symbol at the end of the record will delete the entire row including all data.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Clear Symbol :</h5>
+                      <div id="">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+                      </div>
+                 </span>
+              </div>
+           <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEPrepaidsHelp"  ng-click="LEPrepaidsHelp = LEPrepaidsHelp + 1" ng-init="LEPrepaidsHelp=0" > 
+           <span>F. Prepaids</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEPrepaidsHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEPrepaidsHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEPrepaidsHelp">
+                <span class="field_help">
+                     <h5>Section Header Name :</h5>
+                      <div id="">Each Section in the Closing Cost Details is highlighted at the top of the section.
+                          <ul>
+                            <li>The first section is called "Prepaids"</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Section Total Amount Applicant Paid :</h5>
+                      <div id="">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a row.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Prepaid Label Name :</h5>
+                      <div id="">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+                          <ul>
+                            <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
+                            <li>Format is a String Value up to 150 characters</li>
+                            <li>The first 3 rows include predefined labels that will not change, these include: Homeowners Insurance Premium, Mortgage Insurance Premium and Prepaid Interest</li>
+                            <li>All remaining rows allow the user to type in a value.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Prepaid Type :</h5>
+                      <div id="">Specify the general type of prepaid item associated with a real estate finance transaction.
+                          <ul>
+                            <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name.</li>
+                            <li>If other is chosen, then the user will be provided another text box (see below)</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Prepaid Type "Other Description" :</h5>
+                      <div id="">This field is required to be filled-in if the Prepaid Type is equal to Other.
+                          <ul>
+                            <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type.</li>
+                            <li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Include in APR Calculation :</h5>
+                      <div id="">For each record included must Indicate if the fee is included in the APR calculation. 
+                          <ul>
+                            <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12   C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+                            <li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Additional Lines can be added :</h5>
+                      <div id="">To add more fees to the section the user may click on the link to add another row.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Trash Symbol :</h5>
+                      <div id="">The Trash Can symbol at the end of the record will delete the entire row including all data.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Clear Symbol :</h5>
+                      <div id="">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+                      </div>
+                 </span>
+              </div>
+              <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEInitialEsrowPaymentAtClosingHelp"  ng-click="LEInitialEsrowPaymentAtClosingHelp = LEInitialEsrowPaymentAtClosingHelp + 1" ng-init="LEInitialEsrowPaymentAtClosingHelp=0" > 
+           <span>G. Initial Escrow Payment At Closing</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEInitialEsrowPaymentAtClosingHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEInitialEsrowPaymentAtClosingHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEInitialEsrowPaymentAtClosingHelp">
+                <span class="field_help">
+                     <h5>Section Header Name :</h5>
+                      <div id="">Each Section in the Closing Cost Details is highlighted at the top of the section.
+                          <ul>
+                            <li>The first section is called "Initial Escrow Payment At Closing"</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Section Total Amount Applicant Paid :</h5>
+                      <div id="">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Escrow Item Label :</h5>
+                      <div id="">A label to ensure clear and concise messaging of the escrow item.
+                          <ul>
+                            <li>Predefined to support Homeowners Insurance, Mortgage Insurance and Property Taxes</li>
+                            <li>These predefined are not editable</li>
+                          </ul>
+                          <div>Rows below the predefined are editable fields for the user to add additional items.</div>
+                          <ul><li>Format is a string value</li></ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Escrow Type  :</h5>
+                      <div id="">A list of enumerated values in which a user must choose to support the UCD xml file, the predefined lines will not get an escrow type as these are already set in the system
+                          <ul>
+                            <li>Format is a list of enumerated values</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Amount Per Month :</h5>
+                      <div id="">Each item must provide a value to indicate the monthly amount of the escrow item
+                          <ul>
+                            <li>Format is an amount value 9.2</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>No. of Months :</h5>
+                      <div id="">Each item must provide a value for the number of months that will support the cushion of the escrow.
+                          <ul>
+                            <li>Format is numeric 3</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Include in APR Calculation :</h5>
+                      <div id="">For each record included must Indicate if the fee is included in the APR calculation. 
+                          <ul>
+                            <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12   C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+                            <li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Additional Lines can be added :</h5>
+                      <div id="">To add more fees to the section the user may click on the link to add another row.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Trash Symbol :</h5>
+                      <div id="">The Trash Can symbol at the end of the record will delete the entire row including all data.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Clear Symbol :</h5>
+                      <div id="">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+                      </div>
+                 </span>
+              </div>
+              <!-- -->
+              <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEOtherCostsHelp"  ng-click="LEOtherCostsHelp = LEOtherCostsHelp + 1" ng-init="LEOtherCostsHelp=0" > 
+           <span>H. Other Costs</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEOtherCostsHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEOtherCostsHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEOtherCostsHelp">
+                <span class="field_help">
+                     <h5>Section Header Name :</h5>
+                      <div id="">Each Section in the Closing Cost Details is highlighted at the top of the section.
+                          <ul>
+                            <li>The first section is called "Other Costs"</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Section Total Amount Applicant Paid :</h5>
+                      <div id="">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Label Name :</h5>
+                      <div id="">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+                          <ul>
+                            <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
+                            <li>Format is a String Value up to 150 characters</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Type  :</h5>
+                      <div id="">Specify the general type of fees associated with a real estate finance transaction.
+                          <ul>
+                            <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name.</li>
+                            <li>If other is chosen, then the user will be provided another text box (see below)</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Fee Type Other Description  :</h5>
+                      <div id="">This field is required to be filled-in if the Fee Type is Other.
+                          <ul>
+                            <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type</li>
+                            <li>Recommended to use as many enumerated values as possible when sending the record to the GSEs</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Include in APR Calculation :</h5>
+                      <div id="">For each record included must Indicate if the fee is included in the APR calculation. 
+                          <ul>
+                            <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12   C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+                            <li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Additional Lines can be added :</h5>
+                      <div id="">To add more fees to the section the user may click on the link to add another row.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Trash Symbol :</h5>
+                      <div id="">The Trash Can symbol at the end of the record will delete the entire row including all data.
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Clear Symbol :</h5>
+                      <div id="">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+                      </div>
+                 </span>
+              </div>
+              <!-- -->
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LETotalClosingCostsSubtotalsHelp"  ng-click="LETotalClosingCostsSubtotalsHelp = LETotalClosingCostsSubtotalsHelp + 1" ng-init="LETotalClosingCostsSubtotalsHelp=0" > 
+           <span>J. Total Cosing Costs (and sub-totals)</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LETotalClosingCostsSubtotalsHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LETotalClosingCostsSubtotalsHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LETotalClosingCostsSubtotalsHelp">
+                <span class="field_help">
+                     <h5>Section Header Name :</h5>
+                      <div id="">Each Section in the Closing Cost Details is highlighted at the top of the section.
+                          <ul>
+                            <li>This section is called "Total Closing Costs"</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Section Total Amount  :</h5>
+                      <div id="">This provides the user an ability to view the total amount of all Closing Costs
+                          <ul>
+                            <li>Un-editable field</li>
+                            <li>Is a calculation within the system that sums all for a total amount</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Subsection Header Name : </h5>
+                      <div id="">Describes the amount of Loan Costs + Other Cost 
+                          <ul>
+                            <li>Label is D+I </li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Lender Credits :</h5>
+                      <div id="">The amount of lender credits if known
+                          <ul>
+                            <li>Value is provided as a negative amount</li>
+                          </ul>
+                      </div>
+                 </span>
+              </div>
+        </div>
+  </span>
+</div>
+<!-- -->
+<div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_CalculatingCashtoClose_Help"  ng-click="LE_CalculatingCashtoClose_Help = LE_CalculatingCashtoClose_Help + 1" ng-init="LE_CalculatingCashtoClose_Help=0" > 
+      <strong>Calculating Cash To Close</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_CalculatingCashtoClose_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_CalculatingCashtoClose_Help%2==1"></span>
+      </span>
+       <div id="LE_CalculatingCashtoClose_Help" class="collapse subContainer">
+          <div>Note that a standard form may support either a Purchase Transaction or a Refinance Transaction.  The following table is agnostic to providing direction on the CFPB rule for using the CCC table for a Refinance transaction. Only providing description of the table, what to input, signage and use of the calculators which is a tool for users to input values.</div>
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEcccTableStandardFormHelp"  ng-click="LEcccTableStandardFormHelp = LEcccTableStandardFormHelp + 1" ng-init="LEcccTableStandardFormHelp=0" > 
+           <span>CCC Table (Standard Form)</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEcccTableStandardFormHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEcccTableStandardFormHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEcccTableStandardFormHelp">
+                <span class="field_help">
+                     <h5>Total Closing Costs (J) :</h5>
+                      <div id="">The amount is calculated in the Closing Cost Details 
+                          <ul>
+                            <li>This value in the CCC Table is not editable, for a user to change the value the user must update the values in the Closing Cost Details sections that depict the fees, pre-paids and escrows found within the transaction.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5> Closing Costs Financed :</h5>
+                      <div id="">This amount is a user input as there is no other location with in the form or application to identify any closing costs that are rolled into the Loan.
+                          <ul>
+                            <li>Format is an amount 9.2 and is a positive value in the CCC Table for Standard Form.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Down Payment / Funds From Applicant :</h5>
+                      <div id="">
+                        Down Payment is used for Purchase Transaction ,Funds From Applicant is used for a Refinance Transaction.
+
+                          <ul>
+                            <li>This amount is a user input or the user may utilize the Calculate button to fill in the editable values within the CCC Table.</li>
+                            <li>Format is an Amount 9.2 positive value for the CCC Standard form</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Deposit : </h5>
+                      <div id="">This amount is Editable in this table the user may enter the value or use the Calculate button to input the value
+                          <ul>
+                            <li>Format is an amount 9.2 negative value in the CCC Standard form.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Funds For Borrower : </h5>
+                      <div id="">This amount is either an input by the user or upload, If the user decides to use the Calculate button the calculation will input this information greater than zero if the transaction is a Refinance, this is not used for a purchase.
+                          <ul>
+                            <li>Format is an Amount 9.2 Negative Value.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Seller Credits : </h5>
+                      <div id="">Is an Editable Field, the user may input the value or use the calculate button to in-put.
+                          <ul>
+                            <li>Format is an Amount 9.2 Negative Value</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Adjustments and Other Credits :</h5>
+                      <div id="">Is an editable field, if the user chooses to input the value the user must adhere to the CFPB rule for calculating this value which could be Positive or Negative, or the user may use the Calculate button.
+                          <ul>
+                            <li>Format is an Amount 9.2 Negative or Positive Value depending upon the calculation output from Summaries of Transaction Section K and L values.</li>
+                            <li></li>
+                            <li></li>
+                          </ul>
+                      </div>
+                 </span>
+              </div>
+              <!-- -->
+              <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LECalculatingCashToCLoseAlternateFormHelp"  ng-click="LECalculatingCashToCLoseAlternateFormHelp = LECalculatingCashToCLoseAlternateFormHelp + 1" ng-init="LECalculatingCashToCLoseAlternateFormHelp=0" > 
+           <span>Calculating Cash To Close – Alternate form</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LECalculatingCashToCLoseAlternateFormHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LECalculatingCashToCLoseAlternateFormHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LECalculatingCashToCLoseAlternateFormHelp">
+                <span class="field_help">
+                     <h5>Loan Amount :</h5>
+                      <div id="">The amount that a user either enters in Loan Terms section or is uploaded.  
+                          <ul>
+                            <li>Format is an amount 9.2 and is a positive value in the Alternate Form Calculating Cash To Close Table.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5> Total Closing Costs (J) :</h5>
+                      <div id="">This amount is calculated in the Closing Cost Details is reflected in the CCC Table
+                          <ul>
+                            <li>This value in the CCC Table is not editable, for a user to change the value the user must update the values in the Closing Cost Details sections that depict the fees, pre-paids and escrows found within the transaction.</li>
+                            <li>Format is an amount 9.2 and is a negative value in the Alternate Form Calculating Cash To Close Table.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Closing Costs Financed :</h5>
+                      <div id="">In the Alternate form the Closing cost financed is only an amount value that does NOT differentiate between Loan Estimate and Loan Estimate.
+                          <ul>
+                            <li>Format is an amount value 9.2 (positive)</li>
+                          </ul>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Payoffs and Payments :</h5>
+                      <div id="">This amount of estimated total payoff items that will be placed into the Payoffs and payments section in the CD.
+                          <ul>
+                            <li>Format is an Amount 9.2 Negative Value in the Calculating Cash To Close Table Alternate form.</li>
+                          </ul>
+                      </div>
+                 </span>
+                 
+              </div>
+              <!-- -->
+        </div>
+  </span>
+</div>
+<!-- -->
+<div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_OtherConsideration_Help"  ng-click="LE_OtherConsideration_Help = LE_OtherConsideration_Help + 1" ng-init="LE_OtherConsideration_Help=0" > 
+      <strong>Other Consideration</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_OtherConsideration_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_OtherConsideration_Help%2==1"></span>
+      </span>
+       <div id="LE_OtherConsideration_Help" class="collapse subContainer">
+          
+                <span class="field_help">
+                     <h5> Assumption :</h5>
+                      <div id="">A set of check boxes, as seen in the CD PDF, the user may choose one or the other to indicate if an assumption is allowed or not under the original terms
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5> Late Charges  :</h5>
+                      <div id="">Button: Input State Values <br>
+                      A user may click on the button called Input State Values which will fill in the appropriate information to support the number of days grace period, any amount or percentage and the type if a late charge occurs.<br>
+                      Or the user may enter in the values for the following text boxes
+                          <ul>
+                            <li>Number of Grace Period Days</li>
+                            <li>Late Fee if a Percent</li>
+                            <li>Late Fee if an amount</li>
+                            <li>Late Charge Type – describes of what the fee is a percent of or an amount of…</li>
+                          </ul>
+                          <div>Note that in the CFPB Integrated Mortgage Disclosure Regulation there is guidance as to when to display percentage vs Amount or both please validate against the regulation to provide input guidance.</div>
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Servicing :</h5>
+                      <div id="">User may choose between two check boxes to indicate if the Loan will be serviced by the issuing Lender or will conduct a transfer of servicing.
+                          <ul>
+                            <li>One check box must be checked</li>
+                          </ul>
+                      </div>
+                 </span>
+        </div>
+  </span>
+</div>
+<!-- -->
+<div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_ConfirmReceipt_Help"  ng-click="LE_ConfirmReceipt_Help = LE_ConfirmReceipt_Help + 1" ng-init="LE_ConfirmReceipt_Help=0" > 
+      <strong>Confirm Receipt</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_ConfirmReceipt_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_ConfirmReceipt_Help%2==1"></span>
+      </span>
+       <div id="LE_ConfirmReceipt_Help" class="collapse subContainer">
+          Provides the user the ability to include a signature line or not, must choose one or the other check boxes.
+        </div>
+  </span>
+</div>
+<!-- -->
 
 
 </div>
