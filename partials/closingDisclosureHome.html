@@ -839,17 +839,13 @@
         <div class="modal-body" style="max-height:70%; color:#000; max-width:100%; overflow:auto;">
             <table class="table ng-table-responsive table-bordered">
               <thead>      
-                <th class="innerSectionHeader innerSectionMainHeader">Parent Container</th>
-                <th class="innerSectionHeader innerSectionMainHeader">Line Number</th>
+                <th class="innerSectionHeader innerSectionMainHeader">Error Type</th>
                 <th class="innerSectionHeader innerSectionMainHeader">Error Message</th>
-                <th class="innerSectionHeader innerSectionMainHeader">XPATH</th>
               </thead>
               <tbody>
-                <tr ng-repeat="validationError in validation_errors">
-                  <td>{{validationError.PARENT_CONTAINER}}</td>
-                  <td>{{validationError.LINE_NUMBER}}</td>
-                  <td>{{validationError.ERROR_MESSAGE}}</td>
-                  <td>{{validationError.XPATH}}</td>
+                <tr ng-repeat="calculation_error in calculation_errors">
+                  <td>{{calculation_error.type}}</td>
+                  <td>{{calculation_error.message}}</td>
                 </tr>
               </tbody>
             </table>

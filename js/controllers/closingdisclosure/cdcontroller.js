@@ -2434,15 +2434,26 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$("#spinner").show();
     	cdService.genearateXmlFromJson($scope.cdformdata, false).success(function(xmldata){
     		cdService.calculatePayments(xmldata).success(function(calculationsData){
-    			cdService.loadTransformData(calculationsData).success(function(jsonData){
-					//$scope.cdformdata = jsonData;
-	    			localStorage.jsonData = JSON.stringify(jsonData);
-					initializeCDformData();
-	    			$("#spinner").hide();
-    			}).error( function(data, status){
-		    		alert('There is an error getting while converting calculations xml to json. Please provide the input data properly and check again.');
-		    		$("#spinner").hide();
-		    	});
+    			var xmlstring = $.parseXML( calculationsData );
+                var $xml = $(xmlstring);
+                var Exceptions = $xml.find("exceptions");
+                if(Exceptions.length>0) {
+                	var x2js = new X2JS();
+				    var errors = x2js.xml_str2json(calculationsData);
+				    $scope.calculation_errors = errors.exceptions.exception;
+				    $('#CalculateModalPopup').modal('show');
+				    $("#spinner").hide();
+                } else {
+                	cdService.loadTransformData(calculationsData).success(function(jsonData){
+						//$scope.cdformdata = jsonData;
+		    			localStorage.jsonData = JSON.stringify(jsonData);
+						initializeCDformData();
+		    			$("#spinner").hide();
+	    			}).error( function(data, status){
+			    		alert('There is an error getting while converting calculations xml to json. Please provide the input data properly and check again.');
+			    		$("#spinner").hide();
+			    	});
+                }
     		}).error( function(data, status){
     			alert('There is an error getting while converting ucd xml to calculations xml. Please provide the input data properly and check again.');
 	    		$("#spinner").hide();
