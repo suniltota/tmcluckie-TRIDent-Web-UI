@@ -3667,7 +3667,7 @@ this.cdformdata={
 		"termsOfLoan": {
 		    "assumedLoanAmount": "",
 		    "disclosedFullyIndexedRatePercent": "",
-		    "lienPriorityType": "",
+		    "lienPriorityType": "FirstLien",
 		    "loanPurposeType": "",
 		    "mortgageType": "Conventional",
 		    "mortgageTypeOtherDescription": "",
@@ -3812,7 +3812,7 @@ this.cdformdata={
 		  ]
 		},
        "loanInformation": {
-		    "amortizationType": "",
+		    "amortizationType": "Fixed",
 		    "loanIdentifiers": [
 		      {
                 "loanIdentifierType": "LenderLoan",
@@ -4785,7 +4785,7 @@ this.cdformdata={
 		"termsOfLoan": {
 		    "assumedLoanAmount": "",
 		    "disclosedFullyIndexedRatePercent": "",
-		    "lienPriorityType": "",
+		    "lienPriorityType": "FirstLien",
 		    "loanPurposeType": "",
 		    "mortgageType": "Conventional",
 		    "mortgageTypeOtherDescription": "",
@@ -4936,7 +4936,7 @@ this.cdformdata={
 		  ]
 		},
        "loanInformation": {
-		    "amortizationType": "",
+		    "amortizationType": "Fixed",
 		    "loanIdentifiers": [
 		      {
                 "loanIdentifierType": "LenderLoan",
