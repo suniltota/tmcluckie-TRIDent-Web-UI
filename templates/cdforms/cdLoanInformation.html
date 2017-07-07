@@ -81,7 +81,8 @@
 			<div class="col-sm-4">
 				<div class="col-sm-5 fieldTitle" style="padding: 8 0">Lender Loan Identifier: <span class="required">*</span></div>
 				<div class="col-sm-7 padding0" ng-repeat="loanIdentifier in cdformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
-					<input type="text" class="form-control" name="lenderLoanIdentifier" ng-model="loanIdentifier.loanIdentifier">
+					<actualize-input name="lenderLoanIdentifier" ng-model="loanIdentifier.loanIdentifier" toolTipPos = "top" dependencies="require-field" >
+                	</actualize-input>
 				</div>
 			</div>
 			<div class="col-sm-4">
@@ -206,7 +207,9 @@
 			<div class="FieldGroup">
 				<div class="col-sm-5 fieldTitle">Product Description: <span class="required">*</span></div>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" name="" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureLoanProductDescription">
+					
+					<actualize-input name="integratedDisclosureLoanProductDescription" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureLoanProductDescription"  toolTipPos = "top" dependencies="require-field" >
+                </actualize-input>
 				</div>
 			</div>
 		</div>

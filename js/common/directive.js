@@ -600,8 +600,30 @@ app.directive('alpha', function() {
   };
 });
 
+app.directive('requireField', function($sce) {
+  return {
+    require: 'ngModel',
+    link: function(scope, elem, attr, ngModel) {
+      var toolTipPos ="top";
+      var message = ""
 
-app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, $sce, $compile,)
+      elem.on('blur', function (e) {
+        var fieldValue = e.target.value;
+          if(fieldValue == ""){
+              e.currentTarget.style.border="1px solid #f17777"
+              message = "This is a required field";
+          }else{
+            e.currentTarget.style.border=""
+              message = "";
+          }
+          scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+      });
+
+    }
+  };
+});
+
+app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, $sce, $compile)
 {
     return {
         require: 'ngModel',

@@ -89,7 +89,8 @@
 				(organization)
 			</div>
 			<div class="col-sm-7" class="form-group" >
-				<input type="text" ng-model="cdformdata.contactInformation.settlementAgent.organizationName" class="form-control">
+				<actualize-input name="organizationName" ng-model="cdformdata.contactInformation.settlementAgent.organizationName" ng-required="true" toolTipPos = "top" dependencies="require-field" >
+                </actualize-input>
 				<span class="helpText tooltip-msg inputright">?
                 	<span>
                 		<b></b>	
@@ -109,7 +110,8 @@
 				(settlement Agent Number)
 			</div>
 			<div class="col-sm-7">
-				<input type="text" ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" class="form-control">
+				<actualize-input name="closingAgentOrderNumberIdentifier" ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" ng-required="true" toolTipPos = "top" dependencies="require-field" >
+                </actualize-input>
 				<span class="helpText tooltip-msg inputright">?
                 	<span>
                 		<b></b>	
