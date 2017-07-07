@@ -690,30 +690,7 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
                   scope.$apply();
                 }
                 scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
-
-                var template='<div>';
-                  if(attr.type != undefined && attr.type == "date"){
-                    if($scope.dateValidate ==  undefined)
-                      $scope.dateValidate={}
-                    $scope.dateValidate[attr.name.toLowerCase()] = {"maxDate": new Date(attr.maxDate)}
-                    template += '<input type="text" id="input_'+attr.id+'" uib-datepicker-popup="'+attr.dateformat+'" ng-change="'+attr.ngChange+'"  ng-blur="'+attr.ngBlur+'" ng-model="'+attr.ngModel+'" max-date="dateValidate.'+attr.name.toLowerCase()+'.maxDate" is-open="'+attr.isOpen+'" datepicker-options="dateOptions" ng-required="'+attr.ngRequired+'" close-text="Close" placeholder="'+attr.placeholder+'" name="'+attr.name+'" class="form-control InputTooltip calenderInput" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
-                    if(attr.minDateVar){
-                       template += 'min-date="'+attr.minDateVar+'"';
-                    }else{
-                        $scope.dateValidate[attr.name.toLowerCase()].minDate=new Date(attr.minDate);
-                        template += 'min-date="dateValidate.'+attr.name.toLowerCase()+'.minDate"';
-                    }
-                    //template += '<input type="text" id="input_'+attr.id+'" uib-datepicker-popup="'+attr.dateformat+'" ng-change="'+attr.ngChange+'"  ng-blur="'+attr.ngBlur+'" ng-model="'+attr.ngModel+'" min-date="dateValidate.'+attr.name.toLowerCase()+'.minDate" max-date="dateValidate.'+attr.name.toLowerCase()+'.maxDate" is-open="'+attr.isOpen+'" datepicker-options="dateOptions" ng-required="'+attr.ngRequired+'" close-text="Close" placeholder="'+attr.placeholder+'" name="'+attr.name+'" class="form-control InputTooltip calenderInput" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
-                  }else{
-                    template += '<input type="text" ng-model="'+attr.ngModel+'" ng-disabled="'+attr.ngDisabled+'" ng-blur="'+attr.ngBlur+'" ng-keyup="'+attr.ngKeyup+'" ng-change="'+attr.ngChange+'" maxlength="'+attr.maxlength+'" name="'+attr.name+'" class="form-control InputTooltip" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
-                  }
-
-                  if(attr.dependencies)
-                  template +=attr.dependencies;
-                  template +='>';
-                  template += '</div>';
-                  element.html(template);
-                  $compile(element.contents())(scope);
+                $compile(element.contents())(scope);
             });
             
         }
