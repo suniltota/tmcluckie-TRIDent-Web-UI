@@ -495,7 +495,7 @@ app.directive('percentageFormat', function ($filter, $sce) {
               }
             if(decimalSplitValues[0].length <= 3 && decimalSplitValues[0] <= 25 && elementValue != "") {
               elementValue = elementValue.replace(/[^0-9.-]/g, '');
-              e.target.value = $filter('number')(elementValue, 2);
+              e.target.value = $filter('number')(elementValue, 4);
               e.currentTarget.style.border=""
               message = "";
               scope.$apply();
@@ -623,6 +623,38 @@ app.directive('requireField', function($sce) {
   };
 });
 
+app.directive('minMaxValue', function($sce) {
+  return {
+    require: 'ngModel',
+    link: function(scope, elem, attr, ngModel) {
+      elem.on('blur', function (e) {
+        if(attr.minVal != undefined && attr.maxVal != undefined){
+          var min = parseInt(attr.minVal);
+          var max = parseInt(attr.maxVal);
+          var value = parseInt(e.target.value);
+          if(value < min || value > max){
+              if(value < min){
+                e.target.value = "";
+                e.currentTarget.style.border="1px solid #f17777"
+                message = "Min value should be " + min;
+              }
+              if(value > max){
+                e.target.value = "";
+                e.currentTarget.style.border="1px solid #f17777"
+                message = "Max value should be " + max;
+              }
+          }else{
+            e.currentTarget.style.border=""
+            message = "";
+          }
+          scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+        }
+      });
+
+    }
+  };
+});
+
 app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, $sce, $compile)
 {
     return {
@@ -717,7 +749,7 @@ app.directive('actualizeInput', function($compile, $sce, staticData, $parse, $ti
         }
         //template += '<input type="text" id="input_'+attr.id+'" uib-datepicker-popup="'+attr.dateformat+'" ng-change="'+attr.ngChange+'"  ng-blur="'+attr.ngBlur+'" ng-model="'+attr.ngModel+'" min-date="dateValidate.'+attr.name.toLowerCase()+'.minDate" max-date="dateValidate.'+attr.name.toLowerCase()+'.maxDate" is-open="'+attr.isOpen+'" datepicker-options="dateOptions" ng-required="'+attr.ngRequired+'" close-text="Close" placeholder="'+attr.placeholder+'" name="'+attr.name+'" class="form-control InputTooltip calenderInput" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
       }else{
-        template += '<input type="text" ng-model="'+attr.ngModel+'" ng-disabled="'+attr.ngDisabled+'" ng-blur="'+attr.ngBlur+'" ng-keyup="'+attr.ngKeyup+'" ng-change="'+attr.ngChange+'" maxlength="'+attr.maxlength+'" name="'+attr.name+'" class="form-control InputTooltip" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
+        template += '<input type="text" ng-model="'+attr.ngModel+'" ng-disabled="'+attr.ngDisabled+'" min-val="'+attr.minVal+'" max-val="'+attr.maxVal+'" ng-blur="'+attr.ngBlur+'" ng-keyup="'+attr.ngKeyup+'" ng-change="'+attr.ngChange+'" maxlength="'+attr.maxlength+'" name="'+attr.name+'" class="form-control InputTooltip" tooltip-placement="'+toolTipPos+'"  tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.'+attr.name.toLowerCase()+'"';
       }
 
       if(attr.dependencies)
