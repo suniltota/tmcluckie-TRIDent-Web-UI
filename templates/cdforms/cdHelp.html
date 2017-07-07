@@ -1,98 +1,1405 @@
-<!-- <div class="bodySection col-sm-12 padding0" style="position: relative; ">
+<div class="bodySection col-sm-12 padding0" style="position: relative; ">
   
-<div class="container">
-  <h4>Online Help Verbiage</h4>
+ <div class="container">
+   <h4>Online Help</h4>
+ </div>
+
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_ClosingInformation_Help"  ng-click="CD_ClosingInformation_Help = CD_ClosingInformation_Help + 1" ng-init="CD_ClosingInformation_Help=0" > 
+      <strong>Closing Information</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_ClosingInformation_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_ClosingInformation_Help%2==1"></span>
+      </span>
+  
+       <div id="CD_ClosingInformation_Help" class="collapse subContainer">
+          
+          <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDGeneralInformationHelp"  ng-click="CDGeneralInformationHelp = CDGeneralInformationHelp + 1" ng-init="CDGeneralInformationHelp=0" > 
+          <span>General Information</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDGeneralInformationHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDGeneralInformationHelp%2==1"></span>
+          </span>
+
+          
+          <div class="col-sm-12" id="CDGeneralInformationHelp">
+            <span class="field_help">
+              <h5>Date Issued : </h5>
+              <div id="CD_dateIssued_Help">The date the integrated disclosure was mailed or delivered to the borrower as reflected on a single instance of the integrated disclosure document. 
+                <ul>
+                    <li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
+                    <li>There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past</li>
+                    <li>Is a Required field</li>
+                </ul>
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Closing Date : </h5>
+              <div id="CD_ClosingDate_Help">The date the closing documents were fully executed and the borrower becomes contractually responsible for the debt. Depending on the location (wet-sign, dry-sign, table-funded and/or escrow state) of the loan closing, the Closing Date may be the same date as either the Document Preparation Date and/or the Execution Date and/or the Recorded Date.
+				<ul>
+                    <li>This date is defaulted to 5 days after the issue date if conducting data entry.  Otherwise, the date will be rendered per the information in the upload process will be displayed</li>
+                    <li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
+                    <li>There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past.</li>
+					<li>Is a Required field</li>
+				</ul>
+			  </div>
+            </span>
+			<span class="field_help">
+              <h5>Disbursement Date : </h5>
+              <div id="CD_DisbursementDate_Help">The date the loan funds are disbursed to the borrower or another party on the borrower's behalf.
+				<ul>
+                    <li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date.  </li>
+                    <li>Constraint on the date as it cannot be a date prior to the issue date or the closing date.</li>
+					<li>Is a Required field</li>
+				</ul>
+			  </div>
+            </span>
+			<span class="field_help">
+              <h5>Settlement Agent Name : </h5>
+              <div id="CD_SettlementAgentName_Help">The unparsed legal name of the Legal entity conducting the closing or settlement functions.  This is typically an organization name.
+				<ul>
+                    <li>Must be in a format of a string with no more than 100 characters.  </li>
+                    <li>Is a Required field</li>
+				</ul>
+			  </div>
+            </span>
+			<span class="field_help">
+              <h5>File # : </h5>
+              <div id="CD_File_Help">The identifying file number assigned to the transaction by the Closing Agent also known as a Settlement Agent.
+                    <li>Must be in a format of a String value with no more than 30 characters  </li>
+                    <li>Is a Required field</li>
+				</ul>
+			  </div>
+            </span>
+          </div>
+		
+       <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDPropertyInformationHelp"  ng-click="CDPropertyInformationHelp = CDPropertyInformationHelp + 1" ng-init="CDPropertyInformationHelp=0" > 
+       <span>Property Information</span>
+       <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDPropertyInformationHelp%2==0" ></span>
+       <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDPropertyInformationHelp%2==1"></span>
+       </span>
+          <div class="col-sm-12" id="CDPropertyInformationHelp">
+            <span class="field_help">
+              <h5>Choose one: Street Address or Legal Description : </h5>
+              <div id="CD_StreetAddressORLegalDescription_Help">In any transaction, the subject property location must be made clear and concise on the Closing Disclosure, thus the user interface provides two options: 
+              <ul>
+                <li>Street Address</li>
+                <li>Legal Description, use if no street address exists.</li>
+              </ul>
+              <p>The function requires that a radio button is chosen to indicate one or the other as this field is required.</p>
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Street Address</h5>
+              <div id="CD_streetAddress_Help">The address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Legal Description</h5>
+              <div id="CD_LegalDescription_Help">The full, unparsed legal description of a parcel of real property.<ul>
+                <li>Must be in a format of a String value with no more than 150 characters</li>
+              </ul>
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>City Name</h5>
+              <div id="CD_CityName_Help"> The name of the city.
+              <ul>
+                <li>Must be in a format of a String value with no more than 150 characters</li>
+              </ul>
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>State Code</h5>
+              <div id="CD_StateCode_Help"> The two-character representation of the US state, US Territory, Canadian Province, Military APO FPO, or Territory.
+              </div>
+            </span>
+            <span class="field_help">
+              <h5>Postal Code</h5>
+              <div id="CD_PostalCode_Help">The postal code (ZIP Code in the US) for the address. ZIP Code may be either 5 or 9 digits.
+              <ul>
+                <li>This value is required regardless if of other property Information is available.</li>
+              </ul>
+              </div>
+            </span>
+          </div>
+
+
+       <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDPriceInformationHelp"  ng-click="CDPriceInformationHelp = CDPriceInformationHelp + 1" ng-init="CDPriceInformationHelp=0" > 
+       <span>Price Information (Purchase Transaction Only)</span>
+       <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDPriceInformationHelp%2==0" ></span>
+       <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDPriceInformationHelp%2==1"></span>
+       </span>
+          <div class="col-sm-12" id="CDPriceInformationHelp">
+            <span class="field_help">
+              <h5>Personal Property Included? : </h5>
+              <div id="CD_PersonalPropertyIncluded_Help">In a purchase transaction, the regulation requires that if personal property is included and itemized separately in the sales contract that this must be disclosed. The user is provided a dropdown box to indicate if personal property is included or not.
+              <ul>
+                <li>The format is a Boolean choice of Yes or No</li>
+				<li>Is a required field</li>
+              </ul>
+              </div>
+            </span>
+			 <span class="field_help">
+              <h5>If Personal Property Included indicator is NO : </h5>
+              </span>
+			  <span class="field_help">
+              <h5>Sales Contract Amount : </h5>
+              <div id="CD_SalesContractAmount_Help">In a transaction where there is NO personal property itemized and included then provide the amount of money the contract is for.
+              <ul>
+                <li>The format is an amount that cannot exceed $9.2</li>
+				<li>Is considered conditionally required based of the personal property included indicator</li>
+              </ul>
+              </div>
+            </span>
+			<span class="field_help">
+              <h5>Real Property Amount : </h5>
+              <div id="CD_RealPropertyAmount_Help">In a transaction where there IS personal property itemized and included then provide the dollar amount of real property included in the Sales Contract Amount.
+              <ul>
+                <li>The format is an amount that cannot exceed $9.2</li>
+				<li>Is considered conditionally required based of the personal property included indicator</li>
+              </ul>
+              </div>
+            </span>
+          </div>
+		
+      <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDvalueAmountHelp"  ng-click="CDvalueAmountHelp = CDvalueAmountHelp + 1" ng-init="CDvalueAmountHelp=0" > 
+       <span>Value Amount (Refinance Transaction Only)</span>
+       <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDvalueAmountHelp%2==1"></span>
+       <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDvalueAmountHelp%2==0" ></span>
+       </span>
+       <div class="col-sm-12" id="CDvalueAmountHelp">
+            <span class="field_help">
+              <h5>Choose either "Appraised Property Value" OR "Estimated Property Value" :</h5>
+              <div id="CD_AppraisedEstimatedProperty_Help">If the transaction is a Refinance, choose from the drop-down menu then select either the Appraised Property Value or the Estimated Property Value.  
+              <ul>
+                <li>See the Know before you Owe regulation to determine which one to choose.</li>
+                <li>The Default is the Appraised Property Value</li>
+                <li>The format is a set of enumerated values seen in the drop-down box</li>
+              </ul>
+              </div>
+            </span> 
+			<span class="field_help">
+              <h5>If Appraised Property Value is selected… </h5>
+              </span>
+            <span class="field_help">
+              <h5>Property Value Method Used :</h5>
+              <div id="CD_PropertyValueMethodUsed_Help">Specifies the method by which the property value was assessed.
+              <ul>
+                <li>The format is a set of enumerated values seen in the drop-down box, including “Other”</li>
+                <li>Is considered conditionally required if the user is submitting to either GSE and selected “Appraised Property Value”</li>
+              </ul>
+              </div>
+            </span>
+			<span class="field_help">
+              <h5>If “Other” is chosen  </h5>
+              </span>
+            <span class="field_help">
+              <h5>Property Value Method Used Description :</h5>
+              <div id="CD_Others_Help">A free-form text field used to capture a description of the Property Valuation Method Type when Other is selected.
+              <ul>
+                <li>The format is a string value that cannot exceed 150 characters</li>
+              </ul>
+              </div>
+            </span>
+       </div>
+
+    </span> 
+ </div>
+ </div> 
+ <!-- -->
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_TransactionInformation_Help"  ng-click="CD_TransactionInformation_Help = CD_TransactionInformation_Help + 1" ng-init="CD_TransactionInformation_Help=0" > 
+      <strong>Transaction Information</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_TransactionInformation_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_TransactionInformation_Help%2==1"></span>
+      </span>
+	  <div id="CD_TransactionInformation_Help" class="collapse subContainer">
+	  <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDBorrowerHelp"  ng-click="CDBorrowerHelp = CDBorrowerHelp + 1" ng-init="CDBorrowerHelp=0" > 
+          <span>Borrower</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDBorrowerHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDBorrowerHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDBorrowerHelp">
+            <span class="field_help">
+              <h5>Borrower Classification : </h5>
+              <div id="CD_BorrowerClassification_Help">In any transaction type a Borrower is always present in the transaction, at least one.  To structure the information correctly a borrower needs to be classified as either an individual or a Legal Entity (organization).  
+                <ul>
+                    <li>The user must choose a radio button. </li>
+                    <li>The individual radio button is always the default.</li>
+                </ul>
+              </div>
+            </span>
+
+			  <span class="field_help">
+			  <h5>If Borrower Classification is an Individual… </h5>
+              <h5>Borrower Type : </h5>
+              <div id="CD_IndividualBorrowerType_Help"> Is a role that Identifies the party in the transaction.  A party may play multiple roles in a transaction.  The enumerated default is the value of Borrower; however, some borrowers may or may not be on the Note so the borrower must have another designation.  
+                <ul>
+                    <li>For example, if only one party to the transaction is on the Note and both are on the Deed, then the user would choose the second borrower type as “Title Holder”.   </li>
+                    <li>Most transactions will just utilize the Borrower Type.</li>
+                </ul>
+              </div>
+            </span>
+			<span class="field_help">
+              <h5>Borrower First Name : </h5>
+              <div id="CD_BorrowerFirstName_Help">The first name of the individual, must have a t least one if the borrower is an individual. 
+                <ul>
+                    <li>Considered Conditionally required if the borrower is an individual  </li>
+                    <li>Format is a String value up to 30 characters</li>
+                </ul>
+              </div>
+            </span>
+			<span class="field_help">
+              <h5>Borrower Middle Name : </h5>
+              <div id="CD_BorrowerMiddleName_Help">The middle name of the individual, if this does not exist is it not required when the borrower is an individual.
+                <ul>
+                    <li>Format is a string value up to 30 characters </li>
+                </ul>
+              </div>
+            </span>
+			<span class="field_help">
+              <h5>Borrower Last Name : </h5>
+              <div id="CD_BorrowerLastName_Help">The last name of the individual, must have at least one if the borrower is an individual.
+				<ul>
+                    <li>Considered Conditionally required if the borrower is an individual</li>
+					<li>Format is a String value up to 30 characters. </li></ul>
+              </div>
+            </span>
+			<span class="field_help">
+              <h5>Borrower Suffix : </h5>
+              <div id="CD_BorrowerSuffix_Help">The suffix of the individual, if this does not exist is it not required when the borrower is an individual.
+				<ul>
+                    <li>Format is a String value up to 30 characters. </li></ul>
+              </div>
+            </span>
+			<span class="field_help">
+			  <h5>If Borrower Classification is an organization </h5>
+              <h5>Borrower Type : </h5>
+              <div id="CD_OrganizationBorrowerType_Help">This is a role that Identifies the party in the transaction.  A party may play multiple roles in a transaction.  The enumerated default is the value of Borrower; however, some borrowers may or may not be on the Note so the borrower must have another designation.  
+			  <ul>
+                    <li>In this instance of Borrower Type will always equal “Borrower”.</li>
+                </ul>
+              </div>
+            </span>
+			<span class="field_help">
+			  <h5>Borrower Name : </h5>
+              <div id="CD_BorrowerName_Help">The unparsed name of the legal entity.
+			  <ul>
+                    <li>Example; Smith Family Trust</li>
+                </ul>
+              </div>
+            </span>
+			<span class="field_help">
+			  <h5>If either borrower type must include the following: </h5>
+              <h5>Street Address (mailing): </h5>
+              <div id="CD_BorrowerStreetAddress_Help">The mailing address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value.		  
+              </div>
+            </span>
+			<span class="field_help">
+			 <h5>City Name (Mailing): </h5>
+              <div id="CD_BorrowerCityName_Help">The name of the city of the borrowers mailing address.  Must be in a format of a String value with no more than 50 characters.              </div>
+            </span>
+			<span class="field_help">
+			 <h5>State Code (Mailing): </h5>
+              <div id="CD_BorrowerStateCode_Help">The two-character representation of the US state, US Territory, Canadian Province, Military APO FPO, or Territory of the borrowers mailing address             </div>
+            </span>
+			<span class="field_help">
+			 <h5>Postal Code (Mailing): </h5>
+              <div id="CD_BorrowerPostalCode_Help">
+			  The postal code (ZIP Code in the US) for the address. ZIP Code may be either 5 or 9 digits of the borrowers mailing address.</div> 
+			  </span>
+			<span class="field_help">
+			 <h5>Add Additional Borrowers link: </h5>
+              <div id="CD_AddAdditionalBorrowerslink_Help">
+			  A link that, when selected, will add another section in the User Interface to add another borrower to the transaction.
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5>Remove additional Borrower link : </h5>
+              <div id="CD_RemoveAdditionalBorrowerslink_Help">
+			 A link that, when selected, will remove an added borrower section in the user interface, if any data I input when removing this will remove all information.  
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5>Back to Top Link : </h5>
+              <div id="CD_BacktoTopLink_Help">
+			 For each section added the user must scroll to get back to the top, a user can click the link and will immediately be taken back to the top of the Web Page.
+			 </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Number of borrowers in a transaction : </h5>
+              <div id="CD_Numberofborrowerstransaction_Help">The allowable max number of borrowers in the user interface is 10 total including the 1st borrower.</div> 
+			  </span>
+			  </div>
+			 
+		<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDPropertySellerHelp"  ng-click="CDPropertySellerHelp = CDPropertySellerHelp + 1" ng-init="CDPropertySellerHelp=0" > 	  
+			<span>Property Seller</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDPropertySellerHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDPropertySellerHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDPropertySellerHelp">	
+		  <span class="field_help">
+			 <h5> Seller Classification : </h5>
+              <div id="CD_SellerClassification_Help">The Seller is only present in Purchase transactions.  To structure the information correctly a Seller needs to be classified as either an individual or a Legal Entity (organization). 
+				<ul>
+                    <li>The user must choose a radio button. </li>
+					<li>The individual radio button is always the default.</li>
+                </ul>
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> If Seller Classification is an Individual… </h5>
+			 <h5> Seller First Name : </h5>
+              <div id="CD_SellerFirstName_Help">The first name of the individual, must have at least one if the Seller if the transaction is a purchase and the seller is an individual.
+			  <ul>
+                    <li>Considered Conditionally required if the Seller is an individual. </li>
+					<li>Format is a String value up to 30 characters</li>
+                </ul>
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Seller Middle Name : </h5>
+              <div id="CD_SellerMiddleName_Help">The middle name of the individual, if this does not exist is it not required when the Seller is an individual.
+			  <ul>
+                    <li>Format is a String value up to 30 characters</li>
+                </ul>
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> Seller Last Name : </h5>
+              <div id="CD_SellerLastName_Help">The last name of the individual, must have at least one if the Seller is an individual.
+			  <ul>
+					<li>Considered Conditionally required if the Seller is an individual. </li>
+                    <li>Format is a String value up to 30 characters</li>
+                </ul>
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> Seller Suffix : </h5>
+              <div id="CD_SellerSuffix_Help">The suffix of the individual, if this does not exist is it not required when the Seller is an individual.
+			  <ul>
+					<li>Format is a String value up to 30 characters</li>
+                </ul>
+			  </div> 
+			  </span>
+
+			 <span class="field_help">
+			 <h5>If Seller Classification is an organization:</h5>
+			 <h5> Seller Suffix : </h5>
+              <div id="CD_OrganizationSellerName_Help">The unparsed name of the legal entity.
+			  <ul>
+					<li>Example; Smith Family Trust</li>
+                </ul>
+			  </div> 
+			  </span>
+			<span class="field_help">
+			  <h5>If either Seller type must include the following: </h5>
+              <h5>Street Address (mailing): </h5>
+              <div id="CD_SellerStreetAddress_Help">The mailing address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value.		  
+              </div>
+            </span>
+			<span class="field_help">
+			 <h5>City Name (Mailing): </h5>
+              <div id="CD_SellerCityName_Help">The name of the city of the seller mailing address.  Must be in a format of a String value with no more than 50 characters.              </div>
+            </span>
+			<span class="field_help">
+			 <h5>State Code (Mailing): </h5>
+              <div id="CD_SellerStateCode_Help">The two-character representation of the US state, US Territory, Canadian Province, Military APO FPO, or Territory of the borrowers mailing address             </div>
+            </span>
+			<span class="field_help">
+			 <h5>Postal Code (Mailing): </h5>
+              <div id="CD_SellerPostalCode_Help">
+			  The postal code (ZIP Code in the US) for the address. ZIP Code may be either 5 or 9 digits of the seller mailing address.</div> 
+			  </span>
+			<span class="field_help">
+			 <h5>Add Additional Seller link: </h5>
+              <div id="CD_AddAdditionalSellerlink_Help">
+			  A link that, when selected, will add another section in the User Interface to add another seller to the transaction.
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5>Remove additional Seller link : </h5>
+              <div id="CD_RemoveAdditionalSellerlink_Help">
+			 A link that, when selected, will remove an added seller section in the user interface, if any data I input when removing this will remove all information.  
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5>Back to Top Link : </h5>
+              <div id="CD_BacktoTopLink_Help">
+			 For each section added the user must scroll to get back to the top, a user can click the link and will immediately be taken back to the top of the Web Page.
+			 </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Number of Seller in a transaction : </h5>
+              <div id="CD_NumberofSellerstransaction_Help">The allowable max number of Seller in the user interface is 10 total. </div> 
+			  </span>
+			  </div>
+			  
+			<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDLenderInformationHelp"  ng-click="CDLenderInformationHelp = CDLenderInformationHelp + 1" ng-init="CDLenderInformationHelp=0" > 	  
+			<span>Lender Information</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDLenderInformationHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDLenderInformationHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDLenderInformationHelp">	
+		  <span class="field_help">
+			 <h5> Lender Name : </h5>
+              <div id="CD_LenderName_Help">The unparsed name of the organization that is providing the credit.
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> If the transaction is a Refinance </h5>
+			 <h5> Refinance Same Lender? : </h5>
+              <div id="CD_RefinanceSameLender_Help"> If the transaction is a refinance, this yes or no answer must be provided. 
+			  <ul>
+                    <li>When true, indicates that the subject loan is refinanced with the current holder, current servicer or an affiliate of either. </li>
+					<li>Is required in all Refinance Transactions, when loan purpose is equal to refinance.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  </div>	  
+	  </div>
+
 </div>
-
-<div class="table-responsive"> 
- -->
-         
-  <table class="bodySection col-sm-12 padding0 table" id="helpGeneralInformation">
-    <thead>
-      <tr >
-        <th class="col col-sm-2">Page Name</th>
-        <th class="col col-sm-2">Web User Interface</th>
-        <th class="col col-sm-8">Help Verbiage</th>
-     </tr>
-    </thead>
-    <tbody>
-      <tr >
-        <td class="col col-sm-2">General Information</td>
-        <td class="col col-sm-2">
-        		<button type="button" class="btn btn-info btn-xs btn-blockactive col-sm-12" data-toggle="collapse" data-target="#DateIssued">Date Issued <span class="glyphicon glyphicon-arrow-right" style="margin-left:100;"></span></button>
-        </td>
-        <td class="col col-sm-8">
-            <div id="DateIssued" class="collapse">
-    				<strong>The date the integrated disclosure was mailed or delivered to the borrower as reflected on a single instance of the integrated disclosure document.</strong>
-    				<ul style="list-style-type:circle">
-    					<li>• Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
-    					<li>• There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past</li>
-    					<li>• Is a Required field</li>
-    				</ul>
-  			</div>
-  		</td>
-      </tr>
-      <tr >
-        <td class="col col-sm-2"></td>
-        <td class="col col-sm-2">
-        		<button type="button" class="btn btn-info btn-xs btn-blockactive col-sm-12" data-toggle="collapse" data-target="#ClosingDate">Closing Date <span class="glyphicon glyphicon-arrow-right" style="margin-left:100;"></span></button>
-        </td>
-        <td class="col col-sm-8">
-            <div id="ClosingDate" class="collapse">
-    				The date the closing documents were fully executed and the borrower becomes contractually responsible for the debt. Depending on the location (wet-sign, dry-sign, table-funded and/or escrow state) of the loan closing, the Closing Date may be the same date as either the Document Preparation Date and/or the Execution Date and/or the Recorded Date.
-    				
-    					• This date is defaulted to 5 days after the issue date if conducting data entry.  Otherwise, the date will be rendered per the information in the upload process will be displayed 
-    					• Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date.
-    					•	There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past.
-    					• Is a Required field
-    				</ul>
-  			</div>
-  		</td>
-      </tr>
-      <tr >
-        <td class="col col-sm-2"></td>
-        <td class="col col-sm-2">
-        		<button type="button" class="btn btn-info btn-xs btn-blockactive col-sm-12" data-toggle="collapse" data-target="#DisbursementDate">Disbursement  Date
-        		<span class="glyphicon glyphicon-arrow-right" style="margin-left:80;"></span></button>
-        </td>
-        <td class="col col-sm-8">
-            <div id="DisbursementDate" class="collapse">
-    				<p><strong>The date the loan funds are disbursed to the borrower or another party on the borrower's behalf.</strong></p>
-    				<ul style="list-style-type:circle">
-    					<li>• Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
-    					<li>• Constraint on the date as it cannot be a date prior to the issue date or the closing date.</li>
-    					<li>• Is a Required field</li>
-    				</ul>
-  			</div>
-  		</td>
-      </tr>
-      <tr >
-        <td class="col col-sm-2"></td>
-        <td class="col col-sm-2">
-        		<button type="button" class="btn btn-info btn-xs btn-blockactive col-sm-12" data-toggle="collapse" data-target="#LenderName">Lender Name
-        		<span class="glyphicon glyphicon-arrow-right" style="margin-left:80;"></span></button>
-        </td>
-        <td class="col col-sm-8">
-            <div id="LenderName" class="collapse">
-    				Name of the creditor extending the estimated cost for obtaining a loan for real property.
-  			</div>
-  		</td>
-      </tr>
-    </tbody>
-    <button type="button" class="btn btn-info btn-block" style="width:90%;"data-toggle="collapse" data-target="#demosample"  ng-click="iscollapsed = iscollapsed + 1" ng-init="iscollapsed=0" > Address <span class="pull-right glyphicon glyphicon-hand-right" ng-show="iscollapsed%2==0" ></span>
-  <span class="pull-right glyphicon glyphicon-hand-down" ng-show="iscollapsed%2==1"></span></button>
-<div id="demosample" class="collapse" style="width:90%;">
-  In any transaction, the subject property location must be made clear and concise on the Closing Disclosure, thus the user interface provides two options: <br>
-• Street Address <br>
-• Legal Description <br>
-The function requires that a radio button is chosen to indicate one or the other as this field is required.
-
-  </div>
-  </table>
-
-
-
-<!-- </div>
-</div> -->
-
-  
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_LoanInformation_Help"  ng-click="CD_LoanInformation_Help = CD_LoanInformation_Help + 1" ng-init="CD_LoanInformation_Help=0" > 
+      <strong>Loan Information</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_LoanInformation_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_LoanInformation_Help%2==1"></span>
+      </span>
+	 <div id="CD_LoanInformation_Help" class="collapse subContainer">
+	<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDLoanPeriodTypePositionHelp"  ng-click="CDLoanPeriodTypePositionHelp = CDLoanPeriodTypePositionHelp + 1" ng-init="CDLoanPeriodTypePositionHelp=0" > 	  
+			<span>Loan Period, Type and Position</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDLoanPeriodTypePositionHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDLoanPeriodTypePositionHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDLoanPeriodTypePositionHelp">	
+		  <span class="field_help">
+			 <h5> Loan Term – No. of Years : </h5>
+              <div id="CD_LoanTermYears_Help"> In each transaction in accordance with the CFPB “Know Before You owe” Regulation must provide the entire term of the loan in years.  Using the text box must input the number of years of the term. 
+			  <ul>
+                    <li>Example, lenders typically use months so 360 months equates to 30 years. </li>
+					<li>Format is numeric up to 3 digits.</li>
+                </ul>
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Loan Term – No. of Months : </h5>
+              <div id="CD_LoanTermMonths_Help">In some transactions, such as construction to permanent or construction the term may be less than a year, so the user must input the number of months.
+			  <ul>
+                    <li>Example Construction Loan of 11 months. </li>
+					<li>Example Construction to Permanent with a single close would have both the number of years and the number of months potentially, ex: 30 years and 11 months.</li>
+					<li>Format is numeric up to 2 digits.</li>
+                </ul>
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> Loan Type : </h5>
+              <div id="CD_LoanType_Help">Identifies the highest level private or public sector entity under whose guidelines the mortgage is originated.
+			  <ul>
+                    <li>Acceptable values are: Conventional | FHA | Local Agency | Other | Public and Indian Housing | State Agency | USDA Rural Development | VA. </li>
+					<li>Format are the only enumerated values above.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Description : </h5>
+              <div id="CD_LoanDescription_Help">If the Other enumerated value is chosen for the Loan Type, provide a string value describing the loan type in the description field.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Purpose: </h5>
+              <div id="CD_LoanPurpose_Help">Specifies the purpose for which the loan proceeds will be used.  This field is not editable as it is set when the user logs in to the application.
+			  <ul>
+                    <li>If the transaction needs to change the user must start a new transaction, cannot change the purpose.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> MIC# : </h5>
+              <div id="CD_LoanMIC_Help"> The value for either Private Mortgage Insurance Certificate or the Agency Case ID if a government loan.
+			  <ul>
+                    <li>Format is string value with a character limit of 50. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> MERS MIN Identifier : </h5>
+              <div id="CD_LoanMERSMINIdentifier_Help">The value of the MERS registered Loan, if applicable.
+			  <ul>
+                    <li>If this exists then the user should provide the value of the MERS MIN registered id for the transaction to include in the GSE XML file.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Lien Position : </h5>
+              <div id="CD_LoanLienPosition_Help">Specifies the priority of the lien against the subject property.
+			  <ul>
+                    <li>Format is enumerated values that include the following: First Lien | Fourth Lien | Second Lien | Third Lien</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Lender Loan Identifier : </h5>
+              <div id="CD_LenderLoanIdentifier_Help">The unique loan identifier for a specific transaction for a specific lender.
+			  <ul>
+                    <li>Format is a string value up to 30 characters. </li>
+					<li>This is a required value and must be present in the  transaction.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Appraisal ID : </h5>
+              <div id="CD_LoanAppraisalID_Help">A unique identifier assigned for all appraisal data delivered for this transaction.
+			  <ul>
+                    <li>Format is a String Value up to 150 characters. </li>
+					<li>This field is conditionally required, if it exists input the value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Manual Underwriting Flag : </h5>
+              <div id="CD_LoanManualUnderwritingFlag_Help">In every transaction, must Indicate if the loan was manually underwritten. 
+			  <ul>
+                    <li>Is required for every transaction. </li>
+					<li>Format is a Boolean value using a yes/no drop-down box.</li>
+                </ul>
+			  </div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> AUS Type : </h5>
+              <div id="CD_LoanAUSType_Help">AUS stands for Automated Underwriting System, the user must provide the value when the Manual Underwriting Flag is NO.
+			  <ul>
+                    <li>Fannie Mae requires a DU AUS Type and the associated ID, if it is not present in the transaction when submitting the UCD XML file Fannie Mae will provide a UCD Identifier. </li>
+					<li>Freddie Mac will accept any AUS Value and ID.</li>
+					<li>Format is a set of Enumerated Values, if the value is not present the use can chose other.  If Other is chosen then a description field will be provided for that instance and the user may type in the name of the AUS used.</li>
+					<li>Can support up to 9 different AUS systems (instances).</li>
+                </ul>
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> AUS Identifier : </h5>
+              <div id="CD_LoanAUSIdentifier_Help">A unique identifier assigned for all appraisal data delivered for this transaction.
+			  <ul>
+                    <li>Format is a String Value up to 150 characters. </li>
+					<li>This field is conditionally required, if it exists input the value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Add Additional Automated Underwriting System Names and Identifiers link : </h5>
+              <div id="CD_LoanAddAdditionalAutomatedUnderwritingSystemlink_Help">Only 3 AUS Type and AUS Identifiers show in the user interface, if more are needed a user must click the link to add 3 more instances, can have up to 9 total AUS System Names and Identifiers.
+			  </div> 
+			  </span>
+		  </div>
+		  <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDProductDescriptionAndInformationHelp"  ng-click="CDProductDescriptionAndInformationHelp = CDProductDescriptionAndInformationHelp + 1" ng-init="CDProductDescriptionAndInformationHelp=0" > 	  
+			<span>Product Description And Information</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDProductDescriptionAndInformationHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDProductDescriptionAndInformationHelp%2==1"></span>
+          </span>
+		   <div class="col-sm-12" id="CDProductDescriptionAndInformationHelp">	
+			<span class="field_help">
+			 <h5> Product Description : </h5>
+              <div id="CD_ProductDescription_Help">A description of the loan product which includes, when applicable, certain loan features added to the loan product that may change the periodic loan payment.
+			  <ul>
+                    <li>Required for every transaction. </li>
+					<li>Value is driven by the CFPB’s “Know Before You Owe” regulation.</li>
+					 <li>Format is a String Value up to 50 Characters. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Amortization Type: </h5>
+              <div id="CD_AmortizationType_Help">A classification or description of a loan or a group of loans generally based on the changeability of the rate or payment over time.
+			  <ul>
+                    <li>Required for every transaction.</li>
+					<li>Format is a list of enumerated values that include: Adjustable Rate | Fixed | GEM | GPM  | Graduated Payment ARM  | Step</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			  <h5> Adjustment Information, required when the Amortization Type does not equal Fixed : </h5>
+			 <h5> Provide the number of months for the fixed period : </h5>
+              <div id="CD_Providenumbermonthsfixed period_Help">The number of months after origination in which the first interest rate adjustment occurs, if the interest rate on the subject loan can change.
+			  <ul>
+                    <li>Format is numeric up to 3 characters. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Provide the life of loan Cap Rate: </h5>
+              <div id="CD_ProvideloanCapRate">The stated maximum percentage “ceiling rate” to which the interest rate can increase over the life of the loan.
+			  <ul>
+                    <li>Format is a percent 3.4.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Provide the number of months first change period : </h5>
+              <div id="CD_Providenumbermonthsfirstchangeperiod_Help">The number of months between rate adjustments for the first changed after the fixed period, if the interest rate on the subject loan can change.
+			  <ul>
+                    <li>Format is numeric 3.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Provide the first change interest rate limit : </h5>
+              <div id="CD_Providefirstchangeinterestratelimit_Help">The maximum number of percentage points by which the rate can increase from the previous interest rate for the First Change after the fixed period.
+			  <ul>
+                    <li>Format is a percent 3.4. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Provide the number of months subsequent change period : </h5>
+              <div id="CD_Providenumbermonthssubsequentchangeperiod_Help">The number of months between rate adjustments for the subsequent changes after the first period change from the fixed period, if the interest rate on the subject loan can change.
+			  <ul>
+                    <li>Format is numeric 3. </li>
+					<li>At times the number of months between the interest rate changes can be different from the first change after the fixed period.  </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Provide the subsequent change interest rate limit : </h5>
+              <div id="CD_Providesubsequentchangeinterestrateslimit_Help">The maximum number of percentage points by which the rate can increase from the previous interest rate for the Subsequent changes after the first change after the fixed period.
+			  <ul>
+                    <li>Format is a percent 3.4.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> If Amortization Type is Step, Provide the Total Step Count : </h5>
+              <div id="CD_AmortizationTypeStepProvideTotalStepCount_Help">For a loan with a step provision, the total number of step rate adjustments allowed under the step agreement.
+			  <ul>
+                    <li>Format is a numeric 3. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			  <h5>Construction Loan Information</h5>
+			 <h5> Is this transaction a construction loan? : </h5>
+              <div id="CD_Istransactiononstructionloan?_Help">In every transaction user, must Indicate if this is a construction loan.
+			  <ul>
+                    <li>Format is Boolean, the user see a drop-down list with Yes or No.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> What type of Construction Loan? : </h5>
+              <div id="CD_WhatConstructionLoan_Help">If the loan is a construction Loan, yes from the dropdown list, then provide the type of construction loan the user may only choose construction only or construction to permanent.
+			  <ul>
+                    <li>Format is a list of enumerated values. </li>
+					<li>Conditionally required only if the indicator is equal to Yes Other information is required…</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> What is the construction period in months?: </h5>
+              <div id="CD_Whatconstructionperiodinmonths?_Help">If a construction loan type has been indicated must provide the length of the construction period expressed in number of months.
+			  <ul>
+                    <li>Format is a numeric 3.</li>
+					<li>Conditionally required based off the Boolean Yes if a construction loan.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> What is the total number of months for the construction transaction : </h5>
+              <div id="CD_Whattotalnumbermonthsconstructiontransaction_Help">If a construction loan type has been indicated the total term of a construction loan, including the construction phase plus any fully amortizing phase combined.
+			  <ul>
+                    <li>Format is numeric 3. </li>
+					<li>Conditionally required based off the Boolean Yes if a construction loan.</li>
+                </ul>
+			  </div> 
+			  </span><span class="field_help">
+			  <h5>Home Equity Loan Information</h5>
+			 <h5> Is the Loan a Home Equity Loan? : </h5>
+              <div id="CD_IsLoanHomeEquityLoan?_Help">In all transaction, must indicate the loan is an extension of credit that does not involve the purchase of real property or the initial construction of a dwelling and will not be used to refinance an existing obligation.
+				<br>In other words, this may be similar to a refinance transaction; however, in accordance with the CFPB “Know Before You Owe”, the different is there are NO liens against the subject property to pay off. 
+			  <ul>
+                    <li>Required to be addressed. </li>
+					<li>Boolean values of Yes or No in a drop down.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Interest Only information : </h5>
+			 <h5>Does this loan have an interest only feature?</h5>
+              <div id="CD_DoesLoanInterestonlyfeature?_Help">In all transaction, must Indicate whether loan is set up with interest only payments.
+			  <ul>
+                    <li>Required to be addressed.</li>
+					<li>Boolean values of Yes or No in a drop down.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> If Yes, what is the interest only period : </h5>
+              <div id="CD_whatinterestonlyperiod_Help">If the interest only feature answer is YES, then provide the number of months the loan remains interest only in the text box provided.
+			  <ul>
+                    <li>Format is numeric 3.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			  <h5>Negative Amortization Information</h5>
+			 <h5> Does this loan have a Negative Amortization Feature? : </h5>
+              <div id="CD_DoesloanNegativeAmortizationFeature_Help">In every transaction, the user must Indicate whether the loan allows negative amortization.
+			  <ul>
+                    <li>Required to be addressed.</li>
+					<li>Boolean values of Yes or No in a drop down.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Indicate if Negative Amortization is Scheduled or Potential : </h5>
+              <div id="CD_IndicateNegativeAmortizationScheduledPotential_Help">If the transaction has negative amortization and user has chosen YES in the provided dropdown box, then the user must indicate if the Negative Amortization is either Scheduled or Potential using the dropdown box provided.  
+			  <ul>
+                    <li>Format is a list of enumerated values that include:  Scheduled | Potential.</li>
+					<li>Is conditionally required based on the answer if Yes for negative amortization feature.</li>
+                </ul>
+				Once the user chooses this value then other information is required.  
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> What is the Maximum Negative Amortization Loan Balance? : </h5>
+              <div id="CD_WhatMaximumNegativeAmortizationLoanBalance? _Help">In the two pieces of information is the maximum negative amortization loan balance must be provided in the text box.  Note that the maximum loan balance with accrued increase from negative amortization. (The initial loan amount plus any balance increase that may accrue from the negative amortization provision).
+			  <ul>
+                    <li>Amount field 9.2-character length. </li>
+					<li>Conditionally required if Neg Am is part of the transaction.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> What is the negative amortization limit in months’ count? : </h5>
+              <div id="CD_Whatnegativeamortizationlimitinmonths’ count?_Help">If Negative Amortization exists period or count of months in which the negative amortization limit will reach.  The user must input this information if the Neg AM is present.
+			  <ul>
+                    <li>Format is numeric 3. </li>
+					<li>Is conditionally required based on the answer if Yes is selected for negative amortization feature.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			  <h5>Other Loan Product Features </h5>
+			 <h5> Does the loan have a seasonal payment feature?: </h5>
+              <div id="CD_loanseasonalpaymentfeature_Help">In every transaction, the user must provide a Yes or No to indicate the loan contains a seasonal payment feature.
+			  <ul>
+                    <li>Format is Boolean through a drop-down Yes or No. </li>
+					<li>Is required to provide the value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> If yes, provide the start and end months : </h5>
+              <div id="CD_providestartendmonths_Help">If the answer to “Does the loan have a seasonal payment feature?” is YES, then must provide both the starting month and ending month of the season in which no payment will be expected by the lender.
+			  <ul>
+                    <li>Format is drop down of the months for both text boxes. </li>
+					<li>Conditionally required if the first question is Yes.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Does the loan have a Step payment feature? : </h5>
+              <div id="CD_DoesloanSteppaymentfeature_Help">The amortization type of Step will drive this value; the user must choose the drop down of yes or no to finalize the step amortization.
+			  <ul>
+                    <li>Boolean format of Yes | No in a drop-down box. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> If yes, provide the no. of months in which the Step feature will be in affect : </h5>
+              <div id="CD_providemonthswhichStepfeatureaffect_Help">If the transaction has a step amortization type, then provide the total number of step rate adjustments allowed under the step agreement.
+			  <ul>
+                    <li>Format is numeric 3.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Does the loan have an optional payment feature? : </h5>
+              <div id="CD_Doesloanoptionalpaymentfeature?_Help">A Yes | No drop-down box that Specifies that the loan instrument allows the borrower(s) to determine and change on a month-to-month basis the amount of any payment to be paid on the loan for a specified period.
+			  <ul>
+                    <li>Boolean format of Yes | No in a drop-down box. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> If yes, provide the no. of months in which the Optional payment will be in affect : </h5>
+              <div id="CD_providemonthswhichOptionalpaymentaffect_Help">If the value for the statement “Does the loan have an optional payment feature” is yes, then provide the total number of optional payments allowed during the life of the loan when this choice is permitted under the terms of the loan.
+			  <ul>
+                    <li>Format is numeric 3. </li>
+                </ul>
+			  </div> 
+			  </span>
+		  </div>
+		</div>
+</div>
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_LoanTerms_Help"  ng-click="CD_LoanTerms_Help = CD_LoanTerms_Help + 1" ng-init="CD_LoanTerms_Help=0" > 
+      <strong>Loan Terms</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_LoanTerms_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_LoanTerms_Help%2==1"></span>
+      </span>
+	 <div id="CD_LoanTerms_Help" class="collapse subContainer">
+	<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDLoanTermsInformationHelp"  ng-click="CDLoanTermsInformationHelp = CDLoanTermsInformationHelp + 1" ng-init="CDLoanTermsInformationHelp=0" > 	  
+			<span>Loan Terms Information</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDLoanTermsInformationHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDLoanTermsInformationHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDLoanTermsInformationHelp">	
+			<span class="field_help">
+			 <h5> Loan Amount : </h5>
+              <div id="CD_LoanAmount_Help">Enter the value of the loan or upload the amount through a template or file.
+			  <ul>
+                    <li>Format is an amount 9.2 </li>
+					<li>The amount will be either the Note amount which is the amount to be repaid as disclosed on the note -  If the Interest rate and note amount are known at consummation</li>
+					<li>			OR				</li>
+					<li>The <strong>Fully indexed principal and interest</strong> amount which is the dollar amount of the principal and interest payment when calculated using the loan amount and fully-indexed interest rate (in place of Note Interest Rate) to arrive at full amortization during the loan term.  If the Interest Rate and Note amount are NOT known at consummation. </li>
+					<li>The system defaults the yes/no drop-down box to NO for the question “Does this change after closing?” using the information from the product description section (negative amortization indicator = false is no in the drop down). </li>
+					<li>The User may change the yes/no drop down  </li>
+					<li>User May enter in the Dollar amount the bullet stating “Can go as high as” for the loan amount maximum limit, otherwise it will pull from the product description section under negative amortization.  </li>
+					<li>User May enter the number of months in the text box next to the Statement “Can Increase Until Year” for the second bullet, or the system will pull in the values from the product description section under Negative amortization. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Interest Rate : </h5>
+              <div id="CD_LoanInterestRate_Help">Enter or Upload the interest rate as it will be disclosed on the note or the Fully Disclosed Index Rate. 
+			  <ul>
+                    <li>If manually entered interest rate, the system defaults for the question “Does this change after closing?” Yes | No drop-down box to NO until the user completes the Product Description section. 
+							<ul>
+							<li>If the Amortization Type in the product description section <strong>is equal to Fixed</strong>, then the “Does this change after closing?” <strong>remains No</strong></li>
+							<li>If the Amortization Type in the product description section <strong>is NOT Equal to Fixed</strong>, then the “Does this change after closing?” <strong>changes to Yes</strong> with additional bullet points to be filled in using the information from the Product Description section, however these fields are editable by the user.</li>
+							<li>The following fields must have values if the Amortization Type is NOT fixed:
+									<ul>
+										<li>Adjusts every   ______  years starting in year______ -  Provide the number of Years for the adjustment AND the year in which the adjustment will start plus one month because interest changes in arrears.  So if the interest rate is due to change in month 60 (aka 5 years) then the form needs to state in year 6 because the payment will actually change in year 6.</li>
+										<li>Can go as high as  _____ in year ________  - The can go as high as statement is the ceiling rate for the life of the loan, then in year again is the year in which the ceiling will be reached.          </li>
+									</ul>
+							</li>
+							</ul>  
+					</li>
+					<li>Regardless of Amortization Type the user must provide the values for; current rate set date, the loan price quote and the Average Prime Offer Rate (APOR) in the 3 text boxes allotted for the values.
+						<ul>
+							<li>Current Rate Set Date is the Date on which the interest rate for the loan was set by the lender for the final time before closing.</li>
+							<li>Loan Price Quote is the mortgage loan interest rate for which the price quote is calculated.</li>
+							<li>The APOR is an annual percentage rate that is derived from average interest rates, points, and other loan pricing terms currently offered to consumers by a representative sample of creditors for mortgage transactions that have low-risk pricing characteristics. The Federal Reserve Board publishes average prime offer rates for a broad range of types of transactions in a table updated at least weekly. This rate is used in determining Higher Priced Mortgage Loans (HPML).  </li>
+						</ul>
+					</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Temporary Buydown : </h5>
+              <div id="CD_LoanTemporaryBuydown_Help">The temporary buydown information is only needed when the buydown is listed within the NOTE itself.  The Drop-down must be edited by the user, it will default to NO automatically and the use may change to yes.  If the user changes the default value to yes then additional information will be required dependent upon answers additional information may be needed.
+			  <div>If changed to YES, then provide  <ul><li>Is the buydown reflected on the Note, If NO nothing else is needed.</li></ul> </div>
+			  <div>If yes  
+							<ul>
+							  <li>What is the Rate as reflected without the Buydown? There is a text box in which the user must input the note rate that would be reflected in the note if there was not a buydown that the user may provide in the text box.</li>
+							  <li>Provide the rate the borrower will pay after the buydown is applied – this will a rate percent value in the text box.</li>
+							  <li>Provide the Time interval in months between the interest rate increases        during the buydown period this will be a numeric value in which the user will enter the value in the text box.</li>
+							  <li>Provide the total number of months which the buydown is in affect which the user will input into the text box.</li>
+							  <li>Provide the amount by which the interest rate can increase at each adjustment within the buydown period.</li>
+						   </ul></div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Principal and interest Payment Amount : </h5>
+              <div id="CD_PrincipalInterestPaymentAmount_Help">The P&I payment is required to be filled-in, calculated by the calculate button on the user interface, or upload through a template/ xml file/ PDF file.  
+			  <ul>
+                    <li>The drop down will indicate yes or no; this is always defaulted to NO if manual data entry. </li>
+					<li>The drop is also driven by the information input in to the product description section.</li>
+                </ul>
+			  </div>
+			  <div>If yes, amortization type is NOT equal to Fixed then the user will provide the following information either through entry of information in the product description section or can manually enter the information into the User interface for this row:
+			  <ul>
+                    <li>Adjusts every ________ years starting in year______ </li>
+					<li>Can go as high as   ________ in year_______          </li>
+                </ul>
+			 </div>
+			  </span>
+			  <span class="field_help">
+			 <h5> Payment Frequency : </h5>
+              <div id="CD_PaymentFrequency_Help">In all transactions, the user must provide the payment frequency which specifies the frequency of the mortgage payment through a list of enumerated values that will be used to calculate the payment.
+			  <ul>
+                    <li>Enumerated Values are: Annual | At Maturity | Biweekly | Monthly | Quarterly | Semiannual | Semimonthly | Weekly</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Prepayment Penalty : </h5>
+              <div id="CD_PrepaymentPenalty_Help">For the question, can this change after closing there is a drop-down box that Indicates whether the prepayment penalty can change after closing.  
+			  <ul>
+                    <li>The default is set to NO. </li>
+					<li>The user may change to YES, which triggers the ability to see the bullet points required by the CFPB Know before You Owe regulation that indicates the highest amount of the prepayment penalty and the last scheduled year in which the prepayment penalty would be in affect noting that this amount is provided to the borrower as a disclosure.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Balloon Payment : </h5>
+              <div id="CD_LoanBalloonPayment_Help">For the question, can this change after closing, there is a drop-down box that Indicates whether the balloon payment, if one exists, can change after closing.  
+			  <ul>
+                    <li>The default is NO. </li>
+					<li>If YES, indicate how much will need to be paid via a text box and the year the balloon payment will be due in full.</li>
+                </ul>
+			  </div> 
+			  </span>
+		  </div>
+		  <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDProjectedPaymentsHelp"  ng-click="CDProjectedPaymentsHelp = CDProjectedPaymentsHelp + 1" ng-init="CDProjectedPaymentsHelp=0" > 	  
+		  <span>Projected Payments</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDProjectedPaymentsHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDProjectedPaymentsHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDProjectedPaymentsHelp">
+		  <span class="field_help">
+			 <h5> Years : </h5>
+              <div id="CD_projectedYears_Help">Each column must be expressed in whole years
+			  <ul>
+                    <li>Years 1 - 30 </li>
+					<li>Years 1 -   5, etc.….</li>
+                </ul>
+				<br>Whole years are defined as twelve-month intervals that begin on the due date of the initial periodic payment. When the same Estimated Total Periodic Payment amount is valid for several years before a payment change event occurs, then that Year Range is identified as a column heading. <br>
+				<br>The entire loan term must be represented by the Year Range Columns that can only have a maximum of 4 columns in the transaction.  <br>
+				<br>See the Know Before You Owe regulation for the rules of what drives a payment adjustment.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Add Additional Column Link : </h5>
+              <div id="CD_AddAdditionalColumnLink_Help">The Projected Payment section is driven off several pieces of information:
+			  <ul>
+                    <li>Product Description – Amortization Type if Fixed then typically only one column or multiple columns of the Amortization Type is Adjustable Rate (ARM) or Not Fixed.</li>
+					<li>Upload of multiple instances of data will automatically provide the additional columns with values.</li>
+                </ul><br>
+				If the user is manual data entry and requires additional columns, then the user may click on the Add Additional Column Link that will add 3 additional columns one at time up to a total of total columns.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Principal and Interest Payment : </h5>
+              <div id="CD_PrincipalInterestPayment_Help">In each column (1-4) a Minimum amount and Maximum amount text boxes are available to the user for input.	
+			  <ul>
+                    <li>Minimum Amount - The minimum amount of the principal and interest payment during the projected payment period. Typically this is not used for the first column due to any fixed periods would be identified in the first period. </li>
+					<li>Maximum Amount - The maximum amount of the principal and interest payment during the projected payment period.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Mortgage Insurance – Is required? : </h5>
+              <div id="CD_LoanMortgageInsurance_Help">This information is required for every transaction, must identify if there is MI present in the transaction.  
+			  <ul>
+                    <li>If NO, then nothing else needs to be done </li>
+					<li>If Yes, provide the following information that is found under the Mortgage Insurance Label in the far-left column
+						<ul>
+							  <li>No. Months Duration?</li>
+							  <li>Scheduled Termination Date</li>
+							  <li>MI Company Name </li>
+							  <li>MI Company Name Description, if other</li>
+							  <li></li>
+						</ul>
+						</li>
+					<li>If yes, provide the amount of MI this will drive the need for additional columns due to displaying the amount per change period until the MI is no longer required.</li>	
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Escrow Payment Amount : </h5>
+              <div id="CD_EscrowPaymentAmount_Help">In every transaction, there will be an indication of Escrow present or NOT present in the transaction, If there is an Escrow Account then a user would input the value in this row.<br>
+			  <br>Note that the system will input the value from the Section G. Initial Escrow Payment At Closing into this row for all columns there is no change of the amount per the CFPB regulation.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Estimated Total Monthly Payment Amount : </h5>
+              <div id="CD_EstimatedTotalMonthlyPaymentAmount_Help">Every Column will have a total for both the minimum amount and the maximum amount, this is not an editable field and the system provides the value to the user in the user interface.
+			  </div> 
+			  </span>
+		  </div>
+		  		  <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDEstimatedTaxesInsuranceAssessmentProjectsPaymentsHelp"  ng-click="CDEstimatedTaxesInsuranceAssessmentProjectsPaymentsHelp = CDEstimatedTaxesInsuranceAssessmentProjectsPaymentsHelp + 1" ng-init="CDEstimatedTaxesInsuranceAssessmentProjectsPaymentsHelp=0" > 	  
+		  <span>Estimated Taxes, Insurance and Assessment of Projects Payments</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDEstimatedTaxesInsuranceAssessmentProjectsPaymentsHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDEstimatedTaxesInsuranceAssessmentProjectsPaymentsHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDEstimatedTaxesInsuranceAssessmentProjectsPaymentsHelp">
+				<span class="field_help">
+			 <h5> $ amount  per month : </h5>
+              <div id="CD_amountpermonth_Help">This amount is calculated via the Calculate button.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Check Boxes – Property Taxes and Homeowners Insurance: </h5>
+              <div id="CD_PropertyTaxesHomeownersInsurance_Help">The user may select neither, both or just one.  
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Check box – Other : </h5>
+              <div id="CD_CheckBoxOthers_Help">The user may enter one or many Other items, the purpose of adding many when the Closing Disclosure only has one on the PDF if for support of the GSE requirements in the UCD XML file.
+			  <ul>
+                    <li>Format is a list of Enumerated values to choose. </li>
+					<li>If other is Chosen, then the Description box will be enabled for the user to input the value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> In Escrow? : </h5>
+              <div id="CD_InEscrow_Help">The user may select from a drop down whether the item is in an escrow account or not.
+			  <ul>
+                    <li>Format is a drop-down box with Yes or No. </li>
+					<li>Will default based on the information in Closing Cost Details Section G. Initial Escrow at Closing.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Add Additional Item : </h5>
+              <div id="CD_AddAdditionalItem_Help">This link will all you to add another row to choose from the drop down and indicate if in escrow or not in escrow.
+			  </div> 
+			  </span>
+		  </div>
+		</div>
+</div>
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_CostsofClosing_Help"  ng-click="CD_CostsofClosing_Help = CD_CostsofClosing_Help + 1" ng-init="CD_CostsofClosing_Help=0" > 
+      <strong>Costs of Closing</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_CostsofClosing_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_CostsofClosing_Help%2==1"></span>
+      </span>
+	 <div id="CD_CostsofClosing_Help" class="collapse subContainer">
+		 <span class="field_help">
+              <div id="CD_costofCosting_Help">The costs at closing section is not shown in the user interface
+			  <ul>
+                    <li>Help search must sear on “Costs at Closing”.</li>
+					<li>The section is non-editable field due to pulling information from other locations in the form.</li>
+                </ul>
+			  </div> 
+			  </span>
+	 </div>
+</div>
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_ClosingCostDetails_Help"  ng-click="CD_ClosingCostDetails_Help = CD_ClosingCostDetails_Help + 1" ng-init="CD_ClosingCostDetails_Help=0" > 
+      <strong>Closing Cost Details (Fee Page)</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_ClosingCostDetails_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_ClosingCostDetails_Help%2==1"></span>
+      </span>
+	<div id="CD_ClosingCostDetails_Help" class="collapse subContainer">
+	<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDOriginationChargesHelp"  ng-click="CDOriginationChargesHelp = CDOriginationChargesHelp + 1" ng-init="CDOriginationChargesHelp=0" > 	  
+		<span>A. Origination Charges</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDOriginationChargesHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDOriginationChargesHelp%2==1"></span>
+          </span>
+		  <div class="col-sm-12" id="CDOriginationChargesHelp">
+		  <span class="field_help">
+			 <h5> Section Header Name : </h5>
+              <div id="CD_OriginationCharges_Help">A unique identifier assigned for all appraisal data delivered for this transaction.
+			  <ul>
+                    <li>Format is a String Value up to 150 characters. </li>
+					<li>This field is conditionally required, if it exists input the value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Section Total Amount Borrower Paid : </h5>
+              <div id="CD_OriginationChargesSectionTotalAmountBorrowerPaid_Help">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Borrower At Closing or Before Closing 
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5>  *Percentage * Loan Amount (Points) – Label : </h5>
+              <div id="CD_OriginationChargesPercentageLoanAmount_Help">In every transaction, the line 01 item called Loan Amount (Points) is provided on the form.  The transaction may or may not have discount points.  
+				<br>The Label name “Loan Amount (Points)” is referred to as predefined text by the CFPB.<br>
+			<ul>
+                    <li>If NO, “0” must be disclosed in the Label section. </li>
+					<li>If YES, both the percentage of the Loan Amount must be disclosed in the label section.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			   <h5>All Rows must include the following:</h5>
+			 <h5> Fee Label Name : </h5>
+              <div id="CD_OriginationChargesFeeLabelName_Help">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+			  <ul>
+                    <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location. </li>
+					<li>Format is a String Value up to 150 characters.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type : </h5>
+              <div id="CD_OriginationChargesFeeType_Help">Specify the general type of fees associated with a real estate finance transaction.
+			  <ul>
+                    <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name. </li>
+					<li>If other is chosen, then the user will be provided another text box (see below).</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type Other Description  : </h5>
+              <div id="CD_OriginationChargesFeeTypeOtherDescription_Help">This field is required to be filled-in if the Fee Type is Other.
+			  <ul>
+                    <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type. </li>
+					<li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Full Name  : </h5>
+              <div id="CD_OriginationChargesFullName_Help">If applicable see the CFPB “Know Before You Owe” regulation when to include this value in the Closing Disclosure.
+			  <ul>
+                    <li>When required, include the unparsed name of either the organization or legal entity.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Paid To Type : </h5>
+              <div id="CD_OriginationChargesFeePaidToType_Help">Identify the category or type of payee to which the fee or payment will be paid. 
+			  <ul>
+                    <li>Format is a list of enumerated values that include: Broker | Investor | Lender | Other | Third Party Provider. </li>
+					<li>Must be provided when there is a fee entered in the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Borrower Paid At Closing : </h5>
+              <div id="CD_OriginationChargesBorrowerPaidAtClosing_Help">The amount of the fee that is paid by the Borrower at closing.
+			  <ul>
+                    <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Borrower Paid Before Closing  : </h5>
+              <div id="CD_OriginationChargesBorrowerPaidBeforeClosing _Help">The amount of the fee that is paid by the Borrower before closing.
+			  <ul>
+                   <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Seller Paid At Closing : </h5>
+              <div id="CD_OriginationChargesSellerPaidAtClosing_Help">The amount of the fee that is paid by the Seller at closing.
+			  <ul>	
+					<li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction.</li>
+                    <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Seller Paid Before Closing	 : </h5>
+              <div id="CD_OriginationChargesSellerPaidBeforeClosing_Help">The amount of the fee that is paid by the Seller before closing.
+			  <ul>	
+					<li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction</li>
+                    <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Other  : </h5>
+              <div id="CD_OriginationChargesPaidByOther_Help">The amount of the fee that is paid by a Third Party or the Lender.
+			  <ul>
+                   <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>There is NOT a “At Closing” or “Before Closing” indication. </li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Lender Flag : </h5>
+              <div id="CD_OriginationChargesPaidByLenderFlag_Help">When a value is in the Paid By Other column, if the amount is paid by the Lender then the user must check the Paid By Lender Flag
+			  <ul>
+                    <li>Required to indicate if a Lender is paying a Fee per the rule.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in APR Calculation : </h5>
+              <div id="CD_OriginationChargesIncludeinAPRCalculation_Help">For each record included must Indicate if the fee is included in the APR calculation. 
+			  <ul>
+                    <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website. </li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in Flag Z Points/Fee : </h5>
+              <div id="CD_OriginationChargesIncludeFlagPointsFee_Help">When true, indicates that item is included in the Regulation Z Points and Fees calculation.
+			  <ul>
+                    <li>Must be included for all Fees except for Tax related fees. </li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Additional Lines can be added. : </h5>
+              <div id="CD_OriginationChargesAdditionalLines_Help">To add more fees to the section the user may click on the link to add another row.
+			  </div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Trash Symbol : </h5>
+              <div id="CD_OriginationChargesTrashSymbol_Help">The Trash Can symbol at the end of the record will delete the entire row including all data.
+			  </span>
+			   <span class="field_help">
+			 <h5> Clear Symbol : </h5>
+              <div id="CD_OriginationChargesClearSymbol_Help">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+			  </div> 
+			  </span>
+		  </div>
+		</div>
+		<span>A. Services Borrower Did Not Shop For</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDServicesBorrowerDidNotShopHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDServicesBorrowerDidNotShopHelp%2==1"></span>
+          </span>
+		  <div class="col-sm-12" id="CDServicesBorrowerDidNotShopHelp">
+		  <span class="field_help">
+			 <h5> Section Header Name : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopSectionHeaderName_Help">Each Section in the Closing Cost Details is highlighted at the top of the section.
+			  <ul>
+                    <li>The first section is called “Services Borrower Did Not Shop For”. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Section Total Amount Borrower Paid : </h5>
+              <div id="CD_ServicesBorrowerDidNotShop_HelpSectionTotalAmountBorrowerPaid">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Borrower At Closing or Before Closing columns.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			  <h5>All Rows must include the following:</h5>
+			 <h5> Fee Label Name : </h5>
+              <div id="CD_ServicesBorrowerDidNotShop_Help">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+			  <ul>
+                    <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
+					<li>Format is a String Value up to 150 characters.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopFeeType_Help">Specify the general type of fees associated with a real estate finance transaction.
+			  <ul>
+                    <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name. </li>
+					<li>If other is chosen, then the user will be provided another text box (see below).</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type Other Description  : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopFeeTypeOtherDescription_Help">This field is required to be filled-in if the Fee Type is Other.
+			  <ul>
+                    <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type. </li>
+					<li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Full Name  : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopFullName_Help"If applicable see the CFPB Know Before You Owe regulation when to include this value in the Closing Disclosure.
+			  <ul>
+                    <li>For this section, each Fee is required to have a Full Name of the organization in which the fee is being paid to.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Paid To Type : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopFeePaidToType_Help">Identify the category or type of payee to which the fee or payment will be paid. 
+			  <ul>
+                    <li>Format is a list of enumerated values that include: Broker | Investor | Lender | Other | Third Party Provider </li>
+					<li>Must be provided when there is a fee entered in the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Borrower Paid At Closing : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopBorrowerPaidAtClosing_Help">The amount of the fee that is paid by the Borrower at closing.
+			  <ul>
+                   <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Borrower Paid Before Closing  : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopBorrowerPaidBeforeClosing _Help">The amount of the fee that is paid by the Borrower before closing.
+                     <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Seller Paid Before Closing : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopSellerPaidBeforeClosing_Help">The amount of the fee that is paid by the Seller before closing.
+			  <ul>
+                    <li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction. </li>
+					<li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Other : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopPaidByOther_Help">The amount of the fee that is paid by a Third Party or the Lender
+			  <ul>
+                      <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					 <li>There is NOT a “At Closing” or “Before Closing” indication. </li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Lender Flag : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopPaidByLenderFlag_Help">When a value is in the Paid By Other column, if the amount is paid by the Lender then the user must check the Paid By Lender Flag.
+			  <ul>
+                    <li>Required to indicate if a Lender is paying a Fee per the rule.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in APR Calculation : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopIncludeAPRCalculation_Help">For each record included must Indicate if the fee is included in the APR calculation. 
+			  <ul>
+                    <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in Flag Z Points/Fee : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopIncludeFlagPointsFee_Help">When true, indicates that item is included in the Regulation Z Points and Fees calculation.
+			  <ul>
+                    <li>Must be included for all Fees except for Tax related fees. </li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Additional Lines can be added. : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopAdditionalLinesadded._Help">To add more fees to the section the user may click on the link to add another row.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Trash Symbol : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopTrashSymbol_Help">The Trash Can symbol at the end of the record will delete the entire row including all data.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Clear Symbol : </h5>
+              <div id="CD_ServicesBorrowerDidNotShopClearSymbol_Help">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+			  </div> 
+			  </span>
+		  </div>
+		</div>
+</div>
