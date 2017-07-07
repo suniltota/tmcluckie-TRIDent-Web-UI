@@ -56,5 +56,12 @@ app.service('cdService', function(apiService){
             httpMethod: 'POST',
             formData:xml
         });
+    },
+    this.generateJsonFromTemplate = function(data) {
+        return apiService.request({
+            apiMethod: "actualize/transformx/v1/templatetocdjson",
+            httpMethod: 'POST',
+            formData:data
+        });
     }
 });

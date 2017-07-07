@@ -7,12 +7,19 @@ postLoginApp.service('cdJsonService', function(apiService){
             httpMethod: 'POST',
             xmlData:xmlData
         });
-    }
+    },
     this.getXMLFromTextTemplate = function(xmlData){
     	return apiService.request({
     		apiMethod: "actualize/transformx/transforms/v1/templatetoucd",
             httpMethod: 'POST',
             xmlData:xmlData
+        });
+    },
+    this.generateJsonFromTemplate = function(data) {
+        return apiService.request({
+            apiMethod: "actualize/transformx/v1/templatetocdjson",
+            httpMethod: 'POST',
+            formData:data
         });
     }
 

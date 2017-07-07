@@ -87,7 +87,7 @@ app.controller('menuCtrl', function ($scope, loginService, apiService, $routePar
   $scope.importFile = function(){
     closeAllViews();
     var postLoginScope = angular.element($("#ChooseFormType")).scope();
-    postLoginScope.transactionType = "existing";
+    postLoginScope.transactionType = "textTemplate";
     $('#ChooseFormType').modal('show');
   }
 
@@ -239,32 +239,22 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
             }
         } else if($scope.transactionType == 'textTemplate') {
             if($scope.uploadfile != undefined && $scope.uploadfile != null) {
-                cdService.transformText2XML($scope.uploadfile).success(function(xmldata) {
-                    var xmlstring = $.parseXML( xmldata );
-                    var $xml = $(xmlstring);
-                    var UCD_DOCUMENT = $xml.find( "UCD_DOCUMENT" );
-                    $.each(UCD_DOCUMENT, function() {
-                        var xml = $(this).html();
-                        cdService.loadTransformData(xml).success(function(jsondata){
-                            $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
-                            $scope.loanformtype = jsondata.closingDisclosureDocDetails.formType;
-                            if($scope.purposeType == 'purchase'){
-                               $scope.formType = 'standard';
-                            }
-                            else if($scope.purposeType == 'refinance'){
-                                if($scope.loanformtype == 'AlternateForm'){
-                                    $scope.formType = 'alternate';
-                                }else if($scope.loanformtype == 'ModelForm'){
-                                    $scope.formType = 'standard';
-                                }
-                            }
-                            localStorage.jsonData = JSON.stringify(jsondata);
-                            //console.log(localStorage.jsonData);
-                            location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
-                        }).error(function(data, status) {
-                            $("#spinner").hide();
-                        });
-                    });
+                cdService.generateJsonFromTemplate($scope.uploadfile).success(function(jsondata) {
+                    $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
+                    $scope.loanformtype = jsondata.closingDisclosureDocDetails.formType;
+                    if($scope.purposeType == 'purchase'){
+                       $scope.formType = 'standard';
+                    }
+                    else if($scope.purposeType == 'refinance'){
+                        if($scope.loanformtype == 'AlternateForm'){
+                            $scope.formType = 'alternate';
+                        }else if($scope.loanformtype == 'ModelForm'){
+                            $scope.formType = 'standard';
+                        }
+                    }
+                    localStorage.jsonData = JSON.stringify(jsondata);
+                    //console.log(localStorage.jsonData);
+                    location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                 }).error(function(data, status) {
                     $("#spinner").hide();
                 });

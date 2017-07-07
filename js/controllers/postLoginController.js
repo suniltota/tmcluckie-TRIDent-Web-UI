@@ -90,32 +90,21 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
             }
         } else if($scope.transactionType == 'textTemplate') {
             if($scope.uploadfile != undefined && $scope.uploadfile != null) {
-                cdJsonService.getXMLFromTextTemplate($scope.uploadfile).success(function(xmldata) {
-                    var xmlstring = $.parseXML( xmldata );
-                    var $xml = $(xmlstring);
-                    var UCD_DOCUMENT = $xml.find( "UCD_DOCUMENT" );
-                    $.each(UCD_DOCUMENT, function() {
-                        var xml = $(this).html();
-                        cdJsonService.getJsonFromXml(xml).success(function(jsondata){
-                            $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
-                            $scope.loanformtype = jsondata.closingDisclosureDocDetails.formType;
-                            if($scope.purposeType == 'purchase'){
-                               $scope.formType = 'standard';
-                            }
-                            else if($scope.purposeType == 'refinance'){
-                                if($scope.loanformtype == 'AlternateForm'){
-                                    $scope.formType = 'alternate';
-                                }else if($scope.loanformtype == 'ModelForm'){
-                                    $scope.formType = 'standard';
-                                }
-                            }
-                            localStorage.jsonData = JSON.stringify(jsondata);
-                            console.log(localStorage.jsonData);
-                            location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
-                        }).error(function(data, status) {
-                            $("#spinner").hide();
-                        });
-                    });
+                cdJsonService.generateJsonFromTemplate($scope.uploadfile).success(function(jsondata) {
+                    $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
+                    $scope.loanformtype = jsondata.closingDisclosureDocDetails.formType;
+                    if($scope.purposeType == 'purchase'){
+                       $scope.formType = 'standard';
+                    } else if($scope.purposeType == 'refinance'){
+                        if($scope.loanformtype == 'AlternateForm'){
+                            $scope.formType = 'alternate';
+                        } else if($scope.loanformtype == 'ModelForm'){
+                            $scope.formType = 'standard';
+                        }
+                    }
+                    localStorage.jsonData = JSON.stringify(jsondata);
+                    console.log(localStorage.jsonData);
+                    location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                 }).error(function(data, status) {
                     $("#spinner").hide();
                 });
