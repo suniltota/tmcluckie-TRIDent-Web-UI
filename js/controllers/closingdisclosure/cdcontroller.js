@@ -2609,15 +2609,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         var closingCostsfinanced = 0;
         var noteAmount = 0;
         var noteAndFinancedAmount = 0;
-
+        var salePriceValue = personalAmountDiff-parseFloat($scope.cdformdata.salesContractDetail.personalPropertyAmount);
         noteAmount = $scope.cdformdata.termsOfLoan.noteAmount ? parseFloat($scope.cdformdata.termsOfLoan.noteAmount) : +0;
         closingCostsfinanced = $scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount) : +0;
         noteAndFinancedAmount = parseFloat(noteAmount+closingCostsfinanced);
 
-        if(noteAmount>personalAmountDiff){
+        if(noteAmount>salePriceValue){
         	$scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount = 0;
-        }else if(noteAmount<personalAmountDiff){
-        	$scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(personalAmountDiff-noteAndFinancedAmount);
+        }else if(noteAmount<salePriceValue){
+        	$scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(salePriceValue-noteAndFinancedAmount);
         }
 
         //Funds For Borrower
