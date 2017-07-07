@@ -14,7 +14,7 @@
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
 				
-				<actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isDateIssued" min-date="1/1/2015" max-date="12/31/2045" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+				<actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isDateIssued" min-date="1/1/2015" max-date="12/31/2045" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
                 <span class="helpText tooltip-msg">?
                 	<span>
@@ -38,7 +38,7 @@
 			<div class="col-sm-5 fieldTitle">Closing Date <span class="required">*</span> </div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
-				<actualize-input name="closingDate" id="closingDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.closingDate" min-date="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" max-date="12/31/2045" is-open="isClosingDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Closing Date cannot occur prior to Issue Date." placeholder="Closing Date  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+				<actualize-input name="closingDate" id="closingDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.closingDate" min-date-var="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" max-date="12/31/2045" is-open="isClosingDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Closing Date cannot occur prior to Issue Date." placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
                 <span class="helpText tooltip-msg">?
                 	<span style="width: 500px;">
@@ -63,7 +63,7 @@
 			</div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
-				<actualize-input name="disbursementDate" id="disbursementDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.disbursementDate" min-date="cdformdata.closingInformationDetail.closingDate"  max-date="12/31/2045" is-open="isDisbursementDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Disbursement Date cannot occur before the Closing Date." placeholder="Disbursement Date  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+				<actualize-input name="disbursementDate" id="disbursementDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.disbursementDate" min-date-var="cdformdata.closingInformationDetail.closingDate"  max-date="12/31/2045" is-open="isDisbursementDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Disbursement Date cannot occur before the Closing Date." placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
 				 <span class="helpText tooltip-msg">?
                 	<span>

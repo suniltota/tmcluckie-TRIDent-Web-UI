@@ -490,7 +490,7 @@
 					<div class="col-sm-9 fieldTitle">Scheduled Termination Date:</div>
 					<div class="col-sm-3 padding0">
 						<span class="col-sm-10 padding0">
-	        				<input type="text" name="ScheduledTermDate" id="ScheduledTermDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.miDataDetail.miScheduledTerminationDate" min-date="10/3/2015" max-date="12/31/2045" is-open="isScheduledTermDate" datepicker-options="dateOptions" ng-required="true" min-date="cdformdata.projectedPayments.miSTDate" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
+	        				<input type="text" name="ScheduledTermDate" id="ScheduledTermDate" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="cdformdata.miDataDetail.miScheduledTerminationDate" max-date="12/31/2045" is-open="isScheduledTermDate" datepicker-options="dateOptions" ng-required="true" min-date-var="cdformdata.projectedPayments.miSTDate" close-text="Close" placeholder="MM/DD/YYYY" actualize-date/>
 	        			</span>
 	        			<span class="input-group-btn col-sm-2 padding0">
   							<button type="button" class="btn btn-default calenderBtn" ng-click="isScheduledTermDate = !isScheduledTermDate"><i class="glyphicon glyphicon-calendar"></i></button>
