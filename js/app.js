@@ -17,8 +17,6 @@ app.config(function ($routeProvider, $locationProvider) {
     .when("/home", {templateUrl: "partials/home.html", controller: "homeCtrl"})
     .when("/closingDisclosure", {templateUrl: "partials/closingDisclosureHome.html", controller: "closingDisclosureCtrl"})
     .when("/loanEstimate", {templateUrl: "partials/loanEstimateHome.html", controller: "loanEstimateCtrl"})
-    .when("/leHelp", {templateUrl: "template/onlineLEHelp.html", controller: "loanEstimateCtrl"})
-    .when("/cdHelp", {templateUrl:"template/onlineCDHelp.html", controller: "closingDisclosureCtrl"})
     .otherwise({ redirectTo: '/home' });
   $locationProvider.hashPrefix('');
 }).run(['loginService', 'apiService', '$rootScope', '$window', function(loginService, apiService, $rootScope, $location, $window){
@@ -66,7 +64,6 @@ app.controller('validateCtrl', function ($scope, $location, $http) {
 app.controller('menuCtrl', function ($scope, loginService, apiService, $routeParams, $location, staticData, $window) {
   if($location.$$url.indexOf("/home")!=-1) {
     $scope.documentType = $location.$$search.documentType;
-    $scope.$
   } else if($location.$$path.indexOf("/loanEstimate") != -1) {
     $scope.documentType = 'loanestimate';
     localStorage.documentType = 'loanestimate';
@@ -124,6 +121,17 @@ app.controller('menuCtrl', function ($scope, loginService, apiService, $routePar
     //if(!localStorage.documentType)
       angular.element($("#UCDXMLFILE")).scope().generatePDF();
   }
+
+  $scope.renderHelp = function() {
+    if($location.$$path.indexOf("/loanEstimate") != -1) {
+      var postLoginScope = angular.element($("#ledoctype")).scope();
+      postLoginScope.showTab = 'leHelp';
+    } else {
+      var postLoginScope = angular.element($("#cddoctype")).scope();
+      postLoginScope.showTab = 'cdHelp';
+    }
+  }
+
   var closeAllViews = function() {
     xmlDestroy();
     pdfDestroy();

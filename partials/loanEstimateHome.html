@@ -2,7 +2,7 @@
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn glyphicon glyphicon-chevron-left" onclick="closeNav()"></a>
       <div class="form-group col-sm-12" style="width: 90%;">
-          <div id="doctype">Loan Estimate</div>
+          <div id="ledoctype">Loan Estimate</div>
       </div>
       <div side-bar-height class="SidebarNavHead modern-skin">
 
@@ -259,7 +259,6 @@
           <div class="CDHeaderSection col-lg-12">
             <div ng-show="showTab == 'closingInfo'" ng-include='"templates/leforms/leClosingInformation.html"'></div>
             <div ng-show="showTab == 'Comparison'" ng-include='"templates/leforms/leComparison.html"'></div>
-            <div ng-show="showTab == 'OnlineLEHelp'" ng-include='"templates/leforms/onlineLEHelp.html"'></div>
             <div ng-show="showTab == 'transInfo'" ng-include='"templates/leforms/leTransactionInformation.html"'></div>
             <div ng-show="showTab == 'loanInfo'" ng-include='"templates/leforms/leLoanInformation.html"'></div>
             <div ng-show="showTab == 'loanterms'" ng-include='"templates/leforms/leLoanTermsTable.html"'></div>
@@ -284,7 +283,7 @@
              <div ng-show="showTab == 'EscrowAccount'" ng-include='"templates/leforms/AdditionalInformation_EscrowAccount.html"'></div>
              <div ng-show="showTab == 'ApTable'" ng-include='"templates/leforms/AdditionalInformation_ApTable.html"'></div>
              <div ng-show="showTab == 'AirTable'" ng-include='"templates/leforms/AdditionalInformation_AirTable.html"'></div>
-             <div id="helpdata" ng-include="'templates/leforms/onlineLEHelp.html'" style="display: none;"></div>
+             <div id="helpdata" ng-show="showTab == 'leHelp'" ng-include='"templates/leforms/leHelp.html"'></div>
             </div>
           </span>
         </div>
