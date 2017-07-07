@@ -16,17 +16,7 @@
 				
 				<actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isDateIssued" min-date="1/1/2015" max-date="12/31/2045" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
-                <span class="helpText tooltip-msg">?
-                	<span>
-                		<b></b>	
-			         <span> 
-			           	 <p>The date the integrated disclosure was mailed or delivered to the borrower as reflected on a single instance of the integrated disclosure document.</p>
-			           	 <ul><li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
-			           	 <li>There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past.</li>
-			           	 <li>Is a Required field</li></ul>
-			          </span>
-                	</span>
-                </span>
+                <help-verbiage name="CD_dateIssued_Help"  title="help_tooltip"></help-verbiage>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -40,18 +30,7 @@
 				<span class="col-sm-10 padding0">
 				<actualize-input name="closingDate" id="closingDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.closingDate" min-date-var="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" max-date="12/31/2045" is-open="isClosingDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Closing Date cannot occur prior to Issue Date." placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
-                <span class="helpText tooltip-msg">?
-                	<span style="width: 500px;">
-                		<b></b>	
-			         <span> 
-			           	 <p>The date the closing documents were fully executed and the borrower becomes contractually responsible for the debt. Depending on the location (wet-sign, dry-sign, table-funded and/or escrow state) of the loan closing, the Closing Date may be the same date as either the Document Preparation Date and/or the Execution Date and/or the Recorded Date.</p>
-			           	 <ul><li>This date is defaulted to 5 days after the issue date if conducting data entry.  Otherwise, the date will be rendered per the information in the upload process will be displayed</li>
-			           	 <li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
-			           	 <li>There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated closing disclosure document from the past.</li>
-			           	 <li>Is a Required Field</li></ul>
-			          </span>
-                	</span>
-                </span>
+                <help-verbiage name="CD_ClosingDate_Help" title="help_tooltip" ></help-verbiage>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isClosingDate = !isClosingDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -65,17 +44,7 @@
 				<span class="col-sm-10 padding0">
 				<actualize-input name="disbursementDate" id="disbursementDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.disbursementDate" min-date-var="cdformdata.closingInformationDetail.closingDate"  max-date="12/31/2045" is-open="isDisbursementDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Disbursement Date cannot occur before the Closing Date." placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
-				 <span class="helpText tooltip-msg">?
-                	<span>
-                		<b></b>	
-			         <span> 
-				           	 <p>The date the loan funds are disbursed to the borrower or another party on the borrower's behalf.</p>
-				           	 <ul><li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date. </li>
-				           	 <li>Constraint on the date as it cannot be a date prior to the issue date or the closing date.</li>
-				           	 <li>Is a Required Field</li></ul>
-				          </span>
-                	</span>
-                </span>
+				 <help-verbiage name="CD_DisbursementDate_Help"  title="help_tooltip" ></help-verbiage>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDisbursementDate = !isDisbursementDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -91,16 +60,7 @@
 			<div class="col-sm-7" class="form-group" >
 				<actualize-input name="organizationName" ng-model="cdformdata.contactInformation.settlementAgent.organizationName" ng-required="true" toolTipPos = "top" dependencies="require-field" >
                 </actualize-input>
-				<span class="helpText tooltip-msg inputright">?
-                	<span>
-                		<b></b>	
-			         <span> 
-				           	 <p>The unparsed legal name of the Legal entity conducting the closing or settlement functions.  This is typically an organization name.</p>
-			           	 <ul><li>Must be in a format of a string with no more than 100 characters</li>
-			           	 <li>Is a Required Field</li></ul>
-				          </span>
-                	</span>
-                </span>
+				<help-verbiage name="CD_SettlementAgentName_Help" title="inputright"></help-verbiage>
 			</div>
 		</div>
 		<div class="FieldGroup">
@@ -112,16 +72,7 @@
 			<div class="col-sm-7">
 				<actualize-input name="closingAgentOrderNumberIdentifier" ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" ng-required="true" toolTipPos = "top" dependencies="require-field" >
                 </actualize-input>
-				<span class="helpText tooltip-msg inputright">?
-                	<span>
-                		<b></b>	
-			         <span> 
-				           	  <p>The identifying file number assigned to the transaction by the Closing Agent also known as a Settlement Agent.</p>
-			           	 <ul><li>Must be in a format of a String value with no more than 30 characters</li>
-			           	 <li>Is a required Field</li></ul>
-				          </span>
-                	</span>
-                </span>
+				<help-verbiage name="CD_SettlementAgentName_Help" title="inputright"></help-verbiage>
 			</div>
 		</div>
 	</div>
@@ -174,14 +125,7 @@
 		              <div class="col-sm-5 fieldTitle">Street Address
 		              </div>
 		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.addressLineText" class="form-control">
-		              	<span class="helpText tooltip-msg left inputright">?
-		                	<span>
-		                		<b></b>	
-					         <span> 
-					           	<p>The address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value</p>
-					          </span>
-		                	</span>
-		                </span>
+		              	<help-verbiage name="CD_SettlementAgentName_Help" title="left"></help-verbiage>
 		              </div>
 		            </div>
 		          </div>
