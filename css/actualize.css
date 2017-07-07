@@ -184,7 +184,7 @@ ul li{list-style: none;}
 .PageNavigation li{list-style: none; float: left; padding:5px 10px;}
 .PageNavigation li a{color: #fff; text-decoration: none;}
 .PageNavigation > li{position: relative;}
-.PageNavigation li > ul{position: absolute; z-index: 1; margin:2px 0; background: #fff; box-shadow: 0px 0px 1px #888888; display: none; padding:10px; width: 140px;}
+.PageNavigation li > ul{position: absolute; z-index: 1; margin:2px 0; background: #fff; box-shadow: 0px 0px 1px #888888; display: none; padding:10px; width: 150px;}
 .PageNavigation li:hover  ul{display: block; transition: width 2s, height 4s; z-index: 15;}
 .PageNavigation li > ul li{clear: both; padding:5px 10px; border-bottom: 1px solid #f5f5f5; width: 100%;}
 .PageNavigation li > ul li:last-child{border-bottom: 0px;}
