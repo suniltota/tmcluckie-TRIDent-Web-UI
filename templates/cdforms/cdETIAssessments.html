@@ -37,12 +37,12 @@
 		      <tr ng-repeat="etia in cdformdata.etiaSection.etiaValues track by $index">
 		      		<td rowspan="{{cdformdata.etiaSection.etiaValues.length}}" style="vertical-align: middle;" ng-if="$index==0">
 		      			<label>$ {{cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount | number:2}} </label>
-		      			<br>A month <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
-					         <span> 
-					           	 <p>This amount is calculated via the Calculate button.</p>
-					          </span>
-					 </span></br>
+		      			<br/><b>A month </b>
+		      			<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
+							<span> 
+								<p>This amount is calculated via the Calculate button.</p>
+							</span>
+					 	</span>
 		      		</td>
 		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes'">
 			        	<span class="pull-left margin5tb">Property Taxes

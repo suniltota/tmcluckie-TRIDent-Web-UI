@@ -183,8 +183,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		estimatedEscrow = angular.copy($scope.cdformdata.projectedPayments.estimatedEscrow[0]);
 		estimatedTotal = angular.copy($scope.cdformdata.projectedPayments.estimatedTotal[0]);
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
-        $scope.cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate = new Date();
-		$scope.cdformdata.closingInformationDetail.closingDate = add_business_days($scope.cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate, 5);
+        $scope.cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate = $filter('date')(new Date, 'yyyy-MM-dd');
+		$scope.cdformdata.closingInformationDetail.closingDate = $filter('date')(add_business_days($scope.cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate, 5), 'yyyy-MM-dd');
 		
 		if($scope.loanBasicInfo.loanPurposeType == 'purchase') {
 			$scope.cdformdata.salesContractDetail.personalPropertyIndicator = false;
@@ -2335,11 +2335,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.perDiemCalc = function(){
     	for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.length; i++) {
 	    	if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'PrepaidInterest'){
+	    		var prepaidCalMethodType = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemCalculationMethodType;
 				var fromDate = new Date($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidFromDate);
 				var toDate = new Date($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidThroughDate);
 				var diemAmount = 0;
-				var timeDiff = Math.abs(toDate.getTime() - fromDate.getTime());
-				var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+				var diffDays = differenceInDays(fromDate, toDate, prepaidCalMethodType);
 				diemAmount =  $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount ? $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount : +0;
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = parseFloat(diemAmount*diffDays);
 		    }
@@ -4691,4 +4691,105 @@ function add_business_days(date, days) {
 
 String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
+}
+
+function differenceInDays(fromDate, toDate, perDiemMethodType) {
+	var startDate = new Date(fromDate);
+	var endDate = new Date(toDate);
+	var diffDays = 0;
+	switch(perDiemMethodType) {
+		case "360": {
+			var startmonth = startDate.getUTCMonth() + 1; //months from 1-12
+			var startday = startDate.getUTCDate();
+			var startyear = startDate.getUTCFullYear();
+
+			var endmonth = endDate.getUTCMonth() + 1; //months from 1-12
+			var endday = endDate.getUTCDate();
+			var endyear = endDate.getUTCFullYear();
+			if(endyear>=startyear) {
+				var yeardiff =0, monthDiff=0, daysdiff = 0; 
+				if(endyear>startyear) 
+					yeardiff = endyear - startyear;
+				monthDiff = yeardiff * 12;
+				monthDiff = monthDiff - startmonth;
+				monthDiff = monthDiff + endmonth;
+				monthDiff =  monthDiff <= 0 ? 0 : monthDiff;
+				if(monthDiff>0) {
+					if(startday>endday) {
+						daysdiff = 30 - startday;
+						daysdiff = daysdiff + endday;
+						if(monthDiff>0)
+							daysdiff = daysdiff + ((monthDiff-1) * 30);
+					} else if(startday<endday) {
+						daysdiff = endday - startday;
+						if(monthDiff>0)
+							daysdiff = daysdiff + (monthDiff * 30);
+					} else if(startday == endday){
+						daysdiff = monthDiff * 30;
+					}
+				} else {
+					if(startday<=endday) {
+						daysdiff = endday - startday;
+					}
+				}
+				diffDays = daysdiff;
+			}
+		}
+	    case "365": {
+	    	var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+			diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+			var startmonth = startDate.getUTCMonth() + 1; //months from 1-12
+			var startday = startDate.getUTCDate();
+			var startyear = startDate.getUTCFullYear();
+
+			var endmonth = endDate.getUTCMonth() + 1; //months from 1-12
+			var endday = endDate.getUTCDate();
+			var endyear = endDate.getUTCFullYear();
+			if(isLeapYear(startyear) || isLeapYear(endyear)) {
+				if((startmonth<=2) || endmonth >= 2) {
+					diffDays = diffDays - 1;
+				}
+			}
+	    }
+	    default: {
+	    	var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+			diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+	    }
+
+	    return diffDays;
+	}
+}
+
+function isLeapYear(year) {
+	if (((year % 4 == 0) && !(year % 100 == 0)) || (year % 400 == 0))
+		return true;
+	return false;
+}
+
+function daysInMonth(month) {
+	var dayCount;
+	switch (month) {
+	    case 1:
+	    case 3:
+	    case 5:
+	    case 7:
+	    case 8:
+	    case 10:
+	    case 12:
+	        dayCount = 31;
+	        break;
+	    case 4:
+	    case 6:
+	    case 9:
+	    case 11:
+	        dayCount = 30;
+	        break;
+	    case 2:
+			dayCount = 28;
+	        break;
+	    default:
+	        dayCount = 30;
+	}
+	return dayCount;
 }

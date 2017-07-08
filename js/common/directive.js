@@ -619,6 +619,17 @@ app.directive('requireField', function($sce) {
           scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
       });
 
+      elem.on('change', function (e) {
+        var fieldValue = e.target.value;
+          if(fieldValue == ""){
+              e.currentTarget.style.border="1px solid #f17777"
+              message = "This is a required field";
+          }else{
+            e.currentTarget.style.border=""
+              message = "";
+          }
+          scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+      });
     }
   };
 });
@@ -678,21 +689,22 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
 
             element.on('blur', function (e) {
                 var dateVal = e.target.value;
-                
-                if(!(regexp.test(dateVal) && !isNaN(Date.parse(dateVal)))) {
-                  ngModel.$setViewValue(null);
-                  //ngModel.$render();
-                  ngModel.$modelValue = undefined;
-                } else {
-                  $parse(attr.ngModel).assign(scope, $filter('date')(new Date(Date.parse(dateVal)), xmlDateFormat));
-                  e.currentTarget.style.border=""
-                  message = "";
-                  scope.$apply();
+                if(dateVal) {
+                  if(!(regexp.test(dateVal) && !isNaN(Date.parse(dateVal)))) {
+                    ngModel.$modelValue = undefined;
+                    e.currentTarget.style.border="1px solid #f17777"
+                    message = "The date format is not valid. Valid Format is: MM/DD/YYYY";
+                    scope.$apply();
+                  } else {
+                    $parse(attr.ngModel).assign(scope, $filter('date')(new Date(Date.parse(dateVal)), xmlDateFormat));
+                    e.currentTarget.style.border=""
+                    message = "";
+                    scope.$apply();
+                  }
+                  scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+                  $compile(element.contents())(scope);
                 }
-                scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
-                $compile(element.contents())(scope);
             });
-            
         }
     };
 });
