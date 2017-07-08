@@ -5081,6 +5081,7 @@ this.cdformdata={
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
 	                "feeActualTotalAmount": "",
+	                "feeEstimatedTotalAmount":"",
 	                "feePaidToType": "Lender",
 	                "feePaidToTypeOtherDescription": "",
 	                "feePercentBasisType": "",
@@ -5100,6 +5101,7 @@ this.cdformdata={
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
 	                "feeActualTotalAmount": "",
+	                "feeEstimatedTotalAmount":"",
 	                "feePaidToType": "ThirdPartyProvider",
 	                "feePaidToTypeOtherDescription": "",
 	                "feePercentBasisType": "",
@@ -5119,6 +5121,7 @@ this.cdformdata={
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
 	                "feeActualTotalAmount": "",
+	                "feeEstimatedTotalAmount":"",
 	                "feePaidToType": "ThirdPartyProvider",
 	                "feePaidToTypeOtherDescription": "",
 	                "feePercentBasisType": "",
@@ -5148,15 +5151,6 @@ this.cdformdata={
 	        "escrowItemsTotalAmount": "",
 	        "otherTotalAmount": "",
 	        "totalOtherCostsTotalAmount": "",
-	        "totalOtherCosts":
-	        {
-	            "bpAtClosing": "",
-	            "bpB4Closing": "",
-	            "spAtClosing": "",
-	            "spB4Closing": "",
-	            "paidByOthers": "",
-	            "lenderStatus": false
-	        },
 	        "tOGovtFeesList":
 	        [
 	            {
@@ -5184,6 +5178,7 @@ this.cdformdata={
 	                "feePaidToType": "ThirdPartyProvider",
 	                "feePaidToTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "Prepaids",
+	                "prepaidItemEstimatedTotalAmount": "",
 	                "prepaidItemMonthsPaidCount": "",
 	                "prepaidItemPaidFromDate": "",
 	                "prepaidItemPaidThroughDate": "",
@@ -5206,6 +5201,7 @@ this.cdformdata={
 	            {
 			        "displayLabel": "",
 			        "escrowCollectedNumberOfMonthsCount": "",
+			        "escrowItemEstimatedTotalAmount":"",
 			        "escrowItemType": "",
 			        "escrowItemTypeOtherDescription": "",
 			        "escrowMonthlyPaymentAmount": "",
@@ -5224,6 +5220,7 @@ this.cdformdata={
 	                "gseDisplayLabel": "",
 	                "feePaidToFullName": "",
 	                "feeActualTotalAmount": "",
+	                "feeEstimatedTotalAmount":"",
 	                "feePaidToType": "ThirdPartyProvider",
 	                "feePaidToTypeOtherDescription": "",
 	                "feePercentBasisType": "",
