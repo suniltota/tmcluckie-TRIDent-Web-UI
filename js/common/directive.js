@@ -743,26 +743,51 @@ app.directive('actualizeInput', function($compile, $sce, staticData, $parse, $ti
 app.directive('helpVerbiage', function ($window, $compile) {
     return {
       restrict: 'EA',
-      scope: true,
-      templateUrl: 'templates/cdforms/cdHelp.html',
       link: function (scope, elem, attr) {
         var currentname = attr.name;
-        var helpgetid = $("#"+attr.name).html();
-
-        if(attr.title == "inputright"){
-              var template ='<span class="helpText tooltip-msg inputright"> ? <span><b></b><span>';
-            }
-        if(attr.title == "left"){
-              var template ='<span class="helpText tooltip-msg inputright left"> ? <span><b></b><span>';
-            }
         if(attr.title == "help_tooltip"){
               var template ='<span class="helpText tooltip-msg"> ? <span><b></b><span>';
-            }
-
-        template += helpgetid
+        }
+        if(attr.title == "calenderInput"){
+              var template ='<span class="helpText tooltip-msg calenderInput"> ? <span><b></b><span>';
+        }
+        if(attr.title == "leftTooltip"){
+              var template ='<span class="helpText tooltip-msg left"> ? <span><b></b><span>';
+        }
+        if(attr.title == "topTooltip"){
+              var template ='<span class="helpText tooltip-msg top"> ? <span><b></b><span>';
+        }
         template += '</span></span></span>'
         elem.html(template);
         $compile(elem.contents())(scope);
+
+        elem.on('mouseenter', function (e) {
+          var helpgetid = $("#"+attr.name).html();
+          if(attr.title == "help_tooltip"){
+              var template ='<span class="helpText tooltip-msg"> ? <span><b></b><span>';
+          }
+          if(attr.title == "calenderInput"){
+              var template ='<span class="helpText tooltip-msg calenderInput"> ? <span><b></b><span>';
+          }
+          if(attr.title == "leftTooltip"){
+              var template ='<span class="helpText tooltip-msg left"> ? <span><b></b><span>';
+          }
+          if(attr.title == "topTooltip"){
+              var template ='<span class="helpText tooltip-msg top"> ? <span><b></b><span>';
+          }
+          template += helpgetid
+          template += '</span></span></span>'
+          elem.html(template);
+          $compile(elem.contents())(scope);
+        });
+
+        elem.on('mouseleave', function (e) {
+          var template ='<span class="helpText tooltip-msg"> ? <span><b></b><span>';
+          template += '</span></span></span>'
+          elem.html(template);
+          $compile(elem.contents())(scope);
+        });
+                
       }
   };
 });

@@ -16,7 +16,7 @@
 				
 				<actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" is-open="isDateIssued" min-date="1/1/2015" max-date="12/31/2045" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
-                <help-verbiage name="CD_dateIssued_Help"  title="help_tooltip"></help-verbiage>
+                <help-verbiage name="CD_dateIssued_Help"  title="calenderInput"></help-verbiage>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -30,7 +30,7 @@
 				<span class="col-sm-10 padding0">
 				<actualize-input name="closingDate" id="closingDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.closingDate" min-date-var="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" max-date="12/31/2045" is-open="isClosingDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Closing Date cannot occur prior to Issue Date." placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
-                <help-verbiage name="CD_ClosingDate_Help" title="help_tooltip" ></help-verbiage>
+                <help-verbiage name="CD_ClosingDate_Help" title="calenderInput" ></help-verbiage>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isClosingDate = !isClosingDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -44,7 +44,7 @@
 				<span class="col-sm-10 padding0">
 				<actualize-input name="disbursementDate" id="disbursementDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.disbursementDate" min-date-var="cdformdata.closingInformationDetail.closingDate"  max-date="12/31/2045" is-open="isDisbursementDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Disbursement Date cannot occur before the Closing Date." placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
-				 <help-verbiage name="CD_DisbursementDate_Help"  title="help_tooltip" ></help-verbiage>
+				 <help-verbiage name="CD_DisbursementDate_Help"  title="calenderInput" ></help-verbiage>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDisbursementDate = !isDisbursementDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -60,7 +60,7 @@
 			<div class="col-sm-7" class="form-group" >
 				<actualize-input name="organizationName" ng-model="cdformdata.contactInformation.settlementAgent.organizationName" ng-required="true" toolTipPos = "top" dependencies="require-field" >
                 </actualize-input>
-				<help-verbiage name="CD_SettlementAgentName_Help" title="inputright"></help-verbiage>
+				<help-verbiage name="CD_SettlementAgentName_Help" title="help_tooltip"></help-verbiage>
 			</div>
 		</div>
 		<div class="FieldGroup">
@@ -72,7 +72,7 @@
 			<div class="col-sm-7">
 				<actualize-input name="closingAgentOrderNumberIdentifier" ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" ng-required="true" toolTipPos = "top" dependencies="require-field" >
                 </actualize-input>
-				<help-verbiage name="CD_SettlementAgentName_Help" title="inputright"></help-verbiage>
+				<help-verbiage name="CD_SettlementAgentName_Help" title="topTooltip"></help-verbiage>
 			</div>
 		</div>
 	</div>
@@ -125,7 +125,7 @@
 		              <div class="col-sm-5 fieldTitle">Street Address
 		              </div>
 		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.addressLineText" class="form-control">
-		              	<help-verbiage name="CD_SettlementAgentName_Help" title="left"></help-verbiage>
+		              	<help-verbiage name="CD_SettlementAgentName_Help" title="leftTooltip"></help-verbiage>
 		              </div>
 		            </div>
 		          </div>
@@ -148,15 +148,10 @@
 		          <div class="row margin5tb">
 		            <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">City
-		              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <span><b></b>	
-					         <span> 
-					           	 <p>The name of the city.</p>
-					           	 <ul><li>Must be in a format of a String value with no more than 50 characters.</li></ul>
-					          </span>
-					          </span>
-					 </span></div>
-		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.cityName" class="form-control"></div>
+		              </div>
+		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.cityName" class="form-control">
+		              <help-verbiage name="CD_CityName_Help" title="topTooltip"></help-verbiage>
+		              </div>
 		            </div>
 		          </div>
 		          <div class="row margin5tb">

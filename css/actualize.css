@@ -63,8 +63,9 @@ input, select, textarea, .form-control{font-size: 12px;}
     background: #5bb1dc;
     color: #fff;
     position: absolute!important;
-    right: 0px;
+    right:16px;
     top: 0;
+    cursor: pointer;
     border-radius: 0 5px;
     font-size: 10px;
     padding: 0 4px;
@@ -77,10 +78,12 @@ input, select, textarea, .form-control{font-size: 12px;}
 .helpText span ul li{list-style-type:circle; float: left; padding:3px 0;}
 .helpText.left > span{left:-240px;}
 .helpText.left > span > b{margin-left:310px;}
-.helpText.inputright{right: 16px;}
+.helpText.top > span{left:-240px; bottom:22px;}
+.helpText.top > span > b{margin-left:310px; bottom:-8px; transform: rotate(135deg); margin-top:0px; background: #fff;}
+.helpText.calenderInput{right: 0px;}
 
 .helpIcon{font-size: 14px; color:#777;}
-.helpIcon + .tooltip .tooltip-arrow{border-right-color: #5bb1dc; }
+.helpIcon + .tooltip .tooltip-arrow{border-right-color: #5bb1dc;}
 .helpIcon + .tooltip .tooltip-inner{background-color: #5bb1dc;}
 .helpIcon span{color: #555; width: 200px;}
 .helpIcon span ul{float: left; padding-left:15px;}
