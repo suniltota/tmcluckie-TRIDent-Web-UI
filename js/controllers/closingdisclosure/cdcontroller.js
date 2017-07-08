@@ -3524,6 +3524,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
          var etiaTotalAmount = 0;
          var nonEscrowAmount = 0;
          var escrowMonthlyAmount = 0;
+         $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription = '';
          for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length; i++) {
          	bpAtClosing.iEPatClosingTotalbpAtClosing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpAtClosing) : +0;
          	bpB4Closing.iEPatClosingTotalbpB4Closing += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].bpB4Closing) : +0;
@@ -3591,7 +3592,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             }
 
             //Projected Payments Escrow Monthly Payment Amount
-            if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!='MortgageInsurance'){
+            if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!='MortgageInsurance'){
                escrowMonthlyAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount) : +0;
                for(j=0;j<$scope.cdformdata.projectedPayments.estimatedEscrow.length;j++){
                	$scope.cdformdata.projectedPayments.estimatedEscrow[j].projectedPaymentEstimatedEscrowPaymentAmount = escrowMonthlyAmount ? parseFloat(escrowMonthlyAmount) : +0;
@@ -3649,27 +3650,25 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
             }
 
-            if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1 || $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1){
                 
-                if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1){
-                	$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='Escrowed';
-                	$scope.cdformdata.etiaSection.etiaValues[0].insuranceTaxCheck = true; 
-                	$scope.cdformdata.etiaSection.propertyTaxesCheck = true;
-                }else{
-                	$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='NotEscrowed';
-                	$scope.cdformdata.etiaSection.etiaValues[0].insuranceTaxCheck = false; 
-                	$scope.cdformdata.etiaSection.propertyTaxesCheck = false;
-                }
+            if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1){
+            	$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='Escrowed';
+            	$scope.cdformdata.etiaSection.etiaValues[0].insuranceTaxCheck = true; 
+            	$scope.cdformdata.etiaSection.propertyTaxesCheck = true;
+            }else{
+            	$scope.cdformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='NotEscrowed';
+            	$scope.cdformdata.etiaSection.etiaValues[0].insuranceTaxCheck = false; 
+            	$scope.cdformdata.etiaSection.propertyTaxesCheck = false;
+            }
 
-                 if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1){
-                	$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='Escrowed';
-                	$scope.cdformdata.etiaSection.etiaValues[1].insuranceTaxCheck = true; 
-                	$scope.cdformdata.etiaSection.HomeownersInsuranceCheck = true;
-                }else{
-                	$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='NotEscrowed';
-                	$scope.cdformdata.etiaSection.etiaValues[1].insuranceTaxCheck = false; 
-                	$scope.cdformdata.etiaSection.HomeownersInsuranceCheck = false;
-                }
+             if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1){
+            	$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='Escrowed';
+            	$scope.cdformdata.etiaSection.etiaValues[1].insuranceTaxCheck = true; 
+            	$scope.cdformdata.etiaSection.HomeownersInsuranceCheck = true;
+            }else{
+            	$scope.cdformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='NotEscrowed';
+            	$scope.cdformdata.etiaSection.etiaValues[1].insuranceTaxCheck = false; 
+            	$scope.cdformdata.etiaSection.HomeownersInsuranceCheck = false;
             }
             /*for(i=0;i<escrowArray.length;i++){
             	if(escrowArray[i]!='HomeownersInsurance' && escrowArray[i]!='PropertyTaxes'){
