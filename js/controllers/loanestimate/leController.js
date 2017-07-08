@@ -1973,30 +1973,29 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     }
 
     $scope.$watchCollection('[leformdata.loanInformation.loanTermYears, leformdata.loanInformation.loanTermMonths,leformdata.loanInformation.rateLokerIndicator,leformdata.loanInformation.rateLokedDate,leformdata.loanInformation.rateLokedTime,leformdata.loanInformation.rateLockedTimePeriod,leformdata.loanInformation.rateLockedTimeZone]', function(newValues, oldValues){
-    	$scope.leformdata.maturityRule.loanMaturityPeriodCount = 0;
-    	if($scope.leformdata.loanInformation.loanTermYears)
-    		$scope.leformdata.maturityRule.loanMaturityPeriodCount = parseInt($scope.leformdata.loanInformation.loanTermYears * 12);
-    	if($scope.leformdata.loanInformation.loanTermMonths)
-    		$scope.leformdata.maturityRule.loanMaturityPeriodCount = $scope.leformdata.maturityRule.loanMaturityPeriodCount + parseInt($scope.leformdata.loanInformation.loanTermMonths);
-    	if($scope.leformdata.loanInformation.rateLokerIndicator==true){
-    		$scope.leformdata.loanProduct.lock.lockStatusType= 'Locked';
-    	}else{
-    		$scope.leformdata.loanProduct.lock.lockStatusType= 'None';	
-    	}
-    	$scope.leformdata.loanProduct.lock.lockExpirationDatetime=$scope.leformdata.loanInformation.rateLokedDate;
-    	//$scope.leformdata.loanProduct.lockStatusType=$scope.leformdata.loanInformation.rateLokerIndicator;
-    	$scope.leformdata.loanProduct.lock.lockExpirationTimezoneType=$scope.leformdata.loanInformation.rateLockedTimeZone;
-    	//console.log($scope.leformdata.loanInformation.rateLockedTimePeriod);
-    	//console.log($scope.leformdata.loanProduct.lock.lockStatusType);
-    	//$scope.rateLokedDate=$scope.leformdata.loanInformation.rateLokedDate;
-    	//if($scope.leformdata.loanInformation.rateLockedTimeZone != undefined)
-    	//	console.log(new Date($scope.leformdata.loanInformation.rateLokedDate));
-    	//	console.log($scope.leformdata.loanInformation.rateLokedDate+$scope.leformdata.loanInformation.rateLokedTime+$scope.leformdata.loanInformation.rateLockedTimePeriod+$scope.leformdata.loanInformation.rateLockedTimeZone);
-    	//$scope.rateLockedTimePeriod=$scope.leformdata.loanInformation.rateLockedTimePeriod;
-    	//$scope.fullDate = new Date(Date.UTC.apply(undefined,$scope.rateLokedDate.split('/').concat($scope.rateLockedTimePeriod.split(':')))).toISOString();
-    	//console.log(typeof($scope.rateLokedDate));
-    	//console.log(typeof($scope.rateLockedTimePeriod));
-    	$scope.leformdata.maturityRule.loanMaturityPeriodType = 'Month';
+    $scope.leformdata.maturityRule.loanMaturityPeriodCount = 0;
+    if($scope.leformdata.loanInformation.loanTermYears)
+    $scope.leformdata.maturityRule.loanMaturityPeriodCount = parseInt($scope.leformdata.loanInformation.loanTermYears * 12);
+    if($scope.leformdata.loanInformation.loanTermMonths)
+    $scope.leformdata.maturityRule.loanMaturityPeriodCount = $scope.leformdata.maturityRule.loanMaturityPeriodCount + parseInt($scope.leformdata.loanInformation.loanTermMonths);
+    if($scope.leformdata.loanInformation.rateLokerIndicator==true){
+    $scope.leformdata.loanProduct.lock.lockStatusType= 'Locked';
+    }else{
+    $scope.leformdata.loanProduct.lock.lockStatusType= 'None';
+    }
+    $scope.leformdata.loanProduct.lock.lockExpirationDatetime=$scope.leformdata.loanInformation.rateLokedDate;
+    var utcdate =$scope.leformdata.loanInformation.rateLokedDate+' '+$scope.leformdata.loanInformation.rateLokedTime+' '+$scope.leformdata.loanInformation.rateLockedTimePeriod+' '+$scope.leformdata.loanInformation.rateLockedTimeZone;
+    var rateLokedDate1 =$scope.leformdata.loanInformation.rateLokedDate;
+    var rateLockedTimePeriod1=$scope.leformdata.loanInformation.rateLokedTime;
+    if(rateLokedDate1!='' && rateLockedTimePeriod1!='' && rateLokedDate1!=undefined && rateLockedTimePeriod1!= undefined){
+        var rateLockArray = rateLokedDate1.split('-');
+        var hours =rateLockedTimePeriod1.split(':');
+        var _utc = new Date(rateLockArray[0], rateLockArray[1], rateLockArray[2], hours[0], hours[1], 0);
+    $scope.leformdata.loanProduct.lock.lockExpirationDatetime=_utc;
+    }
+    $scope.leformdata.loanProduct.lock.lockExpirationTimezoneType=$scope.leformdata.loanInformation.rateLockedTimeZone;
+    $scope.leformdata.maturityRule.loanMaturityPeriodType = 'Month';
+
     });
 
     $scope.$watch('leformdata.loanDetail.negativeAmortizationIndicator', function(newValue, oldValue){
@@ -2972,17 +2971,11 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		   $scope.leformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing*-1); 
         }
     },true);
-    $scope.$watch('leformdata.contactInformation', function(newValue,oldValue){
-		$scope.leformdata.contactInformation.lender.name.fullName=$scope.leformdata.contactInformation.lender.name.fullName;
-		$scope.leformdata.contactInformation.mortagageBroker.name.fullName=$scope.leformdata.contactInformation.mortagageBroker.name.fullName;
-    },true);
     
    $scope.showtooltip = function($event){
-    //console.log("ID "+$event.target.id);
     $scope.mml=angular.element(document.getElementById($event.target.id));
-    $scope.tooltipmessage=$scope.mml.html();  
-    console.log($scope.tooltipmessage); 
-}
+    $scope.tooltipmessage=$scope.mml.html();
+     }
     $scope.leformdata.etiaSection['propertyTaxesCheck'] = false;
     $scope.leformdata.etiaSection['HomeownersInsuranceCheck'] = false;
     $scope.$watch('leformdata.etiaSection',function(newValue,oldValue){
