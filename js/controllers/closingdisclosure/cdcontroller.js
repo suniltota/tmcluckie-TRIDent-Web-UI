@@ -2641,7 +2641,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         //diffClosingCosts
         $scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount) : +0;
         $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing = $scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing ? parseFloat($scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing) : +0;
-        diffClosingCosts = parseFloat($scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount)-parseFloat($scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing);
+        diffClosingCosts = parseFloat($scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount*-1)-parseFloat($scope.cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing);
         
         //diffClosingCostsAtClosing
         $scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount ? parseFloat($scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount) : +0;
@@ -2666,7 +2666,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
                 $scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount = 0;
             }else if(noteAmountPayOffDiff > diffClosingCosts){
                 $scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(diffClosingCosts);
-            }else if(noteAmountPayOffDiff <= diffClosingCosts){
+            }else if(noteAmountPayOffDiff <= 0){
                 $scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount = 0;
             }else{
                 $scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount = parseFloat(noteAmountPayOffDiff);
