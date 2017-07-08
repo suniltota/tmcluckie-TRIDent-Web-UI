@@ -2830,6 +2830,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		 $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalPointsAndFeesAmount=0;
          
         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++) {
+
+        	if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType=='EscrowWaiverFee'){
+            	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeActualTotalAmount;
+            }
+
          	bpAtClosing.originationChargeTotalbpAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing) : +0;
          	bpB4Closing.originationChargeTotalbpB4Closing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing) : +0;
          	spAtClosing.originationChargeTotalspAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing) : +0;
@@ -2843,7 +2848,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 					}
 				} 
 		    }
-            
+
             if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paymentIncludedInAPRIndicator==null){
             	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paymentIncludedInAPRIndicator='';
             }
@@ -2851,8 +2856,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             //Escrow Waiver Fee Calculation
             if(($scope.escrowWaiverFeeAmount=="0.00" || $scope.escrowWaiverFeeAmount=="0") && $scope.escrowWaiverFeeAmount==''){
 		        if($scope.cdformdata.loanDetail.escrowIndicator==false && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType =='EscrowWaiverFee'){
-		            if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing){
-		               $scope.escrowWaiverFeeAmount = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing) : +0;
+		            if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing!=undefined){
+		               $scope.escrowWaiverFeeAmount = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing);
 		            }
 		        }
 		    }
@@ -2902,8 +2907,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length; i++) {
         	if(($scope.escrowWaiverFeeAmount=="0.00" || $scope.escrowWaiverFeeAmount=="0") && $scope.escrowWaiverFeeAmount==''){
 		        if($scope.cdformdata.loanDetail.escrowIndicator==false && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType =='EscrowWaiverFee'){
-		            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing){
-		               $scope.escrowWaiverFeeAmount = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing) : +0;
+		            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing!=undefined){
+		               $scope.escrowWaiverFeeAmount = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing);
 		            }
 		        }
 		    }
@@ -2912,8 +2917,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.length; i++) {
             if(($scope.escrowWaiverFeeAmount=="0.00" || $scope.escrowWaiverFeeAmount=="0") && $scope.escrowWaiverFeeAmount==''){
 		        if($scope.cdformdata.loanDetail.escrowIndicator==false && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType =='EscrowWaiverFee'){
-		            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing){
-		               $scope.escrowWaiverFeeAmount = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing) : +0;
+		            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing!=undefined){
+		               $scope.escrowWaiverFeeAmount = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing);
 			        }
 		        }
 	        }
@@ -2967,14 +2972,18 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++) {
             if(($scope.escrowWaiverFeeAmount=="0.00" || $scope.escrowWaiverFeeAmount=="0") && $scope.escrowWaiverFeeAmount==''){
 		        if($scope.cdformdata.loanDetail.escrowIndicator==false && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType =='EscrowWaiverFee'){
-		            if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing){
-		               $scope.escrowWaiverFeeAmount = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing) : +0;
+		            if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing!=undefined){
+		               $scope.escrowWaiverFeeAmount = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing);
 			        }
 		        }
 	        }
 	    }
 
         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length; i++) {
+        	if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType=='EscrowWaiverFee'){
+            	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeActualTotalAmount;
+            }
+
          	bpAtClosing.sbDidNotShopTotalbpAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing) : +0;
          	bpB4Closing.sbDidNotShopTotalbpB4Closing += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpB4Closing) : +0;
          	spAtClosing.sbDidNotShopTotalspAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].spAtClosing) : +0;
@@ -2984,8 +2993,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
           	//Escrow Waiver Fee Calculation
             if(($scope.escrowWaiverFeeAmount=="0.00" || $scope.escrowWaiverFeeAmount=="0") && $scope.escrowWaiverFeeAmount==''){
 		        if($scope.cdformdata.loanDetail.escrowIndicator==false && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType =='EscrowWaiverFee'){
-		            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing){
-		               $scope.escrowWaiverFeeAmount = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing) : +0;
+		            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing!=undefined){
+		               $scope.escrowWaiverFeeAmount = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing);
 		            }
 		        }
 		    }
@@ -3044,8 +3053,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
          for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.length; i++) {
             if(($scope.escrowWaiverFeeAmount=="0.00" || $scope.escrowWaiverFeeAmount=="0") && $scope.escrowWaiverFeeAmount==''){
 		        if($scope.cdformdata.loanDetail.escrowIndicator==false && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType =='EscrowWaiverFee'){
-		            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing){
-		               $scope.escrowWaiverFeeAmount = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing) : +0;
+		            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing !=undefined){
+		               $scope.escrowWaiverFeeAmount = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing);
 			        }
 		        }
 	        }
@@ -3099,8 +3108,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
          for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++) {
             if(($scope.escrowWaiverFeeAmount=="0.00" || $scope.escrowWaiverFeeAmount=="0") && $scope.escrowWaiverFeeAmount==''){
 		        if($scope.cdformdata.loanDetail.escrowIndicator==false && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType =='EscrowWaiverFee'){
-		            if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing){
-		               $scope.escrowWaiverFeeAmount = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing) : +0;
+		            if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing!=undefined){
+		               $scope.escrowWaiverFeeAmount = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing);
 			        }
 		        }
 	        }
@@ -3115,6 +3124,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
          }
 
          for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.length; i++) {
+         	if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType=='EscrowWaiverFee'){
+            	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeActualTotalAmount;
+            }
+            
          	bpAtClosing.sbDidShopTotalbpAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing) : +0;
          	bpB4Closing.sbDidShopTotalbpB4Closing += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpB4Closing) : +0;
          	spAtClosing.sbDidShopTotalspAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].spAtClosing) : +0;
@@ -3124,8 +3137,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             //Escrow Waiver Fee Calculation
             if(($scope.escrowWaiverFeeAmount=="0.00" || $scope.escrowWaiverFeeAmount=="0") && $scope.escrowWaiverFeeAmount==''){
 		        if($scope.cdformdata.loanDetail.escrowIndicator==false && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType =='EscrowWaiverFee'){
-		            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing){
-		               $scope.escrowWaiverFeeAmount = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing) : +0;
+		            if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing!=undefined){
+		               $scope.escrowWaiverFeeAmount = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing);
 			        }
 		        }
 	        }
