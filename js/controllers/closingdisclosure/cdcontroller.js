@@ -4346,7 +4346,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.summariesOfTransaction_LSection.sectionTotalAmount += parseFloat($scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemAmount);
 			if($scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemAmount && $scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemType) {
 				$scope.cdformdata.closingAdjustmentItemList.push($scope.summariesOfTransaction_LSection.adjustments[i]);
-				if($scope.summariesOfTransaction_NSection.adjustments[i].closingAdjustmentItemType!='SellerCredit'){
+				if($scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemType!='SellerCredit'){
 				   $scope.adjustmentsAndProrationsAmountsLSection += parseFloat($scope.summariesOfTransaction_LSection.adjustments[i].closingAdjustmentItemAmount);
 			    }
 			}
