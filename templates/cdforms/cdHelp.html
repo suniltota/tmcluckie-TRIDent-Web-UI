@@ -1401,5 +1401,2162 @@
 			  </div> 
 			  </span>
 		  </div>
+		<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDServicesBorrowerDidShopHelp"  ng-click="CDServicesBorrowerDidShopHelp = CDServicesBorrowerDidShopHelp + 1" ng-init="CDServicesBorrowerDidShopHelp=0" > 	  
+		<span>C. Services Borrower Did Shop For</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDServicesBorrowerDidShopHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDServicesBorrowerDidShopHelp%2==1"></span>
+          </span>
+		  <div class="col-sm-12" id="CDServicesBorrowerDidShopHelp">
+		  <span class="field_help">
+			 <h5> Section Header Name : </h5>
+              <div id="CD_ServicesBorrowerDidShopSectionHeaderName_Help">Each Section in the Closing Cost Details is highlighted at the top of the section.
+			  <ul>
+                    <li>The first section is called “Services Borrower Did Shop For”. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Section Total Amount Borrower Paid : </h5>
+              <div id="CD_ServicesBorrowerDidShopSectionTotalAmountBorrowerPaid_Help">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Borrower At Closing or Before Closing columns.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			  <h5>All Rows must include the following:</h5>
+			 <h5> Fee Label Name : </h5>
+              <div id="CD_ServicesBorrowerDidShopFeeLabelName_Help">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+			  <ul>
+                    <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
+					<li>Format is a String Value up to 150 characters.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type : </h5>
+              <div id="CD_ServicesBorrowerDidShopFeeType_Help">Specify the general type of fees associated with a real estate finance transaction.
+			  <ul>
+                    <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name. </li>
+					<li>If other is chosen, then the user will be provided another text box (see below).</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type Other Description  : </h5>
+              <div id="CD_ServicesBorrowerDidShopFeeTypeOtherDescription_Help">This field is required to be filled-in if the Fee Type is Other.
+			  <ul>
+                    <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type. </li>
+					<li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Full Name  : </h5>
+              <div id="CD_ServicesBorrowerDidShopFullName_Help">If applicable see the CFPB Know Before You Owe regulation when to include this value in the Closing Disclosure.
+			  <ul>
+                    <li>For this section, each Fee is required to have a Full Name of the organization in which the fee is being paid to.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Paid To Type : </h5>
+              <div id="CD_ServicesBorrowerDidShopFeePaidToType_Help">Identify the category or type of payee to which the fee or payment will be paid. 
+			  <ul>
+                    <li>Format is a list of enumerated values that include: Broker | Investor | Lender | Other | Third Party Provider </li>
+					<li>Must be provided when there is a fee entered in the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Borrower Paid At Closing : </h5>
+              <div id="CD_ServicesBorrowerDidShopBorrowerPaidAtClosing_Help">The amount of the fee that is paid by the Borrower at closing.
+			  <ul>
+                   <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> Seller Paid At Closing : </h5>
+              <div id="CD_ServicesBorrowerDidShopBorrowerPaidSellerPaidAtClosing_Help">The amount of the fee that is paid by the Seller at closing.
+			  <ul>	
+					<li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction.</li>
+                    <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+
+			  <span class="field_help">
+			 <h5> Borrower Paid Before Closing  : </h5>
+              <div id="CD_ServicesBorrowerDidShopBorrowerPaidBeforeClosing _Help">The amount of the fee that is paid by the Borrower before closing.
+                     <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Seller Paid Before Closing : </h5>
+              <div id="CD_ServicesBorrowerDidShopSellerPaidBeforeClosing_Help">The amount of the fee that is paid by the Seller before closing.
+			  <ul>
+                    <li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction. </li>
+					<li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Other : </h5>
+              <div id="CD_ServicesBorrowerDidShopPaidByOther_Help">The amount of the fee that is paid by a Third Party or the Lender
+			  <ul>
+                      <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					 <li>There is NOT a “At Closing” or “Before Closing” indication. </li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Lender Flag : </h5>
+              <div id="CD_ServicesBorrowerDidShopPaidByLenderFlag_Help">When a value is in the Paid By Other column, if the amount is paid by the Lender then the user must check the Paid By Lender Flag.
+			  <ul>
+                    <li>Required to indicate if a Lender is paying a Fee per the rule.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in APR Calculation : </h5>
+              <div id="CD_ServicesBorrowerDidShopIncludeAPRCalculation_Help">For each record included must Indicate if the fee is included in the APR calculation. 
+			  <ul>
+                    <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in Flag Z Points/Fee : </h5>
+              <div id="CD_ServicesBorrowerDidShopIncludeFlagPointsFee_Help">When true, indicates that item is included in the Regulation Z Points and Fees calculation.
+			  <ul>
+                    <li>Must be included for all Fees except for Tax related fees. </li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Additional Lines can be added. : </h5>
+              <div id="CD_ServicesBorrowerDidShopAdditionalLinesadded._Help">To add more fees to the section the user may click on the link to add another row.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Trash Symbol : </h5>
+              <div id="CD_ServicesBorrowerDidShopTrashSymbol_Help">The Trash Can symbol at the end of the record will delete the entire row including all data.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Clear Symbol : </h5>
+              <div id="CD_ServicesBorrowerDidShopClearSymbol_Help">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+			  </div> 
+			  </span>
+		  </div> 
+		<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDTotalLoanCostsHelp"  ng-click="CDTotalLoanCostsHelp = CDTotalLoanCostsHelp + 1" ng-init="CDTotalLoanCostsHelp=0" > 	  
+		<span>D. Total Loan Costs</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDTotalLoanCostsHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDTotalLoanCostsHelp%2==1"></span>
+          </span>
+		  <div class="col-sm-12" id="CDTotalLoanCostsHelp">
+		  <span class="field_help">
+			 <h5> D. Total Loan Costs (Amount) : </h5>
+              <div id="CD_TotalLoanCosts_Help">Read Only on the User Interface that provides the Total of both the Paid At Closing and Paid Before Closing for the Borrower ONLY.
+			  <ul>
+                    <li>Not able to edit this value. </li>
+                </ul>
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Loan Costs (A+B+C) : </h5>
+              <div id="CD_LoanCosts_Help">Read Only on the User Interface that provide the subtotal amount for each of the Borrower Paid columns.
+			  <ul>
+                    <li>Not able to edit this value. </li>
+					<li>Two Values, “At Closing” and “Before Closing”.</li>
+                </ul>
+			  </div> 
+			  </span>		  
+			</div>
+		</div>
+</div>
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_OtherCosts_Help"  ng-click="CD_OtherCosts_Help = CD_OtherCosts_Help + 1" ng-init="CD_OtherCosts_Help=0" > 
+      <strong>Other Costs</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_OtherCosts_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_OtherCosts_Help%2==1"></span>
+      </span>
+	 <div id="CD_OtherCosts_Help" class="collapse subContainer">
+	<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDTaxesOtherGovermentFeesHelp"  ng-click="CDTaxesOtherGovermentFeesHelp = CDTaxesOtherGovermentFeesHelp + 1" ng-init="CDTaxesOtherGovermentFeesHelp=0" > 	  
+			<span>E. Taxes and Other Goverment Fees</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDTaxesOtherGovermentFeesHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDTaxesOtherGovermentFeesHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDTaxesOtherGovermentFeesHelp">
+			<span class="field_help">
+			 <h5> Section Header Name : </h5>
+              <div id="CD_TaxesOtherGovermentFeesSectionHeaderName_Help">Each Section in the Closing Cost Details is highlighted at the top of the section.
+			  <ul>
+                    <li>The first section is called “Taxes and Other Government Fees”. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Section Total Amount Borrower Paid : </h5>
+              <div id="CD_TaxesOtherGovermentFeesSectionTotalAmountBorrowerPaid_Help">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Borrower At Closing or Before Closing columns.
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Recording Fee Total : </h5>
+              <div id="CD_TaxesOtherGovermentFeesRecordingFeeTotal_Help">Is the Cumulative value of all recording fees in one line item.  The Fee Label is predefined to set the total of all recording fees.
+			   <ul>
+                    <li>Is set in accordance to the UCD specification to submit the xml file to the GSEs. </li>
+                </ul>
+			  </div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Recording Fee For Deed : </h5>
+              <div id="CD_TaxesOtherGovermentFeesRecordingFeeForDeed_Help">A predefined value per the regulation and must have the label and the amount of the recording fee specific to the deed.
+			   <ul>
+                    <li>Format is an Amount value 9.2. </li>
+                </ul>
+				</div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Recording Fee For Mortgage : </h5>
+              <div id="CD_TaxesOtherGovermentFeesRecordingFeeForMortgage_Help">A predefined value per the regulation and must have the label and the amount of the recording fee specific to the mortgage.
+			   <ul>
+                    <li>Format is an Amount value 9.2. </li>
+                </ul>
+				</div> 
+			  </span>
+			  			  <span class="field_help">
+			  <h5>All Rows after the Recording Fee will include the following:</h5>
+			 <h5> Fee Label Name : </h5>
+              <div id="CD_TaxesOtherGovermentFeesFeeLabelName_Help">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+			  <ul>
+                    <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
+					<li>Format is a String Value up to 150 characters.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type : </h5>
+              <div id="CD_TaxesOtherGovermentFeesFeeType_Help">Specify the general type of fees associated with a real estate finance transaction.
+			  <ul>
+                    <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name. </li>
+					<li>If other is chosen, then the user will be provided another text box (see below).</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type Other Description  : </h5>
+              <div id="CD_TaxesOtherGovermentFeesFeeTypeOtherDescription_Help">This field is required to be filled-in if the Fee Type is Other.
+			  <ul>
+                    <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type. </li>
+					<li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Full Name  : </h5>
+              <div id="CD_TaxesOtherGovermentFeesFullName_Help">If applicable see the CFPB Know Before You Owe regulation when to include this value in the Closing Disclosure.
+			  <ul>
+                    <li>For this section, each Fee is required to have a Full Name of the organization in which the fee is being paid to.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Paid To Type : </h5>
+              <div id="CD_TaxesOtherGovermentFeesFeePaidToType_Help">Identify the category or type of payee to which the fee or payment will be paid. 
+			  <ul>
+                    <li>Format is a list of enumerated values that include: Broker | Investor | Lender | Other | Third Party Provider </li>
+					<li>Must be provided when there is a fee entered in the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Borrower Paid At Closing : </h5>
+              <div id="CD_TaxesOtherGovermentFeesBorrowerPaidAtClosing_Help">The amount of the fee that is paid by the Borrower at closing.
+			  <ul>
+                   <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Borrower Paid Before Closing  : </h5>
+              <div id="CD_TaxesOtherGovermentFeesBorrowerPaidBeforeClosing _Help">The amount of the fee that is paid by the Borrower before closing.
+                     <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			 <span class="field_help">
+			 <h5> Seller Paid At Closing : </h5>
+              <div id="CD_TaxesOtherGovermentFeesBorrowerPaidSellerPaidAtClosing_Help">The amount of the fee that is paid by the Seller at closing.
+			  <ul>	
+					<li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction.</li>
+                    <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  </span>
+			  <span class="field_help">
+			 <h5> Seller Paid Before Closing : </h5>
+              <div id="CD_TaxesOtherGovermentFeesSellerPaidBeforeClosing_Help">The amount of the fee that is paid by the Seller before closing.
+			  <ul>
+                    <li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction. </li>
+					<li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Other : </h5>
+              <div id="CD_TaxesOtherGovermentFeesPaidByOther_Help">The amount of the fee that is paid by a Third Party or the Lender
+			  <ul>
+                      <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					 <li>There is NOT a “At Closing” or “Before Closing” indication. </li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Lender Flag : </h5>
+              <div id="CD_TaxesOtherGovermentFeesPaidByLenderFlag_Help">When a value is in the Paid By Other column, if the amount is paid by the Lender then the user must check the Paid By Lender Flag.
+			  <ul>
+                    <li>Required to indicate if a Lender is paying a Fee per the rule.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in APR Calculation : </h5>
+              <div id="CD_TaxesOtherGovermentFeesIncludeAPRCalculation_Help">For each record included must Indicate if the fee is included in the APR calculation. 
+			  <ul>
+                    <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in Flag Z Points/Fee : </h5>
+              <div id="CD_TaxesOtherGovermentFeesIncludeFlagPointsFee_Help">When true, indicates that item is included in the Regulation Z Points and Fees calculation.
+			  <ul>
+                    <li>Must be included for all Fees except for Tax related fees. </li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Additional Lines can be added. : </h5>
+              <div id="CD_TaxesOtherGovermentFeesAdditionalLinesadded._Help">To add more fees to the section the user may click on the link to add another row.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Trash Symbol : </h5>
+              <div id="CD_TaxesOtherGovermentFeesTrashSymbol_Help">The Trash Can symbol at the end of the record will delete the entire row including all data.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Clear Symbol : </h5>
+              <div id="CD_TaxesOtherGovermentFeesClearSymbol_Help">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+			  </div> 
+			  </span>
+		  </div>
+		  	<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDPrepaidsHelp"  ng-click="CDPrepaidsHelp = CDPrepaidsHelp + 1" ng-init="CDPrepaidsHelp=0" > 	  
+			<span>F. Prepaids</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDPrepaidsHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDPrepaidsHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDPrepaidsHelp">
+			<span class="field_help">
+			 <h5> Section Header Name : </h5>
+              <div id="CD_PrepaidsSectionHeaderName_Help">Each Section in the Closing Cost Details is highlighted at the top of the section.
+			  <ul>
+                    <li>The first section is called “Prepaids”. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Section Total Amount Borrower Paid : </h5>
+              <div id="CD_PrepaidsSectionTotalAmountBorrowerPaid_Help">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Borrower At Closing or Before Closing columns.
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Prepaid Interest label : </h5>
+              <div id="CD_PrepaidsPrepaidInterestlabel_Help">A predefined label to support the Regulation. 
+			  <ul>
+                    <li>non-editable. </li>
+                </ul>
+			  </div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Valid Value: Prepaid Interest : </h5>
+              <div id="CD_ValidValuePrepaidInterest_Help">A Predefined enumerated value to support the UCD xml file
+			  <ul>
+                    <li>non-editable. </li>
+                </ul>
+				</div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Prepaid Interest - Fee Paid To Type : </h5>
+              <div id="CD_PrepaidsPrepaidInterestFeePaidToType_Help">An enumerated list in which the user must choose.
+			   <ul>
+                    <li>Defaults to “Lender” </li>
+                </ul>
+				</div> 
+			  </span>
+			  			  <span class="field_help">
+			  <h5>All Rows will include the following : </h5>
+			 <h5> Fee Label Name : </h5>
+              <div id="CD_PrepaidsFeeLabelName_Help">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+			  <ul>
+                    <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
+					<li>Format is a String Value up to 150 characters.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type : </h5>
+              <div id="CD_PrepaidsFeeType_Help">Specify the general type of fees associated with a real estate finance transaction.
+			  <ul>
+                    <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name. </li>
+					<li>If other is chosen, then the user will be provided another text box (see below).</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type Other Description  : </h5>
+              <div id="CD_PrepaidsFeeTypeOtherDescription_Help">This field is required to be filled-in if the Fee Type is Other.
+			  <ul>
+                    <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type. </li>
+					<li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Full Name  : </h5>
+              <div id="CD_PrepaidsFullName_Help">If applicable see the CFPB Know Before You Owe regulation when to include this value in the Closing Disclosure.
+			  <ul>
+                    <li>For this section, each Fee is required to have a Full Name of the organization in which the fee is being paid to.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Paid To Type : </h5>
+              <div id="CD_PrepaidsFeePaidToType_Help">Identify the category or type of payee to which the fee or payment will be paid. 
+			  <ul>
+                    <li>Format is a list of enumerated values that include: Broker | Investor | Lender | Other | Third Party Provider </li>
+					<li>Must be provided when there is a fee entered in the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Borrower Paid At Closing : </h5>
+              <div id="CD_PrepaidsBorrowerPaidAtClosing_Help">The amount of the fee that is paid by the Borrower at closing.
+			  <ul>
+                   <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Borrower Paid Before Closing  : </h5>
+              <div id="CD_PrepaidsBorrowerPaidBeforeClosing _Help">The amount of the fee that is paid by the Borrower before closing.
+                     <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			 <span class="field_help">
+			 <h5> Seller Paid At Closing : </h5>
+              <div id="CD_PrepaidsBorrowerPaidSellerPaidAtClosing_Help">The amount of the fee that is paid by the Seller at closing.
+			  <ul>	
+					<li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction.</li>
+                    <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  </span>
+			  <span class="field_help">
+			 <h5> Seller Paid Before Closing : </h5>
+              <div id="CD_PrepaidsSellerPaidBeforeClosing_Help">The amount of the fee that is paid by the Seller before closing.
+			  <ul>
+                    <li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction. </li>
+					<li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Other : </h5>
+              <div id="CD_PrepaidsPaidByOther_Help">The amount of the fee that is paid by a Third Party or the Lender
+			  <ul>
+                      <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					 <li>There is NOT a “At Closing” or “Before Closing” indication. </li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Lender Flag : </h5>
+              <div id="CD_PrepaidsPaidByLenderFlag_Help">When a value is in the Paid By Other column, if the amount is paid by the Lender then the user must check the Paid By Lender Flag.
+			  <ul>
+                    <li>Required to indicate if a Lender is paying a Fee per the rule.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in APR Calculation : </h5>
+              <div id="CD_PrepaidsIncludeAPRCalculation_Help">For each record included must Indicate if the fee is included in the APR calculation. 
+			  <ul>
+                    <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in Flag Z Points/Fee : </h5>
+              <div id="CD_PrepaidsIncludeFlagPointsFee_Help">When true, indicates that item is included in the Regulation Z Points and Fees calculation.
+			  <ul>
+                    <li>Must be included for all Fees except for Tax related fees. </li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Additional Lines can be added. : </h5>
+              <div id="CD_PrepaidsAdditionalLinesadded._Help">To add more fees to the section the user may click on the link to add another row.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Trash Symbol : </h5>
+              <div id="CD_PrepaidsTrashSymbol_Help">The Trash Can symbol at the end of the record will delete the entire row including all data.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Clear Symbol : </h5>
+              <div id="CD_PrepaidsClearSymbol_Help">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+			  </div> 
+			  </span>
+		  </div>
+		  	<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDInitialEscrowPaymentAtClosingHelp"  ng-click="CDInitialEscrowPaymentAtClosingHelp = CDInitialEscrowPaymentAtClosingHelp + 1" ng-init="CDInitialEscrowPaymentAtClosingHelp=0" > 	  
+			<span>G. Initial Escrow Payment At Closing</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDInitialEscrowPaymentAtClosingHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDInitialEscrowPaymentAtClosingHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDInitialEscrowPaymentAtClosingHelp">
+			<span class="field_help">
+			 <h5> Section Header Name : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingSectionHeaderName_Help">Each Section in the Closing Cost Details is highlighted at the top of the section.
+			  <ul>
+                    <li>The first section is called “Initial Escrow Payment At Closing”. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Section Total Amount Borrower Paid : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingSectionTotalAmountBorrowerPaid_Help">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Borrower At Closing or Before Closing columns.
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Homeowners Insurance label : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingHomeownersInsurancelabel_Help">A predefined label to support the Regulation. 
+			  <ul>
+                    <li>non-editable. </li>
+                </ul>
+			  </div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Valid Value: Homeowners Insurance Premium : </h5>
+              <div id="CD_ValidValueHomeownersInsurancePremium_Help">A Predefined enumerated value to support the UCD xml file
+			  <ul>
+                    <li>non-editable. </li>
+                </ul>
+				</div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Amount Per Month : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingAmountPerMonth_Help">An input value that the user must provide the amount of the home owners insurance premium for the monthly payment amount.
+			   <ul>
+                    <li>Format is an amount value 9.2. </li>
+                </ul>
+				</div> 
+			  </span>
+			  
+			  <span class="field_help">
+			 <h5> No. of Months : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingNoofMonths_Help">An Input value that the user must provide the number of months that will be used for the cushion amount of the escrow.
+			   <ul>
+                    <li>Format is numeric 3.</li>
+                </ul>
+				</div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Mortgage Insurance label : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingMortgageInsurancelabel_Help">A predefined label to support the Regulation.
+			   <ul>
+                    <li>non-editable. </li>
+                </ul>
+				</div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Valid Value:  Mortgage Insurance Premium : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingValidValueMortgageInsurancePremium_Help">A Predefined enumerated value to support the UCD xml file
+			   <ul>
+                    <li>non-editable. </li>
+                </ul>
+				</div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Amount Per Month : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingMortgageInsurancePremiumAmountPerMonth_Help">An input value that the user must provide the amount of the home owners insurance premium for the monthly payment amount.
+			   <ul>
+                    <li>Format is an amount value 9.2. </li>
+                </ul>
+				</div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> No. of Months : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingMortgageInsurancePremiumNoofMonths_Help">An Input value that the user must provide the number of months that will be used for the cushion amount of the escrow.
+			   <ul>
+                    <li>Format is numeric 3. </li>
+                </ul>
+				</div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Property Taxes : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingPropertyTaxes_Help">A predefined label to support the Regulation.
+			   <ul>
+                    <li>non-editable. </li>
+                </ul>
+				</div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Valid Value:  Enumerated pick list: </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingValidValueEnumeratedpicklist_Help">A predefined set of enumerated values, this value will default to “County Property Taxes” but can be changed by the user by clicking on the drop-down box and choosing a different enumerated value from the list.	
+			  <ul>
+                    <li>Format is enumerated list. </li>
+					<li>Defaults to County Property Taxes. </li>
+                </ul>
+				</div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Amount Per Month : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingEnumeratedpicklistAmountPerMonth_Help">An input value that the user must provide the amount of the home owners insurance premium for the monthly payment amount
+			  <ul>
+                    <li>Format is an amount value 9.2. </li>
+                </ul>
+				</div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> No. of Months : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingEnumeratedpicklistNoofMonths_Help">An Input value that the user must provide the number of months that will be used for the cushion amount of the escrow.
+			  <ul>
+                    <li>Format is numeric 3. </li>
+                </ul>
+				</div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Aggregated Accounting Adjustment : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingAggregatedAccountingAdjustment_Help">An input value that the user must provide the Aggregate Accounting Adjustment, this is a negative value that can be in the Borrower Paid, Seller Paid at Closing columns or in the Paid by others.
+			  <ul>
+                    <li>Format is an amount value that is displayed as a negative number -9.2 </li>
+					<li>Line item is shown in the last available line in the Initial Escrow Payment At Closing mimicking the CD form.</li>
+                </ul>
+				</div> 
+			  </span>
+			  <span class="field_help">
+			  <h5>All Additional Rows will include the following: : </h5>
+			 <h5> Fee Label Name : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingFeeLabelName_Help">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+			  <ul>
+                    <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
+					<li>Format is a String Value up to 150 characters.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingFeeType_Help">Specify the general type of fees associated with a real estate finance transaction.
+			  <ul>
+                    <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name. </li>
+					<li>If other is chosen, then the user will be provided another text box (see below).</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type Other Description  : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingFeeTypeOtherDescription_Help">This field is required to be filled-in if the Fee Type is Other.
+			  <ul>
+                    <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type. </li>
+					<li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Full Name  : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingFullName_Help">If applicable see the CFPB Know Before You Owe regulation when to include this value in the Closing Disclosure.
+			  <ul>
+                    <li>For this section, each Fee is required to have a Full Name of the organization in which the fee is being paid to.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Paid To Type : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingFeePaidToType_Help">Identify the category or type of payee to which the fee or payment will be paid. 
+			  <ul>
+                    <li>Format is a list of enumerated values that include: Broker | Investor | Lender | Other | Third Party Provider </li>
+					<li>Must be provided when there is a fee entered in the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Borrower Paid At Closing : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingBorrowerPaidAtClosing_Help">The amount of the fee that is paid by the Borrower at closing.
+			  <ul>
+                   <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span> 
+			 <span class="field_help">
+			 <h5> Seller Paid At Closing : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingBorrowerPaidSellerPaidAtClosing_Help">The amount of the fee that is paid by the Seller at closing.
+			  <ul>	
+					<li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction.</li>
+                    <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Other : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingPaidByOther_Help">The amount of the fee that is paid by a Third Party or the Lender
+			  <ul>
+                      <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					 <li>There is NOT a “At Closing” or “Before Closing” indication. </li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Lender Flag : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingPaidByLenderFlag_Help">When a value is in the Paid By Other column, if the amount is paid by the Lender then the user must check the Paid By Lender Flag.
+			  <ul>
+                    <li>Required to indicate if a Lender is paying a Fee per the rule.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in APR Calculation : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingIncludeAPRCalculation_Help">For each record included must Indicate if the fee is included in the APR calculation. 
+			  <ul>
+                    <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in Flag Z Points/Fee : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingIncludeFlagPointsFee_Help">When true, indicates that item is included in the Regulation Z Points and Fees calculation.
+			  <ul>
+                    <li>Must be included for all Fees except for Tax related fees. </li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Additional Lines can be added. : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingAdditionalLinesadded._Help">To add more fees to the section the user may click on the link to add another row.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Trash Symbol : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingTrashSymbol_Help">The Trash Can symbol at the end of the record will delete the entire row including all data.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Clear Symbol : </h5>
+              <div id="CD_InitialEscrowPaymentAtClosingClearSymbol_Help">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+			  </div> 
+			  </span>
+		  </div>
+		  	<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDOtherCostsHelp"  ng-click="CDOtherCostsHelp = CDOtherCostsHelp + 1" ng-init="CDOtherCostsHelp=0" > 	  
+			<span>H. Other Costs</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDOtherCostsHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDOtherCostsHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDOtherCostsHelp">
+			<span class="field_help">
+			 <h5> Section Header Name : </h5>
+              <div id="CD_OtherCostsSectionHeaderName_Help">Each Section in the Closing Cost Details is highlighted at the top of the section.
+			  <ul>
+                    <li>The first section is called “Other Costs”. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Section Total Amount Borrower Paid : </h5>
+              <div id="CD_OtherCostsSectionTotalAmountBorrowerPaid_Help">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Borrower At Closing or Before Closing columns.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			  <h5>All Rows must include the following : </h5>
+			 <h5> Fee Label Name : </h5>
+              <div id="CD_OtherCostsFeeLabelName_Help">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+			  <ul>
+                    <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
+					<li>Format is a String Value up to 150 characters.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type : </h5>
+              <div id="CD_OtherCostsFeeType_Help">Specify the general type of fees associated with a real estate finance transaction.
+			  <ul>
+                    <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name. </li>
+					<li>If other is chosen, then the user will be provided another text box (see below).</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type Other Description  : </h5>
+              <div id="CD_OtherCostsFeeTypeOtherDescription_Help">This field is required to be filled-in if the Fee Type is Other.
+			  <ul>
+                    <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type. </li>
+					<li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Full Name  : </h5>
+              <div id="CD_OtherCostsFullName_Help">If applicable see the CFPB Know Before You Owe regulation when to include this value in the Closing Disclosure.
+			  <ul>
+                    <li>For this section, each Fee is required to have a Full Name of the organization in which the fee is being paid to.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Paid To Type : </h5>
+              <div id="CD_OtherCostsFeePaidToType_Help">Identify the category or type of payee to which the fee or payment will be paid. 
+			  <ul>
+                    <li>Format is a list of enumerated values that include: Broker | Investor | Lender | Other | Third Party Provider </li>
+					<li>Must be provided when there is a fee entered in the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Borrower Paid At Closing : </h5>
+              <div id="CD_OtherCostsBorrowerPaidAtClosing_Help">The amount of the fee that is paid by the Borrower at closing.
+			  <ul>
+                   <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span> 
+			  <span class="field_help">
+			 <h5> Borrower Paid Before Closing  : </h5>
+              <div id="CD_OtherCostsBorrowerPaidBeforeClosing _Help">The amount of the fee that is paid by the Borrower before closing.
+			  <ul>
+                   <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> Seller Paid At Closing : </h5>
+              <div id="CD_OtherCostsBorrowerPaidSellerPaidAtClosing_Help">The amount of the fee that is paid by the Seller at closing.
+			  <ul>	
+					<li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction.</li>
+                    <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Seller Paid Before Closing	 : </h5>
+              <div id="CD_OtherCostsSellerPaidBeforeClosing_Help">The amount of the fee that is paid by the Seller before closing.
+			  <ul>	
+					<li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction</li>
+                    <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Other : </h5>
+              <div id="CD_OtherCostsPaidByOther_Help">The amount of the fee that is paid by a Third Party or the Lender
+			  <ul>
+                      <li>Format is amount 9.2. </li>
+					<li>Cannot be negative.</li>
+					 <li>There is NOT a “At Closing” or “Before Closing” indication. </li>
+					<li>Is present only if there is a Fee Type chosen for the row.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid By Lender Flag : </h5>
+              <div id="CD_OtherCostsPaidByLenderFlag_Help">When a value is in the Paid By Other column, if the amount is paid by the Lender then the user must check the Paid By Lender Flag.
+			  <ul>
+                    <li>Required to indicate if a Lender is paying a Fee per the rule.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in APR Calculation : </h5>
+              <div id="CD_OtherCostsIncludeAPRCalculation_Help">For each record included must Indicate if the fee is included in the APR calculation. 
+			  <ul>
+                    <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Include in Flag Z Points/Fee : </h5>
+              <div id="CD_OtherCostsIncludeFlagPointsFee_Help">When true, indicates that item is included in the Regulation Z Points and Fees calculation.
+			  <ul>
+                    <li>Must be included for all Fees except for Tax related fees. </li>
+					<li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Additional Lines can be added. : </h5>
+              <div id="CD_OtherCostsAdditionalLinesadded._Help">To add more fees to the section the user may click on the link to add another row.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Trash Symbol : </h5>
+              <div id="CD_OtherCostsTrashSymbol_Help">The Trash Can symbol at the end of the record will delete the entire row including all data.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Clear Symbol : </h5>
+              <div id="CD_OtherCostsClearSymbol_Help">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+			  </div> 
+			  </span>
+		  </div>
+		  	<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDTotalClosingCostsHelp"  ng-click="CDTotalClosingCostsHelp = CDTotalClosingCostsHelp + 1" ng-init="CDTotalClosingCostsHelp=0" > 	  
+			<span>J. Total Closing Costs</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDTotalClosingCostsHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDTotalClosingCostsHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDTotalClosingCostsHelp">
+			<span class="field_help">
+			 <h5> Section Header Name : </h5>
+              <div id="CD_TotalClosingCostsSectionHeaderName_Help">Each Section in the Closing Cost Details is highlighted at the top of the section.
+			  <ul>
+                    <li>The first section is called “Total Closing Costs”. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Section Total Amount Borrower Paid : </h5>
+              <div id="CD_TotalClosingCostsSectionTotalAmountBorrowerPaid_Help">This provides the user an ability to view the total amount of all Closing Costs Paid by the Borrower (both at and before closing)
+			  <ul>
+                    <li>Un-editable field. </li>
+					<li>Is a calculation within the system that sums all of the Borrower Paid At Closing AND Borrower Paid Before Closing for a total amount.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Subsection Header Name : </h5>
+              <div id="CD_TotalClosingCostsFeeSubsectionHeaderName_Help">Describes the amounts that will be totaled for each payment column (5 total for purchase, 3 for a refinance).
+			  <ul>
+                    <li>This subsection is called Closing Costs Subtotals.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Subsection Total Amount : </h5>
+              <div id="CD_TotalClosingCostsSubsectionTotalAmount_Help">This provide the user an ability to view the total amount of the specific columns.
+			  <ul>
+                    <li>Total of 5 amount for purchase transactions. </li>
+					<li>Total of 3 amount for refinance transaction.</li>
+					<li>Sums each column for all sections that have specific fees and dollar amounts.</li>
+					<li>All values are Un-Editable.</li>
+				</ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Fee Type Other Description  : </h5>
+              <div id="CD_TotalClosingCostsFeeTypeOtherDescription_Help">This field is required to be filled-in if the Fee Type is Other.
+			  <ul>
+                    <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type. </li>
+					<li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Lender Credits : </h5>
+              <div id="CD_TotalClosingCostsLenderCredits_Help">If a lender is providing a credit to the borrower in the transaction, this value is entered.  The value is presented as a negative value and reduces the amount of the Total Closing Cost Amount.
+			  <ul>
+                    <li>Format is Amount 9.2 value.</li>
+					<li>Presented as a negative number.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Lender Credit Tolerance Cure amount : </h5>
+              <div id="CD_TotalClosingCostsLenderCreditToleranceCureamount_Help">The amount necessary to bring the final actual costs in line with the amount initially disclosed to the borrower.
+			  <ul>
+                    <li>Must have a Lender credit value. </li>
+					<li>May or May not be in the transaction depends upon the tolerance management values separate from this application</li>
+					<li>Format is an Amount 9.2.</li>
+					<li>Will be displayed in the Calculating Cash To Close Table.</li>
+                </ul>
+			  </div> 
+			  </span>
+		  </div>
+		</div>
+</div>
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_CalculatingCashToClose_Help"  ng-click="CD_CalculatingCashToClose_Help = CD_CalculatingCashToClose_Help + 1" ng-init="CD_CalculatingCashToClose_Help=0" > 
+      <strong>Calculating Cash To Close</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_CalculatingCashToClose_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_CalculatingCashToClose_Help%2==1"></span>
+      </span>
+	 <div id="CDCalculatingCashToClose_Help" class="collapse subContainer">
+	<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDccctableHelp"  ng-click="CDccctableHelp = CDccctableHelp + 1" ng-init="CDccctableHelp=0" > 	  
+			<span>CCC Table (Standard Form)</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDccctableHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDccctableHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDccctableHelp">
+			 <span class="field_help">
+			 <h5> Total Closing Costs (J) : </h5>
+              <div id="CDccctableTotalClosingCosts_Help">Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.<br>
+				  <div><br>Final Amount Column – this amount is calculated in the Closing Cost Details for the Borrower Paid Columns and is reflected in the CCC Table.
+						<ul>
+							<li>This value in the CCC Table is not editable, for a user to change the value the user must update the values in the Closing Cost Details sections that depict the fees, pre-paids and escrows found within the transaction.</li>
+						</ul><br>
+					</div>
+					<div><br><br>Did this change is a Yes | No drop-down box which is automatically set when the user clicks on the calculate button, if loan Amount is NOT Equal to the Final Amount then the drop-down will be YES.  If is equal, then NO.
+					<div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:<br></div>
+							<ul>
+								  <li>See Total Loan Costs (D) And Total Other Costs (I). </li>
+								  <li>Increase exceeds legal limits by “The Amount input by the user”:  if this is zero or does not exist the Bullet point will not be presented.</li>
+								  <li>See Lender credits on page 2 for credit of excess amount.</li>
+							 </ul><br>
+			  </div> 
+				<br><br><br>Format is an amount 9.2 and is a positive value in the standard form Calculating Cash To Close Table.
+			  </span>
+			 <span class="field_help">
+			 <h5> Closing Costs Paid Before Closing : </h5>
+              <div id="CDccctableClosingCostsPaidBeforeClosing_Help">Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.
+				<div><br>Final Amount Column – this amount is calculated in the Closing Cost Details for the Borrower Paid Before Closing Column (Subtotal line in Section J.) and is reflected in the CCC Table
+				<ul>
+                    <li>This value in the CCC Table is not editable, for a user to change the value the user must update the values in the Closing Cost Details sections that depict the fees, pre-paids and escrows found within the transaction.</li>
+                </ul><br>
+			  </div> 
+			  <div><br><br>Did this change is a Yes | No drop-down box which is automatically set when the user clicks on the calculate button, if loan Amount is NOT Equal to the Final Amount then the drop-down will be YES.  If is equal, then NO.</div>
+			  <div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:<br>
+			  <ul>
+                    <li>You paid these closing costs before closing.</li>
+                </ul>
+			</div>
+			<br><br>Format is an Amount 9.2 negative Value in the Calculating Cash To Close Table standard form.
+			  </div>
+			  </span>
+			 <span class="field_help">
+			 <h5> Closing Costs Financed : </h5>
+              <div id="CDccctableClosingCostsFinanced_Help">Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.
+			  <div><br>Final Amount Column – this amount is a user input as there is no other location with in the form or application to identify any closing costs that are rolled into the Loan.</div>
+			  <div><br>Did this change is a Yes | No drop-down box which is automatically set when the user clicks on the calculate button, if loan Amount is NOT Equal to the Final Amount then the drop-down will be YES.  If is equal, then NO.</div>
+				<div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:
+				<ul>
+                    <li>You included these closing costs in the loan amount, which you (increased or decreased) the loan amount</li>
+					<li>The Increased or decreased is based upon the loan estimate amount being larger (decreased) or smaller (increased) to the Final amount.</li>
+                </ul>
+				</div><br>
+				<div><br><br>Format is an amount 9.2 and is a positive value in the CCC Table for Standard Form.</div>
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> Down Payment / Funds From Borrower : </h5>
+              <div id="CDccctableDownPaymentFundsFromBorrower_Help">Down Payment is used for Purchase Transaction Funds From Borrower is used for a Refinance Transaction.
+			  <div><br>Both labels are shown in the application as well as on the Closing Disclosure Form.</div>
+			  <div><br>Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.</div>
+				<div><br>Final Amount Column – this amount is a user input or the user may utilize the Calculate button to fill in the editable values within the CCC Table.
+				</div><br>
+				<div><br><br>Note:  That if using the Calculate Cash To Close Table Button, the value will be updated in the Final Amount. The Loan Estimate Amount cannot change as this was already presented to the Borrower.</div>
+				<div><br><br>Did this change is a Yes | No drop-down box which is automatically set when the user clicks on the calculate button, if loan Amount is NOT Equal to the Final Amount then the drop-down will be YES.  If is equal, then NO.</div>
+				<div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:
+				<ul>
+                    <li>You (increased or decreased) this payment. See Details in Section K.</li>
+					<li>The Increased or decreased is based upon the loan estimate amount being larger (decreased) or smaller (increased) to the Final amount.</li>
+                </ul>
+				</div><br>	
+				<div><br><br>Format is an Amount 9.2 positive value for the CCC Standard form.</div>
+			  		  
+				</div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Deposit : </h5>
+              <div id="CDccctableDeposit_Help">Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.
+			  <div><br>Final Amount Column – this amount is NOT Editable in this table, it is driven by the amount that is either input or uploaded to the Summaries of Transaction Table Section L. Paid Already By or On Behalf of Borrower at Closing.</div>
+			  <div><br>Did this change is a Yes | No drop-down box which is automatically set when the user clicks on the calculate button, if loan Estimate Amount is NOT Equal to the Final Amount then the drop-down will be YES.  If is equal, then NO.</div>
+				<div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:
+				<ul>
+                    <li>You (increased or decreased) this payment. See Details in Section L.</li>
+					<li>The Increased or decreased is based upon the loan estimate amount being larger (decreased) or smaller (increased) to the Final amount.</li>
+                </ul>
+				</div><br>
+				<div><br><br>Format is an amount 9.2 negative value in the CCC Standard form.</div>
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Funds For Borrower : </h5>
+              <div id="CDccctableFundsForBorrower_Help">Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.
+			  <div><br>Final Amount Column – this amount is either an input by the user or upload, If the user decides to use the Calculate button the calculation will input this information greater than zero if the transaction is a Refinance, this is not used for a purchase.</div>
+			  <div><br>Did this change is a Yes | No drop-down box which is automatically set when the user clicks on the calculate button, if loan Estimate Amount is NOT Equal to the Final Amount then the drop-down will be YES.  If is equal, then NO.</div>
+				<div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:
+				<ul>
+                    <li>Your available funds from the loan amount have (increased or decreased).</li>
+					<li>The Increased or decreased is based upon the loan estimate amount being larger (decreased) or smaller (increased) to the Final amount.</li>
+                </ul>
+				</div><br>
+				<div><br><br>Format is an Amount 9.2 Negative Value.</div>
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Seller Credits : </h5>
+              <div id="CDccctableSellerCredits_Help">Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.
+			  <div><br>Final Amount Column – Is not an Editable Field, this value is pulled in from the Summaries of Transaction Table Section L. Paid Already By or On Behalf of Borrower at Closing for Seller Credits.</div>
+			  <div><br>Did this change is a Yes | No drop-down box which is automatically set when the user clicks on the calculate button, if loan Estimate Amount is NOT Equal to the Final Amount then the drop-down will be YES.  If is equal, then NO.</div>
+				<div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:
+				<ul>
+                    <li>See Seller Credits in Section L.</li></ul>
+				</div><br>
+				<div><br><br>Format is an Amount 9.2 Negative Value.</div>
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Adjustments and Other Credits : </h5>
+              <div id="CDccctableAdjustmentsOtherCredits_Help">Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.
+			  <div><br>Final Amount Column – Is an editable field, if the user chooses to input the value the user must adhere to the CFPB rule for calculating this value which could be Positive or Negative, or the user may use the Calculate button.</div>
+			  <div><br>Did this change is a Yes | No drop-down box which is automatically set when the user clicks on the calculate button, if loan Estimate Amount is NOT Equal to the Final Amount then the drop-down will be YES.  If is equal, then NO.</div>
+				<div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:
+				<ul>
+                    <li>See Details in Section K and L</li></ul>
+				</div><br>
+				<div><br><br>Format is an Amount 9.2 Negative or Positive Value depending upon the calculation output from Summaries of Transaction Section K and L values.</div>
+			  </div> 
+			  </span>			  
+		  </div>		 
+		<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDCalculatingCashToCloseAlternateFormHelp"  ng-click="CDCalculatingCashToCloseAlternateFormHelp = CDCalculatingCashToCloseAlternateFormHelp + 1" ng-init="CDCalculatingCashToCloseAlternateFormHelp=0" > 	  
+			<span>Calculating Cash To Close - Alternate Form</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDCalculatingCashToCloseAlternateFormHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDCalculatingCashToCloseAlternateFormHelp%2==1"></span>
+          </span>
+		  <div class="col-sm-12" id="CDCalculatingCashToCloseAlternateFormHelp">
+			 <span class="field_help">
+			 <h5> Loan Amount : </h5>
+              <div id="CDCalculatingCashToCloseAlternateFormLoanAmount_Help">Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.<br>
+				  <div><br>Final Amount Column – this is the amount that a user either enters in Loan Terms section or is uploaded.  
+						<ul>
+							<li>This value in the CCC Table is not editable, for a user to change the value the user must update the values in the Closing Cost Details sections that depict the fees, pre-paids and escrows found within the transaction.</li>
+						</ul><br>
+					</div>
+					<div><br><br>Did this change is a Yes | No drop-down box which is automatically set when the user clicks on the calculate button, if loan Amount is NOT Equal to the Final Amount then the drop-down will be YES.  If is equal, then NO.</div>
+					<div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:<br></div>
+							<ul>
+								  <li>This amount (increased or decreased). </li>
+								  <li>Increase exceeds legal limits by “The Amount input by the user”:  if this is zero or does not exist the Bullet point will not be presented.</li>
+							 </ul><br>
+							 <br><br>Format is an amount 9.2 and is a positive value in the Alternate Form Calculating Cash To Close Table.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Total Closing Costs (J) : </h5>
+              <div id="CDCalculatingCashToCloseAlternateFormTotalClosingCosts_Help">Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.<br>
+				  <div><br>Final Amount Column – this amount is calculated in the Closing Cost Details for the Borrower Paid Columns and is reflected in the CCC Table.
+						<ul>
+							<li>This value in the CCC Table is not editable, for a user to change the value the user must update the values in the Closing Cost Details sections that depict the fees, pre-paids and escrows found within the transaction.</li>
+						</ul><br>
+					</div>
+					<div><br><br>Did this change is a Yes | No drop-down box which is automatically set when the user clicks on the calculate button, if loan Amount is NOT Equal to the Final Amount then the drop-down will be YES.  If is equal, then NO.</div>
+					<div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:<br></div>
+							<ul>
+								  <li>See Total Loan Costs (D) And Total Other Costs (I). </li>
+								  <li>Increase exceeds legal limits by “The Amount input by the user”:  if this is zero or does not exist the Bullet point will not be presented.</li>
+								  <li>See Lender credits on page 2 for credit of excess amount.</li>
+							 </ul><br>
+				 <br><br><br>Format is an amount 9.2 and is a negative value in the Alternate Form Calculating Cash To Close Table.
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> Closing Costs Paid Before Closing : </h5>
+              <div id="CDCalculatingCashToCloseAlternateFormClosingCostsPaidBeforeClosing_Help">Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.
+				<div><br>Final Amount Column – this amount is calculated in the Closing Cost Details for the Borrower Paid Before Closing Column (Subtotal line in Section J.) and is reflected in the CCC Table.
+				<ul>
+                    <li>This value in the CCC Table is not editable, for a user to change the value the user must update the values in the Closing Cost Details sections that depict the fees, pre-paids and escrows found within the transaction.</li>
+                </ul><br>
+			  </div> 
+			  <div><br><br>Did this change is a Yes | No drop-down box which is automatically set when the user clicks on the calculate button, if loan Amount is NOT Equal to the Final Amount then the drop-down will be YES.  If is equal, then NO.</div>
+			  <div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:<br>
+			  <ul>
+                    <li>You paid these closing costs before closing.</li>
+                </ul>
+			</div>
+			<br><br>Format is an Amount 9.2 Positive Value in the Calculating Cash To Close Table Alternate form.
+			  </div>
+			  </span>
+			 <span class="field_help">
+			 <h5> Closing Costs Financed : </h5>
+              <div id="CDCalculatingCashToCloseAlternateFormClosingCostsFinanced_Help">In the Alternate form the Closing cost financed is only an amount value that does NOT differentiate between Loan Estimate and Closing Disclosure.
+				<ul>
+                    <li>Format is an amount value 9.2 (positive).</li>
+                </ul>
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> Payoffs and Payments : </h5>
+              <div id="CDCalculatingCashToCloseAlternateFormPayoffs and Payments_Help">Loan Estimate Amount Column – user must enter the amount that was provided in the Loan Estimate Calculating Cash To Close table for the label.
+			  <div><br>Final Amount Column – this amount is calculated in the Payoffs and Payments Section K.
+				<ul>
+                    <li>This value is un-editable in the CCC table, all changes must be made by a user in the Section K. Total Payoffs and Payments.</li>
+                </ul>
+				</div>
+			  <div><br>If “Did this change?” indicator equals YES, then the following bullet points will be displayed:
+			  <ul>
+                    <li>See Payoffs and Payments (K).</li>
+                </ul>
+				</div><br>
+				<div><br><br>Format is an Amount 9.2 Negative Value in the Calculating Cash To Close Table Alternate form.</div>			  		  
+				</div> 
+			  </span>			  
+		  </div>
+</div>
+</div>
+</div>
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_SummariesofTransaction_Help"  ng-click="CD_SummariesofTransaction_Help = CD_SummariesofTransaction_Help + 1" ng-init="CD_SummariesofTransaction_Help=0" > 
+      <strong>Summaries of Transaction (Borrower Transaction)</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_SummariesofTransaction_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_SummariesofTransaction_Help%2==1"></span>
+      </span>
+	 <div id="CD_SummariesofTransaction_Help" class="collapse subContainer">
+	<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDDueFromBorrowerAtClosingHelp"  ng-click="CDDueFromBorrowerAtClosingHelp = CDDueFromBorrowerAtClosingHelp + 1" ng-init="CDDueFromBorrowerAtClosingHelp=0" > 	  
+			<span>K. Due From Borrower At Closing</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDDueFromBorrowerAtClosingHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDDueFromBorrowerAtClosingHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDDueFromBorrowerAtClosingHelp">
+			<span class="field_help">
+			 <h5> Sales Price of Property : </h5>
+              <div id="CD_DueFromBorrowerAtClosingSalesPriceofProperty_Help">Is NOT editable in this section this value is a required field; but is either entered by a user in the General information section for Price or is uploaded through a template or file. 
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Sale Price of Personal Property Included in Sale : </h5>
+              <div id="CD_DueFromBorrowerAtClosingSalePriceofPersonalPropertyIncludedinSale_Help">In a purchase transaction, See the Price Information section - the user must choose either Yes or No;  If Yes is chosen or uploaded from a file or template with a value of Yes for the “Personal Property Included?” Then a user must provide the value of the sale price of personal property in the application in the K. Due from Borrower AT closing.
+			  <ul>
+                    <li>Format is an Amount 9.2 value. 
+					</li>
+                </ul>
+				See the CFPB Regulation for requirements as to when the indicator is Yes.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Closing Costs Paid AT Closing (J): </h5>
+              <div id="CD_DueFromBorrowerAtClosingClosingCostsPaidATClosing_Help">This value is NOT editable; it is a calculation of the Borrower Paid At Closing values minus any lender credits.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+				<div>Liabilities, there are 3 lines available to express a liability; typically used for either the identification of a debt in which the borrower must pay off to secure the loan OR if the transaction is a refinance then it would include items that are being paid off with the proceeds of the refinance transaction, such as a First Position mortgage lien.  Will NOT be shown in the Seller Section M. Due To Seller.</div>
+			  <span>
+			  <span class="field_help">
+			 <h5> Liability Name : </h5>
+              <div id="CD_DueFromBorrowerAtClosingLiabilityName_Help">This is the label that is used for the line item on the actual CD PDF, it should be descriptive per the CFPB rule.
+			  <ul>
+                    <li>Format is String 150. </li>
+                </ul>
+				IF the transaction is a refinance then the user may use this section and lines to provide the detailed payoff items or summarize into one line the payoff items called Total Payoffs and Payment, using the label to define the line item.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Valid Value : </h5>
+              <div id="CD_DueFromBorrowerAtClosingLiabilityValidValue_Help">This is the enumerated list of all Liability Types that will be used to create the UCD XML file
+			  <ul>
+                    <li>Format is enumerated list of values.</li>
+                </ul>
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Description : </h5>
+              <div id="CD_DueFromBorrowerAtClosingLiabilityDescription_Help">If the Valid Value enumeration = “Other” then a textual description must be provided to ensure a valid UCD file.  When Other is chosen, the description Text box will be enabled for a user to input a string description.
+			  <ul>
+                    <li>Format is String 150.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Full Name Paid To Organization : </h5>
+              <div id="CD_DueFromBorrowerAtClosingFullNamePaidToOrganization_Help">The CFPB rule identifies the need to show the organization name who is being paid off in the transaction, this value allows a user to either enter or upload the Name of the Organization.
+			  <ul>
+                   <li>Format is String 150.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Amount : </h5>
+              <div id="CD_DueFromBorrowerAtClosingLiabilityAmount_Help">The amount of the Liability being paid off within the transaction for that specific line item.
+			  <ul>
+                    <li>Format is amount 9.2.</li>
+                </ul>
+			  </div> 
+			  </span>
+			   <span class="field_help">
+				<div>Adjustments are provided when the Borrower is to owe something to the seller, such as Fuel if the Seller already filled the tanks, then the Borrower would need to reimburse the amount to the seller.  Thus, all Adjustments identified in the Borrowers Transaction MUST be shown in the Section M. Due to Seller.</div>
+			  <span>
+			  <span class="field_help">
+			 <h5> Adjustment Name : </h5>
+              <div id="CD_DueFromBorrowerAtClosingAdjustmentName_Help">This is the label that is used for the line item on the actual CD PDF, it should be descriptive per the CFPB rule.
+			  <ul>
+                    <li>Format is String 150.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Valid Value : </h5>
+              <div id="CD_DueFromBorrowerAtClosingAdjustmentValidValue_Help">This is the enumerated list of all Adjustment Item Types that will be used to create the UCD XML file.
+			  <ul>
+                    <li>Format is enumerated list of values.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Description : </h5>
+              <div id="CD_DueFromBorrowerAtClosingAdjustmentDescription_Help">If the Valid Value enumeration = “Other” then a textual description must be provided to ensure a valid UCD file.  When Other is chosen, the description Text box will be enabled for a user to input a string description.
+			  <ul>
+                    <li>Format is String 150.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid Outside of Closing (Check Box) : </h5>
+              <div id="CD_DueFromBorrowerAtClosingPaidOutsideClosing_Help">The CFPB rule indicates that any adjustments must be identified as POC if Paid outside the closing (either before or after).
+			  <ul>
+                    <li>Format is a Check box, when checked is TRUE.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+				<div>Adjustments For Items Paid By Seller In advance, all values in the Borrower Paid Transaction MUST be present in the Seller Section M. Due To Seller AT Closing but in the Section M will not be editable, all editing is completed in the Borrower Transaction.</div>
+				<span>
+			  <span class="field_help">
+			 <h5> Prorated Item Name : </h5>
+              <div id="CD_DueFromBorrowerAtClosingAdjustmentsProratedItemName_Help">There are 3 labels already present in all Transactions, even if there is NO value the system and the PDF will display these labels:
+			  <ul>
+                    <li>City/Town Taxes </li>
+					<li>County Taxes</li>
+					<li>Assessments</li>
+                </ul>
+				<div>The Remaining Line items are open to the State/County needs and can be input by the user via data entry or upload capability.
+				<ul>
+                    <li>Format is a string 150 value.</li>
+                </ul></div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Valid Value : </h5>
+              <div id="CD_DueFromBorrowerAtClosingAdjustmentsValidValue_Help">This dropdown menu is used to identify the correct MISMO value for the UCD XML file, if the upload did not use a MISMO value then the use should choose the closest or correct value to the label name.
+			  <div><br><br>Upon upload the Valid value will typically Display “Other” unless the upload uses the exact MISMO enumerated value found in the UCD specification.</div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Description : </h5>
+              <div id="CD_DueFromBorrowerAtClosingAdjustmentsDescription_Help">Only when the Valid Value selection is equal to Other will this text box enable for the user to input a description for the other selection.
+			  <div><br><br>Upon upload if the MISMO enumerated value is not used, all OTHER Valid Values will require the description in order for the XML file to be valid when submitting to the GSEs.</div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> From Date : </h5>
+              <div id="CD_DueFromBorrowerAtClosingAdjustmentsFromDate_Help">The start date for calculating the total number of days covered by the proration item.
+			  <ul>
+                    <li>This date may occur before or after the Issue date of the CD.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> To Date : </h5>
+              <div id="CD_DueFromBorrowerAtClosingAdjustmentsToDate_Help">The end date for calculating the total number of days covered by the proration item, inclusive of this date.
+			  <ul>
+                    <li>This date may occur before or after the issue date of the closing Disclosure.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Amount : </h5>
+              <div id="CD_DueFromBorrowerAtClosingAdjustmentsAmount_Help">The prorated item amount associated to the period of time specified with the From Date and To Date.
+			  <ul>
+                    <li>Format is an amount value 9.2.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5>Total for Section K. Due from Borrower At Closing<h5>
+			 <h5> Amount : </h5>
+              <div id="CD_DueFromBorrowerAtClosingAmount_Help">This is the entire section Total Dollar amount for the Section Called K. Due from Borrower at Closing.
+			  </div> 
+			  </span>
+		  </div>
+		  <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDPaidAlreadyByOnBehalfBorrowerAtClosingHelp"  ng-click="CDPaidAlreadyByOnBehalfBorrowerAtClosingHelp = CDPaidAlreadyByOnBehalfBorrowerAtClosingHelp + 1" ng-init="CDPaidAlreadyByOnBehalfBorrowerAtClosingHelp=0" > 	  
+			<span>L. Paid Already By Or On Behalf Of Borrower At Closing</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDPaidAlreadyByOnBehalfBorrowerAtClosingHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDPaidAlreadyByOnBehalfBorrowerAtClosingHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDPaidAlreadyByOnBehalfBorrowerAtClosingHelp">	
+			<span class="field_help">
+			 <h5> Deposit : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingDeposit_Help">The only location to enter in this information, the value will be displayed in the Calculating Cash To Close table as an un-editable value.
+			  <br>
+			  <div><br>The Deposit is a monetary source commonly used to pay obligations in a mortgage loan transaction.
+			  <ul>
+                    <li>Format is an amount 9.2 value.</li>
+                </ul></div></div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Loan Amount : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingLoanAmount_Help">The loan amount is a displayed value in the Section L. location, the input value is in the Loan Terms section
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Existing Loan(s) Assumed or Subject Taken To : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingExistingLoanAssumedSubjectTakenTo_Help">The dollar amount of an existing loan assumed by the borrower, if present in the transaction.
+			  <br>
+			  <div><br>For further guidance regarding when to include a dollar amount for this value, see the CFPB Integrated Mortgage Disclosure Rule.
+			  <ul>
+                    <li>Format is an amount 9.2 value.</li>
+                </ul></div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Seller Credits : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingSellerCredits_Help">The only location to enter in this information, the value will be displayed in the Calculating Cash To Close Table  as well as Section N. Due From Seller. 
+			  <br>
+			  <div><br>The seller credit is a type of adjustment made during the origination process.
+			  <ul>
+                    <li>Format is an amount 9.2 value.</li>
+                </ul></div>
+			  </div>  
+			  </span>
+			  <span class="field_help">
+			 <h5> Is Disclosure only? : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingIsDisclosureOnly_Help">Per the Rule on line 04 in Section L. the lender can either place a disclosure or identify if there are proceeds of a subordinate line found within the transaction. See the CFPB Integrated Mortgage Disclosure Regulation for further guidance on when and what to place into this field.
+			  <br>
+			  <div><br>A user may choose Yes to input a value into the column called Description. 
+			  <ul>
+                    <li>Example of a description: “Borrower is Paying off Sellers Jr. Lien ($5000) POC”</li>
+					<li>Note there is no value in the amount column</li>
+                </ul></div>
+			    <div><br>A user may choose No, this opens additional information columns that the user may enter:
+					<ul>
+						<li>Label – a name the lender/user specifically requires display on the PDF form</li>
+						<li>Valid Value – Only two values provided, “Other” or “Proceeds of Subordinate Lien”
+							<ul>
+								<li>If Other is choosen then the user must provide a textual value in the columns called “Description” describing the item</li>
+								<li>If Proceeds of Subordinate Lien is selected the user must provide the additional pieces of information;
+									<ul>
+									  <li>Original Principal Balance Amount, format is an amount 9.2</li>
+									  <li>Is the Subordinate Financing new drop down Yes or No</li>
+								  </ul>
+								</li>
+							</ul>
+						</li>
+						<li>Amount must be provided regardless of the valid values the user selected</li>
+					</ul>
+				</div>
+			  </div>  
+			  </span>
+			  <span class="field_help">
+				<div>Other Credits are provided when the borrower is receiving a credit such as a gift, grant, rebate credit from a third party to the transaction.  For more information on Other Credits, see the CFPBs Integrated Mortgage Disclosure Regulation for further guidance.</div>
+			  <span>
+			  <span class="field_help">
+			 <h5> Label Name : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingLabelName_Help">This is the label value that is displayed for the line item on the PDF form output, it should be descriptive per the CFPB rule.
+			  <ul>
+                    <li>Format is String 150. </li>
+                </ul>
+				</div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Valid Value : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingOtherCreditsValidValue_Help">This is the allowable enumerations for this section to be used to create the UCD XML file.
+			  <ul>
+                    <li>Format is enumerated list of values that include Gift, Grant, Rebate Credit, Other</li>
+                </ul>
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Description : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingOtherCreditsDescription_Help">If the Valid Value enumeration = “Other” then a textual description must be provided to ensure a valid UCD file.  When Other is chosen, the description Text box will be enabled for a user to input a string description.
+			  <ul>
+                    <li>Format is String 150.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Full Name of Payee : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingFullNamePayee_Help">The name of the individual or organization that is providing the funds for the other credit, example: if the borrowers Father is providing gift funds then the payee name would be the full name of the Father (John Smith).
+			  <br><br><div>Similarly, if the Other credit is being paid by an organization, the name of that origination would be required; ex: Helping Homeowners Association</div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Payee an Individual or Organization : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingPayeeIndividualOrganization_Help">If an Other Credit exists must provide the information to support the Payee Name by indicating if that payee is either an individual, such as the Father, or is an organization.
+			   <ul>
+                    <li>Format is a dropdown box. </li>
+					 <li>Values: Individual | Organization </li>
+                </ul></div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid Outside of Closing (Check Box) : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingPaidOutsideClosing_Help">The CFPB rule indicates that any adjustments must be identified as POC if Paid outside the closing (either before or after).
+			  <br><div>Format is a Check box, when checked is TRUE.</div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Amount : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingOtherCreditsAmount_Help">The dollar amount of the Other Credit, will affect the total for Section L. 
+			  <ul>
+                    <li>Format is amount 9.2 value.</li>
+                </ul>
+			  </div> 
+			  </span>
+			   <span class="field_help">
+				<div>Adjustments are provided to the Borrower an example would include a relocation package funds that are used to purchase a new home due to relocating for employment</div>
+			  <span>
+			  <span class="field_help">
+			 <h5> Adjustment Name : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentName_Help">This is the label that is used for the line item on the actual CD PDF, it should be descriptive per the CFPB rule.
+			  <ul>
+                    <li>Format is String 150.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Valid Value : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentValidValue_Help">This is the enumerated list of all Adjustment Item Types that will be used to create the UCD XML file.
+			  <ul>
+                    <li>Format is enumerated list of values. <br>List includes item; Relocation Funds, Sweat Equity, Trade Equity, Other
+</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Description : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentDescription_Help">If the Valid Value enumeration = “Other” then a textual description must be provided to ensure a valid UCD file.  When Other is chosen, the description Text box will be enabled for a user to input a string description.
+			  <ul>
+                    <li>Format is String 150.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Full Name of Payee : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentFullNamePayee_Help">The name of the individual or organization that is providing the funds for the Adjustments, example: General Motors is moving an executive providing a package for relocation provide the full name = General Motors
+				<ul>
+                    <li>Format is String 150.</li>
+                </ul>
+				</div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Payee an Individual or Organization : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentPayeeIndividualOrganization_Help">If an adjustment exists must provide the information to support the Payee Name by indicating if that payee is either an individual or is an organization by choosing from a Drop down box.			   <ul>
+                    <li>Format is a dropdown box. </li>
+					 <li>Values: Individual | Organization </li>
+                </ul></div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid Outside of Closing (Check Box) : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentPaidOutsideClosing_Help">The CFPB rule indicates that any adjustments must be identified as POC if Paid outside the closing (either before or after).
+			  <ul>
+                    <li>Format is a Check box, when checked is TRUE.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+				<div>Adjustments For Items Unpaid By Seller all values in the Borrower Paid Transaction MUST be present in the Seller Section N. Due from Seller At Closing but in the Section N. will not be editable, all editing is completed in the Borrower Transaction.</div>
+				<span>
+			  <span class="field_help">
+			 <h5> Prorated Item Name : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsProratedItemName_Help">There are 3 labels already present in all Transactions, even if there is NO value the system and the PDF will display these labels:
+			  <ul>
+                    <li>City/Town Taxes </li>
+					<li>County Taxes</li>
+					<li>Assessments</li>
+                </ul>
+				<div>The Remaining Line items are open to the State/County needs and can be input by the user via data entry or upload capability.
+				<ul>
+                    <li>Format is a string 150 value.</li>
+                </ul></div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Valid Value : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsValidValue_Help">This dropdown menu is used to identify the correct MISMO value for the UCD XML file, if the upload did not use a MISMO value then the use should choose the closest or correct value to the label name.
+			  <div><br><br>Upon upload the Valid value will typically Display “Other” unless the upload uses the exact MISMO enumerated value found in the UCD specification.</div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Description : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsDescription_Help">Only when the Valid Value selection is equal to Other will this text box enable for the user to input a description for the other selection.
+			  <div><br><br>Upon upload if the MISMO enumerated value is not used, all OTHER Valid Values will require the description in order for the XML file to be valid when submitting to the GSEs.</div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> From Date : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsFromDate_Help">The start date for calculating the total number of days covered by the proration item.
+			  <ul>
+                    <li>This date may occur before or after the Issue date of the CD.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> To Date : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsToDate_Help">The end date for calculating the total number of days covered by the proration item, inclusive of this date.
+			  <ul>
+                    <li>This date may occur before or after the issue date of the closing Disclosure.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Amount : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsAmount_Help">The prorated item amount associated to the period of time specified with the From Date and To Date.
+			  <ul>
+                    <li>Format is an amount value 9.2.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5>Total for Section L. Paid Already By or On Behalf of Borrower at Closing<h5>
+			 <h5> Amount : </h5>
+              <div id="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAmount_Help">This is the entire section Total Dollar amount for the Section Called L. Paid Already By or On Behalf of Borrower at Closing
+				<ul>
+                    <li>Display as a negative value but will be absolute value in the XML file</li>
+					<li>Only way to change this amount is to remove or add items in the section line items of the system</li>
+                </ul>
+			  </div> 
+			  </span>
+		  </div>
+		   <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDDueToSellerAtClosingHelp"  ng-click="CDDueToSellerAtClosingHelp = CDDueToSellerAtClosingHelp + 1" ng-init="CDDueToSellerAtClosingHelp=0" > 	  
+			<span>M. Due To Seller At Closing</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDDueToSellerAtClosingHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDDueToSellerAtClosingHelp%2==1"></span>
+          </span>		  
+		  <div class="col-sm-12" id="CDDueToSellerAtClosingHelp">
+			<span class="field_help">
+			 <h5> Sales Price of Property : </h5>
+              <div id="CD_DueToSellerAtClosingSalesPriceProperty_Help">Is NOT editable in this section this value is a required field; but is either entered by a user in the General information section for Price or is uploaded through a template or file. 
+			  </div> 
+			  </span>
+			<span class="field_help">
+			 <h5> Sale Price of Personal Property Included in Sale : </h5>
+              <div id="CD_DueToSellerAtClosingSalePricePersonalPropertyIncludedSale_Help">Is NOT editable in this section, this value is entered in the Section K. Due From Borrower at closing then is mirrored for the Seller Side of the transaction.
+			  </div> 
+			  </span>
+			   <span class="field_help">
+				<div>Adjustments are provided when the Borrower is to owe something to the seller or other parties to the transaction owes the Seller monies., example Fuel if the Seller already filled the tanks, then the Borrower would need to reimburse the amount to the seller.  Thus, all Adjustments identified in the Borrowers Transaction MUST be shown in the Section M. Due to Seller.  However, there might be items that are owed to the Seller in addition, so values are mirrored from the borrower side as well as ability to include other items.  For guidance see the CFPBs Integrated Mortgage Disclosure Regulation.</div>
+			  <span>
+			  <span class="field_help">
+			 <h5> Adjustment Name : </h5>
+              <div id="CD_DueToSellerAtClosingAdjustmentName_Help">When entered into the Section K. Due From Borrower at Closing the line item will be displayed in the Section M. Due to Seller and is NOT editable.
+			  <div><br><br>Additional line items can be added to Section M.</div>
+			  <br><br>This is the label that is used for the line item on the actual CD PDF, it should be descriptive per the CFPB rule.
+			  <ul>
+                    <li>Format is String 150.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Valid Value : </h5>
+              <div id="CD_DueToSellerAtClosingAdjustmentValidValue_Help">
+			  <div>When entered into the Section K. Due From Borrower at Closing the line item will be displayed in the Section M. Due to Seller and is NOT editable.</div>
+			  <div><br><br>Additional line items can be added to Section M.</div>
+			  <br><br>This is the enumerated list of all Adjustment Item Types that will be used to create the UCD XML file.
+			  <ul>
+                    <li>Format is enumerated list of values. </li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Description : </h5>
+              <div id="CD_DueToSellerAtClosingAdjustmentDescription_Help"><div>When entered into the Section K. Due From Borrower at Closing the line item will be displayed in the Section M. Due to Seller and is NOT editable.</div>
+			  <div><br><br>Additional line items can be added to Section M.</div>
+			  <br><br>If the Valid Value enumeration = “Other” then a textual description must be provided to ensure a valid UCD file.  When Other is chosen, the description Text box will be enabled for a user to input a string description.
+			  <ul>
+                    <li>Format is String 150.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Paid Outside of Closing (Check Box) : </h5>
+              <div id="CD_DueToSellerAtClosingAdjustmentPaidOutsideClosing_Help"><div>When entered into the Section K. Due From Borrower at Closing the line item will be displayed in the Section M. Due to Seller and is NOT editable.</div>
+			  <div><br><br>Additional line items can be added to Section M.</div>
+			  <br><br>The CFPB rule indicates that any adjustments must be identified as POC if Paid outside the closing (either before or after).
+			  <ul>
+                    <li>Format is a Check box, when checked is TRUE.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Amount : </h5>
+              <div id="CD_DueToSellerAtClosingAdjustmentsAmount_Help">The dollar value of the adjustment.
+			  <ul>
+                    <li>Format is an amount 9.2 value</li>
+                </ul>
+				<div>The Remaining Line items are open to the State/County needs and can be input by the user via data entry or upload capability.
+				<ul>
+                    <li>Format is a string 150 value.</li>
+                </ul></div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+				<div>Adjustments For Items Paid By Seller In advance, all values in the Borrower Paid Transaction MUST be present in the Seller Section M. Due To Seller AT Closing but in the Section M will not be editable, all editing is completed in the Borrower Transaction.</div>
+				<span>
+			  <span class="field_help">
+			 <h5> Prorated Item Name : </h5>
+              <div id="CD_DueToSellerAtClosingAdjustmentsForItemsProratedItemName_Help"><div>When entered into the Section K. Due From Borrower at Closing the line item will be displayed in the Section M. Due to Seller and is NOT editable.</div>
+			  <br><br>There are 3 labels already present in all Transactions, even if there is NO value the system and the PDF will display these labels:
+			  <ul>
+                    <li>City/Town Taxes </li>
+					<li>County Taxes</li>
+					<li>Assessments</li>
+                </ul>
+				<div>The Remaining Line items are open to the State/County needs and can be input by the user via data entry or upload capability in Section K only.
+				<ul>
+                    <li>Format is a string 150 value.</li>
+                </ul></div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Valid Value : </h5>
+              <div id="CD_DueToSellerAtClosingAdjustmentsForItemsValidValue_Help">
+			  <div>When entered into the Section K. Due From Borrower at Closing the line item will be displayed in the Section M. Due to Seller and is NOT editable.</div>
+			  <br><br>This dropdown menu is used to identify the correct MISMO value for the UCD XML file, if the upload did not use a MISMO value then the use should choose the closest or correct value to the label name.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Description : </h5>
+              <div id="CD_DueToSellerAtClosingAdjustmentsForItemsDescription_Help"><div>When entered into the Section K. Due From Borrower at Closing the line item will be displayed in the Section M. Due to Seller and is NOT editable.</div>
+			  <br><br>When in Section K. IF the user chose “other” as the valid value then provided a description, the string text will be displayed in this location in Section M.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> From Date : </h5>
+              <div id="CD_DueToSellerAtClosingAdjustmentsForItemsFromDate_Help"><div>When entered into the Section K. Due From Borrower at Closing the line item will be displayed in the Section M. Due to Seller and is NOT editable.</div>
+			  <br><br>The start date for calculating the total number of days covered by the proration item.
+			  <ul>
+                    <li>This date may occur before or after the Issue date of the CD.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> To Date : </h5>
+              <div id="CD_DueToSellerAtClosingAdjustmentsForItemsToDate_Help"><div>When entered into the Section K. Due From Borrower at Closing the line item will be displayed in the Section M. Due to Seller and is NOT editable.</div>
+			  <br><br>The end date for calculating the total number of days covered by the proration item, inclusive of this date.
+			  <ul>
+                    <li>This date may occur before or after the issue date of the closing Disclosure.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Amount : </h5>
+              <div id="CD_DueToSellerAtClosingAdjustmentsForItemsAmount_Help"><div>When entered into the Section K. Due From Borrower at Closing the line item will be displayed in the Section M. Due to Seller and is NOT editable.</div>
+			  <br><br>The prorated item amount associated to the period of time specified with the From Date and To Date.
+			  <ul>
+                    <li>Format is an amount value 9.2.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5>Total for Section M. Due to Seller At Closing<h5>
+			 <h5> Amount : </h5>
+              <div id="CD_DueToSellerAtClosingAmount_Help">This is the entire section Total Dollar amount for the Section called M.. Due to seller at Closing.  Displayed as an absolute amount.
+			  </div> 
+			  </span>			  
+		  </div>
+		  		   <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDDueFromSellerAtClosingHelp"  ng-click="CDDueFromSellerAtClosingHelp = CDDueFromSellerAtClosingHelp + 1" ng-init="CDDueFromSellerAtClosingHelp=0" > 	  
+			<span>N. Due From Seller At Closing</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDDueFromSellerAtClosingHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDDueFromSellerAtClosingHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDDueFromSellerAtClosingHelp">
+			<span class="field_help">
+			 <h5> Excess Deposit : </h5>
+              <div id="CD_DueFromSellerAtClosingExcessDeposit_Help">The line item displayed on the CD PDF, with ability for user to enter in a dollar amount
+			  <ul>
+                    <li>Format is an amount 9.2 value</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Closing Costs Paid At Closing (J) : </h5>
+              <div id="CD_DueFromSellerAtClosingClosingCostsPaidAtClosing_Help">The total amount of closing costs for all fees with an amount value in the Paid By Seller at closing column for the Closing Cost Details Section.
+			  <ul>
+                    <li>Format is an amount 9.2 value</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Existing Loan(s) Assumed or Subject Taken To : </h5>
+              <div id="CD_DueFromSellerAtClosingExistingLoanAssumedSubjectTakenTo_Help">Is NOT editable in this section, view only.  IF the value must change the user must go to Section K. Due from Borrower At Closing.
+				<div><br><br>The dollar amount of an existing loan assumed by the borrower; if present in the transaction.</div>
+			 <div>For further guidance regarding when to include a dollar amount for this value, see the CFPB Integrated Mortgage Disclosure Rule.
+			 <ul>
+                    <li>Format is an amount 9.2 value</li>
+                </ul>
+			</div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Payoff of First Mortgage : </h5>
+              <div id="CD_DueFromSellerAtClosingPayoffFirstMortgage_Help">If the Seller has a lien against the property for financing, aka a mortgage, user must provide a payoff amount for the mortgage.			  <ul>
+                    <li>Format is an amount 9.2 value</li>
+                </ul>
+				<br><br>May be blank if there are no liens against the property.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Payoff of Second Mortgage : </h5>
+              <div id="CD_DueFromSellerAtClosingPayoffSecondMortgage_Help">If the Seller has multiple liens against the property for financing, aka a second mortgage, user must provide a payoff amount for the mortgage.
+			  <ul>
+                    <li>Format is an amount 9.2 value</li>
+                </ul>
+				<br><br>May be blank if there are no liens against the property.  IF there are any additional mortgage liens against the property see the section below Seller Credits to enter in a third or fourth mortgage payoff amount.
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Seller Credits : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCredits_Help">Is NOT editable in this section, view only.  IF the value must change the user must go to Section K. Due from Borrower At Closing.
+			  <div><br><br>The seller credit is a type of adjustment made during the origination process.<ul>
+                    <li>Format is a String Value up to 150 characters. </li>
+					<li>This field is conditionally required, if it exists input the value.</li>
+                </ul></div>			  
+			  </div> 
+			  </span>
+			  <span class="field_help">
+				The Section under Seller Credits in Section N. Due From Seller at Closing will support payoff of items such as tax liens, student loans, mechanics liens, etc… AND provide the capability to enter in any adjustments such as any repairs escrow holdback or tenant security deposit, etc…
+			 </span>
+			 <span class="field_help">
+			 <h5> Indicate if line item is either a Liability or Adjustment : </h5>
+              <div id="CD_DueFromSellerAtClosingIndicateLiabilityAdjustment_Help">Is NOT editable in this section, view only.  IF the value must change the user must go to Section K. Due from Borrower At Closing.
+			  In this column identify if the entry the user is about to make is either a liability (paying off a debt) or an Adjustment (providing funds due to owning the borrower or third party out of the net proceeds)		  
+			  <ul>
+                    <li>Format is a drop-down box, values include Liability or Adjustmentli>
+                </ul>
+			  </div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Label Name : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCreditsLabelName_Help">This is a free form text field that allows a user to input the name of the liability or adjustment if the valid value is not clear and concise to be displayed on the CF PDF form.
+			  <ul>
+                    <li>String value 150 characters</li>
+                </ul>		  
+			  </div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Valid Value : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCreditsValidValue_Help">This is the enumerated list of all Adjustment Item Types OR Liability Types, depending on the choice of the user; that will be used to create the UCD XML file to support this section
+			  <ul>
+                    <li>Format is enumerated list of values.</li>
+                </ul>		  
+			  </div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Description : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCreditsDescription_Help">If the Valid Value enumeration = “Other” then a textual description must be provided to ensure a valid UCD file.  When Other is chosen, the description Text box will be enabled for a user to input a string description.
+			  <ul>
+                    <li>Format is String 150.</li>
+                </ul>			  
+			  </div> 
+			  </span>
+			   <span class="field_help">
+			 <h5> Paid Outside of Closing (Check Box) : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCreditsPaidOutsideClosing_Help">The CFPB rule indicates that any adjustments must be identified as POC if Paid outside the closing (either before or after).
+			  <ul>
+                    <li>Format is a Check box, when checked is TRUE.</li>
+                </ul>		  
+			  </div> 
+			  </span>
+			  <span class="field_help">
+				Adjustments For Items Unpaid By Seller all values in the Borrower Paid Transaction MUST be present in the Seller Section N. Due from Seller At Closing but in the Section N. will not be editable, all editing is completed in the Borrower Transaction.
+				</span>
+				<span class="field_help">
+			 <h5> Prorated Item Name : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsProratedItemName_Help">When entered into the Section L. Paid Already By or On Behalf of Borrower at Closing the line item will be displayed in the Section N. Due From Seller and is NOT editable.
+			  <br><br><div>There are 3 labels already present in all Transactions, even if there is NO value the system and the PDF will display these labels:
+			  <ul>
+                    <li>City/Town Taxes </li>
+					<li>County Taxes</li>
+					<li>Assessments</li>
+                </ul></div>
+				<div>The Remaining Line items are open to the State/County needs and can be input by the user via data entry or upload capability.
+				<ul>
+                    <li>Format is a string 150 value.</li>
+                </ul></div>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Valid Value : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsValidValue_Help">When entered into the Section L. Paid Already By or On Behalf of Borrower at Closing the line item will be displayed in the Section N. Due From Seller and is NOT editable.
+				<br><br>This dropdown menu is used to identify the correct MISMO value for the UCD XML file, if the upload did not use a MISMO value then the use should choose the closest or correct value to the label name.
+			  <div><br><br>Upon upload the Valid value will typically Display “Other” unless the upload uses the exact MISMO enumerated value found in the UCD specification.</div>
+				<ul>
+                    <li>Format is an enumerated list of values.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Description : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsDescription_Help">When entered into the Section L. Paid Already By or On Behalf of Borrower at Closing the line item will be displayed in the Section N. Due From Seller and is NOT editable.
+			  <br><br>Only when the Valid Value selection is equal to Other will this text box enable for the user to input a description for the other selection.
+				<ul>
+                    <li>Format is a string 150 value</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> From Date : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsFromDate_Help">When entered into the Section L. Paid Already By or On Behalf of Borrower at Closing the line item will be displayed in the Section N. Due From Seller and is NOT editable.
+				<br><br>The start date for calculating the total number of days covered by the proration item.
+			  <ul>
+                    <li>This date may occur before or after the Issue date of the CD.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> To Date : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsToDate_Help">The end date for calculating the total number of days covered by the proration item, inclusive of this date.
+			  <ul>
+                    <li>This date may occur before or after the issue date of the closing Disclosure.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5> Amount : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsAmount_Help">When entered into the Section L. Paid Already By or On Behalf of Borrower at Closing the line item will be displayed in the Section N. Due From Seller and is NOT editable.
+			  <br><br>The prorated item amount associated to the period of time specified with the From Date and To Date.
+			  <ul>
+                    <li>Format is an amount value 9.2.</li>
+                </ul>
+			  </div> 
+			  </span>
+			  <span class="field_help">
+			 <h5>Total for Section N. Due From Seller At Closing<h5>
+			 <h5> Amount : </h5>
+              <div id="CD_DueFromSellerAtClosingSellerCreditsAmount_Help">This is the entire section Total Dollar amount for the Section N. Due From Seller AT Closing
+			  <ul>
+				<li>Display as a negative value but will be absolute value in the XML file</li>
+				<li>Only way to change this amount is to remove or add items in the section line items of the system that are allowable for the Seller or make changes to the Borrower transaction.</li>
+			  </ul>
+			  </div> 
+			  </span>
+		  </div>
+		  <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDPayoffsPaymentsHelp"  ng-click="CDPayoffsPaymentsHelp = CDPayoffsPaymentsHelp + 1" ng-init="CDPayoffsPaymentsHelp=0" > 	  
+			<span>Payoffs and Payments</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDPayoffsPaymentsHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDPayoffsPaymentsHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDPayoffsPaymentsHelp">
+<span class="field_help">
+			 <h5> Indicate either "Liability" OR "Adjustment" : </h5>
+              <div id="CD_PayoffsPaymentsLiabilityAdjustment_Help">Since there is no addition sections that could support identification of adjustments for a refinance transaction using the Alternate form, in this section the user must choose either a liability (an item which is being paid off or partially paid down) or an adjustment (an item that is adjusting the total, ex: grant)
+			  <ul>
+                    <li>Format is a Drop Down with the values of either Liability or Adjustment</li>
+                </ul>
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> Label : </h5>
+              <div id="CD_PayoffsPaymentsLabel_Help">The user may enter a specific name for the item by entering a name or label in the label text box.  This is optional if the user does not want to user the enumerated value to ensure clear and concise.
+			  <ul>
+                    <li>Format is a string value </li>
+                </ul>
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> Type : </h5>
+              <div id="CD_PayoffsPaymentsType_Help">A Drop down box that a user must choose if there are any items to be included in the section,  the valid values change according to the Liability or Adjustment selection.
+			  <ul>
+                    <li>Format is an enumerated list of values</li>
+                </ul>
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> Paid To/By Name : </h5>
+              <div id="CD_PayoffsPaymentsPaidToByName_Help">There are two (2) values that are available for the user to enter in a Full Name.  
+			  <br><br>If a Liability is chosen in the first column, then the user must enter in ONLY the Paid To Name
+			  <br><br>If an Adjustment is chosen in the first column, then the user must enter in both the Paid To Name and the Paid By Name.
+			  <ul>
+                    <li>Format is a string value 150 characters</li>
+                </ul>
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> Amount : </h5>
+              <div id="CD_PayoffsPaymentsAmount_Help">The dollar amount for the line item.
+			  <ul>
+                    <li>Format is an amount 9.2</li>
+                </ul>
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> Liability Secured by the Subject Property? : </h5>
+              <div id="CD_PayoffsPaymentsLiabilitySecuredSubjectProperty_Help">ONLY used for a Liability, must identify if the item being paid off or paid down is secured by the real property in the transaction.
+			  <ul>
+                    <li>Format is a drop-down box with the values of Yes | No</li>
+                </ul>
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> Is the Liability a partial Payoff? : </h5>
+              <div id="CD_PayoffsPaymentsIsLiabilitypartialPayoff_Help">Only used for a Liability, must provide information to determine if the liability is being paid off completed or if the liability balance is being paid down but not completed paid off.
+			  <ul>
+                    <li>Format is drop down box with the values of Yes | No</li>
+                </ul>
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> If Prepayment Penalty, provide the amount : </h5>
+              <div id="CD_PayoffsPaymentsPrepaymentPenaltyprovideamount_Help">Only used for a Liability, if a payoff of a mortgage, regardless of lien position and the payoff information is itemized, then the user must provide the amount of any prepayment penalties associated to the payoff. 
+			  <ul>
+                    <li>Format is an amount 9.2 value</li>
+                </ul><br><br>
+				IF the item does not then leave the text box blank.
+			  </div> 
+			  </span>			  
+		  </div>
+		</div>		
+</div>
+ <div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_LoanCalculationQualifiedMortgage_Help"  ng-click="CD_LoanCalculationQualifiedMortgage_Help = CD_LoanCalculationQualifiedMortgage_Help + 1" ng-init="CD_LoanCalculationQualifiedMortgage_Help=0" > 
+      <strong>Loan Calculation and Qualified Mortgage</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_LoanCalculationQualifiedMortgage_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_LoanCalculationQualifiedMortgage_Help%2==1"></span>
+      </span>
+	 <div id="CD_LoanCalculationQualifiedMortgage_Help" class="collapse subContainer">
+	<span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDLoanCalculationHelp"  ng-click="CDLoanCalculationHelp = CDLoanCalculationHelp + 1" ng-init="CDLoanCalculationHelp=0" > 	  
+			<span>Loan Calculation</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDLoanCalculationHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDLoanCalculationHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDLoanCalculationHelp">
+<span class="field_help">
+			 <h5> Total Of Payments : </h5>
+              <div id="CD_LoanCalculationTotalPayments_Help">The amount of the Total of All Payments as disclosed based on the accepted industry standard defined by Regulation Z.  
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> Finance Charge : </h5>
+              <div id="CD_LoanCalculationFinanceCharge_Help">The amount of the Total Finance Charges as disclosed based on the accepted industry standard defined by Regulation Z.
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> Amount Financed : </h5>
+              <div id="CD_LoanCalculationAmountFinanced_Help">The amount of the Total Amount Financed as disclosed based on the accepted industry standard defined by Regulation Z.
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> Annual Percentage Rate (APR) : </h5>
+              <div id="CD_LoanCalculationAPR_Help">The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes.
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> Total Interest Percentage (TIP) : </h5>
+              <div id="CD_LoanCalculationTIP_Help">The total amount of interest paid by the borrower over the term of the loan as a percentage of the loan amount.
+			  </div> 
+			  </span>
+<span class="field_help">
+			 <h5> Liability after Foreclosure : </h5>
+              <div id="CD_LoanCalculationLiabilityForeclosure_Help">Provides a borrower information that upon the foreclosure sale completion deficiency rights against the borrowers are preserved.
+				<br><br>The check box is defaulted per the state rules; however, a user may edit and change the check box to un-checked.
+			  </div> 
+			  </span>			  
+		  </div>
+		  <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDQualifiedMortgageHelp"  ng-click="CDQualifiedMortgageHelp = CDQualifiedMortgageHelp + 1" ng-init="CDQualifiedMortgageHelp=0" > 	  
+		  <span>Qualified Mortgage</span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDQualifiedMortgageHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDQualifiedMortgageHelp%2==1"></span>
+          </span>
+		  
+		  <div class="col-sm-12" id="CDQualifiedMortgageHelp">
+						<span class="field_help">
+			 <h5> Reg.Z Excluded Bona Fide Discount Points Indicator : </h5>
+              <div id="CD_QualifiedMortgageRegZExcludedBonaFideDiscountPointsIndicator_Help">Required information that when true, indicates that excluded bona fide discount points were charged for this loan.
+			  </div> 
+			  </span>
+			  			<span class="field_help">
+			 <h5> Reg. Z Excluded Bona Fide Discount Points Percent : </h5>
+              <div id="CD_QualifiedMortgageRegZExcludedBonaFideDiscountPointsPercent_Help">Required Information when the Regulation Z Excluded Bona fide Discount Points Indicator = True, then must provide the percent which is the bona fide discount points, expressed as a percent, that are excluded from points and fees calculated in accordance with Regulation Z, Truth in Lending.
+			  </div> 
+			  </span>
+			  			<span class="field_help">
+			 <h5> Reg. Z Excluded Total Affiliate Fees Amount : </h5>
+              <div id="CD_QualifiedMortgageRegZExcludedBonaFideTotalAffiliateFeesAmount_Help">The total amount of fees, expressed in dollars, paid to an affiliate(s) of the creditor.  As the user enters in Fees in the Closing Cost Details section identified if an amount was paid to an affiliate or not, these amounts are summed into this dollar amount.
+			  </div> 
+			  </span>
+			  			<span class="field_help">
+			 <h5> Reg. Z Excluded Total Loan Amount : </h5>
+              <div id="CD_QualifiedMortgageRegZExcludedTotalLoanAmount_Help">Required information that is the total loan amount, expressed in dollars, calculated in accordance with Regulation Z, Truth in Lending. This amount is used in calculations for both Qualified Mortgage and HOEPA.</div> 
+			  </span>
+			  			<span class="field_help">
+			 <h5> Reg. Z Excluded Total Points and Fees Amount : </h5>
+              <div id="CD_QualifiedMortgageRegZExcludedTotalPointsFeesAmount_Help">Required information that is the total amount of points and fees, expressed in dollars, calculated in accordance with Regulation Z, Truth in Lending. This amount is used in calculations for both Qualified Mortgage and HOEPA purposes.
+				<br><br>User must provide this information as it is not calculated by the system
+			  </div> 
+			  </span>
+			 <span class="field_help">
+			 <h5> Ability to Repay Method Type  <br><br> Ability to Repay Exemption Reason Type : </h5>
+              <div id="CD_QualifiedMortgageAbilityRepayMethodType_Help">Required information that is needed for the GSEs to specify the method by which the creditor satisfied Regulation Z Ability-to-Repay requirements.
+				<br><br>Values include either “General” or “Exempt”
+				<br><br><div>If Exempt is chosen, then the Ability to Repay Exemption Reason Type must have a value provided from the drop-down box.<ul>
+				  <li>Loan Program </li>
+				  <li>Property usage</li>
+			  </ul></div>
+			  </div> 
+			  </span>
+		  </div>
 		</div>
 </div>
