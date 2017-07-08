@@ -394,5 +394,5 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .helpcontainer .subtab .subContainer{padding:5px 0 5px 15px; float: left; width: 100%;}
 .helpcontainer .subtab .subContainer .field_help{float: left; width: 100%; padding: 5px 0;}
 .helpcontainer .subtab .subContainer .field_help ul{margin: 0px;}
-.helpcontainer .subtab .subContainer .field_help ul li{list-style-type: disc; float: left; padding: 2px 5px;}
+.helpcontainer .subtab .subContainer .field_help ul li{list-style-type: disc; float: left; padding: 2px 5px; width: 100%;}
 .innerHelpSectionHeader{background-color: #afafaf;}
