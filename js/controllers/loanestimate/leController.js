@@ -1,5 +1,5 @@
 /**
- * Controller for transform function
+ * Controller for transform function 
  */
 app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$location, $anchorScroll, staticData, leService) {
 	
