@@ -1,7 +1,7 @@
 <div class="bodySection col-sm-12">
   
  <h4>Help - Loan Estimate</h4>
-
+ 
  <div class="helpcontainer">
    <span class="subtab">
       <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_ClosingInformation_Help"  ng-click="LE_ClosingInformation_Help = LE_ClosingInformation_Help + 1" ng-init="LE_ClosingInformation_Help=0" > 
@@ -38,7 +38,7 @@
             </span>
             <span class="field_help">
               <h5>Closing Cost Expiration Date : </h5>
-              <div id="LE_dateIssued_Help">The date in which the closing costs are expired and a new Loan Estimate must be issues, see CFPBs Integrate Mortgage Disclosure Regulation for more information on timing.
+              <div id="LE_closingCostExpirationDate_Help">The date in which the closing costs are expired and a new Loan Estimate must be issues, see CFPBs Integrate Mortgage Disclosure Regulation for more information on timing.
               </div>
             </span>
           </div>
@@ -66,7 +66,7 @@
             </span>
             <span class="field_help">
               <h5>Legal Description</h5>
-              <div id="LE_addressLineText_Help">The full, unparsed legal description of a parcel of real property.<ul>
+              <div id="LE_LegalDescription_Help">The full, unparsed legal description of a parcel of real property.<ul>
                 <li>Must be in a format of a String value with no more than 150 characters</li>
               </ul>
               </div>
@@ -119,7 +119,7 @@
        <div class="col-sm-12" id="LEvalueAmountHelp">
             <span class="field_help">
               <h5>Choose either "Appraised Property Value" OR "Estimated Property Value" :</h5>
-              <div id="LE_salesPrice_Help">If the transaction is a Refinance, choose from the drop-down menu  selectthen select either the Appraised Property Value or the Estimated Property Value.
+              <div id="LE_valueAmountRefinaceTransaction_Help">If the transaction is a Refinance, choose from the drop-down menu  selectthen select either the Appraised Property Value or the Estimated Property Value.
               <ul>
                 <li>See the CFPBs Integrated Mortgage Disclosure regulation to determine which one to choose.</li>
                 <li>The Default is the Appraised Property Value</li>
@@ -130,7 +130,7 @@
 
             <span class="field_help">
               <h5>Amount of Value :</h5>
-              <div id="LE_salesPrice_Help">Provide the Statement of value of the property from a valid property valuation source.
+              <div id="LE_AmountOfValue_Help">Provide the Statement of value of the property from a valid property valuation source.
               <ul>
                 <li>This amount is different than the estimated property value amount</li>
                 <li>The format is a Dollar amount in $9.2</li>

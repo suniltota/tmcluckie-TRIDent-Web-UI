@@ -1,4 +1,4 @@
-	<div class="col-sm-12">
+	<div class="col-sm-12"> 
 	<input type="file" name="ucdXml" id="UCDXMLFILE" ng-hide="true" onchange="angular.element(this).scope().fileNameChanged(this);this.value=null; return false;" accept=".xml">
 	<input type="file" name="trid_import_text" id="trid_import_text" ng-hide="true" onchange="angular.element(this).scope().importTextFile(this);this.value=null; return false;" accept=".txt">
 	<h4>Closing Information</h4>
@@ -6,42 +6,22 @@
 		<h5 class="innerSectionHeader">Loan Estimate General Information</h5>
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle" >Lender Name  
-			<span id="LE_lenderName_Help" class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseover="showtooltip($event)" >
-                {{tooltipmessage}}
-            </span>
-			
             </div>
-			<div class="col-sm-7">
-				<span class="col-sm-10 padding0">
-				<input type="text" name="lenderName" id="lenderName" class="form-control" ng-model="leformdata.contactInformation.lender.name.fullName" placeholder="Lender Name"/>
-				</span>
+			<div class="col-sm-7" class="form-group">
+				<actualize-input name="lenderName" id="lenderName" ng-model="leformdata.contactInformation.lender.name.fullName" placeholder="Lender Name" ng-required="true" toolTipPos = "top" dependencies="require-field"></actualize-input>
+				<help-verbiage name="LE_lenderName_Help" title="help_tooltip"></help-verbiage>
 			</div>
 		</div>
 
 		<div class="FieldGroup">
 			<div class="col-sm-5 fieldTitle">Date Issued <span class="required">*</span>
-			<span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
-                <span>
-                	<b></b>
-                   <span> <p>The date the integrated disclosure was mailed or delivered to the borrower as reflected on a single instance of the integrated disclosure document.</p>
-					<ul> 
-						<li>Must be in a format of DD/MM/YYYY or use the calendar icon to choose the date.</li> 
-						<li>There is no constraint on this date as a user may need to create a .xml file to submit to an investor to generate an integrated Loan Estimate document from the past.</li>
-						<li>Is a Required field</li>
-					</ul>
-				   </span>
-                </span>
-            </span>
+			
             </div>
-			<!--<div class="col-sm-7">
-			    <span class="col-sm-10 padding0">{{leformdata.closingInformation.dateIssued | date : dateFormat}}
-				</span>
-			</div> -->
 			<div class="col-sm-7">
-				<span class="col-sm-9 padding0">
-					<!-- <input type="text" name="dateIssued" id="dateIssued" class="form-control calenderInput" uib-datepicker-popup="{{dateFormat}}" ng-model="leformdata.closingInformation.dateIssued" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY"/> -->
+				<span class="col-sm-10 padding0" style=" width:88.33%">
                 <actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="leformdata.closingInformation.dateIssued" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date." placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
+                <help-verbiage name="LE_dateIssued_Help"  title="calenderInput"></help-verbiage>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -49,19 +29,13 @@
 			</div>
 		</div>
 		<div class="FieldGroup">
-			<div class="col-sm-5 fieldTitle">Closing Cost Expiration Date <span class="required">*</span> <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
-                <span>
-                	<b></b>
-                   <span> <p>The date in which the closing costs are expired and a new Loan Estimate must be issues, see CFPBs Integrate Mortgage Disclosure Regulation for more information on timing.</p>
-					
-				   </span>
-                </span>
-            </span></div>
+			<div class="col-sm-5 fieldTitle">Closing Cost Expiration Date <span class="required">*</span></div>
 			<div class="col-sm-7">
-				<span class="col-sm-9 padding0">
+				<span class="col-sm-10 padding0" style=" width:88.33%">
 
 				<actualize-input name="closingCostExpirationDate" id="closingCostExpirationDate" dateFormat="{{dateFormat}}" ng-model="closingCostExpirationDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" min-date-var="leformdata.closingInformation.dateIssued" is-open="isDateIssued" toolTipPos = "top" custommessage="Please enter a vaild date. Closing expiration Date cannot occur prior to Issue Date." placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
+                <help-verbiage name="LE_closingCostExpirationDate_Help"  title="calenderInput"></help-verbiage>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -80,9 +54,9 @@
 				                   <span> In any transaction, the subject property location must be made clear and concise on the Loan Estimate, thus the user interface provides two options: 
 									<ul>
 									    <li>Street Address</li>
-										<li>The format is a Dollar amount in $9.2
+										<li>
 											Legal Description, use if no street address exists.</li>
- 										<li>The format is a Dollar amount in $9.2
+ 										<li>
 										The function requires that a radio button is chosen to indicate one or the other as this field is required.</li>
 									</ul>
 								   </span>
@@ -97,64 +71,41 @@
 		          </div>
 		          <div class="row margin5tb" ng-show="leformdata.closingInformation.property.legalDescription == false">
 		              <div class=" col-sm-12">
-		              <div class="col-sm-5 fieldTitle">Street Address
-		              <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
-				                <span>
-				                	<b></b>
-				                   <span> The address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value
-								   </span>
-				                </span>
-				            </span></div>
-		              <div class="col-sm-7"><input type="text" ng-model="leformdata.closingInformation.property.addressLineText" class="form-control"></div>
+		              <div class="col-sm-5 fieldTitle">Street Address</div>
+		              <div class="col-sm-7" class="form-group"><input type="text" ng-model="leformdata.closingInformation.property.addressLineText" class="form-control">
+		              <help-verbiage name="LE_streetAddress_Help" title="leftTooltip"></help-verbiage>
+		              </div>
 		            </div>
 		          </div>
 		          <div class="row margin5tb" ng-show="leformdata.closingInformation.property.legalDescription == true">
 		              <div class=" col-sm-12">
-		              <div class="col-sm-5 fieldTitle">Legal Description <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
-				                <span>
-				                	<b></b>
-				                   <span> The full, unparsed legal description of a parcel of real property.
-   									 <ul> <li>The format is a Dollar amount in $9.2
-										Must be in a format of a String value with no more than 150 characters</li></ul>
-
-								   </span>
-				                </span>
-				            </span>
+		              <div class="col-sm-5 fieldTitle">Legal Description
 				        </div>
 		              <div class="col-sm-7">
 		              <textarea ng-model="leformdata.closingInformation.property.unparsedLegalDescription" class="form-control" maxlength="265"></textarea>
+		              <help-verbiage name="LE_LegalDescription_Help" title="leftTooltip"></help-verbiage>
 		              </div>
 		            </div>
 		          </div>
 		          <div class="row margin5tb">
 		            <div class=" col-sm-12">
-		              <div class="col-sm-5 fieldTitle">City <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
-				                <span>
-				                	<b></b>
-				                   <span> The name of the city.
-   									 <ul> <li>Must be in a format of a String value with no more than 50 characters format is a string Value with a character limit of 50 characters.</li></ul>
-
-								   </span>
-				                </span>
-				            </span></div>
-		              <div class="col-sm-7"><input type="text" ng-model="leformdata.closingInformation.property.cityName" class="form-control"></div>
+		              <div class="col-sm-5 fieldTitle">City</div>
+		              <div class="col-sm-7">
+		              <input type="text" ng-model="leformdata.closingInformation.property.cityName" class="form-control"> 
+		              <help-verbiage name="LE_cityName_Help" title="leftTooltip"></help-verbiage>
+		              </div>
 		            </div>
 		          </div>
 		          <div class="row margin5tb">
 		            <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">State
-		              <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
-				                <span>
-				                	<b></b>
-				                   <span> The two-character representation of the US state, US Territory, Canadian Province, Military APO FPO, or Territory.
-								   </span>
-				                </span>
-				            </span></div>
-		              <div class="col-sm-7">
+		              </div>
+		              <div class="col-sm-7 form-group">
 		                  <select ng-model="leformdata.closingInformation.property.stateCode" class="form-control">
 		                     <option value="" selected>Select</option>
 		                     <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
 		                  </select>
+		                  <help-verbiage name="LE_statecode_Help" title="leftTooltip"></help-verbiage>
 		              </div>
 		            </div>
 		          </div>
@@ -162,17 +113,10 @@
 		            <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Postal Code 
 		              <span class="required">*</span>
-		              <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
-				                <span>
-				                	<b></b>
-				                   <span> The postal code (ZIP Code in the US) for the address. ZIP Code may be either 5 or 9 digits.
-                                     <ul> <li>This value is required regardless if of other property Information is available.</li></ul>
-								   </span>
-				                </span>
-				            </span>
 				            </div>
 		              <div class="col-sm-7">
 		              <actualize-input ng-model="leformdata.closingInformation.property.postalCode" name="postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format" ></actualize-input>
+		              <help-verbiage name="LE_postalCode_Help" title="leftTooltip"></help-verbiage></div>
 		              </div>
 		            </div>
 		          </div>
@@ -182,19 +126,13 @@
 			<h5 class="innerSectionHeader">Price Information (Purchase Only)</h5>
 			<div class="row" ng-show="leformdata.salesContractDetail.personalPropertyIndicator == false">
 			 	 <div class=" col-sm-12">
-				    <div class="col-sm-5 fieldTitle">Sales Price (Purchase Only) <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
-			                <span>
-			                	<b></b>
-			                   <span> In a  purchase transaction must provide the Sales Price of the Subject property that the Loan Estimate is supporting.
-                                 <ul> <li>The format is an amount that cannot exceed $9.2</li></ul>
-							   </span>
-			                </span>
-			            </span></div>
+				    <div class="col-sm-5 fieldTitle">Sales Price (Purchase Only)</div>
 	              	<div class="col-sm-7 radioGroup">
 					   	 <div class="input-group">
-								<span class="input-group-addon input-default">$</span>
+							<span class="input-group-addon input-default">$</span>
 	        				<actualize-input name="saleContractAmount" ng-model="leformdata.salesContractDetail.saleContractAmount" dependencies="decimal-digits-with-number-format" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ></actualize-input>
 	        			</div>
+	        				<help-verbiage name="LE_salesPrice_Help" title="topTooltip"></help-verbiage>
 					</div>
 	             </div>
 	          </div>
@@ -203,40 +141,23 @@
 				<h5 class="innerSectionHeader">Price Information (Refinance Only)</h5>
 				 <div class="row">
 				 	 <div class="col-sm-12">
-		             <span class="col-sm-1 glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver >
-				                <span>
-				                	<b></b>
-				                   <span> If the transaction is a Refinance, choose from the drop-down menu  selectthen select either the Appraised Property Value or the Estimated Property Value
-                                     <ul> <li>See the CFPBs Integrated Mortgage Disclosure regulation to determine which one to choose.</li>
-                                     <li>The Default is the Appraised Property Value.</li>
-                                     <li>The format is a set of enumerated values seen in the drop-down box</li></ul>
-								   </span>
-				                </span>
-				            </span>
 		              	<div class="col-sm-5">
 		              		
 		              		<select class="form-control" ng-model="leformdata.closingInformation.propertyValuationDetail.propertyValue">
 		              			<option value="Appraised">Appraised Property Value</option>
 		              			<option value="Estimated">Estimated Property Value</option>
 		              		</select>
+		              		<help-verbiage name="LE_valueAmountRefinaceTransaction_Help" title="topTooltip"></help-verbiage>
 		              	</div>
-		              	<span class="col-sm-1 glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg
-		              	top" ng-mouseouver >
-				                <span>
-				                	<b></b>
-				                   <span> Provide the Statement of value of the property from a valid property valuation source
-                                     <ul> <li>This amount is different than the estimated property value amount</li>
-                                     <li>The format is a Dollar amount in $9.2</li></ul>
-								   </span>
-				                </span>
-				            </span>
 		              	<div class="col-sm-5">
 		              		<div class="input-group">
 		  						<span class="input-group-addon input-default">$</span>
 				        		<actualize-input ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'" ng-model="leformdata.closingInformation.propertyValuationDetail.propertyValuationAmount" toolTipPos = "top" name="propertyValuationAmount" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format"></actualize-input>
-				        		<!-- <input class="form-control" ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated'"  ng-model="leformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount" decimal-digits-with-number-format></input> -->
 				        		<actualize-input ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated'" ng-model="leformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount" name="propertyEstimatedValueAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format"></actualize-input>
-				        	</div>
+				        		</div>
+				        		<help-verbiage name="LE_AmountOfValue_Help" title="topTooltip"></help-verbiage>
+				        		
+				       
 		              </div>
 		             </div>
 		          </div>
