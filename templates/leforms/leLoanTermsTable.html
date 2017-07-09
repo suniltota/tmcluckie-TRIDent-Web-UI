@@ -26,8 +26,8 @@
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList" ng-show="leformdata.loanDetail.negativeAmortizationIndicator">
-		        		<li><span class="pull-left margin5tb col-sm-4"> Can go as high as </span> 
-							<span class="col-sm-4 marginleft50n">
+		        		<li><span class="pull-left margin5tb col-sm-5"> Can go as high as </span> 
+							<span class="col-sm-4">
 								<div class="input-group">
 									<span class="input-group-addon input-default">$</span>
 									<input type="text" class="form-control" name="" ng-model="leformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount" decimal-digits-with-number-format >
@@ -35,7 +35,7 @@
 							</span>
 						</li>
 							
-						<li> <span class="pull-left margin5tb col-sm-4"> Can increase until year </span> <span class="col-sm-4 marginleft30n"><input type="text" class="form-control" name="" value="{{leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount/12 | ceil}}" ></span></li>
+						<li> <span class="pull-left margin5tb col-sm-5"> Can increase until year </span> <span class="col-sm-4"><input type="text" class="form-control" name="" value="{{leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount/12 | ceil}}" ></span></li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -54,8 +54,8 @@
 		        <td>
 		        	<ul class="loanTermsList">
 		        		<li ng-show="leformdata.loanDetail.interestRateIncreaseIndicator">
-		        			<span class="pull-left margin5tb col-sm-2 padding0">Adjusts every</span> 
-		        			<span class="col-sm-2 marginleft10n">
+		        			<span class="pull-left margin5tb col-sm-4 padding0">Adjusts every</span> 
+		        			<span class="col-sm-2">
 		        				<input type="text" value="{{(leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount/12) | round}}" class="form-control" name="" ng-disabled="true">
 		        			</span> 
 		        			<span class="pull-left margin5tb">years starting in year</span>
@@ -64,14 +64,14 @@
 		        			</span>
 		        		</li>
 		        		<li ng-show="leformdata.loanDetail.interestRateIncreaseIndicator">
-		        			<span class="pull-left margin5tb col-sm-3 padding0">Can go as high as</span> 
-		        			<span class="col-sm-3 marginleft7np">
+		        			<span class="pull-left margin5tb col-sm-4 padding0">Can go as high as</span> 
+		        			<span class="col-sm-3">
 							<div class="input-group">								
 		        				<input type="text" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" class="form-control width58" name="" percentage-format>
 								<span class="input-group-addon input-default">%</span>
 							</div>
 		        			</span> 
-		        			<span class="pull-left margin5tb">in year</span> 
+		        			<span class="pull-left margin5tb marginleft18">in year</span> 
 		        			<span class="col-sm-2">
 		        				<input type="text" ng-model="leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount" only-digits class="form-control" name="" maxlength="3">
 		        			</span>
@@ -102,13 +102,13 @@
 		        			<span class="pull-left margin5tb">years starting in year</span>
 		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" only-digits maxlength="3"></span></li>
 		        		<li><span class="pull-left margin5tb"> Can go as high as</span> 
-		        			<span class="col-sm-3 marginleft7n">
+		        			<span class="col-sm-3">
 		        			<div class="input-group">
 								<span class="input-group-addon input-default">$</span>
 								<input type="text" class="form-control width58" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount" decimal-digits-with-number-format>
 							</div>
 							</span> 
-		        			<span class="pull-left margin5tb">in year</span> 
+		        			<span class="pull-left margin5tb marginleft18">in year</span> 
 		        			<span class="col-sm-2">
 		        			<input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount" only-digits maxlength="3">
 		        			</span>
