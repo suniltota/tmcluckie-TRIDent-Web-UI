@@ -1270,6 +1270,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	    }
     	}
     	projectedPaymentsCalculation();
+    	$scope.updateProjectedPaymentsMI();
+    	for(j=0;j<$scope.cdformdata.projectedPayments.estimatedEscrow.length;j++){
+            $scope.cdformdata.projectedPayments.estimatedEscrow[j].projectedPaymentEstimatedEscrowPaymentAmount = $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount;
+        }
     }
 
     var projectedPaymentsCalculation = function(){

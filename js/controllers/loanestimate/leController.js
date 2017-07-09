@@ -1182,6 +1182,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	    }
     	}
     	projectedPaymentsCalculation();
+    	$scope.updateProjectedPaymentsMI();
+    	for(j=0;j<$scope.leformdata.projectedPayments.estimatedEscrow.length;j++){
+            $scope.leformdata.projectedPayments.estimatedEscrow[j].projectedPaymentEstimatedEscrowPaymentAmount = $scope.leformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount;
+        }
     }
 
     var projectedPaymentsCalculation = function(){
