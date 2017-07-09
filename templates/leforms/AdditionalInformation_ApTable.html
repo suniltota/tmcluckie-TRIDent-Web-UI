@@ -94,7 +94,7 @@
 		        	First Change / Amount  
 		        </td>
 		        <td>
-		        	<ul class="loanTermsList">
+		        	<!-- <ul class="loanTermsList">
 		        	<li> 
 	        			<span class="pull-left col-sm-2">
 	        			<div class="input-group marginleft15n">
@@ -106,7 +106,51 @@
 	        			<span class="pull-left col-sm-2"><input type="text" class="form-control width50" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" ng-disabled="true"></span>
 	        			<span class="pull-left margin5tb">payment</span>
 		        	 </li>
-		        	 </ul>
+		        	 </ul> -->
+		        	 <ul class="loanTermsList" ng-switch="leformdata.loanInformation.amortizationType">
+			        	<li ng-if="leformdata.loanDetail.interestOnlyIndicator && leformdata.loanInformation.amortizationType=='Fixed'">
+		        			<span class="pull-left col-sm-2">
+		        				<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+		        					<input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
+		        				</div>
+		        			</span>
+		        			<span class="pull-left margin5tb"> at the</span>
+		        			<span class="pull-left col-sm-2">
+		        				<input type="text" class="form-control" name="" value="{{leformdata.interestOnly.interestOnlyTermMonthsCount ? (leformdata.interestOnly.interestOnlyTermMonthsCount -0) + 1 : '' }}" ng-disabled="true">
+		        			</span>
+		        			<span class="pull-left margin5tb">payment</span>
+			        	</li>
+			        	<li ng-if="leformdata.loanDetail.interestOnlyIndicator && leformdata.loanInformation.amortizationType!='Fixed'"> 
+			        		<span class="pull-left col-sm-2">
+			        			<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+			        				<input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPerChangeMinimumPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
+			        			</div>
+			        		</span>
+			        		<span class="pull-left margin5tb"> - </span>			        			
+		        			<span class="pull-left col-sm-2">
+		        				<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+		        					<input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
+		        				</div>
+		        			</span>
+		        			<span class="pull-left margin5tb"> at the</span>
+		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" ng-disabled="true"></span>
+		        			<span class="pull-left margin5tb">payment</span>
+			        	</li>
+			        	<li ng-if="!leformdata.loanDetail.interestOnlyIndicator"> 
+			        		<span class="pull-left col-sm-3">
+			        			<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+			        				<input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
+			        			</div>
+			        		</span>
+		        			<span class="pull-left margin5tb"> at the</span>
+		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" ng-disabled="true"></span>
+		        			<span class="pull-left margin5tb">payment</span>
+			        	</li>
+		        	</ul>
 		        </td>
 		      </tr>
 		      <tr>
@@ -121,7 +165,7 @@
 		        	<span class="col-sm-12" ng-show="leformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">
 		        	    <span class="pull-left margin5tb">Every</span>
 		        		<span class="pull-left col-sm-2">
-		        			<input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" ng-disabled="true">
+		        			<input type="text" class="form-control" name="" value="{{leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount/12 | round}}" ng-disabled="true">
 		        		</span>
 		        		<span class="pull-left margin5tb">Years</span>
 		        	</span>
@@ -134,7 +178,7 @@
 		        	Maximum Payment   
 		        </td>
 		        <td>
-		            <ul class="loanTermsList">
+		            <!-- <ul class="loanTermsList">
 		        	<li>
 		        		
 	        			<span class="pull-left col-sm-2">
@@ -148,6 +192,33 @@
 	        			<span class="pull-left col-sm-2"><input type="text" class="form-control width50" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount" ng-disabled="true"></span>
 	        			<span class="pull-left margin5tb">payment</span>
 		        	 </li>
+		        	 </ul> -->
+		        	<ul class="loanTermsList">
+			        	<li ng-if="leformdata.loanDetail.interestOnlyIndicator && leformdata.loanInformation.amortizationType=='Fixed'">
+		        			<span class="pull-left col-sm-2">
+		        				<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+		        					<input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
+		        				</div>
+		        			</span>
+		        			<span class="pull-left margin5tb"> at the</span>
+		        			<span class="pull-left col-sm-2">
+		        					<input type="text" class="form-control" name="" value="{{leformdata.interestOnly.interestOnlyTermMonthsCount ? (leformdata.interestOnly.interestOnlyTermMonthsCount -0) + 1 : '' }}" ng-disabled="true">
+		        				</span>
+		        			<span class="pull-left margin5tb">payment</span>
+			        	 </li>
+			        	 <li ng-if="!leformdata.loanDetail.interestOnlyIndicator || leformdata.loanInformation.amortizationType!='Fixed'">
+		        			<span class="pull-left col-sm-2">
+		        				<div class="input-group">
+									<span class="input-group-addon input-default">$</span>
+		        					<input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount" decimal-digits-with-number-format>
+		        				</div>
+	       					</span>
+		        			<span class="pull-left margin5tb"> at the</span>
+		        			<span class="pull-left col-sm-2">
+		        				<input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount" only-digits maxlength="3"></span>
+		        			<span class="pull-left margin5tb">payment</span>
+			        	 </li>
 		        	 </ul>
 		        </td>
 		      </tr>

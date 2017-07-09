@@ -4,28 +4,36 @@
         <table class="table table-bordered margin5tb"  style="border:0px;">
 		      <tr>
 		        <td class="col-sm-3">
-		        	<label>Index + Margin</label>
+		        	<label ng-show="leformdata.loanInformation.amortizationType !='Step'">Index + Margin</label>
+		        	<label ng-show="leformdata.loanInformation.amortizationType =='Step'">Number of Adjustments</label>
 		        </td>
 		        <td>
-		        	<span class="col-sm-12 margin5tb"> 
+		            <span ng-if="leformdata.loanInformation.amortizationType !='Step'">
+			        	<span class="col-sm-12 margin5tb"> 
+		        			<span class="pull-left col-sm-2">
+		        				<select class="form-control" ng-model="leformdata.interestRateAdjustment.indexType">
+			        				<option value="" selected>Select</option>
+		                            <option ng-repeat="indexType in indexTypes" value="{{indexType.value}}">{{indexType.name}}</option>
+		        				</select>
+		        			</span>
+		        			<span class="pull-left margin5tb">+</span>
+		        			<span class="pull-left col-sm-2">
+		        				<div class="input-group">
+									<input type="text" class="form-control" name="" ng-model="leformdata.interestRateAdjustment.marginRatePercent" percentage-format>
+									<span class="input-group-addon input-default">%</span>
+		        				</div>
+		        			</span>		        			
+			        	 </span>
+			        	 <span class="col-sm-12 margin5tb" ng-show="leformdata.interestRateAdjustment.indexType=='Other'">
+			        	 		<span class="pull-left margin5tb"><label>Index Description:</label></span>
+			        	 		<span class="pull-left col-sm-2"><input type="text" class="form-control" value="My Index For Pricing" name="" ng-model="leformdata.interestRateAdjustment.indexTypeOtherDescription"></span>
+			        	 </span>
+		        	 </span>
+		        	 <span ng-show="leformdata.loanInformation.amortizationType =='Step'">
 	        			<span class="pull-left col-sm-2">
-	        				<select class="form-control" ng-model="leformdata.interestRateAdjustment.indexType">
-		        				<option value="" selected>Select</option>
-	                            <option ng-repeat="indexType in indexTypes" value="{{indexType.value}}">{{indexType.name}}</option>
-	        				</select>
+	        				<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.totalStepCount">
 	        			</span>
-	        			<span class="pull-left margin5tb">+</span>
-	        			<span class="pull-left col-sm-2">
-	        				<div class="input-group">
-								<input type="text" class="form-control" name="" ng-model="leformdata.interestRateAdjustment.marginRatePercent" percentage-format>
-								<span class="input-group-addon input-default">%</span>
-	        				</div>
-	        			</span>		        			
-		        	 </span>
-		        	 <span class="col-sm-12 margin5tb" ng-show="leformdata.interestRateAdjustment.indexType=='Other'">
-		        	 		<span class="pull-left margin5tb"><label>Index Description:</label></span>
-		        	 		<span class="pull-left col-sm-2"><input type="text" class="form-control" value="My Index For Pricing" name="" ng-model="leformdata.interestRateAdjustment.indexTypeOtherDescription"></span>
-		        	 </span>
+		        	</span>
 		        </td>
 		      </tr>
 		      <tr>
@@ -33,7 +41,21 @@
 		        	<label>Initial Interest Rate</label>
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">{{leformdata.termsOfLoan.noteRatePercent | number:2}}%</span>
+		        	<!-- <span class="pull-left margin5lr">{{leformdata.termsOfLoan.noteRatePercent | number:2}}%</span> -->
+		        	<span class="pull-left col-sm-2">
+        				<div class="input-group">
+	        				<span ng-show="leformdata.loanInformation.amortizationType !='Step' && leformdata.loanInformation.amortizationType!='GraduatedPaymentARM' && leformdata.loanInformation.amortizationType!='AdjustableRate'">
+								<input type="text" class="form-control" name="" ng-disabled="true" ng-model="leformdata.termsOfLoan.noteRatePercent">
+						    </span>
+						    <span ng-show="leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanInformation.amortizationType=='AdjustableRate'">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.termsOfLoan.disclosedFullyIndexedRatePercent">
+							</span>
+							<span ng-show="leformdata.loanInformation.amortizationType =='Step'">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.termsOfLoan.noteRatePercent">
+							</span>
+							<span class="input-group-addon input-default">%</span>
+        				</div>
+	        		</span>
 		        </td>
 		      </tr>
 		      <tr>
@@ -42,7 +64,7 @@
 		        	<label ng-show="leformdata.interestRateAdjustment.indexType=='Other'">Total Step Count</label>
 		        </td>
 		        <td>
-		            <span ng-show="leformdata.interestRateAdjustment.indexType!='Other'">
+		            <!-- <span ng-show="leformdata.interestRateAdjustment.indexType!='Other'">
 			        	<span class="pull-left margin5lr">{{leformdata.interestRateAdjustment.floorRatePercent | number:2}}%</span>
 			        	<span class="pull-left margin5lr"> Floor Rate </span>
 			        	<span class="pull-left margin5lr"> {{leformdata.interestRateAdjustment.ceilingRatePercent | number:2}}%</span>
@@ -50,6 +72,38 @@
 		        	</span>
 		        	<span ng-show="leformdata.interestRateAdjustment.indexType=='Other'">
 		        	{{leformdata.interestRateAdjustment.totalStepCount}}
+		        	</span> -->
+		        	<span ng-if="leformdata.loanInformation.amortizationType !='Step'">
+			            <span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.floorRatePercent">
+								<span class="input-group-addon input-default">%</span>
+	        				</div>
+		        		</span>
+			        	<span class="pull-left margin5lr margin5t"> Floor Rate </span>
+			        	<span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent">
+								<span class="input-group-addon input-default">%</span>
+	        				</div>
+		        		</span>
+			        	<!-- <span class="pull-left margin5lr"> {{leformdata.interestRateAdjustment.ceilingRatePercent | number:2}}%</span> -->
+			        	<span class="pull-left margin5lr margin5t">Life Time Cap Rate</span>
+		        	</span>
+		        	<span ng-if="leformdata.loanInformation.amortizationType =='Step'">
+		        	    <span class="pull-left col-sm-2">
+	        				<div class="input-group">
+		        				<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.termsOfLoan.noteRatePercent">
+								<span class="input-group-addon input-default">%</span>
+	        				</div>
+		        		</span>
+		        		<span class="pull-left margin5lr margin5t"> / </span>
+		        		<span class="pull-left col-sm-2">
+	        				<div class="input-group">
+								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" >
+								<span class="input-group-addon input-default">%</span>
+	        				</div>
+		        		</span>
 		        	</span>
 		        </td>
 		      </tr>
@@ -64,7 +118,11 @@
 		        </td>
 		        <td>
 		        	<span class="pull-left margin5lr">Beginning of </span>
-		        	<span class="pull-left margin5lr">{{leformdata.interestRateAdjustment.firstRateChangeMonthsCount+1}}</span>
+		        	<span class="pull-left margin5lr"><!-- {{leformdata.interestRateAdjustment.firstRateChangeMonthsCount+1}} -->
+		        		<div class="input-group">
+							<input type="text" class="form-control" name=""  ng-disabled="true" value="{{leformdata.interestRateAdjustment.firstRateChangeMonthsCount ? (leformdata.interestRateAdjustment.firstRateChangeMonthsCount -0) + 1 : '' }}">
+						</div>
+		        	</span>
 		        	<span class="pull-left margin5lr"> months </span>
 		        </td>
 		      </tr>
@@ -74,7 +132,11 @@
 		        </td>
 		        <td>
 		        	<span class="pull-left margin5lr">Every </span>
-		        	<span class="pull-left margin5lr">{{leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount}}</span>
+		        	<span class="pull-left margin5lr"><!-- {{leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount}} -->
+		                <div class="input-group">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount">
+        				</div>
+		        	</span>
 		        	<span class="pull-left margin5lr"> months after first change</span>
 		        </td>
 		      </tr>
@@ -89,7 +151,12 @@
 		        	First Change
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">{{leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent | number:2}}% </span>
+		        	<span class="pull-left margin5lr"><!-- {{leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent | number:2}}%  -->
+		                <div class="input-group">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent">
+							<span class="input-group-addon input-default">%</span>
+        				</div>
+		        	</span>
 		        </td>
 		      </tr>
 		       <tr>
@@ -97,7 +164,13 @@
 		        	Subsequent Change 
 		        </td>
 		        <td>
-		        	<span class="pull-left margin5lr">{{leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent | number:2}}% </span>
+		        	<span class="pull-left margin5lr">
+		        	<!-- {{leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent | number:2}}%  -->
+		        		<div class="input-group">
+							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent">
+							<span class="input-group-addon input-default">%</span>
+        				</div>
+		        	</span>
 		        </td>
 		      </tr>
 		</table>
