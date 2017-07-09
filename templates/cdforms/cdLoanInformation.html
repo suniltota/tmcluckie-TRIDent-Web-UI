@@ -66,7 +66,7 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="FieldGroup marginnegative4t">
-					<div class="col-sm-5 fieldTitle paddingtop5">Lien Position: <span class="required">*</span>
+					<div class="col-sm-5 fieldTitle paddingtop5">Lien Position:<span class="required">*</span>
 					</div>
 					<div class="col-sm-7 padding0">
 						<select  class="form-control" ng-model="cdformdata.termsOfLoan.lienPriorityType">
@@ -79,8 +79,8 @@
 		</div>
 		<div class="col-sm-12 row margin5tb margin8t">
 			<div class="col-sm-4">
-				<div class="col-sm-5 fieldTitle" style="padding: 8 0">Lender Loan Identifier: <span class="required">*</span></div>
-				<div class="col-sm-7 padding0" ng-repeat="loanIdentifier in cdformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
+				<div class="col-sm-6 fieldTitle" style="padding: 8 0">Lender Loan Identifier:<span class="required">*</span></div>
+				<div class="col-sm-6 padding0" ng-repeat="loanIdentifier in cdformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
 					<actualize-input name="lenderLoanIdentifier" ng-model="loanIdentifier.loanIdentifier" toolTipPos = "top" dependencies="require-field" >
                 	</actualize-input>
 				</div>
@@ -95,9 +95,9 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="FieldGroup marginnegative9t">
-					<div class="col-sm-5 fieldTitle paddingtop10">Manual Underwriting Flag: <span class="required">*</span>
+					<div class="col-sm-8 fieldTitle paddingtop10">Manual Underwriting Flag:<span class="required">*</span>
 					</div>
-					<div class="col-sm-7 padding0 paddingtop5">
+					<div class="col-sm-4 padding0 paddingtop5 pull-right">
 						<select  class="form-control" ng-model="cdformdata.loanInformation.loanManualUnderwritingIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 						</select>
 					</div>
