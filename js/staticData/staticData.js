@@ -5110,7 +5110,7 @@ this.cdformdata={
 	                "feeTotalPercent": "",
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
-	                "integratedDisclosureSectionType": "ServicesBorrowerDidNotShopFor",
+	                "integratedDisclosureSectionType": "ServicesYouCannotShopFor",
 	                "optionalCostIndicator": null,
 	                "regulationZPointsAndFeesIndicator": null,
 	                "paymentIncludedInAPRIndicator": true
@@ -5130,7 +5130,7 @@ this.cdformdata={
 	                "feeTotalPercent": "",
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
-	                "integratedDisclosureSectionType": "ServicesBorrowerDidShopFor",
+	                "integratedDisclosureSectionType": "ServicesYouCanShopFor",
 	                "optionalCostIndicator": null,
 	                "regulationZPointsAndFeesIndicator": null,
 	                "paymentIncludedInAPRIndicator": true
