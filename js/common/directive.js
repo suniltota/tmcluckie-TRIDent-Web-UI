@@ -759,19 +759,25 @@ app.directive('helpVerbiage', function ($window, $compile) {
         var currentname = attr.name;
         if(attr.title == "help_tooltip"){
               var template ='<span class="helpText tooltip-msg"> ? <span><b></b><span>';
-        }
-        if(attr.title == "help_tooltip_padding"){
+          }
+          if(attr.title == "help_tooltip_text"){
+              var template ='<span class="helpText tooltip-msg tooltip_text"> ? <span><b></b><span>';
+          }
+           if(attr.title == "help_tooltip_padding"){
               var template ='<span class="helpText tooltip-msg tooltip_padding"> ? <span><b></b><span>';
-        }
-        if(attr.title == "calenderInput"){
+          }
+          if(attr.title == "help_tooltip_padding_left"){
+              var template ='<span class="helpText tooltip-msg tooltip_padding_left"> ? <span><b></b><span>';
+          }
+          if(attr.title == "calenderInput"){
               var template ='<span class="helpText tooltip-msg calenderInput"> ? <span><b></b><span>';
-        }
-        if(attr.title == "leftTooltip"){
+          }
+          if(attr.title == "leftTooltip"){
               var template ='<span class="helpText tooltip-msg left"> ? <span><b></b><span>';
-        }
-        if(attr.title == "topTooltip"){
+          }
+          if(attr.title == "topTooltip"){
               var template ='<span class="helpText tooltip-msg top"> ? <span><b></b><span>';
-        }
+          }
         template += '</span></span></span>'
         elem.html(template);
         $compile(elem.contents())(scope);
@@ -781,9 +787,15 @@ app.directive('helpVerbiage', function ($window, $compile) {
           if(attr.title == "help_tooltip"){
               var template ='<span class="helpText tooltip-msg"> ? <span><b></b><span>';
           }
+          if(attr.title == "help_tooltip_text"){
+              var template ='<span class="helpText tooltip-msg tooltip_text"> ? <span><b></b><span>';
+          }
            if(attr.title == "help_tooltip_padding"){
               var template ='<span class="helpText tooltip-msg tooltip_padding"> ? <span><b></b><span>';
-        }
+          }
+          if(attr.title == "help_tooltip_padding_left"){
+              var template ='<span class="helpText tooltip-msg tooltip_padding_left"> ? <span><b></b><span>';
+          }
           if(attr.title == "calenderInput"){
               var template ='<span class="helpText tooltip-msg calenderInput"> ? <span><b></b><span>';
           }

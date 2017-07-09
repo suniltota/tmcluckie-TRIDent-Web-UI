@@ -67,7 +67,7 @@ input, select, textarea, .form-control{font-size: 12px;}
     top: 0;
     cursor: pointer;
     border-radius: 0 5px;
-    font-size: 10px;
+    font-size:9px;
     padding: 0 4px;
     font-weight: bold;
     float: left;
@@ -76,12 +76,18 @@ input, select, textarea, .form-control{font-size: 12px;}
 .helpText span{color: #555; width: 200px;}
 .helpText span ul{float: left; padding-left:15px;}
 .helpText span ul li{list-style-type:circle; float: left; padding:3px 0;}
+.helpText.tooltip_text{right: inherit; left: inherit; top: inherit; border-radius: 4px;}
+.helpText.tooltip_text span{left: -90px;}
+.helpText.tooltip_text > span > b{margin-left:160px;}
 .helpText.left > span{left:-240px;}
 .helpText.left > span > b{margin-left:310px;}
 .helpText.top > span{left:-240px; bottom:22px;}
 .helpText.top > span > b{margin-left:310px; bottom:-8px; transform: rotate(135deg); margin-top:0px; background: #fff;}
 .helpText.calenderInput{right: 0px;}
 .helpText.tooltip_padding{right:0px;}
+.helpText.tooltip_padding_left{right:0px;}
+.helpText.tooltip_padding_left span{left:-240px;}
+.helpText.tooltip_padding_left > span > b{margin-left:310px;}
 
 .helpIcon{font-size: 14px; color:#777;}
 .helpIcon + .tooltip .tooltip-arrow{border-right-color: #5bb1dc;}
