@@ -240,7 +240,7 @@
 						<option value="" selected>Select</option>
 						<option ng-repeat="amortizationType in amortizationTypes" value="{{amortizationType.value}}">{{amortizationType.name}}</option>
 					</select>
-					<help-verbiage name="CD_AmortizationType_Help" title="help_tooltip"></help-verbiage>
+					<help-verbiage name="CD_AmortizationType_Help" title="leftTooltip"></help-verbiage>
 				</div>
 			</div>
 		</div>
@@ -435,7 +435,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="constructionLoanType in constructionLoanTypes" value="{{constructionLoanType.value}}">{{constructionLoanType.name}}</option>
 						</select>
-						<help-verbiage name="CD_WhatConstructionLoan_Help" title="help_tooltip_padding"></help-verbiage>
+						<help-verbiage name="CD_WhatConstructionLoan_Help" title="help_tooltip_padding_left"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -464,7 +464,7 @@
 						<div class="col-sm-2 padding0">
 							<actualize-input name="constructionLoanTotalTermMonthsCount" ng-model="cdformdata.construction.constructionLoanTotalTermMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" min-val="1" max-val="40" dependencies="only-digits min-max-value" maxlength="3">
                 			</actualize-input>
-                			<help-verbiage name="CD_Whatconstructionperiodinmonths?_Help" title="help_tooltip_padding"></help-verbiage>
+                			<help-verbiage name="CD_Whatconstructionperiodinmonths_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -478,6 +478,7 @@
 					</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureHomeEquityLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+						<help-verbiage name="CD_IsLoanHomeEquityLoan_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -492,6 +493,7 @@
 					</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.loanDetail.interestOnlyIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="interestChange()"/>
+						<help-verbiage name="CD_DoesLoanInterestonlyfeature_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -500,6 +502,7 @@
 					<div class="col-sm-10 fieldTitle">If Yes, what is the interest only period?:</div>
 					<div class="col-sm-2 padding0">
 						<input type="text" class="form-control" ng-model="cdformdata.interestOnly.interestOnlyTermMonthsCount" ng-disabled="cdformdata.loanDetail.interestOnlyIndicator == false" only-digits maxlength="3">
+						<help-verbiage name="CD_whatinterestonlyperiod_Help" title="help_tooltip_padding_left"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -562,6 +565,7 @@
 					<div class="col-sm-10 fieldTitle">Does this loan have a Negative Amortization Feature?:</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.loanDetail.negativeAmortizationIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+						<help-verbiage name="CD_DoesloanNegativeAmortizationFeature_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -573,6 +577,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="negativeAmortizationType in negativeAmortizationTypes" value="{{negativeAmortizationType.value}}">{{negativeAmortizationType.name}}</option>
 						</select>
+						<help-verbiage name="CD_IndicateNegativeAmortizationScheduledPotential_Help" title="help_tooltip_padding_left"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -589,6 +594,7 @@
 								<span class="input-group-addon input-default">$</span>
 									<actualize-input ng-model="cdformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount" name="negativeAmortizationMaximumLoanBalanceAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
                 				</actualize-input>
+                				<help-verbiage name="CD_WhatMaximumNegativeAmortizationLoanBalance_Help" title="help_tooltip_padding"></help-verbiage>
 							</div>
 						</div>
 					</div>
@@ -603,6 +609,7 @@
 						<div class="col-sm-2 padding0">
 							<actualize-input ng-model="cdformdata.negativeAmortization.negativeAmortizationLimitMonthsCount" name="negativeAmortizationLimitMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number"  dependencies="only-digits min-max-value" min-val="1" max-val="40" maxlength="3" ng-blur="updateOptionalPaymentMonthsCount()">
                 			</actualize-input>
+                			<help-verbiage name="CD_Whatnegativeamortizationlimitinmonthscount_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -616,18 +623,19 @@
 					</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.loanDetail.seasonalPaymentFeatureIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="seasonalChange()"/>
+						<help-verbiage name="CD_loanseasonalpaymentfeature_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="FieldGroup">
-					<div class="col-sm-6 fieldTitle">If yes, provide the start and end months:</div>
+					<div class="col-sm-6 fieldTitle">If yes, provide the start and end months: <help-verbiage name="CD_providestartendmonths_Help" title="leftTooltip"></help-verbiage></div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-disabled="cdformdata.loanDetail.seasonalPaymentFeatureIndicator == false" ng-model="cdformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth">
 							<option value="" selected>Select</option>
 							<option ng-repeat="calendarMonth in calendarMonths" value="{{calendarMonth}}">{{calendarMonth}}</option>
 						</select>
-					</div>
+						</div>
 					<div class="col-sm-2 fieldTitle" style="text-align: center;">to</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-disabled="cdformdata.loanDetail.seasonalPaymentFeatureIndicator == false" ng-model="cdformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth">
@@ -642,7 +650,7 @@
 					<div class="col-sm-10 fieldTitle">Does the loan have a Step payment feature?: <span class="required">*</span>
 					</div>
 					<div class="col-sm-2 padding0">
-						<select  class="form-control" ng-model="stepPaymentIndicatorValue" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="stepChange(stepPaymentIndicatorValue)"/>
+						<select  class="form-control" ng-model="stepPaymentIndicatorValue" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="stepChange(stepPaymentIndicatorValue)"/><help-verbiage name="CD_DoesloanSteppaymentfeature_Help" title="help_tooltip_padding"></help-verbiage>						
 					</div>
 				</div>
 			</div>
@@ -651,6 +659,7 @@
 					<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Step feature will be in affect:</div>
 					<div class="col-sm-2 padding0">
 						<input type="text" class="form-control" name="" ng-model="cdformdata.payment.paymentRule.totalStepPaymentCount" only-digits maxlength="3" ng-disabled="!stepPaymentIndicatorValue">
+						<help-verbiage name="CD_providemonthswhichStepfeatureaffect_Help" title="help_tooltip_padding_left"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -660,6 +669,7 @@
 					</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.payment.paymentRule.paymentOptionIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="optionalChange()"/>
+						<help-verbiage name="CD_Doesloanoptionalpaymentfeature_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -668,6 +678,7 @@
 					<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Optional payment will be in affect:</div>
 					<div class="col-sm-2 padding0">
 						<input type="text" class="form-control" name="" ng-model="cdformdata.payment.paymentRule.totalOptionalPaymentCount" ng-disabled="!cdformdata.payment.paymentRule.paymentOptionIndicator" only-digits maxlength="3">
+						<help-verbiage name="CD_providemonthswhichOptionalpaymentaffect_Help" title="help_tooltip_padding_left"></help-verbiage>
 					</div>
 				</div>
 			</div>
