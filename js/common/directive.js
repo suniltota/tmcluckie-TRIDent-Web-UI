@@ -760,6 +760,9 @@ app.directive('helpVerbiage', function ($window, $compile) {
         if(attr.title == "help_tooltip"){
               var template ='<span class="helpText tooltip-msg"> ? <span><b></b><span>';
         }
+        if(attr.title == "help_tooltip_padding"){
+              var template ='<span class="helpText tooltip-msg tooltip_padding"> ? <span><b></b><span>';
+        }
         if(attr.title == "calenderInput"){
               var template ='<span class="helpText tooltip-msg calenderInput"> ? <span><b></b><span>';
         }
@@ -778,6 +781,9 @@ app.directive('helpVerbiage', function ($window, $compile) {
           if(attr.title == "help_tooltip"){
               var template ='<span class="helpText tooltip-msg"> ? <span><b></b><span>';
           }
+           if(attr.title == "help_tooltip_padding"){
+              var template ='<span class="helpText tooltip-msg tooltip_padding"> ? <span><b></b><span>';
+        }
           if(attr.title == "calenderInput"){
               var template ='<span class="helpText tooltip-msg calenderInput"> ? <span><b></b><span>';
           }

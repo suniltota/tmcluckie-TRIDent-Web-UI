@@ -81,6 +81,7 @@ input, select, textarea, .form-control{font-size: 12px;}
 .helpText.top > span{left:-240px; bottom:22px;}
 .helpText.top > span > b{margin-left:310px; bottom:-8px; transform: rotate(135deg); margin-top:0px; background: #fff;}
 .helpText.calenderInput{right: 0px;}
+.helpText.tooltip_padding{right:0px;}
 
 .helpIcon{font-size: 14px; color:#777;}
 .helpIcon + .tooltip .tooltip-arrow{border-right-color: #5bb1dc;}
