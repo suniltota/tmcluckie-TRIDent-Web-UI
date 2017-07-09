@@ -97,12 +97,29 @@
             <div class="col-sm-7"><input type="text"  class="form-control" ng-model="borrower.address.cityName">
             <help-verbiage name="LE_ApplicantCityName_help" title="leftTooltip"></help-verbiage></div>
           </div>
+
+          <div class="row col-sm-12 margin5tb">
+            <div class="col-sm-5 fieldTitle">Country Code (Mailing)</div>
+            <div class="col-sm-7">
+              <select class="form-control" ng-model="borrower.address.countryCode">
+                <option value="" selected>Select</option>
+                <option ng-repeat="country in countryCodes" value="{{country.code}}">{{country.code}}</option>
+              </select>
+              <help-verbiage name="LE_ApplicantCountryCode_help" title="leftTooltip"></help-verbiage>
+            </div>
+          </div>
+
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">State (Mailing)</div>
             <div class="col-sm-7">
-              <select ng-model="borrower.address.stateCode" class="form-control">
+              <!-- <select ng-model="borrower.address.stateCode" class="form-control">
                   <option value="" selected>Select</option>
                   <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
+              </select> -->
+              <select ng-model="borrower.address.stateCode" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option ng-repeat="usstate in usstateCodes" value="{{usstate.code}}" ng-if="borrower.address.countryCode == 'US'">{{usstate.code}}</option>
+                  <option ng-repeat="canadastate in canadaStateCodes" value="{{canadastate.code}}" ng-if="borrower.address.countryCode == 'CA'">{{canadastate.code}}</option>
               </select>
               <help-verbiage name="LE_ApplicantStateCode_help" title="leftTooltip"></help-verbiage>
             </div>
@@ -112,16 +129,6 @@
             <div class="col-sm-7">
               <actualize-input   name="postalCode" ng-model="borrower.address.postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format"></actualize-input>
               <help-verbiage name="LE_ApplicantPostalCode_help" title="leftTooltip"></help-verbiage>
-            </div>
-          </div>
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Country Code (Mailing)</div>
-            <div class="col-sm-7">
-              <select class="form-control" ng-model="borrower.address.countryCode">
-                <option value="" selected>Select</option>
-                <option ng-repeat="country in countryCodes" value="{{country.code}}">{{country.code}}</option>
-              </select>
-              <help-verbiage name="LE_ApplicantCountryCode_help" title="leftTooltip"></help-verbiage>
             </div>
           </div>
         </div>
