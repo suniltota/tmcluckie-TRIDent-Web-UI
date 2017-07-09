@@ -3,6 +3,7 @@
 	<span class="col-sm-12 LoanTermsTable">
 		<div class="margin5tb pull-right" ng-show="cdformdata.projectedPayments.paymentCalculation.length<=3">
 			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns</a>
+			<help-verbiage name="CD_AddAdditionalColumnLink_Help" title="help_tooltip_padding_left"></help-verbiage>
 		</div>
 		<table class="table" style="margin-top:15px;">
 		      <tr>
@@ -11,7 +12,9 @@
 		        	ng-repeat="paymentCalculation in cdformdata.projectedPayments.paymentCalculation track by $index">
 		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years</span>
 		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Year</span>
-		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodStartNumber" style="text-align: center"></span>
+		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodStartNumber" style="text-align: center">
+		        	<help-verbiage name="CD_projectedYears_Help" title="help_tooltip_padding" background-color="0,0,0"></help-verbiage>
+		        	</span>
 		        	<span class="pull-left" style="margin:5px;">-</span>
 		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodEndNumber" style="text-align: center"></span>
 		        	<span class="glyphicon glyphicon-trash iconTooltip red margin5tb pull-right padding0 text-center" title="Delete" ng-show="$index != 0" ng-click="deleteProjectedPayments($index)"></span>
@@ -27,6 +30,7 @@
   								<span class="input-group-addon input-default" ng-style="{ 'padding' : cdformdata.projectedPayments.paymentCalculation.length == 4 ? '3px 6px' : ''}">$</span>
 		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" name="projectedPaymentPrincipalAndInterestMinimumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
                 				</actualize-input>
+                				<help-verbiage name="CD_PrincipalInterestPayment_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-6 padding0" style="padding-left: 8px;">
@@ -94,6 +98,7 @@
 					<div class="input-group">
 						<span class="input-group-addon input-default">$</span>
 						<actualize-input ng-model="mortgageInsurance.projectedPaymentMIPaymentAmount" name="projectedPaymentMIPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format"></actualize-input>
+						<help-verbiage name="CD_LoanMortgageInsurance_Help" title="help_tooltip_padding_left"></help-verbiage>
 					</div>
   				</td>
 		      </tr>
@@ -105,7 +110,7 @@
 	  					<span class="input-group-addon input-default">$</span>
 			        	<actualize-input ng-model="estimatedEscrow.projectedPaymentEstimatedEscrowPaymentAmount" name="projectedPaymentEstimatedEscrowPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
                 		</actualize-input>
-
+                		<help-verbiage name="CD_EscrowPaymentAmount_Help" title="help_tooltip_padding_left"></help-verbiage>
 			        </div>
 		        </td>
 		      </tr>
@@ -116,6 +121,7 @@
 				        		ng-model="cdformdata.projectedPayments.paymentFrequencyType"
 				              		ng-options="frequency.value as frequency.name for frequency in paymentFrequencyTypes">
 				        		</select>
+				        		<help-verbiage name="CD_EstimatedTotalMonthlyPaymentAmount_Help" title="help_tooltip"></help-verbiage>
 				        		</span>
 				        	<span class="pull-left margin5tb">Payment Amount</span></label>
 		        </td>
