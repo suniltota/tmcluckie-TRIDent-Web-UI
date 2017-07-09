@@ -2319,7 +2319,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
            	$scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent = totalPercent;
        }else{
             $scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsIndicator = false;
-            cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent = '';
+            $scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent = '';
        }
 
     }
@@ -2484,6 +2484,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.RegulationZTotalLoanAmount + 
     		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.RegulationZTotalLoanAmount + 
     		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalLoanAmount);
+
+        /*$scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalLoanAmount = 
+    	parseFloat($scope.cdformdata.termsOfLoan.noteAmount ? $scope.cdformdata.termsOfLoan.noteAmount : +0);*/
 
     	$scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalPointsAndFeesAmount = 
     	parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalPointsAndFeesAmount + 
@@ -2828,8 +2831,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		 $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalAffiliateFeesAmount=0;
 		 $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalLoanAmount=0;
 		 $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.RegulationZTotalPointsAndFeesAmount=0;
-         
+        
         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++) {
+            
+            if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints'){
+            	 $scope.loanDiscount(i);
+            }
 
         	if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType=='EscrowWaiverFee'){
             	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeActualTotalAmount;
@@ -4508,12 +4515,23 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
  	for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++){
 	   if ($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints'){
 		   var loanDiscountAmount = 0;
+		   var totalPercent = 0;
 		   if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent && $scope.cdformdata.termsOfLoan.noteAmount){
 		   		loanDiscountAmount = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent ? ($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent*$scope.cdformdata.termsOfLoan.noteAmount)/100 : +0;
+	 	   		totalPercent = parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent ? $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTotalPercent : +0);
 	 	   		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing = loanDiscountAmount;
 		   } else {
 		   		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ='';
 		   }
+
+		   //Reg.Z Excluded Bona Fide Discount Points Indicator
+	       if(totalPercent>0){
+	           	$scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsIndicator = true;
+	           	$scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent = totalPercent;
+	       }else{
+	            $scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsIndicator = false;
+	            $scope.cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent = '';
+	       }
        }
     }
     
