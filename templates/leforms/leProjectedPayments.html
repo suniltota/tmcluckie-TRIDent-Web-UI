@@ -60,7 +60,7 @@
 		        <td><label>Mortgage Insurance 
 					</label> 
 		        
-			        <div class="col-sm-12 padding0 margin5tb">
+			        <!-- <div class="col-sm-12 padding0 margin5tb">
 			        	<span class="col-sm-6 padding0"><b class="boldComma">.</b>Is Required? <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
 					        <b></b>	
 					         <span> 
@@ -86,12 +86,6 @@
 			        </div>
 			        
 			        <div ng-show="leformdata.loanDetail.miRequiredIndicator">
-				        <!-- <div class="col-sm-12 padding0 margin5tb">
-				        	<span class="col-sm-6 padding0">No. Months Duration?</span> 
-				        	<span class="col-sm-4 pull-left">
-				        		<input type="text" class="form-control" name="" ng-model="leformdata.projectedPayments.miMonthsDuration">
-				        	</span> 
-				        </div> -->
 				        <div class="col-sm-12 padding0 margin5tb">
 				        	<span class="col-sm-6 padding0"><b class="boldComma">.</b> Scheduled Termination Date</span> 
 				        	<span class="col-sm-4 pull-left">
@@ -102,7 +96,6 @@
 		      								<button type="button" class="btn btn-default calenderBtn" ng-click="isScheduledTermDate = !isScheduledTermDate"><i class="glyphicon glyphicon-calendar"></i></button>
 		      						</span>
 								</span>  
-        						</span>
 				        	 
 				        </div>
 				        <div class="col-sm-12 padding0 margin5tb">
@@ -126,24 +119,7 @@
 				        	<span class="input-group-addon input-default">%</span>
 				        	</span> 
 				        </div>
-
-				        <!-- <div class="col-sm-12 padding0 margin5tb">
-				        	<span class="col-sm-6 padding0">MI Company Name</span> 
-				        	<span class="col-sm-4 pull-left">
-				        		<select class="form-control"
-				        		ng-model="leformdata.miDataDetail.miCompanyNameType">
-					        		<option value="" selected>Select</option>
-				              		<option ng-repeat="miCompanyNameType in miCompanyNameTypes" value="{{miCompanyNameType.value}}">{{miCompanyNameType.name}}</option>
-				        		</select>
-				        	</span> 
-				        </div> -->
-				        <!-- <div class="col-sm-12 padding0 margin5tb" ng-show="leformdata.miDataDetail.miCompanyNameType=='Other'">
-				        	<span class="col-sm-6 padding0">MI Company Name Description</span> 
-				        	<span class="col-sm-4 pull-right">
-				        		<input type="text" class="form-control" name="" ng-model="leformdata.miDataDetail.miCompanyNameTypeOtherDescription">
-				        	</span> 
-				        </div> -->
-			        </div>
+			        </div> -->
 		        </td>
 		        <td ng-repeat="mortgageInsurance in leformdata.projectedPayments.mortgageInsurance track by $index">
 					<div class="input-group">
