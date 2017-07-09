@@ -52,149 +52,76 @@
           <div ng-show="borrower.type == 'I'">
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Applicant First Name
-                <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>The first name of the individual, must have a t least one if the Applicant is an individual.</p>
-                        <ul> 
-                             <li>Format is a String value up to 30 characters</li> 
-                        </ul>
-                     </span>
-                </span>
               </div>
-              <div class="col-sm-7"><input type="text" placeholder="First Name"  class="form-control" ng-model="borrower.nameModel.firstName"></div>
+              <div class="col-sm-7 form-group"><input type="text" placeholder="First Name"  class="form-control" ng-model="borrower.nameModel.firstName">
+              <help-verbiage name="LE_ApplicantFirstName_help" title="help_tooltip"></help-verbiage>
+              </div>
             </div>
             <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Applicant Middle Name
-              <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>The middle name of the individual, if this does not exist is it not required when the Applicant is an individual.</p>
-                        <ul> 
-                             <li>Format is a string value up to 30 characters</li> 
-                        </ul>
-                     </span>
-                </span>
-                </div>
-              <div class="col-sm-7"><input type="text" placeholder="Middle Name"  class="form-control" ng-model="borrower.nameModel.middleName"></div>
+              <div class="col-sm-5 fieldTitle">Applicant Middle Name</div>
+              <div class="col-sm-7 form-group"><input type="text" placeholder="Middle Name"  class="form-control" ng-model="borrower.nameModel.middleName">
+              <help-verbiage name="LE_ApplicantMiddleName_help" title="help_tooltip"></help-verbiage></div>
             </div>
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Applicant Last Name
-              <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>The last name of the individual, must have at least one if the Applicant is an individual.</p>
-                        <ul> 
-                             <li>Format is a string value up to 30 characters</li> 
-                        </ul>
-                     </span>
-                </span>
                 </div>
-              <div class="col-sm-7"><input type="text" placeholder="Last Name"  class="form-control" ng-model="borrower.nameModel.lastName"></div>
+              <div class="col-sm-7 form-group"><input type="text" placeholder="Last Name"  class="form-control" ng-model="borrower.nameModel.lastName">
+              <help-verbiage name="LE_ApplicantLastName_help" title="help_tooltip"></help-verbiage></div>
             </div>
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Applicant Suffix
-              <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>The suffix of the individual, if this does not exist is it not required when the Applicant is an individual.</p>
-                        <ul> 
-                             <li>Format is a string value up to 30 characters</li> 
-                        </ul>
-                     </span>
-                </span>
                 </div>
-              <div class="col-sm-7"><input type="text" class="form-control" ng-model="borrower.nameModel.suffixName"></div>
+              <div class="col-sm-7"><input type="text" class="form-control" ng-model="borrower.nameModel.suffixName">
+              <help-verbiage name="LE_ApplicantSuffixName_help" title="help_tooltip"></help-verbiage></div>
             </div>   
           </div>     
           <div ng-show="borrower.type == 'O'">
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Applicant Name
-              <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>The unparsed name of the legal entity.</p>
-                        <ul> 
-                             <li>Example; Smith Family Trust</li> 
-                        </ul>
-                     </span>
-                </span>
               </div>
-              <div class="col-sm-7"><input type="text" class="form-control" placeholder="Applicant Name" ng-model="borrower.nameModel.fullName"></div>
+              <div class="col-sm-7 form-group"><input type="text" class="form-control" placeholder="Applicant Name" ng-model="borrower.nameModel.fullName">
+              <help-verbiage name="LE_ApplicantOrganisationName_help" title="help_tooltip"></help-verbiage></div>
             </div>  
           </div>
         </div>
         <div class="col-sm-6">
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Street Address (Mailing)
-               <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>The mailing address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value.</p>
-                        
-                     </span>
-                </span>
               </div>
-            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="borrower.address.addressLineText"></div>
+            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="borrower.address.addressLineText">
+            <help-verbiage name="LE_ApplicantStreetAddress_help" title="leftTooltip"></help-verbiage></div>
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">City (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>The name of the city of the Applicants mailing address.
-                            </p>
-                        <ul> 
-                             <li>Must be in a format of a String value with no more than 50 characters.</li> 
-                        </ul>
-                     </span>
-            </span>
             </div>
-            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="borrower.address.cityName"></div>
+            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="borrower.address.cityName">
+            <help-verbiage name="LE_ApplicantCityName_help" title="leftTooltip"></help-verbiage></div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">State (Mailing) 
-            <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>The two-character representation of the US state, US Territory, Canadian Province, Military APO FPO, or Territory of the Applicants mailing address.
-                            </p>
-                     </span>
-            </span></div>
+            <div class="col-sm-5 fieldTitle">State (Mailing)</div>
             <div class="col-sm-7">
               <select ng-model="borrower.address.stateCode" class="form-control">
                   <option value="" selected>Select</option>
                   <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
               </select>
+              <help-verbiage name="LE_ApplicantStateCode_help" title="leftTooltip"></help-verbiage>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Postal Code (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>The postal code (ZIP Code in the US) for the address. ZIP Code may be either 5 or 9 digits of the Applicants mailing address.
-                            </p>
-                     </span>
-            </span></div>
+            <div class="col-sm-5 fieldTitle">Postal Code (Mailing)</div>
             <div class="col-sm-7">
               <actualize-input   name="postalCode" ng-model="borrower.address.postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format"></actualize-input>
+              <help-verbiage name="LE_ApplicantPostalCode_help" title="leftTooltip"></help-verbiage>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Country Code (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>The two-character representation of the US state, US Territory, Canadian Province, Military APO FPO, or Territory of the Applicants mailing address.
-                            </p>
-                     </span>
-            </span></div>
+            <div class="col-sm-5 fieldTitle">Country Code (Mailing)</div>
             <div class="col-sm-7">
               <select class="form-control" ng-model="borrower.address.countryCode">
                 <option value="" selected>Select</option>
                 <option ng-repeat="country in countryCodes" value="{{country.code}}">{{country.code}}</option>
               </select>
+              <help-verbiage name="LE_ApplicantCountryCode_help" title="leftTooltip"></help-verbiage>
             </div>
           </div>
         </div>
@@ -208,111 +135,9 @@
                             </p>
                      </span>
             </span>
-       <!-- <span class="pull-right green RemoveSection" ng-click="backToTop()">
-          <a> -Back-to-top </a>
-       </span> -->
    </div>
-  <!--  <div class="sellinfo" ng-show="loanBasicInfo.loanPurposeType =='purchase'">
-        <div class="col-sm-12 padding0"  ng-repeat= "seller in leformdata.transactionInformation.sellerDetails track by $index">
-        <h5 class="innerSectionHeader">Seller Information (Purchase Only) 
-         <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="seller.checkSeller" ng-click="sameSeller($index)"> Same as 1<sup>st</sup> Seller Address</span>
-         <span class="pull-right green RemoveSection" ng-click="backtoTop()" ng-show="$index != 0">
-          <a> -Back-to-top </a>
-         </span>
-          <span class="glyphicon glyphicon-trash red pull-right margin50r RemoveSection" ng-click="removeSeller($index)" ng-show="$index != 0">
-         </span>
-        </h5>
-     <div class="col-sm-6">
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Seller Classification</div>
-            <div class="col-sm-7 radioGroup" ng-init="seller.type == 'I'">
-              <input type="radio" name="sellertype_{{$index}}" ng-model="seller.type" value="I"> <label>Individual</label>
-              <input type="radio" name="sellertype_{{$index}}" ng-model="seller.type"  value="O" > <label>Organization </label>
-            </div>
-          </div>
-          <div ng-show="seller.type == 'I'"> 
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Seller First Name</div>
-              <div class="col-sm-7"><input type="text" placeholder="First Name"  class="form-control" ng-model="seller.nameModel.firstName"></div>
-            </div>
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Seller Middle Name</div>
-              <div class="col-sm-7"><input type="text" placeholder="Middle Name"  class="form-control" ng-model="seller.nameModel.middleName"></div>
-            </div>
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Seller Last Name</div>
-              <div class="col-sm-7"><input type="text" placeholder="Last Name"  class="form-control" ng-model="seller.nameModel.lastName"></div>
-            </div>
-            <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Seller Suffix</div>
-              <div class="col-sm-7"><input type="text" class="form-control" ng-model="seller.nameModel.suffixName"></div>
-            </div>        
-          </div>
-          <div ng-show="seller.type == 'O'" > 
-             <div class="row col-sm-12 margin5tb">
-              <div class="col-sm-5 fieldTitle">Seller Name</div>
-              <div class="col-sm-7"><input type="text" class="form-control" placeholder="Seller Name" ng-model="seller.nameModel.fullName"></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Street Address (Mailing)</div>
-            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="seller.address.addressLineText"></div>
-          </div>
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">City (Mailing)</div>
-            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="seller.address.cityName"></div>
-          </div>
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">State (Mailing)</div>
-            <div class="col-sm-7">
-              <select ng-model="seller.address.stateCode" class="form-control">
-                <option value="" selected>Select</option>
-                <option ng-repeat="state in stateCodes" value="{{state.code}}">{{state.code}}</option>
-              </select>
-            </div>
-          </div>
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Postal Code (Mailing)</div>
-            <div class="col-sm-7">
-              <input type="text" class="form-control" zipcode-format ng-model="seller.address.postalCode">
-            </div>
-          </div>
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Country Code (Mailing)</div>
-            <div class="col-sm-7">
-              <select class="form-control" ng-model="seller.address.countryCode">
-                <option value="" selected>Select</option>
-                <option ng-repeat="country in countryCodes" value="{{country.code}}">{{country.code}}</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-   <div class="col-sm-12"><span class="AddSection" ng-click="addSeller()"><a>+ Add Additional Sellers</a></span></div>
-  </div> --> 
+ 
 </div>
-<!-- <div class="col-sm-12 padding0">
-      <h5 class="innerSectionHeader">Lender Information
-         <span class="pull-right" ng-click="backtoTop()"> <a> -Back-to-top </a>
-         </span>
-      </h5>
-
-      <div class="col-sm-6">
-        <div class="row col-sm-12 margin5tb" ng-repeat="lender in leformdata.transactionInformation.lenderDetails" ng-if="lender.type=='O'">
-          <div class="col-sm-5 fieldTitle">Lender Name</div>
-          <div class="col-sm-7"><input type="text" placeholder="Lender Name"  class="form-control" ng-model="lender.nameModel.fullName"></div>
-        </div>
-         <div class="row col-sm-12 margin5tb" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
-          <div class="col-sm-5 fieldTitle">Refinance Same Lender?</div>
-          <div class="col-sm-7">
-              <select placeholder="Organization Name" class="form-control" ng-model="leformdata.transactionInformation.refinanceSameLenderIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
-              </select>
-          </div>
-        </div>
-      </div>  
-  </div> -->
   <div class="col-sm-12 margin10t">
       <span class="pull-left"><a class="btn btn-default" ng-click="changeTab('closingInfo')">Back</a></span>
       <span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('loanInfo')">Next</a></span>
