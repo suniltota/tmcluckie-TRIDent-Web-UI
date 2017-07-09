@@ -108,16 +108,10 @@
 		          <div class="row margin5tb" ng-show="cdformdata.closingInformation.property.legalDescription == true">
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Legal Description
-		              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <span><b></b>	
-					         <span> 
-					           	 <p>The full, unparsed legal description of a parcel of real property.</p>
-					           	 <ul><li>Must be in a format of a String value with no more than 150 characters</li></ul>
-					          </span>
-					          </span>
-					 </span></div>
+		              </div>
 		              <div class="col-sm-7">
 		              <textarea ng-model="cdformdata.closingInformation.property.unparsedLegalDescription" class="form-control" maxlength="265"></textarea>
+		              <help-verbiage name="CD_LegalDescription_Help" title="leftTooltip"></help-verbiage>
 		              </div>
 		            </div>
 		          </div>
