@@ -2843,6 +2843,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             }
 
         	if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType=='EscrowWaiverFee'){
+        		if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeActualTotalAmount!=undefined && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeActualTotalAmount)
             	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing = $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeActualTotalAmount;
             }
 
@@ -2992,6 +2993,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length; i++) {
         	if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType=='EscrowWaiverFee'){
+        		if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeActualTotalAmount!=undefined && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeActualTotalAmount)
             	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeActualTotalAmount;
             }
 
@@ -3136,6 +3138,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
          for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.length; i++) {
          	if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType=='EscrowWaiverFee'){
+        		if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeActualTotalAmount!=undefined && $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeActualTotalAmount)
             	$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].bpAtClosing = $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeActualTotalAmount;
             }
             
