@@ -8,14 +8,9 @@
 		      <tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
 		        <td>
 		        	Loan Amount
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>The amount that a user either enters in Loan Terms section or is uploaded</p>
-				           	 <p>Format is an amount 9.2 and is a positive value in the Alternate Form Calculating Cash To Close Table.</p>
-				          </span>
-				 </span>
-
+		        	<help-verbiage name="LE_CCCAlternateLoanAmount_help" 
+		        	title="help_tooltip_text">
+		        	</help-verbiage>
 		        </td>
 		   
 		        <td>
@@ -26,22 +21,14 @@
 		      <tr>
 		        <td>
 		        	Total Closing Costs (J)
-		        	<span  ng-show="loanBasicInfo.loanFormType == 'standard'" class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>The amount is calculated in the Closing Cost Details</p>
-				           	 <ul><li>This value in the CCC Table is not editable, for a user to change the value the user must update the values in the Closing Cost Details sections that depict the fees, pre-paids and escrows found within the transaction.</li></ul>
-				          </span>
-				 </span>
-				 <span  ng-show="loanBasicInfo.loanFormType == 'alternate'" class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>This amount is calculated in the Closing Cost Details is reflected in the CCC Table</p>
-				           	 <ul><li>This value in the CCC Table is not editable, for a user to change the value the user must update the values in the Closing Cost Details sections that depict the fees, pre-paids and escrows found within the transaction.</li></ul>
-				           	 <p>Format is an amount 9.2 and is a negative value in the Alternate Form Calculating Cash To Close Table.</p>
-				          </span>
-				 </span>
-
+		        	<help-verbiage ng-show="loanBasicInfo.loanFormType == 'standard'" 
+		        	name="LE_TotalClosingCosts_help" 
+		        	title="help_tooltip_text">
+		        	</help-verbiage>
+		        	<help-verbiage ng-show="loanBasicInfo.loanFormType == 'alternate'" 
+		        	name="LE_CCCAlternateTotalClosingCosts_help" 
+		        	title="help_tooltip_text">
+		        	</help-verbiage>
 		        </td>
 		        <td>
 		        	
@@ -66,15 +53,14 @@
 		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
 		        <td>
 		        	Closing Costs Financed
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>This amount is a user input as there is no other location with in the form or application to identify any closing costs that are rolled into the Loan.</p>
-				           	 <p>Format is an amount 9.2 and is a positive value in the CCC Table for Standard Form.</p>
-				          </span>
-				 </span>
-				 
-
+		        	<help-verbiage ng-show="loanBasicInfo.loanFormType == 'standard'" 
+		        	name="LE_ClosingCostsFinanced_help" 
+		        	title="help_tooltip_text">
+		        	</help-verbiage>
+		        	<help-verbiage ng-show="loanBasicInfo.loanFormType == 'alternate'" 
+		        	name="LE_CCCAlternateClosingCostsFinanced_help" 
+		        	title="help_tooltip_text">
+		        	</help-verbiage>
 		        </td>
 		        <td>
 		        	<div class="input-group">
@@ -87,17 +73,10 @@
 		      <tr ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        <td>
 		        	Down Payment /  Funds from Borrower
-
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Down Payment is used for Purchase Transaction
-								Funds From Applicant is used for a Refinance Transaction</p>
-								<p>This amount is a user input or the user may utilize the Calculate button to fill in the editable values within the CCC Table.</p>
-								<p>Format is an Amount 9.2 positive value for the CCC Standard form</p>
-				          </span>
-				 </span>
-
+		        	<help-verbiage  
+		        	name="LE_DownPaymentFundsFromApplicant_help" 
+		        	title="help_tooltip_text">
+		        	</help-verbiage>
 		        </td>
 		        <td>
 		        	<div class="input-group">
@@ -110,13 +89,10 @@
 		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
 		        <td>
 		        	Deposit
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>This amount is Editable in this table the user may enter the value or use the Calculate button to input the value</p>
-				           	 <ul><li>Format is an amount 9.2 negative value in the CCC Standard form.</li></ul>
-				          </span>
-				 </span>
+		        	<help-verbiage  
+		        	name="LE_Deposit_help" 
+		        	title="help_tooltip_text">
+		        	</help-verbiage>
 
 		        </td>
 		        <td>
@@ -130,14 +106,10 @@
 		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
 		        <td>
 		        	Funds For Borrower
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>This amount is either an input by the user or upload, If the user decides to use the Calculate button the calculation will input this information greater than zero if the transaction is a Refinance, this is not used for a purchase.</p>
-				           	 <ul><li>Format is an Amount 9.2 Negative Value.</li></ul>
-				          </span>
-				 </span>
-
+		        	<help-verbiage  
+		        	name="LE_FundsForBorrower_help" 
+		        	title="help_tooltip_text">
+		        	</help-verbiage>
 		        </td>
 		        <td>
 		        	<div class="input-group">
@@ -150,16 +122,10 @@
 		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
 		        <td>
 		        	Seller Credit
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Is an Editable Field, the user may input the value or use the calculate button to in-put.</p>
-				           	 <ul><li>
-								Format is an Amount 9.2 Negative Value.
-							</li></ul>
-				          </span>
-				 </span>
-
+		        	<help-verbiage  
+		        	name="LE_SellerCredits_help" 
+		        	title="help_tooltip_text">
+		        	</help-verbiage>
 		        </td>
 		        <td>
 		        <div class="input-group">
@@ -172,14 +138,10 @@
 		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
 		        <td>
 		        	Adjustments and Other Credits
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Is an editable field, if the user chooses to input the value the user must adhere to the CFPB rule for calculating this value which could be Positive or Negative, or the user may use the Calculate button.</p>
-				           	 <p>Format is an Amount 9.2 Negative or Positive Value depending upon the calculation output from Summaries of Transaction Section K and L values.</p>
-				          </span>
-				 </span>
-
+		        	<help-verbiage  
+		        	name="LE_AdjustmentsandOtherCredits_help" 
+		        	title="help_tooltip_text">
+		        	</help-verbiage>
 		        </td>
 		        <td>
 		        <div class="input-group">
@@ -192,13 +154,10 @@
 		       <tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
 		        <td>
 		        	Estimated Total Payoffs  and Payments
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	<p>This amount of estimated total payoff items that will be placed into the Payoffs and payments section in the CD.</p>
-				          </span>
-				 </span>
-
+		        	<help-verbiage  
+		        	name="LE_CCCAlternatePayoffsandPayments_help" 
+		        	title="help_tooltip_text">
+		        	</help-verbiage>
 		        </td>
 		        <td>
 		        <div class="input-group">

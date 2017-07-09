@@ -973,7 +973,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			$scope.leformdata.projectedPayments.estimatedEscrow[ppLength].projectedPaymentEstimatedEscrowPaymentAmount = $scope.leformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount;
 	    }
     }
-    $scope.deleteProjectedPayments = function(index){
+    $scope.deleteProjectedPayments = function(index){ 
 	    	$scope.leformdata.projectedPayments.paymentCalculation.splice(index, 1);
 			$scope.leformdata.projectedPayments.principalInterest.splice(index, 1);
 			$scope.leformdata.projectedPayments.mortgageInsurance.splice(index, 1);

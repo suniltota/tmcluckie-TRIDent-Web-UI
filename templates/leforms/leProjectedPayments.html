@@ -1,16 +1,19 @@
 <div class="col-sm-12">
 	<h4>Projected Payments</h4> 
 	<span class="col-sm-12 LoanTermsTable">
-		<div class="margin5tb pull-right" ng-show="leformdata.projectedPayments.paymentCalculation.length<=3">
-			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns
+		<div class="margin5tb projectpaymentAddlink" ng-show="leformdata.projectedPayments.paymentCalculation.length<=3">
+			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns </a>
 		</div>
+		<help-verbiage name="LE_AddAdditionalColumnLink_help" title="help_tooltip_text"></help-verbiage>
 		<table class="table" style="margin-top:15px;">
 		      <tr>
 		        <th class="col-sm-3 innerSectionHeader">Payment Calculations</th>
-		        <th class="col-sm-2 innerSectionHeader" ng-class="{'col-sm-9': cdformdata.projectedPayments.paymentCalculation.length == 1, 'col-sm-4': cdformdata.projectedPayments.paymentCalculation.length == 2, 'col-sm-3': cdformdata.projectedPayments.paymentCalculation.length == 3, 'col-sm-2': cdformdata.projectedPayments.paymentCalculation.length == 4 }"
+		        <th class="col-sm-2 innerSectionHeader" ng-class="{'col-sm-9': leformdata.projectedPayments.paymentCalculation.length == 1, 'col-sm-4': leformdata.projectedPayments.paymentCalculation.length == 2, 'col-sm-3': leformdata.projectedPayments.paymentCalculation.length == 3, 'col-sm-2': leformdata.projectedPayments.paymentCalculation.length == 4 }"
 		        	ng-repeat="paymentCalculation in leformdata.projectedPayments.paymentCalculation track by $index">
-		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years</span>
-		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years</span>
+		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years
+		        	<help-verbiage name="LE_PPYears_help" title="help_tooltip_text"></help-verbiage></span>
+		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years
+		        	<help-verbiage name="LE_PPYears_help" title="help_tooltip_text"></help-verbiage></span>
 		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodStartNumber" style="text-align: center"></span>
 		        	<span class="pull-left" style="margin:5px;">-</span>
 		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodEndNumber" style="text-align: center"></span>
@@ -19,7 +22,7 @@
 		      </tr>
 		      <tr>
 		        <td><label>Principal &amp; Interest Payment 
-			</label></td>
+			</label><help-verbiage name="LE_PrincipalandInterestPayment_Help" title="help_tooltip_text"></help-verbiage></td>
 		        <td ng-repeat="principalInterest in leformdata.projectedPayments.principalInterest track by $index">
 		        	<div class="col-sm-6 padding0" style="padding-right:8px;">
 		        			<div class="col-sm-12 text-center" style="position:relative;">Minimum	<span class="pull-right" style="right:-10px; position:absolute; top:-2px;">-</span>
@@ -33,7 +36,7 @@
 		        	<div class="col-sm-6 padding0" style="padding-left: 8px;">
 		        			<div class="col-sm-12 text-center">Maximum<span class="required" ng-show="$index==0">*</span></div>
 		        			<div class="input-group">
-  								<span class="input-group-addon input-default" ng-style="{ 'padding' : cdformdata.projectedPayments.paymentCalculation.length == 4 ? '3px 6px' : ''}">$</span>
+  								<span class="input-group-addon input-default" ng-style="{ 'padding' : leformdata.projectedPayments.paymentCalculation.length == 4 ? '3px 6px' : ''}">$</span>
 		        				<!-- <input class="form-control width50" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" decimal-digits-with-number-format> -->
 		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" name="projectedPaymentPrincipalAndInterestMaximumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
                 				</actualize-input>
@@ -44,7 +47,7 @@
 		      </tr>
 		      <tr>
 		        <td><label>Mortgage Insurance 
-					</label> 
+					</label><help-verbiage name="LE_MortagegeInsuranceIsRequired_Help" title="help_tooltip_text"></help-verbiage>
 		        
 			        <!-- <div class="col-sm-12 padding0 margin5tb">
 			        	<span class="col-sm-6 padding0"><b class="boldComma">.</b>Is Required? <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
@@ -115,14 +118,8 @@
   				</td>
 		      </tr>
 		      <tr>
-		        <td><label>Escrow Payment Amount <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>In every transaction, there will be an indication of Escrow present or NOT present in the transaction, IFIf there is an Escrow Account then a user would input the value in this row.</p>
-				           	 <p>Note that the system will input the value from the Section G. Initial Escrow Payment At Closing into this row for all columns there is no change of the amount per the CFPB regulation.</p>
-				          </span>
-				 </span>
-				</label> 
+		        <td><label>Escrow Payment Amount
+				</label> <help-verbiage name="LE_EscrowPaymentAmount_help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td ng-repeat="estimatedEscrow in leformdata.projectedPayments.estimatedEscrow track by $index">
 		        	<div class="input-group">
@@ -133,13 +130,15 @@
 		      </tr>
 		      <tr>
 		      <td>
-		        	<label><span class="pull-left margin5tb">Estimated Total</span>
+		        	<label><span class="pull-left margin5tb">Estimated Total</span><help-verbiage name="Le_EstimatedTotalMonthlyPaymentAmount_help" title="help_tooltip_text"></help-verbiage>
 			        		<select class="form-control"
 			        		ng-model="leformdata.projectedPayments.paymentFrequencyType">
 				        		<option value="" selected>Select</option>
 			              		<option ng-repeat="frequency in paymentFrequencyTypes" value="{{frequency.value}}">{{frequency.name}}</option>
 			        		</select>
-			        	<span class="pull-left margin5tb">Payment Amount</span></label>
+			        	<span class="pull-left margin5tb">Payment Amount</span>
+			        	
+			        	</label>
 		        </td>
 		        <!-- <td>
 		        	<label>Estimated Total  Payment Amount

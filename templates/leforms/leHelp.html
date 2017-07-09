@@ -821,7 +821,7 @@
        <div id="LE_ProjectedPayments_Help" class="collapse subContainer">
                 <span class="field_help">
                      <h5> Years :</h5>
-                      <div id="">Each column must be expressed in whole years
+                      <div id="LE_PPYears_help">Each column must be expressed in whole years
                           <ul>
                             <li>Years 1 - 30</li>
                             <li>Years 1 -   5, etcetc.….</li>
@@ -833,7 +833,7 @@
                  </span>
                  <span class="field_help">
                      <h5>Add Additional Column Link :</h5>
-                      <div id="">The Projected Payment section is driven off several pieces of information:
+                      <div id="LE_AddAdditionalColumnLink_help">The Projected Payment section is driven off several pieces of information:
                           <ul>
                             <li>Product Description – Amortization Type if Fixed then typically only one column or multiple columns of the Amortization Type is Adjustable Rate (ARM) or Not Fixed</li>
                             <li>Upload of multiple instances of data will automatically provide the additional columns with values</li>
@@ -852,7 +852,7 @@
                  </span>
                  <span class="field_help">
                      <h5>Mortgage Insurance – Is required?</h5>
-                      <div id="LE_PrincipalandInterestPayment_Help">This information is required for every transaction, must identify if there is MI present in the transaction.  
+                      <div id="LE_MortagegeInsuranceIsRequired_Help">This information is required for every transaction, must identify if there is MI present in the transaction.  
                           <ul>
                             <li>If NO, then nothing else needs to be done</li>
                             <li>If Yes, provide the following information that is found under the Mortgage Insurance Label in the far-left column
@@ -869,13 +869,13 @@
                  </span>
                  <span class="field_help">
                      <h5> Escrow Payment Amount :</h5>
-                      <div id="">In every transaction, there will be an indication of Escrow present or NOT present in the transaction, IFIf there is an Escrow Account then a user would input the value in this row.
+                      <div id="LE_EscrowPaymentAmount_help">In every transaction, there will be an indication of Escrow present or NOT present in the transaction, IFIf there is an Escrow Account then a user would input the value in this row.
                       <div>Note that the system will input the value from the Section G. Initial Escrow Payment At Closing into this row for all columns there is no change of the amount per the CFPB regulation.</div>
                       </div>
                  </span>
                  <span class="field_help">
                      <h5>Estimated Total Monthly Payment Amount :</h5>
-                      <div id="">Every Column will have a total for both the minimum amount and the maximum amount, this is not an editable field and the system provides the value to the user in the user interface.
+                      <div id="Le_EstimatedTotalMonthlyPaymentAmount_help">Every Column will have a total for both the minimum amount and the maximum amount, this is not an editable field and the system provides the value to the user in the user interface.
                       </div>
                  </span>
               
@@ -1509,7 +1509,7 @@
              <div class="col-sm-12" id="LETotalClosingCostsSubtotalsHelp">
                 <span class="field_help">
                      <h5>Section Header Name :</h5>
-                      <div id="">Each Section in the Closing Cost Details is highlighted at the top of the section.
+                      <div id="LE_SectionHeaderName_help">Each Section in the Closing Cost Details is highlighted at the top of the section.
                           <ul>
                             <li>This section is called "Total Closing Costs"</li>
                           </ul>
@@ -1517,7 +1517,7 @@
                  </span>
                  <span class="field_help">
                      <h5>Section Total Amount  :</h5>
-                      <div id="">This provides the user an ability to view the total amount of all Closing Costs
+                      <div id="LE_SectionTotalAmount_help">This provides the user an ability to view the total amount of all Closing Costs
                           <ul>
                             <li>Un-editable field</li>
                             <li>Is a calculation within the system that sums all for a total amount</li>
@@ -1526,7 +1526,8 @@
                  </span>
                  <span class="field_help">
                      <h5>Subsection Header Name : </h5>
-                      <div id="">Describes the amount of Loan Costs + Other Cost 
+                      <div id="LE_SubsectionHeaderName_help">
+                       Describes the amount of Loan Costs + Other Cost 
                           <ul>
                             <li>Label is D+I </li>
                           </ul>
@@ -1534,7 +1535,8 @@
                  </span>
                  <span class="field_help">
                      <h5>Lender Credits :</h5>
-                      <div id="LE_LenderCredits_help">The amount of lender credits if known
+                      <div id="LE_LenderCredits_help">
+                      The amount of lender credits if known
                           <ul>
                             <li>Value is provided as a negative amount</li>
                           </ul>
@@ -1622,7 +1624,7 @@
                       </div>
                  </span>
               </div>
-              <!-- -->
+              <!--  -->
               <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LECalculatingCashToCLoseAlternateFormHelp"  ng-click="LECalculatingCashToCLoseAlternateFormHelp = LECalculatingCashToCLoseAlternateFormHelp + 1" ng-init="LECalculatingCashToCLoseAlternateFormHelp=0" > 
            <span>Calculating Cash To Close – Alternate form</span>
            <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LECalculatingCashToCLoseAlternateFormHelp%2==0" ></span>
@@ -1672,7 +1674,7 @@
 <div class="helpcontainer">
    <span class="subtab">
       <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#LE_OtherConsideration_Help"  ng-click="LE_OtherConsideration_Help = LE_OtherConsideration_Help + 1" ng-init="LE_OtherConsideration_Help=0" > 
-      <strong>Other Consideration</strong>
+      <strong>Other Considerations</strong>
       <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_OtherConsideration_Help%2==0" ></span>
       <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_OtherConsideration_Help%2==1"></span>
       </span>
@@ -1680,12 +1682,12 @@
           
                 <span class="field_help">
                      <h5> Assumption :</h5>
-                      <div id="">A set of check boxes, as seen in the CD PDF, the user may choose one or the other to indicate if an assumption is allowed or not under the original terms
+                      <div id="LE_Assumption_help">A set of check boxes, as seen in the CD PDF, the user may choose one or the other to indicate if an assumption is allowed or not under the original terms
                       </div>
                  </span>
                  <span class="field_help">
                      <h5> Late Charges  :</h5>
-                      <div id="">Button: Input State Values <br>
+                      <div id="LE_LateCharges_help">Button: Input State Values <br>
                       A user may click on the button called Input State Values which will fill in the appropriate information to support the number of days grace period, any amount or percentage and the type if a late charge occurs.<br>
                       Or the user may enter in the values for the following text boxes
                           <ul>
@@ -1699,7 +1701,7 @@
                  </span>
                  <span class="field_help">
                      <h5>Servicing :</h5>
-                      <div id="">User may choose between two check boxes to indicate if the Loan will be serviced by the issuing Lender or will conduct a transfer of servicing.
+                      <div id="LE_Servicing_help">User may choose between two check boxes to indicate if the Loan will be serviced by the issuing Lender or will conduct a transfer of servicing.
                           <ul>
                             <li>One check box must be checked</li>
                           </ul>

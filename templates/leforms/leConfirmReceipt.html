@@ -1,29 +1,11 @@
 <div class="col-sm-12">
   <h4>Confirm Receipt </h4>
-   <!-- <div class="col-sm-6">
-          <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Confirm Receipt</div>
-            <div class="col-sm-7 radioGroup">
-              <input type="checkbox" name="borrowertype_{{$index}}" ng-model="otherconsideration.willDisplayConfirmReceipt" value="1">
-              <label>Will Display the Confirm Receipt Signature and Date Line</label>
-              <input type="checkbox" name="borrowertype_{{$index}}" ng-model="otherconsideration.willNotDisplayConfirmReceipt" value="O">
-              <label>Will Not Display the Confirm Receipt Signature and Date Line</label>
-            </div>
-          </div>
-   </div> -->
    <span  class="col-sm-12 padding0">
         <table class="table LoanDisclosures table-bordered margin5tb"  style="border:0px;">
           <tr>
               <td class="col-sm-4">
-                  <strong> View  </strong> 
-                  <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>Provides the user the ability to include a signature line or not, must choose one or the other check boxes.</p>
-                    </span>
-           </span>
-
-              </td>
+                  <strong> View  </strong>
+                  <help-verbiage name="LE_ConfirmReceipt_Help" title="help_tooltip_text"></help-verbiage></td>
             <td>
                  <span class="col-sm-12">
                   <span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.assumabilityIndicator" ng-checked="leformdata.loanDetail.assumabilityIndicator == true"></span>

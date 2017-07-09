@@ -1,19 +1,13 @@
 <div class="col-sm-12">
-	<!-- <h4>Loan Disclosures / LE  Other Considerations</h4> -->
 	<h4>Other Considerations</h4>
 	<span  class="col-sm-12 padding0">
         <table class="table LoanDisclosures table-bordered margin5tb"  style="border:0px;">
 		      <tr>
 		        <td class="col-sm-4">
 		        	<strong> Assumption  </strong>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>A set of check boxes, as seen in the CD PDF, the user may choose one or the other to indicate if an assumption is allowed or not under the original terms</p>
-				          </span>
-				 </span>
-
-		        </td>
+		        	<help-verbiage name="LE_Assumption_help" title="help_tooltip_text">
+		        	</help-verbiage>
+		        	</td>
 		        <td>
 		        	<span class="col-sm-12">
 		        			<span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.assumabilityIndicator" ng-checked="leformdata.loanDetail.assumabilityIndicator == true"></span>
@@ -30,42 +24,11 @@
 
 		        </td>
 		      </tr>
-		     <!--  <tr>
-		        <td>
-		        	<strong> Demand Feature  </strong>
-		        </td>
-		        <td>
-		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name=""  ng-checked="leformdata.loanDetail.demandFeatureIndicator == true"></span>
-		        			<span class="col-sm-11 pull-left margin5tb">
-		        				Has a demand feature, which permits your lender to require early repayment of the loan. 
-		        			</span>
-		        	</span>
-		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.loanDetail.demandFeatureIndicator == false"></span>
-		        			<span class="col-sm-11 pull-left margin5tb">
-		        				Does not have a demand feature
-		        			</span>
-		        	</span>
-		        </td>
-		      </tr> -->
 		      <tr>
 		        <td>
 		        	<strong> Late Charges  </strong>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Button: Input State Values</p><br/>
-				           	 <p>A user may click on the button called Input State Values which will fill in the appropriate information to support the number of days grace period, any amount or percentage and the type if a late charge occurs.</p><br/>
-				           	 <p>Or the user may enter in the values for the following text boxes</p>
-				           	 <ul><li>Number of Grace Period Days</li>
-				           	 <li>Late Fee if a Percent</li>
-				           	 <li>Late Fee if an amount</li>
-				           	 <li>Late Charge Type – describes of what the fee is a percent of or an amount of…</li></ul>
-				           	 <p>Note that in the CFPB Integrated Mortgage Disclosure Regulation there is guidance as to when to display percentage vs Amount or both please validate against the regulation to provide input guidance.</p>
-				          </span>
-				 </span>
-
+		        	<help-verbiage name="LE_LateCharges_help" title="help_tooltip_text">
+		        	</help-verbiage>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0">
@@ -107,54 +70,11 @@
 		        	</span>
 		        </td>
 		      </tr>
-		      <!-- <tr>
-		        <td>
-		        	<strong> Partial Payment </strong>
-		        </td>
-		        <td>
-		        	<span class="col-sm-12">
-	        			<span class="pull-left"><input type="checkbox" name="partialPayment"></span>
-	        			<span class="col-sm-11 pull-left margin5tb">
-	        				May Accept Payments that are less than full amount due and apply to the loan
-	        			</span>
-		        	</span>
-		        	<span class="col-sm-12">
-	        	        <span class="pull-left"><input type="checkbox" name="partialPayment"></span>
-	        			<span class="col-sm-11 pull-left margin5tb">
-	        				May hold them in a separate account until a full payment is received
-	        			</span>
-		        	</span>
-		        	<span class="col-sm-12">
-	        	        <span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.payment.paymentRule.partialPaymentAllowedIndicator==false"></span>
-	        			<span class="col-sm-11 pull-left margin5tb">
-	        				Does not accept any partial payment
-	        			</span>
-		        	</span>
-		        </td>
-		      </tr> -->
-		      <!-- <tr>
-		        <td>
-		        	<strong>Negative Amortization </strong>
-		        </td>
-		        <td>
-		        	<span class="col-sm-12">
-		        			<span class="col-sm-11 pull-left margin5tb">
-		        				See the <a ng-click="productDescription();" class="cursor">Product Description</a> Section for information on Negative Amortization
-		        			</span>
-		        	</span>
-		        </td>
-		      </tr> -->
 		      <tr>
 		        <td class="col-sm-4">
 		        	<strong> Servicing  </strong>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>User may choose between two check boxes to indicate if the Loan will be serviced by the issuing Lender or will conduct a transfer of servicing.</p>
-				           	 <ul><li>One check box must be checked</li></ul>
-				          </span>
-				 </span>
-
+		        	<help-verbiage name="LE_Servicing_help" title="help_tooltip_text">
+		        	</help-verbiage>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12">
@@ -179,14 +99,11 @@
 				<a class="btn btn-default" ng-show="loanBasicInfo.loanFormType=='alternate'" ng-click="changeTab('PayoffsAndPayments')">Back</a>
 				<a class="btn btn-default" ng-show="loanBasicInfo.loanFormType !='alternate'" ng-click="changeTab('CalculatingCashtoClose')">Back</a>
 			</span>
-
-			<!-- <span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('LoanCals')">Next</a></span> -->
 			<span class="pull-right" ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==true">
 			<a class="btn btn-primary" ng-click="changeTab('AirTable')">Next</a>
 			</span>
 			<span class="pull-right" ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==false">
 			<a class="btn btn-primary" ng-show="leformdata.loanDetail.interestOnlyIndicator==true || leformdata.payment.paymentRule.paymentOptionIndicator==true || leformdata.loanInformation.amortizationType=='Step' || leformdata.loanInformation.amortizationType=='GPM' || leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanDetail.seasonalPaymentFeatureIndicator==true" ng-click="changeTab('ApTable')">Next</a>
-			<!-- <a class="btn btn-primary" ng-show="leformdata.loanDetail.interestOnlyIndicator==false || leformdata.payment.paymentRule.paymentOptionIndicator==false || leformdata.loanInformation.amortizationType !='Step' || leformdata.loanInformation.amortizationType !='GPM' || leformdata.loanInformation.amortizationType !='GraduatedPaymentARM' || leformdata.loanDetail.seasonalPaymentFeatureIndicator==false" ng-click="changeTab('LoanCals')">Next</a> -->
 			<a class="btn btn-primary" ng-show="leformdata.loanDetail.interestOnlyIndicator==false || leformdata.payment.paymentRule.paymentOptionIndicator==false || leformdata.loanInformation.amortizationType !='Step' || leformdata.loanInformation.amortizationType !='GPM' || leformdata.loanInformation.amortizationType !='GraduatedPaymentARM' || leformdata.loanDetail.seasonalPaymentFeatureIndicator==false" ng-click="changeTab('ContactInfo')">Next</a>
 			</span>
 	</div>	
