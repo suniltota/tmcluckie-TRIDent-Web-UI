@@ -208,14 +208,13 @@
 		        </td>
 		     
 		      </tr> 
-		       <tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
+		        <tr ng-show="loanBasicInfo.loanFormType == 'alternate'">
 				        <td>
 				        	<strong> Estimated Cash To Close </strong>
-				        	<strong class="marginleft18">From </strong>
-				        	<input type="checkbox" name="" ng-model="leformdata.cashToCloses.fromBorrowerCheckBox">
-				        	<strong class="marginleft18">To</strong>
-				        	<input type="checkbox" name="" ng-model="leformdata.cashToCloses.toBorrowerCheckBox">
-				        	<strong class="marginleft18">Borrower</strong>
+				        	<input type="checkbox" name="" ng-model="cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType" ng-true-value="'FromBorrower'" ng-false-value="'ToBorrower'" ng-checked="cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType=='FromBorrower'" ng-disabled="true">
+		        			<strong class="marginleft18">From </strong>
+		        			<input type="checkbox" name="" ng-model="cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType" ng-true-value="'ToBorrower'" ng-false-value="'FromBorrower'" ng-checked="cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType=='ToBorrower'"><strong class="marginleft18">To</strong>
+		        			<strong class="marginleft18">Borrower</strong>
 				        </td>
 				        <td>
 				        	${{leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount | number:2}}
