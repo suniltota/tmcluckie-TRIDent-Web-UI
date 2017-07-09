@@ -1932,7 +1932,17 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             $scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount = 0;
         }
     }
-        
+
+    if($scope.loanBasicInfo.loanFormType == 'alternate'){
+    	if($scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemFinalAmount>=0){
+    	    $scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType = 'ToBorrower';
+    	    $scope.cdformdata.closingInformationDetail.cashToBorrowerAtClosingAmount = $scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemFinalAmount;
+	    }else if($scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemFinalAmount<0){
+	    	$scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType = 'FromBorrower';
+	    	$scope.cdformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = 0-$scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemFinalAmount;
+	    }
+    }
+
     }, true);
     
     $scope.$watch('leformdata.closingCostsTotal.lenderCredits', function(newValue,oldValue){
