@@ -5,30 +5,18 @@
 		<h5 class="innerSectionHeader">Borrower Information 
       <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="borrower.checkBorrower" ng-click="sameBorrower($index)"> Same as 1<sup>st</sup> Borrower Address</span>
       <span class="glyphicon glyphicon-trash pull-right red  RemoveSection margin5tb tooltip-msg" ng-click="removeBorrower($index)" ng-show="$index != 0" ng-mouseouver>
-        <b></b> 
-         <span> 
-             <p>A link that, when selected, will remove an added borrower section in the user interface, if any data I input when removing this will remove all information.</p>
-          </span>
-    </span>
+      </span>
     <span class="pull-right backtotop" ng-show="$index != 0">
         <span class="glyphicon glyphicon-arrow-up margin5lr"></span>
         <a class = "white cursor tooltip-msg" ng-click="backtoTopborrower()" ng-mouseouver>
-        <b></b> 
-         <span> 
-             <p>For each section added the user must scroll to get back to the top, a user can click the link and will immediately be taken back to the top of the Web Page.</p>
-          </span>Back-to-top</a>
+        Back-to-top</a>
     </span>
     </h5>
 		 <div class="col-sm-6">
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">Borrower Classification<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>In any transaction type a Borrower is always present in the transaction, at least one.  To structure the information correctly a borrower needs to be classified as either an individual or a Legal Entity (organization).</p>
-                       <ul><li>The user must choose a radio button; </li>
-                       <li>The individual radio button is always the default.</li></ul>
-                    </span>
-           </span></div>
+            <div class="col-sm-5 fieldTitle">Borrower Classification
+            <help-verbiage name="CD_BorrowerClassification_Help" title="help_tooltip_text"></help-verbiage>
+          </div>
             <div class="col-sm-7 radioGroup">
               <input type="radio" name="borrowertype_{{$index}}" ng-model="borrower.type" value="I" ng-click="borrowerCheck($index)">
               <label>Individual</label>
@@ -38,20 +26,13 @@
           </div>
           <div class="row col-sm-12 margin5tb" ng-if="borrower.type=='I'">
             <div class="col-sm-5 fieldTitle">Borrower Type
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-if="borrower.type=='I'" ng-mouseouver>
-                <b></b> 
-                 <span> 
-                     <p>Is a role that Identifies the party in the transaction.  A party may play multiple roles in a transaction.  The enumerated default is the value of Borrower; however, some borrowers may or may not be on the Note so the borrower must have another designation.</p>
-                     <ul><li>For example, if only one party to the transaction is on the Note and both are on the Deed, then the user would choose the second borrower type as “Title Holder”.</li>
-                     <li>Most transactions will just utilize the Borrower Type</li></ul>
-                  </span>
-         </span>
-         </div>
+            </div>
             <div class="col-sm-7">
                 <select placeholder="Organization Name"  class="form-control" ng-model="borrower.partyRoleType">
                   <option value="" selected>Select</option>
                   <option ng-repeat="borrowerPartyRoleType in borrowerPartyRoleTypes" value="{{borrowerPartyRoleType.value}}">{{borrowerPartyRoleType.name}}</option>
                 </select>
+                <help-verbiage name="CD_IndividualBorrowerType_Help" title="help_tooltip"></help-verbiage>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb" ng-if="borrower.type=='I' && borrower.partyRoleType == 'Other'">
@@ -62,154 +43,110 @@
           </div>
           <div class="row col-sm-12 margin5tb" ng-if="borrower.type=='O'">
             <div class="col-sm-5 fieldTitle">Borrower Type 
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>This is a role that Identifies the party in the transaction.  A party may play multiple roles in a transaction.  The enumerated default is the value of Borrower; however, some borrowers may or may not be on the Note so the borrower must have another designation.</p>
-                       <ul><li>In this instance of Borrower Type will always equal “Borrower”</li></ul>
-                    </span>
-           </span></div>
+            </div>
             <div class="col-sm-7">
                 <input type="text" class="form-control" value="Borrower" ng-disabled="true" ng-model="borrower.partyRoleType">
+                <help-verbiage name="CD_OrganizationBorrowerType_Help" title="help_tooltip"></help-verbiage>
             </div>
           </div>
           <div ng-if="borrower.type == 'I'">
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Borrower First Name
-              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The first name of the individual, must have a t least one if the borrower is an individual.</p>
-                       <ul><li>Considered Conditionally required if the borrower is an individual</li>
-                       <li>Format is a String value up to 30 characters</li></ul>
-                    </span>
-           </span></div>
-              <div class="col-sm-7"><input type="text" placeholder="First Name"  class="form-control" ng-model="borrower.nameModel.firstName"></div>
+             </div>
+              <div class="col-sm-7">
+                  <input type="text" placeholder="First Name"  class="form-control" ng-model="  borrower.nameModel.firstName">
+                  <help-verbiage name="CD_BorrowerFirstName_Help" title="help_tooltip"></help-verbiage>
+              </div>
             </div>
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Borrower Middle Name
-              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The middle name of the individual, if this does not exist is it not required when the borrower is an individual.  </p>
-                       <ul><li>Format is a string value up to 30 characters</li></ul>
-                    </span>
-           </span></div>
-              <div class="col-sm-7"><input type="text" placeholder="Middle Name"  class="form-control" ng-model="borrower.nameModel.middleName"></div>
+             </div>
+                <div class="col-sm-7">
+                    <input type="text" placeholder="Middle Name"  class="form-control" ng-model="borrower.nameModel.middleName">
+                    <help-verbiage name="CD_BorrowerMiddleName_Help" title="help_tooltip"></help-verbiage>
+                </div>
             </div>
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Borrower Last Name
-              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                    <b></b> 
-                     <span> 
-                         <p>The last name of the individual, must have at least one if the borrower is an individual</p>
-                         <ul><li>Considered Conditionally required if the borrower is an individual</li>
-                         <li>Format is a String value up to 30 characters</li></ul>
-                      </span>
-             </span></div>
-              <div class="col-sm-7"><input type="text" placeholder="Last Name"  class="form-control" ng-model="borrower.nameModel.lastName"></div>
+              </div>
+              <div class="col-sm-7">
+                  <input type="text" placeholder="Last Name"  class="form-control" ng-model="borrower.nameModel.lastName">
+                  <help-verbiage name="CD_BorrowerLastName_Help" title="help_tooltip"></help-verbiage>
+              </div>
             </div>
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Borrower Suffix
-              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The suffix of the individual, if this does not exist is it not required when the borrower is an individual.</p>
-                       <ul><li>Format is a string value up to 30 characters</li></ul>
-                    </span>
-           </span></div>
-              <div class="col-sm-7"><input type="text" class="form-control" ng-model="borrower.nameModel.suffixName"></div>
+             </div>
+              <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="borrower.nameModel.suffixName">
+                  <help-verbiage name="CD_BorrowerSuffix_Help" title="help_tooltip"></help-verbiage>
+              </div>
             </div>   
           </div>     
           <div ng-if="borrower.type == 'O'">
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Borrower Name
-              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                    <b></b> 
-                     <span> 
-                         <p>The unparsed name of the legal entity.</p>
-                         <ul><li>Example; Smith Family Trust</li></ul>
-                      </span>
-             </span></div>
-              <div class="col-sm-7"><input type="text" class="form-control" placeholder="Borrower Name" ng-model="borrower.nameModel.fullName"></div>
+              </div>
+              <div class="col-sm-7">
+                  <input type="text" class="form-control" placeholder="Borrower Name" ng-model="borrower.nameModel.fullName">
+                  <help-verbiage name="CD_BorrowerName_Help" title="help_tooltip"></help-verbiage>
+              </div>
             </div>  
           </div>
         </div>
         <div class="col-sm-6">
         	<div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Street Address (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The mailing address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value.</p>
-                    </span>
-           </span></div>
-            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="borrower.address.addressLineText"></div>
+            </div>
+            <div class="col-sm-7">
+                <input type="text"  class="form-control" ng-model="borrower.address.addressLineText">
+                <help-verbiage name="CD_BorrowerStreetAddress_Help" title="leftTooltip"></help-verbiage>
+            </div>
           </div>
           <div class="row col-sm-12 margin5tb">
-            <div class="col-sm-5 fieldTitle">City (Mailing)<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The name of the city of the borrowers mailing address.   Must be in a format of a String value with no more than 50 characters.</p>
-                    </span>
-           </span></div>
-            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="borrower.address.cityName"></div>
+            <div class="col-sm-5 fieldTitle">City (Mailing)</div>
+            <div class="col-sm-7">
+                <input type="text"  class="form-control" ng-model="borrower.address.cityName">
+                <help-verbiage name="CD_BorrowerCityName_Help" title="leftTooltip"></help-verbiage>
+            </div>
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Country Code (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                    <b></b> 
-                     <span> 
-                         <p>The two-character representation of the US state,Canadian Province.</p>
-                      </span>
-             </span></div>
+            </div>
             <div class="col-sm-7">
               <select class="form-control" ng-model="borrower.address.countryCode" ng-change="bcountryChange($index)">
                 <option value="" selected>Select</option>
                 <option ng-repeat="country in countryCodes" value="{{country.code}}">{{country.code}}</option>
               </select>
-            </div>
+              <help-verbiage name="CD_BorrowerStateCode_Help" title="leftTooltip"></help-verbiage>
+              </div>
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">State (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The two-character representation of the US state, US Territory, Canadian Province, Military APO FPO, or Territory of the borrowers mailing address</p>
-                   </span>
-           </span></div>
+            </div>
             <div class="col-sm-7">
               <select ng-model="borrower.address.stateCode" class="form-control">
                   <option value="" selected>Select</option>
                   <option ng-repeat="usstate in usstateCodes" value="{{usstate.code}}" ng-if="borrower.address.countryCode == 'US'">{{usstate.code}}</option>
                   <option ng-repeat="canadastate in canadaStateCodes" value="{{canadastate.code}}" ng-if="borrower.address.countryCode == 'CA'">{{canadastate.code}}</option>
               </select>
+              <help-verbiage name="CD_BorrowerStateCode_Help" title="leftTooltip"></help-verbiage>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Postal Code (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The postal code (ZIP Code in the US) for the address. ZIP Code may be either 5 or 9 digits of the borrowers mailing address.</p>
-                    </span>
-           </span></div>
-            <div class="col-sm-7">
-              
-              <actualize-input ng-model="borrower.address.postalCode" name="postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format">
-              </actualize-input>
             </div>
-          </div>
-          
+            <div class="col-sm-7">
+                <actualize-input ng-model="borrower.address.postalCode" name="postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format">
+              </actualize-input>
+              <help-verbiage name="CD_BorrowerPostalCode_Help" title="leftTooltip"></help-verbiage>
+            </div>
+          </div>          
         </div>
 	</div>
    <div class="col-sm-12"><span class="AddSection" ng-click="addBorrower()"><a>+ Add Additional Borrowers</a></span>
-   <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-        <b></b> 
-         <span> 
-             <p>A link that, when selected, will add another section in the User Interface to add another borrower to the transaction.</p>
-          </span>
- </span></div>
+   <help-verbiage name="CD_AddAdditionalBorrowerslink_Help" title="help_tooltip_text"></help-verbiage>
+   </div>
    </div>
    <div class="sellinfo col-sm-12 padding0" id="Sellerinfo" ng-show="loanBasicInfo.loanPurposeType=='purchase'">
   <div class="col-sm-12 padding0"  ng-repeat= "seller in cdformdata.transactionInformation.sellerDetails track by $index">
@@ -226,14 +163,8 @@
      <div class="col-sm-6">
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Seller Classification
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The Seller is only present in Purchase transactions.  To structure the information correctly a Seller needs to be classified as either an individual or a Legal Entity (organization).</p>
-                       <ul><li>The user must choose a radio button; </li>
-                       <li>The individual radio button is always the default.</li></ul>
-                    </span>
-           </span></div>
+            <help-verbiage name="CD_SellerClassification_Help" title="help_tooltip_text"></help-verbiage>
+            </div>
             <div class="col-sm-7 radioGroup" ng-init="seller.type == 'I'">
               <input type="radio" name="sellertype_{{$index}}" ng-model="seller.type" value="I" ng-click="sellerCheck($index)"> <label>Individual</label>
               <input type="radio" name="sellertype_{{$index}}" ng-model="seller.type"  value="O" ng-click="sellerCheck($index)"> <label>Organization </label>
@@ -242,128 +173,95 @@
           <div ng-show="seller.type == 'I'"> 
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Seller First Name
-              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                    <b></b> 
-                     <span> 
-                         <p>The first name of the individual, must have at least one if the Seller if the transaction is a purchase and the seller is an individual.</p>
-                         <ul><li>Considered Conditionally required if the Seller is an individual</li>
-                         <li>Format is a String value up to 30 characters</li></ul>
-                      </span>
-             </span></div>
-              <div class="col-sm-7"><input type="text" placeholder="First Name"  class="form-control" ng-model="seller.nameModel.firstName"></div>
+              </div>
+              <div class="col-sm-7">
+                  <input type="text" placeholder="First Name"  class="form-control" ng-model="seller.nameModel.firstName">
+                  <help-verbiage name="CD_SellerFirstName_Help" title="help_tooltip"></help-verbiage>
+                </div>
             </div>
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Seller Middle Name
-              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                    <b></b> 
-                     <span> 
-                         <p>The middle name of the individual, if this does not exist is it not required when the Seller is an individual.</p>
-                         <ul><li>Format is a string value up to 30 characters</li></ul>
-                      </span>
-             </span></div>
-              <div class="col-sm-7"><input type="text" placeholder="Middle Name"  class="form-control" ng-model="seller.nameModel.middleName"></div>
+              </div>
+              <div class="col-sm-7">
+                  <input type="text" placeholder="Middle Name"  class="form-control" ng-model="seller.nameModel.middleName">
+                  <help-verbiage name="CD_SellerMiddleName_Help" title="help_tooltip"></help-verbiage>
+              </div>
             </div>
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Seller Last Name
-              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                    <b></b> 
-                     <span> 
-                         <p>The last name of the individual, must have at least one if the Seller is an individual</p>
-                         <ul><li>Considered Conditionally required if the Seller is an individual</li>
-                         <li>Format is a String value up to 30 characters</li></ul>
-                      </span>
-             </span></div>
-              <div class="col-sm-7"><input type="text" placeholder="Last Name"  class="form-control" ng-model="seller.nameModel.lastName"></div>
+              </div>
+              <div class="col-sm-7">
+                    <input type="text" placeholder="Last Name"  class="form-control" ng-model="seller.nameModel.lastName">
+                    <help-verbiage name="CD_SellerLastName_Help" title="help_tooltip"></help-verbiage>
+              </div>
             </div>
             <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Seller Suffix
-              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                    <b></b> 
-                     <span> 
-                         <p>The suffix of the individual, if this does not exist is it not required when the Seller is an individual.</p>
-                         <ul><li>Format is a string value up to 30 characters</li></ul>
-                      </span>
-             </span></div>
-              <div class="col-sm-7"><input type="text" class="form-control" ng-model="seller.nameModel.suffixName"></div>
+              </div>
+              <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="seller.nameModel.suffixName">
+                  <help-verbiage name="CD_OrganizationSellerName_Help" title="help_tooltip"></help-verbiage>
+              </div>
             </div>        
           </div>
           <div ng-show="seller.type == 'O'" > 
              <div class="row col-sm-12 margin5tb">
               <div class="col-sm-5 fieldTitle">Seller Name
-              <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                    <b></b> 
-                     <span> 
-                         <p>The unparsed name of the legal entity.</p>
-                         <ul><li>Example; Smith Family Trust</li></ul>
-                      </span>
-             </span></div>
-              <div class="col-sm-7"><input type="text" class="form-control" placeholder="Seller Name" ng-model="seller.nameModel.fullName"></div>
+              </div>
+              <div class="col-sm-7">
+                  <input type="text" class="form-control" placeholder="Seller Name" ng-model="seller.nameModel.fullName">
+                  <help-verbiage name="CD_OrganizationSellerName_Help" title="help_tooltip"></help-verbiage>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Street Address (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The mailing address with the address number, pre-directional, street name, post-directional, address unit designators and address unit value.</p>
-                    </span>
-           </span></div>
-            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="seller.address.addressLineText"></div>
+            </div>
+            <div class="col-sm-7">
+                 <input type="text"  class="form-control" ng-model="seller.address.addressLineText">
+                 <help-verbiage name="CD_SellerStreetAddress_Help" title="leftTooltip"></help-verbiage>
+            </div>
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">City (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The name of the city of the Seller mailing address.  Must be in a format of a String value with no more than 50 characters.</p>
-                    </span>
-           </span></div>
-            <div class="col-sm-7"><input type="text"  class="form-control" ng-model="seller.address.cityName"></div>
+            </div>
+            <div class="col-sm-7">
+                <input type="text"  class="form-control" ng-model="seller.address.cityName">
+                <help-verbiage name="CD_SellerCityName_Help" title="leftTooltip"></help-verbiage>
+            </div>
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Country Code (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The two-character representation of the US state, Canadian Province, </p>
-                    </span>
-           </span></div>
+            </div>
             <div class="col-sm-7">
-              <select class="form-control" ng-model="seller.address.countryCode" ng-change="scountryChange($index)">
-                <option value="" selected>Select</option>
-                <option ng-repeat="country in countryCodes" value="{{country.code}}">{{country.code}}</option>
-              </select>
+                <select class="form-control" ng-model="seller.address.countryCode" ng-change="scountryChange($index)">
+                  <option value="" selected>Select</option>
+                  <option ng-repeat="country in countryCodes" value="{{country.code}}">{{country.code}}</option>
+                </select>
+                <help-verbiage name="CD_SellerPostalCode_Help" title="leftTooltip"></help-verbiage>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">State (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The two-character representation of the US state, US Territory, Canadian Province, Military APO FPO, or Territory of the borrowers mailing address.</p>
-                    </span>
-           </span></div>
+           </div>
             <div class="col-sm-7">
               <select ng-model="seller.address.stateCode" class="form-control">
                 <option value="" selected>Select</option>
                 <option ng-repeat="state in usstateCodes" value="{{state.code}}" ng-if="seller.address.countryCode=='US'">{{state.code}}</option>
                 <option ng-repeat="state in canadaStateCodes" value="{{state.code}}" ng-if="seller.address.countryCode=='CA'">{{state.code}}</option>
               </select>
+              <help-verbiage name="CD_SellerStateCode_Help" title="leftTooltip"></help-verbiage>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Postal Code (Mailing)
-            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                  <b></b> 
-                   <span> 
-                       <p>The postal code (ZIP Code in the US) for the address. ZIP Code may be either 5 or 9 digits of the borrowers mailing address.</p>
-                    </span>
-           </span></div>
+            </div>
             <div class="col-sm-7">
               <actualize-input ng-model="seller.address.postalCode" name="postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format">
               </actualize-input>
+              <help-verbiage name="CD_SellerPostalCode_Help" title="leftTooltip"></help-verbiage>
             </div>
           </div>
         </div>
@@ -371,12 +269,8 @@
         </div>
    <div class="col-sm-12"><span class="AddSection" ng-click="addSeller()"><a>+ Add Additional Sellers</a>
    </span>
-   <span class="glyphicon glyphicon-question-sign helpIcon paddingTopLeft10 tooltip-msg" ng-mouseouver>
-        <b></b> 
-         <span> 
-             <p>A link, that when selected, will add another section in the User Interface to add another Seller to the transaction.</p>
-          </span>
- </span></div>
+   <help-verbiage name="CD_AddAdditionalSellerlink_Help" title="help_tooltip_text"></help-verbiage>
+   </div>
   </div>
 </div>
 <div class="col-sm-12 " id="lenderinfo">
@@ -384,39 +278,26 @@
     <span class="pull-right backtotop">
        <span class="glyphicon glyphicon-arrow-up margin5lr"></span>
        <a class = "white cursor tooltip-msg" ng-click="backtoTopborrower()" ng-mouseouver>
-        <b></b> 
-         <span> 
-             <p>For each section added the user must scroll to get back to the top, a user can click the link and will immediately be taken back to the top of the Web Page.</p>
-          </span>Back-to-top</a>
+        Back-to-top</a>
     </span>
     </h5>
       <div class="col-sm-6">
         <div class="row col-sm-12 margin5tb">
           <div class="col-sm-5 fieldTitle">Lender Name
-          <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                <b></b> 
-                 <span> 
-                     <p>The unparsed name of the organization that is providing the credit.</p>
-                     <ul><li></li></ul>
-                  </span>
-         </span></div>
-          <div class="col-sm-7"><input type="text" placeholder="Lender Name"  class="form-control" ng-model="cdformdata.contactInformation.lender.organizationName"></div>
+          </div>
+          <div class="col-sm-7">
+              <input type="text" placeholder="Lender Name"  class="form-control" ng-model="cdformdata.contactInformation.lender.organizationName">
+              <help-verbiage name="CD_LenderName_Help" title="help_tooltip"></help-verbiage>
+          </div>
         </div>
          <div class="row col-sm-12 margin5tb" ng-show="loanBasicInfo.loanPurposeType == 'refinance'">
           <div class="col-sm-5 fieldTitle">Refinance Same Lender? 
-          <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-                <b></b> 
-                 <span> 
-                     <p>If the transaction is a refinance, this yes or no answer must be provided.</p>
-                     <ul><li>When true, indicates that the subject loan is refinanced with the current holder, current servicer or an affiliate of either.</li>
-                     <li>Is required in all Refinance Transactions, when loan purpose is equal to refinance.
-                     </li></ul>
-                  </span>
-         </span></div>
+          </div>
           <div class="col-sm-7">
               <select placeholder="Organization Name" class="form-control" ng-model="cdformdata.transactionInformation.refinanceSameLenderIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
                 <option value="" selected="selected">Select</option>
               </select>
+              <help-verbiage name="CD_RefinanceSameLender_Help" title="help_tooltip"></help-verbiage>
           </div>
         </div>
       </div>  
