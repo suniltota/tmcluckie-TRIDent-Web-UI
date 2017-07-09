@@ -1,23 +1,13 @@
 <div class="col-sm-12">
-	<h4>Projected Payments</h4>
+	<h4>Projected Payments</h4> 
 	<span class="col-sm-12 LoanTermsTable">
 		<div class="margin5tb pull-right" ng-show="leformdata.projectedPayments.paymentCalculation.length<=3">
-			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns</a>
-			<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The Projected Payment section is driven off several pieces of information:</p>
-			           	 <ul><li>¥	Product Description – Amortization Type if Fixed then typically only one column or multiple columns of the Amortization Type is Adjustable Rate (ARM) or Not Fixed</li>
-			           	 <li>Upload of multiple instances of data will automatically provide the additional columns with values</li></ul>
-			           	 <p>If the user is manual data entry and requires additional columns, then the user may click on the Add Additional Column Link that will add 3 additional columns one at time up to a total of total columns.</p>
-			          </span>
-			 </span>
-
+			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns
 		</div>
 		<table class="table" style="margin-top:15px;">
 		      <tr>
 		        <th class="col-sm-3 innerSectionHeader">Payment Calculations</th>
-		        <th class="col-sm-2 innerSectionHeader"
+		        <th class="col-sm-2 innerSectionHeader" ng-class="{'col-sm-9': cdformdata.projectedPayments.paymentCalculation.length == 1, 'col-sm-4': cdformdata.projectedPayments.paymentCalculation.length == 2, 'col-sm-3': cdformdata.projectedPayments.paymentCalculation.length == 3, 'col-sm-2': cdformdata.projectedPayments.paymentCalculation.length == 4 }"
 		        	ng-repeat="paymentCalculation in leformdata.projectedPayments.paymentCalculation track by $index">
 		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years</span>
 		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years</span>
@@ -28,29 +18,25 @@
 		        </th>
 		      </tr>
 		      <tr>
-		        <td><label>Principal &amp; Interest Payment <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>In each column (1-4) a Minimum amount and Maximum amount text boxes are available to the user for input.</p>
-				           	 <ul><li>¥	Minimum Amount - The minimum amount of the principal and interest payment during the projected payment period. Typically this is not used for the first column due to any fixed periods would be identified in the first period.</li>
-				           	 <li>¥	Maximum Amount - The maximum amount of the principal and interest payment during the projected payment period.</li></ul>
-				          </span>
-				 </span>
+		        <td><label>Principal &amp; Interest Payment 
 			</label></td>
 		        <td ng-repeat="principalInterest in leformdata.projectedPayments.principalInterest track by $index">
-		        	<div class="col-sm-6" style="padding: 0 8px;">
-		        			<div class="col-sm-12 text-center marginleft40n" style="position:relative;">Minimum	<span class="pull-right" style="right:-10px; position:absolute; top:-2px;">-</span>
+		        	<div class="col-sm-6 padding0" style="padding-right:8px;">
+		        			<div class="col-sm-12 text-center" style="position:relative;">Minimum	<span class="pull-right" style="right:-10px; position:absolute; top:-2px;">-</span>
 							</div>
-		        			<div class="input-group marginleft10n">
-  								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
-		        				<input class="form-control width50" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" decimal-digits-with-number-format>
+		        			<div class="input-group">
+  								<span class="input-group-addon input-default" ng-style="{ 'padding' : leformdata.projectedPayments.paymentCalculation.length == 4 ? '3px 6px' : ''}">$</span>
+		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" name="projectedPaymentPrincipalAndInterestMinimumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+                				</actualize-input>
 		        			</div>
 		        	</div>
-		        	<div class="col-sm-6" style="padding: 0 8px;">
-		        			<div class="col-sm-12 text-center marginleft40n">Maximum<span class="required" ng-show="$index==0">*</span></div>
-		        			<div class="input-group marginleft10n marginleft8n">
-  								<span class="input-group-addon input-default" style="padding: 3px 6px;">$</span>
-		        				<input class="form-control width50" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" decimal-digits-with-number-format>
+		        	<div class="col-sm-6 padding0" style="padding-left: 8px;">
+		        			<div class="col-sm-12 text-center">Maximum<span class="required" ng-show="$index==0">*</span></div>
+		        			<div class="input-group">
+  								<span class="input-group-addon input-default" ng-style="{ 'padding' : cdformdata.projectedPayments.paymentCalculation.length == 4 ? '3px 6px' : ''}">$</span>
+		        				<!-- <input class="form-control width50" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" decimal-digits-with-number-format> -->
+		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" name="projectedPaymentPrincipalAndInterestMaximumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+                				</actualize-input>
 		        			</div>
 		        	</div>
 		        	<div class="col-sm-12 text-center" style="padding:10px;" ng-show="principalInterest.interestOnlyStatus">Only Interest</div>
