@@ -8,7 +8,7 @@
       <strong>Closing Information</strong>
       <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LE_ClosingInformation_Help%2==0" ></span>
       <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LE_ClosingInformation_Help%2==1"></span>
-      </span>
+      </span> 
   
        <div id="LE_ClosingInformation_Help" class="collapse subContainer">
           
@@ -894,12 +894,17 @@
        <div id="LE_ETIA_Help" class="collapse subContainer">
                 <span class="field_help">
                      <h5> $ amount  per month :</h5>
-                      <div id="">This amount is calculated via the Calculate button.
+                      <div id="LE_ETIAAmountperMonth_help">This amount is calculated via the Calculate button.
                       </div>
                  </span>
                  <span class="field_help">
                      <h5>Check Boxes – Property Taxes and Homeowners Insurance</h5>
-                      <div id="">The user may enter one or many Other items, the purpose of adding many when the Loan Estimate only has one on the PDF if for support of the GSE requirements in the UCD XML file.
+                      <div id="LE_PropertyTaxesHomeOwnersInsurance_help">The user may select neither, both or just one.  
+                      </div>
+                 </span>
+                 <span class="field_help">
+                     <h5>Check Box – Other</h5>
+                      <div id="LE_ETIACheckboxOther_help">The user may enter one or many Other items, the purpose of adding many when the Loan Estimate only has one on the PDF if for support of the GSE requirements in the UCD XML file.
                           <ul>
                             <li>Format is a list of Enumerated values to choose
                                 If other is Chosen, then the Description box will be enabled for the user to input the value.
@@ -909,7 +914,7 @@
                  </span>
                  <span class="field_help">
                      <h5> In Escrow? :</h5>
-                      <div id="">The user may select from a drop down whether the item is in an escrow account or not.
+                      <div id="LE_IsEscrow_help">The user may select from a drop down whether the item is in an escrow account or not.
                           <ul>
                             <li>Format is a drop-down box with Yes or No.
                                 Will default based on the information in Closing Cost Details Section G. Initial Escrow at Closing</li>
@@ -918,7 +923,7 @@
                  </span>
                  <span class="field_help">
                      <h5> Add Additional Item</h5>
-                      <div id="">This link will all you to add another row to choose from the drop down and indicate if in escrow or not in escrow.
+                      <div id="LE_ETIAAddAdditionalItem_help">This link will allow you to add another row to choose from the drop down and indicate if in escrow or not in escrow.
                       </div>
                  </span>
         </div>
