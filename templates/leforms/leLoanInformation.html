@@ -521,25 +521,24 @@ ng-change="clChange()">
 				        	<span class="col-sm-6 padding0"><b class="boldComma">.</b> MI Monthly Amount</span> 
 				        	<span class="col-sm-4 input-group paddingleft13">
 				        	<span class="input-group-addon input-default">$</span>
-				        		<input type="text" class="form-control" name="" ng-model="leformdata.miDataDetail.miMonthlyAmount">
+				        		<input type="text" class="form-control" name="" ng-model="leformdata.miDataDetail.miMonthlyAmount" dependencies="decimal-digits-with-number-format">
 				        	</span> 
 				        </div>
 				        <div class="col-sm-12 padding0 margin5tb">
 				        	<span class="col-sm-6 padding0"><b class="boldComma">.</b> MI 1<sup>st</sup> Factor Percentage</span> 
 				        	<span class="col-sm-4 input-group paddingleft13">
-				        		<input type="text" class="form-control" name="" ng-model="leformdata.miDataDetail.miFirstFactorPercentage">
+				        		<input type="text" class="form-control" name="" ng-model="leformdata.miDataDetail.miFirstFactorPercentage" percentage-format>
 				        		<span class="input-group-addon input-default">%</span>
 				        	</span> 
 				        </div>
 				        <div class="col-sm-12 padding0 margin5tb">
 				        	<span class="col-sm-6 padding0"><b class="boldComma">.</b> MI 2<sup>nd</sup> Factor Percentage</span> 
 				        	<span class="col-sm-4 input-group paddingleft13">
-				        	<input type="text" class="form-control" name="" ng-model="leformdata.miDataDetail.miSecondFactorPercentage">
+				        	<input type="text" class="form-control" name="" ng-model="leformdata.miDataDetail.miSecondFactorPercentage" percentage-format>
 				        	<span class="input-group-addon input-default">%</span>
 				        	</span> 
 				        </div>
 			</div>
-
 </div>
 <div class="col-sm-12">
 <div class="col-sm-12 tableInsideHeader">Interest Only Information</div>    
