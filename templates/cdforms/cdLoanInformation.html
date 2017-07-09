@@ -11,6 +11,7 @@
 						<div class="col-sm-6 padding0">
 							<actualize-input name="loanTermYears" ng-model="cdformdata.loanInformation.loanTermYears" toolTipPos = "top" custommessage="Please enter a valid whole number" >
                 			</actualize-input>
+                			<help-verbiage name="CD_LoanTermYears_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 					<div class="col-sm-12 padding0 margin5tb paddingtop11">
@@ -18,6 +19,7 @@
 						<div class="col-sm-6 padding0">
 							<actualize-input name="loanTermMonths" ng-model="cdformdata.loanInformation.loanTermMonths" toolTipPos = "top" custommessage="Please enter a valid whole number" >
                 			</actualize-input>
+                			<help-verbiage name="CD_LoanTermMonths_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -31,19 +33,22 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="loanType in loanTypes" value="{{loanType.value}}">{{loanType.name}}</option>
 						</select>
+						<help-verbiage name="CD_LoanType_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 				<div class="FieldGroup">
 					<div class="col-sm-5 fieldTitle">Description:</div>
-					<div class="col-sm-7 padding0 paddingtop5">
+					<div class="col-sm-7 padding0">
 						<input type="text" class="form-control" id="loanTypeOtherDescription" ng-model="cdformdata.termsOfLoan.mortgageTypeOtherDescription" ng-disabled="cdformdata.termsOfLoan.mortgageType!='Other'">
-					</div>
+						<help-verbiage name="CD_LoanDescription_Help" title="help_tooltip_padding"></help-verbiage>
+					</div>					
 				</div>
 			</div>
 			<div class="col-sm-4">
 				<div class="col-sm-5 fieldTitle margin4t">Purpose:</div>
-				<div class="col-sm-7 padding0 paddingtop5">
+				<div class="col-sm-7 padding0">
 					<input type="text" class="form-control" style="text-transform:capitalize;" ng-model="cdformdata.termsOfLoan.loanPurposeType" ng-disabled="true">
+					<help-verbiage name="CD_LoanPurpose_Help" title="help_tooltip_padding_left"></help-verbiage>
 				</div>
 			</div>
 		</div>
@@ -53,6 +58,7 @@
 					<div class="col-sm-5 padding0 fieldTitle">MIC#:</div>
 					<div class="col-sm-7 padding0">
 						<input type="text" class="form-control" name="" ng-model="cdformdata.micIdentifier">
+						<help-verbiage name="CD_LoanMIC_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -61,6 +67,7 @@
 					<div class="col-sm-5 padding0 fieldTitle">MERS MIN ID:</div>
 					<div class="col-sm-7 padding0">
 						<input type="text" class="form-control" ng-model="MERS_MIN_ID">
+						<help-verbiage name="CD_LoanMERSMINIdentifier_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -73,6 +80,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="lienPriorityType in lienPriorityTypes" value="{{lienPriorityType.value}}">{{lienPriorityType.name}}</option>
 						</select>
+						<help-verbiage name="CD_LoanLienPosition_Help" title="help_tooltip_padding_left"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -83,6 +91,7 @@
 				<div class="col-sm-6 padding0" ng-repeat="loanIdentifier in cdformdata.loanInformation.loanIdentifiers" ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
 					<actualize-input name="lenderLoanIdentifier" ng-model="loanIdentifier.loanIdentifier" toolTipPos = "top" dependencies="require-field" >
                 	</actualize-input>
+                	<help-verbiage name="CD_LenderLoanIdentifier_Help" title="help_tooltip_padding"></help-verbiage>
 				</div>
 			</div>
 			<div class="col-sm-4">
@@ -90,6 +99,7 @@
 					<div class="col-sm-5 padding0 fieldTitle">Appraisal ID:</div>
 					<div class="col-sm-7 padding0">
 						<input type="text" class="form-control" name="" ng-model="cdformdata.closingInformation.propertyValuationDetail.appraisalIdentifier">
+						<help-verbiage name="CD_LoanAppraisalID_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -97,9 +107,10 @@
 				<div class="FieldGroup marginnegative9t">
 					<div class="col-sm-8 fieldTitle paddingtop10">Manual Underwriting Flag:<span class="required">*</span>
 					</div>
-					<div class="col-sm-4 padding0 paddingtop5 pull-right">
+					<div class="col-sm-4 padding0 pull-right">
 						<select  class="form-control" ng-model="cdformdata.loanInformation.loanManualUnderwritingIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 						</select>
+						<help-verbiage name="CD_LoanManualUnderwritingFlag_Help" title="help_tooltip_padding_left"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -114,6 +125,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
 						</select>
+						<help-verbiage name="CD_LoanAUSType_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
@@ -122,6 +134,7 @@
 						<div class="col-sm-7 padding0">
 							<input type="text" class="form-control" id="aUSOtherDescription" ng-model="automatedUnderwriting.automatedUnderwritingSystemTypeOtherDescription">
 						</div>
+
 					</div>
 				</div>
 				<div class="col-sm-12 padding0">
@@ -129,6 +142,7 @@
 						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
 						<div class="col-sm-7 padding0">
 							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
+							<help-verbiage name="CD_LoanAUSIdentifier_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -143,6 +157,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
 						</select>
+						<help-verbiage name="CD_LoanAUSType_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
@@ -158,6 +173,7 @@
 						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
 						<div class="col-sm-7 padding0">
 							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
+							<help-verbiage name="CD_LoanAUSIdentifier_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -173,6 +189,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
 						</select>
+						<help-verbiage name="CD_LoanAUSType_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
@@ -188,6 +205,7 @@
 						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
 						<div class="col-sm-7 padding0">
 							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
+							<help-verbiage name="CD_LoanAUSIdentifier_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -200,16 +218,17 @@
 		<span class="AddSection" ng-click="addAusTypeIdentifier()">
 			<a>+ Add Additional Automated Underwriting System Names and Identifiers</a>
 		</span>
+			<help-verbiage name="CD_LoanAddAdditionalAutomatedUnderwritingSystemlink_Help" title="help_tooltip_text"></help-verbiage>
 	</div>
 	<div class="col-sm-12">
 		<h5 class="innerSectionHeader" id="ProductDescriptionInfo">Product Description and Information</h5>
 		<div class="col-sm-6">
 			<div class="FieldGroup">
 				<div class="col-sm-5 fieldTitle">Product Description: <span class="required">*</span></div>
-				<div class="col-sm-7">
-					
+				<div class="col-sm-7">					
 					<actualize-input name="integratedDisclosureLoanProductDescription" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureLoanProductDescription"  toolTipPos = "top" dependencies="require-field" >
-                </actualize-input>
+               		 </actualize-input>
+                	<help-verbiage name="CD_ProductDescription_Help" title="help_tooltip"></help-verbiage>
 				</div>
 			</div>
 		</div>
@@ -221,16 +240,19 @@
 						<option value="" selected>Select</option>
 						<option ng-repeat="amortizationType in amortizationTypes" value="{{amortizationType.value}}">{{amortizationType.name}}</option>
 					</select>
+					<help-verbiage name="CD_AmortizationType_Help" title="help_tooltip"></help-verbiage>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-12" ng-show="cdformdata.loanInformation.amortizationType!='Fixed'">
-			<div class="col-sm-12 tableInsideHeader">Adjustment Information - Interest Adjustments</div>
+			<div class="col-sm-12 tableInsideHeader">Adjustment Information - Interest Adjustments
+			CD_AmortizationType_Help</div>
 			<div class="col-sm-6">
 				<div class="FieldGroup">
 					<div class="col-sm-10 fieldTitle">Provide the number of months for the fixed period:</div>
 					<div class="col-sm-2 padding0">
 						<input type="text" class="form-control" name="fixedPeriodMonths" ng-model="cdformdata.interestRateAdjustment.firstRateChangeMonthsCount" only-digits maxlength="3">
+						<help-verbiage name="CD_Providenumbermonthsfixed_period_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -241,7 +263,8 @@
 						<div class="input-group">
 							<actualize-input name="loanCapRate" ng-model="cdformdata.interestRateAdjustment.ceilingRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
                 			</actualize-input>
-								<span class="input-group-addon input-default">%</span>
+                			<help-verbiage name="CD_Providenumbermonthsfixed_period_Help" title="help_tooltip_padding_left"></help-verbiage>
+							<span class="input-group-addon input-default">%</span>
 						</div>
 					</div>
 				</div>
@@ -251,6 +274,7 @@
 					<div class="col-sm-10 fieldTitle">Provide the number of months first change period:</div>
 					<div class="col-sm-2 padding0">
 						<input type="text" class="form-control" name="firstChangePeriodMonths" ng-model="cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+						<help-verbiage name="CD_Providenumbermonthsfirstchangeperiod_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -261,6 +285,7 @@
 						<div class="input-group">
 							<actualize-input name="firstChangeInterestRateLimit" ng-model="cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
                 			</actualize-input>
+                			<help-verbiage name="CD_Providefirstchangeinterestratelimit_Help" title="help_tooltip_padding_left"></help-verbiage>
 							<span class="input-group-addon input-default">%</span>
 						</div>
 					</div>
@@ -271,6 +296,7 @@
 					<div class="col-sm-10 fieldTitle">Provide the number of months subsequent change period:</div>
 					<div class="col-sm-2 padding0">
 						<input type="text" class="form-control" name="subsequentChangePeriodMonths" ng-model="cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+						<help-verbiage name="CD_Providenumbermonthssubsequentchangeperiod_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -281,7 +307,8 @@
 						<div class="input-group">
 							<actualize-input name="subsequentChangeInterestRateLimit" ng-model="cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
                 			</actualize-input>
-							<span class="input-group-addon input-default">%</span>
+                			<span class="input-group-addon input-default">%</span>
+                			<help-verbiage name="CD_Providesubsequentchangeinterestrateslimit_Help" title="help_tooltip_padding_left"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -291,6 +318,7 @@
 					<div class="col-sm-10 fieldTitle">If Amortization Type is Step, Provide the Total Step Count:</div>
 					<div class="col-sm-2 padding0">
 						<input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="cdformdata.interestRateAdjustment.totalStepCount" only-digits maxlength="3">
+						<help-verbiage name="CD_AmortizationTypeStepProvideTotalStepCount_Help" title="help_tooltip"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -303,7 +331,7 @@
 							<actualize-input name="loanCapRate" ng-model="cdformdata.interestRateAdjustment.floorRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
                 			</actualize-input>
 								<span class="input-group-addon input-default">%</span>
-						</div>
+							</div>
 					</div>
 				</div>
 			</div>
@@ -317,6 +345,7 @@
 						<div class="col-sm-2 padding0">
 							<input type="text" class="form-control" name="fixedPeriodMonths" ng-model="
 							cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" only-digits maxlength="3">
+							<help-verbiage name="CD_Providenumbermonthsfixed_period_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -328,6 +357,7 @@
 						<div class="col-sm-10 fieldTitle">Provide the number of months first change period:</div>
 						<div class="col-sm-2 padding0">
 							<input type="text" class="form-control" name="firstChangePeriodMonths" ng-model="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+							<help-verbiage name="CD_Providefirstchangeinterestratelimit_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -339,6 +369,7 @@
 						<div class="col-sm-10 fieldTitle">Provide the number of months subsequent change period:</div>
 						<div class="col-sm-2 padding0">
 							<input type="text" class="form-control" name="subsequentChangePeriodMonths" ng-model="cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+							<help-verbiage name="CD_Providesubsequentchangeinterestrateslimit_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -387,10 +418,12 @@
 			<div class="col-sm-12 tableInsideHeader">Construction Information</div>
 			<div class="col-sm-6">
 				<div class="FieldGroup">
-					<div class="col-sm-10 fieldTitle">Is this transaction a construction loan?: <span class="required">*</span></div>
+					<div class="col-sm-10 fieldTitle">Is this transaction a construction loan?: <span class="required">*</span>						
+					</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.loanDetail.constructionLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="constructionChange()">
 						</select>
+						<help-verbiage name="CD_Istransactiononstructionloan?_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -402,6 +435,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="constructionLoanType in constructionLoanTypes" value="{{constructionLoanType.value}}">{{constructionLoanType.name}}</option>
 						</select>
+						<help-verbiage name="CD_WhatConstructionLoan_Help" title="help_tooltip_padding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -416,6 +450,7 @@
 						<div class="col-sm-2 padding0">
 							<actualize-input name="constructionPeriodNumberOfMonthsCount" ng-model="cdformdata.construction.constructionPeriodNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" min-val="1" max-val="40" dependencies="only-digits min-max-value" maxlength="3">
                 			</actualize-input>
+                			<help-verbiage name="CD_Whatconstructionperiodinmonths?_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -429,6 +464,7 @@
 						<div class="col-sm-2 padding0">
 							<actualize-input name="constructionLoanTotalTermMonthsCount" ng-model="cdformdata.construction.constructionLoanTotalTermMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" min-val="1" max-val="40" dependencies="only-digits min-max-value" maxlength="3">
                 			</actualize-input>
+                			<help-verbiage name="CD_Whatconstructionperiodinmonths?_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</div>
 				</div>
