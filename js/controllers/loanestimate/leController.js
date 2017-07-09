@@ -2053,7 +2053,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     if(rateLokedDate1!='' && rateLockedTimePeriod1!='' && rateLokedDate1!=undefined && rateLockedTimePeriod1!= undefined){
         var rateLockArray = rateLokedDate1.split('-');
         var hours =rateLockedTimePeriod1.split(':');
-        var _utc = new Date(rateLockArray[0], rateLockArray[1], rateLockArray[2], hours[0], hours[1], 0);
+        var _utc = new Date(rateLockArray[0], rateLockArray[1], rateLockArray[2], hours[0], hours[1]);
+        
     $scope.leformdata.loanProduct.lock.lockExpirationDatetime=_utc;
     }
     $scope.leformdata.loanProduct.lock.lockExpirationTimezoneType=$scope.leformdata.loanInformation.rateLockedTimeZone;
