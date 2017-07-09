@@ -49,14 +49,7 @@
 				
 			  </tr>
               <tr>
-                <td class="text-center"><strong>Lender Credits</strong> 
-                <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>The amount of lender credits if known</p>
-				           	 <ul><li>Value is provided as a negative amount</li></ul>
-				          </span>
-				 </span>
+                <td class="text-center"><strong>Lender Credits</strong>
 				</td>	  	
 				<td  class="text-center">
 					<span class="margin5tb col-sm-12 padding0">
@@ -64,7 +57,7 @@
 							<span class="input-group-addon input-default" style="color: red;">$ -</span>
 							<!-- <input type="text" class="form-control padding0" name="" ng-model="leformdata.closingCostsTotal.lenderCredits" data-dismiss="modal" data-toggle="modal" data-target="#LedgerCreditConfirmModal" negative-digits> -->
 							<input type="text" class="form-control padding0" name="" ng-model="leformdata.closingCostsTotal.lenderCredits" negative-digits ng-keyup="toleranceCheck()">
-							
+							<help-verbiage name="LE_LenderCredits_help" title="leftTooltip"></help-verbiage>
 						</div>
 
 					</span>
