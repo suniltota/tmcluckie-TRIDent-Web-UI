@@ -204,8 +204,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			$scope.leformdata.transactionInformation.refinanceSameLenderIndicator = false;
 		}
 
-		$scope.leformdata.closingInformationDetail.closingCostExpirationDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
-		$scope.closingCostExpirationDate=$scope.leformdata.closingInformationDetail.closingCostExpirationDate;
+		$scope.leformdata.integratedDisclosureDetail.integratedDisclosureEstimatedClosingCostsExpirationDatetime = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
+		console.log($scope.leformdata.integratedDisclosureDetail.integratedDisclosureEstimatedClosingCostsExpirationDatetime);
 		for (i = $scope.leformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
 		    $scope.leformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
 		}

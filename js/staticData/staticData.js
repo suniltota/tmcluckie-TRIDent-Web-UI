@@ -4971,7 +4971,9 @@ this.cdformdata={
 		    "integratedDisclosureIssuedDate": "",
 		    "integratedDisclosureLoanProductDescription": "",
 		    "fiveYearTotalOfPaymentsComparisonAmount":"",
-            "fiveYearPrincipalReductionComparisonAmount":""
+            "fiveYearPrincipalReductionComparisonAmount":"",
+            "integratedDisclosureEstimatedClosingCostsExpirationDatetime":""
+
 		},
 		"negativeAmortization": {
 		    "negativeAmortizationLimitMonthsCount": "",
