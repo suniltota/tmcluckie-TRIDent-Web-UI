@@ -1075,6 +1075,14 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	$scope.leformdata.transactionInformation.sellerDetails.splice(index,1);
     }
 
+    $scope.updateProjectedPaymentsMI = function () {
+    	if(!$scope.leformdata.loanDetail.miRequiredIndicator) {
+    		for(var i=0; i<$scope.leformdata.projectedPayments.mortgageInsurance.length;i++) {
+    			$scope.leformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount = '0';
+    		}
+    	}
+    }
+
     $scope.addETIAComponent = function(){
     	$scope.leformdata.etiaSection.etiaValues.push(angular.copy(ETIAComponentType));
     	$scope.leformdata.etiaSection.total = $scope.leformdata.etiaSection.etiaValues.length;
