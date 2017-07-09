@@ -25,6 +25,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	$scope.escrowDropDownBooleanOptions = staticData.escrowDropDownBooleanOptions;
 	$scope.stateCodes = staticData.stateCodes;
 	$scope.countryCodes = staticData.countryCodes;
+	$scope.usstateCodes = staticData.usstateCodes;
+	$scope.canadaStateCodes = staticData.canadaStateCodes;
 	$scope.propertyValuationMethodTypes = staticData.propertyValuationMethodTypes;
 	$scope.borrowerPartyRoleTypes = staticData.borrowerPartyRoleTypes;
 	$scope.loanPeriodTypes = staticData.loanPeriodTypes;
@@ -1314,7 +1316,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		    }
 	    }
     }
-
+    $scope.bcountryChange = function(index){
+        $scope.leformdata.transactionInformation.borrowerDetails[index].address.stateCode = '';
+    }
     $scope.prepaidPerMonth = function(ideType,index){
 		var months = 0;
 		var prepaidAmount = 0;
