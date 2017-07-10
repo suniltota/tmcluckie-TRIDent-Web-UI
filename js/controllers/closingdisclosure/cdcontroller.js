@@ -1636,6 +1636,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.projectedPayments.estimatedTotal.push(angular.copy(estimatedTotal));
 			$scope.cdformdata.projectedPayments.estimatedEscrow[ppLength].projectedPaymentEstimatedEscrowPaymentAmount = $scope.cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount;
 	    }
+
+	    if(!$scope.cdformdata.loanDetail.miRequiredIndicator) {
+    		for(var i=0; i<$scope.cdformdata.projectedPayments.mortgageInsurance.length;i++) {
+    			$scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount = '0';
+    		}
+    	}
     }
     $scope.deleteProjectedPayments = function(index){
 	    	$scope.cdformdata.projectedPayments.paymentCalculation.splice(index, 1);

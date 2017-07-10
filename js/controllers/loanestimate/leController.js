@@ -972,6 +972,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			$scope.leformdata.projectedPayments.estimatedTotal.push(angular.copy(estimatedTotal));
 			$scope.leformdata.projectedPayments.estimatedEscrow[ppLength].projectedPaymentEstimatedEscrowPaymentAmount = $scope.leformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount;
 	    }
+
+	    if(!$scope.leformdata.loanDetail.miRequiredIndicator) {
+    		for(var i=0; i<$scope.leformdata.projectedPayments.mortgageInsurance.length;i++) {
+    			$scope.leformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount = '0';
+    		}
+    	}
     }
     $scope.deleteProjectedPayments = function(index){ 
 	    	$scope.leformdata.projectedPayments.paymentCalculation.splice(index, 1);
