@@ -4,23 +4,11 @@
   <div class="col-sm-12 padding0" ng-repeat= "borrower in leformdata.transactionInformation.borrowerDetails track by $index">
     <h5 class="innerSectionHeader">Applicant Information 
       <span style="margin: 0px 0px 0px 108px;" ng-show="$index != 0"><input type="checkbox" name="" ng-model="borrower.checkBorrower" ng-click="sameBorrower($index)"> Same as 1<sup>st</sup> Applicant Address</span>
-      <span class="glyphicon glyphicon-trash pull-right red  RemoveSection" ng-click="removeBorrower($index)" ng-show="$index != 0"> <span class="glyphicon glyphicon-question-sign helpIcon margin5n tooltip-msg" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>A link that, when selected, will remove an added Applicant section in the user interface, if any data I input when removing this will remove all information.
-                            </p>
-                     </span>
-            </span>
+      <span class="glyphicon glyphicon-trash pull-right red  RemoveSection" ng-click="removeBorrower($index)" ng-show="$index != 0">
      </span>
       <span class="pull-right backtotop" ng-show="$index != 0">
         <span class="glyphicon glyphicon-arrow-up margin5lr"></span>
-        <a class = "white cursor" ng-click="backToTop()">Back-to-top</a><span class="glyphicon glyphicon-question-sign helpIcon margin5tb tooltip-msg marginTop0" ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>For each section added the user must scroll to get back to the top, a user can click the link and will immediately be taken back to the top of the Web Page.
-                            </p>
-                     </span>
-            </span>
+        <a class = "white cursor" ng-click="backToTop()">Back-to-top</a>
       </span>
       
     </h5>
@@ -134,14 +122,9 @@
         </div>
   </div> 
    <div class="col-sm-12" ng-show="leformdata.transactionInformation.borrowerDetails.length<10">
-       <span class="AddSection" ng-click="addBorrower()">
-       <a>+ Add Additional Applicant </a></span> <span class="glyphicon glyphicon-question-sign helpIcon paddingTopLeft10 tooltip-msg " ng-mouseouver>
-                      <b></b>
-                      <span> 
-                            <p>A link that, when selected, will add another section in the User Interface to add another Applicant to the transaction.
-                            </p>
-                     </span>
-            </span>
+
+       <span class="AddSection margintop0" ng-click="addBorrower()">
+       <a>+ Add Additional Applicant </a></span> <help-verbiage name="LE_AddAdditionalApplicantslink_help" title="help_tooltip_text"></help-verbiage>
    </div>
  
 </div>
