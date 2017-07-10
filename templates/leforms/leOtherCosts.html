@@ -1,62 +1,28 @@
 <div class="col-sm-12">
-	<h4> Other Costs</h4>
+	<h4> Other Costs</h4> 
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="1">Section E. Taxes and Other Government Fees 
-				<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Each Section in the Closing Cost Details is highlighted at the top of the section.</p>
-				           	 <ul><li>The first section is called “Taxes and Other Government Fees”</li></ul>
-				          </span>
-				 </span>
+				<help-verbiage name="LE_SectionESectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount | number:2}}
-				<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a row.</p>
-				          </span>
-				 </span>
+				<help-verbiage name="LE_SectionESectionTotalAmountApplicantPaid_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader col-sm-7">Fee Label</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		        <th class="innerSectionHeader col-sm-1">Include in APR?
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>For each record included must Indicate if the fee is included in the APR calculation.</p>
-			           	 <ul><li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
-			           	 <li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li></ul>
-			          </span>
-			 </span>
+		        <help-verbiage name="LE_SectionEAPRCalculation_help" title="help_tooltip_text"></help-verbiage>
 			</th>
 		        <th class="innerSectionHeader col-sm-1">Delete
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The Trash Can symbol at the end of the record will delete the entire row including all data.</p>
-			          </span>
-					 </span> / Clear
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.</p>
-			          </span>
-			 </span></th>
+		        <help-verbiage name="LE_SectionETrashSymbol_help" title="help_tooltip_text"></help-verbiage> / Clear
+		        <help-verbiage name="LE_SectionEClearSymbol_help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		      <tr ng-repeat="tOGovtFee in leformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-if="tOGovtFee.feeType == 'RecordingFeeTotal'">		      	
 		        <td>
-		        	<span class="col-sm-12 margin5tb padding0">Recording Fees and Other Taxes
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Total Amount of estimated recording fees and other government taxes Label name.  This label is a predefined label and cannot be changed.</p>
-				          </span>
-				 </span>
+		        	<span class="col-sm-12 margin5tb padding0">Recording Fees and Other Taxes<help-verbiage name="LE_SectionERecordingFeeOtherTaxes_help" title="help_tooltip_text"></help-verbiage>
 				</span>
 		        </td> 
 		        <td>
@@ -77,12 +43,7 @@
 		      <tr ng-repeat="tOGovtFee in leformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-show="tOGovtFee.feeType!='RecordingFeeTotal' && tOGovtFee.feeType!='RecordingFee'">		         
 		        <td>
 		            <span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType =='TransferTaxTotal'">Transfer Taxes
-		            <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Total amount of estimated transfer taxes if applicable to the transaction.</p>
-				          </span>
-				 </span>
+		            <help-verbiage name="LE_SectionETransferTaxes_help" title="help_tooltip_text"></help-verbiage>
 				</span>
 		        </td>
 		        <td>
@@ -107,71 +68,27 @@
 		<table class="table LoanCostsSection table-bordered margin5tb InsuranceSection"  style="border:0px;">
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section F. Prepaids	
-				<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Each Section in the Closing Cost Details is highlighted at the top of the section.</p>
-				           	 <ul><li>The first section is called “Prepaids”</li></ul>
-				          </span>
-				 </span>
+				<help-verbiage name="LE_SectionFSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount | number:2}}
-				<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a row.</p>
-				          </span>
-				 </span>
+				<help-verbiage name="LE_SectionFSectionTotalAmountPaid_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader  col-sm-3">Prepaid Item Label
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.</p>
-				           	 <ul><li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
-				           	 <li>Format is a String Value up to 150 characters</li>
-				           	 <li>The first 3 rows include predefined labels that will not change, these include: Homeowners Insurance Premium, Mortgage Insurance Premium and Prepaid Interest</li>
-				           	 <li> All remaining rows allow the user to type in a value.</li></ul>
-				          </span>
-				 </span>
+		        <help-verbiage name="LE_SectionFSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 		        <th class="innerSectionHeader col-sm-2">Prepaid Type
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Specify the general type of prepaid item associated with a real estate finance transaction.</p>
-				           	 <ul><li>¥	Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name.</li>
-				           	 <li>If other is chosen, then the user will be provided another text box (see below)</li></ul>
-				          </span>
-				 </span>
+		        <help-verbiage name="LE_SectionFSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 		        <th class="innerSectionHeader  col-sm-2">No.of Months(Except for prepaid interest)</th>
 		        <th class="innerSectionHeader  col-sm-2">Amount</th>
 		        <th class="innerSectionHeader col-sm-1" >Include in APR?
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>For each record included must Indicate if the fee is included in the APR calculation. </p>
-				           	 <ul><li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
-				           	 <li>Format is a Boolean value, using a drop-down box with a Yes or No value</li></ul>
-				          </span>
-				 </span>
+		        <help-verbiage name="LE_SectionFSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
-		        <th class="innerSectionHeader col-sm-1">Delete <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The Trash Can symbol at the end of the record will delete the entire row including all data.</p>
-			          </span>
-			   </span>
+		        <th class="innerSectionHeader col-sm-1">Delete <help-verbiage name="LE_SectionFSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 			  / Clear 
-			  <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.</p>
-				          </span>
-				 </span>
+			  <help-verbiage name="LE_SectionFSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 		      </tr>
 		      <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='HomeownersInsurancePremium'">
@@ -311,14 +228,7 @@
 		        	</select>
 		        	<span ng-show="prepaidsList.prepaidItemType =='Other'">
 	              		<span class="margin10t padding5t col-sm-5 padding0">Description
-	              		<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
-					         <span> 
-					           	 <p>This field is required to be filled-in if the Prepaid Type is equal to Other.</p>
-					           	 <ul><li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type.</li>
-					           	 <li>Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li></ul>
-					          </span>
-					 </span>
+	              		<help-verbiage name="LE_SectionFSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 					</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" >
 			        </span>
@@ -350,12 +260,7 @@
 		<span class="AddSection" ng-click="addprepaidsList()">
 			<a>+ Add Additional Prepaid Items</a>
 		</span>
-		<span class="glyphicon glyphicon-question-sign helpIcon paddingTopLeft10 tooltip-msg" ng-mouseouver>
-		        <b></b>	
-		         <span> 
-		           	 <p>To add more fees to the section the user may click on the link to add another row</p>
-		          </span>
-		 </span>
+		<help-verbiage name="LE_SectionFSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 		<span class="LeBackToTop pull-right" ng-click="backToTop()">
 			<a>Back to Top</a>
 		</span>
