@@ -1,6 +1,6 @@
 <div class="bodySection col-sm-12">
   
- <h4>Help - Loan Estimate</h4>
+ <h4>Help - Loan Estimate</h4> 
   
  <div class="helpcontainer">
    <span class="subtab">
@@ -433,14 +433,14 @@
                 </span>
               </div>
               <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEAdjustmentInformationHelp"  ng-click="LEAdjustmentInformationHelp = LEAdjustmentInformationHelp + 1" ng-init="LEAdjustmentInformationHelp=0" > 
-           <span>Adjustment Information, </span>
+           <span>Adjustment Information </span>
            <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEAdjustmentInformationHelp%2==0" ></span>
            <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEAdjustmentInformationHelp%2==1"></span>
            </span>
              <div class="col-sm-12" id="LEAdjustmentInformationHelp">
                 <span class="field_help">
                      <h5>Provide the number of months for the fixed period : </h5>
-                      <div id="LE_ProvideNumberMonthsFixedPeriod_help">The number of months after origination in which the first interest rate adjustment occurs, if the interest rate on the subject loan can change.
+                      <div id="LE_AIprovideNumberMonthsFixedPeriod_help">The number of months after origination in which the first interest rate adjustment occurs, if the interest rate on the subject loan can change.
                       <ul>
                         <li>Format is numeric up to 3 characters.</li>
                       </ul>
@@ -456,7 +456,7 @@
                 </span>
                 <span class="field_help">
                      <h5>Provide the number of months first change period : </h5>
-                      <div id="LE_ProvideNumberMonthsFirstChangePeriod_help">The number of months between rate adjustments for the first changed after the fixed period, if the interest rate on the subject loan can change.
+                      <div id="LE_AIProvideNumberMonthsFirstChangePeriod_help">The number of months between rate adjustments for the first changed after the fixed period, if the interest rate on the subject loan can change.
                       <ul>
                         <li>Format is a numeric 3</li>
                       </ul>
@@ -481,7 +481,7 @@
                 </span>
                 <span class="field_help">
                      <h5>Provide the subsequent change interest rate limit : </h5>
-                      <div id="LE_ProvideSubsequentChange">The maximum number of percentage points by which the rate can increase from the previous interest rate for the Subsequent changes after the first change after the fixed period.
+                      <div id="LE_AIProvideSubsequentChangeInterestRateLimit_help">The maximum number of percentage points by which the rate can increase from the previous interest rate for the Subsequent changes after the first change after the fixed period.
                       <ul>
                         <li>Format is a percent 3.4.</li>
                       </ul>
@@ -489,7 +489,7 @@
                 </span>
                 <span class="field_help">
                      <h5>If Amortization Type is Step, Provide the Total Step Count  : </h5>
-                      <div id="">For a loan with a step provision, the total number of step rate adjustments allowed under the step agreement.
+                      <div id="LE_AIAmortizationTypeIsStepProvideTotalStepCOunt_help">For a loan with a step provision, the total number of step rate adjustments allowed under the step agreement.
                       <ul>
                         <li>Format is a numeric 3</li>
                       </ul>
@@ -504,7 +504,7 @@
              <div class="col-sm-12" id="LEConstructionLoanInformationHelp">
                 <span class="field_help">
                      <h5>Is this transaction a construction loan? : </h5>
-                      <div id="">In every transaction user, must Indicate if this is a construction loan.
+                      <div id="LE_CLIConstuctionLoan_help">In every transaction user, must Indicate if this is a construction loan.
                       <ul>
                         <li>Format is Boolean, the user see a drop-down list with Yes or No.</li>
                       </ul>
@@ -512,7 +512,7 @@
                 </span>
                 <span class="field_help">
                      <h5>What type of Construction Loan? : </h5>
-                      <div id="">If the loan is a construction Loan, yes from the dropdown list, then provide the type of construction loan the user may only choose construction only or construction to permanent.
+                      <div id="LE_CLITypeConstuctionLoan_help">If the loan is a construction Loan, yes from the dropdown list, then provide the type of construction loan the user may only choose construction only or construction to permanent.
                       <ul>
                         <li>Format is a list of enumerated values</li>
                         <li>Conditionally required only if the indicator is equal to Yes</li>
@@ -522,7 +522,7 @@
                 </span>
                 <span class="field_help">
                      <h5>What is the construction period in months? : </h5>
-                      <div id="">If a construction loan type has been indicated must provide the length of the construction period expressed in number of months.
+                      <div id="LE_CILCOntructionPeriodMonths_help">If a construction loan type has been indicated must provide the length of the construction period expressed in number of months.
                       <ul>
                         <li>Format is a numeric 3</li>
                         <li>Conditionally required based off the Boolean Yes if a construction loan</li>
@@ -531,7 +531,7 @@
                 </span>
                 <span class="field_help">
                      <h5>What is the total number of months for the construction transaction : </h5>
-                      <div id="">If a construction loan type has been indicated the total term of a construction loan, including the construction phase plus any fully amortizing phase combined.
+                      <div id="LE_CLITotalNoOfConstructionTransaction_help">If a construction loan type has been indicated the total term of a construction loan, including the construction phase plus any fully amortizing phase combined.
                       <ul>
                         <li>Format is a numeric 3</li>
                         <li>Conditionally required based off the Boolean Yes if a construction loan</li>
@@ -548,7 +548,7 @@
              <div class="col-sm-12" id="LEHomeEquityLoanInformationHelp">
                 <span class="field_help">
                      <h5>Is the Loan a Home Equity Loan? : </h5>
-                      <div id="">In all transaction, must indicate the loan is an extension of credit that does not involve the purchase of real property or the initial construction of a dwelling and will not be used to refinance an existing obligation.<br>
+                      <div id="LE_HomeEquityLoanInformation_help">In all transaction, must indicate the loan is an extension of credit that does not involve the purchase of real property or the initial construction of a dwelling and will not be used to refinance an existing obligation.<br>
                       In other words, this may be similar to a refinance transaction; however, in accordance with the CFPB “Know Bbefore you You oweOwe”, the different is there are NO liens against the subject property to pay off. 
 
                       <ul>
@@ -592,7 +592,7 @@
              <div class="col-sm-12" id="LENegativeAmortizationInformationHelp">
                 <span class="field_help">
                      <h5>Does this loan have a Negative Amortization Feature? </h5>
-                      <div id="">In every transaction, the user must Indicate whether the loan allows negative amortization.
+                      <div id="LE_NAIDoesLoanNegativeAmortizationFeature_help">In every transaction, the user must Indicate whether the loan allows negative amortization.
                       <ul>
                         <li>Required to be addressed.</li>
                         <li>Boolean values of Yes or No in a drop down</li>
@@ -600,8 +600,8 @@
                       </div>
                 </span>
                 <span class="field_help">
-                     <h5>Indicate if Nnegative am Amortization is Scheduled or Potential</h5>
-                      <div id="">If the transaction has negative amortization and user has chosen YES in the provided dropdown box, then the user must indicate if the Negative Amortization is either Scheduled or Potential using the dropdown box provided.
+                     <h5>Indicate if Negative Amortization is Scheduled or Potential</h5>
+                      <div id="LE_IndicateNegativeAmortizationScheduledPotential_help">If the transaction has negative amortization and user has chosen YES in the provided dropdown box, then the user must indicate if the Negative Amortization is either Scheduled or Potential using the dropdown box provided.
                       <ul>
                         <li>Format is a list of enumerated values that include:  Scheduled | Potential.</li>
                         <li>Is conditionally required based on the answer if Yes for negative amortization feature.</li>
@@ -611,7 +611,7 @@
                 </span>
                 <span class="field_help">
                      <h5>What is the Maximum Negative Amortization Loan Balance? </h5>
-                      <div id="">In the two pieces of information is the maximum negative amortization loan balance must be provided in the text box.  Note that the maximum loan balance with accrued increase from negative amortization. (The initial loan amount plus any balance increase that may accrue from the negative amortization provision).
+                      <div id="LE_WhatmaximumNegativeAmortizationLoanBalance_help">In the two pieces of information is the maximum negative amortization loan balance must be provided in the text box.  Note that the maximum loan balance with accrued increase from negative amortization. (The initial loan amount plus any balance increase that may accrue from the negative amortization provision).
                       <ul>
                         <li>Amount field 9.2-character length.</li>
                       </ul>
@@ -620,7 +620,7 @@
                 </span>
                 <span class="field_help">
                      <h5>What is the negative amortization limit in month's count? </h5>
-                      <div id="">If Negative Amortization exists period or count of months in which the negative amortization limit will reach.  The user must input this information if the Neg AM is present.
+                      <div id="LE_WhatNegativeAmortizationLimiinMonthsCount_help">If Negative Amortization exists period or count of months in which the negative amortization limit will reach.  The user must input this information if the Neg AM is present.
                       <ul>
                         <li>Format is numeric 3</li>
                         <li>Is conditionally required based on the answer if Yes is selected for negative amortization feature</li>
@@ -629,7 +629,33 @@
                </span>
               </div>
               <!-- -->
-              <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEOtherLoanProductFeaturesHelp"  ng-click="LEOtherLoanProductFeaturesHelp = LEOtherLoanProductFeaturesHelp + 1" ng-init="LEOtherLoanProductFeaturesHelp=0" > 
+              <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEInterestOnlyInformationHelp"  ng-click="LEInterestOnlyInformationHelp = LEInterestOnlyInformationHelp + 1" ng-init="LEInterestOnlyInformationHelp=0" > 
+           <span>Interest Only information</span>
+           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEInterestOnlyInformationHelp%2==0" ></span>
+           <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEInterestOnlyInformationHelp%2==1"></span>
+           </span>
+             <div class="col-sm-12" id="LEInterestOnlyInformationHelp">
+                <span class="field_help">
+                     <h5>Does this loan have an interest only feature? </h5>
+                      <div id="LE_InterestOnlyInformationFeature_help">In all transaction, must Indicate whether loan is set up with interest only payments.
+                      <ul>
+                        <li>Required to be addressed.</li>
+                        <li>Boolean values of Yes or No in a drop down.</li>
+                      </ul>
+                      </div>
+                </span>
+                <span class="field_help">
+                     <h5>If Yes, what is the interest only period</h5>
+                      <div id="LE_YesInterestOnlyPeriod_help">If the interest only feature answer is YES, then provide the number of months the loan remains interest only in the text box provided.
+                      <ul>
+                        <li>Format is numeric 3.</li>
+                      </ul>
+                      </div>
+                </span>
+                
+              </div>
+              <!-- -->
+            <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#LEOtherLoanProductFeaturesHelp"  ng-click="LEOtherLoanProductFeaturesHelp = LEOtherLoanProductFeaturesHelp + 1" ng-init="LEOtherLoanProductFeaturesHelp=0" > 
            <span>Other Loan Product Features</span>
            <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEOtherLoanProductFeaturesHelp%2==0" ></span>
            <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEOtherLoanProductFeaturesHelp%2==1"></span>
@@ -637,7 +663,7 @@
              <div class="col-sm-12" id="LEOtherLoanProductFeaturesHelp">
                 <span class="field_help">
                      <h5>Does the loan have a seasonal payment feature? </h5>
-                      <div id="">In every transaction, the user must provide a Yes or No to indicate the loan contains a seasonal payment feature.
+                      <div id="LE_LoanhaveSeasonalPaymentFeature_help">In every transaction, the user must provide a Yes or No to indicate the loan contains a seasonal payment feature.
                       <ul>
                         <li>Format is Boolean through a drop-down Yes or No.</li>
                         <li>Is required to provide the value.</li>
@@ -646,7 +672,7 @@
                 </span>
                 <span class="field_help">
                      <h5>If yes, provide the start and end months </h5>
-                      <div id="">If the answer to “Does the loan have a seasonal payment feature?” is YES, then must provide both the starting month and ending month of the season in which no payment will be expected by the lender.
+                      <div id="LE_YesProvideStartAndEndMonths_help">If the answer to “Does the loan have a seasonal payment feature?” is YES, then must provide both the starting month and ending month of the season in which no payment will be expected by the lender.
                       <ul>
                         <li>Format is drop down of the months for both text boxes.</li>
                         <li>Conditionally required if the first question is Yes.</li>
@@ -655,7 +681,7 @@
                 </span>
                 <span class="field_help">
                      <h5>Does the loan have a Step payment feature? </h5>
-                      <div id="">The amortization type of Step will drive this value; the user must choose the drop down of yes or no to finalize the step amortization.
+                      <div id="LE_DoesLoanhaveStepPaymentFeature_help">The amortization type of Step will drive this value; the user must choose the drop down of yes or no to finalize the step amortization.
                       <ul>
                         <li>Boolean format of Yes | No in a drop-down box.</li>
                       </ul>
@@ -663,7 +689,7 @@
                 </span>
                 <span class="field_help">
                      <h5>If yes, provide the no. of months in which the Step feature will be in affect </h5>
-                      <div id="">If the transaction has a step amortization type, then provide the total number of step rate adjustments allowed under the step agreement.
+                      <div id="LE_YesProvideNoOfMoonthsStepFeaturewillAffect_help">If the transaction has a step amortization type, then provide the total number of step rate adjustments allowed under the step agreement.
                       <ul>
                         <li>Format is numeric 3.</li>
                       </ul>
@@ -671,7 +697,7 @@
                 </span>
                 <span class="field_help">
                      <h5>Does the loan have an optional payment feature? </h5>
-                      <div id="">A Yes | No drop-down box that Specifies that the loan instrument allows the Applicant(s) to determine and change on a month-to-month basis the amount of any payment to be paid on the loan for a specified period.
+                      <div id="LE_DoesLoanHaveOptionalPaymentFeaturesQuestions_help">A Yes | No drop-down box that Specifies that the loan instrument allows the Applicant(s) to determine and change on a month-to-month basis the amount of any payment to be paid on the loan for a specified period.
                       <ul>
                         <li>Boolean format of Yes | No in a drop-down box.</li>
                       </ul>
@@ -679,7 +705,7 @@
                 </span>
                 <span class="field_help">
                      <h5>If yes, provide the no. of months in which the Optional payment will be in affect </h5>
-                      <div id="">IFIf the value for the statement “Does the loan have an optional payment feature” is yes, then provide the total number of optional payments allowed during the life of the loan when this choice is permitted under the terms of the loan.
+                      <div id="LE_YesProvideLoanHaveOptionalPaymentFeaturesQuestions_help">IFIf the value for the statement “Does the loan have an optional payment feature” is yes, then provide the total number of optional payments allowed during the life of the loan when this choice is permitted under the terms of the loan.
                       <ul>
                         <li>Format is numeric 3</li>
                       </ul>

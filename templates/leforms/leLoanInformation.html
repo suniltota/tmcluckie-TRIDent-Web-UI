@@ -7,7 +7,7 @@
 <div class="col-sm-5 fieldTitle margin5t">Loan Term:</div>
 <div class="col-sm-7 padding0">
 <div class="col-sm-12 padding0 paddingtop6">
-<div class="col-sm-7 padding0 paddingtop7">No. Years
+<div class="col-sm-7 padding0 paddingtop7">No. Years 
 </div>
 <div class="col-sm-5 padding0">
 	<actualize-input name="loanTermYears" ng-model="leformdata.loanInformation.loanTermYears" custommessage="Please enter a valid whole number"  dependencies="only-digits" >
@@ -16,7 +16,7 @@
 	</div>
 </div>
 <div class="col-sm-12 padding0 margin5tb paddingtop11">
-<div class="col-sm-7 padding0 paddingtop5">No. Months
+<div class="col-sm-7 padding0 ">No. Months
 </div>
 <div class="col-sm-5 padding0 form-group">
 <actualize-input name="loanTermMonths" ng-model="leformdata.loanInformation.loanTermMonths" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="only-digits" >
@@ -42,7 +42,7 @@
 <div class="FieldGroup">
 <div class="col-sm-5 fieldTitle">Other Description
 </div>
-<div class="col-sm-7 padding0 paddingtop5">
+<div class="col-sm-7 padding0">
 <input type="text" class="form-control" id="loanTypeOtherDescription" ng-model="leformdata.termsOfLoan.mortgageTypeOtherDescription" ng-disabled="leformdata.termsOfLoan.mortgageType!='Other'">
 <help-verbiage name="LE_LoanTermLoanTypeDescription_help" title="help_tooltip_padding"></help-verbiage>
 </div>
@@ -51,14 +51,14 @@
 <div class="col-sm-4">
 <div class="col-sm-5 fieldTitle margin4t">Purpose
 </div>
-<div class="col-sm-7 padding0 paddingtop5">
+<div class="col-sm-7 padding0">
 <input type="text" class="form-control" style="text-transform:capitalize;" ng-model="leformdata.termsOfLoan.loanPurposeType" ng-disabled="true">
 <help-verbiage name="LE_LoanTermLoanTypePurpose_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 <div class="col-sm-4 margin8t">
 <div class="col-sm-5 fieldTitle margin4t">Lien Position</div>
-<div class="col-sm-7 padding0 paddingtop5">
+<div class="col-sm-7 padding0">
 <select  class="form-control" ng-model="leformdata.termsOfLoan.lienPriorityType">
 <option value="" selected>Select</option>
 <option ng-repeat="lienPriorityType in lienPriorityTypes" value="{{lienPriorityType.value}}">{{lienPriorityType.name}}</option>
@@ -86,7 +86,7 @@
 <select  class="form-control" ng-model="leformdata.loanInformation.rateLokerIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="rateLockChange()">
 <option value="" selected>Select</option>
 </select>
-<help-verbiage name="LE_RateLocked_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_RateLocked_help" title="help_tooltip"></help-verbiage>
 </div>
 <div class="col-sm-4 padding0 margin5tb" ng-if="leformdata.loanInformation.rateLokerIndicator == true">
 <div class="FieldGroup marginnegative9t">
@@ -128,15 +128,6 @@
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-5 fieldTitle">Product Description
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>A description of the loan product which includes, when applicable, certain loan features added to the loan product that may change the periodic loan payment</p>
-<ul><li>Required for every transaction</li>
-<li>Value is driven by the CFPB’s “Know Before You Owe” regulation</li>
-<li>Format is a String Value up to 50 Characters</li></ul>
-</span>
-</span>
 <span class="required">*</span></div>
 <div class="col-sm-7">
 <input type="text" class="form-control" name="" ng-model="leformdata.integratedDisclosureDetail.integratedDisclosureLoanProductDescription">
@@ -147,20 +138,14 @@
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-5 fieldTitle">Amortization Type
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>A classification or description of a loan or a group of loans generally based on the changeability of the rate or payment over time</p>
-<ul><li>Required for every transaction</li>
-<li>Format is a list of enumerated values that include: Adjustable Rate | Fixed | GEM | GPM  | Graduated Payment ARM  | Step</li></ul>
-</span>
-</span>
 <span class="required">*</span></div>
 <div class="col-sm-7">
 <select  class="form-control" ng-model="leformdata.loanInformation.amortizationType" ng-change="amortizationChange()">
 <option value="" selected>Select</option>
 <option ng-repeat="amortizationType in amortizationTypes" value="{{amortizationType.value}}">{{amortizationType.name}}</option>
 </select>
+<help-verbiage name="LE_AmortizationType_help" title="help_tooltip">
+</help-verbiage>
 </div>
 </div>
 </div>
@@ -169,120 +154,79 @@
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">Provide the number of months for the fixed period 
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>The number of months after origination in which the first interest rate adjustment occurs, if the interest rate on the subject loan can change.Format is numeric up to 3 characters</p>
-</span>
-</span>
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" name="fixedPeriodMonths" ng-model="leformdata.interestRateAdjustment.firstRateChangeMonthsCount" only-digits maxlength="3">
+<help-verbiage name="LE_AIprovideNumberMonthsFixedPeriod_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-9 fieldTitle">Provide the life of loan Cap Rate
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>The stated maximum percentage “ceiling rate” to which the interest rate can increase over the life of the loan.</p>
-<ul><li>Format is a percent 3.4</li></ul>
-</span>
-</span>
 </div>
 <div class="col-sm-3 padding0">
 <div class="input-group">
 <input type="text" class="form-control" name="loanCapRate" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" percentage-format>
 <span class="input-group-addon input-default">%</span>
 </div>
+<help-verbiage name="LE_ProvideLineLoanCapRate_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
-<div class="col-sm-10 fieldTitle">Provide the number of months first change period <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>The number of months between rate adjustments for the first changed after the fixed period, if the interest rate on the subject loan can change.</p>
-<ul><li>Format is numeric 3</li></ul>
-</span>
-</span>
+<div class="col-sm-10 fieldTitle">Provide the number of months first change period 
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" name="firstChangePeriodMonths" ng-model="leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+<help-verbiage name="LE_AIProvideNumberMonthsFirstChangePeriod_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
-<div class="col-sm-9 fieldTitle">Provide the first change interest rate limit <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>The maximum number of percentage points by which the rate can increase from the previous interest rate for the First Change after the fixed period</p>
-<ul><li>Format is a percent 3.4</li></ul>
-</span>
-</span>
+<div class="col-sm-9 fieldTitle">Provide the first change interest rate limit
 </div>
 <div class="col-sm-3 padding0">
 <div class="input-group">
 <input type="text" class="form-control" name="firstChangeInterestRateLimit" ng-model="leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent" percentage-format>
 <span class="input-group-addon input-default">%</span>
 </div>
+<help-verbiage name="LE_ProvideFirstChangeInterestRateLimit_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">Provide the number of months subsequent change period
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>The number of months between rate adjustments for the subsequent changes after the first period change from the fixed period, if the interest rate on the subject loan can change.</p>
-<ul><li>Format is numeric 3</li></ul>
-<p>At times the number of months between the interest rate changes can be different from the first change after the fixed period.</p>
-</span>
-</span>
-
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" name="subsequentChangePeriodMonths" ng-model="leformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount" only-digits maxlength="3">
+<help-verbiage name="LE_ProvideNumberOfMonthsSubsequentChnagePeriod_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-9 fieldTitle">Provide the subsequent change interest rate limit
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>The maximum number of percentage points by which the rate can increase from the previous interest rate for the Subsequent changes after the first change after the fixed period.</p>
-<ul><li>Format is a percent 3.4</li></ul>
-</span>
-</span>
 </div>
 <div class="col-sm-3 padding0">
 <div class="input-group">
 <input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent" percentage-format>
 <span class="input-group-addon input-default">%</span>
 </div>
+<help-verbiage name="LE_AIProvideSubsequentChangeInterestRateLimit_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6" ng-show="leformdata.loanInformation.amortizationType == 'Step'">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">If Amortization Type is Step, Provide the Total Step Count
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>For a loan with a step provision, the total number of step rate adjustments allowed under the step agreement.</p>
-<ul><li>Format is a numeric 3</li></ul>
-</span>
-</span>
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="leformdata.interestRateAdjustment.totalStepCount">
+<help-verbiage name="LE_AIAmortizationTypeIsStepProvideTotalStepCOunt_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
@@ -304,17 +248,12 @@
 <div class="col-sm-12 padding0">
 <div class="col-sm-6">
 <div class="FieldGroup">
-<div class="col-sm-10 fieldTitle">Provide the number of months for the fixed period <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>The number of months after origination in which the first interest rate adjustment occurs, if the interest rate on the subject loan can change.</p>
-<ul><li>Format is numeric up to 3 characters</li></ul>
-</span>
-</span>
+<div class="col-sm-10 fieldTitle">Provide the number of months for the fixed period 
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" name="fixedPeriodMonths" ng-model="
 leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" only-digits maxlength="3">
+<help-verbiage name="LE_AIAmortizationTypeIsStepProvideTotalStepCOunt_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
@@ -383,32 +322,18 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">Is this transaction a construction loan? 
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>In every transaction user, must Indicate if this is a construction loan.</p>
-<ul><li>Format is Boolean, the user see a drop-down list with Yes or No</li></ul>
-</span>
-</span>
 <span class="required">*</span></div>
 <div class="col-sm-2 padding0">
 <select  class="form-control" ng-model="leformdata.loanDetail.constructionLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="constructionChange()">
 </select>
+<help-verbiage name="LE_CLIConstuctionLoan_help" title="help_tooltip_padding"></help-verbiage>
 </div>
+
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-7 fieldTitle">What type of Construction Loan?
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>IFIf the loan is a construction Loan, yes from the dropdown list, then provide the type of construction loan the user may only choose construction only or construction to permanent.</p>
-<ul><li>Format is a list of enumerated values</li>
-<li>Conditionally required only if the indicator is equal to Yes</li></ul>
-<p>Other information is required…</p>
-</span>
-</span>
 </div>
 <div class="col-sm-5 padding0">
 <select  class="form-control" ng-model="leformdata.construction.constructionLoanType" ng-disabled="leformdata.loanDetail.constructionLoanIndicator == false" 
@@ -416,6 +341,7 @@ ng-change="clChange()">
 <option value="" selected>Select</option>
 <option ng-repeat="constructionLoanType in constructionLoanTypes" value="{{constructionLoanType.value}}">{{constructionLoanType.name}}</option>
 </select>
+<help-verbiage name="LE_CLITypeConstuctionLoan_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
@@ -426,20 +352,12 @@ ng-change="clChange()">
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
-<div class="col-sm-10 fieldTitle">What is the construction period in months?<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>If a construction loan type has been indicated must provide the length of the construction period expressed in number of months.</p>
-<ul><li>Format is a numeric 3.</li>
-</ul>
-<p>Conditionally required based off the Boolean Yes if a construction loan</p>
-</span>
-</span>
+<div class="col-sm-10 fieldTitle">What is the construction period in months?
 </div>
 <div class="col-sm-2 padding0">
-<!-- <input type="text" class="form-control" name="" ng-model="leformdata.construction.constructionPeriodNumberOfMonthsCount" only-digits maxlength="3"> -->
 <actualize-input name="constructionPeriodNumberOfMonthsCount" ng-model="leformdata.construction.constructionPeriodNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="only-digits" maxlength="3">
 </actualize-input>
+<help-verbiage name="LE_CILCOntructionPeriodMonths_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
@@ -450,19 +368,12 @@ ng-change="clChange()">
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">What is the total number of months for this construction transaction (Includes both construction period and permanent financed period)
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>If a construction loan type has been indicated the total term of a construction loan, including the construction phase plus any fully amortizing phase combined.</p>
-<ul><li>Format is numeric 3</li></ul>
-<p>Conditionally required based off the Boolean Yes if a construction loan</p>
-</span>
-</span>
 </div>
 <div class="col-sm-2 padding0">
 <!-- <input type="text" class="form-control" name="" ng-model="leformdata.construction.constructionLoanTotalTermMonthsCount" only-digits maxlength="3"> -->
 <actualize-input name="constructionLoanTotalTermMonthsCount" ng-model="leformdata.construction.constructionLoanTotalTermMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="only-digits" maxlength="3">
 </actualize-input>
+<help-verbiage name="LE_CLITotalNoOfConstructionTransaction_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
@@ -473,20 +384,13 @@ ng-change="clChange()">
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">Is the Loan a Home Equity Loan?
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>In all transaction, must indicate the loan is an extension of credit that does not involve the purchase of real property or the initial construction of a dwelling and will not be used to refinance an existing obligation.</p>
-<p>In other words, this may be similar to a refinance transaction; however, in accordance with the CFPB “Know Bbefore you You oweOwe”, the different is there are NO liens against the subject property to pay off. </p>
-<ul><li>Required to be addressed</li></ul>
-<p>Boolean values of Yes or No in a drop down.</p>
-</span>
-</span>
 <span class="required">*</span>
 </div>
 <div class="col-sm-2 padding0">
 <select  class="form-control" ng-model="leformdata.integratedDisclosureDetail.integratedDisclosureHomeEquityLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+<help-verbiage name="LE_HomeEquityLoanInformation_help" title="help_tooltip_padding"></help-verbiage>
 </div>
+
 
 </div>
 </div>
@@ -545,32 +449,21 @@ ng-change="clChange()">
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">Does this loan have an interest only feature?
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>In all transaction, must Indicate whether loan is set up with interest only payments.</p>
-<ul><li></li></ul>
-</span>
-</span>
 <span class="required">*</span>
 </div>
 <div class="col-sm-2 padding0">
 <select  class="form-control" ng-model="leformdata.loanDetail.interestOnlyIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="interestChange()" />
+<help-verbiage name="LE_InterestOnlyInformationFeature_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
-<div class="col-sm-10 fieldTitle">If Yes, what is the interest only period?<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>If the interest only feature answer is YES, then provide the number of months the loan remains interest only in the text box provided.</p>
-<ul><li>Format is numeric 3</li></ul>
-</span>
-</span>
+<div class="col-sm-10 fieldTitle">If Yes, what is the interest only period?
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" ng-model="leformdata.interestOnly.interestOnlyTermMonthsCount" ng-disabled="leformdata.loanDetail.interestOnlyIndicator == false" only-digits maxlength="3">
+<help-verbiage name="LE_YesInterestOnlyPeriod_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
@@ -580,39 +473,23 @@ ng-change="clChange()">
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">Does this loan have a Negative Amortization Feature?
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>In every transaction, the user must Indicate whether the loan allows negative amortization.</p>
-<ul><li>Required to be addressed.</li></ul>
-<p>Boolean values of Yes or No in a drop down.</p>
-</span>
-</span>
 </div>
 <div class="col-sm-2 padding0">
 <select  class="form-control" ng-model="leformdata.loanDetail.negativeAmortizationIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
+<help-verbiage name="LE_NAIDoesLoanNegativeAmortizationFeature_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-7 fieldTitle">Indicate if neg am is scheduled or potential
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>If the transaction has negative amortization and user has chosen YES in the provided dropdown box, then the user must indicate if the Negative Amortization is either Scheduled or Potential using the dropdown box provided. </p>
-<ul><li>Format is a list of enumerated values that include:  Scheduled | Potential.</li>
-<li>Is conditionally required based on the answer if Yes for negative amortization feature.</li></ul>
-<p>Once the user chooses this value then other information is required</p>
-</span>
-</span>
-
 </div>
 <div class="col-sm-5 padding0">
 <select  class="form-control" ng-model="leformdata.negativeAmortization.negativeAmortizationType" ng-disabled="leformdata.loanDetail.negativeAmortizationIndicator == false" ng-change="nATypeChange()">
 <option value="" selected>Select</option>
 <option ng-repeat="negativeAmortizationType in negativeAmortizationTypes" value="{{negativeAmortizationType.value}}">{{negativeAmortizationType.name}}</option>
 </select>
+<help-verbiage name="LE_IndicateNegativeAmortizationScheduledPotential_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
@@ -624,19 +501,13 @@ ng-change="clChange()">
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-8 fieldTitle">What is the Maximum Negative Amortization Loan Balance?
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>In the two pieces of information is the maximum negative amortization loan balance must be provided in the text box.  Note that the maximum loan balance with accrued increase from negative amortization. (The initial loan amount plus any balance increase that may accrue from the negative amortization provision).</p>
-<ul><li>Amount field 9.2-character length. Conditionally required if Neg Am is part of the transaction.</li></ul>
-</span>
-</span>
 </div>
 <div class="col-sm-4 padding0">
 <div class="input-group">
 <span class="input-group-addon input-default">$</span>
 <input type="text" class="form-control" name="" ng-model="leformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount" decimal-digits-with-number-format>
 </div>
+<help-verbiage name="LE_WhatmaximumNegativeAmortizationLoanBalance_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
@@ -647,17 +518,10 @@ ng-change="clChange()">
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">What is the negative amortization limit in months count? 
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>If Negative Amortization exists period or count of months in which the negative amortization limit will reach.  The user must input this information if the Neg AM is present.</p>
-<ul><li>Format is numeric 3.</li>
-<li>Is conditionally required based on the answer if Yes is selected for negative amortization feature</li></ul>
-</span>
-</span>
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" name="" ng-model="leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount" only-digits maxlength="3">
+<help-verbiage name="LE_WhatNegativeAmortizationLimiinMonthsCount_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
@@ -668,37 +532,24 @@ ng-change="clChange()">
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">Does the loan have a seasonal payment feature?
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>In every transaction, the user must provide a Yes or No to indicate the loan contains a seasonal payment feature.</p>
-<ul><li>Format is Boolean through a drop-down Yes or No.</li></ul>
-<p>Is required to provide the value.</p>
-</span>
-</span>
 <span class="required">*</span>
 </div>
 <div class="col-sm-2 padding0">
 <select  class="form-control" ng-model="leformdata.loanDetail.seasonalPaymentFeatureIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="seasonalChange()" />
+<help-verbiage name="LE_LoanhaveSeasonalPaymentFeature_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
-<div class="col-sm-6 fieldTitle">If yes, provide the start and end months <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>If the answer to “Does the loan have a seasonal payment feature?” is YES, then must provide both the starting month and ending month of the season in which no payment will be expected by the lender.</p>
-<ul><li>Format is drop down of the months for both text boxes.</li>
-<li>Conditionally required if the first question is Yes.</li></ul>
-</span>
-</span>
+<div class="col-sm-6 fieldTitle">If yes, provide the start and end months
 </div>
 <div class="col-sm-2 padding0">
 <select  class="form-control" ng-disabled="leformdata.loanDetail.seasonalPaymentFeatureIndicator == false" ng-model="leformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth">
 <option value="" selected>Select</option>
 <option ng-repeat="calendarMonth in calendarMonths" value="{{calendarMonth}}">{{calendarMonth}}</option>
 </select>
+<help-verbiage name="LE_YesProvideStartAndEndMonths_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 <div class="col-sm-2 fieldTitle" style="text-align: center;">to</div>
 <div class="col-sm-2 padding0">
@@ -706,72 +557,49 @@ ng-change="clChange()">
 <option value="" selected>Select</option>
 <option ng-repeat="calendarMonth in calendarMonths" value="{{calendarMonth}}">{{calendarMonth}}</option>
 </select>
+<help-verbiage name="LE_YesProvideStartAndEndMonths_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
-<div class="col-sm-10 fieldTitle">Does the loan have a Step payment feature?<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>In every transaction, the user must provide a Yes or No to indicate the loan contains a seasonal payment feature.</p>
-<ul><li>Format is Boolean through a drop-down Yes or No.</li></ul>
-<p>Is required to provide the value.</p>
-</span>
-</span>
+<div class="col-sm-10 fieldTitle">Does the loan have a Step payment feature?
 <span class="required">*</span>
 </div>
 <div class="col-sm-2 padding0">
 <select  class="form-control" ng-model="stepPaymentIndicatorValue" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="stepChange(stepPaymentIndicatorValue)"/>
+<help-verbiage name="LE_DoesLoanhaveStepPaymentFeature_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Step feature will be in affect
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>If the transaction has a step amortization type, then provide the total number of step rate adjustments allowed under the step agreement.</p>
-<ul><li>Format is numeric 3.</li></ul>
-</span>
-</span>
-
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" name="" ng-model="leformdata.payment.paymentRule.totalStepPaymentCount" only-digits maxlength="3" ng-disabled="!stepPaymentIndicatorValue">
+<help-verbiage name="LE_YesProvideNoOfMoonthsStepFeaturewillAffect_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">Does the loan have an optional payment feature?
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>A Yes | No drop-down box that Specifies that the loan instrument allows the Applicant(s) to determine and change on a month-to-month basis the amount of any payment to be paid on the loan for a specified period.</p>
-<ul><li>Boolean format of Yes | No in a drop-down box</li></ul>
-</span>
-</span>
 <span class="required">*</span>
 </div>
 <div class="col-sm-2 padding0">
 <select  class="form-control" ng-model="leformdata.payment.paymentRule.paymentOptionIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="optionalChange()" />
+<help-verbiage name="LE_DoesLoanHaveOptionalPaymentFeaturesQuestions_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="FieldGroup">
 <div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Optional payment will be in affect
-<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-<b></b>
-<span> 
-<p>If the value for the statement “Does the loan have an optional payment feature” is yes, then provide the total number of optional payments allowed during the life of the loan when this choice is permitted under the terms of the loan.</p>
-</span>
-</span>
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" name="" ng-model="leformdata.payment.paymentRule.totalOptionalPaymentCount" ng-disabled="!leformdata.payment.paymentRule.paymentOptionIndicator" only-digits maxlength="3">
+<help-verbiage name="LE_YesProvideLoanHaveOptionalPaymentFeaturesQuestions_help" title="help_tooltip_padding"></help-verbiage>
 </div>
 </div>
 </div>
