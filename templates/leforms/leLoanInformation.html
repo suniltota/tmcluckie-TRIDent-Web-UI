@@ -53,7 +53,7 @@
 </div>
 <div class="col-sm-7 padding0">
 <input type="text" class="form-control" style="text-transform:capitalize;" ng-model="leformdata.termsOfLoan.loanPurposeType" ng-disabled="true">
-<help-verbiage name="LE_LoanTermLoanTypePurpose_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_LoanTermLoanTypePurpose_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 <div class="col-sm-4 margin8t">
@@ -63,7 +63,7 @@
 <option value="" selected>Select</option>
 <option ng-repeat="lienPriorityType in lienPriorityTypes" value="{{lienPriorityType.value}}">{{lienPriorityType.name}}</option>
 </select>
-<help-verbiage name="LE_LienPosition_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_LienPosition_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 
@@ -144,7 +144,7 @@
 <option value="" selected>Select</option>
 <option ng-repeat="amortizationType in amortizationTypes" value="{{amortizationType.value}}">{{amortizationType.name}}</option>
 </select>
-<help-verbiage name="LE_AmortizationType_help" title="help_tooltip">
+<help-verbiage name="LE_AmortizationType_help" title="leftTooltip">
 </help-verbiage>
 </div>
 </div>
@@ -345,7 +345,7 @@ ng-change="clChange()">
 <option value="" selected>Select</option>
 <option ng-repeat="constructionLoanType in constructionLoanTypes" value="{{constructionLoanType.value}}">{{constructionLoanType.name}}</option>
 </select>
-<help-verbiage name="LE_CLITypeConstuctionLoan_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_CLITypeConstuctionLoan_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 </div>
@@ -361,7 +361,7 @@ ng-change="clChange()">
 <div class="col-sm-2 padding0">
 <actualize-input name="constructionPeriodNumberOfMonthsCount" ng-model="leformdata.construction.constructionPeriodNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="only-digits" maxlength="3">
 </actualize-input>
-<help-verbiage name="LE_CILCOntructionPeriodMonths_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_CILCOntructionPeriodMonths_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 </div>
@@ -377,7 +377,7 @@ ng-change="clChange()">
 <!-- <input type="text" class="form-control" name="" ng-model="leformdata.construction.constructionLoanTotalTermMonthsCount" only-digits maxlength="3"> -->
 <actualize-input name="constructionLoanTotalTermMonthsCount" ng-model="leformdata.construction.constructionLoanTotalTermMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="only-digits" maxlength="3">
 </actualize-input>
-<help-verbiage name="LE_CLITotalNoOfConstructionTransaction_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_CLITotalNoOfConstructionTransaction_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 </div>
@@ -467,7 +467,7 @@ ng-change="clChange()">
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" ng-model="leformdata.interestOnly.interestOnlyTermMonthsCount" ng-disabled="leformdata.loanDetail.interestOnlyIndicator == false" only-digits maxlength="3">
-<help-verbiage name="LE_YesInterestOnlyPeriod_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_YesInterestOnlyPeriod_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 </div>
@@ -493,7 +493,7 @@ ng-change="clChange()">
 <option value="" selected>Select</option>
 <option ng-repeat="negativeAmortizationType in negativeAmortizationTypes" value="{{negativeAmortizationType.value}}">{{negativeAmortizationType.name}}</option>
 </select>
-<help-verbiage name="LE_IndicateNegativeAmortizationScheduledPotential_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_IndicateNegativeAmortizationScheduledPotential_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 </div>
@@ -511,7 +511,7 @@ ng-change="clChange()">
 <span class="input-group-addon input-default">$</span>
 <input type="text" class="form-control" name="" ng-model="leformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount" decimal-digits-with-number-format>
 </div>
-<help-verbiage name="LE_WhatmaximumNegativeAmortizationLoanBalance_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_WhatmaximumNegativeAmortizationLoanBalance_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 </div>
@@ -525,7 +525,7 @@ ng-change="clChange()">
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" name="" ng-model="leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount" only-digits maxlength="3">
-<help-verbiage name="LE_WhatNegativeAmortizationLimiinMonthsCount_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_WhatNegativeAmortizationLimiinMonthsCount_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 </div>
@@ -553,7 +553,7 @@ ng-change="clChange()">
 <option value="" selected>Select</option>
 <option ng-repeat="calendarMonth in calendarMonths" value="{{calendarMonth}}">{{calendarMonth}}</option>
 </select>
-<help-verbiage name="LE_YesProvideStartAndEndMonths_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_YesProvideStartAndEndMonths_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 <div class="col-sm-2 fieldTitle" style="text-align: center;">to</div>
 <div class="col-sm-2 padding0">
@@ -561,7 +561,7 @@ ng-change="clChange()">
 <option value="" selected>Select</option>
 <option ng-repeat="calendarMonth in calendarMonths" value="{{calendarMonth}}">{{calendarMonth}}</option>
 </select>
-<help-verbiage name="LE_YesProvideStartAndEndMonths_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_YesProvideStartAndEndMonths_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 </div>
@@ -582,7 +582,7 @@ ng-change="clChange()">
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" name="" ng-model="leformdata.payment.paymentRule.totalStepPaymentCount" only-digits maxlength="3" ng-disabled="!stepPaymentIndicatorValue">
-<help-verbiage name="LE_YesProvideNoOfMoonthsStepFeaturewillAffect_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_YesProvideNoOfMoonthsStepFeaturewillAffect_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 </div>
@@ -603,7 +603,7 @@ ng-change="clChange()">
 </div>
 <div class="col-sm-2 padding0">
 <input type="text" class="form-control" name="" ng-model="leformdata.payment.paymentRule.totalOptionalPaymentCount" ng-disabled="!leformdata.payment.paymentRule.paymentOptionIndicator" only-digits maxlength="3">
-<help-verbiage name="LE_YesProvideLoanHaveOptionalPaymentFeaturesQuestions_help" title="help_tooltip_padding"></help-verbiage>
+<help-verbiage name="LE_YesProvideLoanHaveOptionalPaymentFeaturesQuestions_help" title="help_tooltip_padding_left"></help-verbiage>
 </div>
 </div>
 </div>
