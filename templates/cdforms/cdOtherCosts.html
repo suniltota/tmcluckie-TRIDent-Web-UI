@@ -3,8 +3,12 @@
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section E. Taxes and Other Government Fees</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section E. Taxes and Other Government Fees
+				<help-verbiage name="CD_TaxesOtherGovermentFeesSectionHeaderName_Help" title="help_tooltip_text"></help-verbiage>
+				</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount | number:2}}
+				<help-verbiage name="CD_TaxesOtherGovermentFeesSectionTotalAmountBorrowerPaid_Help" title="help_tooltip_text"></help-verbiage>
+				</th>
 			  </tr>
 		     <tr>
 		        <th class="innerSectionHeader FeeInfo">Fee Information</th>
@@ -20,12 +24,15 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	<span class="col-sm-12 margin5tb padding0" style="font-weight: bold;">Recording Fee Total</span>
+		        	<span class="col-sm-12 margin5tb padding0" style="font-weight: bold;">Recording Fee Total
+						<help-verbiage name="CD_TaxesOtherGovermentFeesRecordingFeeTotal_Help" title="help_tooltip_text"></help-verbiage>
+		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fee For Deed</span>
 		        	<span class="col-sm-10 padding0 pull-right">
 			        	<div class="input-group">
 							<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 			        		<input type="text" class="form-control" ng-model="recordingFeetotalObj.recordingFeeForDeed" decimal-digits-with-number-format>
+			        		<help-verbiage name="CD_TaxesOtherGovermentFeesRecordingFeeForDeed_Help" title="help_tooltip_text"></help-verbiage>
 			        	</div>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fee For Mortgage</span>
@@ -33,6 +40,7 @@
 		        		<div class="input-group">
 							<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        			<input type="text" class="form-control" ng-model="recordingFeetotalObj.recordingFeeForMortgage" decimal-digits-with-number-format>
+		        			<help-verbiage name="CD_TaxesOtherGovermentFeesRecordingFeeForMortgage_Help" title="help_tooltip_text"></help-verbiage>
 		        		</div>
 		        	</span>
 		        </td> 
@@ -43,6 +51,7 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+		        	<help-verbiage name="CD_TaxesOtherGovermentFeesFeeType_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        	<span ng-show="recordingFeetotalObj.feePaidToType=='Other'">
 		        	<span class="col-sm-12 margin5tb padding0">Description</span>
@@ -50,6 +59,7 @@
 			        		<select class="form-control padding0" ng-model="recordingFeetotalObj.feePaidToTypeOtherDescription">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
+	             			<help-verbiage name="CD_TaxesOtherGovermentFeesFeeTypeOtherDescription_Help" title="help_tooltip_padding"></help-verbiage>
               		        </select> 
 			        	</span>
 			        </span>
@@ -58,30 +68,35 @@
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="recordingFeetotalObj.bpAtClosing" decimal-digits-with-number-format>
+			        	<help-verbiage name="CD_TaxesOtherGovermentFeesBorrowerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 			        </div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="recordingFeetotalObj.bpB4Closing" decimal-digits-with-number-format>
+			        	<help-verbiage name="CD_TaxesOtherGovermentFeesBorrowerPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage>
 			        </div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="recordingFeetotalObj.spAtClosing" decimal-digits-with-number-format>
+		        		<help-verbiage name="CD_TaxesOtherGovermentFeesBorrowerPaidSellerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="recordingFeetotalObj.spB4Closing" decimal-digits-with-number-format>
+		        		<help-verbiage name="CD_TaxesOtherGovermentFeesSellerPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="recordingFeetotalObj.paidByOthers" decimal-digits-with-number-format>
+		        		<help-verbiage name="CD_TaxesOtherGovermentFeesPaidByOther_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td class="text-center">
@@ -194,8 +209,12 @@
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section F. Prepaids	</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section F. Prepaids	
+				<help-verbiage name="CD_PrepaidsSectionHeaderName_Help" title="help_tooltip_text"></help-verbiage>
+				</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount | number:2}}
+				<help-verbiage name="CD_PrepaidsSectionTotalAmountBorrowerPaid_Help" title="help_tooltip_text"></help-verbiage>	
+				</th>
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader FeePaid">Prepaid Interest</th>
@@ -212,9 +231,12 @@
 		      </tr>
 		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='PrepaidInterest'" >
 		        <td>
-		            <span class="LabelText col-sm-12 ">Label:</span>
-		            <span class="LabelValue col-sm-12 ">Prepaid Interest</span>
-		            <span class="ValueText col-sm-12 ">Valid Value:</span>
+		            <span class="LabelText col-sm-12 ">Label:<help-verbiage name="CD_PrepaidsPrepaidInterestlabel_Help" title="help_tooltip_text"></help-verbiage></span>
+		            <span class="LabelValue col-sm-12 ">Prepaid Interest
+		            <help-verbiage name="CD_ValidValuePrepaidInterest_Help" title="help_tooltip_text"></help-verbiage></span>
+		            <span class="ValueText col-sm-12 ">Valid Value:
+		            	<help-verbiage name="CD_ValidValuePrepaidInterest_Help" title="help_tooltip_text">
+		            </span>		            
 		            <span class="LabelValue col-sm-12 ">Prepaid Interest</span>
 		        	<!-- <span class="ValueValue col-sm-12 " ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span> -->
 		        	<span class="margin5tb col-sm-12 padding0"><strong>Fee Paid To:</strong></span>
@@ -223,6 +245,7 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	    </select>
+		        	    <help-verbiage name="CD_PrepaidsPrepaidInterestFeePaidToType_Help" title="help_tooltip_padding">
 		        	</span>
 		        	<span class="col-sm-12 padding0" ng-show="prepaidsList.feePaidToType =='Other'">
 	              		<span class="margin10t padding5t col-sm-5 padding0">Description:</span>
@@ -230,6 +253,7 @@
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
               		    </select>
+              		    <help-verbiage name="CD_PrepaidsFeeTypeOtherDescription_Help" title="help_tooltip_padding">
 			        </span>
 		        </td>
 		        <td class="col-sm-1 padding0">
@@ -270,30 +294,35 @@
 		         	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpAtClosing" decimal-digits-with-number-format>
+		        		<help-verbiage name="CD_PrepaidsBorrowerPaidAtClosing_Help" title="help_tooltip_padding">
 		        	</div>
 		        </td>
 		         <td>
 		             <div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.bpB4Closing" decimal-digits-with-number-format>
+		        		<help-verbiage name="CD_PrepaidsSellerPaidBeforeClosing_Help" title="help_tooltip_padding">
 		        	</div>
 		        </td>
 		         <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spAtClosing" decimal-digits-with-number-format>
+		        		<help-verbiage name="CD_PrepaidsBorrowerPaidSellerPaidAtClosing_Help" title="help_tooltip_padding">
 		        	</div>	
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.spB4Closing" decimal-digits-with-number-format>
+		        		<help-verbiage name="CD_PrepaidsSellerPaidBeforeClosing_Help" title="help_tooltip_padding">
 		        	</div>	
 		        </td>
 		         <td>
 		         	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.paidByOthers" decimal-digits-with-number-format>
+		        		<help-verbiage name="CD_PrepaidsPaidByOther_Help" title="help_tooltip_padding">
 		        	</div>
 		        </td>
 		        <td class="text-center">
