@@ -131,11 +131,15 @@
 		      <tr>
 		      <td>
 		        	<label><span class="pull-left margin5tb">Estimated Total</span><help-verbiage name="Le_EstimatedTotalMonthlyPaymentAmount_help" title="help_tooltip_text"></help-verbiage>
-			        		<select class="form-control"
+			        		<!-- <select class="form-control"
 			        		ng-model="leformdata.projectedPayments.paymentFrequencyType">
 				        		<option value="" selected>Select</option>
 			              		<option ng-repeat="frequency in paymentFrequencyTypes" value="{{frequency.value}}">{{frequency.name}}</option>
-			        		</select>
+			        		</select> -->
+			        		<select class="form-control" 
+				        		ng-model="leformdata.projectedPayments.paymentFrequencyType" 
+				        		ng-init=" leformdata.projectedPayments.paymentFrequencyType = paymentFrequencyTypes[0].name"  ng-options="frequency.value as frequency.name for frequency in paymentFrequencyTypes">
+				        		</select>
 			        	<span class="pull-left margin5tb">Payment Amount</span>
 			        	
 			        	</label>
