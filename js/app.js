@@ -144,7 +144,11 @@ app.controller('menuCtrl', function ($scope, loginService, apiService, $routePar
     $("#ucdXmlView").hide();
   }
   var pdfDestroy = function(){
-    $(".pdfSlider_button").click();
+    //$(".pdfSlider_button").click();
+    $("#carousel").hide();
+    if($('#pdfViewerId .pdfSlider_rootContainer').length>0){ 
+      $("#carousel").pdfSlider('destroy');
+    }
   }
   $scope.logout = function() {
       loginService.logout();

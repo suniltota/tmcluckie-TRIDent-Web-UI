@@ -58,6 +58,8 @@ input, select, textarea, .form-control{font-size: 12px;}
 .white{color:#fff;}
 .green{color:#009688;}
 .cursor{cursor: pointer;}
+.PDFCloseIcon{right:21px; cursor: pointer; top: 14px; z-index: 243; margin-left: 0px; position: absolute; color: #fff; font-size: 19px;}
+
 
 .helpText{    width: 12px;
     background: #5bb1dc;

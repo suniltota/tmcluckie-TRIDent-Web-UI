@@ -24,7 +24,7 @@
             _navButton : "pdfSlider_button",
             _prevButton : "pdfSlider_prev",
             _nextButton : "pdfSlider_next",
-            _closeButton : "pdfSlider_close glyphicon glyphicon-remove-circle",
+            _closeButton : "pdfSlider_close",
             _hideControlsButton : "pdfSlider_hideControls",
             _thumbsContainer : "pdfSlider_thumbsContainer",
             _controlsContainer : "pdfSlider_controlsContainer",

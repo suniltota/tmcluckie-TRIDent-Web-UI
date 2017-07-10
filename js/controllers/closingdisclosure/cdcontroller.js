@@ -2549,7 +2549,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     			if(pdfData!=null && pdfData.length>0){
     				$("#pdfViewerId").show();
     				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
-					$("#carousel").pdfSlider();
+					$("#carousel").pdfSlider('init');
+					$("#carousel").show();
     			}
     			$("#spinner").hide();
     		}).error( function(pdfData, status){
@@ -2558,6 +2559,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	}).error( function(data, status){
     		$("#spinner").hide();
     	});
+    }
+    $scope.closePDF = function(){
+               $("#carousel").pdfSlider('destroy');
     }
 
     $scope.generateXML = function(embeddedPDF){
