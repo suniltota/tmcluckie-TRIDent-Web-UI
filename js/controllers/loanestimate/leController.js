@@ -208,6 +208,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
 		$scope.leformdata.closingInformationDetail.closingCostExpirationDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
 		$scope.closingCostExpirationDate=$scope.leformdata.closingInformationDetail.closingCostExpirationDate;
+		$scope.leformdata.integratedDisclosureDetail.integratedDisclosureEstimatedClosingCostsExpirationDatetime=$scope.closingCostExpirationDate;
 		for (i = $scope.leformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
 		    $scope.leformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
 		}
@@ -1392,6 +1393,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	});
     }
 
+    $scope.closePDF = function(){
+        $("#carousel").pdfSlider('destroy');
+    }
+
     $scope.generateXML = function(embeddedPDF){
     	$("#spinner").show();
     	leService.genearateXmlFromJson($scope.leformdata, embeddedPDF).success(function(data){
@@ -1759,6 +1764,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	        //Escrowed Property Costs over Year 1 & Monthly Escrow Payment
 	        if($scope.leformdata.loanDetail.escrowIndicator){
 	        	$scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount = etiaTotalAmount ? parseFloat(etiaTotalAmount*12) : +0;
+	        }else{
+	        	$scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount = 0;
 	        }
 
 	        $scope.leformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount = parseFloat(($scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount+nonEscrowAmount)/12);
@@ -2033,6 +2040,22 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			   }
 	       }
 	    }
+
+		var etiaTotalAmount = 0;
+		var nonEscrowAmount = 0;
+		for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length; i++) {
+
+			//Calculation For Estimated Taxes Insurance Assessment Total Amount
+			if($scope.cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount && $scope.cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount!=undefined){
+			    nonEscrowAmount = $scope.cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount ? parseFloat($scope.cdformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount) : +0;
+			}
+			if($scope.cdformdata.termsOfLoan.lienPriorityType=='FirstLien' && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!='MortgageInsurance' && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!=''){
+			    etiaTotalAmount += $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount ? parseFloat($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount) : +0; 
+			}
+
+			$scope.cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount = parseFloat(($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount+nonEscrowAmount)/12);
+
+		}
 
 	}, true);
 

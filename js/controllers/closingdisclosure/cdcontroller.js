@@ -3656,6 +3656,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	        //Escrowed Property Costs over Year 1 & Monthly Escrow Payment
 	        if($scope.cdformdata.loanDetail.escrowIndicator){
 	        	$scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount = etiaTotalAmount ? parseFloat(etiaTotalAmount*12) : +0;
+	        }else{
+	        	 $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount = 0;
 	        }
 
 	        $scope.cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount = parseFloat(($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount+nonEscrowAmount)/12);
@@ -4573,7 +4575,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         //Escrowed Property Costs over Year 1 & Monthly Escrow Payment
         if($scope.cdformdata.loanDetail.escrowIndicator){
         	$scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount = etiaTotalAmount ? parseFloat(etiaTotalAmount*12) : +0;
-        }
+        }else {
+	        $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount = 0;
+	    }
+
 
         $scope.cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount = parseFloat(($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount+nonEscrowAmount)/12);
 
