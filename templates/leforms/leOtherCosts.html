@@ -17,7 +17,7 @@
 		        <help-verbiage name="LE_SectionEAPRCalculation_help" title="help_tooltip_text"></help-verbiage>
 			</th>
 		        <th class="innerSectionHeader col-sm-1">Delete
-		        <help-verbiage name="LE_SectionETrashSymbol_help" title="help_tooltip_text"></help-verbiage> / Clear
+		        <help-verbiage name="LE_SectionETrashSymbol_help" title="help_tooltip_text"></help-verbiage> / <br> Clear
 		        <help-verbiage name="LE_SectionEClearSymbol_help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		      <tr ng-repeat="tOGovtFee in leformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-if="tOGovtFee.feeType == 'RecordingFeeTotal'">		      	
@@ -87,7 +87,7 @@
 		        <help-verbiage name="LE_SectionFIncludeAPRCalculation_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 		        <th class="innerSectionHeader col-sm-1">Delete <help-verbiage name="LE_SectionFTrashSymbol_help" title="help_tooltip_text"></help-verbiage>
-			  / Clear 
+			  / <br> Clear 
 			  <help-verbiage name="LE_SectionFClearSymbol_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 		      </tr>
@@ -249,7 +249,7 @@
 		      </tr>
 		</table>
 
-		<span class="AddSection" ng-click="addprepaidsList()">
+		<span class="AddSection margintop0" ng-click="addprepaidsList()">
 			<a>+ Add Additional Prepaid Items</a>
 		</span>
 		<help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
@@ -287,7 +287,7 @@
 				</th>
 		        <th class="innerSectionHeader col-sm-1">Delete 
 		        <help-verbiage name="LE_SectionGTrashSymbol_help" title="help_tooltip_text"></help-verbiage>
-				/ Clear <help-verbiage name="LE_SectionGTrashClear_help" title="help_tooltip_text"></help-verbiage>
+				/ <br> Clear <help-verbiage name="LE_SectionGTrashClear_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in leformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'HomeownersInsurance'}">
@@ -440,7 +440,7 @@
 		        </td>
 		      </tr>
 		</table>
-		<span class="AddSection" ng-click="addescrowItemsList()">
+		<span class="AddSection margintop0" ng-click="addescrowItemsList()">
 			<a>+ Add Additional Escrow Items</a>
 		</span>
 		<help-verbiage name="LE_SectionGAdditionalLinesAdded_help" title="help_tooltip_text"></help-verbiage>
@@ -452,25 +452,25 @@
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section H. Other	
-				<help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
+				<help-verbiage name="LE_SectionHSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsOtherCosts.otherTotalAmount | number:2}}
-				<help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
+				<help-verbiage name="LE_SectionHSectionTotalAmountPaid_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader col-sm-4">Fee Label
-		        <help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
+		        <help-verbiage name="LE_SectionHSectionFeelabelName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 		        <th class="innerSectionHeader col-sm-3">Fee Type
-		        <help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
+		        <help-verbiage name="LE_SectionHSectionFeeType_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
                 <th class="innerSectionHeader col-sm-1">Include in APR?
-                <help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
+                <help-verbiage name="LE_SectionHSectionAPRCalculation_help" title="help_tooltip_text"></help-verbiage>
 				</th>
-		        <th class="innerSectionHeader col-sm-1">Delete <help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
-				/ Clear <help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
+		        <th class="innerSectionHeader col-sm-1">Delete <help-verbiage name="LE_SectionHSectionTrashSymbol_help" title="help_tooltip_text"></help-verbiage>
+				/ <br> Clear <help-verbiage name="LE_SectionHSectionClearSymbol_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 		      </tr>
 		      <tr ng-repeat="otherCostsList in leformdata.closingCostDetailsOtherCosts.otherCostsList">
@@ -489,7 +489,7 @@
 		        	</span>
 		        	<span ng-show="otherCostsList.feeType=='Other'">
 	              		<span class="ValueText col-sm-10">Description
-	              		<help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
+	              		<help-verbiage name="LE_SectionHSectionFeeTypeOtherDescription_help" title="help_tooltip_text"></help-verbiage>
 					</span>
 			        	<input type="text" class="form-control padding0" name="" name="otherCostsList.feeTypeOtherDescription">
 		        	</span>
@@ -511,10 +511,10 @@
 		        </td>
 		      </tr>
 		</table>
-		<span class="AddSection" ng-click="addotherCostsList()">
+		<span class="AddSection margintop0" ng-click="addotherCostsList()">
 			<a>+ Add Additional Fee</a>
 		</span>
-		<help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
+		<help-verbiage name="LE_SectionHSectionAddLinesAdded_help" title="help_tooltip_text"></help-verbiage>
 		<span class="LeBackToTop pull-right" ng-click="backToTop()">
 			<a>Back to Top</a>
 		</span>
@@ -523,11 +523,11 @@
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" style="width:77%;">Section I. Total Other Costs (E + F + G + H) 
-				<help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
+				
 				</th>
 				
 				<th class="innerSectionHeader innerSectionMainHeader text-center" >${{leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount | number:2 }}
-				<help-verbiage name="LE_SectionFAdditionalLinesAdd_help" title="help_tooltip_text"></help-verbiage>
+				
 				</th>
 			  </tr>
 		</table>

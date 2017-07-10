@@ -9,7 +9,7 @@
 					<div class="col-sm-12 padding0 paddingtop6">
 						<div class="col-sm-6 padding0 paddingtop7">No. Years:</div>
 						<div class="col-sm-6 padding0">
-							<actualize-input name="loanTermYears" ng-model="cdformdata.loanInformation.loanTermYears" toolTipPos = "top" custommessage="Please enter a valid whole number" >
+							<actualize-input name="loanTermYears" ng-model="cdformdata.loanInformation.loanTermYears" min-val="1" max-val="40" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies=" min-max-value">
                 			</actualize-input>
                 			<help-verbiage name="CD_LoanTermYears_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>

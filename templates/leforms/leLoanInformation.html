@@ -167,7 +167,8 @@
 </div>
 <div class="col-sm-3 padding0">
 <div class="input-group">
-<input type="text" class="form-control" name="loanCapRate" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" percentage-format>
+<actualize-input name="loanCapRate" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+</actualize-input>
 <span class="input-group-addon input-default">%</span>
 </div>
 <help-verbiage name="LE_ProvideLineLoanCapRate_help" title="help_tooltip_padding"></help-verbiage>
@@ -190,7 +191,8 @@
 </div>
 <div class="col-sm-3 padding0">
 <div class="input-group">
-<input type="text" class="form-control" name="firstChangeInterestRateLimit" ng-model="leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent" percentage-format>
+<actualize-input name="firstChangeInterestRateLimit" ng-model="leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+</actualize-input>
 <span class="input-group-addon input-default">%</span>
 </div>
 <help-verbiage name="LE_ProvideFirstChangeInterestRateLimit_help" title="help_tooltip_padding"></help-verbiage>
@@ -213,7 +215,8 @@
 </div>
 <div class="col-sm-3 padding0">
 <div class="input-group">
-<input type="text" class="form-control" name="subsequentChangeInterestRateLimit" ng-model="leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent" percentage-format>
+<actualize-input name="subsequentChangeInterestRateLimit" ng-model="leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+</actualize-input>
 <span class="input-group-addon input-default">%</span>
 </div>
 <help-verbiage name="LE_AIProvideSubsequentChangeInterestRateLimit_help" title="help_tooltip_padding"></help-verbiage>
@@ -236,7 +239,8 @@
 <div class="col-sm-9 fieldTitle">Provide the Floor Rate:</div>
 <div class="col-sm-3 padding0">
 <div class="input-group">
-<input type="text" class="form-control" name="loanCapRate" ng-model="leformdata.interestRateAdjustment.floorRatePercent" percentage-format>
+<actualize-input name="loanCapRate" ng-model="leformdata.interestRateAdjustment.floorRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
+</actualize-input>
 <span class="input-group-addon input-default">%</span>
 </div>
 </div>

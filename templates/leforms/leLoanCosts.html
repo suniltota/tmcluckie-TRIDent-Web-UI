@@ -91,84 +91,25 @@
 		<table class="table LoanCostsSection table-bordered margin5tb" style="border:0px;">
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section B. Services Borrower Cannot Shop For
-				<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Each Section in the Closing Cost Details is highlighted at the top of the section.</p>
-				           	 <ul><li>The first section is called “Services Applicant Did Not Shop For”</li></ul>
-				          </span>
-				 </span>
+					<help-verbiage name="LEBServicesApplicantDidNotShopForSectionHeaderNameHelp" title="help_tooltip_text"></help-verbiage>
 				</th>
 				
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount | number:2}} 
-					<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>This provides the user an ability to view the total amount of the section, this is automatically calculated once fees and amounts are input into the section.</p>
-				          </span>
-				 </span>
-
-				</th>
+					<help-verbiage name="LEBServicesApplicantDidNotShopSectionTotalAmountApplicantPaidForHelp" title="help_tooltip_text"></help-verbiage>
+					</th>
 			  </tr>
 		      <tr>
-		        <th class="innerSectionHeader FeeInfo">Fee Label
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.</p>
-			           	 <ul><li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li></ul>
-			           	 <p>Format is a String Value up to 150 characters.</p>
-			          </span>
-			 </span>
-			</th>
-		        <th class="innerSectionHeader FeePaid">Fee Type
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Specify the general type of fees associated with a real estate finance transaction.</p>
-				           	 <ul><li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name.</li>
-				           	 <li>If other is chosen, then the user will be provided another text box (see below).</li></ul>
-				          </span>
-				 </span>
-				</th>
-		        <th class="innerSectionHeader BPatClosing">Amount
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Applicant At Closing or Before Closing columns</p>
-			          </span>
-				</span>
-				</th>
-		        <th class="innerSectionHeader incInApr">Included in APR?
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>For each record included must Indicate if the fee is included in the APR calculation.</p>
-			           	 <ul><li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li></ul>
-			           	 <p>Format is a Boolean value, using a drop-down box with a Yes or No value.</p>
-			          </span>
-			 </span>
-			</th>
-		        <th class="innerSectionHeader DeleteIcons">Delete
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The Trash Can symbol at the end of the record will delete the entire row including all data.</p>
-			          </span>
-					 </span>
-					 / Clear 
-				 <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.</p>
-			          </span>
-			 </span>
-			</th>
+		        <th class="innerSectionHeader FeeInfo">Fee Label</th>
+		        <th class="innerSectionHeader FeePaid">Fee Type	</th>
+		        <th class="innerSectionHeader BPatClosing">Amount</th>
+		        <th class="innerSectionHeader incInApr">Included in APR	</th>
+		        <th class="innerSectionHeader DeleteIcons">Delete/ Clear</th>
 		      </tr>
 		      <tr ng-repeat="sbDidNotShopFor in leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors">
 		        <td>
 		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control" ng-model="sbDidNotShopFor.displayLabel"> 
+		        		<input type="text" class="form-control" ng-model="sbDidNotShopFor.displayLabel">
+					<help-verbiage name="LEBServicesApplicantDidNotShopForFeeLabelNameHelp" title="help_tooltip_padding"></help-verbiage>						
 		        	</span>
 		        </td>
 		        <td>
@@ -177,20 +118,14 @@
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="feeType in sectionBfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
               		    </select>
+					<help-verbiage name="LEBServicesApplicantDidNotShopForFeeTypeHelp" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        	<span ng-show="sbDidNotShopFor.feeType=='Other'">
 			        	<span class="col-sm-12 margin5tb padding0">Description
-			        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
-					         <span> 
-					           	 <p>This field is required to be filled-in if the Fee Type is Other.</p>
-					           	 <ul><li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type.</li></ul>
-					           	 <p>Recommended to use as many values as possible when sending the record to the GSEs.</p>
-					          </span>
-					 </span>
 					</span>
 			        	<span class="col-sm-12 padding0">
 			        		<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.feeTypeOtherDescription">
+							<help-verbiage name="LEBServicesApplicantDidNotShopForFeeTypeOtherDescriptionHelp" title="help_tooltip_padding"></help-verbiage>
 			        	</span>
 			        </span>
 		        </td>
@@ -200,10 +135,12 @@
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.feeEstimatedTotalAmount" decimal-digits-with-number-format>
 		        </div>
 		        </td>
-		        <td>
+		        <td><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="sbDidNotShopFor.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
+					<help-verbiage name="LEBServicesApplicantDidNotShopForIncludeAPRCalculationHelp" title="help_tooltip_padding"></help-verbiage>
+					</span>
 		        </td>
 		        <td>
 		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-click="deleteSDidNot(sbDidNotShopFor.feeType,$index)"></span>
@@ -214,12 +151,7 @@
 		<span class="AddSection" ng-click="addsbDidNotShopFor()">
 			<a>+ Add Additional Fees</a>
 		</span>
-		<span class="glyphicon glyphicon-question-sign helpIcon paddingTopLeft10 tooltip-msg" ng-mouseouver>
-		        <b></b>	
-		         <span> 
-		           	 <p>To add more fees to the section the user may click on the link to add another row.</p>
-		          </span>
-		 </span>
+		<help-verbiage name="LEBServicesApplicantDidNotShopForAdditionalLinesaddedHelp" title="help_tooltip_text"></help-verbiage>
 
 		<span class="LeBackToTop pull-right" ng-click="backToTop()">
 			<a>Back to Top</a>
@@ -233,81 +165,28 @@
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section C. Services Borrower Can Shop For
-				<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Each Section in the Closing Cost Details is highlighted at the top of the section.
-				           	 The first section is called “Services Applicant Did Shop For”.</p>
-				          </span>
-				 </span>
+				<help-verbiage name="LEServicesApplicantDidShopForSectionheaderNameHelp" title="help_tooltip_text"></help-verbiage>
 				</th>
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | number:2}}
-				<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a row.</p>
-				          </span>
-				 </span>
+				<help-verbiage name="LEServicesApplicantDidShopForSectionTotalAmountApplicantPaidHelp" title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader FeeInfo">Fee Label
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.</p>
-				           	 <ul><li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li></ul>
-				           	 <p>Format is a String Value up to 150 characters.</p>
-				          </span>
-				 </span>
 				</th>
 		        <th class="innerSectionHeader FeePaid">Fee Type
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Specify the general type of fees associated with a real estate finance transaction.</p>
-				           	 <ul><li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name.</li>
-							<li>If other is chosen, then the user will be provided another text box (see below).
-							</li></ul>
-				          </span>
-				 </span>
 				</th>
-		        <th class="innerSectionHeader BPatClosing">Amount
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Applicant At Closing or Before Closing columns</p>
-			          </span>
-				</span></th>
+		        <th class="innerSectionHeader BPatClosing">Amount</th>
 		        <th class="innerSectionHeader incInApr">Included in APR?
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>For each record included must Indicate if the fee is included in the APR calculation.</p>
-			           	 <ul><li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 	C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li></ul>
-			           	 <p>Format is a Boolean value, using a drop-down box with a Yes or No value.</p>
-			          </span>
-			 </span></th>
-		        <th class="innerSectionHeader DeleteIcons">Delete
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The Trash Can symbol at the end of the record will delete the entire row including all data.</p>
-			          </span>
-					 </span>
-					 / Clear 
-				 <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.</p>
-			          </span>
-			 </span>
+		        </th>
+		        <th class="innerSectionHeader DeleteIcons">Delete / Clear
 			</th>
 		      </tr>
 		      <tr ng-repeat="sbDidShopFor in leformdata.closingCostDetailsLoanCosts.sbDidShopFors">
 		        <td>
 		        	<span class="col-sm-12 padding0">
 		        		<input type="text" class="form-control" ng-model="sbDidShopFor.displayLabel"> 
+						<help-verbiage name="LEServicesApplicantDidShopForFeelabelNameHelp" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        </td>
 		        <td>
@@ -315,20 +194,15 @@
 		        		<select class="form-control padding0" ng-model="sbDidShopFor.feeType" ng-change="updateSectionCfeeTypes(sbDidShopFor.feeType, $index)">
               			<option value="" selected>Select</option>
              			<option ng-repeat="feeType in sectionCfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
-              		</select> 
+              		</select>
+					<help-verbiage name="LEServicesApplicantDidShopForFeeTypeHelp" title="help_tooltip_padding"></help-verbiage>					
 		        	</span>
 		        	<span ng-show="sbDidShopFor.feeType=='Other'">
 			        	<span class="col-sm-12 margin5tb padding0">Description
-			        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
-					         <span> 
-					           	 <p>This field is required to be filled-in if the Fee Type is Other.</p>
-					           	 <ul><li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type.</li></ul>
-					           	 <p>Recommended to use as many values as possible when sending the record to the GSEs.</p>
-					          </span>
-					 </span></span>
+					</span>
 			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feeTypeOtherDescription"> 
+			        		<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feeTypeOtherDescription">
+						<help-verbiage name="LEServicesApplicantDidShopForOtherDescriptionHelp" title="help_tooltip_padding"></help-verbiage>
 			        	</span>
 		        	</span>
 		        </td>
@@ -340,9 +214,12 @@
 		        </td>
 		       
 		        <td>
+				<span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="sbDidShopFor.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
+					<help-verbiage name="LEServicesApplicantDidShopForAPRHelp" title="help_tooltip_padding"></help-verbiage>
+					</span>
 		        </td>
 		        <td>
 		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-click="deleteSDid(sbDidShopFor.feeType,$index)"></span>
@@ -352,14 +229,8 @@
 		</table>
 		<span class="AddSection" ng-click="addsbDidShopFor()">
 			<a>+ Add Additional Fees</a>
-		</span>
-		<span class="glyphicon glyphicon-question-sign helpIcon paddingTopLeft10  tooltip-msg" ng-mouseouver>
-		        <b></b>	
-		         <span> 
-		           	 <p>To add more fees to the section the user may click on the link to add another row.</p>
-		          </span>
-		 </span>
-
+		</span>						
+		<help-verbiage name="LEServicesApplicantDidShopForAdditionalLinesaddedHelp" title="help_tooltip_padding"></help-verbiage>
 		<span class="LeBackToTop pull-right" ng-click="backToTop()">
 			<a>Back to Top</a>
 		</span>
@@ -369,21 +240,10 @@
 		<table class="table LoanCostsSection table-bordered margin5tb" style="border:0px;">
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="1" style="width: 56%;">Section D. Total Loan Costs (A + B + C)
-				<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Read Only on the User Interface that provides the Total Not able to edit this value</p>
-				          </span>
-				 </span>
+				<help-verbiage name="LETotalLoanCostTotalAmountHelp" title="help_tooltip_text"></help-verbiage>
 				</th>
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1" style="width: 23%;">${{leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | number:2}}
-				<span class="pull-right glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>Read Only on the User Interface that provide the subtotal amount for each of the Applicant Paid columns.</p>
-			           	 <ul><li>Not able to edit this value</li></ul>
-			          </span>
-			 </span>
+				<help-verbiage name="LETotalLoanCostABCAmountHelp" title="help_tooltip_text"></help-verbiage>
 			</th>
 				<th colspan="3" style="border:none;"></th>
 			  </tr>
