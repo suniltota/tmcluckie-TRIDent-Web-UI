@@ -22,8 +22,8 @@
 		      </tr>
 		      <tr ng-repeat="etia in leformdata.etiaSection.etiaValues track by $index">
 		      		<td rowspan="{{leformdata.etiaSection.etiaValues.length}}" style="vertical-align: middle;" ng-if="$index==0">
-		      			<label>$ {{leformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount | number:2}} </label>
-		      			<br>A month</br><help-verbiage name="LE_ETIAAmountperMonth_help" title="help_tooltip_text"></help-verbiage>
+		      			<label style="font-size: 14px;">$ {{leformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount | number:2}} </label>
+		      			<br>A month<help-verbiage name="LE_ETIAAmountperMonth_help" title="help_tooltip_text"></help-verbiage>
 		      		</td>
 		      		<td ng-if="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes'">
 			        	<span class="pull-left ">Property Taxes

@@ -24,7 +24,7 @@
 		      </tr>
 		      <tr ng-repeat="etia in cdformdata.etiaSection.etiaValues track by $index">
 		      		<td rowspan="{{cdformdata.etiaSection.etiaValues.length}}" style="vertical-align: middle;" ng-if="$index==0">
-		      			<label>$ {{cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount | number:2}} </label>
+		      			<label style="font-size: 14px;">$ {{cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount | number:2}} </label>
 		      			<br/><b>A month </b>
 		      			<help-verbiage name="CD_amountpermonth_Help" title="help_tooltip_text"></help-verbiage>
 		      		</td>
