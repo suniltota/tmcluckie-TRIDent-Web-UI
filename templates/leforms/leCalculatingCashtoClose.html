@@ -32,13 +32,13 @@
 		        </td>
 		        <td>
 		        	
-		        	<span >
-		        	${{leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers | number:2}} 
+		        	<span>
+		        	${{leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount | number:2}} 
 		        	</span>
 		        </td>
 		       
 		      </tr>
-		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
+		      <!-- <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
 		        <td>
 		        	Closing Costs Paid Before Closing
 		        </td>
@@ -49,7 +49,7 @@
 		        	</div>
 		        </td>
 		      
-		      </tr>
+		      </tr> -->
 		      <tr ng-show="loanBasicInfo.loanFormType == 'standard'">
 		        <td>
 		        	Closing Costs Financed
