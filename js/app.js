@@ -22,6 +22,9 @@ app.config(function ($routeProvider, $locationProvider) {
 }).run(['loginService', 'apiService', '$rootScope', '$window', function(loginService, apiService, $rootScope, $location, $window){
     //executed once, after all modules are loaded
     $rootScope.alerts=[];
+    if(!localStorage.apiBasePath){
+      localStorage.apiBasePath = window.location.origin + "/trident/";
+    }
     apiService.setBasePath(localStorage.apiBasePath);
     apiService.request({apiMethod:'isLoggedIn',httpMethod:'GET'}).success(function(data, status) {
       loginService.setSessionId();
