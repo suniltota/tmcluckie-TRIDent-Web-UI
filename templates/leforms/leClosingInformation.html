@@ -19,7 +19,7 @@
             </div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0" style=" width:88.33%">
-                <actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="leformdata.closingInformation.dateIssued" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date." placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                <actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="leformdata.closingInformation.dateIssued" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" toolTipPos="top" custommessage="Please enter a vaild date." placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
                 <help-verbiage name="LE_dateIssued_Help"  title="calenderInput"></help-verbiage>
 				</span>
@@ -32,13 +32,14 @@
 			<div class="col-sm-5 fieldTitle">Closing Cost Expiration Date <span class="required">*</span></div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0" style=" width:88.33%">
- 
-				<actualize-input name="closingCostExpirationDate" id="closingCostExpirationDate" dateFormat="{{dateFormat}}" ng-model="closingCostExpirationDate" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" min-date-var="leformdata.closingInformation.dateIssued" is-open="isDateIssued" toolTipPos = "top" custommessage="Please enter a vaild date. Closing expiration Date cannot occur prior to Issue Date." placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+ 				<actualize-input name="closingCostExpirationDate" id="closingCostExpirationDate" dateFormat="{{dateFormat}}" ng-model="leformdata.closingInformationDetail.closingCostExpirationDate" datepicker-options="dateOptions" ng-required="true" min-date-var="leformdata.closingInformation.dateIssued" is-open="isClosingCostExpiryDate" toolTipPos="top" custommessage="Please enter a vaild date. Closing expiration Date cannot occur prior to Issue Date." placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 </actualize-input>
                 <help-verbiage name="LE_closingCostExpirationDate_Help"  title="calenderInput"></help-verbiage>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
-        			<button type="button" class="btn btn-default calenderBtn" ng-click="isDateIssued = !isDateIssued"><i class="glyphicon glyphicon-calendar"></i></button>
+        			<button type="button" class="btn btn-default calenderBtn" ng-click="isClosingCostExpiryDate = !isClosingCostExpiryDate">
+        				<i class="glyphicon glyphicon-calendar"></i>
+        			</button>
         		</span>
 			</div>
 		</div>
