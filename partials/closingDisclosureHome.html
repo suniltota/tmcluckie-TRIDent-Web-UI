@@ -807,17 +807,19 @@
             <h4 ng-if="validation_errors.length>0">UCD Validation Errors</h4>
             <table class="table ng-table-responsive table-bordered" ng-if="validation_errors.length>0">
               <thead>      
-                <th class="innerSectionHeader innerSectionMainHeader">Parent Container</th>
-                <th class="innerSectionHeader innerSectionMainHeader">Line Number</th>
-                <th class="innerSectionHeader innerSectionMainHeader">Error Message</th>
-                <th class="innerSectionHeader innerSectionMainHeader">XPATH</th>
+               <!-- <th class="innerSectionHeader innerSectionMainHeader">Parent Container</th>
+                <th class="innerSectionHeader innerSectionMainHeader">Line Number</th> -->
+                <th class="innerSectionHeader innerSectionMainHeader">Error Message
+               
+                </th>
+              <!-- <th class="innerSectionHeader innerSectionMainHeader">XPATH</th> -->
               </thead>
               <tbody>
                 <tr ng-repeat="validationError in validation_errors">
-                  <td>{{validationError.PARENT_CONTAINER}}</td>
-                  <td>{{validationError.LINE_NUMBER}}</td>
+                 <!--  <td>{{validationError.PARENT_CONTAINER}}</td>
+                  <td>{{validationError.LINE_NUMBER}}</td> -->
                   <td>{{validationError.ERROR_MESSAGE}}</td>
-                  <td>{{validationError.XPATH}}</td>
+                 <!-- <td>{{validationError.XPATH}}</td> -->
                 </tr>
               </tbody>
             </table>
