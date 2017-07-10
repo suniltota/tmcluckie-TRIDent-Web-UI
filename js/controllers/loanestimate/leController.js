@@ -370,12 +370,14 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeType = 'RecordingFeeTotal';
 			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].displayLabel = 'Recording Fees Total';
 			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToType = 'ThirdPartyProvider';
+			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].integratedDisclosureSectionType = 'TaxesAndOtherGovernmentFees';
 			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].paymentIncludedInAPRIndicator = false;
 
 			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(1, 0, angular.copy(tOGovtFees));
 			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feeType = 'TransferTaxTotal';
 			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].displayLabel = 'Transfer Taxes';
 			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].feePaidToType = 'ThirdPartyProvider';
+			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].integratedDisclosureSectionType = 'TaxesAndOtherGovernmentFees';
             $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].paymentIncludedInAPRIndicator = false;
 		}
 
@@ -384,12 +386,14 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	     	
 	     	if(i!=0 && $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeTotal') {
 				$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0] = $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
+				$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].integratedDisclosureSectionType = 'TaxesAndOtherGovernmentFees';
 				$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
 				i--;
 			}
 
 			if(i!=1 && $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'TransferTaxTotal') {
 				$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1] = $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
+				$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1].integratedDisclosureSectionType = 'TaxesAndOtherGovernmentFees';
 				$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
 				i--;
 			}
