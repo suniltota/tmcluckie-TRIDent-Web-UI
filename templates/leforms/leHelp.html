@@ -993,13 +993,13 @@
            <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="LEoriginationChargesHelp%2==0" ></span>
            <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="LEoriginationChargesHelp%2==1"></span>
            </span>
-             <div class="col-sm-12" id="LEoriginationChargesHelp">
+             <div class="col-sm-12" id="LE_ClosingCostoriginationChargesHelp">
               <div>In each section, most information is a repeatable structure. Simply put the user can provide a label name to show up on the form, choose the valid value for the xml file that goes to the GSEs, enters additional information to support that specific record (row) and supply the information required by the CFPB Know Before You Owe regulation requirements for disclosure to the Applicant.<br>
               The table below demonstrates specifics about each row and all the information needed to support origination charges.  Any questions about the regulation is directed to the CFPB website and final rule.
               </div>
                 <span class="field_help">
                      <h5> Section Header Name :</h5>
-                      <div id="SectionHeaderName">Each Section in the Closing Cost Details is highlighted at the top of the section.
+                      <div id="LEClosingCostOriginationChargesSectionHeaderNamehelp">Each Section in the Closing Cost Details is highlighted at the top of the section.
                           <ul>
                             <li>The first section is called "Origination Charges".</li>
                             <li>Has a different row for Row 01 than the rest of the section</li>
@@ -1008,12 +1008,12 @@
                  </span>
                  <span class="field_help">
                      <h5> Section Total Amount : </h5>
-                      <div id="SectionTotalAmount ">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Applicant At Closing or Before Closing columns.
+                      <div id="LEClosingCostOriginationChargesSectionTotalAmount">This provides the user an ability to view the total amount of the section, this is automatically updated once you have entered in the values for a record in either the Paid By Applicant At Closing or Before Closing columns.
                       </div>
                  </span>
                  <span class="field_help">
                      <h5> *Percentage * Loan Amount (Points) - Label :</h5>
-                      <div id="">
+                      <div id="LEClosingCostOriginationChargesLoanAmountPercent">
                       In every transaction, the line 01 item called Loan Amount (Points) is provided on the form.  The transaction may or may not have discount points.  
                       The Label name “Loan Amount (Points)” is referred to as predefined text by the CFPB.
 
@@ -1025,7 +1025,7 @@
                  </span>
                  <span class="field_help">
                      <h5>Fee Label Name</h5>
-                      <div id="FeeLabelName">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+                      <div id="LEClosingCostOriginationChargesFeeLabelName">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
 
                           <ul>
                             <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.Format is a String Value up to 150 character.</li>
@@ -1034,7 +1034,7 @@
                  </span>
                  <span class="field_help">
                      <h5>Fee Type : </h5>
-                      <div id="FeeType">Specify the general type of fees associated with a real estate finance transaction.
+                      <div id="LEClosingCostOriginationChargesFeeType">Specify the general type of fees associated with a real estate finance transaction.
                           <ul>
                             <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name.If other is chosen, then the user will be provided another text box (see below).</li>
                           </ul>
@@ -1042,7 +1042,7 @@
                  </span>
                  <span class="field_help">
                      <h5>Fee Type Other Description  :</h5>
-                      <div id="">This field is required to be filled-in if the Fee Type is Other.
+                      <div id="LEClosingCostOriginationChargesFeeTypeOtherDescription">This field is required to be filled-in if the Fee Type is Other.
                           <ul>
                             <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type.Recommended to use as many enumerated values as possible when sending the record to the GSEs.</li>
                           </ul>
@@ -1050,7 +1050,7 @@
                  </span>
                  <span class="field_help">
                      <h5>Include in APR Calculation : </h5>
-                      <div id="">For each record included must Indicate if the fee is included in the APR calculation.
+                      <div id="LEClosingCostOriginationChargesAPR">For each record included must Indicate if the fee is included in the APR calculation.
                           <ul>
                             <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12   C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
                             <li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
@@ -1059,18 +1059,18 @@
                  </span>
                  <span class="field_help">
                      <h5>Additional Lines can be added :</h5>
-                      <div id="AdditionalLinescanbeadded.">
+                      <div id="LEClosingCostOriginationChargesAdditionalLinescanbeadded.">
                       To add more fees to the section the user may click on the link to add another row.
                       </div>
                  </span>
                  <span class="field_help">
                      <h5>Trash Symbol :</h5>
-                      <div id="TrashSymbol">The Trash Can symbol at the end of the record will delete the entire row including all data.
+                      <div id="LEClosingCostOriginationChargesTrashSymbol">The Trash Can symbol at the end of the record will delete the entire row including all data.
                       </div>
                  </span>
                  <span class="field_help">
                      <h5>Clear Symbol :</h5>
-                      <div id="ClearSymbol">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+                      <div id="LEClosingCostOriginationChargesClearSymbol">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
                       </div>
                  </span>
           </div>
@@ -1082,7 +1082,7 @@
              <div class="col-sm-12" id="LEBServicesApplicantDidNotShopForHelp">
                 <span class="field_help">
                      <h5>Section Header Name :</h5>
-                      <div id="">Each Section in the Closing Cost Details is highlighted at the top of the section.
+                      <div id="LEBServicesApplicantDidNotShopForSectionHeaderNameHelp">Each Section in the Closing Cost Details is highlighted at the top of the section.
                           <ul>
                             <li>The first section is called "Services Applicant Did Not Shop For"</li>
                           </ul>
@@ -1090,12 +1090,12 @@
                  </span>
                  <span class="field_help">
                      <h5>Section Total Amount Applicant Paid</h5>
-                      <div id="">This provides the user an ability to view the total amount of the section, this is automatically calculated once fees and amounts are input into the section.
+                      <div id="LEBServicesApplicantDidNotShopSectionTotalAmountApplicantPaidForHelp">This provides the user an ability to view the total amount of the section, this is automatically calculated once fees and amounts are input into the section.
                       </div>
                  </span>
                  <span class="field_help">
                      <h5>Fee Label Name :</h5>
-                      <div id="">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
+                      <div id="LEBServicesApplicantDidNotShopForFeeLabelNameHelp">A free-form text field that provides a human-readable, display-ready representation for the corresponding enumerated value.
                           <ul>
                             <li>Typically, the name a lender calls a specific fee, the user would type that fee in this location.</li>
                             <li>Format is a String Value up to 150 characters</li>
@@ -1104,7 +1104,7 @@
                  </span>
                  <span class="field_help">
                      <h5>Fee Type :</h5>
-                      <div id="">Specify the general type of fees associated with a real estate finance transaction.
+                      <div id="LEBServicesApplicantDidNotShopForFeeTypeHelp">Specify the general type of fees associated with a real estate finance transaction.
                           <ul>
                             <li>Required to support the GSE xml file, even though a Fee Label Name is provided, the user must choose an enumerated value to associate to the label name.</li>
                             <li>If other is chosen, then the user will be provided another text box (see below).</li>
@@ -1112,8 +1112,8 @@
                       </div>
                  </span>
                  <span class="field_help">
-                     <h5>Fee Type Fee Type Other Description :</h5>
-                      <div id="">This field is required to be filled-in if the Fee Type is Other.
+                     <h5>Fee Type Other Description :</h5>
+                      <div id="LEBServicesApplicantDidNotShopForFeeTypeOtherDescriptionHelp">This field is required to be filled-in if the Fee Type is Other.
                           <ul>
                             <li>Text box for a String Value that allows a user to type in any characters to meet the need of the Fee Type.</li>
                           </ul>
@@ -1122,7 +1122,7 @@
                  </span>
                  <span class="field_help">
                      <h5>Include in APR Calculation  :</h5>
-                      <div id="">For each record included must Indicate if the fee is included in the APR calculation. 
+                      <div id="LEBServicesApplicantDidNotShopForIncludeAPRCalculationHelp">For each record included must Indicate if the fee is included in the APR calculation. 
                           <ul>
                             <li>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12   C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes; if questions regarding this regulation must see the CFPB website.</li>
                             <li>Format is a Boolean value, using a drop-down box with a Yes or No value.</li>
@@ -1131,17 +1131,17 @@
                  </span>
                  <span class="field_help">
                      <h5>Additional Lines can be added :</h5>
-                      <div id="">To add more fees to the section the user may click on the link to add another row.
+                      <div id="LEBServicesApplicantDidNotShopForAdditionalLinesaddedHelp">To add more fees to the section the user may click on the link to add another row.
                       </div>
                  </span>
                  <span class="field_help">
                      <h5>Trash Symbol :</h5>
-                      <div id="">The Trash Can symbol at the end of the record will delete the entire row including all data.
+                      <div id="LEBServicesApplicantDidNotShopForTrashSymbolHelp">The Trash Can symbol at the end of the record will delete the entire row including all data.
                       </div>
                  </span>
                  <span class="field_help">
                      <h5>Clear Symbol :</h5>
-                      <div id="">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
+                      <div id="LEBServicesApplicantDidNotShopForClearSymbolHelp">The Clear symbol at the end of the record will remove all the data but leave the row in tact if a user wants to remove the information in the cells all at once time.
                       </div>
                  </span>
               </div>
@@ -1758,5 +1758,3 @@
 
 
 </div>
-
-  
