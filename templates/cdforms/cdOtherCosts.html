@@ -340,7 +340,9 @@
 		        	<!-- <span clacss="col-sm-12 ValueValue" ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span> -->
 		        	<span class="ValueText col-sm-10">No. of Months</span>
 		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"></span>
+		        	<actualize-input ng-model="prepaidsList.prepaidItemMonthsPaidCount" name="prepaidItemMonthsPaidCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">		        		
+		        	</actualize-input>
+		        	</span>
 		        </td>
 		        <td>
                     <span class="LabelText col-sm-12">Type:</span>
@@ -417,7 +419,9 @@
 		        	<!-- <span class="ValueValue col-sm-5 " ng-repeat="prepaidItem in prepaidItems track by $index" ng-if="prepaidsList.prepaidItemType == prepaidItem">{{prepaidItem}}</span> -->
 		        	<span class="ValueText col-sm-10">No. of Months</span>
 		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"></span>
+		        	<actualize-input ng-model="prepaidsList.prepaidItemMonthsPaidCount" name="prepaidItemMonthsPaidCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">		        		
+		        	</actualize-input>
+		        	</span>
 		        </td>
 		        <td>
                     <span class="LabelText col-sm-12">Type:</span>
@@ -499,7 +503,9 @@
 			        </span>
 			        <span class="ValueText col-sm-12">No. of Months</span>
 		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"></span>
+		        	<actualize-input ng-model="prepaidsList.prepaidItemMonthsPaidCount" name="prepaidItemMonthsPaidCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">		        		
+		        	</actualize-input>
+		        	</span>
 		        </td>
 		        <td>
                     <span class="col-sm-12 LabelText">Type:</span>
@@ -581,7 +587,9 @@
 			        </span>
 			        <span class="ValueText col-sm-10">No. of Months</span>
 		        	<span class="ValueValue col-sm-10">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="prepaidsList.prepaidItemMonthsPaidCount" maxlength="3" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"></span>
+		        	<actualize-input ng-model="prepaidsList.prepaidItemMonthsPaidCount" name="prepaidItemMonthsPaidCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="prepaidPerMonth(prepaidsList.prepaidItemType,$index)"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">		        		
+		        	</actualize-input>
+		        	</span>
 		        </td>
 		        <td>
                     <span class="LabelText col-sm-10">Type:</span>
@@ -690,7 +698,9 @@
 		        	</span>
 		        	<span class="ValueText col-sm-12">No. of Months</span>
 		        	<span class="ValueValue col-sm-12">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" ng-blur="amountPerMonth('0')"></span>
+		        	<actualize-input ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" name="escrowCollectedNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="amountPerMonth('0')"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">		        		
+		        	</actualize-input>
+		        	</span>
 		        </td>
 		        <td>
 		            <span class="LabelText col-sm-12">Type</span>
@@ -765,7 +775,9 @@
 		        	</span>
 		        	<span class="ValueText col-sm-12">No. of Months</span>
 		        	<span class="ValueValue col-sm-12">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" ng-blur="amountPerMonth('1')"></span>
+		        	<actualize-input ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" name="escrowCollectedNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="amountPerMonth('1')"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">	
+		        	</actualize-input>
+		        	</span>
 		        </td>
 		       <td>
 		            <span class="LabelText col-sm-10 margin5tb">Type</span>
@@ -846,7 +858,9 @@
 		        	</span>
 		        	<span class="ValueText col-sm-12">No. of Months</span>
 		        	<span class="ValueValue col-sm-12">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" ng-blur="amountPerMonth('2')"></span>
+		        	<actualize-input ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" name="escrowCollectedNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="amountPerMonth('2')"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">	
+		        	</actualize-input>
+		        	</span>
 		        </td>
 		       <td>
 		            <span class="LabelText col-sm-10">Type</span>
@@ -930,7 +944,9 @@
 		        	</span>
 		        	<span class="ValueText col-sm-12">No. of Months</span>
 		        	<span class="ValueValue col-sm-12">
-		        	<input type="text" class="form-control padding0" name="" only-digits name="" ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" maxlength="3" ng-blur="amountPerMonth($index)"></span>
+		        	<actualize-input ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" name="escrowCollectedNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="amountPerMonth($index)"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">	
+		        	</actualize-input>
+		        	</span>
 		        </td>
 		         <td>
 		            <span class="LabelText col-sm-10">Type</span>
