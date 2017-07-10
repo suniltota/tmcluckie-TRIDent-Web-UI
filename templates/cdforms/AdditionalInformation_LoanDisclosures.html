@@ -74,7 +74,10 @@
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0">
 		        			<span class="pull-left margin5tb col-sm-3">Number of Grace Period</span>
-		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="cdformdata.lateChargeRule.lateChargeGracePeriodDaysCount"></span>
+		        			<span class="pull-left col-sm-2">
+		        			<actualize-input ng-model="cdformdata.lateChargeRule.lateChargeGracePeriodDaysCount" name="lateChargeGracePeriodDaysCount" toolTipPos = "top" custommessage="Please enter a valid whole number"   dependencies="min-max-value" min-val="1" max-val="480" maxlength="3">
+                			</actualize-input>
+		        			</span>
 		        			<span class="pull-left margin5tb">
 		        				Days 
 		        			</span>
