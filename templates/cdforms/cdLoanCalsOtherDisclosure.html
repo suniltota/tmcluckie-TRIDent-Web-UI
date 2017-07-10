@@ -1,5 +1,5 @@
 <div class="col-sm-12">
-	<h4>Loan Calculations & Qualified Mortgage</h4>
+	<h4>Loan Calculations & Qualified Mortgage</h4> 
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
@@ -9,101 +9,78 @@
 		      <tr>
 		        <td>
 		        	<span class="margin5tb col-sm-10">Total of Payments <span class="required">*</span>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>	
-			         <span> 
-			           	 <p>The amount of the Total of All Payments as disclosed based on the accepted industry standard defined by Regulation Z.</p>
-			          </span>
-			 </span></span>
+		        	</span>
 		        </td>
 				<td>
-					<div class="input-group">
+					<div class="input-group ">
 						<span class="input-group-addon input-default">$</span>
 		        		<actualize-input ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalOfAllPaymentsAmount" name="feeSummaryTotalOfAllPaymentsAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
                 		</actualize-input>
+                		<help-verbiage name="CD_LoanCalculationTotalPayments_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
+
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg.Z Excluded Bona Fide Discount Points Indicator <span class="required">*</span>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Required information that when true, indicates that excluded bona fide discount points were charged for this loan.</p>
-				          </span>
-				 </span></span>
+		        	</span>
 		        </td>
 		        <td>
+		           <div class="input-group col-sm-12">
 		        	<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" >
               		</select>
+              		<help-verbiage name="CD_QualifiedMortgageRegZExcludedBonaFideDiscountPointsIndicator_Help" title="help_tooltip_padding_left"></help-verbiage>
+              		</div>
 		        </td>
 		      </tr>
 			  
 			  <tr>
 		        <td>
-		        	<span class="margin5tb col-sm-10">Finance Charge <span class="required">*</span>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>The amount of the Total Finance Charges as disclosed based on the accepted industry standard defined by Regulation Z.</p>
-				          </span>
-				 </span></span>
+		        	<span class="margin5tb col-sm-10">Finance Charge <span class="required">*</span></span>
 		        </td>
 				<td>
 				<div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<actualize-input ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalFinanceChargeAmount" name="feeSummaryTotalFinanceChargeAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
                 	</actualize-input>
+                	<help-verbiage name="CD_LoanCalculationFinanceCharge_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg. Z Excluded Bona Fide Discount Points Percent <span class="required">*</span>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Required Information when the Regulation Z Excluded Bona fide Discount Points Indicator = True, then must provide the percent which is the bona fide discount points, expressed as a percent, that are excluded from points and fees calculated in accordance with Regulation Z, Truth in Lending.</p>
-				          </span>
-				 </span></span>
+		        	</span>
 		        </td>
 		        <td>
 		        <div class="input-group">
 						<actualize-input name="regulationZExcludedBonaFideDiscountPointsPercent" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsPercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" ng-disabled="!cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZExcludedBonaFideDiscountPointsIndicator">
                 		</actualize-input>
 						<span class="input-group-addon input-default">%</span>
+						<help-verbiage name="CD_QualifiedMortgageRegZExcludedBonaFideDiscountPointsPercent_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        </div>
 		        </td>
 		      </tr>
 			  
 			  <tr>
 		        <td>
-		        	<span class="margin5tb col-sm-10">Amount Financed <span class="required">*</span>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>The amount of the Total Amount Financed as disclosed based on the accepted industry standard defined by Regulation Z.</p>
-				          </span>
-				 </span></span>
+		        	<span class="margin5tb col-sm-10">Amount Financed <span class="required">*</span></span>
 		        </td>
 				<td>
 				<div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<actualize-input ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalAmountFinancedAmount" name="feeSummaryTotalAmountFinancedAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
                 	</actualize-input>
+                	<help-verbiage name="CD_LoanCalculationAmountFinanced_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg. Z Excluded Total Affiliate Fees Amount 
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>The total amount of fees, expressed in dollars, paid to an affiliate(s) of the creditor.  As the user enters in Fees in the Closing Cost Details section identified if an amount was paid to an affiliate or not, these amounts are summed into this dollar amount.</p>
-				          </span>
-				 </span></span>
+		        	</span>
 
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0 col-sm-4" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalAffiliateFeesAmount" decimal-digits-with-number-format>
+		        	<help-verbiage name="CD_QualifiedMortgageRegZExcludedBonaFideTotalAffiliateFeesAmount_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        </div>
 		        </td>
 		      </tr>
@@ -111,34 +88,26 @@
 			  <tr>
 		        <td>
 		        	<span class="margin5tb col-sm-10">Annual Percentage Rate (APR) <span class="required">*</span>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>The annual percentage rate for the loan based on the accepted industry standard defined by Regulation Z (Section 12 C.F.R. 1026.18(e)) used for Qualified Mortgages and general disclosure purposes.</p>
-				          </span>
-				 </span></span>
+		        	</span>
 		        </td>
 				<td>
 				<div class="input-group">
 					<actualize-input name="aprPercent" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
                 		</actualize-input>
 					<span class="input-group-addon input-default">%</span>
+					<help-verbiage name="CD_LoanCalculationAPR_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg. Z Excluded Total Loan Amount <span class="required">*</span>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Required information that is the total loan amount, expressed in dollars, calculated in accordance with Regulation Z, Truth in Lending. This amount is used in calculations for both Qualified Mortgage and HOEPA.</p>
-				          </span>
-				 </span></span>
+		        	</span>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<actualize-input ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalLoanAmount" name="regulationZTotalLoanAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
                 	</actualize-input>
+                	<help-verbiage name="CD_QualifiedMortgageRegZExcludedTotalLoanAmount_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        </div>
 		        </td>
 		      </tr>
@@ -146,34 +115,27 @@
 			   <tr>
 		        <td>
 		        	<span class="margin5tb col-sm-10">Total Interest Percentage (TIP) <span class="required">*</span>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>The total amount of interest paid by the borrower over the term of the loan as a percentage of the loan amount.</p>
-				          </span>
-				 </span></span>
+		        	</span>
 		        </td>
 				<td>
 				<div class="input-group">
 					   	<actualize-input name="feeSummaryTotalInterestPercent" ng-model="cdformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent" toolTipPos = "top" custommessage="Please enter a valid percent" dependencies="percentage-format" >
                 		</actualize-input>
+
 					   	<span class="input-group-addon input-default">%</span>
+					   	<help-verbiage name="CD_LoanCalculationTIP_Help" title="help_tooltip_padding"></help-verbiage>
+
 		        </td>
 				<td valign="middle">
 		        	<span class="col-sm-11">Reg. Z Excluded Total Points and Fees Amount <span class="required">*</span>
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>Required information that is the total amount of points and fees, expressed in dollars, calculated in accordance with Regulation Z, Truth in Lending. This amount is used in calculations for both Qualified Mortgage and HOEPA purposes.</p>
-				           	 <p>User must provide this information as it is not calculated by the system.</p>
-				          </span>
-				 </span></span>
+		        	</span>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<actualize-input ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.regulationZTotalPointsAndFeesAmount" name="regulationZTotalPointsAndFeesAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
                 	</actualize-input>
+                	<help-verbiage name="CD_QualifiedMortgageRegZExcludedTotalPointsFeesAmount_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        </div>	
 		        </td>
 		      </tr>
@@ -181,13 +143,9 @@
 			  <tr>		      		
 					<td rowspan="2">
 			        	<span class="margin5tb col-sm-10">Liability After Foreclosure <span class="required">*</span>
-			        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
-					         <span> 
-					           	 <p>Provides a borrower information that upon the foreclosure sale completion deficiency rights against the borrowers are preserved.</p>
-					           	 <p>The check box is defaulted per the state rules; however, a user may edit and change the check box to un-checked.</p>
-					          </span>
-					 </span></span>
+			        	<help-verbiage name="CD_LoanCalculationLiabilityForeclosure_Help" title="help_tooltip_text"></help-verbiage>
+			        	</span>
+			        	
 		      		</td>
 					<td rowspan="2" style="vertical-align: middle;" >
 		      			<span class="text-center">Will Protect Borrower</span>
@@ -204,29 +162,18 @@
 		      		</td>
 					<td rowspan="2" style="vertical-align: middle;">
 		      			<span class="text-left margin5lr">Ability to Repay Method Type <span class="required">*</span>
-		      			<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
-					         <span> 
-					           	 <p>Required information that is needed for the GSEs to specify the method by which the creditor satisfied Regulation Z Ability-to-Repay requirements.</p>
-					          </span>
-					 </span></span>							
+		      			<help-verbiage name="CD_QualifiedMortgageAbilityRepayMethodType_Help" title="help_tooltip_text"></help-verbiage>
+		      			</span>							
 						<br><br>
 						<span class="text-left margin5lr" ng-show="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType!='General'">Ability to Repay Exemption Reason Type</span>	
-						<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-					        <b></b>	
-					         <span> 
-					           	 <p>Values include either “General” or “Exempt”</p>
-					           	 <p>If Exempt is chosen, then the Ability to Repay Exemption Reason Type must have a value provided from the drop-down box.</p>
-					           	 <ul><li>Loan Program </li>
-					           	 <li>Property usage</li></ul>
-					          </span>
-					 </span>		        							
+								        							
 		      		</td>
 		      		<td rowspan="2">
 		      			<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType" ng-change="repayMethodChange()">
 							 <option value="" selected>Select</option>
 		                     <option ng-repeat="rMType in repayMethodType" value="{{rMType.value}}">{{rMType.name}}</option>
-						</select>&nbsp;
+						</select>
+						&nbsp;
 						<select class="form-control padding0" ng-model="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayExemptionReasonType" ng-show="cdformdata.loanCalculationsQualifiedMortgage.qualifiedMortgage.abilityToRepayMethodType!='General'">
 							 <option value="" selected>Select</option>
 		                     <option ng-repeat="rERType in repayExemptionReasonType" value="{{rERType.value}}">{{rERType.name}}</option>
