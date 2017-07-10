@@ -17,7 +17,7 @@
 		        <td>
 		        	<div class="input-group">
   						<span class="input-group-addon input-default">$</span>
-		        		<actualize-input ng-model="cdformdata.termsOfLoan.noteAmount" name="noteAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format require-field">
+		        		<actualize-input ng-model="cdformdata.termsOfLoan.noteAmount" name="noteAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  min-val="1" dependencies="decimal-digits-with-number-format require-field min-max-value">
                 		</actualize-input>
                 		<help-verbiage name="CD_LoanAmount_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
@@ -202,7 +202,7 @@
 		        			<span class="col-sm-3">
 		        			<div class="input-group">
 								<span class="input-group-addon input-default">$</span>
-								<actualize-input ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount" name="principalAndInterestPaymentMaximumAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+								<actualize-input ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount" name="principalAndInterestPaymentMaximumAmount" toolTipPos = "top" min-val="1" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format min-max-value">
                 				</actualize-input>
 							</div>
 							</span> 
@@ -244,7 +244,7 @@
 		        			<span class="col-sm-3">
 		        				<div class="input-group">
 		        					<span class="input-group-addon input-default">$</span>
-		        					<actualize-input ng-model="cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyMaximumLifeOfLoanAmount" name="prepaymentPenaltyMaximumLifeOfLoanAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
+		        					<actualize-input ng-model="cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyMaximumLifeOfLoanAmount" name="prepaymentPenaltyMaximumLifeOfLoanAmount" toolTipPos = "top" min-val="1" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format min-max-value  require-field">
                 				</actualize-input>
 		        				</div>
 		        				</span>
@@ -272,7 +272,7 @@
 		        			<span class="col-sm-3">
 			        			<div class="input-group">
 			        					<span class="input-group-addon input-default">$</span>
-			        					<actualize-input ng-model="cdformdata.loanDetail.balloonPaymentAmount" name="balloonPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format  require-field">
+			        					<actualize-input ng-model="cdformdata.loanDetail.balloonPaymentAmount" name="balloonPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." min-val="1" dependencies="decimal-digits-with-number-format min-max-value require-field">
                 						</actualize-input>
 			        			</div>
 		        			</span>
