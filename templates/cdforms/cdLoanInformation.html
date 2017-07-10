@@ -658,7 +658,8 @@
 				<div class="FieldGroup">
 					<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Step feature will be in affect:</div>
 					<div class="col-sm-2 padding0">
-						<input type="text" class="form-control" name="" ng-model="cdformdata.payment.paymentRule.totalStepPaymentCount" only-digits maxlength="3" ng-disabled="!stepPaymentIndicatorValue">
+						<actualize-input ng-model="cdformdata.payment.paymentRule.totalStepPaymentCount" name="totalStepPaymentCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-disabled="!stepPaymentIndicatorValue"  dependencies="only-digits min-max-value" min-val="1" max-val="480" maxlength="3">
+                		</actualize-input>
 						<help-verbiage name="CD_providemonthswhichStepfeatureaffect_Help" title="help_tooltip_padding_left"></help-verbiage>
 					</div>
 				</div>
@@ -677,7 +678,8 @@
 				<div class="FieldGroup">
 					<div class="col-sm-10 fieldTitle">If yes, provide the no. of months in which the Optional payment will be in affect:</div>
 					<div class="col-sm-2 padding0">
-						<input type="text" class="form-control" name="" ng-model="cdformdata.payment.paymentRule.totalOptionalPaymentCount" ng-disabled="!cdformdata.payment.paymentRule.paymentOptionIndicator" only-digits maxlength="3">
+						<actualize-input ng-model="cdformdata.payment.paymentRule.totalOptionalPaymentCount" name="totalOptionalPaymentCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-disabled="!cdformdata.payment.paymentRule.paymentOptionIndicator"  dependencies="only-digits min-max-value" min-val="1" max-val="480" maxlength="3">
+                		</actualize-input>
 						<help-verbiage name="CD_providemonthswhichOptionalpaymentaffect_Help" title="help_tooltip_padding_left"></help-verbiage>
 					</div>
 				</div>
