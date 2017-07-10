@@ -1848,9 +1848,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount);
 	    if($scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount)
 	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount);
-	    if($scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount)
-	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount);
-	    if($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount)
+        if($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount)
 	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount == ''  ? +0 : parseFloat($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount);
 	    if($scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount)
 	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount);
@@ -1998,6 +1996,11 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
                 $scope.leformdata.closingAdjustmentItemList.push(adjustmentObj);
             }
         });
+
+        $scope.leformdata.payoffsAndPayments.integratedDisclosureSectionSummary.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount = $scope.payoffsAndPaymentsTotalAmount ? parseFloat($scope.payoffsAndPaymentsTotalAmount).toFixed(2) : +0;
+
+        $scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount =  $scope.payoffsAndPaymentsTotalAmount ? parseFloat($scope.payoffsAndPaymentsTotalAmount).toFixed(2) : +0;
+    
     }, true);
 
     $scope.$watch('leformdata.termsOfLoan', function(newValue,oldValue){
