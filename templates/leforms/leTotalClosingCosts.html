@@ -6,17 +6,17 @@
 			  <tbody>
               <tr>
                 <th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader" colspan="1"><strong>Section J. Total Closing Costs</strong>
-                	<help-verbiage name="LE_SectionHeaderName_help" 
+                	<help-verbiage name="LE_SectionJHeaderName_help" 
                 	title="help_tooltip_text"></help-verbiage>
                 </th>	  	
 				<th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader" colspan="1"> ${{leformdata.closingCostsTotal.totalClosingCosts | number:2}}
-				<help-verbiage name="LE_SectionTotalAmount_help" 
+				<help-verbiage name="LE_SectionJTotalAmount_help" 
                 	title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
                <tr>
                 <td  class="  text-center"><strong>Closing Costs Subtotal (D + I)</strong> 
-                <help-verbiage name="LE_SubsectionHeaderName_help" 
+                <help-verbiage name="LE_SectionJSubSectionHeaderName_help" 
                 	title="help_tooltip_text"></help-verbiage>
 				</td>
 				<td style="width: 12.5%;" class="text-center">${{leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers | number:2}}</td>
@@ -30,7 +30,7 @@
 							<span class="input-group-addon input-default" style="color: red;">$ -</span>
 
 							<input type="text" class="form-control padding0" name="" ng-model="leformdata.closingCostsTotal.lenderCredits" negative-digits >
-							<help-verbiage name="LE_LenderCredits_help" title="help_tooltip_padding_left"></help-verbiage>
+							<help-verbiage name="LE_SectionJLenderCredits_help" title="help_tooltip_padding_left"></help-verbiage>
 						</div>
 
 					</span>
