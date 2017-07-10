@@ -4,16 +4,20 @@
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section A. Origination Charge
-				<span class="pull-right glyphicon glyphicon-question-sign helpIcon" data-toggle="tooltip" data-placement="right" title="Help Information"></span>
+				<help-verbiage name="CD_OriginationCharges_Help" title="help_tooltip_text"></help-verbiage>
 				</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}
+				<help-verbiage name="CD_OriginationChargesSectionTotalAmountBorrowerPaid_Help" title="help_tooltip_text"></help-verbiage>
+				</th>				
 			  </tr>
 		     <tr>
-		        <th class="innerSectionHeader FeeInfo">Fee Information</th>
-		        <th class="innerSectionHeader FeePaid">Fee Paid To Info</th>
+		        <th class="innerSectionHeader FeeInfo">Fee Information 		        	
+		        </th>
+		        <th class="innerSectionHeader FeePaid">Fee Paid To Info 
+		        </th>
 		        <th class="innerSectionHeader BPatClosing">Borrower Paid AT Closing</th>
 		        <th class="innerSectionHeader BPbeforeClosing">Borrower Paid BEFORE Closing</th>
-		        <th ng-hide="loanBasicInfo.loanPurposeType == 'refinance'"  class="innerSectionHeader SPatClosing">Seller Paid AT Closing</th>
+		        	<th ng-hide="loanBasicInfo.loanPurposeType == 'refinance'"  class="innerSectionHeader SPatClosing">Seller Paid AT Closing</th>
 		        <th ng-hide="loanBasicInfo.loanPurposeType == 'refinance'" class="innerSectionHeader SPbeforeClosing">Seller Paid BEFORE Closing</th>
 		        <th class="innerSectionHeader PaidByOther">Paid By OTHER</th>
 		        <th class="innerSectionHeader PaidByLender">Paid By Lender</th>
@@ -27,7 +31,8 @@
 		        	 <span class="input-group">
 		        	 <actualize-input ng-model="originationCharge.feeTotalPercent" name="feeTotalPercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format" ng-blur="loanDiscount($index)" ng-keyup="loanDiscount($index)">
                 	</actualize-input>
-		        	 <span class="input-group-addon input-default">%</span> 
+		        	 <span class="input-group-addon input-default">%</span>
+		        	 <help-verbiage name="CD_OriginationChargesPercentageLoanAmount_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        	<span class="margin5tb col-sm-9 padding0">{{originationCharge.displayLabel}}</span>
 		        </td>
@@ -35,6 +40,7 @@
 		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
 		        	<span class="col-sm-12 padding0">
 		        		<input type="text" class="form-control" name="" ng-model="originationCharge.displayLabel" >
+		        		 <help-verbiage name="CD_OriginationChargesFeeLabelName_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
 		        	<span class="col-sm-12 padding0">
@@ -56,7 +62,8 @@
 		        		<select class="form-control padding0" ng-model="originationCharge.feePaidToType" ng-change="sectionApaidToChange($index)">
 		        		    <option value="" selected>Select</option>
              			    <option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
-		        	    </select>
+             			    </select>
+             			    <help-verbiage name="CD_OriginationChargesFeeType_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        	<span ng-hide="originationCharge.feePaidToType!='Other'" class="col-sm-12 padding0">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
@@ -65,41 +72,47 @@
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
               		    </select>
+              		        <help-verbiage name="CD_OriginationChargesFeeTypeOtherDescription_Help" title="help_tooltip_padding"></help-verbiage>
 			        	</span>
 		        	</span>
 		        	<span ng-show="originationCharge.feePaidToType!='Lender'">
 			        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="originationCharge.feePaidToFullName">
-		        	</span>
+			        	</span>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
                 	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpAtClosing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
+                	<help-verbiage name="CD_OriginationChargesBorrowerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.bpB4Closing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
+		        	<help-verbiage name="CD_OriginationChargesBorrowerPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spAtClosing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
+		        	<help-verbiage name="CD_OriginationChargesSellerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group" >
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spB4Closing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
+		        	<help-verbiage name="CD_OriginationChargesSellerPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group" >
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.paidByOthers" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
+		        	<help-verbiage name="CD_OriginationChargesPaidByOther_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 		        <td class="text-center">
@@ -109,12 +122,12 @@
 		        	<select class="form-control padding0" ng-model="originationCharge.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        		<option value="" selected>Select</option>
-		        	</select>
+		        	</select>		        	        	
 		        </td>
 		        <td>
 		        	<select class="form-control padding0" ng-model="originationCharge.regulationZPointsAndFeesIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
-		        	</select>
+		        	</select>		        	
 		        </td>
 		        <td>
 		      		<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete" ng-show="$index != 0" ng-disabled="$index == 0" ng-click="deleteOC(originationCharge.feeType,$index)"></span>
@@ -123,16 +136,17 @@
 		      </tr>
 		</table>
 		<span class="AddSection" ng-click="addOrganizationCharges()">
-			<a>+ Add Additional lines</a>
+			<a>+ Add Additional lines<help-verbiage name="CD_OriginationChargesAdditionalLines_Help" title="help_tooltip_text"></help-verbiage></a>			
 		</span>
 	</span>
 
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section B. Services Borrower Did Not Shop For</th>
-				
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section B. Services Borrower Did Not Shop For <help-verbiage name="CD_ServicesBorrowerDidNotShopSectionHeaderName_Help" title="help_tooltip_text"></help-verbiage></th>					
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount | number:2}}
+				<help-verbiage name="CD_ServicesBorrowerDidNotShop_HelpSectionTotalAmountBorrowerPaid" title="help_tooltip_text"></help-verbiage>
+				</th>				
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader FeeInfo">Fee Information</th>
@@ -151,7 +165,8 @@
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
 		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control" ng-model="sbDidNotShopFor.displayLabel"> 
+		        		<input type="text" class="form-control" ng-model="sbDidNotShopFor.displayLabel">
+		        		<help-verbiage name="CD_ServicesBorrowerDidNotShop_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
 		        	<span class="col-sm-12 padding0">
@@ -164,6 +179,7 @@
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
 			        		<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.feeTypeOtherDescription">
+			        		<help-verbiage name="CD_ServicesBorrowerDidNotShopFeeTypeOtherDescription_Help" title="help_tooltip_padding_left"></help-verbiage>
 			        	</span>
 			        </span>
 		        </td>
@@ -174,6 +190,7 @@
 		        		    <option value="" selected>Select</option>
              			    <option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+		        	<help-verbiage name="CD_ServicesBorrowerDidNotShopFeeType_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        	</span>
 		        	<span ng-show="sbDidNotShopFor.feePaidToType=='Other'">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
@@ -182,21 +199,23 @@
 		              			<option value="" selected>Select</option>
 		             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
               		    	</select>
+              		    	<help-verbiage name="CD_ServicesBorrowerDidNotShopFeeTypeOtherDescription_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        		</span>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidNotShopFor.feePaidToFullName">
-		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.bpAtClosing" decimal-digits-with-number-format ng-blur="sectionBZIndicator($index)" ng-keyup="sectionBZIndicator($index)">
+		        	 <help-verbiage name="CD_ServicesBorrowerDidNotShopBorrowerPaidAtClosing_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.bpB4Closing" decimal-digits-with-number-format ng-blur="sectionBZIndicator($index)" ng-keyup="sectionBZIndicator($index)">
+		        	<help-verbiage name="CD_ServicesBorrowerDidNotShopBorrowerPaidBeforeClosing_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        </div>
 		        </td>
 		        <td  ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
@@ -209,12 +228,14 @@
 		        <div class="input-group" >
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.spB4Closing" decimal-digits-with-number-format ng-blur="sectionBZIndicator($index)" ng-keyup="sectionBZIndicator($index)">
+		        	<help-verbiage name="CD_ServicesBorrowerDidNotShopSellerPaidBeforeClosing_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.paidByOthers" decimal-digits-with-number-format ng-blur="sectionBZIndicator($index)" ng-keyup="sectionBZIndicator($index)">
+		        	<help-verbiage name="CD_ServicesBorrowerDidNotShopPaidByOther_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        </div>
 		        </td>
 		        <td class="text-center">
@@ -245,10 +266,12 @@
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section C. Services Borrower Did Shop For</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section C. Services Borrower Did Shop For <help-verbiage name="CD_ServicesBorrowerDidShopSectionHeaderName_Help" title="help_tooltip_text"></help-verbiage></th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | number:2}}
+				<help-verbiage name="CD_ServicesBorrowerDidShopSectionHeaderName_Help" title="help_tooltip_text"></help-verbiage>
+				</th>
 			  </tr>
-		      <tr>
+			   <tr>
 		        <th class="innerSectionHeader FeeInfo">Fee Information</th>
 		        <th class="innerSectionHeader FeePaid">Fee Paid To Info</th>
 		        <th class="innerSectionHeader BPatClosing">Borrower Paid AT Closing</th>
@@ -264,7 +287,8 @@
 		      <tr ng-repeat="sbDidShopFor in cdformdata.closingCostDetailsLoanCosts.sbDidShopFors">		 	<td>
 		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
 		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control" ng-model="sbDidShopFor.displayLabel"> 
+		        		<input type="text" class="form-control" ng-model="sbDidShopFor.displayLabel">
+		        		<help-verbiage name="CD_ServicesBorrowerDidShopFeeLabelName_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
 		        	<span class="col-sm-12 padding0">
@@ -276,7 +300,8 @@
 		        	<span ng-show="sbDidShopFor.feeType=='Other'">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
 			        	<span class="col-sm-12 padding0">
-			        		<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feeTypeOtherDescription"> 
+			        		<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feeTypeOtherDescription">
+			        		<help-verbiage name="CD_ServicesBorrowerDidShopFeeTypeOtherDescription_Help" title="help_tooltip"></help-verbiage>
 			        	</span>
 		        	</span>
 		        </td>
@@ -287,6 +312,7 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+		        	<help-verbiage name="CD_ServicesBorrowerDidShopFeePaidToType_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        	<span ng-show="sbDidShopFor.feePaidToType=='Other'">
 			        	<span class="col-sm-12 margin5tb padding0">Description</span>
@@ -294,6 +320,7 @@
 			        		<select class="form-control padding0" ng-model="sbDidShopFor.feePaidToTypeOtherDescription" ng-change="sectionCZIndicator($index)">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
+	             			<help-verbiage name="CD_ServicesBorrowerDidShopFeeTypeOtherDescription_Help" title="help_tooltip_padding"></help-verbiage>
               		        </select>
 			        	</span>
 		        	</span>
@@ -304,30 +331,35 @@
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpAtClosing" decimal-digits-with-number-format ng-blur="sectionCZIndicator($index)" ng-keyup="sectionCZIndicator($index)">
+		        	<help-verbiage name="CD_ServicesBorrowerDidShopBorrowerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.bpB4Closing" decimal-digits-with-number-format  ng-blur="sectionCZIndicator($index)" ng-keyup="sectionCZIndicator($index)">
+		        	<help-verbiage name="CD_ServicesBorrowerDidShopBorrowerPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spAtClosing" decimal-digits-with-number-format  ng-blur="sectionCZIndicator($index)" ng-keyup="sectionCZIndicator($index)">
+		        	<help-verbiage name="CD_ServicesBorrowerDidShopBorrowerPaidSellerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group" >
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.spB4Closing" decimal-digits-with-number-format  ng-blur="sectionCZIndicator($index)" ng-keyup="sectionCZIndicator($index)">
+		        	<help-verbiage name="CD_ServicesBorrowerDidShopSellerPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.paidByOthers" decimal-digits-with-number-format  ng-blur="sectionCZIndicator($index)" ng-keyup="sectionCZIndicator($index)">
+		        	<help-verbiage name="CD_ServicesBorrowerDidShopPaidByOther_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 		        <td class="text-center">
@@ -352,19 +384,21 @@
 		</table>
 		<span class="AddSection" ng-click="addsbDidShopFor()">
 			<a>+ Add Additional lines</a>
+			<help-verbiage name="CD_ServicesBorrowerDidShopAdditionalLinesadded_Help" title="help_tooltip_text"></help-verbiage>
 		</span>
 	</span>
 
 	<span  class="col-sm-6 padding0" style="width: 47%;">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" style="width: 25%;">Section D. Total Loan Costs (Borrower Paid)</th>
-				
-				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader" style="width: 25%;">Section D. Total Loan Costs (Borrower Paid)<help-verbiage name="CD_OriginationCharges_Help" title="help_tooltip_text"></help-verbiage></th></th>				
+				<th class="innerSectionHeader innerSectionMainHeader text-center" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | number:2}} <help-verbiage name="CD_TotalLoanCosts_Help" title="help_tooltip_text"></help-verbiage></th>
 			  </tr>
+			  
 		      <tr>
 		        <td>
 		        	Loan Costs Subtotal (A+B+C)
+		        	<help-verbiage name="CD_LoanCosts_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td class="text-center BPatClosing">
 		        	${{cdformdata.closingCostDetailsLoanCosts.tlCosts.bpAtClosing | number:2}}
