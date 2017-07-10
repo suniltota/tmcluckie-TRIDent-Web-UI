@@ -4,15 +4,15 @@
 		<div class="margin5tb projectpaymentAddlink" ng-show="leformdata.projectedPayments.paymentCalculation.length<=3">
 			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns </a>
 		</div>
-		<help-verbiage name="LE_AddAdditionalColumnLink_help" title="help_tooltip_text"></help-verbiage>
+		<help-verbiage ng-show="leformdata.projectedPayments.paymentCalculation.length<=3" name="LE_AddAdditionalColumnLink_help" title="help_tooltip_text"></help-verbiage>
 		<table class="table" style="margin-top:15px;">
 		      <tr>
 		        <th class="col-sm-3 innerSectionHeader">Payment Calculations</th>
 		        <th class="col-sm-2 innerSectionHeader" ng-class="{'col-sm-9': leformdata.projectedPayments.paymentCalculation.length == 1, 'col-sm-4': leformdata.projectedPayments.paymentCalculation.length == 2, 'col-sm-3': leformdata.projectedPayments.paymentCalculation.length == 3, 'col-sm-2': leformdata.projectedPayments.paymentCalculation.length == 4 }"
 		        	ng-repeat="paymentCalculation in leformdata.projectedPayments.paymentCalculation track by $index">
-		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years
+		        	<span class="pull-left margin5tb width40" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Year
 		        	<help-verbiage name="LE_PPYears_help" title="help_tooltip_text"></help-verbiage></span>
-		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years
+		        	<span class="pull-left margin5tb width40" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Year
 		        	<help-verbiage name="LE_PPYears_help" title="help_tooltip_text"></help-verbiage></span>
 		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodStartNumber" style="text-align: center"></span>
 		        	<span class="pull-left" style="margin:5px;">-</span>
