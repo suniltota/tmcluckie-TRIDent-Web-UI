@@ -981,6 +981,22 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	$scope.leformdata.interestOnly.interestOnlyTermMonthsCount = '';
     }
 
+    $scope.interestRateYearToMonthsAdjustment = function(){
+		if($scope.leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveYearCount) {
+			$scope.leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount = parseInt($scope.leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveYearCount-1) * 12;
+		} else {
+			$scope.leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount = '';
+		}
+    }
+
+    $scope.principleInterestRateYearToMonthsAdjustment = function(){
+		if($scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount) {
+			$scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount= (parseInt($scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount) -1) * 12 + 1;
+		} else {
+			$scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount = '';
+		}
+    }
+
     $scope.nATypeChange = function(){
     	if($scope.leformdata.negativeAmortization.negativeAmortizationType==''){
     		$scope.leformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount = '';
@@ -992,7 +1008,13 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	$scope.leformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth = '';
     	$scope.leformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth = '';
     }
-
+    
+    $scope.prepaymentPenaltyChange = function(){
+    	$scope.leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyMaximumLifeOfLoanAmount = '';
+    	$scope.leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount = '';
+    	$scope.leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears = '';
+    }
+    
     $scope.balloonIndicatorChange = function() {
     	$scope.leformdata.balloonPeriodType = '';
  		$scope.leformdata.balloonPeriodCount = '';

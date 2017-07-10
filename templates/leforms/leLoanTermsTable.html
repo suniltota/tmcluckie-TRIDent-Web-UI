@@ -21,7 +21,7 @@
 		        	</div>
 		        </td>
 		        <td class="col-sm-1">
-		        	<select class="form-control pull-left" ng-model="leformdata.loanDetail.negativeAmortizationIndicator"  ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	<select class="form-control pull-left" ng-model="leformdata.loanDetail.negativeAmortizationIndicator"  ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="true">
 		        	</select>
 		        </td>
 		        <td>
@@ -30,13 +30,13 @@
 							<span class="col-sm-4" style="margin-left:-35px;">
 								<div class="input-group">
 									<span class="input-group-addon input-default">$</span>
-									<input type="text" class="form-control" name="" ng-model="leformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount" decimal-digits-with-number-format >
+									<input type="text" class="form-control" name="" ng-model="leformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount" decimal-digits-with-number-format ng-disabled="true">
 								</div>
 							</span>
 						</li>
 							
 						<li> <span class="pull-left margin5tb col-sm-4" style="margin-left:-15px;"> Can increase until year </span> 
-						<span class="col-sm-4" style="margin-left:-35px; "><input type="text" class="form-control" name="" value="{{leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount/12 | ceil}}" ></span></li>
+						<span class="col-sm-4" style="margin-left:-35px; "><input type="text" class="form-control" name="" value="{{(leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount ? leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount/12 : '') | ceil | ceil}}" ng-disabled="true"></span></li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -44,12 +44,14 @@
 		        <td><label>Interest Rate <span class="required">*</span></label></td>
 		        <td>
 		        	<div class="input-group">
-  							<input class="form-control" ng-model="leformdata.termsOfLoan.noteRatePercent" percentage-format>
+  							<!-- <input class="form-control" ng-model="leformdata.termsOfLoan.noteRatePercent" > -->
+  							<input class="form-control" ng-model="leformdata.termsOfLoan.noteRatePercent" name="noteRatePercent" ng-show="leformdata.loanInformation.amortizationType!='GraduatedPaymentARM' && leformdata.loanInformation.amortizationType!='AdjustableRate'" >
+            				<input class="form-control" ng-model="leformdata.termsOfLoan.disclosedFullyIndexedRatePercent" name="disclosedFullyIndexedRatePercent"  ng-show="leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanInformation.amortizationType=='AdjustableRate'">
   							<help-verbiage name="LE_InterestRate_Help" title="help_tooltip_padding"></help-verbiage>
   							<span class="input-group-addon input-default">%</span>
 		        	</div>
 		        </td>
-		        <td><select class="form-control pull-left" ng-model="leformdata.loanDetail.interestRateIncreaseIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        <td><select class="form-control pull-left" ng-model="leformdata.loanDetail.interestRateIncreaseIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="true">
 		        	</select>
 		        </td>
 		        <td>
@@ -57,24 +59,24 @@
 		        		<li ng-show="leformdata.loanDetail.interestRateIncreaseIndicator">
 		        			<span class="pull-left padding0 margin5t">Adjusts every</span> 
 		        			<span class="col-sm-2" >
-		        				<input type="text" value="{{(leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount/12) | round}}" class="form-control" name="" ng-disabled="true">
+		        				<input type="text" value="{{(leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount ? leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount/12 : '') | round}}" class="form-control" name="" ng-disabled="true">
 		        			</span> 
 		        			<span class="pull-left margin5tb" >years starting in year</span>
 		        			<span class="col-sm-2">
-		        				<input type="text" class="form-control" value="{{(leformdata.interestRateAdjustment.firstRateChangeMonthsCount/12)+1 | ceil}}" name="" ng-disabled="true">
+		        				<input type="text" class="form-control" value="{{(leformdata.interestRateAdjustment.firstRateChangeMonthsCount ? (leformdata.interestRateAdjustment.firstRateChangeMonthsCount/12)+1 : '') | ceil}}" name="" ng-disabled="true">
 		        			</span>
 		        		</li>
 		        		<li ng-show="leformdata.loanDetail.interestRateIncreaseIndicator">
 		        			<span class="pull-left margin5tb col-sm-3 padding0">Can go as high as</span> 
 		        			<span class="col-sm-3" style="margin-left:-35px;width:125px;">
 							<div class="input-group">								
-		        				<input type="text" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" class="form-control width58" name="" percentage-format>
+		        				<input type="text" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" class="form-control width58" name="" ng-disabled="true">
 								<span class="input-group-addon input-default">%</span>
 							</div>
 		        			</span> 
 		        			<span class="pull-left margin5tb">in year</span> 
 		        			<span class="col-sm-2">
-		        				<input type="text" ng-model="leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount" only-digits class="form-control" name="" maxlength="3">
+		        				<input type="text" ng-model="leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveYearCount" only-digits class="form-control" name="" maxlength="3" ng-keyup="interestRateYearToMonthsAdjustment()" ng-blur="interestRateYearToMonthsAdjustment()">
 		        			</span>
 		        		</li>
 		        		
@@ -83,8 +85,7 @@
 		      </tr>
 		      
 		      <tr>
-		        <td><label>Principal & Interest Payment Amount
-            <span class="required">*</span></label></td>
+		        <td><label>Principal & Interest Payment Amount <span class="required">*</span></label></td>
 		        <td>
 		        	<div class="input-group">
   						<span class="input-group-addon input-default">$</span>
@@ -93,15 +94,20 @@
 
 		        	</div>
 		        </td>
-		        <td><select class="form-control pull-left" ng-model="leformdata.loanDetail.paymentIncreaseIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        <td><select class="form-control pull-left" ng-model="leformdata.loanDetail.paymentIncreaseIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="true">
 		        	</select>        	
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList" ng-show="leformdata.loanDetail.paymentIncreaseIndicator == true">
 		        		<li> <span class="pull-left margin5tb">Adjusts every</span> 
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount" only-digits maxlength="3"></span> 
+		        			<span class="col-sm-2">
+		        				<input type="text" class="form-control" name="" value="{{(leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount ? leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount/12 : '') | round}}" maxlength="3" ng-disabled="true">
+		        			</span> 
 		        			<span class="pull-left margin5tb">years starting in year</span>
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" only-digits maxlength="3"></span></li>
+		        			<span class="col-sm-2">
+		        				<input type="text" class="form-control" name="" value="{{(leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount ? leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount/12 : '') | ceil}}" maxlength="3" ng-disabled="true">
+		        			</span>
+		        		</li>
 		        		<li><span class="pull-left margin5tb"> Can go as high as</span> 
 		        			<span class="col-sm-2" style="width:120px;">
 		        			<div class="input-group">
@@ -111,7 +117,7 @@
 							</span> 
 		        			<span class="pull-left margin5tb">in year</span> 
 		        			<span class="col-sm-2">
-		        			<input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount" only-digits maxlength="3">
+		        			<input type="text" class="form-control" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount" only-digits maxlength="2" ng-keyup="principleInterestRateYearToMonthsAdjustment()" ng-blur="principleInterestRateYearToMonthsAdjustment()">
 		        			</span>
 		        		</li>
 		        	</ul>
@@ -155,7 +161,7 @@
 		        				</div>
 		        				</span>
 		        					<span class="pull-left margin5tb">if you pay off the loan  in the first</span>
-		        					<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount" only-digits maxlength="3"></span>
+		        					<span class="col-sm-2"><input type="text" class="form-control" name="" ng-model="leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears" only-digits maxlength="3"></span>
 		        				<span class="pull-left margin5tb">years</span>
 		        		</li>
 			         </ul>
@@ -167,7 +173,7 @@
 		        <td><label></label></td>
 		        <td>
 		        	<div class="input-group">
-		        	<select class="form-control pull-left"  ng-model="leformdata.loanDetail.balloonIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	<select class="form-control pull-left"  ng-model="leformdata.loanDetail.balloonIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="true">
 		        	</select>
 		        	<help-verbiage name="LE_BallonPayment_help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
