@@ -1382,7 +1382,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     			if(pdfData!=null){
     				$("#pdfViewerId").show();
     				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData.responseData;
-					$("#carousel").pdfSlider();
+					$("#carousel").pdfSlider('init');
+					$("#carousel").show();
+					$(".PDFCloseIcon").show();
     			}
     			$("#spinner").hide();
     		}).error( function(pdfData, status){
@@ -1395,6 +1397,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
     $scope.closePDF = function(){
         $("#carousel").pdfSlider('destroy');
+        $(".PDFCloseIcon").hide();
     }
 
     $scope.generateXML = function(embeddedPDF){

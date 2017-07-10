@@ -461,6 +461,7 @@ app.directive('percentageFormat', function ($filter, $sce) {
 
         function inputValue(val) {
           if (val) {
+            val = val.toString();
             var digits = val.replace(/[^0-9.]/g, '');
             var decimalSplitValues = digits.split('.');
             if(decimalSplitValues[0].length>3)

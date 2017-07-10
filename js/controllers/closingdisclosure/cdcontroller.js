@@ -2551,6 +2551,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
 					$("#carousel").pdfSlider('init');
 					$("#carousel").show();
+					$(".PDFCloseIcon").show();
     			}
     			$("#spinner").hide();
     		}).error( function(pdfData, status){
@@ -2561,7 +2562,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	});
     }
     $scope.closePDF = function(){
-               $("#carousel").pdfSlider('destroy');
+		$("#carousel").pdfSlider('destroy');
+		$(".PDFCloseIcon").hide();
     }
 
     $scope.generateXML = function(embeddedPDF){

@@ -146,6 +146,7 @@ app.controller('menuCtrl', function ($scope, loginService, apiService, $routePar
   var pdfDestroy = function(){
     //$(".pdfSlider_button").click();
     $("#carousel").hide();
+    $(".PDFCloseIcon").hide();
     if($('#pdfViewerId .pdfSlider_rootContainer').length>0){ 
       $("#carousel").pdfSlider('destroy');
     }
