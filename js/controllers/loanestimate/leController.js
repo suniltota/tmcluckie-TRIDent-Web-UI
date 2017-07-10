@@ -141,10 +141,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.DocumentType = 'LoanEstimate';
     if($scope.loanBasicInfo!=undefined){
 	    if($scope.loanBasicInfo.loanFormType == 'standard'){
-	    	$scope.FormType = 'Standard'
+	    	$scope.FormType = 'StandardForm'
 	    }
 	    else if($scope.loanBasicInfo.loanFormType == 'alternate'){
-	    	$scope.FormType = 'Alternate'
+	    	$scope.FormType = 'AlternateForm'
 	    }
 
 	    if($scope.loanBasicInfo.loanPurposeType == 'purchase'){
@@ -1401,6 +1401,14 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     }
 
     $scope.generateXML = function(embeddedPDF){
+    	$scope.leformdata.documentClassification.documentType="Other";
+    	if($scope.leformdata.loanEstimateDocDetails.formType=='StandardForm')
+		{
+			$scope.leformdata.documentClassification.documentTypeOtherDescription="LoanEstimate:ModelForm";
+		}else{
+			$scope.leformdata.documentClassification.documentTypeOtherDescription="LoanEstimate:AlternateForm";
+	    }
+
     	$("#spinner").show();
     	leService.genearateXmlFromJson($scope.leformdata, embeddedPDF).success(function(data){
 
@@ -1426,29 +1434,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 				loanId = loanIdentifiers[j].loanIdentifier;
 		}
 		var filename = "LoanEstimate_"+loanId+ "_"+new Date().getTime();
-		var pom = document.createElement('a');
 		var bb = new Blob([xmltext], {type: 'application/octet-stream'});
-
-		pom.setAttribute('href', window.URL.createObjectURL(bb));
-		pom.setAttribute('download', filename +'.xml');
-
-		pom.dataset.downloadurl = ['application/octet-stream', pom.download, pom.href].join(':');
-		pom.draggable = true; 
-		pom.classList.add('dragout');
-		
-		// Internet Explorer 6-11
-		var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-		// Edge 20+
-		var isEdge = !isIE && !!window.StyleMedia;
-
-		if(!isEdge && !isIE) {
-			document.body.appendChild(pom);
-			pom.click();
-			document.body.removeChild(pom);	
-		} else {
-			pom.click();
-		}
+		saveAs(bb, filename);
     }
 
     $scope.$watchCollection('[leformdata.loanInformation.loanTermYears, leformdata.loanInformation.loanTermMonths,leformdata.loanInformation.rateLokerIndicator,leformdata.loanInformation.rateLokedDate,leformdata.loanInformation.rateLokedTime,leformdata.loanInformation.rateLockedTimePeriod,leformdata.loanInformation.rateLockedTimeZone]', function(newValues, oldValues){
