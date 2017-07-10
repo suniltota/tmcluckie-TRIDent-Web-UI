@@ -366,7 +366,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		};
 		
 		if($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList!=undefined) {
-			//$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(0, 0, angular.copy(recordingFeetotalObj));
+			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(0, 0, angular.copy(recordingFeetotalObj));
 			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feeType = 'RecordingFeeTotal';
 			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].displayLabel = 'Recording Fees Total';
 			$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToType = 'ThirdPartyProvider';
@@ -380,14 +380,18 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		}
 
 
-		var temp=0;
         for(i=0; i<$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++){
 	     	
-			if(i!=1 && temp==0 && $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'TransferTaxTotal') {
+	     	if(i!=0 && $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeTotal') {
+				$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0] = $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
+				$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
+				i--;
+			}
+
+			if(i!=1 && $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'TransferTaxTotal') {
 				$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[1] = $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i];
 				$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i, 1);
 				i--;
-				temp++;
 			}
 
 			if(i>1 && $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == '') {
