@@ -329,6 +329,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
    			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.splice(0, 0, angular.copy(originationCharges));
 			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges[0].feeType = 'LoanDiscountPoints';
 			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges[0].displayLabel = 'Loan Amount (Points)';
+			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges[0].integratedDisclosureSectionType = 'originationCharges';
 			for(j=0;j<$scope.sectionAfeeTypes.length;j++){
 				if($scope.sectionAfeeTypes[j].value=='LoanDiscountPoints'){
 					$scope.sectionAfeeTypes[j].disabled = true;
@@ -348,6 +349,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
        	for(i=0; i<$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.length; i++){
 			if (i!=0 && $scope.leformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints') {
 				$scope.leformdata.closingCostDetailsLoanCosts.originationCharges[0] = $scope.leformdata.closingCostDetailsLoanCosts.originationCharges[i];
+				$scope.leformdata.closingCostDetailsLoanCosts.originationCharges[0].integratedDisclosureSectionType = 'originationCharges';
 				$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.splice(i, 1);
 				i--;
 	       	}
