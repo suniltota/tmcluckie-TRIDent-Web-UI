@@ -10,13 +10,13 @@
 		        	</td>
 		        <td>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.assumabilityIndicator" ng-checked="leformdata.loanDetail.assumabilityIndicator == true"></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.assumabilityIndicator" ng-checked="leformdata.loanDetail.assumabilityIndicator == true" ng-true-value="true" ng-false-value="false"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Will allow, under certain conditions, this person to assume this loan on the original terms
 		        			</span>
 		        	</span>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.loanDetail.assumabilityIndicator == false"></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.assumabilityIndicator" ng-checked="leformdata.loanDetail.assumabilityIndicator == false" ng-true-value="false" ng-false-value="true"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Will Not allow assumption on this loan on the original terms
 		        			</span>
@@ -78,13 +78,13 @@
 		        </td>
 		        <td>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.assumabilityIndicator" ng-checked="leformdata.loanDetail.assumabilityIndicator == true"></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.creditorServicingOfLoanStatementType" ng-checked="leformdata.loanDetail.creditorServicingOfLoanStatementType == 'CreditorIntendsToServiceLoan'" ng-true-value="'CreditorIntendsToServiceLoan'" ng-false-value="'CreditorIntendsToTransferServicingOfLoan'"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Retain servicing for this loan
 		        			</span>
 		        	</span>
 		        	<span class="col-sm-12">
-		        			<span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.loanDetail.assumabilityIndicator == false"></span>
+		        			<span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.creditorServicingOfLoanStatementType" ng-checked="leformdata.loanDetail.creditorServicingOfLoanStatementType == 'CreditorIntendsToTransferServicingOfLoan'" ng-true-value="'CreditorIntendsToTransferServicingOfLoan'" ng-false-value="'CreditorIntendsToServiceLoan'"></span>
 		        			<span class="col-sm-11 pull-left margin5tb">
 		        				Transfer servicing for this loan
 		        			</span>
