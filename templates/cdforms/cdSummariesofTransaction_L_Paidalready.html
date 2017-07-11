@@ -1,5 +1,5 @@
 <div class="col-sm-12">
-	<h4>Summaries of Transaction - L. Paid Already by or on Behalf of Borrower at Closing</h4>
+	<h4>Summaries of Transaction - L. Paid Already by or on Behalf of Borrower at Closing</h4> 
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
@@ -9,6 +9,7 @@
 		      <tr>
 		        <td>
 		        	Deposit
+		        	<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingDeposit_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        <div class="input-group">
@@ -20,6 +21,7 @@
 		      <tr>
 		        <td>
 		        	Loan Amount
+		        	<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingLoanAmount_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        	<label>${{summariesOfTransaction_LSection.loanAmount | number:2}}</label>
@@ -28,6 +30,7 @@
 		      <tr>
 		        <td>
 		        	Existing Loan(s) Assumed or Taken Subject To
+		        	<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingExistingLoanAssumedSubjectTakenTo_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        	<div class="input-group">
@@ -39,6 +42,7 @@
 		      <tr>
 		        <td>
 		        	Seller Credits
+		        	<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingSellerCredits_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        <div class="input-group" ng-repeat="paidAlreadyByAdjustment in summariesOfTransaction_LSection.adjustments" ng-if="paidAlreadyByAdjustment.closingAdjustmentItemType=='SellerCredit'">
@@ -53,14 +57,14 @@
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
 		        <th class="innerSectionHeader"></th>
-		        <th class="innerSectionHeader">Label Name</th>
-		        <th class="innerSectionHeader">Valid Value</th>
-		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader col-sm-2">Amount</th>
+		        <th class="innerSectionHeader">Label Name<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingLabelName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Valid Value<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingOtherCreditsValidValue_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Description<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingOtherCreditsDescription_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">Amount<help-verbiage name="CD_EscrowAccountEscrowedPropertyCostsoverYear1_Help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		      <tr>
 		        <td>
-		        	<label>Is Disclosure Only?</label> 
+		        	<label class="col col-sm-12">Is Disclosure Only?<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingIsDisclosureOnly_Help" title="help_tooltip_text"></help-verbiage></label> 
 		        	<select class="form-control padding0" ng-model="cdformdata.disclosureOnly" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="disclosureChange()">
 		        	</select>
 		        </td>
@@ -112,13 +116,13 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader">Label Name</th>
-		        <th class="innerSectionHeader">Valid Value</th>
-		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader">Full Name of Payee</th>
-		        <th class="innerSectionHeader">Payee an Individual or Organization</th>
-		        <th class="innerSectionHeader">P.O.C Flag</th>
-		        <th class="innerSectionHeader col-sm-2">Amount</th>
+		        <th class="innerSectionHeader">Label Name<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingLabelName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Valid Value<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingOtherCreditsValidValue_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Description<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingOtherCreditsDescription_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Full Name of Payee<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingFullNamePayee_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Payee an Individual or Organization<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingPayeeIndividualOrganization_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">P.O.C Flag<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingPaidOutsideClosing_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">Amount<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingOtherCreditsAmount_Help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		      <tr ng-repeat="pbaOtherCredit in summariesOfTransaction_LSection.otherCredits track by $index">
 		        <td>
@@ -159,13 +163,13 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader">Adjustment  Name</th>
-		        <th class="innerSectionHeader">Valid Value</th>
-		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader">Full Name of Payee</th>
-		        <th class="innerSectionHeader">Payee an Individual or Organization</th>
-		        <th class="innerSectionHeader">P.O.C Flag</th>
-		        <th class="innerSectionHeader col-sm-2">Amount</th>
+		        <th class="innerSectionHeader">Adjustment  Name<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Valid Value<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentValidValue_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Description<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentDescription_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Full Name of Payee<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentFullNamePayee_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Payee an Individual or Organization<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentPayeeIndividualOrganization_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">P.O.C Flag<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentPaidOutsideClosing_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">Amount<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingOtherAdjustmentAmount_Help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		      <tr ng-repeat="adjustmentsPaidByAlready in summariesOfTransaction_LSection.adjustments track by $index" ng-if="adjustmentsPaidByAlready.closingAdjustmentItemType!='SellerCredit'">
 		        <td>
@@ -206,12 +210,12 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader">Prorated Item Name</th>
-		        <th class="innerSectionHeader">Valid Value</th>
-		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader col-sm-2">From Date</th>
-		        <th class="innerSectionHeader col-sm-2">To Date</th>
-		        <th class="innerSectionHeader col-sm-2">Amount</th>
+		        <th class="innerSectionHeader">Prorated Item Name<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsProratedItemName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Valid Value<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsValidValue_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Description<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsDescription_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">From Date<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsFromDate_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">To Date<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsToDate_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">Amount<help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAdjustmentsForItemsAmount_Help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		      <tr ng-repeat="adjustmentsUnpaidBySeller in summariesOfTransaction_LSection.adjustmentsUnpaidBySeller track by $index">
 		        <td ng-if="adjustmentsUnpaidBySeller.displayLabel =='City/Town Taxes' || adjustmentsUnpaidBySeller.displayLabel =='County Taxes' || adjustmentsUnpaidBySeller.displayLabel =='Assessments'">
@@ -268,7 +272,7 @@
 
 	<div class="col-sm-12 finalFooterValues">
 		<span class="col-sm-10 text-right">Total for Section L. Paid By or On Behalf Of Borrower At Closing : </span>
-		<span class="col-sm-2">${{summariesOfTransaction_LSection.sectionTotalAmount | number:2}}</span>
+		<span class="col-sm-2">${{summariesOfTransaction_LSection.sectionTotalAmount | number:2}} <help-verbiage name="CD_PaidAlreadyByOnBehalfBorrowerAtClosingAmount_Help" title="help_tooltip_text"></help-verbiage></span>
 	</div>
 	<div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('SummariesofTransaction_K')">Back</a></span>
