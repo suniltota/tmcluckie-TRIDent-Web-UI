@@ -1,6 +1,6 @@
 <div class="col-sm-12">
 	<h4>Summaries of Transaction - K. Due from Borrower At Closing</h4>
-	<span  class="col-sm-12 padding0">
+	<span  class="col-sm-12 padding0"> 
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
 		        <th class="innerSectionHeader col-sm-10" style="height:30px;">Label Name</th>
@@ -9,6 +9,7 @@
 		      <tr>
 		        <td>
 		        	Sales Price of Property <span class="required">*</span>
+		        	<help-verbiage name="CD_DueFromBorrowerAtClosingSalesPriceofProperty_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        	<label>${{summariesOfTransaction_KSection.salePriceProperty | number:2}}</label>
@@ -16,7 +17,8 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	Sale Price of Personal Property Included in Sale  
+		        	Sale Price of Personal Property Included in Sale 
+		        	<help-verbiage name="CD_DueFromBorrowerAtClosingSalePriceofPersonalPropertyIncludedinSale_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        <div class="input-group">
@@ -28,6 +30,7 @@
 		      <tr>
 		        <td>
 		        	Closing Costs Paid At Closing (J) 
+		        	<help-verbiage name="CD_DueFromBorrowerAtClosingClosingCostsPaidATClosing_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        	<label>${{summariesOfTransaction_KSection.closingCostsPaidAtClosing | number:2}}</label>
@@ -39,11 +42,11 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader">Liability Name</th>
-		        <th class="innerSectionHeader">Valid Value</th>
-		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader">Full Name Paid to Organization</th>
-		        <th class="innerSectionHeader col-sm-2">Amount</th>
+		        <th class="innerSectionHeader">Liability Name<help-verbiage name="CD_DueFromBorrowerAtClosingLiabilityName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Valid Value<help-verbiage name="CD_DueFromBorrowerAtClosingLiabilityValidValue_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Description<help-verbiage name="CD_DueFromBorrowerAtClosingLiabilityDescription_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Full Name Paid to Organization<help-verbiage name="CD_DueFromBorrowerAtClosingFullNamePaidToOrganization_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">Amount<help-verbiage name="CD_DueFromBorrowerAtClosingLiabilityAmount_Help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		     <tr ng-repeat="liablitySection in summariesOfTransaction_KSection.liabilites track by $index" ng-if="liablitySection.integratedDisclosureSectionType == 'DueFromBorrowerAtClosing'">
 		        <td>
@@ -74,11 +77,11 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader">Adjustment  Name</th>
-		        <th class="innerSectionHeader">Valid Value</th>
-		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader">Paid outside of Closing Flag</th>
-		        <th class="innerSectionHeader col-sm-2">Amount</th>
+		        <th class="innerSectionHeader">Adjustment  Name<help-verbiage name="CD_DueFromBorrowerAtClosingAdjustmentName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Valid Value<help-verbiage name="CD_DueFromBorrowerAtClosingAdjustmentValidValue_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Description<help-verbiage name="CD_DueFromBorrowerAtClosingAdjustmentDescription_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Paid outside of Closing Flag<help-verbiage name="CD_DueFromBorrowerAtClosingPaidOutsideClosing_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">Amount<help-verbiage name="CD_DueFromBorrowerAtClosingAdjustmentAmount_Help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		      <tr ng-repeat="adjustments in summariesOfTransaction_KSection.adjustments track by $index">
 		        <td>
@@ -110,12 +113,12 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader">Prorated Item Name</th>
-		        <th class="innerSectionHeader">Valid Value</th>
-		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader col-sm-2">From Date</th>
-		        <th class="innerSectionHeader col-sm-2">To Date</th>
-		        <th class="innerSectionHeader col-sm-2">Amount</th>
+		        <th class="innerSectionHeader">Prorated Item Name<help-verbiage name="CD_DueFromBorrowerAtClosingAdjustmentsProratedItemName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Valid Value<help-verbiage name="CD_DueFromBorrowerAtClosingAdjustmentsValidValue_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Description<help-verbiage name="CD_DueFromBorrowerAtClosingAdjustmentsDescription_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">From Date<help-verbiage name="CD_DueFromBorrowerAtClosingAdjustmentsFromDate_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">To Date<help-verbiage name="CD_DueFromBorrowerAtClosingAdjustmentsToDate_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">Amount<help-verbiage name="CD_DueFromBorrowerAtClosingAdjustmentsAmount_Help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		      <tr ng-repeat="adjustmentsPaidBySellerInAdvance in summariesOfTransaction_KSection.adjustmentsPaidBySeller" ng-if="adjustmentsPaidBySellerInAdvance.displayLabel =='City/Town Taxes' || adjustmentsPaidBySellerInAdvance.displayLabel =='County Taxes'">
 		        <td >
@@ -199,7 +202,7 @@
 	</span>
 
 	<div class="col-sm-12 finalFooterValues">
-		<span class="col-sm-10 text-right">Total for Section K. Due From Borrower At Closing : </span>
+		<span class="col-sm-10 text-right">Total for Section K. Due From Borrower At Closing : <help-verbiage name="CD_DueFromBorrowerAtClosingAmount_Help" title="help_tooltip_text"></help-verbiage> </span>
 		<span class="col-sm-2">${{summariesOfTransaction_KSection.sectionTotalAmount | number:2}}</span>
 	</div>
 	<div class="col-sm-12 margin10t">
