@@ -6,19 +6,22 @@
 			  <tbody>
                <tr>
                 <th style="border:1px solid white;"></th>	  	
-				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center col-sm-3" >Borrower Paid</th>
+				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center col-sm-3" >Borrower Paid
+				<help-verbiage name="CD_TotalClosingCostsSectionTotalAmountBorrowerPaid_Help" title="help_tooltip_text"></help-verbiage></th>
 				<th colspan="2" style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center col-sm-3">Seller Paid</th>
-				<th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center ng-binding col-sm-3">Paid By Others</th>
+				<th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center ng-binding col-sm-3">Paid By Others<help-verbiage name="CD_TotalClosingCostsFeeTypeOtherDescription_Help" title="help_tooltip_text"></help-verbiage></th>
 			  </tr>
               <tr>
-                <th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center"><strong>Section J. Total Closing Costs</strong></th>	  	
+                <th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader text-center"><strong>Section J. Total Closing Costs</strong> <help-verbiage name="CD_TotalClosingCostsSectionHeaderName_Help" title="help_tooltip_text"></help-verbiage></th>	  	
 				<th colspan="2" style="" class="innerSectionHeader innerSectionMainHeader text-center">${{cdformdata.closingCostsTotal.totalClosingCosts | number:2}}</th>
 				<th colspan="2"  ></th>
 				<th style="" ></th>
 			  </tr>
 
                <tr>
-                <td  class="  text-center"><strong>Closing Costs Subtotal (D + I)</strong></td>
+                <td  class="  text-center"><strong>Closing Costs Subtotal (D + I)</strong>
+                <help-verbiage name="CD_TotalClosingCostsSubsectionTotalAmount_Help" title="help_tooltip_text"></help-verbiage>
+                </td>
 				<td style="width: 12.5%;" class="text-center" >${{cdformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing | number:2}}</td>
 				<td style="width: 12.5%;" class="text-center">${{cdformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing | number:2}}</td>
 				<td style=" width: 12.5%;" class="  text-center">${{cdformdata.closingCostsTotal.closingCostsSubtotal.spAtClosing | number:2}}</td>
@@ -33,6 +36,7 @@
 							<span class="input-group-addon input-default" style="color: red;">$ -</span>
 							<!-- <input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostsTotal.lenderCredits" data-dismiss="modal" data-toggle="modal" data-target="#LedgerCreditConfirmModal" negative-digits> -->
 							<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostsTotal.lenderCredits" negative-digits ng-keyup="toleranceCheck()">
+							<help-verbiage name="CD_TotalClosingCostsLenderCredits_Help" title="help_tooltip_padding"></help-verbiage>
 							
 						</div>
 
@@ -51,6 +55,7 @@
 						<select class="form-control padding0" ng-model="toleranceCure"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="toleranceChange()">
 		        	    </select>
+
 					</span>
 				</td>
 				<td ></td>
@@ -65,6 +70,7 @@
 						<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
 							<input type="text" class="form-control padding0" name="" ng-model="cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount" decimal-digits-with-number-format>
+							<help-verbiage name="CD_TotalClosingCostsLenderCreditToleranceCureamount_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
 					</span>
 				</td>
