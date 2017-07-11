@@ -1369,6 +1369,40 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     		$scope.leformdata.payment.paymentRule.totalOptionalPaymentCount = $scope.leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount;
     	}
     }
+    
+    $scope.calculatePayments = function() {
+    	$("#spinner").show();
+    	leService.genearateXmlFromJson($scope.leformdata, false).success(function(xmldata){
+    		leService.calculatePayments(xmldata).success(function(calculationsData){
+    			var xmlstring = $.parseXML( calculationsData );
+                var $xml = $(xmlstring);
+                var Exceptions = $xml.find("exceptions");
+                if(Exceptions.length>0) {
+                	var x2js = new X2JS();
+				    var errors = x2js.xml_str2json(calculationsData);
+				    $scope.calculation_errors = errors.exceptions.exception;
+				    $('#CalculateModalPopup').modal('show');
+				    $("#spinner").hide();
+                } else {
+                	leService.loadTransformData(calculationsData).success(function(jsonData){
+						//$scope.leformdata = jsonData;
+		    			localStorage.jsonData = JSON.stringify(jsonData);
+						initializeLEformdata();
+		    			$("#spinner").hide();
+	    			}).error( function(data, status){
+			    		alert('There is an error getting while converting calculations xml to json. Please provide the input data properly and check again.');
+			    		$("#spinner").hide();
+			    	});
+                }
+    		}).error( function(data, status){
+    			alert('There is an error getting while converting ucd xml to calculations xml. Please provide the input data properly and check again.');
+	    		$("#spinner").hide();
+	    	});
+    	}).error( function(data, status){
+    		alert('There is an error getting while converting json to xml. Please provide the input data properly and check again.');
+    		$("#spinner").hide();
+    	});
+    }
 
     $scope.generatePDF = function(){
     	$scope.leformdata.documentClassification.documentType="Other";
@@ -2172,6 +2206,13 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			}
 		}
     },true);
+
+    $scope.$watch('leformdata.closingInformationDetail.closingCostExpirationDate', function(newValue, oldValue){
+        var expireDate = new Date($scope.leformdata.closingInformationDetail.closingCostExpirationDate);
+            expireDate.setHours(0);
+            expireDate.setMinutes(0);
+        $scope.leformdata.integratedDisclosureDetail.integratedDisclosureEstimatedClosingCostsExpirationDatetime=$filter('date')(expireDate, "yyyy-MM-ddTHH:mm:ss'Z'");
+	});
 
    $scope.showtooltip = function($event){
     $scope.mml=angular.element(document.getElementById($event.target.id));

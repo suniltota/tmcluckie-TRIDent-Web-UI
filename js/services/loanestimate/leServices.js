@@ -13,6 +13,13 @@ app.service('leService', function(apiService){
             xmlData:xmlData
         });
     },
+    this.calculatePayments = function(data){
+        return apiService.request({
+            apiMethod: "actualize/transformx/services/ucd/calculatepayments/",
+            httpMethod: 'POST',
+            formData:data
+        });
+    },
     this.saveUCD = function(data){
         return apiService.request({
             apiMethod: "services/actualize/saveUCDXML",
@@ -43,4 +50,5 @@ app.service('leService', function(apiService){
             formData:data
         });
     }
+
 });
