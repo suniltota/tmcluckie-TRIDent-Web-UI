@@ -1379,6 +1379,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	}
     }
 
+    $scope.updateOptionalPaymentMonthsCount = function() {
+    	if($scope.leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount) {
+    		$scope.leformdata.payment.paymentRule.totalOptionalPaymentCount = $scope.leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount;
+    	}
+    }
+
     $scope.generatePDF = function(){
     	$scope.leformdata.documentClassification.documentType="Other";
     	if($scope.leformdata.loanEstimateDocDetails.formType=='StandardForm')
@@ -1475,13 +1481,43 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
     });
 
+        $scope.$watchCollection('[leformdata.loanInformation.loanTermYears, leformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){
+    	$scope.leformdata.maturityRule.loanMaturityPeriodCount = 0;
+    	if($scope.leformdata.loanInformation.loanTermYears)
+    		$scope.leformdata.maturityRule.loanMaturityPeriodCount = parseInt($scope.leformdata.loanInformation.loanTermYears * 12);
+    	if($scope.leformdata.loanInformation.loanTermMonths)
+    		$scope.leformdata.maturityRule.loanMaturityPeriodCount = $scope.leformdata.maturityRule.loanMaturityPeriodCount + parseInt($scope.leformdata.loanInformation.loanTermMonths);
+    	$scope.leformdata.maturityRule.loanMaturityPeriodType = 'Month';
+    });
+
     $scope.$watch('leformdata.loanDetail.negativeAmortizationIndicator', function(newValue, oldValue){
     	if($scope.leformdata.loanDetail.negativeAmortizationIndicator) {
     		$scope.leformdata.loanDetail.loanAmountIncreaseIndicator = true;
+    		$scope.leformdata.payment.paymentRule.paymentOptionIndicator = true;
     	}
     	else {
     		$scope.leformdata.loanDetail.loanAmountIncreaseIndicator = false;
     		$scope.leformdata.negativeAmortization.negativeAmortizationType = '';
+    		$scope.leformdata.negativeAmortization.negativeAmortizationMaximumLoanBalanceAmount = '';
+    		$scope.leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount = '';
+    	}
+    }, true);
+
+    $scope.$watch('leformdata.interestRateAdjustment', function(newValue, oldValue){
+    	if($scope.leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent || $scope.leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount) {
+    		$scope.leformdata.interestRateAdjustment.firstAdjustmentRule = 'First';
+    	}
+    	if($scope.leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent || $scope.leformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount) {
+    		$scope.leformdata.interestRateAdjustment.subsequentAdjustmentRule = 'Subsequent';
+    	}
+    }, true);
+
+    $scope.$watch('leformdata.principalAndInterestPaymentAdjustment', function(newValue, oldValue){
+    	if($scope.leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount) {
+    		$scope.leformdata.principalAndInterestPaymentAdjustment.firstAdjustmentRuleType = 'First';
+    	}
+    	if($scope.leformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount) {
+    		$scope.leformdata.principalAndInterestPaymentAdjustment.subsequentAdjustmentRuleType = 'Subsequent';
     	}
     }, true);
 

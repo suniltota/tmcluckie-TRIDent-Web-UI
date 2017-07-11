@@ -706,7 +706,7 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 							<div class="col-sm-2 padding0">
 								<input type="text" class="form-control" name=""
 									ng-model="leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount"
-									only-digits maxlength="3">
+									only-digits maxlength="3" ng-blur="updateOptionalPaymentMonthsCount()">
 								<help-verbiage
 									name="LE_WhatNegativeAmortizationLimiinMonthsCount_help"
 									title="help_tooltip_padding_left"></help-verbiage>
