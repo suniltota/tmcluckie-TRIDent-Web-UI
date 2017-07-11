@@ -19,6 +19,7 @@
 		        	<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
 				        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+				        	<help-verbiage name="CDCalculatingCashToCloseAlternateFormLoanAmount_Help" title="help_tooltip_padding"></help-verbiage>
 				    </div>
 				        </td>
 		        <td>
@@ -41,6 +42,7 @@
 		        	<div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+		        	<help-verbiage name="CDccctableTotalClosingCosts_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
@@ -65,6 +67,7 @@
 		        	<div class="input-group">
 					<span class="input-group-addon input-default" style="color: red;">$ -</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount" negative-digits>
+		        	<help-verbiage name="CDCalculatingCashToCloseAlternateFormTotalClosingCosts_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
@@ -89,10 +92,13 @@
 		        	<div class="input-group" ng-show="loanBasicInfo.loanFormType=='standard'">
 						<span class="input-group-addon input-default" style="color: red;">$ -</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemEstimatedAmount" negative-digits>
+		        		<help-verbiage name="CDccctableClosingCostsPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        	<div class="input-group" ng-show="loanBasicInfo.loanFormType=='alternate'">
 						<span class="input-group-addon input-default">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemEstimatedAmount">
+		        		<help-verbiage name="CDCalculatingCashToCloseAlternateFormClosingCostsPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage>
+
 		        	</div>
 		        </td>
 		        <td>
@@ -115,12 +121,14 @@
 		        	<div class="input-group">
 						<span class="input-group-addon input-default">$</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+			        	<help-verbiage name="CDccctableClosingCostsFinanced_Help" title="help_tooltip_padding"></help-verbiage>
 			        </div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount" decimal-digits-with-number-format-allow-negative>
+		        		<!-- <help-verbiage name="CDccctableClosingCostsPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage> -->
 		        	</div>	
 		        </td>
 		        <td>
@@ -140,6 +148,7 @@
 		        	<div class="input-group">
 						<span class="input-group-addon input-default">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format>
+		        		<help-verbiage name="CDccctableDownPaymentFundsFromBorrower_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
@@ -165,6 +174,7 @@
 		        <div class="input-group">
 						<span class="input-group-addon input-default" style="color: red;">$ -</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount" negative-digits>
+		        		<help-verbiage name="CDccctableDeposit_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
@@ -187,6 +197,7 @@
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="color: red;">$ -</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount" negative-digits>
+		        		<help-verbiage name="CDccctableFundsForBorrower_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
@@ -212,6 +223,7 @@
 		        <div class="input-group">
 					<span class="input-group-addon input-default" style="color: red;">$ -</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount" negative-digits>
+		        	<help-verbiage name="CDccctableSellerCredits_Help" title="topPaddingTooltip"></help-verbiage>
 		        </div>
 		        </td>
 		        <td>
@@ -234,6 +246,7 @@
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount" decimal-digits-with-number-format-allow-negative>
+		        	<help-verbiage name="CDccctableAdjustmentsOtherCredits_Help" title="topPaddingTooltip"></help-verbiage>
 		        </div>	
 		        </td>
 		        <td>
@@ -259,6 +272,7 @@
 		        <div class="input-group">
 					<span class="input-group-addon input-default" style="color: red;">$ -</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount" negative-digits>
+		        	<help-verbiage name="CDCalculatingCashToCloseAlternateFormPayoffsandPayments_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>	
 		        </td>
 		        <td>
@@ -309,6 +323,7 @@
 			        		<div class="input-group">
 								<span class="input-group-addon input-default">$</span>
 					        	<input type="text" class="form-control" name="" ng-model="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount" decimal-digits-with-number-format>
+					        	<help-verbiage name="CDCalculatingCashToCloseAlternateFormClosingCostsFinanced_Help" title="help_tooltip_padding"></help-verbiage>
 					        </div>
 					    </span>
 		        	</span>
