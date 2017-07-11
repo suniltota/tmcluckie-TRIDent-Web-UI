@@ -28,7 +28,7 @@
 							</div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default" ng-style="{ 'padding' : cdformdata.projectedPayments.paymentCalculation.length == 4 ? '3px 6px' : ''}">$</span>
-		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" name="projectedPaymentPrincipalAndInterestMinimumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" name="projectedPaymentPrincipalAndInterestMinimumPaymentAmount" max-val="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" name="projectedPaymentPrincipalAndInterestMaximumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format min-and-max-check">
                 				</actualize-input>
                 				<help-verbiage name="CD_PrincipalInterestPayment_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        			</div>
@@ -37,7 +37,7 @@
 		        			<div class="col-sm-12 text-center">Maximum<span class="required" ng-show="$index==0">*</span></div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default" ng-style="{ 'padding' : cdformdata.projectedPayments.paymentCalculation.length == 4 ? '3px 6px' : ''}">$</span>
-		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" name="projectedPaymentPrincipalAndInterestMaximumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" name="projectedPaymentPrincipalAndInterestMaximumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." min-val="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount"  dependencies="decimal-digits-with-number-format min-and-max-check">
                 				</actualize-input>
 		        			</div>
 		        	</div>

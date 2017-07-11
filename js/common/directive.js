@@ -667,6 +667,32 @@ app.directive('minMaxValue', function($sce) {
   };
 });
 
+app.directive('minAndMaxCheck', function($sce, $compile) {
+  return {
+    require: 'ngModel',
+    restrict: 'A',
+    link: function(scope, elem, attr, ngModel) {
+       elem.on('blur', function (e) {
+        var min = parseFloat(scope.$eval(attr.minVal));
+        var max = parseFloat(scope.$eval(attr.maxVal));
+        var value = parseFloat(e.target.value);
+        if(value > max){
+           e.currentTarget.style.border="1px solid #f17777"
+           message = "value should be less than maximum value " + max;
+        }else if(value < min){
+           e.currentTarget.style.border="1px solid #f17777"
+           message = "value should be greater than minimum value " + min;
+        }else{
+          e.currentTarget.style.border=""
+          message = "";
+        }
+        scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+        $compile(elem.contents())(scope);
+      })
+    }
+  };
+});
+
 app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, $sce, $compile)
 {
     return {
