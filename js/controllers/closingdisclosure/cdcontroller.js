@@ -1326,7 +1326,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     $scope.interestChange = function(){
     	$scope.cdformdata.interestOnly.interestOnlyTermMonthsCount = '';
-    	if(cdformdata.loanDetail.interestOnlyIndicator){
+    	if($scope.cdformdata.loanDetail.interestOnlyIndicator){
     		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = true;
     	}else{
     		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = false;
