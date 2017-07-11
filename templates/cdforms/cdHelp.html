@@ -1,7 +1,7 @@
 <div class="bodySection col-sm-12">
   
    <h4>Help - Closing Disclosure</h4>
-
+ 
  <div class="helpcontainer">
    <span class="subtab">
       <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_ClosingInformation_Help"  ng-click="CD_ClosingInformation_Help = CD_ClosingInformation_Help + 1" ng-init="CD_ClosingInformation_Help=0" > 
@@ -3405,8 +3405,8 @@
     			  </ul>
     			  </div> 
 			  </span>
-
 		  </div>
+
 		  <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDPayoffsPaymentsHelp"  ng-click="CDPayoffsPaymentsHelp = CDPayoffsPaymentsHelp + 1" ng-init="CDPayoffsPaymentsHelp=0" > 	  
 			<span>Payoffs and Payments</span>
           <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDPayoffsPaymentsHelp%2==0" ></span>
@@ -3482,8 +3482,11 @@
     			  </div> 
 			  </span>			  
 		  </div>
+      
+      </div>
 		</span>		
 </div>
+
  <div class="helpcontainer">
    <span class="subtab">
       <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_LoanCalculationQualifiedMortgage_Help"  ng-click="CD_LoanCalculationQualifiedMortgage_Help = CD_LoanCalculationQualifiedMortgage_Help + 1" ng-init="CD_LoanCalculationQualifiedMortgage_Help=0" > 
@@ -3578,4 +3581,133 @@
 		  </div>
 		</span>
 </div>
+</span>
+</div>
+<!-- -->
+<div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_LoanDisclosures_Help"  ng-click="CD_LoanDisclosures_Help = CD_LoanDisclosures_Help + 1" ng-init="CD_LoanDisclosures_Help=0" > 
+      <strong>Loan Disclosures</strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_LoanDisclosures_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_LoanDisclosures_Help%2==1"></span>
+      </span>
+    
+      <div class="col-sm-12 collapse" id="CD_LoanDisclosures_Help">
+      <span class="field_help">
+             <h5> Assumption  : </h5>
+                    <div id="CD_LoanDisclosureAssumption_Help">A set of check boxes, as seen in the CD PDF, the user may choose one or the other to indicate if an assumption is allowed or not under the original terms  
+              </div> 
+        </span>
+        <span class="field_help">
+             <h5> Demand Feature : </h5>
+                    <div id="CD_LoanDisclosureDemandFeature_Help">A set of check boxes, as seen in the CF PDF, the user may choose one or the other to identify if the transaction has a demand feature, which permits your lender to require early repayment of the loan or not. 
+              </div> 
+        </span>
+        <span class="field_help">
+           <h5> Late Charges : </h5>
+                  <div id="CD_LoanDisclosureLateCharges_Help">A user may click on the button called Input State Values which will fill in the appropriate information to support the number of days grace period, any amount or percentage and the type if a late charge occurs Or the user may enter in the values for the following text boxes
+                  <ul>
+                    <li>Number of Grace Period Days</li>
+                    <li>Late Fee if a Percent</li>
+                    <li>Late Fee if an amount</li>
+                    <li>Late Charge Type – describes of what the fee is a percent of or an amount of..</li>
+                  </ul>
+                  Note that in the CFPB Integrated Mortgage Disclosure Regulation there is guidance as to when to display percentage vs Amount or both please validate against the regulation to provide input guidance. 
+            </div> 
+        </span>
+        <span class="field_help">
+           <h5> Partial Payment : </h5>
+                  <div id="CD_LoanDisclosurePartialPayment_Help">User may choose one to three of the check boxes regarding the situation of the lender for partial payments, please see the CFPBs Integrated Mortgage Disclosure Regulation for guidance.
+            </div> 
+        </span>
+      <span class="field_help">
+           <h5> Negative Amortization : </h5>
+                  <div id="CD_LoanDisclosureNegativeAmortization_Help">The values to support the CD PDF are found in the Product Description section in the Loan Information, there is a link in the Disclosure section that is called Product Description that takes the user to the information.
+            </div> 
+        </span>      
+      </div>
+    </span>
+</div>
+<!-- -->
+<!-- -->
+<div class="helpcontainer">
+   <span class="subtab">
+      <span class="pull-left MainHeadingHelp" data-toggle="collapse" data-target="#CD_EscrowAccount_Help"  ng-click="CD_EscrowAccount_Help = CD_EscrowAccount_Help + 1" ng-init="CD_EscrowAccount_Help=0" > 
+      <strong>ESCROW ACCOUNT </strong>
+      <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CD_EscrowAccount_Help%2==0" ></span>
+      <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CD_EscrowAccount_Help%2==1"></span>
+      </span>
+      <div class="col-sm-12 collapse" id="CD_EscrowAccount_Help">
+
+      <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDWillHaveAnescrowAccountHelp"  ng-click="CDWillHaveAnescrowAccountHelp = CDWillHaveAnescrowAccountHelp + 1" ng-init="CDWillHaveAnescrowAccountHelp=0" >    
+      <span>Will Have an Escrow Account </span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDWillHaveAnescrowAccountHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDWillHaveAnescrowAccountHelp%2==1"></span>
+          </span>
+      
+      <div class="col-sm-12 collapse" id="CDWillHaveAnescrowAccountHelp">
+            <span class="field_help">
+                   <h5> Escrowed Property Costs over Year 1  : </h5>
+                          <div id="CD_EscrowAccountEscrowedPropertyCostsoverYear1_Help">NOT Editable in this location, the values are pulled from the Section G. Initial Escrow Payment at closing, includes:
+                          <ul>
+                          <li>Amount for the year</li>
+                          <li>Text supporting the statement, Escrowed Property Costs includes </li>
+                          </ul>
+                    </div> 
+              </span>
+              <span class="field_help">
+                   <h5> Non-Escrowed Property Costs over Year 1 : </h5>
+                          <div id="CD_EscrowAccountNonEscrowedPropertyCostsoverYear1_Help">IS editable and is the ONLY location in which a user may enter in the amount of non-escrowed property costs for one year.  
+                          <ul>
+                            <li>Amount for the year</li>
+                            <li>Text supporting the statement, Non-Escrowed Property Costs includes</li>
+                          </ul>
+                    </div> 
+              </span>
+              <span class="field_help">
+                 <h5> Initial Escrow Payment : </h5>
+                        <div id="CD_EscrowAccountIntialEscrowPayment_Help">NOT Editable in this location, the values are pulled from the Section G. Initial Escrow Payment at closing as the total amount of section G to identify the total cushion for the initial payment in the transaction
+                  </div> 
+              </span>
+              <span class="field_help">
+                 <h5> Monthly Escrow Payment : </h5>
+                        <div id="CD_EscrowAccountMonthlyEscrowPayment_Help">NOT Editable in this location, the values are pulled from the Section called Projected payments, the user will enter in the monthly escrow payment that will input the value in this table.
+                  </div> 
+              </span>
+        </div>  
+        <span class="pull-left subHeadingHelp" data-toggle="collapse" data-target="#CDWillNotHaveAnescrowAccountHelp"  ng-click="CDWillNotHaveAnescrowAccountHelp = CDWillNotHaveAnescrowAccountHelp + 1" ng-init="CDWillNotHaveAnescrowAccountHelp=0" >    
+      <span>Will Not Have an Escrow Account </span>
+          <span class="pull-right glyphicon glyphicon-chevron-right directionIcon" ng-show="CDWillNotHaveAnescrowAccountHelp%2==0" ></span>
+          <span class="pull-right glyphicon glyphicon-chevron-down directionIcon" ng-show="CDWillNotHaveAnescrowAccountHelp%2==1"></span>
+          </span>
+      
+      <div class="col-sm-12 collapse" id="CDWillNotHaveAnescrowAccountHelp">
+      The following information is needed to support the transaction if an escrow account is NOT established per the rule.
+            <span class="field_help">
+                   <h5> Escrowed Property Costs over Year 1  : </h5>
+                          <div id="CD_NonEscrowEscrowedPropertyCostsoverYear1_Help">IS Editable in this location, the user must enter in the total amount of property costs over the first year
+                          <ul>
+                          <li>Amount for the year</li>
+                          </ul>
+                    </div> 
+              </span>
+              <span class="field_help">
+                   <h5> Escrow Waiver Fee : </h5>
+                     <div id="CD_NonEscrowEscrowWaiverFee_Help">If the Escrow Waiver Fee is present in the Closing Cost Details sections A., or B. Or C. that amount will be presented in this table as a NON-Editable value.  IF the user wished to change the value then must go to the location of entry. 
+                    </div> 
+              </span>
+              <span class="field_help">
+                 <h5> Identify the reason for No Escrow Account  : </h5>
+                        <div id="CD_EscrowAccountIndentifyReasonforNoEscrowAccount_Help">If there is no Escrow Account, the user must choose a check box to provide a reason as to why there is no escrow for the transaction. The choices include:
+                        <ul>
+                          <li>The Borrower Declined to escrow property costs</li>
+                          <li>The Lender does not offer Escrow Account</li>
+                        </ul>
+                  </div> 
+              </span>
+        </div>   
+      </div>
+    </span>
+</div>
+<!-- -->
 </div>

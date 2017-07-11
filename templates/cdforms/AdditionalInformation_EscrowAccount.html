@@ -16,14 +16,8 @@
 		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Escrowed Property Costs over Year 1
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>NOT Editable in this location, the values are pulled from the Section G. Initial Escrow Payment at closing, includes:</p>
-				           	 <ul><li>Amount for the year</li>
-				           	 <li>Text supporting the statement, Escrowed Property Costs includes</li></ul>
-				          </span>
-				 </span>
+		        	<help-verbiage name="CD_EscrowAccountEscrowedPropertyCostsoverYear1_Help" title="help_tooltip_text"></help-verbiage>
+		        	
 		        </td>
 		        <td>
 		        	<label>${{cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount | number:2}}</label>
@@ -36,13 +30,7 @@
 		      <tr ng-show="!cdformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Estimated Property Costs over Year 1
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>IS Editable in this location, the user must enter in the total amount of property costs over the first year</p>
-				           	 <ul><li>Amount for the year</li></ul>
-				          </span>
-				 </span>
+		        	<help-verbiage name="CD_NonEscrowEscrowedPropertyCostsoverYear1_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        <div class="input-group">
@@ -57,12 +45,7 @@
 		      <tr ng-show="!cdformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Escrow waiver Fee
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>If the Escrow Waiver Fee is present in the Closing Cost Details sections A., or B. Or C. that amount will be presented in this table as a NON-Editable value.  IF the user wished to change the value then must go to the location of entry.</p>
-				          </span>
-				 </span>
+		        	<help-verbiage name="CD_NonEscrowEscrowWaiverFee_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        	<label>${{escrowWaiverFeeAmount | number:2}}</label>
@@ -75,14 +58,7 @@
 		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Non-Escrowed Property Costs over Year 1
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>IS editable and is the ONLY location in which a user may enter in the amount of non-escrowed property costs for one year.</p>
-				           	 <ul><li>Amount for the year</li>
-				           	 <li>Text supporting the statement, Non-Escrowed Property Costs includes</li></ul>
-				          </span>
-				 </span>
+		        	<help-verbiage name="CD_EscrowAccountNonEscrowedPropertyCostsoverYear1_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        <div class="input-group">
@@ -98,12 +74,7 @@
 		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Initial Escrow Payment  
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>NOT Editable in this location, the values are pulled from the Section G. Initial Escrow Payment at closing as the total amount of section G to identify the total cushion for the initial payment in the transaction.</p>
-				         </span>
-				 </span>
+		        	<help-verbiage name="CD_EscrowAccountIntialEscrowPayment_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        	<label>${{cdformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount | number:2}}</label>
@@ -115,12 +86,8 @@
 		      </tr>
 		      <tr ng-show="cdformdata.loanDetail.escrowIndicator">
 		        <td>
-		        	Monthly Escrow Payment  <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>NOT Editable in this location, the values are pulled from the Section called Projected payments, the user will enter in the monthly escrow payment that will input the value in this table.</p>
-				          </span>
-				 </span>
+		        	Monthly Escrow Payment 
+		        	<help-verbiage name="CD_EscrowAccountMonthlyEscrowPayment_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        	<label>${{cdformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount | number:2}}</label>
@@ -133,14 +100,7 @@
 		      <tr ng-show="!cdformdata.loanDetail.escrowIndicator">
 		        <td>
 		        	Identify the reason for No Escrow Account
-		        	<span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-				        <b></b>	
-				         <span> 
-				           	 <p>If there is no Escrow Account, the user must choose a check box to provide a reason as to why there is no escrow for the transaction.The choices include:</p>
-				           	 <ul><li>The Borrower Declined to escrow property costs</li>
-				           	 <li>The Lender does not offer Escrow Account</li></ul>
-				          </span>
-				 </span>
+		        	<help-verbiage name="CD_EscrowAccountIndentifyReasonforNoEscrowAccount_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td colspan="2">
 		        	<span class="col-sm-12">
