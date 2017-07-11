@@ -676,6 +676,7 @@ app.directive('minAndMaxCheck', function($sce, $compile) {
         var min = parseFloat(scope.$eval(attr.minVal));
         var max = parseFloat(scope.$eval(attr.maxVal));
         var value = parseFloat(e.target.value);
+        if(!isNaN(value)){
         if(value > max){
            e.currentTarget.style.border="1px solid #f17777"
            message = "value should be less than maximum value " + max;
@@ -686,9 +687,14 @@ app.directive('minAndMaxCheck', function($sce, $compile) {
           e.currentTarget.style.border=""
           message = "";
         }
+        }else{
+          e.currentTarget.style.border=""
+          message = "";
+        }
         scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
         $compile(elem.contents())(scope);
       })
+
     }
   };
 });
