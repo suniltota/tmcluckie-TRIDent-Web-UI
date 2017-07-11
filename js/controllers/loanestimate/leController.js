@@ -1897,7 +1897,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    }
 	}
 
-    if($scope.loanBasicInfo.loanFormType == 'stndard'){
+    if($scope.loanBasicInfo.loanFormType == 'standard'){
 	    if($scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount)
 	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount);
 	    if($scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount)
