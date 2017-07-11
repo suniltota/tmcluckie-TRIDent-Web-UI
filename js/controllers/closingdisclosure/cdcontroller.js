@@ -2402,11 +2402,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.nonEscrowCalc = function(value){
     	var etiaTotalAmountInCalc = 0;
     	var nonEscrowAmountInCalc = 0;
-        if(value!='' && value!=undefined){
         	nonEscrowAmountInCalc = value ? parseFloat(value) : +0;
         	etiaTotalAmountInCalc = $scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount ? parseFloat($scope.cdformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount) : +0;
             $scope.cdformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount = parseFloat((etiaTotalAmountInCalc+nonEscrowAmountInCalc)/12);
-        }
     }
 
     $scope.updateDepositAmount = function(){
