@@ -8,7 +8,7 @@
 			</tr>
 			<tr>
 				<td>
-					Sales Price of Property
+					Sales Price of Property<help-verbiage name="CD_DueToSellerAtClosingSalesPriceProperty_Help" title="help_tooltip_text"></help-verbiage>
 				</td>
 				<td>
 					<label>${{summariesOfTransaction_MSection.salePriceProperty | number:2}}</label>
@@ -17,6 +17,7 @@
 			<tr>
 				<td>
 					Sale Price of Personal Property Included in Sale
+					<help-verbiage name="CD_DueToSellerAtClosingSalePricePersonalPropertyIncludedSale_Help" title="help_tooltip_text"></help-verbiage>
 				</td>
 				<td>
 					<label>${{summariesOfTransaction_MSection.salePricePersonalProperty | number:2}}</label>
@@ -27,11 +28,11 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader">Adjustment  Name</th>
-		        <th class="innerSectionHeader">Valid Value</th>
-		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader">Paid outside of Closing Flag</th>
-		        <th class="innerSectionHeader col-sm-2">Amount</th>
+		        <th class="innerSectionHeader">Adjustment  Name<help-verbiage name="CD_DueToSellerAtClosingAdjustmentName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Valid Value<help-verbiage name="CD_DueToSellerAtClosingAdjustmentValidValue_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Description<help-verbiage name="CD_DueToSellerAtClosingAdjustmentDescription_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Paid outside of Closing Flag<help-verbiage name="CD_DueToSellerAtClosingAdjustmentPaidOutsideClosing_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">Amount<help-verbiage name="CD_DueToSellerAtClosingAdjustmentsAmount_Help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		      <tr ng-repeat="adjustment in summariesOfTransaction_MSection.adjustments track by $index">
 		        <td ng-if="adjustment.isFromBorrower">
@@ -78,12 +79,12 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader">Prorated Item Name</th>
-		        <th class="innerSectionHeader">Valid Value</th>
-		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader col-sm-2">From Date</th>
-		        <th class="innerSectionHeader col-sm-2">To Date</th>
-		        <th class="innerSectionHeader col-sm-2">Amount</th>
+		        <th class="innerSectionHeader">Prorated Item Name<help-verbiage name="CD_DueToSellerAtClosingAdjustmentsForItemsProratedItemName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Valid Value<help-verbiage name="CD_DueToSellerAtClosingAdjustmentsForItemsValidValue_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Description<help-verbiage name="CD_DueToSellerAtClosingAdjustmentsForItemsDescription_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">From Date<help-verbiage name="CD_DueToSellerAtClosingAdjustmentsForItemsFromDate_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">To Date<help-verbiage name="CD_DueToSellerAtClosingAdjustmentsForItemsToDate_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">Amount<help-verbiage name="CD_DueToSellerAtClosingAdjustmentsForItemsAmount_Help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		       <tr ng-repeat="adjustmentsPaidBySellerInAdvance in summariesOfTransaction_MSection.adjustmentsPaidBySeller track by $index">
 		        <td >
@@ -111,7 +112,7 @@
 	</span>
 
 	<div class="col-sm-12 finalFooterValues">
-		<span class="col-sm-10 text-right">Total For Section M. Due to Seller At Closing : </span>
+		<span class="col-sm-10 text-right">Total For Section M. Due to Seller At Closing <help-verbiage name="CD_DueToSellerAtClosingAmount_Help" title="help_tooltip_text"></help-verbiage> : </span>
 		<span class="col-sm-2">${{summariesOfTransaction_MSection.sectionTotalAmount | number:2}}</span>
 	</div>
 	<div class="col-sm-12 margin10t">
