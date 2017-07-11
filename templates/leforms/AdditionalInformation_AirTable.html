@@ -176,7 +176,16 @@
 		</table>
 	</span>
 	<div class="col-sm-12 margin10t">
-			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('ApTable')">Back</a></span>
-			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('ContactInfo')">Next</a></span>
+			<!-- <span class="pull-left">
+			<a class="btn btn-default" ng-click="changeTab('ApTable')">Back</a></span> -->
+			<span class="pull-left">
+
+				<a class="btn btn-default" ng-click="changeTab('LoanDisclosures')">Back</a>
+			</span>
+			<span class="pull-right">
+                <a class="btn btn-primary" ng-show="leformdata.loanDetail.interestOnlyIndicator==true || leformdata.payment.paymentRule.paymentOptionIndicator==true || leformdata.loanInformation.amortizationType=='Step' || leformdata.loanInformation.amortizationType=='GPM' || leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanDetail.seasonalPaymentFeatureIndicator==true" ng-click="changeTab('ApTable')">Next</a>
+
+			    <a class="btn btn-primary" ng-show="leformdata.loanDetail.interestOnlyIndicator==false && leformdata.payment.paymentRule.paymentOptionIndicator==false && leformdata.loanInformation.amortizationType !='Step' && leformdata.loanInformation.amortizationType !='GPM' && leformdata.loanInformation.amortizationType !='GraduatedPaymentARM' && leformdata.loanDetail.seasonalPaymentFeatureIndicator==false" ng-click="changeTab('ContactInfo')">Next</a>
+			</span>
 	</div>	
 </div>
