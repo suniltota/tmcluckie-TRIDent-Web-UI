@@ -11,8 +11,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	}
 	$(".helpIcon").tooltip();
 	$scope.rateLokedTime=["1:00","2:00","3:00","4:00","5:00","6:00","7:00","8:00",
-	"9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00",
-	"20:00","21:00","22:00","23:00","24:00"];
+	"9:00","10:00","11:00","12:00"];
 	$scope.rateLockedTimePeriod=["AM","PM"];
 	$scope.rateLockedTimeZone=["EST","CST","MST","PST","IST"];
 	$scope.originationChargeDisplayLabelStatus=false;
@@ -208,8 +207,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
 		$scope.leformdata.closingInformationDetail.closingCostExpirationDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 10);
 		$scope.closingCostExpirationDate=$scope.leformdata.closingInformationDetail.closingCostExpirationDate;
-		$scope.leformdata.integratedDisclosureDetail.integratedDisclosureEstimatedClosingCostsExpirationDatetime=$scope.closingCostExpirationDate;
-		for (i = $scope.leformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
+            var expireDate = new Date($scope.closingCostExpirationDate);
+            expireDate.setHours(0);
+            expireDate.setMinutes(0);
+        $scope.leformdata.integratedDisclosureDetail.integratedDisclosureEstimatedClosingCostsExpirationDatetime=$filter('date')(expireDate, "yyyy-MM-ddTHH:mm:ss'Z'");
+
+        for (i = $scope.leformdata.loanInformation.automatedUnderwritings.length; i < 3; i++) { 
 		    $scope.leformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
 		}
         
@@ -1353,16 +1356,6 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    }
     }
     
-    $scope.nonEscrowCalc = function(value){
-    	var etiaTotalAmountInCalc = 0;
-    	var nonEscrowAmountInCalc = 0;
-        if(value!='' && value!=undefined){
-        	nonEscrowAmountInCalc = value ? parseFloat(value) : +0;
-        	etiaTotalAmountInCalc = $scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount ? parseFloat($scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount) : +0;
-            $scope.leformdata.etiaSection.projectedPaymentEstimatedTaxesInsuranceAssessmentTotalAmount = parseFloat((etiaTotalAmountInCalc+nonEscrowAmountInCalc)/12);
-        }
-    }
-
     $scope.updateDepositAmount = function(){
     	if($scope.summariesOfTransaction_LSection.deposit) {
     	    $scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.summariesOfTransaction_LSection.deposit*-1);
@@ -1469,12 +1462,19 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.leformdata.loanProduct.lock.lockExpirationDatetime=$scope.leformdata.loanInformation.rateLokedDate;
     var utcdate =$scope.leformdata.loanInformation.rateLokedDate+' '+$scope.leformdata.loanInformation.rateLokedTime+' '+$scope.leformdata.loanInformation.rateLockedTimePeriod+' '+$scope.leformdata.loanInformation.rateLockedTimeZone;
     var rateLokedDate1 =$scope.leformdata.loanInformation.rateLokedDate;
-    var rateLockedTimePeriod1=$scope.leformdata.loanInformation.rateLokedTime;
-    if(rateLokedDate1!='' && rateLockedTimePeriod1!='' && rateLokedDate1!=undefined && rateLockedTimePeriod1!= undefined){
-        var rateLockArray = rateLokedDate1.split('-');
-        var hours =rateLockedTimePeriod1.split(':');
-        var _utc = new Date(rateLockArray[0], rateLockArray[1], rateLockArray[2], hours[0], hours[1]);
-    $scope.leformdata.loanProduct.lock.lockExpirationDatetime=_utc;
+    var rateLockedTime1=$scope.leformdata.loanInformation.rateLokedTime;
+    var rateLockedTimePeriod1=$scope.leformdata.loanInformation.rateLockedTimePeriod;
+    if(rateLokedDate1 != undefined && rateLockedTime1 != undefined && rateLockedTimePeriod1 != undefined
+            && rateLokedDate1.length != 0 && rateLockedTime1.length != 0 && rateLockedTimePeriod1.length != 0){
+        var hours =rateLockedTime1.split(':');
+        var _utc = new Date(rateLokedDate1);
+        if(rateLockedTimePeriod1 == 'PM'){
+            _utc.setHours(parseInt(hours[0]) + 12);
+        }else{
+            _utc.setHours(parseInt(hours[0]));
+        }
+        _utc.setMinutes(parseInt(hours[1]));
+    $scope.leformdata.loanProduct.lock.lockExpirationDatetime=$filter('date')(_utc, "yyyy-MM-ddTHH:mm:ss'Z'");
     }
     $scope.leformdata.loanProduct.lock.lockExpirationTimezoneType=$scope.leformdata.loanInformation.rateLockedTimeZone;
     $scope.leformdata.maturityRule.loanMaturityPeriodType = 'Month';
@@ -2085,6 +2085,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			   }
 	       }
 	    }
+
+		if($scope.leformdata.termsOfLoan.noteAmount && $scope.leformdata.termsOfLoan.noteAmount!=undefined && $scope.loanBasicInfo.loanFormType == 'alternate'){
+			$scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount = $scope.leformdata.termsOfLoan.noteAmount;
+		}
 
 	}, true);
 
