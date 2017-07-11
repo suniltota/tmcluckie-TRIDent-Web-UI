@@ -8,7 +8,7 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	Excess Deposit  
+		        	Excess Deposit  <help-verbiage name="CD_DueFromSellerAtClosingExcessDeposit_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        <div class="input-group">
@@ -19,7 +19,7 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	Closing Costs Paid at Closing (J)  
+		        	Closing Costs Paid at Closing (J)  <help-verbiage name="CD_DueFromSellerAtClosingClosingCostsPaidAtClosing_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        	<label>${{summariesOfTransaction_NSection.closingCostsPaidAtClosing | number:2}}</label>
@@ -27,7 +27,7 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	Existing Loan(s) Assumed or Taken Subject To 
+		        	Existing Loan(s) Assumed or Taken Subject To <help-verbiage name="CD_DueFromSellerAtClosingExistingLoanAssumedSubjectTakenTo_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        	<label>${{summariesOfTransaction_NSection.assumedLoanAmount | number:2}}</label>
@@ -35,7 +35,7 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	Payoff of First Mortgage  
+		        	Payoff of First Mortgage  <help-verbiage name="CD_DueFromSellerAtClosingPayoffFirstMortgage_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        <div class="input-group">
@@ -46,7 +46,7 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	Payoff of Second Mortgage 
+		        	Payoff of Second Mortgage <help-verbiage name="CD_DueFromSellerAtClosingPayoffSecondMortgage_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        <div class="input-group">
@@ -57,7 +57,7 @@
 		      </tr>
 		      <tr>
 		        <td>
-		        	Seller Credit 
+		        	Seller Credit <help-verbiage name="CD_DueFromSellerAtClosingSellerCredits_Help" title="help_tooltip_text"></help-verbiage>
 		        </td>
 		        <td>
 		        	<label>${{summariesOfTransaction_NSection.adjustments[0].closingAdjustmentItemAmount | number:2}}</label>
@@ -70,11 +70,11 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader">Indicate if line item is either a Liability or Adjustment</th>
-		        <th class="innerSectionHeader">Label Name</th>
-		        <th class="innerSectionHeader">Valid Values</th>
-		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader">POC Flag</th>
+		        <th class="innerSectionHeader">Indicate if line item is either a Liability or Adjustment<help-verbiage name="CD_DueFromSellerAtClosingIndicateLiabilityAdjustment_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Label Name<help-verbiage name="CD_DueFromSellerAtClosingSellerCreditsLabelName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Valid Values<help-verbiage name="CD_DueFromSellerAtClosingSellerCreditsValidValue_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Description<help-verbiage name="CD_DueFromSellerAtClosingSellerCreditsDescription_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">POC Flag<help-verbiage name="CD_DueFromSellerAtClosingSellerCreditsPaidOutsideClosing_Help" title="help_tooltip_text"></help-verbiage></th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		      </tr>
 		      <tr ng-repeat="dueFromSellerAdjustmentsAndLiability in summariesOfTransaction_NSection.liabilitesAndAdjustments track by $index">
@@ -114,12 +114,12 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader">Prorated Item Name</th>
-		        <th class="innerSectionHeader">Valid Value</th>
-		        <th class="innerSectionHeader">Description</th>
-		        <th class="innerSectionHeader col-sm-2">From Date</th>
-		        <th class="innerSectionHeader col-sm-2">To Date</th>
-		        <th class="innerSectionHeader col-sm-2">Amount</th>
+		        <th class="innerSectionHeader">Prorated Item Name<help-verbiage name="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsProratedItemName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Valid Value<help-verbiage name="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsValidValue_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader">Description<help-verbiage name="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsDescription_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">From Date<help-verbiage name="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsFromDate_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">To Date<help-verbiage name="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsToDate_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">Amount<help-verbiage name="CD_DueFromSellerAtClosingSellerCreditsAdjustmentsAmount_Help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
 		      <tr ng-repeat="adjustmentsUnpaidBySeller in summariesOfTransaction_NSection.adjustmentsUnpaidBySeller">
 		        <td>
@@ -147,7 +147,7 @@
 		</table>
 	</span>
 	<div class="col-sm-12 finalFooterValues">
-		<span class="col-sm-10 text-right">Total for Section N. Due From Seller At Closing : </span>
+		<span class="col-sm-10 text-right">Total for Section N. Due From Seller At Closing <help-verbiage name="CD_DueFromSellerAtClosingSellerCreditsAmount_Help" title="help_tooltip_text"></help-verbiage>: </span>
 		<span class="col-sm-2">${{summariesOfTransaction_NSection.sectionTotalAmount | number:2}}</span>
 	</div>
 
