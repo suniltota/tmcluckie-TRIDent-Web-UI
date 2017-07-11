@@ -690,17 +690,25 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
 
             element.on('blur', function (e) {
                 var dateVal = e.target.value;
+                var minDateVal = scope.$eval(attr.minDate);
+
                 if(dateVal) {
                   if(!(regexp.test(dateVal) && !isNaN(Date.parse(dateVal)))) {
                     ngModel.$modelValue = undefined;
                     e.currentTarget.style.border="1px solid #f17777"
                     message = "The date format is not valid. Valid Format is: MM/DD/YYYY";
                     scope.$apply();
+                  }else{
+                  if(new Date(dateVal) < new Date(minDateVal)){
+                    e.currentTarget.style.border="1px solid #f17777"
+                    message = "date cannot occur prior to Issue Date";
+                    scope.$apply();
                   } else {
                     $parse(attr.ngModel).assign(scope, $filter('date')(new Date(Date.parse(dateVal)), xmlDateFormat));
                     e.currentTarget.style.border=""
                     message = "";
                     scope.$apply();
+                  }
                   }
                   scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
                   $compile(element.contents())(scope);
@@ -779,6 +787,12 @@ app.directive('helpVerbiage', function ($window, $compile) {
           if(attr.title == "topTooltip"){
               var template ='<span class="helpText tooltip-msg top"> ? <span><b></b><span>';
           }
+          if(attr.title == "topPaddingTooltip"){
+              var template ='<span class="helpText tooltip-msg topPadding"> ? <span><b></b><span>';
+          }
+           if(attr.title == "help_tooltip_lg"){
+              var template ='<span class="helpText tooltip-msg tooltip_lg"> ? <span><b></b><span>';
+          }
         template += '</span></span></span>'
         elem.html(template);
         $compile(elem.contents())(scope);
@@ -805,6 +819,12 @@ app.directive('helpVerbiage', function ($window, $compile) {
           }
           if(attr.title == "topTooltip"){
               var template ='<span class="helpText tooltip-msg top"> ? <span><b></b><span>';
+          }
+          if(attr.title == "topPaddingTooltip"){
+              var template ='<span class="helpText tooltip-msg topPadding"> ? <span><b></b><span>';
+          }
+           if(attr.title == "help_tooltip_lg"){
+              var template ='<span class="helpText tooltip-msg tooltip_lg"> ? <span><b></b><span>';
           }
           template += helpgetid
           template += '</span></span></span>'

@@ -19,7 +19,7 @@
   						<span class="input-group-addon input-default">$</span>
 		        		<actualize-input ng-model="cdformdata.termsOfLoan.noteAmount" name="noteAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  min-val="1" dependencies="decimal-digits-with-number-format require-field min-max-value">
                 		</actualize-input>
-                		<help-verbiage name="CD_LoanAmount_Help" title="help_tooltip_padding"></help-verbiage>
+                		<help-verbiage name="CD_LoanAmount_Help" title="help_tooltip_lg"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td class="col-sm-1">
@@ -55,7 +55,7 @@
             				</actualize-input>
 
   							<span class="input-group-addon input-default">%</span>
-  							<help-verbiage name="CD_LoanInterestRate_Help" title="help_tooltip_padding"></help-verbiage>
+  							<help-verbiage name="CD_LoanInterestRate_Help" title="help_tooltip_lg"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.interestRateIncreaseIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="true">
@@ -128,9 +128,10 @@
 		       </label></td>
 		        <td>
 		        </td>
-		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator"  ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="temporaryChange()">
+		        <td><span class="col-sm-12 padding0"><select class="form-control pull-left" ng-model="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator"  ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="temporaryChange()">
 		        </select>
-		        <help-verbiage name="CD_LoanTemporaryBuydown_Help" title="help_tooltip_text"></help-verbiage>
+		        <help-verbiage name="CD_LoanTemporaryBuydown_Help" title="help_tooltip_lg"></help-verbiage>
+		        </span>
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanDetail.buydownTemporarySubsidyFundingIndicator == true">
@@ -217,12 +218,13 @@
 		      <tr style="">
 		        <td><label>Payment Frequency Type <span class="required">*</span>
 		       </label></td>
-		        <td>
-		        	<select class="form-control pull-left col-sm-7" ng-model="cdformdata.payment.paymentRule.paymentFrequencyType" style="width:100px;">
+		        <td><span class="col-sm-12 padding0" style="width:100px;">
+		        	<select class="form-control pull-left col-sm-7" ng-model="cdformdata.payment.paymentRule.paymentFrequencyType" >
 			        	<option value="" selected>Select</option>
 			        	<option ng-repeat="pFTyp in paymentFrequencyTypes" value="{{pFTyp.value}}">{{pFTyp.name}}</option>
 			        </select>
-		        	<help-verbiage name="CD_PaymentFrequency_Help" title="help_tooltip_text"></help-verbiage>
+		        	<help-verbiage name="CD_PaymentFrequency_Help" title="help_tooltip_padding"></help-verbiage>
+		        	</span>
 		        </td>
 		        <td>        	
 		        </td>
@@ -233,10 +235,12 @@
 		        <td><label>Prepayment Penalty <span class="required">*</span>
 		        </label></td>
 		        <td><label></label></td>
-		        <td  style="padding-right: 0px;">		        	
-		        	<select class="form-control pull-left" ng-model="cdformdata.loanDetail.prepaymentPenaltyIndicator" style="margin-top:5px;width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="prepaymentPenaltyChange()">
+		        <td>
+		        	<span class="col-sm-12 padding0">		        	
+		        	<select class="form-control pull-left" ng-model="cdformdata.loanDetail.prepaymentPenaltyIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="prepaymentPenaltyChange()">
 		        	</select>
-		        	<help-verbiage name="CD_PrepaymentPenalty_Help" title="help_tooltip_text"></help-verbiage>
+		        	<help-verbiage name="CD_PrepaymentPenalty_Help" title="topPaddingTooltip"></help-verbiage>
+		        	</span>
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanDetail.prepaymentPenaltyIndicator == true">
@@ -262,9 +266,11 @@
 			 </span></label></td>
 		        <td><label></label></td>
 		        <td>
+		        	<span class="col-sm-12 padding0">
 		        	<select class="form-control pull-left"  ng-model="cdformdata.loanDetail.balloonIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="true">
 		        	</select>
-		        	<help-verbiage name="CD_LoanBalloonPayment_Help" title="help_tooltip_text"></help-verbiage>
+		        	<help-verbiage name="CD_LoanBalloonPayment_Help" title="topPaddingTooltip"></help-verbiage>
+		        	</span>
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanDetail.balloonIndicator == true">

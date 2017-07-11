@@ -60,8 +60,7 @@ input, select, textarea, .form-control{font-size: 12px;}
 .cursor{cursor: pointer;}
 .PDFCloseIcon{right:21px; cursor: pointer; top: 14px; z-index: 243; margin-left: 0px; position: absolute; color: #fff; font-size: 19px; display: none;}
 
-
-.helpText{    width: 12px;
+.helpText{ width: 12px;
     background: #5bb1dc;
     color: #fff;
     position: absolute!important;
@@ -83,6 +82,9 @@ input, select, textarea, .form-control{font-size: 12px;}
 .helpText.tooltip_text > span > b{margin-left:160px;}
 .helpText.left > span{left:-240px;}
 .helpText.left > span > b{margin-left:310px;}
+.helpText.topPadding{right:0;}
+.helpText.topPadding > span{left:-240px; bottom:22px;}
+.helpText.topPadding > span > b{margin-left:310px; bottom:-8px; transform: rotate(135deg); margin-top:0px; background: #fff;}
 .helpText.top > span{left:-240px; bottom:22px;}
 .helpText.top > span > b{margin-left:310px; bottom:-8px; transform: rotate(135deg); margin-top:0px; background: #fff;}
 .helpText.calenderInput{right: 0px;}
@@ -90,6 +92,10 @@ input, select, textarea, .form-control{font-size: 12px;}
 .helpText.tooltip_padding_left{right:0px;}
 .helpText.tooltip_padding_left span{left:-240px;}
 .helpText.tooltip_padding_left > span > b{margin-left:310px;}
+.helpText.tooltip_lg{right: 0px;}
+.helpText.tooltip_lg:hover span{width:1000px;}
+.helpText.tooltip_lg span{left:-240px;}
+.helpText.tooltip_lg > span > b{margin-left:310px;}
 
 .helpIcon{font-size: 14px; color:#777;}
 .helpIcon + .tooltip .tooltip-arrow{border-right-color: #5bb1dc;}
