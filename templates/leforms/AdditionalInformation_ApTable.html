@@ -226,6 +226,10 @@
 	</span>
 	<div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('LoanDisclosures')">Back</a></span>
-			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('AirTable')">Next</a></span>
+			<span class="pull-right">
+			<a class="btn btn-primary" ng-show="cdformdata.loanDetail.interestRateIncreaseIndicator==true" ng-click="changeTab('AirTable')">Next</a>
+			<a class="btn btn-primary" ng-show="cdformdata.loanDetail.interestRateIncreaseIndicator==flase" ng-click="changeTab('ContactInfo')">Next</a>
+
+			</span>
 	</div>	
 </div>
