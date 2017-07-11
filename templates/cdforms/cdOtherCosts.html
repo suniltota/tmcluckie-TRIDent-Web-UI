@@ -59,8 +59,8 @@
 			        		<select class="form-control padding0" ng-model="recordingFeetotalObj.feePaidToTypeOtherDescription">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
-	             			<help-verbiage name="CD_TaxesOtherGovermentFeesFeeTypeOtherDescription_Help" title="help_tooltip_padding"></help-verbiage>
               		        </select> 
+							<help-verbiage name="CD_TaxesOtherGovermentFeesFeeTypeOtherDescription_Help" title="help_tooltip_padding"></help-verbiage>
 			        	</span>
 			        </span>
 		        </td>
@@ -698,8 +698,13 @@
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" colspan="2" id="sectionG_Ecsrow">Section G. Initial Escrow Payment At Closing</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2" id="sectionG_Ecsrow">Section G. Initial Escrow Payment At Closing
+				<help-verbiage name="CD_InitialEscrowPaymentAtClosingSectionHeaderName_Help" title="help_tooltip_text"></help-verbiage>
+				</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount | number:2}}
+				<help-verbiage name="CD_InitialEscrowPaymentAtClosingSectionTotalAmountBorrowerPaid_Help" title="help_tooltip_text"></help-verbiage>
+				</th>
+				
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader FeeInfo">Escrow Information</th>
@@ -717,42 +722,55 @@
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'HomeownersInsurance'}">
 		        <td>
 		        	<span class="LabelText col-sm-12">Label:</span><br>
-		        	<span class="LabelValue col-sm-12">Homeowners Insurance</span><br>
-		        	<span class="ValueText col-sm-12">Valid Value:</span>
-		        	<span class="LabelValue col-sm-12">Homeowners Insurance</span><br>
+		        	<span class="LabelValue col-sm-12">Homeowners Insurance
+				<help-verbiage name="CD_InitialEscrowPaymentAtClosingHomeownersInsurancelabel_Help" title="help_tooltip_text"></help-verbiage>
+					</span><br>
+		        	<span class="ValueText col-sm-12">Valid Value:
+					</span>
+		        	<span class="LabelValue col-sm-12">Homeowners Insurance
+					<help-verbiage name="CD_ValidValueHomeownersInsurancePremium_Help" title="help_tooltip_text"></help-verbiage>
+					</span><br>
 		        	<!-- <span class="ValueValue col-sm-10" ng-repeat="escrowItemType in escrowItemTypes" ng-if="escrowItemsList.escrowItemType == escrowItemType">{{escrowItemType}}</span><br> -->
 		        	
-		        	<span class="ValueText col-sm-12">Amount Per Month</span>
+		        	<span class="ValueText col-sm-12">Amount Per Month
+					</span>
 		        	<span class="ValueValue col-sm-12">
 		        		<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
 		        			<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('0')">
-		        		</div>
+							<help-verbiage name="CD_InitialEscrowPaymentAtClosingAmountPerMonth_Help" title="help_tooltip_padding"></help-verbiage>
+						</div>
 		        	</span>
 		        	<span class="ValueText col-sm-12">No. of Months</span>
 		        	<span class="ValueValue col-sm-12">
 		        	<actualize-input ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" name="escrowCollectedNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="amountPerMonth('0')"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">		        		
 		        	</actualize-input>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingNoofMonths_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        </td>
 		        <td>
-		            <span class="LabelText col-sm-12">Type</span>
+		            <span class="LabelText col-sm-12">Type</span><span class="col-sm-12 padding0">
 		        	<select class="form-control LabelValue" ng-model="escrowItemsList.feePaidToType" ng-change="sectionGpaidToChange('0')">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingFeeType_Help" title="help_tooltip_padding"></help-verbiage>
+					</span>
 		        	<span ng-show="escrowItemsList.feePaidToType =='Other'">
-	              		<span class="LabelText col-sm-12">Description:</span>
+	              		<span class="LabelText col-sm-12">Description:</span><span class="col-sm-12 padding0">
 			        	<select class="form-control padding0" ng-model="escrowItemsList.feePaidToTypeOtherDescription">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
               		    </select>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingFeeTypeOtherDescription_Help" title="help_tooltip_padding"></help-verbiage>
+						</span>
 			        </span>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingBorrowerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
@@ -762,6 +780,7 @@
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingBorrowerPaidSellerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>	
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
@@ -771,22 +790,27 @@
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingPaidByOther_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>	
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="escrowItemsList.lenderStatus">
 		        </td>
-		        <td>
+		        <td><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="escrowItemsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        		<option value="" selected>Select</option>
 		        	</select>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingIncludeAPRCalculation_Help" title="help_tooltip_padding_left"></help-verbiage>
+					</span>
 		        </td>
-		        <td>
+		        <td><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="escrowItemsList.regulationZPointsAndFeesIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        		<option value="" selected>Select</option>
 		        	</select>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingIncludeFlagPointsFee_Help" title="help_tooltip_padding_left"></help-verbiage>
+					</span>
 		        </td>
 		        <td>
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tbcol-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('0')"></span>
@@ -795,9 +819,11 @@
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'MortgageInsurance'}">
 		        <td>
 		        	<span class="LabelText col-sm-12">Label:</span><br>
-		        	<span class="LabelValue col-sm-12">Mortgage Insurance</span><br>
+		        	<span class="LabelValue col-sm-12">Mortgage Insurance
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingMortgageInsurancelabel_Help" title="help_tooltip_text"></help-verbiage></span><br>
 		        	<span class="ValueText col-sm-12">Valid Value:</span>
-		        	<span class="LabelValue col-sm-12">Mortgage Insurance</span><br>
+		        	<span class="LabelValue col-sm-12">Mortgage Insurance
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingValidValueMortgageInsurancePremium_Help" title="help_tooltip_text"></help-verbiage></span><br>
 		        	<!-- <span class="ValueValue col-sm-10" ng-repeat="escrowItemType in escrowItemTypes" ng-if="escrowItemsList.escrowItemType == escrowItemType">{{escrowItemType}}</span><br> -->
 		        	
 		        	<span class="ValueText col-sm-12">Amount Per Month</span>
@@ -805,32 +831,38 @@
 		        		<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
 		        			<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('1')">
-		        		</div>	
+		        		</div>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingMortgageInsurancePremiumAmountPerMonth_Help" title="help_tooltip_padding"></help-verbiage>						
 		        	</span>
 		        	<span class="ValueText col-sm-12">No. of Months</span>
 		        	<span class="ValueValue col-sm-12">
 		        	<actualize-input ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" name="escrowCollectedNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="amountPerMonth('1')"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">	
 		        	</actualize-input>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingMortgageInsurancePremiumNoofMonths_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        </td>
 		       <td>
-		            <span class="LabelText col-sm-10 margin5tb">Type</span>
+		            <span class="LabelText col-sm-10 margin5tb">Type</span><span class="col-sm-12 padding0">
 		        	<select class="form-control LabelValue" ng-model="escrowItemsList.feePaidToType" ng-change="sectionGpaidToChange('1')">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingFeeType_Help" title="help_tooltip_padding"></help-verbiage>
+					</span>
 		        	<span ng-show="escrowItemsList.feePaidToType =='Other'">
-	              		<span class="LabelText col-sm-10">Description:</span>
+	              		<span class="LabelText col-sm-10">Description:</span><span class="col-sm-12 padding0">
 			        	<select class="form-control padding0" ng-model="escrowItemsList.feePaidToTypeOtherDescription">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
-              		    </select>
+              		    </select><help-verbiage name="CD_InitialEscrowPaymentAtClosingFeeTypeOtherDescription_Help" title="help_tooltip_padding"></help-verbiage>
+					</span>	
 			        </span>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingBorrowerPaidAtClosing_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
@@ -840,6 +872,7 @@
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingBorrowerPaidSellerPaidAtClosing_Help" title="help_tooltip_padding_left"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
@@ -849,21 +882,26 @@
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
-		        	</div>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingPaidByOther_Help" title="help_tooltip_padding_left"></help-verbiage>
+		        	</div></td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="escrowItemsList.lenderStatus">
 		        </td>
-		        <td>
+		        <td><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="escrowItemsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        		<option value="" selected>Select</option>
 		        	</select>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingIncludeAPRCalculation_Help" title="help_tooltip_padding_left"></help-verbiage>
+					</span>
 		        </td>
-		        <td>
+		        <td><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="escrowItemsList.regulationZPointsAndFeesIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        		<option value="" selected>Select</option>
 		        	</select>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingIncludeFlagPointsFee_Help" title="help_tooltip_padding_left"></help-verbiage>
+					</span>
 		        </td>
 		        <td>
 		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('1')"></span>
@@ -872,49 +910,63 @@
 		      <tr ng-repeat="escrowItemsList in cdformdata.closingCostDetailsOtherCosts.escrowItemsList track by $index" ng-if="escrowItemsList.escrowItemType != 'HomeownersInsurance' && escrowItemsList.escrowItemType != 'MortgageInsurance' && escrowItemsList.escrowItemType == 'CountyPropertyTax'">
 		        <td>
 		        	<span class="LabelText col-sm-12">Label:</span><br>
-		        	<span class="LabelValue col-sm-12">Property Taxes</span>
+		        	<span class="LabelValue col-sm-12">Property Taxes
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingPropertyTaxes_Help" title="help_tooltip_padding"></help-verbiage>
+					</span>
 		        	<span class="ValueText col-sm-12">Valid Value:</span>
-		        	<span class="ValueValue col-sm-12">
+		        	<span class="ValueValue col-sm-12"><span class="col-sm-12 padding0">
 			        	<select class="form-control" ng-model="escrowItemsList.escrowItemType" ng-change="updateSectionGescrowTypes(escrowItemsList.escrowItemType,$index)">
 	              		    <option value="" selected>Select</option>
 	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType.value}}" ng-disabled="escrowItemType.disabled">{{escrowItemType.name}}</option>
 	              		</select>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingValidValueEnumeratedpicklist_Help" title="help_tooltip_padding"></help-verbiage>
+						</span>
               		</span><br>
               		<span  ng-show="escrowItemsList.escrowItemType=='Other'">
-	              		<span class="ValueText col-sm-10">Description:</span>
+	              		<span class="ValueText col-sm-10">Description:</span><span class="col-sm-12 padding0">
 			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemTypeOtherDescription">
-		        	</span><br>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingPropertyTaxes_Help" title="help_tooltip_padding"></help-verbiage>
+					</span>
+					</span><br>
 		        	<span class="ValueText col-sm-12">Amount Per Month</span>
 		        	<span class="ValueValue col-sm-12">
 		        		<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
 		        			<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('2')">
-		        		</div>	
+		        			<help-verbiage name="CD_InitialEscrowPaymentAtClosingEnumeratedpicklistAmountPerMonth_Help" title="help_tooltip_padding"></help-verbiage>
+					</div>	
 		        	</span>
 		        	<span class="ValueText col-sm-12">No. of Months</span>
 		        	<span class="ValueValue col-sm-12">
 		        	<actualize-input ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" name="escrowCollectedNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="amountPerMonth('2')"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">	
 		        	</actualize-input>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingEnumeratedpicklistNoofMonths_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        </td>
 		       <td>
 		            <span class="LabelText col-sm-10">Type</span>
+					<span class="col-sm-12 padding0">
 		        	<select class="form-control LabelValue" ng-model="escrowItemsList.feePaidToType" ng-change="sectionGpaidToChange('2')">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingFeePaidToType_Help" title="help_tooltip_padding"></help-verbiage>
+					</span>
 		        	<span ng-show="escrowItemsList.feePaidToType =='Other'">
+					<span class="col-sm-12 padding0">
 	              		<span class="LabelText col-sm-10">Description:</span>
 			        	<select class="form-control padding0" ng-model="escrowItemsList.feePaidToTypeOtherDescription">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
               		    </select>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingFeeTypeOtherDescription_Help" title="help_tooltip_padding"></help-verbiage></span>
 			        </span>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingBorrowerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
@@ -924,6 +976,7 @@
 		            <div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingBorrowerPaidSellerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
@@ -933,16 +986,18 @@
 		        <div class="input-group">
 					<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingPaidByOther_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="escrowItemsList.lenderStatus">
 		        </td>
-		        <td>
+		        <td><span class="col-sm-12 padding0"><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="escrowItemsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        		<option value="" selected>Select</option>
-		        	</select>
+		        	</select><help-verbiage name="CD_InitialEscrowPaymentAtClosingIncludeAPRCalculation_Help" title="help_tooltip_padding"></help-verbiage></span>
+					</span>
 		        </td>
 		        <td>
 		        	<!-- <select class="form-control padding0" ng-model="escrowItemsList.regulationZPointsAndFeesIndicator"
@@ -958,49 +1013,56 @@
 		            <span class="LabelText col-sm-12">Label:</span><br>
 		        	<span class="LabelValue col-sm-12">
 		        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.displayLabel">
-		        	</span><br>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingFeeLabelName_Help" title="help_tooltip_padding"></help-verbiage>
+					</span><br>
 		        	<span class="ValueText col-sm-12">Valid Value:</span>
-		        	<span class="ValueValue col-sm-12">
+		        	<span class="ValueValue col-sm-12"><span class="col-sm-12 padding0">
 			        	<select class="form-control" ng-model="escrowItemsList.escrowItemType" ng-change="updateSectionGescrowTypes(escrowItemsList.escrowItemType,$index)">
 	              		    <option value="" selected>Select</option>
 	             			<option ng-repeat="escrowItemType in escrowItemTypes track by $index" value="{{escrowItemType.value}}" ng-disabled="escrowItemType.disabled">{{escrowItemType.name}}</option>
-	              		</select>
+	              		</select><help-verbiage name="CD_InitialEscrowPaymentAtClosingFeeType_Help" title="help_tooltip_padding"></help-verbiage></span>
               		</span><br>
               		<span  ng-show="escrowItemsList.escrowItemType=='Other'">
 	              		<span class="ValueText col-sm-12">Description:</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemTypeOtherDescription">
-		        	</span><br>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingFeeTypeOtherDescription_Help" title="help_tooltip_padding"></help-verbiage>
+						</span><br>
 		        	<span class="ValueText col-sm-12">Amount Per Month</span>
 		        	<span class="ValueValue col-sm-12">
 		        		<div class="input-group">
 							<span class="input-group-addon input-default">$</span>
 		        			<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth($index)">
+							<help-verbiage name="CD_InitialEscrowPaymentAtClosingEnumeratedpicklistAmountPerMonth_Help" title="help_tooltip_padding"></help-verbiage>
 		        		</div>
 		        	</span>
 		        	<span class="ValueText col-sm-12">No. of Months</span>
 		        	<span class="ValueValue col-sm-12">
 		        	<actualize-input ng-model="escrowItemsList.escrowCollectedNumberOfMonthsCount" name="escrowCollectedNumberOfMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-blur="amountPerMonth($index)"  dependencies="min-max-value only-digits" min-val="1" max-val="480" maxlength="3">	
 		        	</actualize-input>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingEnumeratedpicklistNoofMonths_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        </td>
 		         <td>
-		            <span class="LabelText col-sm-10">Type</span>
+		            <span class="LabelText col-sm-10">Type</span><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="escrowItemsList.feePaidToType" ng-change="sectionGpaidToChange($index)">
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 		        	</select>
-		        	<span ng-show="escrowItemsList.feePaidToType =='Other'">
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingFeePaidToType_Help" title="help_tooltip_padding"></help-verbiage></span>
+		        	<span ng-show="escrowItemsList.feePaidToType =='Other'"><span class="col-sm-12 padding0">
 	              		<span class="LabelText col-sm-10">Description:</span>
 			        	<select class="form-control padding0" ng-model="escrowItemsList.feePaidToTypeOtherDescription">
 	              			<option value="" selected>Select</option>
 	             			<option ng-repeat="otherType in feePaidToTypeDescription" value="{{otherType.value}}" >{{otherType.name}}</option>
               		    </select>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingFeeTypeOtherDescription_Help" title="help_tooltip_padding"></help-verbiage></span>
 			        </span>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.bpAtClosing" decimal-digits-with-number-format>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingBorrowerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
@@ -1010,6 +1072,7 @@
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.spAtClosing" decimal-digits-with-number-format>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingBorrowerPaidSellerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
@@ -1019,22 +1082,25 @@
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.paidByOthers" decimal-digits-with-number-format>
+						<help-verbiage name="CD_InitialEscrowPaymentAtClosingPaidByOther_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td class="text-center">
 		        	<input type="checkbox" name="" ng-model="escrowItemsList.lenderStatus">
 		        </td>
-		        <td>
+		        <td><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="escrowItemsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        		<option value="" selected>Select</option>
 		        	</select>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingIncludeAPRCalculation_Help" title="help_tooltip_padding_left"></help-verbiage></span>
 		        </td>
-		        <td>
+		        <td><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-if="!escrowItemsList.escrowItemType.includes('Tax')  && escrowItemsList.escrowItemType!='Tax Service Fee'" ng-model="escrowItemsList.regulationZPointsAndFeesIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        		<option value="" selected>Select</option>
 		        	</select>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingIncludeFlagPointsFee_Help" title="help_tooltip_padding_left"></help-verbiage></span>
 		        </td>
 		        <td>
 		        	<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Close" ng-click="deleteEscrowsList(escrowItemsList.escrowItemType,$index)"></span>
@@ -1043,7 +1109,8 @@
 		      </tr>
 		      <tr>
 		        <td>
-		            <span class="LabelText col-sm-12"><label>Aggregate Accounting Adjustment</label></span>
+		            <span class="LabelText col-sm-12"><label>Aggregate Accounting Adjustment</label>
+					<help-verbiage name="CD_InitialEscrowPaymentAtClosingAggregatedAccountingAdjustment_Help" title="help_tooltip_padding"></help-verbiage></span>
 		        </td>
 		        <td>
 		        </td>
@@ -1083,13 +1150,17 @@
 		</table>
 		<span class="AddSection" ng-click="addescrowItemsList()">
 			<a>+ Add Additional lines</a>
+			<help-verbiage name="CD_InitialEscrowPaymentAtClosingAdditionalLinesadded_Help" title="help_tooltip_text"></help-verbiage>
 		</span>
 	</span>
 	<span  class="col-sm-12 padding0">
 		<table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 			  <tr>	  	
-				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section H. Other	</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.otherTotalAmount | number:2}}</th>
+				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section H. Other	
+				<help-verbiage name="CD_OtherCostsSectionHeaderName_Help" title="help_tooltip_text"></help-verbiage>
+				</th>
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsOtherCosts.otherTotalAmount | number:2}}
+				<help-verbiage name="CD_OtherCostsSectionTotalAmountBorrowerPaid_Help" title="help_tooltip_text"></help-verbiage></th>
 			  </tr>
 		      <tr>
 		        <th class="innerSectionHeader FeeInfo">Fee Information</th>
@@ -1110,17 +1181,20 @@
 		            <span class="LabelText col-sm-12">Label:</span> 
 		        	<span class="LabelValue col-sm-12">
 		        	<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.displayLabel">
+					<help-verbiage name="CD_OtherCostsFeeLabelName_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
-		        	<span class="ValueText col-sm-10">Valid Value:</span>
+		        	<span class="ValueText col-sm-10">Valid Value:</span><span class="col-sm-12 padding0">
 		        	<span class="ValueValue col-sm-10">
 			        	<select class="form-control padding0" ng-model="otherCostsList.feeType" ng-change="updateSectionHfeeTypes(otherCostsList.feeType, $index)">
 	              		    <option value="" selected>Select</option>
 	             			<option ng-repeat="feeType in sectionHfeeTypes track by $index" value="{{feeType.value}}" ng-disabled="feeType.disabled">{{feeType.name}}</option>
               		    </select>
+						<help-verbiage name="CD_OtherCostsFeeType_Help" title="help_tooltip_padding"></help-verbiage></span>
               		</span>
               		<span ng-show="otherCostsList.feeType=='Other'">
 	              		<span class="ValueText col-sm-10">Description:</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.feeTypeOtherDescription">
+						<help-verbiage name="CD_OtherCostsFeeTypeOtherDescription_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        	<span class="ValueText col-sm-10">Optional Fee Flag:</span>
 		        	<span class="ValueValue col-sm-10">
@@ -1131,11 +1205,12 @@
 		        </td>
 		        <td>
 		            <span class="LabelText col-sm-12">Type:</span>
-		        	<span class="LabelValue col-sm-12">
+		        	<span class="LabelValue col-sm-12 padding0">
 			        	<select class="form-control padding0" ng-model="otherCostsList.feePaidToType" ng-change="sectionHpaidToChange($index)">
 			        		<option value="" selected>Select</option>
 	             			<option ng-repeat="feePaidToType in feePaidToTypes" value="{{feePaidToType.value}}">{{feePaidToType.name}}</option>
 			        	</select>
+						<help-verbiage name="CD_OtherCostsFeePaidToType_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        	<span ng-show="otherCostsList.feePaidToType =='Other'">
 	              		<span class="LabelText col-sm-12">Description:</span>
@@ -1149,36 +1224,42 @@
 		        	<span class="ValueText col-sm-12">Full Name:</span>
 		        	<span class="ValueValue col-sm-12">
 		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.feePaidToFullName">
+							<help-verbiage name="CD_OtherCostsFullName_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        </td>
 		        <td>
 		       		<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.bpAtClosing" decimal-digits-with-number-format ng-blur="sectionHZIndicator($index)" ng-keyup="sectionHZIndicator($index)">
+						<help-verbiage name="CD_OtherCostsBorrowerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.bpB4Closing" decimal-digits-with-number-format ng-blur="sectionHZIndicator($index)" ng-keyup="sectionHZIndicator($index)">
+						<help-verbiage name="CD_OtherCostsBorrowerPaidBeforeClosing" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.spAtClosing" decimal-digits-with-number-format ng-blur="sectionHZIndicator($index)" ng-keyup="sectionHZIndicator($index)">
+						<help-verbiage name="CD_OtherCostsBorrowerPaidSellerPaidAtClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td ng-show="loanBasicInfo.loanPurposeType == 'purchase'">
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.spB4Closing" decimal-digits-with-number-format ng-blur="sectionHZIndicator($index)" ng-keyup="sectionHZIndicator($index)">
+						<help-verbiage name="CD_OtherCostsSellerPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.paidByOthers" decimal-digits-with-number-format ng-blur="sectionHZIndicator($index)" ng-keyup="sectionHZIndicator($index)">
+						<help-verbiage name="CD_OtherCostsPaidByOther_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td class="text-center">
@@ -1189,17 +1270,19 @@
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
 		        </td> -->
-		        <td>
+		        <td><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="otherCostsList.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        		<option value="" selected>Select</option>
 		        	</select>
+					<help-verbiage name="CD_OtherCostsIncludeAPRCalculation_Help" title="help_tooltip_padding_left"></help-verbiage></span>
 		        </td>
-		        <td>
+		        <td><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="otherCostsList.regulationZPointsAndFeesIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        		<option value="" selected>Select</option>
 		        	</select>
+					<help-verbiage name="CD_OtherCostsIncludeFlagPointsFee_Help" title="help_tooltip_padding_left"></help-verbiage></span>
 		        </td>
 		        <td>
 		            <span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Close" ng-click="deleteOthers(otherCostsList.feeType,$index)"></span>
@@ -1209,6 +1292,7 @@
 		</table>
 		<span class="AddSection" ng-click="addotherCostsList()">
 			<a>+ Add Additional lines</a>
+			<help-verbiage name="CD_OtherCostsAdditionalLinesadded_Help" title="help_tooltip_text"></help-verbiage>
 		</span>
 	</span>
 	<span  class="col-sm-6 padding0">
