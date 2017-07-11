@@ -982,6 +982,11 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
    
     $scope.interestChange = function(){
     	$scope.leformdata.interestOnly.interestOnlyTermMonthsCount = '';
+    	if(leformdata.loanDetail.interestOnlyIndicator){
+    		leformdata.loanDetail.paymentIncreaseIndicator = true;
+    	}else{
+    		leformdata.loanDetail.paymentIncreaseIndicator = false;
+    	}
     }
 
     $scope.interestRateYearToMonthsAdjustment = function(){
