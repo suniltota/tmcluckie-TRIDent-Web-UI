@@ -146,7 +146,10 @@
 		        </td>
 		        <td>
 		            <ul class="loanTermsList">
-		        	<li>
+		            <li ng-if="cdformdata.loanDetail.interestOnlyIndicator && cdformdata.loanInformation.amortizationType=='Fixed'">
+		        	<span class="col-sm-12">No Subsequent Changes</span>
+		        	</li>
+		        	<li ng-if="cdformdata.loanDetail.interestOnlyIndicator == false || cdformdata.loanInformation.amortizationType!='Fixed'">
 		        	<span class="col-sm-12" ng-show="!cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">No Subsequent Changes</span>
 
 		        	<span class="col-sm-12" ng-show="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">
