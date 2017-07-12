@@ -30,7 +30,7 @@
 				<span class="col-sm-10 padding0">
 				<actualize-input name="closingDate" id="closingDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.closingDate" min-date-var="cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate" max-date="12/31/2045" is-open="isClosingDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date. Closing Date cannot occur prior to Issue Date." placeholder="MM/DD/YYYY"  dependencies="actualize-date require-field" type="date">
                 </actualize-input>
-                <help-verbiage name="CD_ClosingDate_Help" title="calenderInput" ></help-verbiage>
+                <help-verbiage name="CD_ClosingDate_Help" title="help_tooltip_lg" ></help-verbiage>
 				</span>
       			<span class="input-group-btn col-sm-2 padding0">
         			<button type="button" class="btn btn-default calenderBtn" ng-click="isClosingDate = !isClosingDate"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -72,7 +72,7 @@
 			<div class="col-sm-7">
 				<actualize-input name="closingAgentOrderNumberIdentifier" ng-model="cdformdata.closingInformationDetail.closingAgentOrderNumberIdentifier" ng-required="true" toolTipPos = "top" dependencies="require-field" >
                 </actualize-input>
-				<help-verbiage name="CD_SettlementAgentName_Help" title="topTooltip"></help-verbiage>
+				<help-verbiage name="CD_File_Help" title="topTooltip"></help-verbiage>
 			</div>
 		</div>
 	</div>
@@ -91,7 +91,7 @@
 		              		<span class="col-sm-6 padding0">
 		              		<input type="radio" name="property" ng-model="cdformdata.closingInformation.property.legalDescription"  ng-value="true" ng-click="checkPropertyRadio()">
 		              		Legal Description
-		              		<help-verbiage name="CD_LegalDescription_Help" title="help_tooltip_text"></help-verbiage>
+		              		<help-verbiage name="CD_LegalDescription_Help" title="help_tooltip_textLeft"></help-verbiage>
 		              		</span>
 		              	</div>
 		             </div>
@@ -101,7 +101,7 @@
 		              <div class="col-sm-5 fieldTitle">Street Address
 		              </div>
 		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.addressLineText" class="form-control">
-		              	<help-verbiage name="CD_SettlementAgentName_Help" title="leftTooltip"></help-verbiage>
+		              	<help-verbiage name="CD_streetAddress_Help" title="leftTooltip"></help-verbiage>
 		              </div>
 		            </div>
 		          </div>
@@ -120,7 +120,7 @@
 		              <div class="col-sm-5 fieldTitle">City
 		              </div>
 		              <div class="col-sm-7"><input type="text" ng-model="cdformdata.closingInformation.property.cityName" class="form-control">
-		              <help-verbiage name="CD_CityName_Help" title="topTooltip"></help-verbiage>
+		              <help-verbiage name="CD_CityName_Help" title="leftTooltip"></help-verbiage>
 		              </div>
 		            </div>
 		          </div>
@@ -155,12 +155,12 @@
 		              <div class=" col-sm-12">
 		              <div class="col-sm-5 fieldTitle">Personal Property Included? 
 		             </div>
-			              <div class="col-sm-3">
+			              <div class="col-sm-3 padding0" style="padding-left: 15px;">
 			              		<select class="form-control" ng-model="cdformdata.salesContractDetail.personalPropertyIndicator" ng-change="changePropertyPrice()"
 			              		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 			              			<option value="" selected="selected">Select</option>
 	                            </select>
-	                            <help-verbiage name="CD_PersonalPropertyIncluded_Help" title="leftTooltip_select"></help-verbiage>
+	                            <help-verbiage name="CD_PersonalPropertyIncluded_Help" title="topTooltip"></help-verbiage>
 			              </div>
 		           	 </div>
 		          	</div>
@@ -173,7 +173,7 @@
   								<span class="input-group-addon input-default">$</span>		        				
 		        				<actualize-input ng-model="cdformdata.salesContractDetail.saleContractAmount" name="saleContractAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
                 				</actualize-input>
-                				<help-verbiage name="CD_SalesContractAmount_Help" title="help_tooltip_padding_left"></help-verbiage>
+                				<help-verbiage name="CD_SalesContractAmount_Help" title="topPaddingTooltip"></help-verbiage>
 		        			</div>
 						</div>
 		             </div>
@@ -237,9 +237,11 @@
 		  						<span class="input-group-addon input-default">$</span>				        		
 				        		<actualize-input ng-show="cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyValuationAmount" name="propertyValuationAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
                 				</actualize-input>
+                				<help-verbiage ng-show="cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'" name="CD_AmountofValue_Help" title="topPaddingTooltip"></help-verbiage>
+
 				        		<actualize-input ng-show="cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated'" ng-model="cdformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount" name="propertyEstimatedValueAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
                 				</actualize-input>
-                				
+                				<help-verbiage ng-show="cdformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated'"  name="CD_AmountofValueEstimatedProperty_Help" title="topPaddingTooltip"></help-verbiage>
 				        	</div>
 		              </div>
 		            </div>
