@@ -78,7 +78,7 @@ help-verbiage{z-index: 3;}
 .helpText span{font-weight: normal;}
 .helpText span{color: #555; width: 200px;}
 .helpText span ul{float: left; padding-left:15px;}
-.helpText span ul li{list-style-type:circle; float: left; padding:3px 0;}
+.helpText span ul li{list-style-type:circle; float: left; padding:3px 0; width: 100%;}
 .helpText.tooltip_text{right: inherit; left: inherit; top: inherit; border-radius: 4px; margin-left: 5px;}
 .helpText.tooltip_text span{left: -90px;}
 .helpText.tooltip_text > span > b{margin-left:160px;}

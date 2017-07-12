@@ -187,7 +187,7 @@
   						<span class="input-group-addon input-default">$</span>
 		        		<actualize-input ng-model="cdformdata.payment.paymentRule.initialPrincipalAndInterestPaymentAmount" name="initialPrincipalAndInterestPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format require-field">
                 		</actualize-input>
-                		<help-verbiage name="CD_PrincipalInterestPaymentAmount_Help" title="help_tooltip_padding"></help-verbiage>
+                		<help-verbiage name="CD_PrincipalInterestPaymentAmount_Help" title="help_tooltip_lg"></help-verbiage>
 		        	</div>
 		        </td>
 		        <td><select class="form-control pull-left" ng-model="cdformdata.loanDetail.paymentIncreaseIndicator" style="width:100px;" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="true">
@@ -261,9 +261,7 @@
 		      </tr>
 		      <tr>
 		        <td><label>Balloon Payment <span class="required">*</span>
-		        <span class="glyphicon glyphicon-question-sign helpIcon marginTop0 tooltip-msg" ng-mouseouver>
-			        <b></b>			         
-			 </span></label></td>
+		        </label></td>
 		        <td><label></label></td>
 		        <td>
 		        	<span class="col-sm-12 padding0">

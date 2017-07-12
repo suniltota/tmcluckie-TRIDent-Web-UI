@@ -880,9 +880,10 @@
               <div id="CD_LoanAmount_Help">Enter the value of the loan or upload the amount through a template or file.
 			  <ul>
                     <li>Format is an amount 9.2 </li>
-					<li>The amount will be either the Note amount which is the amount to be repaid as disclosed on the note -  If the Interest rate and note amount are known at consummation</li>
-					<li>			OR				</li>
-					<li>The <strong>Fully indexed principal and interest</strong> amount which is the dollar amount of the principal and interest payment when calculated using the loan amount and fully-indexed interest rate (in place of Note Interest Rate) to arrive at full amortization during the loan term.  If the Interest Rate and Note amount are NOT known at consummation. </li>
+					<li>The amount will be either the Note amount which is the amount to be repaid as disclosed on the note -  If the Interest rate and note amount are known at consummation
+          <br> <br>OR
+          </li>
+					<li>The <strong>Fully indexed principal and interest</strong> amount which is the dollar amount of the principal and interest payment when calculated using the loan amount and fully-indexed interest rate (in place of Note Interest Rate) to arrive at full amortization during the loan term.  If the Interest Rate and Note amount are not known at consummation. </li>
 					<li>The system defaults the yes/no drop-down box to NO for the question “Does this change after closing?” using the information from the product description section (negative amortization indicator = false is no in the drop down). </li>
 					<li>The User may change the yes/no drop down  </li>
 					<li>User May enter in the Dollar amount the bullet stating “Can go as high as” for the loan amount maximum limit, otherwise it will pull from the product description section under negative amortization.  </li>
@@ -919,8 +920,11 @@
 			  <span class="field_help">
 			 <h5> Temporary Buydown : </h5>
               <div id="CD_LoanTemporaryBuydown_Help">The temporary buydown information is only needed when the buydown is listed within the NOTE itself.  The Drop-down must be edited by the user, it will default to NO automatically and the use may change to yes.  If the user changes the default value to yes then additional information will be required dependent upon answers additional information may be needed.
-			  <div>If changed to YES, then provide  <ul><li>Is the buydown reflected on the Note, If NO nothing else is needed.</li></ul> </div>
-			  <div>If yes  
+			  <div class="col-sm-12">
+        <div>If changed to YES, then provide  </div>
+        <ul><li>Is the buydown reflected on the Note, If NO nothing else is needed.</li></ul> 
+        </div>
+			  <div class="col-sm-12">If yes  
 							<ul>
 							  <li>What is the Rate as reflected without the Buydown? There is a text box in which the user must input the note rate that would be reflected in the note if there was not a buydown that the user may provide in the text box.</li>
 							  <li>Provide the rate the borrower will pay after the buydown is applied – this will a rate percent value in the text box.</li>
@@ -937,13 +941,16 @@
                     <li>The drop down will indicate yes or no; this is always defaulted to NO if manual data entry. </li>
 					<li>The drop is also driven by the information input in to the product description section.</li>
                 </ul>
+                <div>
+                <div class="col-sm-12 padding0">If yes, amortization type is NOT equal to Fixed then the user will provide the following information either through entry of information in the product description section or can manually enter the information into the User interface for this row:
+                </div>
+              <ul>
+                          <li>Adjusts every ________ years starting in year______ </li>
+                <li>Can go as high as   ________ in year_______          </li>
+                      </ul>
+             </div>
 			  </div>
-			  <div>If yes, amortization type is NOT equal to Fixed then the user will provide the following information either through entry of information in the product description section or can manually enter the information into the User interface for this row:
-			  <ul>
-                    <li>Adjusts every ________ years starting in year______ </li>
-					<li>Can go as high as   ________ in year_______          </li>
-                </ul>
-			 </div>
+			  
 			  </span>
 			  <span class="field_help">
 			 <h5> Payment Frequency : </h5>
