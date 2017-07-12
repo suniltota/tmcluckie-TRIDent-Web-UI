@@ -199,8 +199,20 @@
 			
 	</span>
 	<div class="col-sm-12 margin10t">
-			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('TotalClosingCosts')">Back</a></span>
-			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('LoanDisclosures')">Next</a></span>
+			<span class="pull-left">
+			    <a class="btn btn-default" ng-show="loanBasicInfo.loanFormType=='alternate'" ng-click="changeTab('PayoffsAndPayments')">Back</a>
+				<a class="btn btn-default" ng-show="loanBasicInfo.loanFormType !='alternate'" ng-click="changeTab('TotalClosingCosts')">Back</a>
+			</span>
+
+			<span class="pull-right" ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==true">
+				<a class="btn btn-primary" ng-click="changeTab('AirTable')">Next</a>
+			</span>
+			<span class="pull-right" ng-show="leformdata.loanDetail.interestRateIncreaseIndicator==false">
+				<a class="btn btn-primary" ng-show="leformdata.loanDetail.interestOnlyIndicator==true || leformdata.payment.paymentRule.paymentOptionIndicator==true || leformdata.loanInformation.amortizationType=='Step' || leformdata.loanInformation.amortizationType=='GPM' || leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanDetail.seasonalPaymentFeatureIndicator==true" ng-click="changeTab('ApTable')">Next</a>
+
+				<a class="btn btn-primary" ng-show="!leformdata.loanDetail.interestOnlyIndicator && !leformdata.payment.paymentRule.paymentOptionIndicator && leformdata.loanInformation.amortizationType !='Step' && leformdata.loanInformation.amortizationType !='GPM' && leformdata.loanInformation.amortizationType !='GraduatedPaymentARM' && !leformdata.loanDetail.seasonalPaymentFeatureIndicator" ng-click="changeTab('LoanDisclosures')">Next</a>
+			</span>
+			<!-- <span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('LoanDisclosures')">Next</a></span> -->
 	</div>
 </div>
 <div class="modal fade" id="cashtoCloseModal" role="dialog">
