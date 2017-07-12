@@ -81,6 +81,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.toleranceCure = false;
     $scope.toleranceCureDrpdwn = false;
     $scope.loanMaturityPeriodTypes = staticData.loanMaturityPeriodTypes;
+    $scope.leApplicantAddress = {"slectedPropertyStatus":false};
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -2209,7 +2210,21 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	   	}
     }, true);
 
-       
+     $scope.SameAsPropertyInformation = function () {     
+               if ($scope.leApplicantAddress.slectedPropertyStatus) {
+                	this.borrower.address.addressLineText=$scope.leformdata.closingInformation.property.addressLineText;
+                	this.borrower.address.cityName=$scope.leformdata.closingInformation.property.cityName;
+                	this.borrower.address.countryCode='US';
+                	this.borrower.address.stateCode=$scope.leformdata.closingInformation.property.stateCode;
+                	this.borrower.address.postalCode=$scope.leformdata.closingInformation.property.postalCode;
+                } else if(!$scope.leApplicantAddress.slectedPropertyStatus) {
+                	this.borrower.address.addressLineText='';
+                	this.borrower.address.cityName='';
+                	this.borrower.address.countryCode='';
+                	this.borrower.address.stateCode='';
+                	this.borrower.address.postalCode='';
+            }
+     };
     $scope.$watch('leformdata.micIdentifier',function(newValue,oldValue){
     	if($scope.leformdata.micIdentifier) {
     		$scope.leformdata.loanDetail.miRequiredIndicator = true;
