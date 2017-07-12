@@ -161,7 +161,7 @@
 		        <th class="innerSectionHeader incRegZ">Included in Reg Z?</th>
 		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
-		      <tr ng-repeat="sbDidNotShopFor in cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors">		      	
+		      <tr ng-repeat="sbDidNotShopFor in cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors track by $index">		      	
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
 		        	<span class="col-sm-12 padding0">
@@ -284,7 +284,8 @@
 		        <th class="innerSectionHeader incRegZ">Included in Reg Z?</th>
 		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
-		      <tr ng-repeat="sbDidShopFor in cdformdata.closingCostDetailsLoanCosts.sbDidShopFors">		 	<td>
+		      <tr ng-repeat="sbDidShopFor in cdformdata.closingCostDetailsLoanCosts.sbDidShopFors track by $index">		 	
+		      <td>
 		        	<span class="col-sm-12 margin5tb padding0">Label Name</span>
 		        	<span class="col-sm-12 padding0">
 		        		<input type="text" class="form-control" ng-model="sbDidShopFor.displayLabel">

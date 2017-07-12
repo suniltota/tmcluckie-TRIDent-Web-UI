@@ -197,6 +197,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount%12;
 		}
+
+
 		
         //Adding Form and Document types for AML & PDF Generation
         $scope.cdformdata.closingDisclosureDocDetails.documentType='ClosingDisclosure';
@@ -206,6 +208,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }else if($scope.loanBasicInfo.loanFormType == 'alternate'){
         	$scope.cdformdata.closingDisclosureDocDetails.formType = 'AlternateForm';
         }
+
+        if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length==0){
+			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.push(originationCharges);
+		}
+		
+		if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length==0){
+			$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
+		}
+
+		if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.length==0){
+			$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
+		}
+
+		if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.length==0){
+			$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
+		}
     
 		if($scope.cdformdata.loanInformation.loanIdentifiers && $scope.cdformdata.loanInformation.loanIdentifiers.length>0){
 			$scope.MERS_MIN_ID = '';

@@ -112,7 +112,7 @@
 		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearRecordings()"></span>
 		      	</td>
 		      </tr>
-		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-show="tOGovtFee.feeType !='RecordingFeeForDeed' && tOGovtFee.feeType!='RecordingFeeForMortgage' && tOGovtFee.feeType!='RecordingFeeTotal' && tOGovtFee.feeType!='RecordingFee'">
+		      <tr ng-repeat="tOGovtFee in cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList track by $index" ng-show="tOGovtFee.feeType !='RecordingFeeForDeed' && tOGovtFee.feeType!='RecordingFeeForMortgage' && tOGovtFee.feeType!='RecordingFeeTotal' && tOGovtFee.feeType!='RecordingFee'">
 		        <td>
 		            <span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType =='TransferTaxTotal'">Transfer Taxes</span>
 		        	<span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType !='TransferTaxTotal'">Label Name</span>
@@ -229,7 +229,7 @@
 		        <th class="innerSectionHeader incRegZ">Included In Reg Z?</th>
 		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
-		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='PrepaidInterest'" >
+		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType =='PrepaidInterest'" >
 		        <td>
 		            <span class="LabelText col-sm-12 ">Label:<help-verbiage name="CD_PrepaidsPrepaidInterestlabel_Help" title="help_tooltip_text"></help-verbiage></span>
 		            <span class="LabelValue col-sm-12 ">Prepaid Interest
@@ -359,7 +359,7 @@
 		        <th class="innerSectionHeader incRegZ">Included In Reg Z?</th>
 		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
-		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='HomeownersInsurancePremium'">
+		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType =='HomeownersInsurancePremium'">
 		        <td>
 		            <span class="col-sm-12 LabelText">Label:</span>
 		        	<!-- <span class="margin5tb col-sm-10">Homeowners Insurance Premium</span> -->
@@ -440,7 +440,7 @@
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='MortgageInsurancePremium'">
+		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType =='MortgageInsurancePremium'">
 		        <td>
 		            <span class="LabelText col-sm-12">Label:</span>
 		        	<span class="LabelValue col-sm-12 padding0">Mortgage Insurance</span><br>
@@ -520,7 +520,7 @@
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='CountyPropertyTax'">
+		      <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType =='CountyPropertyTax'">
 		        <td>
 		        	<span class="LabelText col-sm-12">Label:</span>
 		        	<span class="LabelValue col-sm-12">Property Taxes</span><br>
@@ -603,7 +603,7 @@
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
-              <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType!='HomeownersInsurancePremium' && prepaidsList.prepaidItemType!='MortgageInsurancePremium' && prepaidsList.prepaidItemType!='PrepaidInterest' && prepaidsList.prepaidItemType!='CountyPropertyTax'">
+              <tr ng-repeat="prepaidsList in cdformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType!='HomeownersInsurancePremium' && prepaidsList.prepaidItemType!='MortgageInsurancePremium' && prepaidsList.prepaidItemType!='PrepaidInterest' && prepaidsList.prepaidItemType!='CountyPropertyTax'">
 		        <td>
 		        	<span class="LabelText col-sm-12">Label:</span>
 		        	<span class="LabelValue col-sm-12"><input type="text" class="form-control padding0" name="" ng-model="prepaidsList.displayLabel"></span>
@@ -1176,7 +1176,7 @@
 		        <th class="innerSectionHeader incRegZ">Included In Reg Z?</th>
 		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
-		      <tr ng-repeat="otherCostsList in cdformdata.closingCostDetailsOtherCosts.otherCostsList">
+		      <tr ng-repeat="otherCostsList in cdformdata.closingCostDetailsOtherCosts.otherCostsList track by $index">
 		        <td>
 		            <span class="LabelText col-sm-12">Label:</span> 
 		        	<span class="LabelValue col-sm-12">
