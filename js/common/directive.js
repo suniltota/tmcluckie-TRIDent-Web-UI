@@ -283,9 +283,9 @@ app.directive('phonenumberFormat', function ($filter, $parse, $sce) {
                 var plainNumber = viewValue.replace(/[^0-9]/g, '');
                 plainNumber = plainNumber.toString();
                 if (plainNumber.length >= 11) {
-                  plainNumber = plainNumber.slice(0, 11);
+                  plainNumber = plainNumber.slice(0, 10);
                 } else if(plainNumber>3) {
-                  var diff = 11 - plainNumber.length;
+                  var diff = 10 - plainNumber.length;
                   for(var i=0; i<diff; i++) 
                     plainNumber = plainNumber+"0";
                 } else if(plainNumber<3) {
