@@ -20,7 +20,7 @@
 		        <help-verbiage name="LE_SectionETrashSymbol_help" title="help_tooltip_text"></help-verbiage> / <br> Clear
 		        <help-verbiage name="LE_SectionEClearSymbol_help" title="help_tooltip_text"></help-verbiage></th>
 		      </tr>
-		      <tr ng-repeat="tOGovtFee in leformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-if="tOGovtFee.feeType == 'RecordingFeeTotal'">		      	
+		      <tr ng-repeat="tOGovtFee in leformdata.closingCostDetailsOtherCosts.tOGovtFeesList track by $index" ng-if="tOGovtFee.feeType == 'RecordingFeeTotal'">		      	
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fees and Other Taxes<help-verbiage name="LE_SectionERecordingFeeOtherTaxes_help" title="help_tooltip_text"></help-verbiage>
 				</span>
@@ -40,7 +40,7 @@
 		      		<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearRecordings()"></span>
 		      	</td>
 		      </tr>
-		      <tr ng-repeat="tOGovtFee in leformdata.closingCostDetailsOtherCosts.tOGovtFeesList" ng-show="tOGovtFee.feeType!='RecordingFeeTotal' && tOGovtFee.feeType!='RecordingFee'">		         
+		      <tr ng-repeat="tOGovtFee in leformdata.closingCostDetailsOtherCosts.tOGovtFeesList  track by $index" ng-show="tOGovtFee.feeType!='RecordingFeeTotal' && tOGovtFee.feeType!='RecordingFee'">		         
 		        <td>
 		            <span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType =='TransferTaxTotal'">Transfer Taxes
 		            <help-verbiage name="LE_SectionETransferTaxes_help" title="help_tooltip_text"></help-verbiage>
@@ -91,7 +91,7 @@
 			  <help-verbiage name="LE_SectionFClearSymbol_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 		      </tr>
-		      <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='HomeownersInsurancePremium'">
+		      <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType =='HomeownersInsurancePremium'">
 		        <td>
 		        	<span class="LabelValue col-sm-12 padding0">Homeowners Insurance Premium</span>
 		        </td>
@@ -117,7 +117,7 @@
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='MortgageInsurancePremium'">
+		      <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType =='MortgageInsurancePremium'">
 		        <td>
 		        	<span class="LabelValue col-sm-12 padding0">Mortgage Insurance Premium</span>
 		        </td>
@@ -145,7 +145,7 @@
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
-		     <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='PrepaidInterest'">
+		     <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType =='PrepaidInterest'">
 		        <td>
 		        	<span class="LabelValue col-sm-12">Prepaid Interests</span>
 		        </td>
@@ -183,7 +183,7 @@
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType =='CountyPropertyTax'">
+		      <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType =='CountyPropertyTax'">
 		        <td>
 		        	<span class="LabelValue col-sm-12">Property Taxes</span>
 		        </td>
@@ -209,7 +209,7 @@
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
-              <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList" ng-if="prepaidsList.prepaidItemType!='HomeownersInsurancePremium' && prepaidsList.prepaidItemType!='MortgageInsurancePremium' && prepaidsList.prepaidItemType!='PrepaidInterest' && prepaidsList.prepaidItemType!='CountyPropertyTax'">
+              <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType!='HomeownersInsurancePremium' && prepaidsList.prepaidItemType!='MortgageInsurancePremium' && prepaidsList.prepaidItemType!='PrepaidInterest' && prepaidsList.prepaidItemType!='CountyPropertyTax'">
 		        <td>
 		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" >
 		        </td>
@@ -473,7 +473,7 @@
 				/ <br> Clear <help-verbiage name="LE_SectionHSectionClearSymbol_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 		      </tr>
-		      <tr ng-repeat="otherCostsList in leformdata.closingCostDetailsOtherCosts.otherCostsList">
+		      <tr ng-repeat="otherCostsList in leformdata.closingCostDetailsOtherCosts.otherCostsList track by $index">
 		        <td>
 		        	<span class="ValueValue col-sm-10">
 			        	

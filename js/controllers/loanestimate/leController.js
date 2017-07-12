@@ -156,7 +156,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
 	var initializeLEformdata = function() {
 
-		$scope.leformdata = staticData.leformdata;
+		$scope.leformdata = angular.copy(staticData.leformdata);
 		//console.log($scope.leformdata.closingInformation.lenderName);
 		$scope.leformdata.termsOfLoan.loanPurposeType = $scope.loanBasicInfo.loanPurposeType.capitalizeFirstLetter();
 
@@ -203,6 +203,17 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			$scope.leformdata.salesContractDetail.personalPropertyIndicator = false;
 		} else {
 			$scope.leformdata.transactionInformation.refinanceSameLenderIndicator = false;
+		}
+
+		if($scope.leformdata.loanDetail.interestRateIncreaseIndicator && $scope.leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount) {
+			$scope.leformdata.interestRateAdjustment['ceilingRatePercentEarliestEffectiveYearCount'] = Math.ceil($scope.leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount/12) + 1;
+		} else {
+			$scope.leformdata.interestRateAdjustment['ceilingRatePercentEarliestEffectiveYearCount'] = '';
+		}
+		if($scope.leformdata.loanDetail.paymentIncreaseIndicator && $scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount) {
+			$scope.leformdata.principalAndInterestPaymentAdjustment['principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount'] = Math.ceil($scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount/12);
+		} else {
+			$scope.leformdata.principalAndInterestPaymentAdjustment['principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount'] = '';
 		}
 
 		$scope.leformdata.closingInformationDetail.closingCostExpirationDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 10);
@@ -327,6 +338,40 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    		$scope.leformdata.etiaSection.etiaValues[i]['insuranceTaxCheck'] = false;
 	    	}
 	    }
+        
+        if($scope.leformdata.closingCostDetailsLoanCosts.originationCharges.length==0){
+			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(originationCharges);
+			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(originationCharges);
+		}else if($scope.leformdata.closingCostDetailsLoanCosts.originationCharges.length==1){
+			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(originationCharges);
+		}
+
+        if($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length==0){
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
+		}else if($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length==1){
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
+		}
+
+		if($scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.length==0){
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
+		}else if($scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.length==1){
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
+		}
+
+		if($scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.length==0){
+			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
+			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
+			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
+		}else if($scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.length==1){
+			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
+			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
+		}
 
 		if($scope.leformdata.closingCostDetailsLoanCosts.originationCharges!=undefined) {
    			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.splice(0, 0, angular.copy(originationCharges));
@@ -338,7 +383,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 					$scope.sectionAfeeTypes[j].disabled = true;
 				}
 			}
-       	}
+    	}
 
         $scope.leformdata.closingCostDetailsLoanCosts.originationCharges['AfeeTypes']=[];
         $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors['BfeeTypes']=[];
@@ -360,6 +405,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 				$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.AfeeTypes.push($scope.leformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType);
 		};
 
+		
 		for(i=0; i<$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length; i++){
 			if($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.BfeeTypes.indexOf($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType)==-1)
 				$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.BfeeTypes.push($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType);
@@ -436,7 +482,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[3].prepaidItemType = 'CountyPropertyTax';
 			$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[3].displayLabelText = 'Property Taxes';
 			//$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[3].paymentIncludedInAPRIndicator=false;
-
+            $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
+            $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
 		}
 
 		for(i=0; i<$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.length; i++){
@@ -476,6 +523,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
        		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(2, 0, angular.copy(escrowItemsList));
 			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[2].escrowItemType = 'CountyPropertyTax';
 			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[2].displayLabel = 'Property Taxes';
+
+			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
+			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
 		}
 
 		for(i=0; i<$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.length; i++){
@@ -655,19 +705,14 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		$scope.leformdata.etiaSection.etiaValues.push(angular.copy(ETIAComponentType));
 		$scope.leformdata.etiaSection.total = $scope.leformdata.etiaSection.etiaValues.length;
     }
-    $scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
 
     $scope.addOrganizationCharges = function(){
     	$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
     }
 
-    $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
-    $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
     $scope.addsbDidNotShopFor = function(){
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
     }
-    $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
-    $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
     $scope.addsbDidShopFor = function(){
     	$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
     }
@@ -675,16 +720,13 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.addtOGovtFeesList = function(){
     	$scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList.push(angular.copy(tOGovtFees));
     }
-    $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
     $scope.addprepaidsList = function(){
     	$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
     }
-   $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
     $scope.addescrowItemsList = function(){
     	$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
     }
-	$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
-	$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
+	
     $scope.addotherCostsList = function(){
     	$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
     }

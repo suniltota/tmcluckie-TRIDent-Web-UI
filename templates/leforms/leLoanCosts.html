@@ -23,7 +23,7 @@
 		        <th class="innerSectionHeader DeleteIcons">Delete/ Clear
 				</th>
 		      </tr>
-		      <tr ng-repeat="originationCharge in leformdata.closingCostDetailsLoanCosts.originationCharges">		      	
+		      <tr ng-repeat="originationCharge in leformdata.closingCostDetailsLoanCosts.originationCharges track by $index">		      	
 		        <td ng-show="originationCharge.feeType == 'LoanDiscountPoints'">
 		        	 <span class="input-group">
 		        	 <input type="text" class="form-control" ng-model="originationCharge.feeTotalPercent" percentage-format ng-blur="loanDiscount($index)" ng-keyup="loanDiscount($index)">
@@ -105,7 +105,7 @@
 		        <th class="innerSectionHeader incInApr">Included in APR	</th>
 		        <th class="innerSectionHeader DeleteIcons">Delete/ Clear</th>
 		      </tr>
-		      <tr ng-repeat="sbDidNotShopFor in leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors">
+		      <tr ng-repeat="sbDidNotShopFor in leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors track by $index">
 		        <td>
 		        	<span class="col-sm-12 padding0">
 		        		<input type="text" class="form-control" ng-model="sbDidNotShopFor.displayLabel">
@@ -182,7 +182,7 @@
 		        <th class="innerSectionHeader DeleteIcons">Delete / Clear
 			</th>
 		      </tr>
-		      <tr ng-repeat="sbDidShopFor in leformdata.closingCostDetailsLoanCosts.sbDidShopFors">
+		      <tr ng-repeat="sbDidShopFor in leformdata.closingCostDetailsLoanCosts.sbDidShopFors track by $index">
 		        <td>
 		        	<span class="col-sm-12 padding0">
 		        		<input type="text" class="form-control" ng-model="sbDidShopFor.displayLabel"> 
