@@ -349,6 +349,7 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 #cashtoCloseModal .fieldValue{padding: 5px 15px;}
 #cashtoCloseModal .fieldValue input{height: 25px;}
 .finalFooterValues{background: #5bb1dc; padding:5px 15px; color: #fff; font-weight: bold;}
+.leftMenuHeading{font-size: 15px; text-align: center; color: #fff; font-weight: bold;}
 
 .LabelText{margin-top: 5px;padding:0px; font-weight: bold;}
 .LabelValue{margin-bottom: 5px;padding:0px;}
