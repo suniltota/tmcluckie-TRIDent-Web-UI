@@ -572,6 +572,7 @@ app.directive('percentageFormat', function ($filter, $sce) {
 
         element.on('blur', function (e) {
             var elementValue = e.target.value;
+            if(elementValue != ""){
             var elementValue = elementValue.replace(/[^0-9.]/g, '');
             var decimalSplitValues = elementValue.split('.');
             if(decimalSplitValues[0] == 25){
@@ -591,6 +592,7 @@ app.directive('percentageFormat', function ($filter, $sce) {
               scope.$apply();
             }
             scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+          }
         });
       }
     };
@@ -728,6 +730,7 @@ app.directive('minMaxValue', function($sce) {
           var min = parseInt(attr.minVal);
           var max = parseInt(attr.maxVal);
           var value = parseInt(e.target.value);
+          if(!isNaN(value)){
           if(value < min || value > max){
               if(value < min){
                 e.target.value = "";
@@ -744,6 +747,8 @@ app.directive('minMaxValue', function($sce) {
             message = "";
           }
           scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+        }
+          
         }
       });
 
