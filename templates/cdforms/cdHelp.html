@@ -734,7 +734,8 @@
       					<li>Conditionally required based off the Boolean Yes if a construction loan.</li>
                       </ul>
       			  </div> 
-      			  </span><span class="field_help">
+      			  </span>
+              <span class="field_help">
       			  <h5>Home Equity Loan Information</h5>
       			 <h5> Is the Loan a Home Equity Loan? : </h5>
                     <div id="CD_IsLoanHomeEquityLoan_Help">In all transaction, must indicate the loan is an extension of credit that does not involve the purchase of real property or the initial construction of a dwelling and will not be used to refinance an existing obligation.
@@ -765,6 +766,23 @@
                       </div>
       			  </div> 
       			  </span>
+              <span class="field_help">
+                   <h5> Mortgage Insurance – Is required? : </h5>
+                          <div id="CD_LoanMortgageInsurance_Help">This information is required for every transaction, must identify if there is MI present in the transaction.  
+                    <ul>
+                                <li>If NO, then nothing else needs to be done </li>
+                      <li>If Yes, provide the following information that is found under the Mortgage Insurance Label in the far-left column
+                        <ul>
+                            <li>No. Months Duration?</li>
+                            <li>Scheduled Termination Date</li>
+                            <li>MI Company Name </li>
+                            <li>MI Company Name Description, if other</li>
+                        </ul>
+                        </li>
+                      <li>If yes, provide the amount of MI this will drive the need for additional columns due to displaying the amount per change period until the MI is no longer required.</li>  
+                            </ul>
+                    </div> 
+                    </span>
       			  <span class="field_help">
       			  <h5>Negative Amortization Information</h5>
       			 <h5> Does this loan have a Negative Amortization Feature? : </h5>
@@ -919,7 +937,7 @@
 			  </span>
 			  <span class="field_help">
 			 <h5> Temporary Buydown : </h5>
-              <div id="CD_LoanTemporaryBuydown_Help">The temporary buydown information is only needed when the buydown is listed within the NOTE itself.  The Drop-down must be edited by the user, it will default to NO automatically and the use may change to yes.  If the user changes the default value to yes then additional information will be required dependent upon answers additional information may be needed.
+              <div id="CD_LoanTemporaryBuydown_Help">The temporary buydown information is only needed when the buydown is listed within the NOTE itself.  The Drop-down must be edited by the user, it will default to NO automatically and the user may change to yes.  If the user changes the default value to yes then additional information will be required dependent upon answers additional information may be needed.
 			  <div class="col-sm-12">
         <div>If changed to YES, then provide  </div>
         <ul><li>Is the buydown reflected on the Note, If NO nothing else is needed.</li></ul> 
@@ -989,13 +1007,17 @@
 		  <span class="field_help">
 			 <h5> Years : </h5>
               <div id="CD_projectedYears_Help">Each column must be expressed in whole years
-			  <ul>
+              <div>
+			             <ul>
                     <li>Years 1 - 30 </li>
-					<li>Years 1 -   5, etc.….</li>
+					           <li>Years 1 -   5, etc.….</li>
                 </ul>
-				<br>Whole years are defined as twelve-month intervals that begin on the due date of the initial periodic payment. When the same Estimated Total Periodic Payment amount is valid for several years before a payment change event occurs, then that Year Range is identified as a column heading. <br>
-				<br>The entire loan term must be represented by the Year Range Columns that can only have a maximum of 4 columns in the transaction.  <br>
-				<br>See the Know Before You Owe regulation for the rules of what drives a payment adjustment.
+              </div>
+              <ul>
+				<li>Whole years are defined as twelve-month intervals that begin on the due date of the initial periodic payment. When the same Estimated Total Periodic Payment amount is valid for several years before a payment change event occurs, then that Year Range is identified as a column heading.</li>
+        <li>The entire loan term must be represented by the Year Range Columns that can only have a maximum of 4 columns in the transaction.</li>
+				<li>See the Know Before You Owe regulation for the rules of what drives a payment adjustment.</li>
+        </ul>
 			  </div> 
 			  </span>
 			  <span class="field_help">
@@ -1017,24 +1039,7 @@
                 </ul>
 			  </div> 
 			  </span>
-			  <span class="field_help">
-			 <h5> Mortgage Insurance – Is required? : </h5>
-              <div id="CD_LoanMortgageInsurance_Help">This information is required for every transaction, must identify if there is MI present in the transaction.  
-			  <ul>
-                    <li>If NO, then nothing else needs to be done </li>
-					<li>If Yes, provide the following information that is found under the Mortgage Insurance Label in the far-left column
-						<ul>
-							  <li>No. Months Duration?</li>
-							  <li>Scheduled Termination Date</li>
-							  <li>MI Company Name </li>
-							  <li>MI Company Name Description, if other</li>
-							  <li></li>
-						</ul>
-						</li>
-					<li>If yes, provide the amount of MI this will drive the need for additional columns due to displaying the amount per change period until the MI is no longer required.</li>	
-                </ul>
-			  </div> 
-			  </span>
+			  
 			  <span class="field_help">
 			 <h5> Escrow Payment Amount : </h5>
               <div id="CD_EscrowPaymentAmount_Help">In every transaction, there will be an indication of Escrow present or NOT present in the transaction, If there is an Escrow Account then a user would input the value in this row.<br>
