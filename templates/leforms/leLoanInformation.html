@@ -11,8 +11,8 @@
 						<div class="col-sm-5 padding0">
 							<actualize-input name="loanTermYears"
 								ng-model="leformdata.loanInformation.loanTermYears"
-								custommessage="Please enter a valid whole number"
-								dependencies="only-digits"> </actualize-input>
+								custommessage="Please enter a valid whole number" min-val="1" max-val="40"
+								dependencies="only-digits min-max-value"> </actualize-input>
 							<help-verbiage name="LE_LoanTermNoOfYears_help"
 								title="help_tooltip_padding"></help-verbiage>
 						</div>
@@ -45,7 +45,7 @@
 								value="{{loanType.value}}">{{loanType.name}}</option>
 						</select>
 						<help-verbiage name="LE_LoanTermLoanType_help"
-							title="help_tooltip_padding"></help-verbiage>
+							title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 				<div class="FieldGroup">
@@ -81,7 +81,7 @@
 							value="{{lienPriorityType.value}}">{{lienPriorityType.name}}</option>
 					</select>
 					<help-verbiage name="LE_LienPosition_help"
-						title="help_tooltip_padding_left"></help-verbiage>
+						title="leftTooltip_selectPadding"></help-verbiage>
 				</div>
 			</div>
 
@@ -94,8 +94,9 @@
 				<div class="col-sm-5 padding0"
 					ng-repeat="loanIdentifier in leformdata.loanInformation.loanIdentifiers"
 					ng-if="loanIdentifier.loanIdentifierType=='LenderLoan'">
-					<input type="text" class="form-control" name="lenderLoanIdentifier"
-						ng-model="loanIdentifier.loanIdentifier">
+					<actualize-input name="lenderLoanIdentifier" ng-model="loanIdentifier.loanIdentifier" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="require-field">
+                			</actualize-input>
+
 					<help-verbiage name="LE_LenderLoanIdentifier_help"
 						title="help_tooltip_padding"></help-verbiage>
 				</div>
@@ -111,7 +112,7 @@
 							ng-change="rateLockChange()">
 							<option value="" selected>Select</option>
 						</select>
-						<help-verbiage name="LE_RateLocked_help" title="help_tooltip"></help-verbiage>
+						<help-verbiage name="LE_RateLocked_help" title="leftTooltip_select"></help-verbiage>
 					</div>
 					<div class="col-sm-4 padding0 margin5tb"
 						ng-if="leformdata.loanInformation.rateLokerIndicator == true">
@@ -194,7 +195,7 @@
 							<option ng-repeat="amortizationType in amortizationTypes"
 								value="{{amortizationType.value}}">{{amortizationType.name}}</option>
 						</select>
-						<help-verbiage name="LE_AmortizationType_help" title="leftTooltip">
+						<help-verbiage name="LE_AmortizationType_help" title="leftTooltip_select">
 						</help-verbiage>
 					</div>
 				</div>

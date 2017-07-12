@@ -9,7 +9,7 @@
 					<div class="col-sm-12 padding0 paddingtop6">
 						<div class="col-sm-6 padding0 paddingtop7">No. Years:</div>
 						<div class="col-sm-6 padding0">
-							<actualize-input name="loanTermYears" ng-model="cdformdata.loanInformation.loanTermYears" min-val="1" max-val="40" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies=" min-max-value">
+							<actualize-input name="loanTermYears" ng-model="cdformdata.loanInformation.loanTermYears" min-val="1" max-val="40" toolTipPos = "top" custommessage="Please enter a valid whole number" dependencies="min-max-value">
                 			</actualize-input>
                 			<help-verbiage name="CD_LoanTermYears_Help" title="help_tooltip_padding"></help-verbiage>
 						</div>
@@ -33,7 +33,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="loanType in loanTypes" value="{{loanType.value}}">{{loanType.name}}</option>
 						</select>
-						<help-verbiage name="CD_LoanType_Help" title="help_tooltip_padding"></help-verbiage>
+						<help-verbiage name="CD_LoanType_Help" title="leftTooltip_select"></help-verbiage>
 					</div>
 				</div>
 				<div class="FieldGroup">
@@ -80,7 +80,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="lienPriorityType in lienPriorityTypes" value="{{lienPriorityType.value}}">{{lienPriorityType.name}}</option>
 						</select>
-						<help-verbiage name="CD_LoanLienPosition_Help" title="help_tooltip_padding_left"></help-verbiage>
+						<help-verbiage name="CD_LoanLienPosition_Help" title="leftTooltip_select"></help-verbiage>
 					</div>
 				</div>
 			</div>
