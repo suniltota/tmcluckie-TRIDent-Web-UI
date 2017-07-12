@@ -218,6 +218,90 @@ app.directive('zipcodeFormat', function ($filter, $parse, $sce) {
     };
 });
 
+app.directive('phonenumberFormat', function ($filter, $parse, $sce) {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function (scope, elem, attrs, ctrl) {
+           var allowedInput = false;
+           var message = ""
+            elem.bind('blur', function (e) {
+              if(e.target.value){
+                 e.target.value = formatValue(e.target.value, 'formxml');
+                e.currentTarget.style.border="";
+                message = "";
+               }else {
+               // e.target.value = '00000';
+                $parse(attrs.ngModel).assign(scope, '0000000000');
+                e.currentTarget.style.border="1px solid #f17777";
+                message = "Must be a 10 digit value";
+              }
+              scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+            });
+            if (!ctrl) {
+                return;
+            }
+
+            ctrl.$formatters.push(function () {
+                return formatValue(ctrl.$modelValue, 'formxml');
+            });
+
+            function formatValue(viewValue, sourcefrom) {
+              if(viewValue) {
+                var plainNumber = viewValue.replace(/[^0-9]/g, '');
+                if (plainNumber.length >= 11) {
+                    var plainNumber1 = plainNumber.slice(0, 3);
+                    var plainNumber2 = plainNumber.slice(3);
+                    if(plainNumber2.length>2) 
+                      plainNumber2 = plainNumber2.slice(0,7);
+                    plainNumber = plainNumber1 + "-" + plainNumber2;
+                } else if (plainNumber.length > 3 && plainNumber.length < 11) {
+                    var plainNumber1 = plainNumber.slice(0, 3);
+                    var plainNumber2 = plainNumber.slice(3);
+                    if(sourcefrom == 'formxml'){
+                      for(var i=plainNumber2.length; i<7; i++) {
+                        plainNumber2 = plainNumber2+"0";
+                      }
+                    }
+                    plainNumber = plainNumber1 + "-" + plainNumber2;
+                } else if (plainNumber.length === 3) {
+                    plainNumber = plainNumber.toString();
+                } else if (plainNumber.length < 3) {
+                  if(sourcefrom == 'formxml'){
+                    for(var i=plainNumber.length; i<3; i++) {
+                      plainNumber = plainNumber+"0";
+                    }
+                  }
+                  plainNumber = plainNumber.toString();
+                }
+                return plainNumber;
+              }
+              return undefined;
+            }
+
+            ctrl.$parsers.push(function (viewValue) {
+                var plainNumber = viewValue.replace(/[^0-9]/g, '');
+                plainNumber = plainNumber.toString();
+                if (plainNumber.length >= 11) {
+                  plainNumber = plainNumber.slice(0, 11);
+                } else if(plainNumber>3) {
+                  var diff = 11 - plainNumber.length;
+                  for(var i=0; i<diff; i++) 
+                    plainNumber = plainNumber+"0";
+                } else if(plainNumber<3) {
+                  var diff = 3 - plainNumber.length;
+                  for(var i=0; i<diff; i++) 
+                    plainNumber = plainNumber+"0";
+                }
+                ctrl.$setViewValue(formatValue(viewValue));
+                ctrl.$render();
+                return plainNumber;
+
+            });
+        }
+    };
+});
+
 app.directive('onlyDigits', function () {
     return {
       require: 'ngModel',
