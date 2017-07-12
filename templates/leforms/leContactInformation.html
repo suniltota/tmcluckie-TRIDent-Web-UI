@@ -142,15 +142,14 @@
 		        </td>
 		        <td style="width:13%">
 		        	<!-- <actualize-input class="form-control padding0"  ng-model="leformdata.contactInformation.lender.individualPhone" name="postalCode" toolTipPos = "top" custommessage="Must be a 10 digit value"  dependencies="phonenumer-format"></actualize-input> -->
-		        	<actualize-input  class="padding0" ng-model="leformdata.contactInformation.lender.individualPhone" name="phoneNumber" toolTipPos = "top" custommessage="Must be a 10 digit value"  dependencies="phonenumer-format">
-		        		
-		        	</actualize-input>
+		        	
+		        	<actualize-input ng-model="leformdata.contactInformation.lender.individualPhone" name="lenderindividualPhone" toolTipPos = "top" custommessage="Must be a 10 digit value"  dependencies="phonenumber-format"></actualize-input>
 		        </td>
 		        <td style="width:13%">
 		        	<span class="margin5tb marginleft15n col-sm-10">Phone</span>
 		        </td>
 		        <td style="width:13%">
-		        	<actualize-input class="padding0" ng-model="leformdata.contactInformation.mortagageBroker.individualPhone" name="phoneNumber" toolTipPos = "top" custommessage="Must be a 10 digit value"  dependencies="phonenumber-format"></actualize-input>
+		        	<actualize-input ng-model="leformdata.contactInformation.mortagageBroker.individualPhone" name="mortagageBrokerindividualPhone" toolTipPos = "top" custommessage="Must be a 10 digit value"  dependencies="phonenumber-format"></actualize-input>
 		        </td>		        
 		      </tr>
 			  <!-- <tr>
