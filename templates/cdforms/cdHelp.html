@@ -557,7 +557,7 @@
 			 <h5> Lien Position : </h5>
               <div id="CD_LoanLienPosition_Help">Specifies the priority of the lien against the subject property.
 			  <ul>
-                    <li>Format is enumerated values that include the following: First Lien | Fourth Lien | Second Lien | Third Lien</li>
+                    <li>Format is enumerated values that include the following: First Lien | Second Lien | Third Lien | Fourth Lien</li>
                 </ul>
 			  </div> 
 			  </span>
@@ -601,10 +601,11 @@
 			  </span>
 			 <span class="field_help">
 			 <h5> AUS Identifier : </h5>
-              <div id="CD_LoanAUSIdentifier_Help">A unique identifier assigned for all appraisal data delivered for this transaction.
+              <div id="CD_LoanAUSIdentifier_Help">A unique identifier assigned by the underwriting system to the underwriting case for a specific loan application
 			  <ul>
-                    <li>Format is a String Value up to 150 characters. </li>
-					<li>This field is conditionally required, if it exists input the value.</li>
+                    <li>Fannie Mae requires a DU AUS Type and the associated ID, if it is not present in the transaction when submitting the UCD XML file Fannie Mae will provide a UCD Identifier. </li>
+					           <li>Freddie Mac will accept any AUS Value and ID.</li>
+                     <li>Can support up to 9 different AUS systems (instances).</li>
                 </ul>
 			  </div> 
 			  </span>
@@ -659,9 +660,10 @@
       			  <span class="field_help">
       			 <h5> Provide the number of months first change period : </h5>
                     <div id="CD_Providenumbermonthsfirstchangeperiod_Help">The number of months between rate adjustments for the first changed after the fixed period, if the interest rate on the subject loan can change.
-      			  <ul>
+      			         <div><ul>
                           <li>Format is numeric 3.</li>
                       </ul>
+                      </div>
       			  </div> 
       			  </span>
       			  <span class="field_help">
@@ -700,7 +702,7 @@
       			  <span class="field_help">
       			  <h5>Construction Loan Information</h5>
       			 <h5> Is this transaction a construction loan? : </h5>
-                    <div id="CD_Istransactiononstructionloan?_Help">In every transaction user, must Indicate if this is a construction loan.
+                    <div id="CD_Istransactiononstructionloan_Help">In every transaction user, must Indicate if this is a construction loan.
       			  <ul>
                           <li>Format is Boolean, the user see a drop-down list with Yes or No.</li>
                       </ul>
@@ -756,9 +758,11 @@
       			  <span class="field_help">
       			 <h5> If Yes, what is the interest only period : </h5>
                     <div id="CD_whatinterestonlyperiod_Help">If the interest only feature answer is YES, then provide the number of months the loan remains interest only in the text box provided.
-      			  <ul>
+      			         <div>
+                     <ul>
                           <li>Format is numeric 3.</li>
                       </ul>
+                      </div>
       			  </div> 
       			  </span>
       			  <span class="field_help">
@@ -845,9 +849,11 @@
       			  <span class="field_help">
       			 <h5> If yes, provide the no. of months in which the Optional payment will be in affect : </h5>
                     <div id="CD_providemonthswhichOptionalpaymentaffect_Help">If the value for the statement “Does the loan have an optional payment feature” is yes, then provide the total number of optional payments allowed during the life of the loan when this choice is permitted under the terms of the loan.
-      			  <ul>
+      			         <div>
+                     <ul>
                           <li>Format is numeric 3. </li>
                       </ul>
+                      </div>
       			  </div> 
       			  </span>
 		  </div>
