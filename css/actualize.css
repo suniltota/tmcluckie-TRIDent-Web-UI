@@ -48,6 +48,7 @@ input, select, textarea, .form-control{font-size: 12px;}
 .margin8t{margin-top: 8px !important; }
 .margin5b{margin-bottom: 5px;}
 .margin10t{margin-top: 10px;}
+.margintop30{margin-top: 30px !important;}
 .margin5lr{margin-left: 5px; margin-right: 5px;}
 .checkboxGroup input[type="checkbox"]{margin:0 5px; float: left;}
 .checkboxGroup label{float: left;}

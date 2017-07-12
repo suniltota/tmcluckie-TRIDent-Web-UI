@@ -2167,17 +2167,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	   	}
     }, true);
 
-    $scope.$watch('leformdata.integratedDisclosureDetail',function(newValue,oldValue){
-           $scope.leformdata.integratedDisclosureDetail.fiveYearTotalOfPaymentsComparisonAmount = parseFloat($scope.leformdata.integratedDisclosureDetail.fiveYearTotalOfPaymentsComparisonAmount);
-           $scope.leformdata.integratedDisclosureDetail.fiveYearPrincipalReductionComparisonAmount = parseFloat($scope.leformdata.integratedDisclosureDetail.fiveYearPrincipalReductionComparisonAmount);
-           
-    },true);
-
-    $scope.$watch('leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel',function(newValue,oldValue){
-        $scope.leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent = $scope.leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent;
-        $scope.leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent = $scope.leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent;
-    },true);
-    
+       
     $scope.$watch('leformdata.micIdentifier',function(newValue,oldValue){
     	if($scope.leformdata.micIdentifier) {
     		$scope.leformdata.loanDetail.miRequiredIndicator = true;
