@@ -8,13 +8,13 @@
                   <help-verbiage name="LE_ConfirmReceipt_Help" title="help_tooltip_text"></help-verbiage></td>
             <td>
                  <span class="col-sm-12">
-                  <span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.loanDetail.assumabilityIndicator" ng-checked="leformdata.loanDetail.assumabilityIndicator == true"></span>
+                  <span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.documentClassification.documentSignatureRequiredIndicator" ng-checked="leformdata.documentClassification.documentSignatureRequiredIndicator == true" ng-true-value="true" ng-false-value="false"></span>
                   <span class="col-sm-11 pull-left margin5tb">
                     Will Display the Confirm Receipt Signature and Date Line
                   </span>
                 </span>
                 <span class="col-sm-12">
-                    <span class="pull-left"><input type="checkbox" name="" ng-checked="leformdata.loanDetail.assumabilityIndicator == false"></span>
+                    <span class="pull-left"><input type="checkbox" name="" ng-model="leformdata.documentClassification.documentSignatureRequiredIndicator" ng-checked="leformdata.documentClassification.documentSignatureRequiredIndicator == false" ng-true-value="false" ng-false-value="true"></span>
                     <span class="col-sm-11 pull-left margin5tb">
                       Will Not Display the Confirm Receipt Signature and Date Line
                     </span>
