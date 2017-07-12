@@ -905,6 +905,9 @@ app.directive('helpVerbiage', function ($window, $compile) {
           if(attr.title == "leftTooltip"){
               var template ='<span class="helpText tooltip-msg left"> ? <span><b></b><span>';
           }
+          if(attr.title == "leftTooltip_select"){
+              var template ='<span class="helpText tooltip-msg select_help"> ? <span><b></b><span>';
+          }
           if(attr.title == "topTooltip"){
               var template ='<span class="helpText tooltip-msg top"> ? <span><b></b><span>';
           }
@@ -937,6 +940,9 @@ app.directive('helpVerbiage', function ($window, $compile) {
           }
           if(attr.title == "leftTooltip"){
               var template ='<span class="helpText tooltip-msg left"> ? <span><b></b><span>';
+          }
+          if(attr.title == "leftTooltip_select"){
+              var template ='<span class="helpText tooltip-msg select_help"> ? <span><b></b><span>';
           }
           if(attr.title == "topTooltip"){
               var template ='<span class="helpText tooltip-msg top"> ? <span><b></b><span>';

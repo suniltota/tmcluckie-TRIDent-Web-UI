@@ -96,6 +96,9 @@ input, select, textarea, .form-control{font-size: 12px;}
 .helpText.tooltip_lg:hover span{width:1000px;}
 .helpText.tooltip_lg span{left:-240px;}
 .helpText.tooltip_lg > span > b{margin-left:310px;}
+.helpText.select_help{right:33px;}
+.helpText.select_help > span{left:-240px;}
+.helpText.select_help > span > b{margin-left:310px;}
 
 .helpIcon{font-size: 14px; color:#777;}
 .helpIcon + .tooltip .tooltip-arrow{border-right-color: #5bb1dc;}
