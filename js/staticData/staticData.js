@@ -28,6 +28,12 @@ app.service('staticData', function($filter){
 		{ name: "No", id: "NotEscrowed" }
 	];
 
+	this.escrowDropDownBooleanOptionsWithSome = [
+		{ name: "Yes", id: "Yes" },
+		{ name: "No", id: "No" },
+		{ name: "Some", id: "Some" }
+	];
+
 	this.countryCodes = [
 		{
 			"name":"United States",

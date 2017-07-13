@@ -16,6 +16,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	$scope.dateFormat = angular.copy(staticData.dateDisplayFormat);
 	$scope.dropDownBooleanOptions = angular.copy(staticData.dropDownBooleanOptions);
 	$scope.escrowDropDownBooleanOptions = angular.copy(staticData.escrowDropDownBooleanOptions);
+	$scope.escrowDropDownBooleanOptionsWithSome = angular.copy(staticData.escrowDropDownBooleanOptionsWithSome);
 	$scope.stateCodes = angular.copy(staticData.stateCodes);
 	$scope.usstateCodes = angular.copy(staticData.usstateCodes);
 	$scope.canadaStateCodes = angular.copy(staticData.canadaStateCodes);
