@@ -341,28 +341,28 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    }
         
         if($scope.leformdata.closingCostDetailsLoanCosts.originationCharges.length==0){
-			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(originationCharges);
-			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(originationCharges);
+			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
+			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
 		}else if($scope.leformdata.closingCostDetailsLoanCosts.originationCharges.length==1){
-			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(originationCharges);
+			$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
 		}
 
         if($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length==0){
-			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
-			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
-			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
 		}else if($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length==1){
-			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
-			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
 		}
 
 		if($scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.length==0){
-			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
-			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
-			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
 		}else if($scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.length==1){
-			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
-			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
+			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
 		}
 
 		if($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.length==0){
@@ -373,19 +373,19 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		}
 
 		if($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.length==0){
-			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(escrowItemsList);
-			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(escrowItemsList);
+			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
+			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
 		}else if($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.length==1){
-			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(escrowItemsList);
+			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
 		}
 
 		if($scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.length==0){
-			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
-			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
-			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
+			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
+			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
+			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
 		}else if($scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.length==1){
-			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
-			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
+			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
+			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
 		}
 
 		if($scope.leformdata.closingCostDetailsLoanCosts.originationCharges!=undefined) {

@@ -210,31 +210,29 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }
 
         if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length==0){
-			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.push(originationCharges);
+			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
 		}
 		
 		if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length==0){
-			$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(sbDidNotShopFors);
+			$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.push(angular.copy(sbDidNotShopFors));
 		}
 
 		if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.length==0){
-			$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
+			$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(angular.copy(sbDidShopFors));
 		}
 
 		if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.length==0){
-			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.push(prepaidsList);
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
 		}
 
 		if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length==0){
-			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.push(escrowItemsList);
+			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
 		}
 
 		if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.length==0){
-			$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
+			$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
 		}
 
-		
-    
 		if($scope.cdformdata.loanInformation.loanIdentifiers && $scope.cdformdata.loanInformation.loanIdentifiers.length>0){
 			$scope.MERS_MIN_ID = '';
 			for(var i=0; i<$scope.cdformdata.loanInformation.loanIdentifiers.length; i++) {
