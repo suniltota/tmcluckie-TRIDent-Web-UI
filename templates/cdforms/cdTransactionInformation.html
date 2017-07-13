@@ -32,7 +32,7 @@
                   <option value="" selected>Select</option>
                   <option ng-repeat="borrowerPartyRoleType in borrowerPartyRoleTypes" value="{{borrowerPartyRoleType.value}}">{{borrowerPartyRoleType.name}}</option>
                 </select>
-                <help-verbiage name="CD_IndividualBorrowerType_Help" title="help_tooltip"></help-verbiage>
+                <help-verbiage name="CD_IndividualBorrowerType_Help" title="leftTooltip_select"></help-verbiage>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb" ng-if="borrower.type=='I' && borrower.partyRoleType == 'Other'">
@@ -118,7 +118,7 @@
                 <option value="" selected>Select</option>
                 <option ng-repeat="country in countryCodes" value="{{country.code}}">{{country.code}}</option>
               </select>
-              <help-verbiage name="CD_BorrowerStateCode_Help" title="leftTooltip"></help-verbiage>
+              <help-verbiage name="CD_BorrowerStateCode_Help" title="leftTooltip_select"></help-verbiage>
               </div>
           </div>
           <div class="row col-sm-12 margin5tb">
@@ -130,7 +130,7 @@
                   <option ng-repeat="usstate in usstateCodes" value="{{usstate.code}}" ng-if="borrower.address.countryCode == 'US'">{{usstate.code}}</option>
                   <option ng-repeat="canadastate in canadaStateCodes" value="{{canadastate.code}}" ng-if="borrower.address.countryCode == 'CA'">{{canadastate.code}}</option>
               </select>
-              <help-verbiage name="CD_BorrowerStateCode_Help" title="leftTooltip"></help-verbiage>
+              <help-verbiage name="CD_BorrowerStateCode_Help" title="leftTooltip_select"></help-verbiage>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
@@ -139,7 +139,7 @@
             <div class="col-sm-7">
                 <actualize-input ng-model="borrower.address.postalCode" name="postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format">
               </actualize-input>
-              <help-verbiage name="CD_BorrowerPostalCode_Help" title="leftTooltip"></help-verbiage>
+              <help-verbiage name="CD_BorrowerPostalCode_Help" title="help_tooltip"></help-verbiage>
             </div>
           </div>          
         </div>
@@ -240,7 +240,7 @@
                   <option value="" selected>Select</option>
                   <option ng-repeat="country in countryCodes" value="{{country.code}}">{{country.code}}</option>
                 </select>
-                <help-verbiage name="CD_SellerStateCode_Help" title="leftTooltip"></help-verbiage>
+                <help-verbiage name="CD_SellerStateCode_Help" title="leftTooltip_select"></help-verbiage>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
@@ -252,7 +252,7 @@
                 <option ng-repeat="state in usstateCodes" value="{{state.code}}" ng-if="seller.address.countryCode=='US'">{{state.code}}</option>
                 <option ng-repeat="state in canadaStateCodes" value="{{state.code}}" ng-if="seller.address.countryCode=='CA'">{{state.code}}</option>
               </select>
-              <help-verbiage name="CD_SellerStateCode_Help" title="leftTooltip"></help-verbiage>
+              <help-verbiage name="CD_SellerStateCode_Help" title="leftTooltip_select"></help-verbiage>
             </div>
           </div>
           <div class="row col-sm-12 margin5tb">
@@ -261,7 +261,7 @@
             <div class="col-sm-7">
               <actualize-input ng-model="seller.address.postalCode" name="postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format">
               </actualize-input>
-              <help-verbiage name="CD_SellerPostalCode_Help" title="leftTooltip"></help-verbiage>
+              <help-verbiage name="CD_SellerPostalCode_Help" title="help_tooltip"></help-verbiage>
             </div>
           </div>
         </div>
@@ -297,7 +297,7 @@
               <select placeholder="Organization Name" class="form-control" ng-model="cdformdata.transactionInformation.refinanceSameLenderIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
                 <option value="" selected="selected">Select</option>
               </select>
-              <help-verbiage name="CD_RefinanceSameLender_Help" title="help_tooltip"></help-verbiage>
+              <help-verbiage name="CD_RefinanceSameLender_Help" title="leftTooltip_select"></help-verbiage>
           </div>
         </div>
       </div>  
