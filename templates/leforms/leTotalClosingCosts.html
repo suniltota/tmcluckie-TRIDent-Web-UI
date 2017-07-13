@@ -5,28 +5,28 @@
 		<table class="table LoanCostsSection table-bordered margin5tb" style="border:1px;">
 			  <tbody>
               <tr>
-                <th style="border:1px solid white;width: 30%;" class="innerSectionHeader innerSectionMainHeader  " ><strong>Section J. Total Closing Costs</strong>
+                <th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader col-sm-4" ><strong>Section J. Total Closing Costs</strong>
                 	 <help-verbiage name="LE_SectionJHeaderName_help" 
                 	title="help_tooltip_text"></help-verbiage>
                 </th>	  	
-				<th style="border:1px solid white;text-align: center;" class="innerSectionHeader innerSectionMainHeader width50TableHeader" > ${{leformdata.closingCostsTotal.totalClosingCosts | number:2}}
+				<th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader col-sm-8" > ${{leformdata.closingCostsTotal.totalClosingCosts | number:2}}
 				<help-verbiage name="LE_SectionJTotalAmount_help" 
                 	title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
                <tr>
-                <td  class="  text-center"><strong>Closing Costs Subtotal (D + I)</strong> 
+                <td  class="col-sm-2"><strong>Closing Costs Subtotal (D + I)</strong> 
                 <help-verbiage name="LE_SectionJSubSectionHeaderName_help" 
                 	title="help_tooltip_text"></help-verbiage>
 				</td>
-				<td style="width: 12.5%;" class="text-center">${{leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers | number:2}}</td>
+				<td>${{leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers | number:2}}</td>
 			  </tr>
               <tr>
-                <td class="text-center"><strong>Lender Credits</strong>
+                <td class="col-sm-2"><strong>Lender Credits</strong>
 				</td>	  	
 				<td  class="text-center">
 					<span class="margin5tb col-sm-12 padding0">
-						<div class="input-group">
+						<div class="input-group col-sm-3">
 							<span class="input-group-addon input-default" style="color: red;">$ -</span>
 
 							<input type="text" class="form-control padding0" name="" ng-model="leformdata.closingCostsTotal.lenderCredits" negative-digits >
