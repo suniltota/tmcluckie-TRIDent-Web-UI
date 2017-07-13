@@ -221,9 +221,19 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
 		}
 
+		if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.length==0){
+			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.push(prepaidsList);
+		}
+
+		if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length==0){
+			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.push(escrowItemsList);
+		}
+
 		if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.length==0){
 			$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
 		}
+
+		
     
 		if($scope.cdformdata.loanInformation.loanIdentifiers && $scope.cdformdata.loanInformation.loanIdentifiers.length>0){
 			$scope.MERS_MIN_ID = '';

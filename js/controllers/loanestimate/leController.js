@@ -365,6 +365,20 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors.push(sbDidShopFors);
 		}
 
+		if($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.length==0){
+			$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
+            $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
+		}else if($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.length==1){
+			$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
+		}
+
+		if($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.length==0){
+			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(escrowItemsList);
+			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(escrowItemsList);
+		}else if($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.length==1){
+			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(escrowItemsList);
+		}
+
 		if($scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.length==0){
 			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
 			$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList.push(otherCostsList);
@@ -482,9 +496,6 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
        		$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.splice(3, 0, angular.copy(prepaidsList));
 			$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[3].prepaidItemType = 'CountyPropertyTax';
 			$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[3].displayLabelText = 'Property Taxes';
-			//$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[3].paymentIncludedInAPRIndicator=false;
-            $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
-            $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.push(angular.copy(prepaidsList));
 		}
 
 		for(i=0; i<$scope.leformdata.closingCostDetailsOtherCosts.prepaidsList.length; i++){
@@ -524,9 +535,6 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
        		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(2, 0, angular.copy(escrowItemsList));
 			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[2].escrowItemType = 'CountyPropertyTax';
 			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[2].displayLabel = 'Property Taxes';
-
-			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
-			$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.push(angular.copy(escrowItemsList));
 		}
 
 		for(i=0; i<$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.length; i++){
