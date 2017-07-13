@@ -139,7 +139,7 @@
             <div class="col-sm-7">
                 <actualize-input ng-model="borrower.address.postalCode" name="postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format">
               </actualize-input>
-              <help-verbiage name="CD_BorrowerPostalCode_Help" title="help_tooltip"></help-verbiage>
+              <help-verbiage name="CD_BorrowerPostalCode_Help" title="leftTooltip"></help-verbiage>
             </div>
           </div>          
         </div>
@@ -261,7 +261,7 @@
             <div class="col-sm-7">
               <actualize-input ng-model="seller.address.postalCode" name="postalCode" toolTipPos = "top" custommessage="Must be a 5 or 9 digit value"  dependencies="zipcode-format">
               </actualize-input>
-              <help-verbiage name="CD_SellerPostalCode_Help" title="help_tooltip"></help-verbiage>
+              <help-verbiage name="CD_SellerPostalCode_Help" title="leftTooltip"></help-verbiage>
             </div>
           </div>
         </div>
@@ -297,7 +297,7 @@
               <select placeholder="Organization Name" class="form-control" ng-model="cdformdata.transactionInformation.refinanceSameLenderIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
                 <option value="" selected="selected">Select</option>
               </select>
-              <help-verbiage name="CD_RefinanceSameLender_Help" title="leftTooltip_select"></help-verbiage>
+              <help-verbiage name="CD_RefinanceSameLender_Help" title="topTooltip"></help-verbiage>
           </div>
         </div>
       </div>  
