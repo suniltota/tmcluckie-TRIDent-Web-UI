@@ -144,7 +144,7 @@
           </div>          
         </div>
 	</div>
-   <div class="col-sm-12"><span class="AddSection" ng-show="cdformdata.transactionInformation.borrowerDetails<10" ng-click="addBorrower()"><a>+ Add Additional Borrowers</a></span>
+   <div class="col-sm-12" ng-show="cdformdata.transactionInformation.borrowerDetails.length<10"><span class="AddSection" ng-click="addBorrower()"><a>+ Add Additional Borrowers</a></span>
    <help-verbiage name="CD_AddAdditionalBorrowerslink_Help" title="help_tooltip_text"></help-verbiage>
    </div>
    </div>
@@ -267,7 +267,7 @@
         </div>
        
         </div>
-   <div class="col-sm-12"><span class="AddSection" ng-show="cdformdata.transactionInformation.sellerDetails<10" ng-click="addSeller()"><a>+ Add Additional Sellers</a>
+   <div class="col-sm-12" ng-show="cdformdata.transactionInformation.sellerDetails.length<10"><span class="AddSection" ng-click="addSeller()"><a>+ Add Additional Sellers</a>
    </span>
    <help-verbiage name="CD_AddAdditionalSellerlink_Help" title="help_tooltip_text"></help-verbiage>
    </div>
