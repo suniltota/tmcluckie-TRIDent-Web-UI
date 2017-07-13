@@ -33,7 +33,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="loanType in loanTypes" value="{{loanType.value}}">{{loanType.name}}</option>
 						</select>
-						<help-verbiage name="CD_LoanType_Help" title="leftTooltip_select"></help-verbiage>
+						<help-verbiage name="CD_LoanType_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 				<div class="FieldGroup">
@@ -80,7 +80,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="lienPriorityType in lienPriorityTypes" value="{{lienPriorityType.value}}">{{lienPriorityType.name}}</option>
 						</select>
-						<help-verbiage name="CD_LoanLienPosition_Help" title="leftTooltip_select"></help-verbiage>
+						<help-verbiage name="CD_LoanLienPosition_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -110,7 +110,7 @@
 					<div class="col-sm-4 padding0 pull-right">
 						<select  class="form-control" ng-model="cdformdata.loanInformation.loanManualUnderwritingIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions">
 						</select>
-						<help-verbiage name="CD_LoanManualUnderwritingFlag_Help" title="help_tooltip_padding_left"></help-verbiage>
+						<help-verbiage name="CD_LoanManualUnderwritingFlag_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -125,7 +125,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
 						</select>
-						<help-verbiage name="CD_LoanAUSType_Help" title="help_tooltip_padding"></help-verbiage>
+						<help-verbiage name="CD_LoanAUSType_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
@@ -142,7 +142,7 @@
 						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
 						<div class="col-sm-7 padding0">
 							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
-							<help-verbiage name="CD_LoanAUSIdentifier_Help" title="help_tooltip_padding"></help-verbiage>
+							<help-verbiage name="CD_LoanAUSIdentifier_Help" title="help_tooltip_padding_left"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -157,7 +157,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
 						</select>
-						<help-verbiage name="CD_LoanAUSType_Help" title="help_tooltip_padding"></help-verbiage>
+						<help-verbiage name="CD_LoanAUSType_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
@@ -173,7 +173,7 @@
 						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
 						<div class="col-sm-7 padding0">
 							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
-							<help-verbiage name="CD_LoanAUSIdentifier_Help" title="help_tooltip_padding"></help-verbiage>
+							<help-verbiage name="CD_LoanAUSIdentifier_Help" title="help_tooltip_padding_left"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -189,7 +189,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="ausType in ausTypes" value="{{ausType.value}}">{{ausType.name}}</option>
 						</select>
-						<help-verbiage name="CD_LoanAUSType_Help" title="help_tooltip_padding"></help-verbiage>
+						<help-verbiage name="CD_LoanAUSType_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 				<div class="col-sm-12 padding0" ng-show="automatedUnderwriting.automatedUnderwritingSystemType=='Other'">
@@ -205,7 +205,7 @@
 						<div class="col-sm-5 fieldTitle">AUS Identifier:</div>
 						<div class="col-sm-7 padding0">
 							<input type="text" class="form-control" name="" ng-model="automatedUnderwriting.automatedUnderwritingCaseIdentifier">
-							<help-verbiage name="CD_LoanAUSIdentifier_Help" title="help_tooltip_padding"></help-verbiage>
+							<help-verbiage name="CD_LoanAUSIdentifier_Help" title="help_tooltip_padding_left"></help-verbiage>
 						</div>
 					</div>
 				</div>
@@ -240,7 +240,7 @@
 						<option value="" selected>Select</option>
 						<option ng-repeat="amortizationType in amortizationTypes" value="{{amortizationType.value}}">{{amortizationType.name}}</option>
 					</select>
-					<help-verbiage name="CD_AmortizationType_Help" title="leftTooltip"></help-verbiage>
+					<help-verbiage name="CD_AmortizationType_Help" title="leftTooltip_select"></help-verbiage>
 				</div>
 			</div>
 		</div>
@@ -422,7 +422,7 @@
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.loanDetail.constructionLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="constructionChange()">
 						</select>
-						<help-verbiage name="CD_Istransactiononstructionloan_Help" title="help_tooltip_padding"></help-verbiage>
+						<help-verbiage name="CD_Istransactiononstructionloan_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -434,7 +434,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="constructionLoanType in constructionLoanTypes" value="{{constructionLoanType.value}}">{{constructionLoanType.name}}</option>
 						</select>
-						<help-verbiage name="CD_WhatConstructionLoan_Help" title="help_tooltip_padding_left"></help-verbiage>
+						<help-verbiage name="CD_WhatConstructionLoan_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -477,7 +477,7 @@
 					</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.integratedDisclosureDetail.integratedDisclosureHomeEquityLoanIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
-						<help-verbiage name="CD_IsLoanHomeEquityLoan_Help" title="help_tooltip_padding"></help-verbiage>
+						<help-verbiage name="CD_IsLoanHomeEquityLoan_Help" title="leftTooltip_select"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -492,7 +492,7 @@
 					</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.loanDetail.interestOnlyIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="interestChange()"/>
-						<help-verbiage name="CD_DoesLoanInterestonlyfeature_Help" title="help_tooltip_padding"></help-verbiage>
+						<help-verbiage name="CD_DoesLoanInterestonlyfeature_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -565,7 +565,7 @@
 					<div class="col-sm-10 fieldTitle">Does this loan have a Negative Amortization Feature?:</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.loanDetail.negativeAmortizationIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions"/>
-						<help-verbiage name="CD_DoesloanNegativeAmortizationFeature_Help" title="help_tooltip_padding"></help-verbiage>
+						<help-verbiage name="CD_DoesloanNegativeAmortizationFeature_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -577,7 +577,7 @@
 							<option value="" selected>Select</option>
 							<option ng-repeat="negativeAmortizationType in negativeAmortizationTypes" value="{{negativeAmortizationType.value}}">{{negativeAmortizationType.name}}</option>
 						</select>
-						<help-verbiage name="CD_IndicateNegativeAmortizationScheduledPotential_Help" title="help_tooltip_padding_left"></help-verbiage>
+						<help-verbiage name="CD_IndicateNegativeAmortizationScheduledPotential_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -623,7 +623,7 @@
 					</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.loanDetail.seasonalPaymentFeatureIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="seasonalChange()"/>
-						<help-verbiage name="CD_loanseasonalpaymentfeature_Help" title="help_tooltip"></help-verbiage>
+						<help-verbiage name="CD_loanseasonalpaymentfeature_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 			</div>
@@ -670,7 +670,7 @@
 					</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-model="cdformdata.payment.paymentRule.paymentOptionIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="optionalChange()"/>
-						<help-verbiage name="CD_Doesloanoptionalpaymentfeature_Help" title="topTooltip"></help-verbiage>
+						<help-verbiage name="CD_Doesloanoptionalpaymentfeature_Help" title="leftTooltip_selectPadding"></help-verbiage>
 					</div>
 				</div>
 			</div>
