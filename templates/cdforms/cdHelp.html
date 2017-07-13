@@ -1192,11 +1192,11 @@
 			  </span>
 			  <span class="field_help">
       			 <h5> Fee Paid To Type : </h5>
-                    <div id="CD_OriginationChargesFeePaidToType_Help">Identify the category or type of payee to which the fee or payment will be paid. 
+                    <div id="CD_OriginationChargesFeePaidToType_Help">Identify the category or type of payee to which the fee or payment will be paid 
       			  <ul>
-                          <li>Format is a list of enumerated values that include: Broker | Investor | Lender | Other | Third Party Provider. </li>
-      					<li>Must be provided when there is a fee entered in the row.</li>
-                      </ul>
+                    <li>Format is a list of enumerated values that include: Broker | Investor | Lender | Other | Third Party Provider. </li>
+      					     <li>Must be provided when there is a fee entered in the row.</li>
+              </ul>
       			  </div> 
 			  </span>
 			  <span class="field_help">
@@ -1378,6 +1378,17 @@
                 </ul>
 			       </div> 
 			  </span>
+        <span class="field_help">
+             <h5> Seller Paid At Closing : </h5>
+                    <div id="CD_ServicesBorrowerDidNotShopSellerPaidAtClosing_Help">The amount of the fee that is paid by the Seller at closing
+              <ul>
+                          <li>Only included in a Purchase Transaction, is not present when using the Alternate Form for a Refinance transaction. </li>
+                <li>Format is amount 9.2. </li>
+                <li>Cannot be negative.</li>
+                <li>Is present only if there is a Fee Type chosen for the row.</li>
+                      </ul>
+              </div> 
+        </span>
 			  <span class="field_help">
       			 <h5> Seller Paid Before Closing : </h5>
                     <div id="CD_ServicesBorrowerDidNotShopSellerPaidBeforeClosing_Help">The amount of the fee that is paid by the Seller before closing.
