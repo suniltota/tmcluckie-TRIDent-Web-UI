@@ -85,6 +85,9 @@ help-verbiage{z-index: 3;}
 .helpText.tooltip_textLeft{right: inherit; left: inherit; top: inherit; border-radius: 4px; margin-left: 5px;}
 .helpText.tooltip_textLeft > span{left:-240px;}
 .helpText.tooltip_textLeft > span > b{margin-left:310px;}
+/*.helpText.tooltip_textTop{right: 0px;}*/
+.helpText.tooltip-msg.tooltip_textTop > span{left:-240px;bottom:22px;}
+.helpText.tooltip-msg.tooltip_textTop > span > b{margin-left:310px; bottom:-8px; transform: rotate(135deg); margin-top:0px; background: #fff;}
 .helpText.left > span{left:-240px;}
 .helpText.left > span > b{margin-left:310px;}
 .helpText.topPadding{right:0;}

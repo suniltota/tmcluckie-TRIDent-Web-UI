@@ -276,7 +276,7 @@
 			  <tr>	  	
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section C. Services Borrower Did Shop For <help-verbiage name="CD_ServicesBorrowerDidShopSectionHeaderName_Help" title="help_tooltip_text"></help-verbiage></th>
 				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="2">${{cdformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | number:2}}
-				<help-verbiage name="CD_ServicesBorrowerDidShopSectionHeaderName_Help" title="help_tooltip_text"></help-verbiage>
+				<help-verbiage name="CD_ServicesBorrowerDidShopSectionTotalAmountBorrowerPaid_Help" title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
 			   <tr>
@@ -287,9 +287,9 @@
 		        <th class="innerSectionHeader SPatClosing" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">Seller Paid AT Closing</th>
 		        <th class="innerSectionHeader SPbeforeClosing" ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">Seller Paid BEFORE Closing</th>
 		        <th class="innerSectionHeader PaidByOther">Paid By OTHER</th>
-		        <th class="innerSectionHeader PaidByLender">Paid By Lender</th>
-		        <th class="innerSectionHeader incInApr">Included in APR?</th>
-		        <th class="innerSectionHeader incRegZ">Included in Reg Z?</th>
+		        <th class="innerSectionHeader PaidByLender" style="width:6%;">Paid By Lender<help-verbiage name="CD_ServicesBorrowerDidShopPaidByLenderFlag_Help" title="help_tooltip_textLeft"></help-verbiage></th>
+		        <th class="innerSectionHeader incInApr">Included in APR<help-verbiage name="CD_ServicesBorrowerDidShopIncludeAPRCalculation_Help" title="help_tooltip_textLeft"></help-verbiage></th>
+		        <th class="innerSectionHeader incRegZ">Included in Reg Z<help-verbiage name="CD_ServicesBorrowerDidShopIncludeFlagPointsFee_Help" title="help_tooltip_textLeft"></help-verbiage></th>
 		        <th class="innerSectionHeader DeleteIcons">Delete / Clear</th>
 		      </tr>
 		      <tr ng-repeat="sbDidShopFor in cdformdata.closingCostDetailsLoanCosts.sbDidShopFors track by $index">		 	
@@ -335,7 +335,7 @@
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
 		        	<input type="text" class="form-control padding0" name="" ng-model="sbDidShopFor.feePaidToFullName">
-
+		        	<!-- <help-verbiage name="CD_ServicesBorrowerDidShopFeeLabelName_Help" title="help_tooltip"></help-verbiage> -->
 		        </td>
 		        <td>
 		        <div class="input-group">

@@ -3,13 +3,15 @@
 	<span  class="col-sm-12 padding0">
         <table class="table LoanCostsSection table-bordered margin5tb"  style="border:0px;">
 		      <tr>
-		        <th class="innerSectionHeader col-sm-2">Indicate either "Liability" OR "Adjustment"</th>
+		        <th class="innerSectionHeader col-sm-2">Indicate either "Liability" OR "Adjustment" <help-verbiage name="CD_PayoffAndPaymentsIndicateLiabilityAdjustment_Help" title="help_tooltip_text"></help-verbiage></th>
 		        <th class="innerSectionHeader col-sm-2">Item Description</th>
-		        <th class="innerSectionHeader col-sm-2">Paid To/By Name </th>
-		        <th class="innerSectionHeader col-sm-2">Amount</th>
-		        <th class="innerSectionHeader col-sm-1">Liability Secured by the Subject Property?</th>
-		        <th class="innerSectionHeader col-sm-1">Is the Liability a partial Payoff?</th>
-		        <th class="innerSectionHeader col-sm-2">If Prepayment Penalty, provide  the amount</th>  
+		        <th class="innerSectionHeader col-sm-2">Paid To/By Name <help-verbiage name="CD_PayoffAndPaymentsPaidName_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">Amount
+		        <help-verbiage name="CD_PayoffAndPaymentsAmount_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-1">Liability Secured by the Subject Property?  <help-verbiage name="CD_PayoffAndPaymentsLiabilitySecuredSubjectProperty_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-1">Is the Liability a partial Payoff? 
+		        <help-verbiage name="CD_PayoffAndPaymentsIsLiabilitypartialPayoff_Help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-2">If Prepayment Penalty, provide  the amount <help-verbiage name="CD_PayoffAndPaymentsPrepaymentPenaltyprovideamount_Help" title="help_tooltip_text"></help-verbiage></th>  
 		        <th class="innerSectionHeader">Delete / Clear</th> 
 		      </tr>
 		      <tr ng-repeat="payoffsAndPayment in payoffsAndPaymentsList track by $index">
@@ -25,6 +27,7 @@
 			        	<span class="col-sm-12 ">
 			        		<strong class="col-sm-12 padding0">Label :</strong>
 			        		<input type="text" class="form-control" name="" ng-model="payoffsAndPayment.displayLabel">
+			        		<help-verbiage name="CD_PayoffAndPaymentsLabel_Help" title="help_tooltip_padding"></help-verbiage>
 		              	</span>
 		              	<span class="col-sm-12 margin5tb">
 		              		<strong class="col-sm-12 padding0">Type :</strong>
@@ -33,6 +36,7 @@
 		              			<option ng-repeat="lType in liabilityTypesPayoff" value="{{lType.value}}" ng-disabled="lType.disabled" ng-if="payoffsAndPayment.payOffType == 'Liability'">{{lType.name}}</option>
 		              			<option ng-repeat="aType in otherCredits" value="{{aType.value}}" ng-disabled="aType.disabled" ng-if="payoffsAndPayment.payOffType == 'Adjustment'">{{aType.name}}</option>
 		              		</select>
+		              		<help-verbiage name="CD_PayoffAndPaymentsPaidName_Help" title="help_tooltip_padding"></help-verbiage>
 		              	</span>
 		              	<span class="col-sm-12 " ng-show="payoffsAndPayment.itemType=='Other'">
 			        		<strong class="col-sm-12 padding0">Description :</strong>
@@ -53,6 +57,7 @@
 			        <div class="input-group">
 						<span class="input-group-addon input-default">$</span>
 			        	<input type="text" class="form-control padding0" name="" ng-model="payoffsAndPayment.payoffAmount" decimal-digits-with-number-format-allow-negative>
+			        	<help-verbiage name="CD_PayoffAndPaymentsAmount_Help" title="help_tooltip_padding"></help-verbiage>
 			        </div>
 			        </td>
 			       <td>
@@ -80,8 +85,9 @@
 		      </tr>
 
 		</table>
-		<span class="AddSection" ng-click="addPayOff()">
+		<span class="AddSection width150" ng-click="addPayOff()">
 			<a>+ Add Additional lines</a>
+			<help-verbiage name="CD_PayoffAndPaymentsPrepaymentAddAdditionalLine_Help" title="help_tooltip_text"></help-verbiage>
 		</span>		
 		<table class="table col-sm-12">
 		    <tbody>

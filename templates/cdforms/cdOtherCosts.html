@@ -32,7 +32,7 @@
 			        	<div class="input-group">
 							<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 			        		<input type="text" class="form-control" ng-model="recordingFeetotalObj.recordingFeeForDeed" decimal-digits-with-number-format>
-			        		<help-verbiage name="CD_TaxesOtherGovermentFeesRecordingFeeForDeed_Help" title="help_tooltip_text"></help-verbiage>
+			        		<help-verbiage name="CD_TaxesOtherGovermentFeesRecordingFeeForDeed_Help" title="help_tooltip_padding"></help-verbiage>
 			        	</div>
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Recording Fee For Mortgage</span>
@@ -40,7 +40,7 @@
 		        		<div class="input-group">
 							<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
 		        			<input type="text" class="form-control" ng-model="recordingFeetotalObj.recordingFeeForMortgage" decimal-digits-with-number-format>
-		        			<help-verbiage name="CD_TaxesOtherGovermentFeesRecordingFeeForMortgage_Help" title="help_tooltip_text"></help-verbiage>
+		        			<help-verbiage name="CD_TaxesOtherGovermentFeesRecordingFeeForMortgage_Help" title="help_tooltip_padding"></help-verbiage>
 		        		</div>
 		        	</span>
 		        </td> 
@@ -117,7 +117,8 @@
 		            <span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType =='TransferTaxTotal'">Transfer Taxes</span>
 		        	<span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType !='TransferTaxTotal'">Label Name</span>
 		        	<span class="col-sm-12 padding0">
-		        		<input type="text" class="form-control" ng-model="tOGovtFee.displayLabel"> 
+		        		<input type="text" class="form-control" ng-model="tOGovtFee.displayLabel">
+		        		<help-verbiage name="CD_TaxesOtherGovermentFeesPaidByOther_Help" title="help_tooltip_padding"></help-verbiage> 
 		        	</span>
 		        	<span class="col-sm-12 margin5tb padding0">Valid Value</span>
 		        	<span class="col-sm-12 padding0">
@@ -153,6 +154,7 @@
 		        	<span class="col-sm-12 margin5tb padding0">Full Name</span>
 		        	<span class="col-sm-12 padding0">
 		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.feePaidToFullName">
+		        		<help-verbiage name="CD_TaxesOtherGovermentFeesPaidByOther_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</span>
 		        </td>
 		        <td>
@@ -201,8 +203,8 @@
 		      	</td>
 		      </tr>
 		</table>
-		<span class="AddSection" ng-click="addtOGovtFeesList()">
-			<a>+ Add Additional lines</a>
+		<span class="AddSection width150" ng-click="addtOGovtFeesList()">
+			<a>+ Add Additional lines</a><help-verbiage name="CD_TaxesOtherGovermentFeesPaidByOther_Help" title="help_tooltip_padding"></help-verbiage>
 		</span>
 	</span>
 
@@ -690,7 +692,7 @@
 		      </tr>
 		</table>
 
-		<span class="AddSection" ng-click="addprepaidsList()">
+		<span class="AddSection width150" ng-click="addprepaidsList()">
 			<a>+ Add Additional lines</a>
 		</span>
 	</span>
@@ -1148,7 +1150,7 @@
 		        </td>
 		      </tr>
 		</table>
-		<span class="AddSection" ng-click="addescrowItemsList()">
+		<span class="AddSection width150" ng-click="addescrowItemsList()">
 			<a>+ Add Additional lines</a>
 			<help-verbiage name="CD_InitialEscrowPaymentAtClosingAdditionalLinesadded_Help" title="help_tooltip_text"></help-verbiage>
 		</span>
@@ -1290,7 +1292,7 @@
 		        </td>
 		      </tr>
 		</table>
-		<span class="AddSection" ng-click="addotherCostsList()">
+		<span class="AddSection width150" ng-click="addotherCostsList()">
 			<a>+ Add Additional lines</a>
 			<help-verbiage name="CD_OtherCostsAdditionalLinesadded_Help" title="help_tooltip_text"></help-verbiage>
 		</span>

@@ -896,6 +896,9 @@ app.directive('helpVerbiage', function ($window, $compile) {
           if(attr.title == "help_tooltip_textLeft"){
               var template ='<span class="helpText tooltip-msg tooltip_textLeft"> ? <span><b></b><span>';
           }
+          if(attr.title == "help_tooltip_textTop"){
+              var template ='<span class="helpText tooltip-msg tooltip_textTop"> ? <span><b></b><span>';
+          }
            if(attr.title == "help_tooltip_padding"){
               var template ='<span class="helpText tooltip-msg tooltip_padding"> ? <span><b></b><span>';
           }
@@ -937,6 +940,9 @@ app.directive('helpVerbiage', function ($window, $compile) {
           }
           if(attr.title == "help_tooltip_textLeft"){
               var template ='<span class="helpText tooltip-msg tooltip_textLeft"> ? <span><b></b><span>';
+          }
+          if(attr.title == "help_tooltip_textTop"){
+              var template ='<span class="helpText tooltip-msg tooltip_textTop"> ? <span><b></b><span>';
           }
            if(attr.title == "help_tooltip_padding"){
               var template ='<span class="helpText tooltip-msg tooltip_padding"> ? <span><b></b><span>';
@@ -980,6 +986,9 @@ app.directive('helpVerbiage', function ($window, $compile) {
           }
           if(attr.title == "help_tooltip_textLeft"){
               var template ='<span class="helpText tooltip-msg tooltip_textLeft"> ? <span><b></b><span>';
+          }
+          if(attr.title == "help_tooltip_textTop"){
+              var template ='<span class="helpText tooltip-msg tooltip_textTop"> ? <span><b></b><span>';
           }
            if(attr.title == "help_tooltip_padding"){
               var template ='<span class="helpText tooltip-msg tooltip_padding"> ? <span><b></b><span>';
