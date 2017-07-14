@@ -4420,7 +4420,7 @@ this.cdformdata={
             "integratedDisclosureSectionSummaryDetailModel":
             {
                 "integratedDisclosureSectionTotalAmount": "",
-                "integratedDisclosureSectionType": "",
+                "integratedDisclosureSectionType": "PayoffsAndPayments",
                 "integratedDisclosureSubsectionTotalAmount": "",
                 "integratedDisclosureSubsectionType": "",
                 "integratedDisclosureSubsectionTypeOtherDescription": "",
@@ -5264,7 +5264,7 @@ this.cdformdata={
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
             "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
-            "integratedDisclosureCashToCloseItemType": "Deposit",
+            "integratedDisclosureCashToCloseItemType": "LoanAmount",
             "index": ""
         },
         "totalClosingCosts":
@@ -5314,7 +5314,7 @@ this.cdformdata={
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
             "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
-            "integratedDisclosureCashToCloseItemType": "Deposit",
+            "integratedDisclosureCashToCloseItemType": "TotalPayoffsAndPayments",
             "index": ""
         },
         "deposit":
@@ -5508,7 +5508,7 @@ this.cdformdata={
             "integratedDisclosureSectionSummaryDetailModel":
             {
                 "integratedDisclosureSectionTotalAmount": "",
-                "integratedDisclosureSectionType": "",
+                "integratedDisclosureSectionType": "PayoffsAndPayments",
                 "integratedDisclosureSubsectionTotalAmount": "",
                 "integratedDisclosureSubsectionType": "",
                 "integratedDisclosureSubsectionTypeOtherDescription": "",
