@@ -3921,6 +3921,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		        
         if($scope.cdformdata.termsOfLoan.noteAmount && $scope.cdformdata.termsOfLoan.noteAmount!=undefined && $scope.loanBasicInfo.loanFormType == 'alternate'){
             $scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.termsOfLoan.noteAmount ? parseFloat($scope.cdformdata.termsOfLoan.noteAmount) : +0;
+            $scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemType = 'LoanAmount';
         }
 
         if($scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount && $scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount){
@@ -4081,9 +4082,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         	if($scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount>0){
 	    	    $scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType = 'ToBorrower';
 	    	    $scope.cdformdata.closingInformationDetail.cashToBorrowerAtClosingAmount = $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemEstimatedAmount;
+		        $scope.cdformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = '';
 		    }else if($scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount<0){
 		    	$scope.cdformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType = 'FromBorrower';
 		    	$scope.cdformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = 0-$scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemEstimatedAmount;
+		        $scope.cdformdata.closingInformationDetail.cashToBorrowerAtClosingAmount='';
 		    }
         }
 
@@ -4091,9 +4094,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         	if($scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount>0){
 	    	    $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemPaymentType = 'ToBorrower';
 	    	    $scope.cdformdata.closingInformationDetail.cashToBorrowerAtClosingAmount = $scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount;
+		        $scope.cdformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = '';
 		    }else if($scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount<0){
 		    	$scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemPaymentType = 'FromBorrower';
 		    	$scope.cdformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = 0-$scope.cdformdata.cashToCloses.cashToCloseTotal[1].integratedDisclosureCashToCloseItemFinalAmount;
+		        $scope.cdformdata.closingInformationDetail.cashToBorrowerAtClosingAmount='';
 		    }
         }
        
@@ -4217,8 +4222,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         });
 
         $scope.cdformdata.payoffsAndPayments.integratedDisclosureSectionSummary.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount = $scope.payoffsAndPaymentsTotalAmount ? parseFloat($scope.payoffsAndPaymentsTotalAmount).toFixed(2) : +0;
-
+        $scope.cdformdata.payoffsAndPayments.integratedDisclosureSectionSummary.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionType='PayoffsAndPayments';
         $scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemFinalAmount =  $scope.payoffsAndPaymentsTotalAmount ? parseFloat($scope.payoffsAndPaymentsTotalAmount*-1).toFixed(2) : +0;
+        $scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemType = 'TotalPayoffsAndPayments';
     }, true);
 
     $scope.$watch('summariesOfTransaction_KSection', function(newValues,oldValues){
@@ -4597,7 +4603,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
     
      if($scope.cdformdata.termsOfLoan.noteAmount && $scope.cdformdata.termsOfLoan.noteAmount!=undefined && $scope.loanBasicInfo.loanFormType == 'alternate'){
-            $scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount = $scope.cdformdata.termsOfLoan.noteAmount;
+        $scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.cdformdata.termsOfLoan.noteAmount ? $scope.cdformdata.termsOfLoan.noteAmount : +0);
+        $scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemType = 'LoanAmount';
      }
      //Cash To Close Calculations
      cashToclosesCalculations();
@@ -4747,6 +4754,26 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		    }
         }
     },true);
+     
+    $scope.$watch('cdformdata.contactInformation',function(newValue,oldValue){
+    	if($scope.cdformdata.contactInformation.lender!=null && $scope.cdformdata.contactInformation.lender!=undefined){
+           $scope.cdformdata.contactInformation.lender.partyRoleType = 'NotePayTo';
+    	}
+    	if($scope.cdformdata.contactInformation.mortagageBroker!=null && $scope.cdformdata.contactInformation.mortagageBroker!=undefined){
+           $scope.cdformdata.contactInformation.mortagageBroker.partyRoleType = 'MortgageBroker';
+    	}
+    	if($scope.cdformdata.contactInformation.realEstateBrokerB!=null && $scope.cdformdata.contactInformation.realEstateBrokerB!=undefined){
+           $scope.cdformdata.contactInformation.realEstateBrokerB.partyRoleType = 'RealEstateAgent';
+    	}
+    	if($scope.cdformdata.contactInformation.realEstateBrokerS!=null && $scope.cdformdata.contactInformation.realEstateBrokerS!=undefined){
+           $scope.cdformdata.contactInformation.realEstateBrokerS.partyRoleType = 'RealEstateAgent';
+    	}
+    	if($scope.cdformdata.contactInformation.settlementAgent!=null && $scope.cdformdata.contactInformation.settlementAgent!=undefined){
+           $scope.cdformdata.contactInformation.settlementAgent.partyRoleType = 'ClosingAgent';
+    	}
+
+    },true);
+
     
 });
 //date param of proper format to create date object.
