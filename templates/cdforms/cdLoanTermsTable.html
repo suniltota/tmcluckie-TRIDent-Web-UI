@@ -90,7 +90,7 @@
 		        			<span class="pull-left margin5tb col-sm-4 padding0">Provide Current Rate Set Date <span class="required">*</span></span>
 		        			<span class="col-sm-5">
 			        			<span class="col-sm-7 padding0">
-									<actualize-input name="interestRateSetDate" id="interestRateSetDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.currentRateSetDate" is-open="isInterestRateSetDate" ng-required="true" toolTipPos = "top" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
+									<actualize-input name="interestRateSetDate" id="interestRateSetDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.currentRateSetDate" is-open="isInterestRateSetDate" ng-required="true" toolTipPos = "top" min-date="10/03/2015" max-date="12/31/2045" custommessage="Please enter a vaild date" placeholder="MM/DD/YYYY"  dependencies="actualize-date" type="date">
                 					</actualize-input>
 								</span>
 				      			<span class="input-group-btn col-sm-2 padding0">
