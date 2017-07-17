@@ -2636,10 +2636,20 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
                     console.log($scope.validation_errors);
                     $('#UCDValidationModalPopup').modal('show');
 	    			$("#spinner").hide();
-	    		});
+	    		}).error( function(data, status){
+		    		$("#spinner").hide();
+		    		$scope.errorMsg = "We have encountered an error in validate service.";
+		    		$('#ErrorModalPopup').modal('show');
+		    	});
 	    	}).error( function(data, status){
 	    		$("#spinner").hide();
+	    		$scope.errorMsg = "We have encountered an error in UCD xml generation service before validate.";
+	    		$('#ErrorModalPopup').modal('show');
 	    	});
+    	}).error( function(data, status){
+    		$("#spinner").hide();
+    		$scope.errorMsg = "We have encountered an error in json to xml conversion before validate.";
+    		$('#ErrorModalPopup').modal('show');
     	});
     }
     
