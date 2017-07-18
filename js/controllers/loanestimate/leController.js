@@ -434,6 +434,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList['GescrowTypes']=[];
 		$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList['HfeeTypes']=[];
 
+		if(!$scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount){
+			$scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount : +0);
+		}
+
 
        	for(i=0; i<$scope.leformdata.closingCostDetailsLoanCosts.originationCharges.length; i++){
 			if (i!=0 && $scope.leformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints') {
@@ -1701,10 +1705,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             }
          }
 
-         $scope.leformdata.closingCostDetailsLoanCosts.ocTotalAmount = paidByOthers.originationChargeTotalpaidByOthers;
+         $scope.leformdata.closingCostDetailsLoanCosts.ocTotalAmount = parseFloat(paidByOthers.originationChargeTotalpaidByOthers);
          $scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers = parseFloat(paidByOthers.originationChargeTotalpaidByOthers) + parseFloat(paidByOthers.sbDidNotShopTotalpaidByOthers) + parseFloat(paidByOthers.sbDidShopTotalpaidByOthers);
          
-         $scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = $scope.leformdata.closingCostDetailsLoanCosts.ocTotalAmount + $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount + $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount;
+         $scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.ocTotalAmount ? $scope.leformdata.closingCostDetailsLoanCosts.ocTotalAmount : +0) + parseFloat($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount ? $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount : +0)+ parseFloat($scope.leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount ? $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount : +0);
          $scope.leformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount) + parseFloat($scope.leformdata.closingCostsTotal.lenderCredits=='' || $scope.leformdata.closingCostsTotal.lenderCredits==undefined ? +0 : $scope.leformdata.closingCostsTotal.lenderCredits);
          $scope.leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount);
 
@@ -1741,10 +1745,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             }
          }
 
-         $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount = paidByOthers.sbDidNotShopTotalpaidByOthers;
+         $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount = parseFloat(paidByOthers.sbDidNotShopTotalpaidByOthers);
          $scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers = parseFloat(paidByOthers.originationChargeTotalpaidByOthers) + parseFloat(paidByOthers.sbDidNotShopTotalpaidByOthers) + parseFloat(paidByOthers.sbDidShopTotalpaidByOthers);
          
-         $scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = $scope.leformdata.closingCostDetailsLoanCosts.ocTotalAmount + $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount + $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount;
+         $scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.ocTotalAmount ? $scope.leformdata.closingCostDetailsLoanCosts.ocTotalAmount : +0) + parseFloat($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount ? $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount : +0)+ parseFloat($scope.leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount ? $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount : +0);
          $scope.leformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount) + parseFloat($scope.leformdata.closingCostsTotal.lenderCredits=='' || $scope.leformdata.closingCostsTotal.lenderCredits==undefined ? +0 : $scope.leformdata.closingCostsTotal.lenderCredits);
          $scope.leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount);
         
@@ -1773,10 +1777,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             	$scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].paymentIncludedInAPRIndicator='';
             }
          }
-         $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount = paidByOthers.sbDidShopTotalpaidByOthers;
+         $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount = parseFloat(paidByOthers.sbDidShopTotalpaidByOthers);
          $scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers = parseFloat(paidByOthers.originationChargeTotalpaidByOthers) + parseFloat(paidByOthers.sbDidNotShopTotalpaidByOthers) + parseFloat(paidByOthers.sbDidShopTotalpaidByOthers);
          
-         $scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = $scope.leformdata.closingCostDetailsLoanCosts.ocTotalAmount + $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount + $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount;
+         $scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.ocTotalAmount ? $scope.leformdata.closingCostDetailsLoanCosts.ocTotalAmount : +0) + parseFloat($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount ? $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount : +0)+ parseFloat($scope.leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount ? $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount : +0);
          $scope.leformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount) + parseFloat($scope.leformdata.closingCostsTotal.lenderCredits=='' || $scope.leformdata.closingCostsTotal.lenderCredits==undefined ? +0 : $scope.leformdata.closingCostsTotal.lenderCredits);
          $scope.leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount);
 
@@ -1810,7 +1814,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
          $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount = paidByOthers.tOGovtFeesTotalpaidByOthers;
 
-         $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount;
+         $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount : +0) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount : +0)+ parseFloat($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount : +0) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount : +0);
          $scope.leformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount) + parseFloat($scope.leformdata.closingCostsTotal.lenderCredits=='' || $scope.leformdata.closingCostsTotal.lenderCredits==undefined ? +0 : $scope.leformdata.closingCostsTotal.lenderCredits);
          $scope.leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount);
 
@@ -1847,9 +1851,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             }
          }
 
-         $scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount = paidByOthers.prepaidsTotalpaidByOthers;
+         $scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount = parseFloat(paidByOthers.prepaidsTotalpaidByOthers);
 
-         $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount;
+         $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount : +0) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount : +0)+ parseFloat($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount : +0) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount : +0);
          $scope.leformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount) + parseFloat($scope.leformdata.closingCostsTotal.lenderCredits=='' || $scope.leformdata.closingCostsTotal.lenderCredits==undefined ? +0 : $scope.leformdata.closingCostsTotal.lenderCredits);
          $scope.leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount);
 
@@ -1951,9 +1955,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             }
         }
 
-         $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount = paidByOthers.iEPatClosingTotalpaidByOthers;
+         $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount = parseFloat(paidByOthers.iEPatClosingTotalpaidByOthers);
 
-         $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount;
+         $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount : +0) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount : +0)+ parseFloat($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount : +0) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount : +0);
          $scope.leformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount) + parseFloat($scope.leformdata.closingCostsTotal.lenderCredits=='' || $scope.leformdata.closingCostsTotal.lenderCredits==undefined ? +0 : $scope.leformdata.closingCostsTotal.lenderCredits);
          $scope.leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount);
          
@@ -2001,9 +2005,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             }
          }
 
-         $scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount = paidByOthers.otherTotalpaidByOthers;
+         $scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount = parseFloat(paidByOthers.otherTotalpaidByOthers);
 
-         $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount + $scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount;
+         $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount : +0) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount : +0)+ parseFloat($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount : +0) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.otherTotalAmount : +0);
          $scope.leformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount) + parseFloat($scope.leformdata.closingCostsTotal.lenderCredits=='' || $scope.leformdata.closingCostsTotal.lenderCredits==undefined ? +0 : $scope.leformdata.closingCostsTotal.lenderCredits);
          $scope.leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers) + parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount);
         
