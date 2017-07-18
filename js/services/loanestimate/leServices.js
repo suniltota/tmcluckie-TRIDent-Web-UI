@@ -49,6 +49,12 @@ app.service('leService', function(apiService){
             httpMethod: 'POST',
             formData:data
         });
+    },
+    this.generateJsonFromTemplate = function(data) {
+        return apiService.request({
+            apiMethod: "actualize/transformx/v1/templatetolejson",
+            httpMethod: 'POST',
+            formData:data
+        });
     }
-
 });
