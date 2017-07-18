@@ -735,7 +735,35 @@
       $(".pageno").tooltip();   
   });
   </script>
-
+<!-- -->
+<div class="modal fade" id="CalculateModalPopup" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:90%;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Calculation Service Errors</h4>
+        </div>
+        <div class="modal-body" style="max-height:70%; color:#000; max-width:100%; overflow:auto;">
+            <table class="table ng-table-responsive table-bordered">
+              <thead>      
+                <th class="innerSectionHeader innerSectionMainHeader">Error Type</th>
+                <th class="innerSectionHeader innerSectionMainHeader">Error Message</th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="calculation_error in calculation_errors">
+                  <td>{{calculation_error.type}}</td>
+                  <td>{{calculation_error.message}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">          
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- -->
 <div class="modal fade" id="leCashtoCloseModal" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
