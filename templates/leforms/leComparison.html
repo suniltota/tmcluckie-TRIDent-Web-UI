@@ -34,7 +34,8 @@
 		        <td><label>Annual Percentage Rate (APR) </label></td>
 		        <td>
 		        	<div class="input-group">
-  							<input class="form-control" ng-model="leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent" percentage-format>
+  							<actualize-input name="aprPercent" ng-model="leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.aprPercent" toolTipPos = "top" dependencies="percentage-format">
+                			</actualize-input>
   							<span class="input-group-addon input-default">%</span>
 		        	</div>
 		        </td>
@@ -47,7 +48,8 @@
 		        <td><label>Total Interest Percentage (TIP) </label></td>
 		        <td>
 		        	<div class="input-group">
-  							<input class="form-control" ng-model="leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent" percentage-format>
+  							<actualize-input name="lefeeSummaryTotalInterestPercent" ng-model="leformdata.loanCalculationsQualifiedMortgage.loanCalculationModel.feeSummaryTotalInterestPercent" toolTipPos = "top" dependencies="percentage-format">
+                			</actualize-input>
   							<span class="input-group-addon input-default">%</span>
 		        	</div>
 		        </td>
