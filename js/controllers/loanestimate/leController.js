@@ -185,11 +185,35 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
         $scope.leformdata.closingInformation.dateIssued = new Date();
 		$scope.leformdata.closingInformationDetail.closingDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
 		$scope.leformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate = $scope.leformdata.closingInformation.dateIssued;
-
+        
 		if(localStorage.jsonData != undefined) {
 			$scope.leformdata = angular.fromJson(localStorage.jsonData);
 			$scope.leformdata.loanInformation['loanTermYears'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.leformdata.loanInformation['loanTermMonths'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount%12;
+			
+			if($scope.leformdata.loanProduct.lock.lockStatusType= 'Locked'){
+				$scope.leformdata.loanInformation.rateLokerIndicator=true;
+				$scope.leformdata.loanInformation.rateLockedTimeZone = $scope.leformdata.loanProduct.lock.lockExpirationTimezoneType;
+                if($scope.leformdata.loanProduct.lock.lockExpirationDatetime!=undefined){
+                var date = $scope.leformdata.loanProduct.lock.lockExpirationDatetime.split('T');
+                var lockedDate = date[0].split('-');
+                $scope.leformdata.loanInformation.rateLokedDate = lockedDate[1]+'/'+lockedDate[2]+'/'+lockedDate[0];
+                var time = date[1].split(':');
+                if(time[0]>12){
+                	$scope.leformdata.loanInformation.rateLockedTimePeriod = 'PM';
+                    var hours = parseInt(time[0]-12);
+                    $scope.leformdata.loanInformation.rateLokedTime = hours+":"+time[1];
+
+                }else{
+                	$scope.leformdata.loanInformation.rateLockedTimePeriod = 'AM';
+                	$scope.leformdata.loanInformation.rateLokedTime = time[0]+":"+time[1];
+                }
+
+			    console.log("After Parse Date::::"+$scope.leformdata.loanInformation.rateLokedDate+"And Time::::"+$scope.leformdata.loanInformation.rateLokedTime); //prints date in the format sdf
+                }
+     		}
+
+
 		}
 
 		 //Adding Form and Document types for AML & PDF Generation
@@ -400,6 +424,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 				}
 			}
     	}
+
 
         $scope.leformdata.closingCostDetailsLoanCosts.originationCharges['AfeeTypes']=[];
         $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors['BfeeTypes']=[];
