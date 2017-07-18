@@ -6,7 +6,6 @@
 		      <tr>
 		        <th class="col-sm-4 innerSectionHeader" colspan="2"> Comparison</th>
 		        <th  class="col-sm-4 innerSectionHeader" colspan="1">
-		        	<button class="pull-right btn btn-warning"  ng-click="resultsComparisonCalculate()">Calculate</button>
 		        </th>
 		      </tr>
 		    </thead>
@@ -23,20 +22,6 @@
   							<input class="form-control" ng-model="leformdata.integratedDisclosureDetail.fiveYearPrincipalReductionComparisonAmount" decimal-digits-with-number-format>
   							
 		        	</div>
-		        	<!-- <div class="radioGroup">
-					   	 <div class="input-group">
-							<span class="input-group-addon input-default">$</span>
-	        				<actualize-input name="saleContractAmount" ng-model="leformdata.salesContractDetail.saleContractAmount" dependencies="decimal-digits-with-number-format" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ></actualize-input>
-	        			</div>
-	        				<help-verbiage name="LE_salesPrice_Help" title="topTooltip"></help-verbiage>
-					</div>
-					<div class="radioGroup">
-					   	 <div class="input-group">
-							<span class="input-group-addon input-default">$</span>
-	        				<actualize-input name="saleContractAmount" ng-model="leformdata.salesContractDetail.fiveYearPrincipalReductionComparisonAmount" dependencies="decimal-digits-with-number-format" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ></actualize-input>
-	        			</div>
-	        				<help-verbiage name="LE_salesPrice_Help" title="topTooltip"></help-verbiage>
-					</div> -->
 		        </td>
 		        <td class="col-sm-1">
 			        <div>Total you will have paid in principal, interest, mortgage insurance an loan costs
@@ -76,6 +61,7 @@
 	</span>
     <div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('ContactInfo')">Back</a></span>
-			<span class="pull-right"><a class="btn btn-primary" ng-click="changeTab('LeConfReceipt')">Next</a></span>
+			<span class="col-sm-10"><button class="btn btn-success" style="margin-left: 47%;" ng-click="calculatePayments()">Calculate</button></span>
+			<span class="pull-right"><a class="pull-right btn btn-primary" ng-click="changeTab('LeConfReceipt')">Next</a></span>
 	</div>
 </div>

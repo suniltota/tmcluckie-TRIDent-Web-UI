@@ -251,19 +251,21 @@ app.directive('phonenumberFormat', function ($filter, $parse, $sce) {
                 var plainNumber = viewValue.replace(/[^0-9]/g, '');
                 if (plainNumber.length >= 11) {
                     var plainNumber1 = plainNumber.slice(0, 3);
-                    var plainNumber2 = plainNumber.slice(3);
-                    if(plainNumber2.length>2) 
-                      plainNumber2 = plainNumber2.slice(0,7);
-                    plainNumber = plainNumber1 + "-" + plainNumber2;
-                } else if (plainNumber.length > 3 && plainNumber.length < 11) {
+                    var plainNumber2 = plainNumber.slice(3,6);
+                    var plainNumber3= plainNumber.slice(6);
+                    if(plainNumber3.length>2) 
+                      plainNumber3 = plainNumber3.slice(0,4);
+                    plainNumber = plainNumber1 + "-" + plainNumber2 +"-" +plainNumber3;
+                } else if (plainNumber.length > 3 && plainNumber.length < 12) {
                     var plainNumber1 = plainNumber.slice(0, 3);
-                    var plainNumber2 = plainNumber.slice(3);
+                    var plainNumber2 = plainNumber.slice(3,6);
+                    var plainNumber3= plainNumber.slice(6);
                     if(sourcefrom == 'formxml'){
-                      for(var i=plainNumber2.length; i<7; i++) {
-                        plainNumber2 = plainNumber2+"0";
+                      for(var i=plainNumber3.length; i<4; i++) {
+                        plainNumber3 = plainNumber3+"0";
                       }
                     }
-                    plainNumber = plainNumber1 + "-" + plainNumber2;
+                    plainNumber = plainNumber1 + "-" + plainNumber2 + "-"+plainNumber3;
                 } else if (plainNumber.length === 3) {
                     plainNumber = plainNumber.toString();
                 } else if (plainNumber.length < 3) {
@@ -282,7 +284,7 @@ app.directive('phonenumberFormat', function ($filter, $parse, $sce) {
             ctrl.$parsers.push(function (viewValue) {
                 var plainNumber = viewValue.replace(/[^0-9]/g, '');
                 plainNumber = plainNumber.toString();
-                if (plainNumber.length >= 11) {
+                if (plainNumber.length >= 10) {
                   plainNumber = plainNumber.slice(0, 10);
                 } else if(plainNumber>3) {
                   var diff = 10 - plainNumber.length;
