@@ -593,6 +593,13 @@ app.directive('percentageFormat', function ($filter, $sce) {
               //e.target.value = "";
               scope.$apply();
             }
+            if(e.currentTarget.name == 'lefeeSummaryTotalInterestPercent'){
+                e.target.value = $filter('number')(elementValue, 4);
+                e.currentTarget.style.border=""
+                message = "";
+                scope.$apply();
+
+            }
             scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
           }
         });
