@@ -194,7 +194,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			if($scope.leformdata.loanProduct.lock.lockStatusType= 'Locked'){
 				$scope.leformdata.loanInformation.rateLokerIndicator=true;
 				$scope.leformdata.loanInformation.rateLockedTimeZone = $scope.leformdata.loanProduct.lock.lockExpirationTimezoneType;
-                if($scope.leformdata.loanProduct.lock.lockExpirationDatetime!=undefined){
+                if($scope.leformdata.loanProduct.lock.lockExpirationDatetime){
                 var date = $scope.leformdata.loanProduct.lock.lockExpirationDatetime.split('T');
                 var lockedDate = date[0].split('-');
                 $scope.leformdata.loanInformation.rateLokedDate = lockedDate[1]+'/'+lockedDate[2]+'/'+lockedDate[0];
