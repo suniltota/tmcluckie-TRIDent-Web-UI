@@ -228,6 +228,7 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
                        $scope.formType = 'standard';
                     }
                     else if($scope.purposeType == 'refinance'){
+                        $scope.formType = 'alternate';
                         if($scope.loanformtype == 'AlternateForm'){
                             $scope.formType = 'alternate';
                         }else if($scope.loanformtype == 'ModelForm'){
@@ -247,6 +248,7 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
             }
         } else if($scope.transactionType == 'textTemplate') {
             if($scope.uploadfile != undefined && $scope.uploadfile != null) {
+              if($scope.documentType=='closingdisclosure') {
                 cdService.generateJsonFromTemplate($scope.uploadfile).success(function(jsondata) {
                     $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
                     $scope.loanformtype = jsondata.closingDisclosureDocDetails.formType;
@@ -261,11 +263,30 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
                         }
                     }
                     localStorage.jsonData = JSON.stringify(jsondata);
-                    //console.log(localStorage.jsonData);
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                 }).error(function(data, status) {
                     $("#spinner").hide();
                 });
+              } else {
+                  leService.generateJsonFromTemplate($scope.uploadfile).success(function(jsondata) {
+                      $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
+                      $scope.loanformtype = jsondata.loanEstimateDocDetails.formType;
+                      if($scope.purposeType == 'purchase'){
+                         $scope.formType = 'standard';
+                      } else if($scope.purposeType == 'refinance'){
+                          $scope.formType = 'alternate';
+                          if($scope.loanformtype == 'AlternateForm'){
+                              $scope.formType = 'alternate';
+                          } else if($scope.loanformtype == 'ModelForm'){
+                              $scope.formType = 'standard';
+                          }
+                      }
+                      localStorage.jsonData = JSON.stringify(jsondata);
+                      location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+                  }).error(function(data, status) {
+                      $("#spinner").hide();
+                  });
+              }
             } else {
                 $scope.fileerror = 'Please select valid template file';
                 $("#spinner").hide();

@@ -32,12 +32,19 @@ postLoginApp.service('leJsonService', function(apiService){
             httpMethod: 'POST',
             xmlData:xmlData
         });
-    }
+    },
     this.getLeXMLFromTextTemplate = function(xmlData){
         return apiService.request({
             apiMethod: "actualize/transformx/transforms/v1/templatetoucd",
             httpMethod: 'POST',
             xmlData:xmlData
+        });
+    },
+    this.generateJsonFromTemplate = function(data) {
+        return apiService.request({
+            apiMethod: "actualize/transformx/v1/templatetolejson",
+            httpMethod: 'POST',
+            formData:data
         });
     }
 

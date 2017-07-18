@@ -90,24 +90,45 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
             }
         } else if($scope.transactionType == 'textTemplate') {
             if($scope.uploadfile != undefined && $scope.uploadfile != null) {
-                cdJsonService.generateJsonFromTemplate($scope.uploadfile).success(function(jsondata) {
-                    $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
-                    $scope.loanformtype = jsondata.closingDisclosureDocDetails.formType;
-                    if($scope.purposeType == 'purchase'){
-                       $scope.formType = 'standard';
-                    } else if($scope.purposeType == 'refinance'){
-                        if($scope.loanformtype == 'AlternateForm'){
-                            $scope.formType = 'alternate';
-                        } else if($scope.loanformtype == 'ModelForm'){
-                            $scope.formType = 'standard';
+                if($scope.documentType=='closingdisclosure') {
+                    cdJsonService.generateJsonFromTemplate($scope.uploadfile).success(function(jsondata) {
+                        $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
+                        $scope.loanformtype = jsondata.closingDisclosureDocDetails.formType;
+                        if($scope.purposeType == 'purchase'){
+                           $scope.formType = 'standard';
+                        } else if($scope.purposeType == 'refinance'){
+                            if($scope.loanformtype == 'AlternateForm'){
+                                $scope.formType = 'alternate';
+                            } else if($scope.loanformtype == 'ModelForm'){
+                                $scope.formType = 'standard';
+                            }
                         }
-                    }
-                    localStorage.jsonData = JSON.stringify(jsondata);
-                    console.log(localStorage.jsonData);
-                    location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
-                }).error(function(data, status) {
-                    $("#spinner").hide();
-                });
+                        localStorage.jsonData = JSON.stringify(jsondata);
+                        console.log(localStorage.jsonData);
+                        location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+                    }).error(function(data, status) {
+                        $("#spinner").hide();
+                    });
+                } else {
+                    leJsonService.generateJsonFromTemplate($scope.uploadfile).success(function(jsondata) {
+                        $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
+                        $scope.loanformtype = jsondata.loanEstimateDocDetails.formType;
+                        if($scope.purposeType == 'purchase'){
+                           $scope.formType = 'standard';
+                        } else if($scope.purposeType == 'refinance'){
+                            $scope.formType = 'alternate';
+                            if($scope.loanformtype == 'AlternateForm'){
+                                $scope.formType = 'alternate';
+                            } else if($scope.loanformtype == 'ModelForm'){
+                                $scope.formType = 'standard';
+                            }
+                        }
+                        localStorage.jsonData = JSON.stringify(jsondata);
+                        location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+                    }).error(function(data, status) {
+                        $("#spinner").hide();
+                    });
+                }
             } else {
                 $scope.fileerror = 'Please select valid template file';
                 $("#spinner").hide();
