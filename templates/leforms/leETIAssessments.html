@@ -19,6 +19,9 @@
 		        	<label>In Escrow? 
 					</label><help-verbiage name="LE_IsEscrow_help" title="help_tooltip_text"></help-verbiage>
 		        </td>
+		        <td class="innerSectionHeader col-sm-2">
+		        	<label>Delete / Clear</label>
+		        </td>
 		      </tr>
 		      <tr ng-repeat="etia in leformdata.etiaSection.etiaValues track by $index">
 		      		<td rowspan="{{leformdata.etiaSection.etiaValues.length}}" style="vertical-align: middle;" ng-if="$index==0">
@@ -65,12 +68,16 @@
 		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance'">
 		      			</select>
 		      		</td>
+		      		<td>
+		      			<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete"  ng-disabled="$index == 0" ng-show ="$index>1" ng-click="removeETIAComponent($index)"></span>
+		      			<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear"  ng-show ="$index>1" ng-click="clearETIAComponent($index)"></span>
+					</td>
 
 		      </tr>
 		    </tbody>
 		</table>
 		<div class="AddSection col-sm-12 text-center"><span ng-click="addETIAComponent()"><a>+ Add Additional Item</a></span><help-verbiage name="LE_ETIAAddAdditionalItem_help" title="help_tooltip_text"></help-verbiage>
-		</div>
+		</div> 
 	</span>
 	<div class="col-sm-12 margin10t">
 			<span class="pull-left"><a class="btn btn-default" ng-click="changeTab('projectedPayments')">Back</a></span>

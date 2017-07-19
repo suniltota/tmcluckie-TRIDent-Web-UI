@@ -1227,6 +1227,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.etiaSection.total = $scope.cdformdata.etiaSection.etiaValues.length;
     }
 
+    $scope.removeETIAComponent = function(index){
+		$scope.cdformdata.etiaSection.etiaValues.splice(index,1);
+    }
+    $scope.clearETIAComponent = function(index){
+		$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEscrowedType='NotEscrowed';
+		$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType='';
+		$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription='';
+	 }
+
     $scope.addOrganizationCharges = function(){
     	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.push(angular.copy(originationCharges));
     }
