@@ -1231,7 +1231,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.etiaSection.etiaValues.splice(index,1);
     }
     $scope.clearETIAComponent = function(index){
-		$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEscrowedType='NotEscrowed';
+		$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEscrowedType='';
 		$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType='';
 		$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription='';
 	 }

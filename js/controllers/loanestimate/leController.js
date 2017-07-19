@@ -330,7 +330,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		if($scope.leformdata.etiaSection.etiaValues!=undefined) {
 			$scope.leformdata.etiaSection.etiaValues.splice(0, 0, angular.copy(ETIAComponentType));
 			$scope.leformdata.etiaSection.etiaValues[0].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType = 'PropertyTaxes';
-
+			
 			$scope.leformdata.etiaSection.etiaValues.splice(1, 0, angular.copy(ETIAComponentType));
 			$scope.leformdata.etiaSection.etiaValues[1].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType = 'HomeownersInsurance';
 
@@ -746,7 +746,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		$scope.leformdata.etiaSection.etiaValues.splice(index,1);
     }
     $scope.clearETIAComponent = function(index){
-		$scope.leformdata.etiaSection.etiaValues[index].projectedPaymentEscrowedType='NotEscrowed';
+		$scope.leformdata.etiaSection.etiaValues[index].projectedPaymentEscrowedType='';
 		$scope.leformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType='';
 		$scope.leformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription='';
 	 }

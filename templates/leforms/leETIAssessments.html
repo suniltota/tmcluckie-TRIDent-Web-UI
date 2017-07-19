@@ -61,6 +61,12 @@
 		      			<input type="text" class="form-control" name="" ng-disabled="true">
 		      		</td>
 		      		<td>
+		      			<!-- <select class="form-control" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-model="etia.insuranceTaxCheck" ng-disabled="true" ng-show="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' ||
+		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'">
+		      			</select>
+		      			<select class="form-control" ng-options="option.id as option.name for option in escrowDropDownBooleanOptions" ng-model="etia.projectedPaymentEscrowedType" ng-disabled="true" ng-show="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
+		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance'">
+		      			</select> -->
 		      			<select class="form-control" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-model="etia.insuranceTaxCheck" ng-disabled="true" ng-show="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' ||
 		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'">
 		      			</select>
@@ -69,7 +75,7 @@
 		      			</select>
 		      		</td>
 		      		<td>
-		      			<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete"  ng-disabled="$index == 0" ng-show ="$index>1" ng-click="removeETIAComponent($index)"></span>
+		      			<span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Delete"   ng-show ="$index>2" ng-click="removeETIAComponent($index)"></span>
 		      			<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear"  ng-show ="$index>1" ng-click="clearETIAComponent($index)"></span>
 					</td>
 
