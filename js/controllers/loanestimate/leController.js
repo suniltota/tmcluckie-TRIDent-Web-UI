@@ -1125,6 +1125,23 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.optionalChange = function(){
     	$scope.leformdata.payment.paymentRule.totalOptionalPaymentCount = '';
     }
+
+    $scope.temporaryChange = function(){
+    	$scope.leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator = null;
+    	$scope.leformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent = '';
+    	$scope.leformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount = '';
+    	$scope.leformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount = '';
+    	$scope.leformdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent = '';
+    	$scope.leformdata.termsOfLoan.noteRatePercent = '';
+    	$scope.leformdata.termsOfLoan.disclosedFullyIndexedRatePercent = '';
+    }
+    
+    $scope.temporaryBuydownChange = function(){
+    	$scope.leformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent = '';
+    	$scope.leformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount = '';
+    	$scope.leformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount = '';
+    	$scope.leformdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent = '';
+    }
     
     $scope.updatePropertyValuationMethodType = function() {
     	$scope.leformdata.closingInformation.propertyValuationDetail.propertyValuationMethodTypeOtherDescription = $scope.leformdata.closingInformation.propertyValuationDetail.propertyValuationMethodType!='Other' ? '' : $scope.leformdata.closingInformation.propertyValuationDetail.propertyValuationMethodTypeOtherDescription;
