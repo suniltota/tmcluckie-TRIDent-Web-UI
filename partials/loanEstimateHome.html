@@ -21,9 +21,6 @@
                       <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'ContactInfo'}" ng-click="showTab = 'ContactInfo'" >Contact Information</span>
                       </li>
-                      <li>
-                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'Comparison'}" ng-click="showTab = 'Comparison'" >Comparison</span>
-                      </li> 
                        
                     </ul>
               </li>
@@ -61,6 +58,10 @@
                       <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanDisclosures'}" ng-click="showTab = 'LoanDisclosures'" >Other Considerations</span>
                       </li>
+
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'Comparison'}" ng-click="showTab = 'Comparison'" >Comparison</span>
+                      </li> 
                       <!-- <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'EscrowAccount'}" ng-click="showTab = 'EscrowAccount'" >Escrow Account</span> 
                       </li> -->
@@ -123,12 +124,7 @@
                             <span class="pull-left noTitle">CI</span>
                           </span>
                       </li>
-                      <li>
-                          <span class="pageno pageicon" ng-class="{'active': showTab == 'Comparison'}" data-toggle="tooltip" ng-click="showTab = 'Comparison'"  data-placement="right" title="Comparison">
-                            <span class="glyphicon glyphicon-file pull-left"></span>
-                            <span class="pull-left noTitle">CP</span>
-                          </span>
-                      </li>
+                      
 
                     </ul>
           </li>
@@ -206,6 +202,12 @@
                           <span class="pageno pageicon" ng-class="{'active': showTab == 'LoanDisclosures'}" data-toggle="tooltip" ng-click="showTab = 'LoanDisclosures'"  data-placement="right" title="Other Considerations">
                             <span class="glyphicon glyphicon-file pull-left"></span>
                             <span class="pull-left noTitle">OC</span>
+                          </span>
+                      </li>
+                      <li>
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'Comparison'}" data-toggle="tooltip" ng-click="showTab = 'Comparison'"  data-placement="right" title="Comparison">
+                            <span class="glyphicon glyphicon-file pull-left"></span>
+                            <span class="pull-left noTitle">CP</span>
                           </span>
                       </li>
                       <!-- <li>
