@@ -5239,7 +5239,7 @@ this.cdformdata={
 	                "feeType": "",
 	                "feeTypeOtherDescription": "",
 	                "integratedDisclosureSectionType": "OtherCosts",
-	                "optionalCostIndicator": null,
+	                "optionalCostIndicator": false,
 	                "regulationZPointsAndFeesIndicator": null,
 	                "paymentIncludedInAPRIndicator": false
 	            }

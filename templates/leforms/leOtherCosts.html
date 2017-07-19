@@ -481,7 +481,7 @@
 		        	</span>
 		        </td>
 		        <td>
-		        	<span class="LabelValue col-sm-10" >
+		        	<span class="LabelValue col-sm-12" >
 			        	<select class="form-control padding0" ng-model="otherCostsList.feeType" ng-change="updateSectionHfeeTypes(otherCostsList.feeType, $index)">
 			        		<option value="" selected>Select</option>
 	             			<option ng-repeat="feeType in sectionHfeeTypes" ng-disabled="feeType.disabled" value="{{feeType.value}}">{{feeType.name}}</option>
@@ -493,6 +493,12 @@
 					</span>
 			        	<input type="text" class="form-control padding0" name="" name="otherCostsList.feeTypeOtherDescription">
 		        	</span>
+		        	<span class="ValueText col-sm-7">Optional Fee Flag:</span>
+		        	<span class="ValueValue col-sm-5">
+			        	<select class="form-control padding0" ng-model="otherCostsList.optionalCostIndicator"
+		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        	    </select>
+              		</span>
 		        </td>
 		        <td>
 		       		<div class="input-group">
