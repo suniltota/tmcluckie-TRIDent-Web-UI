@@ -191,7 +191,7 @@
 			<a class="btn btn-primary" ng-show="cdformdata.loanDetail.interestOnlyIndicator==false && cdformdata.payment.paymentRule.paymentOptionIndicator==false && cdformdata.loanInformation.amortizationType !='Step' && cdformdata.loanInformation.amortizationType !='GPM' && cdformdata.loanInformation.amortizationType !='GraduatedPaymentARM' && cdformdata.loanDetail.seasonalPaymentFeatureIndicator==false && cdformdata.loanDetail.interestRateIncreaseIndicator==false" ng-click="changeTab('LoanDisclosures')">Back</a>
 			<a class="btn btn-default" ng-show="cdformdata.loanDetail.interestOnlyIndicator==false && cdformdata.payment.paymentRule.paymentOptionIndicator==false && cdformdata.loanInformation.amortizationType !='Step' && cdformdata.loanInformation.amortizationType !='GPM' && cdformdata.loanInformation.amortizationType !='GraduatedPaymentARM' && cdformdata.loanDetail.seasonalPaymentFeatureIndicator==false && cdformdata.loanDetail.interestRateIncreaseIndicator==true" ng-click="changeTab('AirTable')">Back</a>
 			</span>
-
+			<span class="col-sm-10"><button class="btn btn-success" style="margin-left: 47%;" ng-click="calculatePayments()">Calculate</button></span>
 			<!-- working Back -->
 			<span class="pull-right">
 			<a class="btn btn-primary" ng-click="changeTab('ContactInfo')">Next</a>
