@@ -44,11 +44,13 @@
 		        <td><label>Interest Rate <span class="required">*</span></label></td>
 		        <td>
 		        	<div class="input-group">
-  							<!-- <input class="form-control" ng-model="leformdata.termsOfLoan.noteRatePercent" > -->
-  							<input class="form-control" ng-model="leformdata.termsOfLoan.noteRatePercent" name="noteRatePercent" ng-show="leformdata.loanInformation.amortizationType!='GraduatedPaymentARM' && leformdata.loanInformation.amortizationType!='AdjustableRate'" >
-            				<input class="form-control" ng-model="leformdata.termsOfLoan.disclosedFullyIndexedRatePercent" name="disclosedFullyIndexedRatePercent"  ng-show="leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanInformation.amortizationType=='AdjustableRate'">
-  							<help-verbiage name="LE_InterestRate_Help" title="help_tooltip_padding"></help-verbiage>
-  							<span class="input-group-addon input-default">%</span>
+						<input class="form-control" ng-model="leformdata.termsOfLoan.noteRatePercent" name="noteRatePercent" ng-disabled="leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" ng-show="leformdata.loanInformation.amortizationType!='GraduatedPaymentARM' && leformdata.loanInformation.amortizationType!='AdjustableRate' && !leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" percentage-format>
+	        			<span ng-show="leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanInformation.amortizationType=='AdjustableRate'">
+	        				<input class="form-control" ng-model="leformdata.termsOfLoan.disclosedFullyIndexedRatePercent" name="noteRatePercent" ng-disabled="leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" ng-show=" !leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" percentage-format>
+	    				</span>
+	    				<input class="form-control" ng-model="leformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" name="noteRatePercent" ng-disabled="leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" ng-show="leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator" percentage-format>
+						<help-verbiage name="LE_InterestRate_Help" title="help_tooltip_padding"></help-verbiage>
+						<span class="input-group-addon input-default">%</span>
 		        	</div>
 		        </td>
 		        <td><select class="form-control pull-left" ng-model="leformdata.loanDetail.interestRateIncreaseIndicator" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-disabled="true">
@@ -83,7 +85,64 @@
 		        	</ul>
 		        </td>
 		      </tr>
-		      
+		      <tr>
+		        <td><label>Temporary buydown
+				     <span class="required">*
+				     </span>
+		       </label></td>
+		        <td>
+		        </td>
+		        <td><span class="col-sm-12 padding0"><select class="form-control pull-left" ng-model="leformdata.loanDetail.buydownTemporarySubsidyFundingIndicator"  ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-change="temporaryChange()">
+		        </select>
+		        <help-verbiage name="CD_LoanTemporaryBuydown_Help" title="help_tooltip_lg"></help-verbiage>
+		        </span>
+		        </td>
+		        <td>
+		        	<ul class="loanTermsList" ng-show="leformdata.loanDetail.buydownTemporarySubsidyFundingIndicator == true">
+		        		
+		        		<li><span class="pull-left margin5tb">Is the buydown reflected on the Note</span> 
+		        			<span class="col-sm-2">
+		        			<select class="form-control pull-left" ng-model="leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator"ng-change="temporaryBuydownChange()" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+		        			<option value="" selected="selected">Select</option>
+			        	    </select>
+			        	    </span> 
+		        		</li>
+		        		<li ng-show="leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true">						    
+							<span class="pull-left margin5tb">What is the Rate as reflected without the Buydown?</span> 
+		        			<span class="col-sm-3">
+								<div class="input-group">
+									<actualize-input ng-model="leformdata.termsOfLoan.noteRatePercent" name="ceilingRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format">
+                				</actualize-input>
+									<span class="input-group-addon input-default">%</span>
+								</div>
+							</span>
+		        		</li>
+		        		<li ng-show="leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb col-sm-9 padding0">Provide the rate the borrower will pay after the buydown is applied</span> 
+		        			<span class="col-sm-3 pull-right">
+								<div class="input-group">
+									<actualize-input ng-model="leformdata.loanTerms.temporaryBuydown.buydownInitialEffectiveInterestRatePercent" name="buydownInitialEffectiveInterestRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format">
+                					</actualize-input>
+									<span class="input-group-addon input-default">%</span>
+								</div>
+							</span>
+						</li>
+		        		<li ng-show="leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb col-sm-9 padding0">Provide the Time interval in months between the interest rate increases during the buydown period</span> 
+		        			<span class="col-sm-3 pull-right"><input type="text" class="form-control" name="" ng-model="leformdata.loanTerms.temporaryBuydown.buydownChangeFrequencyMonthsCount" only-digits maxlength="3"></span> </li>
+		        		<li ng-show="leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb col-sm-9 padding0">Provide the total number of months which the buydown is in affect</span> 
+		        			<span class="col-sm-3 pull-right"><input type="text" class="form-control" name="" ng-model="leformdata.loanTerms.temporaryBuydown.buydownDurationMonthsCount" only-digits maxlength="3"></span> </li>
+		        		<li ng-show="leformdata.loanTerms.temporaryBuydown.gseBuydownReflectedInNoteIndicator==true"><span class="pull-left margin5tb col-sm-9 padding0">Provide the amount by which the interest rate can increase at each adjustment within the buydown period</span> 
+		        			<span class="col-sm-3 pull-right">
+								<div class="input-group">
+									
+									<actualize-input ng-model="leformdata.loanTerms.temporaryBuydown.buydownIncreaseRatePercent" name="buydownIncreaseRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format">
+                					</actualize-input>
+									<span class="input-group-addon input-default">%</span>
+								</div>
+							</span>
+						</li>
+		        	</ul>
+		        </td>
+		      </tr>
 		      <tr>
 		        <td><label>Principal & Interest Payment Amount <span class="required">*</span></label></td>
 		        <td>

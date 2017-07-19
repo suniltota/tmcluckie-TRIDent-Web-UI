@@ -94,19 +94,6 @@
 		        	First Change / Amount  
 		        </td>
 		        <td>
-		        	<!-- <ul class="loanTermsList">
-		        	<li> 
-	        			<span class="pull-left col-sm-2">
-	        			<div class="input-group marginleft15n">
-	        			<span class="input-group-addon input-default">$</span>
-	        			<input type="text" class="form-control width50" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPerChangeMaximumPrincipalAndInterestPaymentAmount" ng-disabled="true">
-	        			</div>
-	        			</span>
-	        			<span class="pull-left margin5tb"> at the</span>
-	        			<span class="pull-left col-sm-2"><input type="text" class="form-control width50" name="" ng-model="leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount" ng-disabled="true"></span>
-	        			<span class="pull-left margin5tb">payment</span>
-		        	 </li>
-		        	 </ul> -->
 		        	 <ul class="loanTermsList" ng-switch="leformdata.loanInformation.amortizationType">
 			        	<li ng-if="leformdata.loanDetail.interestOnlyIndicator && leformdata.loanInformation.amortizationType=='Fixed'">
 		        			<span class="pull-left col-sm-2">
@@ -159,10 +146,13 @@
 		        </td>
 		        <td>
 		            <ul class="loanTermsList">
-		        	<li>
-		        	<span class="col-sm-12" ng-show="!leformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">No Subsequent Changes</span>
+		            <li ng-if="leformdata.loanDetail.interestOnlyIndicator && leformdata.loanInformation.amortizationType=='Fixed'">
+		        	<span class="col-sm-12">No Subsequent Changes</span>
+		        	</li>
+		        	<li ng-if="leformdata.loanDetail.interestOnlyIndicator == false || leformdata.loanInformation.amortizationType!='Fixed'">
+		        	<span class="col-sm-12" ng-show="!leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">No Subsequent Changes</span>
 
-		        	<span class="col-sm-12" ng-show="leformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">
+		        	<span class="col-sm-12" ng-show="leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">
 		        	    <span class="pull-left margin5tb">Every</span>
 		        		<span class="pull-left col-sm-2">
 		        			<input type="text" class="form-control" name="" value="{{leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount/12 | round}}" ng-disabled="true">
