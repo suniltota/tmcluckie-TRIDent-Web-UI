@@ -109,7 +109,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                         console.log(localStorage.jsonData);
                         location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                     }).error(function(data, status) {
-                        $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
+                        $scope.fileerror = 'There is a problem with template file. Please select valid template file';
                         $("#spinner").hide();
                     });
                 } else {
@@ -129,7 +129,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                         localStorage.jsonData = JSON.stringify(jsondata);
                         location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                     }).error(function(data, status) {
-                        $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
+                        $scope.fileerror = 'There is a problem with template file. Please select valid template file';
                         $("#spinner").hide();
                     });
                 }
