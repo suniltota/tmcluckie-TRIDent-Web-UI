@@ -189,18 +189,24 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
         $scope.uploadfile = undefined;
     }
 
-    $scope.submit = function() {
-        $("#spinner").show();
+    $scope.docDetails = function(){
+
         $('#ChooseFormType').modal('hide');
         localStorage.removeItem("jsonData");
         localStorage.documentType = $scope.documentType;
         angular.element($("#menuCtrlId")).scope().documentType = $scope.documentType;
+    }
+
+    $scope.submit = function() {
+        $("#spinner").show();
         if($scope.transactionType == 'new') {
+            $scope.docDetails();
             location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
         } else if($scope.transactionType == 'existing') {
             if($scope.uploadfile != undefined && $scope.uploadfile != null) {
                  if($scope.documentType=='closingdisclosure') { 
                 cdService.loadTransformData($scope.uploadfile).success(function(data){
+                    $scope.docDetails();
                     $scope.purposeType = data.termsOfLoan.loanPurposeType.toLowerCase();
                     $scope.loanformtype = data.closingDisclosureDocDetails.formType;
                     if($scope.purposeType == 'purchase'){
@@ -217,11 +223,12 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
                     //console.log(localStorage.jsonData);
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                 }).error(function(data, status) {
+                    $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
                     $("#spinner").hide();
                 });
             }else{
                 leService.loadTransformData($scope.uploadfile).success(function(data){
-                   //console.log(JSON.stringify(data));
+                    $scope.docDetails();
                     $scope.purposeType = data.termsOfLoan.loanPurposeType.toLowerCase();
                     $scope.loanformtype = data.loanEstimateDocDetails.formType;
                     if($scope.purposeType == 'purchase'){
@@ -239,6 +246,7 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
                     
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                 }).error(function(data, status) {
+                    $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
                     $("#spinner").hide();
                 });
             }
@@ -250,6 +258,7 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
             if($scope.uploadfile != undefined && $scope.uploadfile != null) {
               if($scope.documentType=='closingdisclosure') {
                 cdService.generateJsonFromTemplate($scope.uploadfile).success(function(jsondata) {
+                    $scope.docDetails();
                     $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
                     $scope.loanformtype = jsondata.closingDisclosureDocDetails.formType;
                     if($scope.purposeType == 'purchase'){
@@ -265,10 +274,12 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
                     localStorage.jsonData = JSON.stringify(jsondata);
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                 }).error(function(data, status) {
+                    $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
                     $("#spinner").hide();
                 });
               } else {
                   leService.generateJsonFromTemplate($scope.uploadfile).success(function(jsondata) {
+                      $scope.docDetails();
                       $scope.purposeType = jsondata.termsOfLoan.loanPurposeType.toLowerCase();
                       $scope.loanformtype = jsondata.loanEstimateDocDetails.formType;
                       if($scope.purposeType == 'purchase'){
@@ -284,6 +295,7 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
                       localStorage.jsonData = JSON.stringify(jsondata);
                       location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                   }).error(function(data, status) {
+                      $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
                       $("#spinner").hide();
                   });
               }
