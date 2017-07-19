@@ -926,7 +926,7 @@ app.directive('helpVerbiage', function ($window, $compile, $sce) {
           }else if(attr.title == "help_tooltip_lg"){
               classTemp ='<span class="helpText tooltip-msg tooltip_lg"> ? <span>';
           }
-          return classTemp;
+          return classTemp + '<b></b>';
         }
 
         var template = getDynamicTemplate() + $("#"+attr.name).html() + '</span></span>';
@@ -946,11 +946,13 @@ app.directive('helpVerbiage', function ($window, $compile, $sce) {
         });
 
         elem.on('mouseleave', function (e) {
-          var template = getDynamicTemplate() + '</span></span>';
-          elem.html(template);
-          $compile(elem.contents())(scope);
-        });
-                
+          if(navigator.userAgent.indexOf("Chrome") != -1 ){
+              var template = getDynamicTemplate() + '</span></span>';
+              elem.html(template);
+              $compile(elem.contents())(scope);
+              }
+            });
+
       }
   };
 });
