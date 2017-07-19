@@ -51,7 +51,9 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 			}).
 			error(function(data, status) {
 				$scope.waitingForLoginResponse=false;
-				if(null == data && "-1" == status)
+				if(status == 403)
+					$scope.errorMsg = "Invalid username or password";
+				else if(null == data && "-1" == status)
 					$scope.errorMsg = "Unable to connect to server. Please try again later.";
 				else if(null != data)
 					$scope.errorMsg = data.message;
