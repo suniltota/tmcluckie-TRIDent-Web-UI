@@ -195,11 +195,11 @@
 		        </td>
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanDetail.paymentIncreaseIndicator == true">
-		        		<li> <span class="pull-left margin5tb">Adjusts every</span> 
-		        			<span class="col-sm-2"><input type="text" class="form-control" name="" value="{{(cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount ? cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount/12 : '') | round}}" maxlength="3" ng-disabled="true"></span> 
+		        		<li ng-show="cdformdata.loanInformation.amortizationType!='Fixed'"> <span class="pull-left margin5tb">Adjusts every</span> 
+		        			<span class="col-sm-2"><input type="text" class="form-control" name="" value="{{cdformdata.loanInformation.amortizationType!='Fixed' ? (cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount ? cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount/12 : '') : '' | round }}" maxlength="3" ng-disabled="true"></span> 
 		        			<span class="pull-left margin5tb">years starting in year</span>
 		        			<span class="col-sm-2"><input type="text" class="form-control" name="" value="{{(cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount ? cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount/12 : '') | ceil}}" maxlength="3" ng-disabled="true"></span></li>
-		        		<li><span class="pull-left margin5tb"> Can go as high as</span> 
+		        		<li ng-show="cdformdata.loanInformation.amortizationType!='Fixed'"><span class="pull-left margin5tb"> Can go as high as</span> 
 		        			<span class="col-sm-3">
 		        			<div class="input-group">
 								<span class="input-group-addon input-default">$</span>
@@ -212,6 +212,12 @@
 		        			<input type="text" class="form-control" name="" ng-model="cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount" only-digits maxlength="2" ng-keyup="principleInterestRateYearToMonthsAdjustment()" ng-blur="principleInterestRateYearToMonthsAdjustment()">
 		        			</span>
 		        		</li>
+	        			<li ng-show="cdformdata.loanInformation.amortizationType=='Fixed' && cdformdata.loanDetail.interestOnlyIndicator"> 
+		        		    <span class="pull-left margin5tb">Includes <b>only interest</b> and <b>no principal</b> until year</span> 
+		        			<span class="col-sm-2">
+		        				<input type="text" class="form-control" name="" value="{{cdformdata.interestOnly.interestOnlyTermMonthsCount ? (cdformdata.interestOnly.interestOnlyTermMonthsCount/12) + 1 : '' }}" maxlength="3" ng-disabled="true">
+		        			</span> 
+	        		    </li>
 		        	</ul>
 		        </td>
 		      </tr>	
