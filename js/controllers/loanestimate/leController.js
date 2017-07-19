@@ -1377,6 +1377,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeEstimatedTotalAmount ='';
 		$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].paymentIncludedInAPRIndicator = false;
 		$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].regulationZPointsAndFeesIndicator = true;
+		$scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].optionalCostIndicator = false;
     }
     $scope.deleteOthers = function(feeType,i){
     	for(j=0; j<$scope.sectionHfeeTypes.length; j++){
