@@ -319,6 +319,7 @@
         <div class="PDFview" data-anchor="Page1" dynamic-height-min >
         	<span>
           <div class="CDHeaderSection col-lg-12">
+            <div ng-show="showTab == 'cdHelp'" ng-include='"templates/cdforms/cdHelp.html"'></div>
             <div ng-show="showTab == 'closingInfo'" ng-include='"templates/cdforms/cdClosingInformation.html"'></div>
             <div ng-show="showTab == 'transInfo'" ng-include='"templates/cdforms/cdTransactionInformation.html"'></div>
             <div ng-show="showTab == 'loanInfo'" ng-include='"templates/cdforms/cdLoanInformation.html"'></div>
@@ -343,7 +344,6 @@
             <div ng-show="showTab == 'EscrowAccount'" ng-include='"templates/cdforms/AdditionalInformation_EscrowAccount.html"'></div>
             <div ng-show="showTab == 'ApTable'" ng-include='"templates/cdforms/AdditionalInformation_ApTable.html"'></div>
             <div ng-show="showTab == 'AirTable'" ng-include='"templates/cdforms/AdditionalInformation_AirTable.html"'></div>
-            <div ng-show="showTab == 'cdHelp'" ng-include='"templates/cdforms/cdHelp.html"'></div>
           </div>
        	 	</span>
         </div>
