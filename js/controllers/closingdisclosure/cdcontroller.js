@@ -2107,6 +2107,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].lenderStatus = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].paymentIncludedInAPRIndicator = false;
 		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].regulationZPointsAndFeesIndicator = false;
+		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].optionalCostIndicator = false;
     }
     $scope.deleteOthers = function(feeType,i){
     	for(j=0; j<$scope.sectionHfeeTypes.length; j++){
