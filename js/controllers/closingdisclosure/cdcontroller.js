@@ -177,6 +177,16 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata = angular.fromJson(localStorage.jsonData);
 			$scope.cdformdata.loanInformation['loanTermYears'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.cdformdata.loanInformation['loanTermMonths'] = $scope.cdformdata.maturityRule.loanMaturityPeriodCount%12;
+
+			if($scope.cdformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || $scope.cdformdata.loanInformation.amortizationType=='AdjustableRate'){
+				if(!$scope.cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent){
+					if($scope.cdformdata.termsOfLoan.noteRatePercent){
+						$scope.cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent = $scope.cdformdata.termsOfLoan.noteRatePercent;
+				    	$scope.cdformdata.termsOfLoan.noteRatePercent='';
+				    }
+			    }
+			}
+
 		}
 
 

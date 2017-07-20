@@ -210,11 +210,19 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
                 	$scope.leformdata.loanInformation.rateLokedTime = time[0]+":"+time[1];
                 }
 
-			    console.log("After Parse Date::::"+$scope.leformdata.loanInformation.rateLokedDate+"And Time::::"+$scope.leformdata.loanInformation.rateLokedTime); //prints date in the format sdf
+			    //console.log("After Parse Date::::"+$scope.leformdata.loanInformation.rateLokedDate+"And Time::::"+$scope.leformdata.loanInformation.rateLokedTime); //prints date in the format sdf
                 }
      		}
-
-
+     		
+            if($scope.leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || $scope.leformdata.loanInformation.amortizationType=='AdjustableRate'){
+				if(!$scope.leformdata.termsOfLoan.disclosedFullyIndexedRatePercent){
+					if($scope.leformdata.termsOfLoan.noteRatePercent){
+						$scope.leformdata.termsOfLoan.disclosedFullyIndexedRatePercent = $scope.leformdata.termsOfLoan.noteRatePercent;
+				    	$scope.leformdata.termsOfLoan.noteRatePercent='';
+				    }
+			    }
+			}
+            
 		}
 
 		 //Adding Form and Document types for AML & PDF Generation
