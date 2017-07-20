@@ -639,7 +639,8 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 							<input type="text" class="form-control"
 								ng-model="leformdata.interestOnly.interestOnlyTermMonthsCount"
 								ng-disabled="leformdata.loanDetail.interestOnlyIndicator == false"
-								only-digits maxlength="3">
+								only-digits maxlength="3" ng-keyup="interestOnlyTermMonthsCountChange()" 
+								ng-blur="interestOnlyTermMonthsCountChange()">
 							<help-verbiage name="LE_YesInterestOnlyPeriod_help"
 								title="help_tooltip_padding_left"></help-verbiage>
 						</div>

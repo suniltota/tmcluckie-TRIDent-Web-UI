@@ -500,7 +500,7 @@
 				<div class="FieldGroup">
 					<div class="col-sm-10 fieldTitle">If Yes, what is the interest only period?:</div>
 					<div class="col-sm-2 padding0">
-						<input type="text" class="form-control" ng-model="cdformdata.interestOnly.interestOnlyTermMonthsCount" ng-disabled="cdformdata.loanDetail.interestOnlyIndicator == false" only-digits maxlength="3">
+						<input type="text" class="form-control" ng-model="cdformdata.interestOnly.interestOnlyTermMonthsCount" ng-disabled="cdformdata.loanDetail.interestOnlyIndicator == false" only-digits maxlength="3" ng-keyup="interestOnlyTermMonthsCountChange()" ng-blur="interestOnlyTermMonthsCountChange()">
 						<help-verbiage name="CD_whatinterestonlyperiod_Help" title="help_tooltip_padding_left"></help-verbiage>
 					</div>
 				</div>
