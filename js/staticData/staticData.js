@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; 
 
 app.service('staticData', function($filter){
 	this.purposes = [{"displayName":"Purchase","value":"Purchase"},{"displayName":"Refinance","value":"Refinance"},{"displayName":"HomeEquity","value":"HomeEquity"}];
@@ -7,7 +7,7 @@ app.service('staticData', function($filter){
     this.amortizationType = [{"name":"AdjustableRate","id":"Adjustable Rate"},{"name":"Fixed","id":"Fixed"},{"name":"GEM","id":"GEM"},{"name":"GraduatedPaymentARM","id":"Graduated Payment ARM"},{"name":"Step","id":"Step"}];
  	this.mortgageType = ["Conventional","FHA","LocalAgency","PublicAndIndianHousing","StateAgency","USDARuralDevelopment","VA","Other"];
 	this.paymentFrequencyType =["AtMaturity","Biweekly","Monthly","Quarterly","Semiannual","Semimonthly","Weekly"]
-    this.state = {"stateCode" : ["AL","AK","AZ","AR","CF","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","AS","GU","MP","PR","VI","FM","MH","PW","AA","AE","AP","CM","CZ","NB","PI","TT"]};
+    this.state = {"stateCode" : ["AL","AK","AZ","AR","CF","CA","CO","CT","DC","DE","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MH","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","MP","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WV","WI","WY","AS","GU","MP","PR","VI","FM","MH","PW","AA","AE","AP","CM","CZ","NB","PI","TT"]};
     this.appraisalMethods = [{"name":"AutomatedValuationModel", "code":"AVM"},{"name":"DesktopAppraisal", "code":"DA"},{"name":"DriveBy", "code":"DB"},{"name":"FullAppraisal", "code":"FA"},{"name":"None", "code":"NA"},{"name":"Other", "code":"Other"},{"name":"PriorAppraisalUsed", "code":"PriorAppraisalUsed"}];
     
     this.partyRoleTypes = ["NotePayTo","MortgageBroker","RealEstateAgent","ClosingAgent","Borrower","NonTitleSpouse","TitleHolder","Other","NonTitleNonSpouseOwnershipInterest","PropertySeller","LoanDeliveryFilePreparer"];
@@ -262,6 +262,10 @@ app.service('staticData', function($filter){
 			"code": "AK",
 		},
 		{
+			"name": "AmericanSamoa",
+			"code": "AS",
+		},
+		{
 			"name": "Arizona",
 			"code": "AZ",
 		},
@@ -296,6 +300,10 @@ app.service('staticData', function($filter){
 		{
 			"name": "Georgia",
 			"code": "GA",
+		},
+		{
+			"name": "Guam",
+			"code": "GU",
 		},
 		{
 			"name": "Hawaii",
@@ -338,12 +346,20 @@ app.service('staticData', function($filter){
 			"code": "MD",
 		},
 		{
+			"name": "MarshallIslands",
+			"code": "MH",
+		},
+		{
 			"name": "Massachusetts",
 			"code": "MA",
 		},
 		{
 			"name": "Michigan",
 			"code": "MI",
+		},
+		{
+			"name": "Micronesia",
+			"code": "FM",
 		},
 		{
 			"name": "Minnesota",
@@ -394,20 +410,32 @@ app.service('staticData', function($filter){
 			"code": "ND",
 		},
 		{
+			"name": "Northern Marianas",
+			"code": "MP",
+		},
+		{
 			"name": "Ohio",
 			"code": "OH",
 		},
 		{
 			"name": "Oklahoma",
 			"code": "OK",
-		},
+		}, 
 		{
 			"name": "Oregon",
 			"code": "OR",
 		},
 		{
+			"name": "Palau",
+			"code": "PW",
+		},
+		{
 			"name": "Pennsylvania",
 			"code": "PA",
+		},
+		{
+			"name": "PuertoRico",
+			"code": "PR",
 		},
 		{
 			"name": "Rhode Island",
@@ -440,6 +468,10 @@ app.service('staticData', function($filter){
 		{
 			"name": "Virginia",
 			"code": "VA",
+		},
+		{
+			"name": "Virgin Islands",
+			"code": "VI",
 		},
 		{
 			"name": "Washington",
