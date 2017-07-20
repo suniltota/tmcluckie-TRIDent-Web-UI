@@ -448,7 +448,11 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
             var elementValue = e.target.value;
             if(elementValue) {
               elementValue = elementValue.replace(/[^0-9.]/g, '');
+              if(window.localStorage.documentType != 'closingdisclosure'){ 
+              e.target.value = $filter('number')(Math.round(elementValue), 2);
+            }else{ 
               e.target.value = $filter('number')(elementValue, 2);
+            }
               scope.$apply();
             }
         });
@@ -522,7 +526,11 @@ app.directive('decimalDigitsWithNumberFormatAllowNegative', function ($compile, 
             var elementValue = e.target.value;
             if(elementValue) {
               elementValue = elementValue.replace(/[^0-9.-]/g, '');
+              if(window.localStorage.documentType != 'closingdisclosure'){ 
+              e.target.value = $filter('number')(Math.round(elementValue), 2);
+            }else{ 
               e.target.value = $filter('number')(elementValue, 2);
+            }
               scope.$apply();
             }
         });
