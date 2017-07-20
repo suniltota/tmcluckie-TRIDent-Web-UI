@@ -72,12 +72,18 @@
 		        <td>
 		        	<ul class="loanTermsList" ng-show="cdformdata.loanDetail.seasonalPaymentFeatureIndicator">
 			        	<li> 
-		        			<span class="pull-left col-sm-2">
+		        			<span class="pull-left col-sm-2" ng-show = "cdformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth !=''">
 		        				<input type="text" class="form-control" name="" ng-repeat="calendarMonth in calendarMonths | filter: {value: cdformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth}" ng-model="calendarMonth.name" ng-disabled="true">
 		        			</span>
+		        			<span class="pull-left col-sm-2" ng-show = "cdformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth ==''">
+		        				<input type="text" class="form-control" name="" ng-disabled="true">
+		        			</span>
 		        			<span class="pull-left margin5tb"> to</span>
-		        			<span class="pull-left col-sm-2">
+		        			<span class="pull-left col-sm-2" ng-show = "cdformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth != ''">
 		        				<input type="text" class="form-control" name="" ng-repeat="calendarMonth in calendarMonths | filter: {value: cdformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth}" ng-model="calendarMonth.name" ng-disabled="true">
+		        			</span>
+		        			<span class="pull-left col-sm-2" ng-show = "cdformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth == ''">
+		        				<input type="text" class="form-control" name="" ng-disabled="true">
 		        			</span>
 		        			<span class="pull-left margin5tb">each year</span>
 			        	</li>
