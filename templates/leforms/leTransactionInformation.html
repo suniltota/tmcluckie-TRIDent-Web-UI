@@ -1,5 +1,12 @@
 <div class="col-sm-12">
-  <h4>Transaction Information</h4>
+  <div class="row col-sm-12">
+      <div class="col-sm-6"><h4>Transaction Information</h4></div>
+      <div class="col-sm-2 margin10t" ><Span class="margin5lr">Lender ID: {{leformdata.loanInformation.loanIdentifiers[0].loanIdentifier}} </span>
+      </div>
+      <div class="col-sm-2 margin10t"><span class="margin5lr">Purpose Type: {{LoanType}} </span></div>
+
+      <div class="col-sm-2 margin10t padding0"><span class=""> Applicant Last Name: {{leformdata.transactionInformation.borrowerDetails[0].nameModel.lastName.capitalizeFirstLetter() }}</span></div>
+  </div>
   <div class="">
   <div class="col-sm-12 padding0" ng-repeat= "borrower in leformdata.transactionInformation.borrowerDetails track by $index">
     <h5 class="innerSectionHeader">Applicant Information 
