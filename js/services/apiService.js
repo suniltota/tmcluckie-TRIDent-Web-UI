@@ -2,7 +2,7 @@
 
 var httpServiceModule = angular.module('httpServiceModule', []);
 
-httpServiceModule.factory('apiService', ['$http', '$q', function($http, $q) {
+httpServiceModule.factory('apiService', ['$http', '$q', '$rootScope', function($http, $q, $rootScope) {
 	var basePath="";
 	var _httpMethod="POST";
 	var caching=false;
@@ -97,6 +97,8 @@ httpServiceModule.factory('apiService', ['$http', '$q', function($http, $q) {
 			var canceller = $q.defer();
 			var combinedPath=basePath+bundle.apiMethod;
 			latestRequest[combinedPath.split('?')[0]]=basePath+bundle.apiMethod/*+dataStr*/;
+			$rootScope.lastServerCallTime = new Date().getTime();
+			console.log('Last server call at -- '+$rootScope.lastServerCallTime);
 			if(typeof bundle.localData != "undefined"){
 				return $http({
 					method: bundle.httpMethod,
