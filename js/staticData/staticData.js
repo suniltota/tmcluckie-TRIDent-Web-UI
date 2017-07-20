@@ -7,7 +7,7 @@ app.service('staticData', function($filter){
     this.amortizationType = [{"name":"AdjustableRate","id":"Adjustable Rate"},{"name":"Fixed","id":"Fixed"},{"name":"GEM","id":"GEM"},{"name":"GraduatedPaymentARM","id":"Graduated Payment ARM"},{"name":"Step","id":"Step"}];
  	this.mortgageType = ["Conventional","FHA","LocalAgency","PublicAndIndianHousing","StateAgency","USDARuralDevelopment","VA","Other"];
 	this.paymentFrequencyType =["AtMaturity","Biweekly","Monthly","Quarterly","Semiannual","Semimonthly","Weekly"]
-    this.state = {"stateCode" : ["AL","AK","AZ","AR","CF","CA","CO","CT","DC","DE","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MH","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","MP","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WV","WI","WY","AS","GU","MP","PR","VI","FM","MH","PW","AA","AE","AP","CM","CZ","NB","PI","TT"]};
+    this.state = {"stateCode" : ["AL","AK","AZ","AR","CA","CF","CO","CT","DC","DE","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MH","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","MP","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WV","WI","WY","AS","GU","MP","PR","FM","MH","PW","AA","AE","AP","CM","CZ","NB","PI","TT"]};
     this.appraisalMethods = [{"name":"AutomatedValuationModel", "code":"AVM"},{"name":"DesktopAppraisal", "code":"DA"},{"name":"DriveBy", "code":"DB"},{"name":"FullAppraisal", "code":"FA"},{"name":"None", "code":"NA"},{"name":"Other", "code":"Other"},{"name":"PriorAppraisalUsed", "code":"PriorAppraisalUsed"}];
     
     this.partyRoleTypes = ["NotePayTo","MortgageBroker","RealEstateAgent","ClosingAgent","Borrower","NonTitleSpouse","TitleHolder","Other","NonTitleNonSpouseOwnershipInterest","PropertySeller","LoanDeliveryFilePreparer"];
@@ -47,21 +47,27 @@ app.service('staticData', function($filter){
 
 	this.stateCodes=[
 		{
+			"name": "Alaska",
+			"code": "AK",
+		},
+		{
 			"name": "Alabama",
 			"code": "AL",
 		},
+		
 		{
-			"name": "Alaska",
-			"code": "AK",
+			"name": "Arkansas",
+			"code": "AR",
+		},
+		{
+			"name": "AmericanSamoa",
+			"code": "AS",
 		},
 		{
 			"name": "Arizona",
 			"code": "AZ",
 		},
-		{
-			"name": "Arkansas",
-			"code": "AR",
-		},
+		
 		{
 			"name": "California",
 			"code": "CA",
@@ -87,12 +93,25 @@ app.service('staticData', function($filter){
 			"code": "FL",
 		},
 		{
+			"name": "Micronesia",
+			"code": "FM",
+		},
+		
+		{
 			"name": "Georgia",
 			"code": "GA",
 		},
 		{
+			"name": "Guam",
+			"code": "GU",
+		},
+		{
 			"name": "Hawaii",
 			"code": "HI",
+		},
+		{
+			"name": "Iowa",
+			"code": "IA",
 		},
 		{
 			"name": "Idaho",
@@ -106,10 +125,7 @@ app.service('staticData', function($filter){
 			"name": "Indiana",
 			"code": "IN",
 		},
-		{
-			"name": "Iowa",
-			"code": "IA",
-		},
+		
 		{
 			"name": "Kansas",
 			"code": "KS",
@@ -123,16 +139,20 @@ app.service('staticData', function($filter){
 			"code": "LA",
 		},
 		{
-			"name": "Maine",
-			"code": "ME",
+			"name": "Massachusetts",
+			"code": "MA",
 		},
 		{
 			"name": "Maryland",
 			"code": "MD",
 		},
 		{
-			"name": "Massachusetts",
-			"code": "MA",
+			"name": "Maine",
+			"code": "ME",
+		},
+		{
+			"name": "MarshallIslands",
+			"code": "MH",
 		},
 		{
 			"name": "Michigan",
@@ -143,24 +163,33 @@ app.service('staticData', function($filter){
 			"code": "MN",
 		},
 		{
-			"name": "Mississippi",
-			"code": "MS",
-		},
-		{
 			"name": "Missouri",
 			"code": "MO",
 		},
+		{
+			"name": "Northern Marianas",
+			"code": "MP",
+		},
+		{
+			"name": "Mississippi",
+			"code": "MS",
+		},
+		
 		{
 			"name": "Montana",
 			"code": "MT",
 		},
 		{
-			"name": "Nebraska",
-			"code": "NE",
+			"name": "North Carolina",
+			"code": "NC",
 		},
 		{
-			"name": "Nevada",
-			"code": "NV",
+			"name": "North Dakota",
+			"code": "ND",
+		},
+		{
+			"name": "Nebraska",
+			"code": "NE",
 		},
 		{
 			"name": "New Hampshire",
@@ -175,17 +204,15 @@ app.service('staticData', function($filter){
 			"code": "NM",
 		},
 		{
+			"name": "Nevada",
+			"code": "NV",
+		},
+		
+		{
 			"name": "New York",
 			"code": "NY",
 		},
-		{
-			"name": "North Carolina",
-			"code": "NC",
-		},
-		{
-			"name": "North Dakota",
-			"code": "ND",
-		},
+		
 		{
 			"name": "Ohio",
 			"code": "OH",
@@ -201,6 +228,14 @@ app.service('staticData', function($filter){
 		{
 			"name": "Pennsylvania",
 			"code": "PA",
+		},
+		{
+			"name": "PuertoRico",
+			"code": "PR",
+		},
+		{
+			"name": "Palau",
+			"code": "PW",
 		},
 		{
 			"name": "Rhode Island",
@@ -227,25 +262,31 @@ app.service('staticData', function($filter){
 			"code": "UT",
 		},
 		{
-			"name": "Vermont",
-			"code": "VT",
-		},
-		{
 			"name": "Virginia",
 			"code": "VA",
 		},
+		{
+			"name": "Virgin Islands",
+			"code": "VI",
+		},
+		{
+			"name": "Vermont",
+			"code": "VT",
+		},
+		
 		{
 			"name": "Washington",
 			"code": "WA",
 		},
 		{
-			"name": "West Virginia",
-			"code": "WV",
-		},
-		{
 			"name": "Wisconsin",
 			"code": "WI",
 		},
+		{
+			"name": "West Virginia",
+			"code": "WV",
+		},
+		
 		{
 			"name": "Wyoming",
 			"code": "WY",
@@ -253,13 +294,17 @@ app.service('staticData', function($filter){
 	];
     
     this.usstateCodes=[
+    	{
+			"name": "Alaska",
+			"code": "AK",
+		},
 		{
 			"name": "Alabama",
 			"code": "AL",
 		},
 		{
-			"name": "Alaska",
-			"code": "AK",
+			"name": "Arkansas",
+			"code": "AR",
 		},
 		{
 			"name": "AmericanSamoa",
@@ -269,10 +314,7 @@ app.service('staticData', function($filter){
 			"name": "Arizona",
 			"code": "AZ",
 		},
-		{
-			"name": "Arkansas",
-			"code": "AR",
-		},
+		
 		{
 			"name": "California",
 			"code": "CA",
@@ -296,6 +338,10 @@ app.service('staticData', function($filter){
 		{
 			"name": "Florida",
 			"code": "FL",
+		},
+		{
+			"name": "Micronesia",
+			"code": "FM",
 		},
 		{
 			"name": "Georgia",
@@ -310,6 +356,10 @@ app.service('staticData', function($filter){
 			"code": "HI",
 		},
 		{
+			"name": "Iowa",
+			"code": "IA",
+		},
+		{
 			"name": "Idaho",
 			"code": "ID",
 		},
@@ -321,10 +371,7 @@ app.service('staticData', function($filter){
 			"name": "Indiana",
 			"code": "IN",
 		},
-		{
-			"name": "Iowa",
-			"code": "IA",
-		},
+		
 		{
 			"name": "Kansas",
 			"code": "KS",
@@ -338,52 +385,60 @@ app.service('staticData', function($filter){
 			"code": "LA",
 		},
 		{
-			"name": "Maine",
-			"code": "ME",
+			"name": "Massachusetts",
+			"code": "MA",
 		},
 		{
 			"name": "Maryland",
 			"code": "MD",
 		},
 		{
+			"name": "Maine",
+			"code": "ME",
+		},
+		
+		{
 			"name": "MarshallIslands",
 			"code": "MH",
 		},
-		{
-			"name": "Massachusetts",
-			"code": "MA",
-		},
+		
 		{
 			"name": "Michigan",
 			"code": "MI",
 		},
-		{
-			"name": "Micronesia",
-			"code": "FM",
-		},
+		
 		{
 			"name": "Minnesota",
 			"code": "MN",
-		},
-		{
-			"name": "Mississippi",
-			"code": "MS",
 		},
 		{
 			"name": "Missouri",
 			"code": "MO",
 		},
 		{
+			"name": "Northern Marianas",
+			"code": "MP",
+		},
+		{
+			"name": "Mississippi",
+			"code": "MS",
+		},
+		
+		{
 			"name": "Montana",
 			"code": "MT",
 		},
 		{
-			"name": "Nebraska",
-			"code": "NE",
+			"name": "North Carolina",
+			"code": "NC",
 		},
 		{
-			"name": "Nevada",
-			"code": "NV",
+			"name": "North Dakota",
+			"code": "ND",
+		},
+		{
+			"name": "Nebraska",
+			"code": "NE",
 		},
 		{
 			"name": "New Hampshire",
@@ -398,20 +453,13 @@ app.service('staticData', function($filter){
 			"code": "NM",
 		},
 		{
+			"name": "Nevada",
+			"code": "NV",
+		},
+		
+		{
 			"name": "New York",
 			"code": "NY",
-		},
-		{
-			"name": "North Carolina",
-			"code": "NC",
-		},
-		{
-			"name": "North Dakota",
-			"code": "ND",
-		},
-		{
-			"name": "Northern Marianas",
-			"code": "MP",
 		},
 		{
 			"name": "Ohio",
@@ -426,16 +474,16 @@ app.service('staticData', function($filter){
 			"code": "OR",
 		},
 		{
-			"name": "Palau",
-			"code": "PW",
-		},
-		{
 			"name": "Pennsylvania",
 			"code": "PA",
 		},
 		{
 			"name": "PuertoRico",
 			"code": "PR",
+		},
+		{
+			"name": "Palau",
+			"code": "PW",
 		},
 		{
 			"name": "Rhode Island",
@@ -462,10 +510,6 @@ app.service('staticData', function($filter){
 			"code": "UT",
 		},
 		{
-			"name": "Vermont",
-			"code": "VT",
-		},
-		{
 			"name": "Virginia",
 			"code": "VA",
 		},
@@ -474,17 +518,23 @@ app.service('staticData', function($filter){
 			"code": "VI",
 		},
 		{
+			"name": "Vermont",
+			"code": "VT",
+		},
+		
+		{
 			"name": "Washington",
 			"code": "WA",
-		},
-		{
-			"name": "West Virginia",
-			"code": "WV",
 		},
 		{
 			"name": "Wisconsin",
 			"code": "WI",
 		},
+		{
+			"name": "West Virginia",
+			"code": "WV",
+		},
+		
 		{
 			"name": "Wyoming",
 			"code": "WY",
