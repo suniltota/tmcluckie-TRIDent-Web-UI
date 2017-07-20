@@ -215,7 +215,7 @@
 	        			<li ng-show="cdformdata.loanInformation.amortizationType=='Fixed' && cdformdata.loanDetail.interestOnlyIndicator"> 
 		        		    <span class="pull-left margin5tb">Includes <b>only interest</b> and <b>no principal</b> until year</span> 
 		        			<span class="col-sm-2">
-		        				<input type="text" class="form-control" name="" value="{{cdformdata.interestOnly.interestOnlyTermMonthsCount ? (cdformdata.interestOnly.interestOnlyTermMonthsCount/12) + 1 : '' }}" maxlength="3" ng-disabled="true">
+		        				<input type="text" class="form-control" name="" value="{{cdformdata.interestOnlyValue}}" maxlength="3" ng-disabled="true">
 		        			</span> 
 	        		    </li>
 		        	</ul>
