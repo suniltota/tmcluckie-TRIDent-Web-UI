@@ -366,7 +366,11 @@ app.directive('negativeDigits', function ($filter) {
                 } else {
                   viewValue = viewValue + ".";
                 }
-                digits = decimalSplitValues[0] + "." +decimalSplitValues[1];
+                if(window.localStorage.documentType != 'closingdisclosure'){ 
+                  digits = Math.round(decimalSplitValues[0] + "." +decimalSplitValues[1]);
+                } else{ 
+                  digits = decimalSplitValues[0] + "." +decimalSplitValues[1];
+                }
             } else {
               if( digits.length>9)
                 digits = digits.substring(0, 9);
@@ -433,7 +437,11 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
                 } else {
                   viewValue = viewValue + ".";
                 }
-                digits = decimalSplitValues[0] + "." +decimalSplitValues[1];
+                if(window.localStorage.documentType != 'closingdisclosure'){ 
+                  digits = Math.round(decimalSplitValues[0] + "." +decimalSplitValues[1]);
+                } else{ 
+                   digits = decimalSplitValues[0] + "." +decimalSplitValues[1];
+                }
             } else {
               if( digits.length>9)
                 digits = digits.substring(0, 9);
@@ -505,7 +513,11 @@ app.directive('decimalDigitsWithNumberFormatAllowNegative', function ($compile, 
                 } else {
                   viewValue = viewValue + ".";
                 }
-                digits = decimalSplitValues[0] + "." +decimalSplitValues[1];
+                if(window.localStorage.documentType != 'closingdisclosure'){ 
+                  digits = Math.round(decimalSplitValues[0] + "." +decimalSplitValues[1]);
+                } else{ 
+                  digits = decimalSplitValues[0] + "." +decimalSplitValues[1];
+                }
             } else {
               if(digits.length==1 && digits.charAt(0)=='-') {
                 viewValue = digits;
@@ -531,10 +543,10 @@ app.directive('decimalDigitsWithNumberFormatAllowNegative', function ($compile, 
             if(elementValue) {
               elementValue = elementValue.replace(/[^0-9.-]/g, '');
               if(window.localStorage.documentType != 'closingdisclosure'){ 
-              e.target.value = $filter('number')(Math.round(elementValue), 2);
-            }else{ 
-              e.target.value = $filter('number')(elementValue, 2);
-            }
+                e.target.value = $filter('number')(Math.round(elementValue), 2);
+              }else{ 
+                e.target.value = $filter('number')(elementValue, 2);
+              }
               scope.$apply();
             }
         });

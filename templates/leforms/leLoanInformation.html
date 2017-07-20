@@ -584,10 +584,8 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 						<span class="col-sm-7 padding0 fieldTitle"><b class="boldComma">.</b>
 							MI Monthly Amount</span> <span
 							class="col-sm-5 input-group paddingleft13"> <span
-							class="input-group-addon input-default">$</span> <input
-							type="text" class="form-control" name=""
-							ng-model="leformdata.miDataDetail.miMonthlyAmount"
-							dependencies="decimal-digits-with-number-format">
+							class="input-group-addon input-default">$</span>
+							<actualize-input ng-model="leformdata.miDataDetail.miMonthlyAmount" name="miMonthlyAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format"></actualize-input>
 						</span>
 					</div>
 					<div class="col-sm-12 padding0 margin5tb">

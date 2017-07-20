@@ -160,9 +160,10 @@
 		        <td>
 		           <div class="col-sm-12 padding0">
                     <div class="col-sm-5 padding0">Per Diem Amount</div>
-                    <div class="col-sm-1 padding0 input-group">
+                    <div class="col-sm-5 padding0 input-group">
                     <span class="input-group-addon input-default">$</span>
-                    <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidItemPerDiemAmount" ng-blur="perDiemCalc()" ng-keyup="perDiemCalc()">
+                    <!-- <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidItemPerDiemAmount" ng-blur="perDiemCalc()" ng-keyup="perDiemCalc()"> -->
+                    <actualize-input  ng-model="prepaidsList.prepaidItemPerDiemAmount" name="prepaidItemPerDiemAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format" ng-blur="perDiemCalc()" ng-keyup="perDiemCalc()" style="width: 60px;"></actualize-input>
                     </div>
                     </div>
                     <div class="row col-sm-12 paddingtop5">
