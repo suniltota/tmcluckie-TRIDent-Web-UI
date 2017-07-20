@@ -633,14 +633,14 @@
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-disabled="cdformdata.loanDetail.seasonalPaymentFeatureIndicator == false" ng-model="cdformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth">
 							<option value="" selected>Select</option>
-							<option ng-repeat="calendarMonth in calendarMonths" value="{{calendarMonth}}">{{calendarMonth}}</option>
+							<option ng-repeat="calendarMonth in calendarMonths track by $index" value="{{calendarMonth.value}}">{{calendarMonth.name}}</option>
 						</select>
 						</div>
 					<div class="col-sm-2 fieldTitle" style="text-align: center;">to</div>
 					<div class="col-sm-2 padding0">
 						<select  class="form-control" ng-disabled="cdformdata.loanDetail.seasonalPaymentFeatureIndicator == false" ng-model="cdformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth">
 							<option value="" selected>Select</option>
-							<option ng-repeat="calendarMonth in calendarMonths" value="{{calendarMonth}}">{{calendarMonth}}</option>
+							<option ng-repeat="calendarMonth in calendarMonths track by $index" value="{{calendarMonth.value}}">{{calendarMonth.name}}</option>
 						</select>
 					</div>
 				</div>

@@ -744,7 +744,7 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 								ng-model="leformdata.payment.paymentRule.seasonalPaymentPeriodStartMonth">
 								<option value="" selected>Select</option>
 								<option ng-repeat="calendarMonth in calendarMonths"
-									value="{{calendarMonth}}">{{calendarMonth}}</option>
+									value="{{calendarMonth.value}}">{{calendarMonth.name}}</option>
 							</select>
 							<help-verbiage name="LE_YesProvideStartAndEndMonths_help"
 								title="help_tooltip_padding_left"></help-verbiage>
@@ -756,7 +756,7 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 								ng-model="leformdata.payment.paymentRule.seasonalPaymentPeriodEndMonth">
 								<option value="" selected>Select</option>
 								<option ng-repeat="calendarMonth in calendarMonths"
-									value="{{calendarMonth}}">{{calendarMonth}}</option>
+									value="{{calendarMonth.value}}">{{calendarMonth.name}}</option>
 							</select>
 							<help-verbiage name="LE_YesProvideStartAndEndMonths_help"
 								title="help_tooltip_padding_left"></help-verbiage>
