@@ -1,7 +1,17 @@
 	<div class="col-sm-12"> 
 	<input type="file" name="ucdXml" id="UCDXMLFILE" ng-hide="true" onchange="angular.element(this).scope().fileNameChanged(this);this.value=null; return false;" accept=".xml">
 	<input type="file" name="trid_import_text" id="trid_import_text" ng-hide="true" onchange="angular.element(this).scope().importTextFile(this);this.value=null; return false;" accept=".txt">
-	<h4>Closing Information</h4>
+	
+	<div class="row col-sm-12">
+		<div class="col-sm-6"><h4>Closing Information </h4></div>
+		<div class="col-sm-6">
+			<div class="col-sm-4 margin10t" ><Span class="margin5lr">Lender ID: {{leformdata.loanInformation.loanIdentifiers[0].loanIdentifier}} </span>
+			</div>
+			<div class="col-sm-4 margin10t"><span class="margin5lr">Purpose Type: {{LoanType}} </span></div>
+
+			<div class="col-sm-4 margin10t padding0"><span class=""> Applicant Last Name: {{leformdata.transactionInformation.borrowerDetails[0].nameModel.lastName.capitalizeFirstLetter() }}</span></div>
+		</div>
+	</div>
 	<div class="col-sm-6">
 		<h5 class="innerSectionHeader">Loan Estimate General Information</h5>
 		<div class="FieldGroup">
