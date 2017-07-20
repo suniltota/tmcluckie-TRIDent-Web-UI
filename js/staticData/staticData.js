@@ -3950,6 +3950,8 @@ this.cdformdata={
 		},
        "loanInformation": {
 		    "amortizationType": "Fixed",
+		    "loanAmortizationPeriodCount": "",
+            "loanAmortizationPeriodType": "",
 		    "loanIdentifiers": [
 		      {
                 "loanIdentifierType": "LenderLoan",
@@ -5077,6 +5079,8 @@ this.cdformdata={
 		},
        "loanInformation": {
 		    "amortizationType": "Fixed",
+		    "loanAmortizationPeriodCount": "",
+            "loanAmortizationPeriodType": "",
 		    "loanIdentifiers": [
 		      {
                 "loanIdentifierType": "LenderLoan",
