@@ -1765,17 +1765,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	 spAtClosing.sbDidNotShopTotalspAtClosing = 0;
 		 spB4Closing.sbDidNotShopTotalspB4Closing = 0;
 		 paidByOthers.sbDidNotShopTotalpaidByOthers = 0;
-         $scope.escrowWaiverFeeAmount = 0;
 
          for(i=0; i<$scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length; i++) {
          	paidByOthers.sbDidNotShopTotalpaidByOthers += $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeEstimatedTotalAmount ? parseFloat($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeEstimatedTotalAmount) : +0;
-
-          	//Escrow Waiver Fee Calculation
-	        if($scope.leformdata.loanDetail.escrowIndicator==false && $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType =='EscrowWaiverFee'){
-	            if($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing){
-	               $scope.escrowWaiverFeeAmount = $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing ? parseFloat($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].bpAtClosing) : +0;
-	            }
-	        }
 
 	        for(j=0; j<$scope.sectionBfeeTypes.length; j++){
 				if($scope.sectionBfeeTypes[j].value == $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType) {
@@ -2387,10 +2379,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
         if($scope.leformdata.etiaSection.propertyTaxesCheck == true){
         	if($scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1){
-        		$scope.leformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType ='Escrowed'
+        		$scope.leformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType ='Escrowed';
         		$scope.leformdata.etiaSection.etiaValues[0].insuranceTaxCheck = true; 
         	}else if($scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')==-1){
-        		$scope.leformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType ='NotEscrowed'
+        		$scope.leformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType ='NotEscrowed';
         		$scope.leformdata.etiaSection.etiaValues[0].insuranceTaxCheck = false;
         	}
         }
