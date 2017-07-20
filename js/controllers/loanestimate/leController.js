@@ -103,6 +103,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     var liability= {};
     var adjustment = {};
 	var prorationObj = {};
+	var etiaSection = {};
     var payoffsAndPaymentObj = {
           "payOffType":"",
           "displayLabel":"",
@@ -742,10 +743,21 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	$scope.leformdata.etiaSection.total = $scope.leformdata.etiaSection.etiaValues.length;
     }
 
-	$scope.removeETIAComponent = function(index){
+	$scope.removeETIAComponent = function(componentType,index){
+		for(i=0; i<$scope.ETIAComponentTypes.length; i++){
+			if($scope.ETIAComponentTypes[i].value == componentType) {
+				$scope.ETIAComponentTypes[i].disabled = false;
+			}
+		}
 		$scope.leformdata.etiaSection.etiaValues.splice(index,1);
     }
-    $scope.clearETIAComponent = function(index){
+
+    $scope.clearETIAComponent = function(componentType,index){
+    	for(i=0; i<$scope.ETIAComponentTypes.length; i++){
+			if($scope.ETIAComponentTypes[i].value == componentType) {
+				$scope.ETIAComponentTypes[i].disabled = false;
+			}
+		}
 		$scope.leformdata.etiaSection.etiaValues[index].projectedPaymentEscrowedType='';
 		$scope.leformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType='';
 		$scope.leformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription='';
@@ -810,7 +822,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.amortizationChange = function(){ 
     	if($scope.leformdata.loanInformation.amortizationType == 'Fixed') {
     		$scope.leformdata.loanDetail.interestRateIncreaseIndicator = false;
-    		$scope.leformdata.loanDetail.paymentIncreaseIndicator = false;
+    		if(!$scope.leformdata.loanDetail.interestOnlyIndicator){
+    			$scope.leformdata.loanDetail.paymentIncreaseIndicator = false;
+    		}
     		$scope.leformdata.loanInformation.fixedPeriodMonths = '';
     		$scope.leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = '';
     		$scope.leformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = '';
@@ -868,6 +882,15 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	        }
 	    }
     }
+
+
+    $scope.leformdata['interestOnlyValue'] = 0;
+    $scope.interestOnlyTermMonthsCountChange = function(){
+        if($scope.leformdata.interestOnly.interestOnlyTermMonthsCount){
+        	$scope.leformdata.interestOnlyValue = $scope.leformdata.interestOnly.interestOnlyTermMonthsCount%12 == 0 ? ($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12)+1 : Math.ceil($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12);
+        }
+    }
+
     $scope.constructionChange = function(){
     	if($scope.leformdata.loanDetail.constructionLoanIndicator == false){
     		$scope.leformdata.construction.constructionLoanType ='';

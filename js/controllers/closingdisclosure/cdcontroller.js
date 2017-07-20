@@ -1227,10 +1227,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		$scope.cdformdata.etiaSection.total = $scope.cdformdata.etiaSection.etiaValues.length;
     }
 
-    $scope.removeETIAComponent = function(index){
+    $scope.removeETIAComponent = function(componentType,index){
+		for(i=0; i<$scope.ETIAComponentTypes.length; i++){
+			if($scope.ETIAComponentTypes[i].value == componentType) {
+				$scope.ETIAComponentTypes[i].disabled = false;
+			}
+		}
 		$scope.cdformdata.etiaSection.etiaValues.splice(index,1);
     }
-    $scope.clearETIAComponent = function(index){
+
+    $scope.clearETIAComponent = function(componentType,index){
+    	for(i=0; i<$scope.ETIAComponentTypes.length; i++){
+			if($scope.ETIAComponentTypes[i].value == componentType) {
+				$scope.ETIAComponentTypes[i].disabled = false;
+			}
+		}
 		$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEscrowedType='';
 		$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType='';
 		$scope.cdformdata.etiaSection.etiaValues[index].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentTypeOtherDescription='';
@@ -1297,7 +1308,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.amortizationChange = function(){ 
     	if($scope.cdformdata.loanInformation.amortizationType == 'Fixed') {
     		$scope.cdformdata.loanDetail.interestRateIncreaseIndicator = false;
-    		$scope.cdformdata.loanDetail.paymentIncreaseIndicator = false;
+    		if(!$scope.cdformdata.loanDetail.interestOnlyIndicator){
+    			$scope.cdformdata.loanDetail.paymentIncreaseIndicator = false;
+    		}
     		$scope.cdformdata.loanInformation.fixedPeriodMonths = '';
     		$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = '';
     		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = '';
@@ -1356,6 +1369,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    }
     }
 	
+        
+    $scope.cdformdata['interestOnlyValue'] = 0;
+    $scope.interestOnlyTermMonthsCountChange = function(){
+        if($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount){
+        	$scope.cdformdata.interestOnlyValue = $scope.cdformdata.interestOnly.interestOnlyTermMonthsCount%12 == 0 ? ($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount/12)+1 : Math.ceil($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount/12);
+        }
+    }
 
     $scope.constructionChange = function(){
     	if($scope.cdformdata.loanDetail.constructionLoanIndicator == false){
