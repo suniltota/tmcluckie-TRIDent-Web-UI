@@ -1568,13 +1568,13 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     }
 
     $scope.generatePDF = function(){
-    	$scope.leformdata.loanEstimateDocDetails.documentType="Other";
+    	$scope.leformdata.loanEstimateDocDetails.documentType="LoanEstimate";
     	if($scope.leformdata.loanEstimateDocDetails.formType=='StandardForm')
-    		{
-    				$scope.leformdata.loanEstimateDocDetails.documentTypeOtherDescription="LoanEstimate:ModelForm";
-    		}else{
-   				 	$scope.leformdata.loanEstimateDocDetails.documentTypeOtherDescription="LoanEstimate:AlternateForm";
-   			 }
+		{
+			$scope.leformdata.loanEstimateDocDetails.formType="StandardForm";
+		}else{
+			$scope.leformdata.loanEstimateDocDetails.formType="AlternateForm";
+	    }
     	$("#spinner").show();
     	leService.genearateXmlFromJson($scope.leformdata, true).success(function(data){
     		leService.generatePDF(data).success(function(pdfData){
@@ -1600,12 +1600,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     }
 
     $scope.generateXML = function(embeddedPDF){
-    	$scope.leformdata.loanEstimateDocDetails.documentType="Other";
+    	$scope.leformdata.loanEstimateDocDetails.documentType="LoanEstimate";
     	if($scope.leformdata.loanEstimateDocDetails.formType=='StandardForm')
 		{
-			$scope.leformdata.loanEstimateDocDetails.documentTypeOtherDescription="LoanEstimate:ModelForm";
+			$scope.leformdata.loanEstimateDocDetails.formType="StandardForm";
 		}else{
-			$scope.leformdata.loanEstimateDocDetails.documentTypeOtherDescription="LoanEstimate:AlternateForm";
+			$scope.leformdata.loanEstimateDocDetails.formType="AlternateForm";
 	    }
 
     	$("#spinner").show();
@@ -2195,7 +2195,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	    $scope.leformdata.closingInformationDetail.cashToBorrowerAtClosingAmount = $scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount;
 	    }else if($scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount<0){
 	    	$scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType = 'FromBorrower';
-	    	$scope.leformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = 0-$scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount;
+	    	$scope.leformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = $scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount;
 	    }
     }
 
