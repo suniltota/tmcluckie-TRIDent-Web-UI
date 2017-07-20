@@ -1046,3 +1046,20 @@ app.directive('helpVerbiage', function ($window, $compile) {
       }
   };
 });
+
+app.directive('keyCapture', [function() {
+    return {
+      link: function (scope, element, attrs, controller) {
+          element.on('keydown', function(e){
+              scope.$root.uiKeyOrMouseEventTime = new Date().getTime();
+          });
+          element.on('click', function(e){
+              scope.$root.uiKeyOrMouseEventTime = new Date().getTime();
+          });
+          element.on('mousewheel', function(e){
+              scope.$root.uiKeyOrMouseEventTime = new Date().getTime();
+          });
+      }
+    }
+  }]
+);

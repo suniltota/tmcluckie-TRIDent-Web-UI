@@ -51,7 +51,25 @@ app.config(function ($routeProvider, $locationProvider) {
           apiMethod: "logout",
           httpMethod: 'POST'
         });
+        $window.location.href="login.html" + $window.location.search;
     }
+
+    var sessionCheckTime=600000; //10 Minutes in milliseconds
+    var sessionResetTimerID = window.setTimeout(sessionReset, sessionCheckTime);
+
+    function sessionReset(){
+      var currentTimeInMillis = new Date().getTime();
+      var timegap = currentTimeInMillis - $rootScope.lastServerCallTime;
+      if(timegap > sessionCheckTime && $rootScope.uiKeyOrMouseEventTime > $rootScope.lastServerCallTime) {
+        isUserLoggedIn();
+      }
+      window.setTimeout(sessionReset, sessionCheckTime);
+    }
+
+    function isUserLoggedIn() {
+      apiService.request({apiMethod:'isLoggedIn',httpMethod:'GET'});
+    }
+
 }]);
 
 
