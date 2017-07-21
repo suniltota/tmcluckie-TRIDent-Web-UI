@@ -10,8 +10,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		staticData.basicLoanInfo.loanFormType = localStorage.loanFormType;
 	}
 	$(".helpIcon").tooltip();
-	$scope.rateLokedTime=["1:00","2:00","3:00","4:00","5:00","6:00","7:00","8:00",
-	"9:00","10:00","11:00","12:00"];
+	$scope.rateLokedTime=angular.copy(staticData.rateLokedTime);
 	$scope.rateLockedTimePeriod=["AM","PM"];
 	$scope.rateLockedTimeZone=["EST","CST","MST","PST","IST"];
 	$scope.originationChargeDisplayLabelStatus=false;
@@ -196,21 +195,29 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 				$scope.leformdata.loanInformation.rateLokerIndicator=true;
 				$scope.leformdata.loanInformation.rateLockedTimeZone = $scope.leformdata.loanProduct.lock.lockExpirationTimezoneType;
                 if($scope.leformdata.loanProduct.lock.lockExpirationDatetime){
-                var date = $scope.leformdata.loanProduct.lock.lockExpirationDatetime.split('T');
-                var lockedDate = date[0].split('-');
-                $scope.leformdata.loanInformation.rateLokedDate = lockedDate[1]+'/'+lockedDate[2]+'/'+lockedDate[0];
-                var time = date[1].split(':');
-                if(time[0]>12){
-                	$scope.leformdata.loanInformation.rateLockedTimePeriod = 'PM';
-                    var hours = parseInt(time[0]-12);
-                    $scope.leformdata.loanInformation.rateLokedTime = hours+":"+time[1];
-
-                }else{
-                	$scope.leformdata.loanInformation.rateLockedTimePeriod = 'AM';
-                	$scope.leformdata.loanInformation.rateLokedTime = time[0]+":"+time[1];
-                }
-
-			    //console.log("After Parse Date::::"+$scope.leformdata.loanInformation.rateLokedDate+"And Time::::"+$scope.leformdata.loanInformation.rateLokedTime); //prints date in the format sdf
+	                var date = $scope.leformdata.loanProduct.lock.lockExpirationDatetime.split('T');
+	                var lockedDate = date[0].split('-');
+	                $scope.leformdata.loanInformation.rateLokedDate = lockedDate[1]+'/'+lockedDate[2]+'/'+lockedDate[0];
+	                if(date[1]){
+	                	var time = date[1].split(':');
+		                if(parseInt(time[0])>=12){
+		                	$scope.leformdata.loanInformation.rateLockedTimePeriod = 'PM';
+		                    var hours = parseInt(time[0])>12 ? parseInt(time[0]-12) : parseInt(time[0]);
+		                    if(hours<10){
+		                       $scope.leformdata.loanInformation.rateLokedTime = "0"+hours+":"+time[1];
+		                    }else{
+		                    	$scope.leformdata.loanInformation.rateLokedTime = hours+":"+time[1];
+		                    }
+		                }else{
+		                	$scope.leformdata.loanInformation.rateLockedTimePeriod = 'AM';
+		                	if(parseInt(time[0])<10){
+		                		$scope.leformdata.loanInformation.rateLokedTime = time[0]=='00' ? "12"+":"+time[1] : "0"+time[0]+":"+time[1];//"0"+time[0]+":"+time[1];
+		                	}else{
+		                		$scope.leformdata.loanInformation.rateLokedTime = time[0]+":"+time[1];
+		                	}
+		                	
+		                }
+	                }
                 }
      		}
      		
@@ -643,6 +650,16 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		if($scope.leformdata.interestOnly.interestOnlyTermMonthsCount){
         	$scope.leformdata.interestOnlyValue = $scope.leformdata.interestOnly.interestOnlyTermMonthsCount%12 == 0 ? ($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12)+1 : Math.ceil($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12);
         }
+
+        if($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount){
+        	$scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount = parseFloat($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount)<0 ? parseFloat($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount) : parseFloat($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount*-1);
+        }
+	    if($scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount){
+	    	$scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount = parseFloat($scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount)<0 ? parseFloat($scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount) : parseFloat($scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount*-1);
+        }
+	    if($scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount){
+	    	$scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount = parseFloat($scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount)<0 ? parseFloat($scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount) : parseFloat($scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount*-1);
+	    }
 
 		setTimeout(function(){$("#spinner").hide();}, 3000);
 		
@@ -1662,9 +1679,17 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
         var hours =rateLockedTime1.split(':');
         var _utc = new Date(rateLokedDate1);
         if(rateLockedTimePeriod1 == 'PM'){
-            _utc.setHours(parseInt(hours[0]) + 12);
+        	if(parseInt(hours[0])!=12){
+            	_utc.setHours(parseInt(hours[0]) + 12);
+            }else{
+            	_utc.setHours(parseInt(hours[0]));
+            }
         }else{
-            _utc.setHours(parseInt(hours[0]));
+            if(parseInt(hours[0])==12){
+            	_utc.setHours(parseInt(hours[0]) + 12);
+            }else{
+            	_utc.setHours(parseInt(hours[0]));
+            }
         }
         _utc.setMinutes(parseInt(hours[1]));
     $scope.leformdata.loanProduct.lock.lockExpirationDatetime=$filter('date')(_utc, "yyyy-MM-ddTHH:mm:ss'Z'");
@@ -2120,11 +2145,11 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    if($scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount)
 	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount);
         if($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount)
-	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount == ''  ? +0 : parseFloat($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount*-1);
+	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount == ''  ? +0 : parseFloat($scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount);
 	    if($scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount)
-	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount*-1);
+	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount);
 	    if($scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount)
-	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount*-1);
+	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount);
 	    if($scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount)
 	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount);
 	}else{
@@ -2194,12 +2219,22 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     }*/
 
     if($scope.loanBasicInfo.loanFormType == 'alternate'){
-    	if($scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount>0){
+    	if($scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount>=0){
     	    $scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType = 'ToBorrower';
     	    $scope.leformdata.closingInformationDetail.cashToBorrowerAtClosingAmount = $scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount;
+    	    $scope.leformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = '';
 	    }else if($scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount<0){
 	    	$scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType = 'FromBorrower';
 	    	$scope.leformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = $scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount;
+	        $scope.leformdata.closingInformationDetail.cashToBorrowerAtClosingAmount='';
+	    }
+    }else{
+    	if($scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount>=0){
+    	    $scope.leformdata.closingInformationDetail.cashToBorrowerAtClosingAmount = $scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount;
+	         $scope.leformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = '';
+	    }else if($scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount<0){
+	    	$scope.leformdata.closingInformationDetail.cashFromBorrowerAtClosingAmount = $scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount;
+	        $scope.leformdata.closingInformationDetail.cashToBorrowerAtClosingAmount='';
 	    }
     }
 
