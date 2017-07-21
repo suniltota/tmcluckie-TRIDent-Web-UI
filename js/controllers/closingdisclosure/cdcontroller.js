@@ -2680,7 +2680,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    	});
     	});
     }
-
+    
 	$scope.validateUCD = function() {
     	$("#spinner").show();
     	cdService.genearateXmlFromJson($scope.cdformdata, true).success(function(data){
@@ -2745,7 +2745,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		var bb = new Blob([xmltext], {type: 'application/octet-stream'});
         saveAs(bb, filename);
     }
-
+     $scope.checkPrincipalInterest = function(){
+    		$('#cdinitialPrincipalAndInterestPaymentAmount input').blur();
+    }
      var cashToclosesCalculations = function(){
        //Calculating Cash To Close Calculations
         //Closng Costs Financed

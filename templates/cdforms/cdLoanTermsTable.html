@@ -17,7 +17,7 @@
 		        <td>
 		        	<div class="input-group">
   						<span class="input-group-addon input-default">$</span>
-		        		<actualize-input ng-model="cdformdata.termsOfLoan.noteAmount" name="noteAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  min-val="1" dependencies="decimal-digits-with-number-format require-field min-max-value">
+		        		<actualize-input ng-model="cdformdata.termsOfLoan.noteAmount" id="cdnoteAmount" ng-blur="checkPrincipalInterest()" name="noteAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  min-val="1" dependencies="decimal-digits-with-number-format require-field min-max-value">
                 		</actualize-input>
                 		<help-verbiage name="CD_LoanAmount_Help" title="help_tooltip_lg"></help-verbiage>
 		        	</div>
@@ -185,7 +185,7 @@
 		        <td>
 		        	<div class="input-group">
   						<span class="input-group-addon input-default">$</span>
-		        		<actualize-input ng-model="cdformdata.payment.paymentRule.initialPrincipalAndInterestPaymentAmount" name="initialPrincipalAndInterestPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format require-field">
+		        		<actualize-input ng-model="cdformdata.payment.paymentRule.initialPrincipalAndInterestPaymentAmount" id="cdinitialPrincipalAndInterestPaymentAmount" name="initialPrincipalAndInterestPaymentAmount" toolTipPos = "top" max-val="cdformdata.termsOfLoan.noteAmount" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format min-and-max-check require-field">
                 		</actualize-input>
                 		<help-verbiage name="CD_PrincipalInterestPaymentAmount_Help" title="help_tooltip_lg"></help-verbiage>
 		        	</div>
