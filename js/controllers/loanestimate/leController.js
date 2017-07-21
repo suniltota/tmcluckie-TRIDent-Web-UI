@@ -1663,6 +1663,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		var bb = new Blob([xmltext], {type: 'application/octet-stream'});
 		saveAs(bb, filename);
     }
+    $scope.xmlEmbeddedPDFPopup = function(){
+    	var viewMenuScope = angular.element($("#ChooseEmbeddedPDF")).scope();
+      viewMenuScope.xmlTitle = "XML";
+      viewMenuScope.embeddedPDF=false;
+      $('#ChooseEmbeddedPDF').modal('show');   
+    }
 
     $scope.$watchCollection('[leformdata.loanInformation.loanTermYears, leformdata.loanInformation.loanTermMonths,leformdata.loanInformation.rateLokerIndicator,leformdata.loanInformation.rateLokedDate,leformdata.loanInformation.rateLokedTime,leformdata.loanInformation.rateLockedTimePeriod,leformdata.loanInformation.rateLockedTimeZone]', function(newValues, oldValues){
     $scope.leformdata.maturityRule.loanMaturityPeriodCount = 0;

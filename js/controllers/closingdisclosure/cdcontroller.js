@@ -2665,7 +2665,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$("#spinner").hide();
     	});
     }
-
+    
+ $scope.xmlEmbeddedPDFPopup = function(){
+    	var viewMenuScope = angular.element($("#ChooseEmbeddedPDF")).scope();
+      viewMenuScope.xmlTitle = "XML";
+      viewMenuScope.embeddedPDF=false;
+      $('#ChooseEmbeddedPDF').modal('show');   
+    }
     $scope.generateUCDXML = function(embeddedPDF){
     	$("#spinner").show();
     	cdService.genearateXmlFromJson($scope.cdformdata, embeddedPDF).success(function(data){
