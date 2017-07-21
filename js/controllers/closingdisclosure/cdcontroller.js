@@ -1105,6 +1105,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
            $scope.cdformdata.payment.paymentRule.partialPaymentAllowedIndicatorNotAccept = true;
         }
 
+        //Interest Only Term Months Count
+		if($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount){
+        	$scope.cdformdata.interestOnlyValue = $scope.cdformdata.interestOnly.interestOnlyTermMonthsCount%12 == 0 ? ($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount/12)+1 : Math.ceil($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount/12);
+        }
+
 		setTimeout(function(){$("#spinner").hide();}, 3000);
 		
 	}
