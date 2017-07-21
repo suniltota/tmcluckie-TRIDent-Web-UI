@@ -27,7 +27,56 @@ app.service('staticData', function($filter){
 		{ name: "Yes", id: "Escrowed" },
 		{ name: "No", id: "NotEscrowed" }
 	];
-
+    this.rateLokedTime = [
+	    {
+	    	"period":"1:00",
+	    	"id":"01:00"
+	    },
+	    {
+	    	"period":"2:00",
+	    	"id":"02:00"
+	    },
+	    {
+	    	"period":"3:00",
+	    	"id":"03:00"
+	    },
+	    {
+	    	"period":"4:00",
+	    	"id":"04:00"
+	    },
+	    {
+	    	"period":"5:00",
+	    	"id":"05:00"
+	    },
+	    {
+	    	"period":"6:00",
+	    	"id":"06:00"
+	    },
+	    {
+	    	"period":"7:00",
+	    	"id":"07:00"
+	    },
+	    {
+	    	"period":"8:00",
+	    	"id":"08:00"
+	    },
+	    {
+	    	"period":"9:00",
+	    	"id":"09:00"
+	    },
+	    {
+	    	"period":"10:00",
+	    	"id":"10:00"
+	    },
+	    {
+	    	"period":"11:00",
+	    	"id":"11:00"
+	    },
+	    {
+	    	"period":"12:00",
+	    	"id":"12:00"
+	    }
+    ];
 	this.escrowDropDownBooleanOptionsWithSome = [
 		{ name: "Yes", id: "Yes" },
 		{ name: "No", id: "No" },

@@ -1390,6 +1390,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         	$scope.cdformdata.interestOnlyValue = $scope.cdformdata.interestOnly.interestOnlyTermMonthsCount%12 == 0 ? ($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount/12)+1 : Math.ceil($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount/12);
         }
     }
+    }
 
     $scope.constructionChange = function(){
     	if($scope.cdformdata.loanDetail.constructionLoanIndicator == false){
