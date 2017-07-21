@@ -637,6 +637,11 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		if($scope.payoffsAndPaymentsList.length==0) {
 			$scope.payoffsAndPaymentsList.push(angular.copy(payoffsAndPaymentObj));
 		}
+        
+        //Interest Only Term Months Count
+		if($scope.leformdata.interestOnly.interestOnlyTermMonthsCount){
+        	$scope.leformdata.interestOnlyValue = $scope.leformdata.interestOnly.interestOnlyTermMonthsCount%12 == 0 ? ($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12)+1 : Math.ceil($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12);
+        }
 
 		setTimeout(function(){$("#spinner").hide();}, 3000);
 		
