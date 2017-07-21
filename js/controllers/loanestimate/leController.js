@@ -192,7 +192,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			$scope.leformdata.loanInformation['loanTermYears'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.leformdata.loanInformation['loanTermMonths'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount%12;
 			
-			if($scope.leformdata.loanProduct.lock.lockStatusType= 'Locked'){
+			if($scope.leformdata.loanProduct.lock.lockStatusType== 'Locked'){
 				$scope.leformdata.loanInformation.rateLokerIndicator=true;
 				$scope.leformdata.loanInformation.rateLockedTimeZone = $scope.leformdata.loanProduct.lock.lockExpirationTimezoneType;
                 if($scope.leformdata.loanProduct.lock.lockExpirationDatetime){
@@ -639,6 +639,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		}
         
         //Interest Only Term Months Count
+        $scope.leformdata['interestOnlyValue'] = 0;
 		if($scope.leformdata.interestOnly.interestOnlyTermMonthsCount){
         	$scope.leformdata.interestOnlyValue = $scope.leformdata.interestOnly.interestOnlyTermMonthsCount%12 == 0 ? ($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12)+1 : Math.ceil($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12);
         }
@@ -895,9 +896,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	        }
 	    }
     }
-
-
-    $scope.leformdata['interestOnlyValue'] = 0;
+    
     $scope.interestOnlyTermMonthsCountChange = function(){
         if($scope.leformdata.interestOnly.interestOnlyTermMonthsCount){
         	$scope.leformdata.interestOnlyValue = $scope.leformdata.interestOnly.interestOnlyTermMonthsCount%12 == 0 ? ($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12)+1 : Math.ceil($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12);

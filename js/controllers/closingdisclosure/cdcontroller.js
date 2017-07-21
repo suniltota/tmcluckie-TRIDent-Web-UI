@@ -1106,6 +1106,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }
 
         //Interest Only Term Months Count
+        $scope.cdformdata['interestOnlyValue'] = 0;
 		if($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount){
         	$scope.cdformdata.interestOnlyValue = $scope.cdformdata.interestOnly.interestOnlyTermMonthsCount%12 == 0 ? ($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount/12)+1 : Math.ceil($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount/12);
         }
@@ -1384,8 +1385,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    }
     }
 	
-        
-    $scope.cdformdata['interestOnlyValue'] = 0;
     $scope.interestOnlyTermMonthsCountChange = function(){
         if($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount){
         	$scope.cdformdata.interestOnlyValue = $scope.cdformdata.interestOnly.interestOnlyTermMonthsCount%12 == 0 ? ($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount/12)+1 : Math.ceil($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount/12);
