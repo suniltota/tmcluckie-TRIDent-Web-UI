@@ -549,53 +549,103 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 								ng-change="updateProjectedPaymentsMI()" />
 						</div>
 					</div>
+					<div class="col-sm-12 padding0" ng-show="leformdata.loanDetail.miRequiredIndicator">
+						<div class="col-sm-12 padding0 margin5tb">
+							<span class="col-sm-9 padding0 fieldTitle">
+								Scheduled Termination Date</span> 
+								<span class="col-sm-3 pull-right">
+								<span class="col-sm-10 padding0"> 
+								
+								<actualize-input name="ScheduledTermDate" id="ScheduledTermDate" dateFormat="{{dateFormat}}" ng-model="leformdata.projectedPayments.miSTDate" min-date="10/03/2015" max-date="12/31/2045" is-open="isScheduledTermDate" datepicker-options="dateOptions" ng-required="true" toolTipPos="top" custommessage="Please enter a vaild date." placeholder="MM/DD/YYYY" dependencies="actualize-date" type="date">
+	                			</actualize-input>
+							</span> 
+							<span class="input-group-btn col-sm-2 padding0">
+									<button type="button" class="btn btn-default calenderBtn"
+										ng-click="isScheduledTermDate = !isScheduledTermDate">
+										<i class="glyphicon glyphicon-calendar"></i>
+									</button>
+							</span>
+							</span>
+
+						</div>
+						<div class="col-sm-12 padding0 margin5tb">
+							<span class="col-sm-9 padding0 fieldTitle">
+								MI Monthly Amount</span> <span
+								class="col-sm-3 input-group paddingleft13"> <span
+								class="input-group-addon input-default">$</span>
+								<actualize-input ng-model="leformdata.miDataDetail.miMonthlyAmount" name="miMonthlyAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format"></actualize-input>
+							</span>
+						</div>
+						<div class="FieldGroup">
+							<div class="col-sm-9 fieldTitle">MI Company Name:</div>
+							<div class="col-sm-3 padding0">
+								<select class="form-control" ng-model="cdformdata.miDataDetail.miCompanyNameType">
+							        <option value="" selected>Select</option>
+						            <option ng-repeat="miCompanyNameType in miCompanyNameTypes" value="{{miCompanyNameType.value}}">{{miCompanyNameType.name}}</option>
+						        </select>
+							</div>
+						</div>
+						<div class="FieldGroup" ng-show="cdformdata.miDataDetail.miCompanyNameType == 'Other'">
+							<div class="col-sm-9 fieldTitle">MI Company Name Description:</div>
+							<div class="col-sm-3 padding0">
+						        <input type="text" class="form-control" name="" ng-model="cdformdata.miDataDetail.miCompanyNameTypeOtherDescription">
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="col-sm-6"
 					ng-show="leformdata.loanDetail.miRequiredIndicator">
+					
 					<div class="col-sm-12 padding0 margin5tb">
-						<span class="col-sm-7 padding0 fieldTitle"><b class="boldComma">.</b>
-							Scheduled Termination Date</span> <span class="col-sm-5 pull-left">
-							<span class="col-sm-10 padding0"> 
-							
-							<actualize-input name="ScheduledTermDate" id="ScheduledTermDate" dateFormat="{{dateFormat}}" ng-model="leformdata.projectedPayments.miSTDate" min-date="10/03/2015" max-date="12/31/2045" is-open="isScheduledTermDate" datepicker-options="dateOptions" ng-required="true" toolTipPos="top" custommessage="Please enter a vaild date." placeholder="MM/DD/YYYY" dependencies="actualize-date" type="date">
-                			</actualize-input>
-						</span> <span class="input-group-btn col-sm-2 padding0">
-								<button type="button" class="btn btn-default calenderBtn"
-									ng-click="isScheduledTermDate = !isScheduledTermDate">
-									<i class="glyphicon glyphicon-calendar"></i>
-								</button>
+							<span class="col-sm-4 fieldTitle">
+							MI 1<sup>st</sup> Factor Percentage</span> 
+							<span class="col-sm-3"> 
+								<span class="input-group">
+									
+									<actualize-input ng-model="leformdata.miDataDetail.miFirstFactorPercentage" name="miFirstFactorPercentage" toolTipPos="top" dependencies="percentage-format">
+									</actualize-input>
+									<span class="input-group-addon input-default">%</span>
+								</span>
+							</span>
+							<span class="col-sm-2 fieldTitle">Duration</span> 
+							<span class="col-sm-3"> 
+								<actualize-input ng-model="leformdata.miDataDetail.miFirstFactorPercentage" name="miFirstFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
+								</actualize-input>
+							</span>
+					</div>
+					<div class="col-sm-12 padding0 margin5tb">
+						<span class="col-sm-4 fieldTitle">
+							MI 2<sup>nd</sup> Factor Percentage</span> 
+							<span class="col-sm-3 "> <span class="input-group">
+									<actualize-input ng-model="leformdata.miDataDetail.miSecondFactorPercentage" name="miSecondFactorPercentage" toolTipPos="top" dependencies="percentage-format">
+									</actualize-input>
+									<span
+									class="input-group-addon input-default">%</span>
+							</span>
+							</span>
+							<span class="col-sm-2 fieldTitle">Duration</span> 
+							<span class="col-sm-3"> 
+									<actualize-input ng-model="leformdata.miDataDetail.miSecondFactorPercentage" name="miSecondFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
+								</actualize-input>
+							</span>
+					</div>
+					<div class="col-sm-12 padding0 margin5tb">
+						<span class="col-sm-4  fieldTitle">
+							MI 3<sup>rd</sup> Factor Percentage</span> 
+							<span	class="col-sm-3 "> 
+								<span class="input-group">
+								<actualize-input ng-model="leformdata.miDataDetail.miThirdFactorPercentage" name="miThirdFactorPercentage" toolTipPos="top" dependencies="percentage-format">
+									</actualize-input>
+									<span class="input-group-addon input-default">%</span>
+								</span>
 						</span>
-						</span>
+						<span class="col-sm-2 fieldTitle">Duration</span> 
+						<span class="col-sm-3">
+							<actualize-input ng-model="leformdata.miDataDetail.miThirdFactorPercentage" name="miThirdFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
+								</actualize-input>
+							</span>
+					</div>
 
-					</div>
-					<div class="col-sm-12 padding0 margin5tb">
-						<span class="col-sm-7 padding0 fieldTitle"><b class="boldComma">.</b>
-							MI Monthly Amount</span> <span
-							class="col-sm-5 input-group paddingleft13"> <span
-							class="input-group-addon input-default">$</span>
-							<actualize-input ng-model="leformdata.miDataDetail.miMonthlyAmount" name="miMonthlyAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format"></actualize-input>
-						</span>
-					</div>
-					<div class="col-sm-12 padding0 margin5tb">
-						<span class="col-sm-7 padding0 fieldTitle"><b class="boldComma">.</b>
-							MI 1<sup>st</sup> Factor Percentage</span> <span
-							class="col-sm-5 input-group paddingleft13"> <input
-							type="text" class="form-control" name=""
-							ng-model="leformdata.miDataDetail.miFirstFactorPercentage"
-							percentage-format> <span
-							class="input-group-addon input-default">%</span>
-						</span>
-					</div>
-					<div class="col-sm-12 padding0 margin5tb">
-						<span class="col-sm-7 padding0 fieldTitle"><b class="boldComma">.</b>
-							MI 2<sup>nd</sup> Factor Percentage</span> <span
-							class="col-sm-5 input-group paddingleft13"> <input
-							type="text" class="form-control" name=""
-							ng-model="leformdata.miDataDetail.miSecondFactorPercentage"
-							percentage-format> <span
-							class="input-group-addon input-default">%</span>
-						</span>
-					</div>
 				</div>
 			</div>
 			<div class="col-sm-12">
