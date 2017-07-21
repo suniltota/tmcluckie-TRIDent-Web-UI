@@ -1619,7 +1619,13 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
         $("#carousel").pdfSlider('destroy');
         $(".PDFCloseIcon").hide();
     }
-
+    $scope.changePropertyValueAmount = function() {
+        if($scope.leformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised') {
+            $scope.leformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount = '';
+        } else if($scope.leformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated') {
+            $scope.leformdata.closingInformation.propertyValuationDetail.propertyValuationAmount = '';
+        }
+    }
     $scope.generateXML = function(embeddedPDF){
     	$scope.leformdata.loanEstimateDocDetails.documentType="LoanEstimate";
     	if($scope.leformdata.loanEstimateDocDetails.formType=='StandardForm')
