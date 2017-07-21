@@ -22,7 +22,7 @@
             </div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0" style=" width:88.33%">
-                <actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="leformdata.closingInformation.dateIssued" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" toolTipPos="top" custommessage="Please enter a vaild date." placeholder="Date Issued  format: MM/DD/YYYY"  dependencies="actualize-date" type="date">
+                <actualize-input name="dateIssued" id="dateIssued" dateFormat="{{dateFormat}}" ng-model="leformdata.closingInformation.dateIssued" min-date="01/01/2015" max-date="12/31/2045" is-open="isDateIssued" datepicker-options="dateOptions" ng-required="true" toolTipPos="top" custommessage="Please enter a vaild date." placeholder="Date Issued  format: MM/DD/YYYY" dependencies="actualize-date" type="date">
                 </actualize-input>
                 <help-verbiage name="LE_dateIssued_Help"  title="calenderInput"></help-verbiage>
 				</span>
