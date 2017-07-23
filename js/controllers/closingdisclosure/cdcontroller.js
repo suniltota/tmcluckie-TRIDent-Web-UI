@@ -2438,7 +2438,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				var fromDate = new Date($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidFromDate);
 				var toDate = new Date($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidThroughDate);
 				var diemAmount = 0;
-				var diffDays = differenceInDays(fromDate, toDate, prepaidCalMethodType);
+				var diffDays = 0;
+				if(toDate<fromDate)
+					diffDays = differenceInDays(toDate, fromDate, prepaidCalMethodType) * -1;
+				else 
+					diffDays = differenceInDays(fromDate, toDate, prepaidCalMethodType)
 				diemAmount =  $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount ? $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount : +0;
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = parseFloat(diemAmount*diffDays);
 		    }
@@ -5040,13 +5044,13 @@ function differenceInDays(fromDate, toDate, perDiemMethodType) {
 	var diffDays = 0;
 	switch(perDiemMethodType) {
 		case "360": {
-			var startmonth = startDate.getUTCMonth() + 1; //months from 1-12
-			var startday = startDate.getUTCDate();
-			var startyear = startDate.getUTCFullYear();
+			var startmonth = startDate.getMonth() + 1; //months from 1-12
+			var startday = startDate.getDate();
+			var startyear = startDate.getFullYear();
 
-			var endmonth = endDate.getUTCMonth() + 1; //months from 1-12
-			var endday = endDate.getUTCDate();
-			var endyear = endDate.getUTCFullYear();
+			var endmonth = endDate.getMonth() + 1; //months from 1-12
+			var endday = endDate.getDate();
+			var endyear = endDate.getFullYear();
 			if(endyear>=startyear) {
 				var yeardiff =0, monthDiff=0, daysdiff = 0; 
 				if(endyear>startyear) 
@@ -5057,6 +5061,7 @@ function differenceInDays(fromDate, toDate, perDiemMethodType) {
 				monthDiff =  monthDiff <= 0 ? 0 : monthDiff;
 				if(monthDiff>0) {
 					if(startday>endday) {
+						startday = startday == 31 ? 30 : startday;
 						daysdiff = 30 - startday;
 						daysdiff = daysdiff + endday;
 						if(monthDiff>0)
@@ -5069,37 +5074,39 @@ function differenceInDays(fromDate, toDate, perDiemMethodType) {
 						daysdiff = monthDiff * 30;
 					}
 				} else {
-					if(startday<=endday) {
+					if(startday<endday) {
+						endday = endday == 31 ? 30 : endday;
 						daysdiff = endday - startday;
 					}
 				}
 				diffDays = daysdiff;
 			}
 		}
+		break;
 	    case "365": {
 	    	var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
 			diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-			var startmonth = startDate.getUTCMonth() + 1; //months from 1-12
-			var startday = startDate.getUTCDate();
-			var startyear = startDate.getUTCFullYear();
+			var startmonth = startDate.getMonth() + 1; //months from 1-12
+			var startday = startDate.getDate();
+			var startyear = startDate.getFullYear();
 
-			var endmonth = endDate.getUTCMonth() + 1; //months from 1-12
-			var endday = endDate.getUTCDate();
-			var endyear = endDate.getUTCFullYear();
+			var endmonth = endDate.getMonth() + 1; //months from 1-12
+			var endday = endDate.getDate();
+			var endyear = endDate.getFullYear();
 			if(isLeapYear(startyear) || isLeapYear(endyear)) {
 				if((startmonth<=2) || endmonth >= 2) {
 					diffDays = diffDays - 1;
 				}
 			}
 	    }
+	    break;
 	    default: {
 	    	var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
 			diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 	    }
-
-	    return diffDays;
 	}
+	return diffDays;
 }
 
 function isLeapYear(year) {
