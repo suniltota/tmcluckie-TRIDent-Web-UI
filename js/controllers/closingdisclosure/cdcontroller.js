@@ -2598,55 +2598,40 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     $scope.calculatePayments = function() {
     	$("#spinner").show();
-    	cdService.genearateXmlFromJson($scope.cdformdata, false).success(function(xmldata){
-    		cdService.calculatePayments(xmldata).success(function(calculationsData){
-    			var xmlstring = $.parseXML( calculationsData );
-                var $xml = $(xmlstring);
-                var Exceptions = $xml.find("exceptions");
-                if(Exceptions.length>0) {
-                	var x2js = new X2JS();
-				    var errors = x2js.xml_str2json(calculationsData);
-				    $scope.calculation_errors = errors.exceptions.exception;
-				    $('#CalculateModalPopup').modal('show');
-				    $("#spinner").hide();
-                } else {
-                	cdService.loadTransformData(calculationsData).success(function(jsonData){
-						//$scope.cdformdata = jsonData;
-		    			localStorage.jsonData = JSON.stringify(jsonData);
-						initializeCDformData();
-		    			$("#spinner").hide();
-	    			}).error( function(data, status){
-			    		alert('There is an error getting while converting calculations xml to json. Please provide the input data properly and check again.');
-			    		$("#spinner").hide();
-			    	});
-                }
-    		}).error( function(data, status){
-    			alert('There is an error getting while converting ucd xml to calculations xml. Please provide the input data properly and check again.');
-	    		$("#spinner").hide();
-	    	});
-    	}).error( function(data, status){
-    		alert('There is an error getting while converting json to xml. Please provide the input data properly and check again.');
+    	cdService.calculatePaymentsFromJson($scope.cdformdata).success(function(calculationsData){
+			if(calculationsData.errorsList) {
+				$scope.calculation_errors = calculationsData.errorsList.error;
+				$('#CalculateModalPopup').modal('show');
+			} else if(calculationsData.closingDisclosure) {
+				localStorage.jsonData = JSON.stringify(calculationsData.closingDisclosure);
+				initializeCDformData();
+			} else {
+				$scope.errorMsg = "We have encountered an error in calculate service.";
+	    		$('#ErrorModalPopup').modal('show');
+			}
+			$("#spinner").hide();
+		}).error( function(data, status){
+			$scope.errorMsg = "We have encountered an error in calculate service.";
+	    	$('#ErrorModalPopup').modal('show');
     		$("#spinner").hide();
     	});
     }
 
     $scope.generatePDF = function(){
     	$("#spinner").show();
-    	cdService.genearateXmlFromJson($scope.cdformdata, true).success(function(data){
-    		cdService.generatePDF(data).success(function(pdfData){
-    			if(pdfData!=null && pdfData.length>0){
-    				$("#pdfViewerId").show();
-    				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
-					$("#carousel").pdfSlider('init');
-					$("#carousel").show();
-					$(".PDFCloseIcon").show();
-    			}
-    			$("#spinner").hide();
-    		}).error( function(pdfData, status){
-    			$("#spinner").hide();
-    		});
+    	cdService.generatePDFFromJson($scope.cdformdata).success(function(pdfData) {
+    		if(pdfData!=null && pdfData.length>0){
+				$("#pdfViewerId").show();
+				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
+				$("#carousel").pdfSlider('init');
+				$("#carousel").show();
+				$(".PDFCloseIcon").show();
+			}
+			$("#spinner").hide();
     	}).error( function(data, status){
     		$("#spinner").hide();
+    		$scope.errorMsg = "We have encountered an error in PDF service.";
+	    	$('#ErrorModalPopup').modal('show');
     	});
     }
     $scope.closePDF = function(){
@@ -2666,24 +2651,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	});
     }
     
- $scope.xmlEmbeddedPDFPopup = function(){
+ 	$scope.xmlEmbeddedPDFPopup = function(){
     	var viewMenuScope = angular.element($("#ChooseEmbeddedPDF")).scope();
-      viewMenuScope.xmlTitle = "XML";
-      viewMenuScope.embeddedPDF=false;
-      $('#ChooseEmbeddedPDF').modal('show');   
+      	viewMenuScope.xmlTitle = "XML";
+      	viewMenuScope.embeddedPDF=false;
+      	$('#ChooseEmbeddedPDF').modal('show');   
     }
     $scope.generateUCDXML = function(embeddedPDF){
     	$("#spinner").show();
-    	cdService.genearateXmlFromJson($scope.cdformdata, embeddedPDF).success(function(data){
-    		$scope.xmlData = data;
-    		cdService.genearateUCDXml($scope.xmlData, false).success(function(data){
-	    		$scope.ucdxmlData = data;
-	    		LoadXMLString("ucdXmlViewerId",$scope.ucdxmlData);
-	    		$("#ucdXmlView").show();
-	    		$("#spinner").hide();
-	    	}).error( function(data, status){
-	    		$("#spinner").hide();
-	    	});
+    	cdService.genearateUCDXmlFromJson($scope.cdformdata, embeddedPDF).success(function(data){
+    		$scope.ucdxmlData = data;
+    		LoadXMLString("ucdXmlViewerId",$scope.ucdxmlData);
+    		$("#ucdXmlView").show();
+    		$("#spinner").hide();
+		}).error( function(data, status){
+    		$("#spinner").hide();
+    		$scope.errorMsg = "We have encountered an error in UCD xml service.";
     	});
     }
     

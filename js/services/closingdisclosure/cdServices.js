@@ -63,5 +63,37 @@ app.service('cdService', function(apiService){
             httpMethod: 'POST',
             formData:data
         });
+    },
+    this.generatePDFFromJson = function(data) {
+        return apiService.request({
+            apiMethod: "actualize/transformx/v1/cdjsontopdf",
+            httpMethod: 'POST',
+            formData:data
+        });
+    },
+    this.genearateUCDXmlFromJson = function(data, embeddedPDF) {
+        if(data != undefined)
+            data.embeddedPDF = embeddedPDF;
+        return apiService.request({
+            apiMethod: "actualize/transformx/v1/cdjsontrim",
+            httpMethod: 'POST',
+            formData:data
+        });
+    },
+    this.validateUCDXmlFromJson = function(data, embeddedPDF) {
+        if(data != undefined)
+            data.embeddedPDF = embeddedPDF;
+        return apiService.request({
+            apiMethod: "actualize/transformx/v1/validatecdjson",
+            httpMethod: 'POST',
+            formData:data
+        });
+    },
+    this.calculatePaymentsFromJson = function(data) {
+        return apiService.request({
+            apiMethod: "actualize/transformx/v1/calculatecdjson",
+            httpMethod: 'POST',
+            formData:data
+        });
     }
 });
