@@ -1553,37 +1553,24 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     		$scope.leformdata.payment.paymentRule.totalOptionalPaymentCount = $scope.leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount;
     	}
     }
-    
+
     $scope.calculatePayments = function() {
     	$("#spinner").show();
-    	leService.genearateXmlFromJson($scope.leformdata, false).success(function(xmldata){
-    		leService.calculatePayments(xmldata).success(function(calculationsData){
-    			var xmlstring = $.parseXML( calculationsData );
-                var $xml = $(xmlstring);
-                var Exceptions = $xml.find("exceptions");
-                if(Exceptions.length>0) {
-                	var x2js = new X2JS();
-				    var errors = x2js.xml_str2json(calculationsData);
-				    $scope.calculation_errors = errors.exceptions.exception;
-				    $('#CalculateModalPopup').modal('show');
-				    $("#spinner").hide();
-                } else {
-                	leService.loadTransformData(calculationsData).success(function(jsonData){
-						//$scope.leformdata = jsonData;
-		    			localStorage.jsonData = JSON.stringify(jsonData);
-						initializeLEformdata();
-		    			$("#spinner").hide();
-	    			}).error( function(data, status){
-			    		alert('There is an error getting while converting calculations xml to json. Please provide the input data properly and check again.');
-			    		$("#spinner").hide();
-			    	});
-                }
-    		}).error( function(data, status){
-    			alert('There is an error getting while converting ucd xml to calculations xml. Please provide the input data properly and check again.');
-	    		$("#spinner").hide();
-	    	});
-    	}).error( function(data, status){
-    		alert('There is an error getting while converting json to xml. Please provide the input data properly and check again.');
+    	leService.calculatePaymentsFromJson($scope.leformdata).success(function(calculationsData){
+			if(calculationsData.errorsList) {
+				$scope.calculation_errors = calculationsData.errorsList.error;
+				$('#CalculateModalPopup').modal('show');
+			} else if(calculationsData.loanEstimate) {
+				localStorage.jsonData = JSON.stringify(calculationsData.loanEstimate);
+				initializeLEformdata();
+			} else {
+				$scope.errorMsg = "We have encountered an error in calculate service.";
+	    		$('#ErrorModalPopup').modal('show');
+			}
+			$("#spinner").hide();
+		}).error( function(data, status){
+			$scope.errorMsg = "We have encountered an error in calculate service.";
+	    	$('#ErrorModalPopup').modal('show');
     		$("#spinner").hide();
     	});
     }
@@ -1593,25 +1580,23 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	if($scope.leformdata.loanEstimateDocDetails.formType=='StandardForm')
 		{
 			$scope.leformdata.loanEstimateDocDetails.formType="StandardForm";
-		}else{
+		} else{
 			$scope.leformdata.loanEstimateDocDetails.formType="AlternateForm";
 	    }
     	$("#spinner").show();
-    	leService.genearateXmlFromJson($scope.leformdata, true).success(function(data){
-    		leService.generatePDF(data).success(function(pdfData){
-    			if(pdfData!=null){
-    				$("#pdfViewerId").show();
-    				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData.responseData;
-					$("#carousel").pdfSlider('init');
-					$("#carousel").show();
-					$(".PDFCloseIcon").show();
-    			}
-    			$("#spinner").hide();
-    		}).error( function(pdfData, status){
-    			$("#spinner").hide();
-    		});
+    	leService.generatePDFFromJson($scope.leformdata).success(function(pdfData) {
+    		if(pdfData!=null){
+				$("#pdfViewerId").show();
+				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData.responseData;
+				$("#carousel").pdfSlider('init');
+				$("#carousel").show();
+				$(".PDFCloseIcon").show();
+			}
+			$("#spinner").hide();
     	}).error( function(data, status){
     		$("#spinner").hide();
+    		$scope.errorMsg = "We have encountered an error in PDF service.";
+	    	$('#ErrorModalPopup').modal('show');
     	});
     }
 
@@ -1637,7 +1622,6 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
     	$("#spinner").show();
     	leService.genearateXmlFromJson($scope.leformdata, embeddedPDF).success(function(data){
-
     		$scope.xmlData = data;
     		LoadXMLString("xmlViewerId",$scope.xmlData);
     		$("#xmlView").show();
@@ -1665,9 +1649,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     }
     $scope.xmlEmbeddedPDFPopup = function(){
     	var viewMenuScope = angular.element($("#ChooseEmbeddedPDF")).scope();
-      viewMenuScope.xmlTitle = "XML";
-      viewMenuScope.embeddedPDF=false;
-      $('#ChooseEmbeddedPDF').modal('show');   
+      	viewMenuScope.xmlTitle = "XML";
+      	viewMenuScope.embeddedPDF=false;
+      	$('#ChooseEmbeddedPDF').modal('show');   
     }
 
     $scope.$watchCollection('[leformdata.loanInformation.loanTermYears, leformdata.loanInformation.loanTermMonths,leformdata.loanInformation.rateLokerIndicator,leformdata.loanInformation.rateLokedDate,leformdata.loanInformation.rateLokedTime,leformdata.loanInformation.rateLockedTimePeriod,leformdata.loanInformation.rateLockedTimeZone]', function(newValues, oldValues){

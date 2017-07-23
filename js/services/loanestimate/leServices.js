@@ -57,4 +57,18 @@ app.service('leService', function(apiService){
             formData:data
         });
     }
+    this.generatePDFFromJson = function(data) {
+        return apiService.request({
+            apiMethod: "actualize/transformx/v1/lejsontopdf",
+            httpMethod: 'POST',
+            formData:data
+        });
+    },
+    this.calculatePaymentsFromJson = function(data) {
+        return apiService.request({
+            apiMethod: "actualize/transformx/v1/calculatelejson",
+            httpMethod: 'POST',
+            formData:data
+        });
+    }
 });
