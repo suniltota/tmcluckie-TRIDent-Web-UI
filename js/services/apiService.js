@@ -98,7 +98,6 @@ httpServiceModule.factory('apiService', ['$http', '$q', '$rootScope', function($
 			var combinedPath=basePath+bundle.apiMethod;
 			latestRequest[combinedPath.split('?')[0]]=basePath+bundle.apiMethod/*+dataStr*/;
 			$rootScope.lastServerCallTime = new Date().getTime();
-			console.log('Last server call at -- '+$rootScope.lastServerCallTime);
 			if(typeof bundle.localData != "undefined"){
 				return $http({
 					method: bundle.httpMethod,
