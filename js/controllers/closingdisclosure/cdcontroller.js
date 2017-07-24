@@ -104,6 +104,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     var liability= {};
     var adjustment = {};
 	var prorationObj = {};
+	var miPremium = {};
     var payoffsAndPaymentObj = {
           "payOffType":"",
           "displayLabel":"",
@@ -163,6 +164,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		estimatedEscrow = angular.copy($scope.cdformdata.projectedPayments.estimatedEscrow[0]);
 		estimatedTotal = angular.copy($scope.cdformdata.projectedPayments.estimatedTotal[0]);
 		cashTocloses = angular.copy($scope.cdformdata.cashToCloses.cashToCloseTotal[0]);
+		miPremium = angular.copy($scope.cdformdata.miPremium[0]);
 		$scope.cdformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
         $scope.cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate = $filter('date')(new Date, 'yyyy-MM-dd');
 		$scope.cdformdata.closingInformationDetail.closingDate = $filter('date')(add_business_days($scope.cdformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate, 5), 'yyyy-MM-dd');
@@ -190,6 +192,22 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			    }
 			}
 
+		}
+
+		if(!$scope.cdformdata.miPremium || $scope.cdformdata.miPremium.length==0) 
+			$scope.cdformdata['miPremium'] = angular.copy(staticData.cdformdata.miPremium);
+
+		for(i=0;i<$scope.cdformdata.miPremium.length;i++){
+			if($scope.cdformdata.miPremium.length==1){
+				$scope.cdformdata.miPremium.push(angular.copy(miPremium));
+				$scope.cdformdata.miPremium.push(angular.copy(miPremium));
+			}else if($scope.cdformdata.miPremium.length==2){
+				$scope.cdformdata.miPremium.push(angular.copy(miPremium));
+			}
+
+			$scope.cdformdata.miPremium[0].miPremiumPeriodType='First';
+            $scope.cdformdata.miPremium[1].miPremiumPeriodType='Second';
+            $scope.cdformdata.miPremium[2].miPremiumPeriodType='Third';
 		}
 
 		//Calculating Cash To Closes Default Values
@@ -245,6 +263,31 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
 		if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.length==0){
 			$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.push(angular.copy(otherCostsList));
+		}
+
+
+		if(!$scope.cdformdata.closingCostsTotal.bpAtClosing){
+           $scope.cdformdata.closingCostsTotal.bpAtClosing = parseFloat($scope.cdformdata.closingCostsTotal.bpAtClosing ? $scope.cdformdata.closingCostsTotal.bpAtClosing : +0);
+		}
+
+		if(!$scope.cdformdata.closingCostsTotal.bpB4Closing){
+           $scope.cdformdata.closingCostsTotal.bpB4Closing = parseFloat($scope.cdformdata.closingCostsTotal.bpB4Closing ? $scope.cdformdata.closingCostsTotal.bpB4Closing : +0);
+		}
+
+		if(!$scope.cdformdata.closingCostsTotal.spAtClosing){
+           $scope.cdformdata.closingCostsTotal.spAtClosing = parseFloat($scope.cdformdata.closingCostsTotal.spAtClosing ? $scope.cdformdata.closingCostsTotal.spAtClosing : +0);
+		}
+
+		if(!$scope.cdformdata.closingCostsTotal.spB4Closing){
+           $scope.cdformdata.closingCostsTotal.spB4Closing = parseFloat($scope.cdformdata.closingCostsTotal.spB4Closing ? $scope.cdformdata.closingCostsTotal.spB4Closing : +0);
+		}
+
+		if(!$scope.cdformdata.closingCostsTotal.paidByOthers){
+           $scope.cdformdata.closingCostsTotal.paidByOthers = parseFloat($scope.cdformdata.closingCostsTotal.paidByOthers ? $scope.cdformdata.closingCostsTotal.paidByOthers : +0);
+		}
+
+		if(!$scope.cdformdata.closingCostsTotal.lenderCredits){
+           $scope.cdformdata.closingCostsTotal.lenderCredits = parseFloat($scope.cdformdata.closingCostsTotal.lenderCredits ? $scope.cdformdata.closingCostsTotal.lenderCredits : +0);
 		}
 
 		if($scope.cdformdata.loanInformation.loanIdentifiers && $scope.cdformdata.loanInformation.loanIdentifiers.length>0){
