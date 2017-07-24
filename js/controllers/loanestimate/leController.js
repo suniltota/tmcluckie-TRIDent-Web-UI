@@ -104,6 +104,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	var prorationObj = {};
 	var etiaSection = {};
 	var cashToCloses = {};
+	var miPremium = {};
     var payoffsAndPaymentObj = {
           "payOffType":"",
           "displayLabel":"",
@@ -183,6 +184,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		estimatedEscrow = angular.copy($scope.leformdata.projectedPayments.estimatedEscrow[0]);
 		estimatedTotal = angular.copy($scope.leformdata.projectedPayments.estimatedTotal[0]);
 		cashTocloses = angular.copy($scope.leformdata.cashToCloses.cashToCloseTotal[0]);
+		miPremium = angular.copy($scope.leformdata.miPremium[0]);
 		$scope.leformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
         $scope.leformdata.closingInformation.dateIssued = new Date();
 		$scope.leformdata.closingInformationDetail.closingDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
@@ -237,6 +239,24 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			}
             
 		}
+
+		if(!$scope.leformdata.miPremium || $scope.leformdata.miPremium.length==0) 
+			$scope.leformdata['miPremium'] = angular.copy(staticData.leformdata.miPremium);
+
+		for(i=0;i<$scope.leformdata.miPremium.length;i++){
+			if($scope.leformdata.miPremium.length==1){
+				$scope.leformdata.miPremium.push(angular.copy(miPremium));
+				$scope.leformdata.miPremium.push(angular.copy(miPremium));
+			}else if($scope.leformdata.miPremium.length==2){
+				$scope.leformdata.miPremium.push(angular.copy(miPremium));
+			}
+
+			$scope.leformdata.miPremium[0].miPremiumPeriodType='First';
+            $scope.leformdata.miPremium[1].miPremiumPeriodType='Second';
+            $scope.leformdata.miPremium[2].miPremiumPeriodType='Third';
+		}
+
+
 
 		//Calculating Cash To Closes Default Values
 
@@ -316,6 +336,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
 		$scope.leformdata.loanEstimateDocDetails.formType=$scope.FormType;
 		$scope.leformdata.loanEstimateDocDetails.documentType=$scope.DocumentType;
+
+		if(!$scope.leformdata.miPremium || $scope.leformdata.miPremium.length==0) 
+			$scope.leformdata['miPremium'] = angular.copy(staticData.leformdata.miPremium);
+
 		var lender = {
 				"type": "O",
 				"nameModel": {
@@ -493,6 +517,14 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
 		if(!$scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount){
 			$scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount : +0);
+		}
+
+		if(!$scope.leformdata.closingCostsTotal.totalClosingCosts){
+           $scope.leformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.leformdata.closingCostsTotal.totalClosingCosts ? $scope.leformdata.closingCostsTotal.totalClosingCosts : +0);
+		}
+
+		if(!$scope.leformdata.closingCostsTotal.lenderCredits){
+           $scope.leformdata.closingCostsTotal.lenderCredits = parseFloat($scope.leformdata.closingCostsTotal.lenderCredits ? $scope.leformdata.closingCostsTotal.lenderCredits : +0);
 		}
 
 
@@ -1678,7 +1710,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			if(loanIdentifiers[j].loanIdentifierType == 'LenderLoan')
 				loanId = loanIdentifiers[j].loanIdentifier;
 		}
-		var filename = "LoanEstimate_"+loanId+ "_"+new Date().getTime();
+		var filename = "LoanEstimate_"+loanId+ "_"+new Date().getTime()+'.xml';
 		var bb = new Blob([xmltext], {type: 'application/octet-stream'});
 		saveAs(bb, filename);
     }

@@ -564,14 +564,14 @@
 							<span class="col-sm-3"> 
 								<span class="input-group">
 									<input	type="text" class="form-control" name=""
-									ng-model="leformdata.miDataDetail.miFirstFactorPercentage"
+									ng-model="cdformdata.miPremium[0].miPremiumRatePercent"
 									percentage-format> 
 									<span class="input-group-addon input-default">%</span>
 								</span>
 							</span>
 							<span class="col-sm-2 fieldTitle">Duration</span> 
 							<span class="col-sm-3"> 
-								<actualize-input ng-model="leformdata.miDataDetail.miFirstFactorPercentage" name="miFirstFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
+								<actualize-input ng-model="cdformdata.miPremium[0].miPremiumRateDurationMonthsCount" name="miFirstFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
 								</actualize-input>
 							</span>
 					</div>
@@ -580,7 +580,7 @@
 							MI 2<sup>nd</sup> Factor Percentage</span> 
 							<span class="col-sm-3 "> <span class="input-group">
 									<input type="text" class="form-control" name=""
-									ng-model="leformdata.miDataDetail.miSecondFactorPercentage"
+									ng-model="cdformdata.miPremium[1].miPremiumRatePercent"
 									percentage-format> 
 									<span
 									class="input-group-addon input-default">%</span>
@@ -588,7 +588,7 @@
 							</span>
 							<span class="col-sm-2 fieldTitle">Duration</span> 
 							<span class="col-sm-3"> 
-								<actualize-input ng-model="leformdata.miDataDetail.miSecondFactorPercentage" name="miSecondFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
+								<actualize-input ng-model="cdformdata.miPremium[1].miPremiumRateDurationMonthsCount" name="miSecondFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
 								</actualize-input>
 							</span>
 					</div>
@@ -598,14 +598,14 @@
 							<span	class="col-sm-3 "> 
 								<span class="input-group">
 									<input	type="text" class="form-control" name=""
-								ng-model="leformdata.miDataDetail.miSecondFactorPercentage"
+								ng-model="cdformdata.miPremium[2].miPremiumRatePercent"
 								percentage-format> 
 									<span class="input-group-addon input-default">%</span>
 								</span>
 						</span>
 						<span class="col-sm-2 fieldTitle">Duration</span> 
 						<span class="col-sm-3"> 
-							<actualize-input ng-model="leformdata.miDataDetail.miThirdFactorPercentage" name="miThirdFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
+							<actualize-input ng-model="cdformdata.miPremium[2].miPremiumRateDurationMonthsCount" name="miThirdFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
 								</actualize-input>
 						</span>
 					</div>

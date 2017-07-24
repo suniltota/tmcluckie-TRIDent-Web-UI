@@ -3918,6 +3918,24 @@ this.cdformdata={
 		    "miScheduledTerminationDate": "",
 		    "miInitialPremiumAmount": ""
 		},
+		"miPremium":
+	    [
+	        {
+	            "miPremiumPeriodType": "First",
+	            "miPremiumRateDurationMonthsCount": "",
+	            "miPremiumRatePercent": ""
+	        },
+	        {
+	            "miPremiumPeriodType": "Second",
+	            "miPremiumRateDurationMonthsCount": "",
+	            "miPremiumRatePercent": ""
+	        },
+	        {
+	            "miPremiumPeriodType": "Third",
+	            "miPremiumRateDurationMonthsCount": "",
+	            "miPremiumRatePercent": ""
+	        }
+	    ],
 		"transactionInformation": {
 			"refinanceSameLenderIndicator" : null,
 			"borrowerDetails": [
@@ -5047,6 +5065,24 @@ this.cdformdata={
             "miSecondFactorPercentage": "",
 
 		},
+		"miPremium":
+	    [
+	        {
+	            "miPremiumPeriodType": "First",
+	            "miPremiumRateDurationMonthsCount": "",
+	            "miPremiumRatePercent": ""
+	        },
+	        {
+	            "miPremiumPeriodType": "Second",
+	            "miPremiumRateDurationMonthsCount": "",
+	            "miPremiumRatePercent": ""
+	        },
+	        {
+	            "miPremiumPeriodType": "Third",
+	            "miPremiumRateDurationMonthsCount": "",
+	            "miPremiumRatePercent": ""
+	        }
+	    ],
 		"transactionInformation": {
 			"refinanceSameLenderIndicator" : false,
 			"borrowerDetails": [
