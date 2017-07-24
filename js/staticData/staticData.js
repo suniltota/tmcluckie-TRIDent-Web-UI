@@ -1060,11 +1060,6 @@ app.service('staticData', function($filter){
 		"disabled":false
 		},
 		{
-		"name":"Loan Discount Points",
-		"value":"LoanDiscountPoints",
-		"disabled":false
-		},
-		{
 		"name":"Loan Level Price Adjustment",
 		"value":"LoanLevelPriceAdjustment",
 		"disabled":false

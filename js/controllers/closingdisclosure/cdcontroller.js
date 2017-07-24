@@ -374,7 +374,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0].displayLabel = 'Loan Amount (Points)';
 			for(j=0;j<$scope.sectionAfeeTypes.length;j++){
 				if($scope.sectionAfeeTypes[j].value=='LoanDiscountPoints'){
-					$scope.sectionAfeeTypes[j].disabled = true;
+					//$scope.sectionAfeeTypes[j].disabled = true;
 				}
 			}
        	}
@@ -508,7 +508,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToType = 'ThirdPartyProvider';
             for(i=0;i<$scope.sectionEfeeTypes.length;i++){
             	if($scope.sectionEfeeTypes[i].value=='TransferTaxTotal'){
-                   $scope.sectionEfeeTypes[i].disabled=true;
+                   //$scope.sectionEfeeTypes[i].disabled=true;
             	}
             }
             if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.indexOf('TransferTaxTotal')==-1) {
@@ -539,7 +539,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[3].displayLabelText = 'Property Taxes';
 			for(i=0;i<$scope.prepaidItems.length;i++){
             	if($scope.prepaidItems[i].value=='CountyPropertyTax'){
-                   $scope.prepaidItems[i].disabled=true;
+                   //$scope.prepaidItems[i].disabled=true;
             	}
             }
 		}
@@ -582,7 +582,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		     
 		    for(i=0;i<$scope.escrowItemTypes.length;i++){
             	if($scope.escrowItemTypes[i].value=='CountyPropertyTax'){
-                   $scope.escrowItemTypes[i].disabled=true;
+                   //$scope.escrowItemTypes[i].disabled=true;
             	}
             }
 
@@ -1521,7 +1521,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.sectionAfeeTypes.length; i++){
 			if($scope.sectionAfeeTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.sectionAfeeTypes[i].disabled = true;
+				   //$scope.sectionAfeeTypes[i].disabled = true;
 				}
 			} else if ($scope.sectionAfeeTypes[i].value == previousAfeeVal) {
 				$scope.sectionAfeeTypes[i].disabled = false;
@@ -1537,7 +1537,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.sectionBfeeTypes.length; i++){
 			if($scope.sectionBfeeTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.sectionBfeeTypes[i].disabled = true;
+				   //$scope.sectionBfeeTypes[i].disabled = true;
 			    }
 			} else if ($scope.sectionBfeeTypes[i].value == previousBfeeVal) {
 				$scope.sectionBfeeTypes[i].disabled = false;
@@ -1552,7 +1552,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.sectionCfeeTypes.length; i++){
 			if($scope.sectionCfeeTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.sectionCfeeTypes[i].disabled = true;
+				   //$scope.sectionCfeeTypes[i].disabled = true;
 				}
 			} else if ($scope.sectionCfeeTypes[i].value == previousCfeeVal) {
 				$scope.sectionCfeeTypes[i].disabled = false;
@@ -1567,7 +1567,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.sectionEfeeTypes.length; i++){
 			if($scope.sectionEfeeTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.sectionEfeeTypes[i].disabled = true;
+				   //$scope.sectionEfeeTypes[i].disabled = true;
 			    }
 			} else if ($scope.sectionEfeeTypes[i].value == previousEfeeVal) {
 				$scope.sectionEfeeTypes[i].disabled = false;
@@ -1583,7 +1583,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.prepaidItems.length; i++){
 			if($scope.prepaidItems[i].value == value) {
 				if(value!='Other'){
-				   $scope.prepaidItems[i].disabled = true;
+				   //$scope.prepaidItems[i].disabled = true;
 				}
 			} else if ($scope.prepaidItems[i].value == previousFprepaidVal) {
 				$scope.prepaidItems[i].disabled = false;
@@ -1599,7 +1599,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.escrowItemTypes.length; i++){
 			if($scope.escrowItemTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.escrowItemTypes[i].disabled = true;
+				   //$scope.escrowItemTypes[i].disabled = true;
 				}
 			} else if ($scope.escrowItemTypes[i].value == previousGescrowVal) {
 				$scope.escrowItemTypes[i].disabled = false;
@@ -1615,7 +1615,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.sectionHfeeTypes.length; i++){
 			if($scope.sectionHfeeTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.sectionHfeeTypes[i].disabled = true;
+				   //$scope.sectionHfeeTypes[i].disabled = true;
 				}
 			} else if ($scope.sectionHfeeTypes[i].value == previousHfeeVal) {
 				$scope.sectionHfeeTypes[i].disabled = false;
@@ -2032,7 +2032,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     $scope.clearPrepaidInfo = function(i){
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToType = 'ThirdPartyProvider';
-		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToTypeOtherDescription = 'ThirdPartyProvider';
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToTypeOtherDescription = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidPaidToFullName = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing = '';
@@ -2053,7 +2053,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType = '';
     	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].displayLabel = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToType = 'ThirdPartyProvider';
-		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToTypeOtherDescription = 'ThirdPartyProvider';
+		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].feePaidToTypeOtherDescription = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidPaidToFullName = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = '';
 		$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpB4Closing = '';
@@ -2966,7 +2966,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             for(j=0; j<$scope.sectionAfeeTypes.length; j++){
 				if($scope.sectionAfeeTypes[j].value == $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType) {
 					if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType!='Other'){
-					   $scope.sectionAfeeTypes[j].disabled = true;
+					   //$scope.sectionAfeeTypes[j].disabled = true;
 					}
 				} 
 		    }
@@ -3165,7 +3165,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	        for(j=0; j<$scope.sectionBfeeTypes.length; j++){
 				if($scope.sectionBfeeTypes[j].value == $scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType) {
 					if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType!='Other'){
-					   $scope.sectionBfeeTypes[j].disabled = true;
+					   //$scope.sectionBfeeTypes[j].disabled = true;
 					}
 				} 
 		    }
@@ -3344,7 +3344,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	        for(j=0; j<$scope.sectionCfeeTypes.length; j++){
 				if($scope.sectionCfeeTypes[j].value == $scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType) {
 					if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType!='Other'){
-					   $scope.sectionCfeeTypes[j].disabled = true;
+					   //$scope.sectionCfeeTypes[j].disabled = true;
 					}
 				} 
 		    }
@@ -3591,7 +3591,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[0].feePaidToType = 'ThirdPartyProvider';
 	            for(i=0;i<$scope.sectionEfeeTypes.length;i++){
 			if($scope.sectionEfeeTypes[i].value=='TransferTaxTotal'){
-	                   $scope.sectionEfeeTypes[i].disabled=true;
+	                  // $scope.sectionEfeeTypes[i].disabled=true;
 			}
 	            }
 	            if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.indexOf('TransferTaxTotal')==-1) {
@@ -3610,7 +3610,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             for(j=0; j<$scope.sectionEfeeTypes.length; j++){
 				if($scope.sectionEfeeTypes[j].value == $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType) {
 					if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType!='Other'){
-					   $scope.sectionEfeeTypes[j].disabled = true;
+					   //$scope.sectionEfeeTypes[j].disabled = true;
 					}
 				} 
 		    }
@@ -3712,7 +3712,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
           	for(j=0; j<$scope.prepaidItems.length; j++){
 				if($scope.prepaidItems[j].value == $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType) {
 					if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType!='Other'){
-					   $scope.prepaidItems[j].disabled = true;
+					   //$scope.prepaidItems[j].disabled = true;
 					}
 				} 
 		    }
@@ -3827,7 +3827,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             for(j=0; j<$scope.escrowItemTypes.length; j++){
 				if($scope.escrowItemTypes[j].value == $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType) {
 					if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!='Other'){
-					   $scope.escrowItemTypes[j].disabled = true;
+					   //$scope.escrowItemTypes[j].disabled = true;
 					}
 				} 
 		    }
@@ -4033,7 +4033,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             for(j=0; j<$scope.sectionHfeeTypes.length; j++){
 				if($scope.sectionHfeeTypes[j].value == $scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType) {
 					if($scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType!='Other'){
-					   $scope.sectionHfeeTypes[j].disabled = true;
+					   //$scope.sectionHfeeTypes[j].disabled = true;
 					}
 				} 
 		    }
@@ -5113,31 +5113,4 @@ function isLeapYear(year) {
 	if (((year % 4 == 0) && !(year % 100 == 0)) || (year % 400 == 0))
 		return true;
 	return false;
-}
-
-function daysInMonth(month) {
-	var dayCount;
-	switch (month) {
-	    case 1:
-	    case 3:
-	    case 5:
-	    case 7:
-	    case 8:
-	    case 10:
-	    case 12:
-	        dayCount = 31;
-	        break;
-	    case 4:
-	    case 6:
-	    case 9:
-	    case 11:
-	        dayCount = 30;
-	        break;
-	    case 2:
-			dayCount = 28;
-	        break;
-	    default:
-	        dayCount = 30;
-	}
-	return dayCount;
 }
