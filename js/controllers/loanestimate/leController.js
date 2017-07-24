@@ -187,8 +187,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
         $scope.leformdata.closingInformation.dateIssued = new Date();
 		$scope.leformdata.closingInformationDetail.closingDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
 		$scope.leformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate = $scope.leformdata.closingInformation.dateIssued;
-        
-       	if(localStorage.jsonData != undefined) {
+	    $scope.leformdata.etiaSection['propertyTaxesCheck'] = false;
+	    $scope.leformdata.etiaSection['HomeownersInsuranceCheck'] = false;
+	    $scope.leformdata.etiaSection['otherData'] = '';
+	    $scope.leformdata.etiaSection['otherCheck'] = false;       	
+	    
+	    if(localStorage.jsonData != undefined) {
 			$scope.leformdata = angular.fromJson(localStorage.jsonData);
 			$scope.leformdata.loanInformation['loanTermYears'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.leformdata.loanInformation['loanTermMonths'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount%12;
@@ -391,6 +395,29 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    	if($scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' 
 	    		|| $scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'){
 	    		$scope.leformdata.etiaSection.etiaValues[i]['insuranceTaxCheck'] = false;
+	    	}
+	    }
+
+	    for(i=0; i<$scope.leformdata.etiaSection.etiaValues.length; i++){
+	    	if($scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' 
+	    		|| $scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'){
+	    		if($scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes'){
+	    			if($scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType=='Escrowed'){
+		    		    $scope.leformdata.etiaSection.etiaValues[i].insuranceTaxCheck= true;
+		    		    $scope.leformdata.etiaSection.propertyTaxesCheck = true;
+		    		}else if($scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType=='NotEscrowed'){
+		    		    $scope.leformdata.etiaSection.etiaValues[i].insuranceTaxCheck= false;
+		    		    $scope.leformdata.etiaSection.propertyTaxesCheck = true;
+		    		}
+	    		}else if($scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'){
+		    		if($scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType=='Escrowed'){
+		    		    $scope.leformdata.etiaSection.etiaValues[i].insuranceTaxCheck= true;
+		    		    $scope.leformdata.etiaSection.HomeownersInsuranceCheck = true;
+		    		}else if($scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEscrowedType=='NotEscrowed'){
+		    		    $scope.leformdata.etiaSection.etiaValues[i].insuranceTaxCheck= false;
+		    		    $scope.leformdata.etiaSection.HomeownersInsuranceCheck = true;
+		    		}
+	    	    }
 	    	}
 	    }
         
@@ -2441,14 +2468,11 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
         $scope.leformdata.integratedDisclosureDetail.integratedDisclosureEstimatedClosingCostsExpirationDatetime=$filter('date')(expireDate, "yyyy-MM-ddTHH:mm:ss'Z'");
 	});
 
-   $scope.showtooltip = function($event){
-    $scope.mml=angular.element(document.getElementById($event.target.id));
-    $scope.tooltipmessage=$scope.mml.html();
-     }
-    $scope.leformdata.etiaSection['propertyTaxesCheck'] = false;
-    $scope.leformdata.etiaSection['HomeownersInsuranceCheck'] = false;
-    $scope.leformdata.etiaSection['otherData'] = '';
-    $scope.leformdata.etiaSection['otherCheck'] = false;
+    $scope.showtooltip = function($event){
+	    $scope.mml=angular.element(document.getElementById($event.target.id));
+	    $scope.tooltipmessage=$scope.mml.html();
+    }
+   
     $scope.$watch('leformdata.etiaSection',function(newValue,oldValue){
     	var nonEscrowArray = [];  
     	var yesVal=0;
