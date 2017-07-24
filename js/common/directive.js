@@ -802,7 +802,12 @@ app.directive('minAndMaxCheck', function($sce, $compile) {
         if(!isNaN(value)){
         if(value > max){
            e.currentTarget.style.border="1px solid #f17777"
-           message = "value should be less than maximum value " + max;
+            if(attr.name == "initialPrincipalAndInterestPaymentAmount"){
+            message = "value should be greater than loan amount";
+           }else{
+             message = "value should be less than maximum value " + max;
+             }
+
         }else if(value < min){
            e.currentTarget.style.border="1px solid #f17777"
            message = "value should be greater than minimum value " + min;
