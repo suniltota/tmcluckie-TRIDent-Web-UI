@@ -374,7 +374,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0].displayLabel = 'Loan Amount (Points)';
 			for(j=0;j<$scope.sectionAfeeTypes.length;j++){
 				if($scope.sectionAfeeTypes[j].value=='LoanDiscountPoints'){
-					//$scope.sectionAfeeTypes[j].disabled = true;
+					$scope.sectionAfeeTypes[j].disabled = true;
 				}
 			}
        	}

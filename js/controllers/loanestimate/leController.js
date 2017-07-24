@@ -982,7 +982,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		for(i=0; i<$scope.sectionAfeeTypes.length; i++){
 			if($scope.sectionAfeeTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.sectionAfeeTypes[i].disabled = true;
+				   //$scope.sectionAfeeTypes[i].disabled = true;
 				}
 			} else if ($scope.sectionAfeeTypes[i].value == previousAfeeVal) {
 				$scope.sectionAfeeTypes[i].disabled = false;
@@ -995,7 +995,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		for(i=0; i<$scope.sectionBfeeTypes.length; i++){
 			if($scope.sectionBfeeTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.sectionBfeeTypes[i].disabled = true;
+				   //$scope.sectionBfeeTypes[i].disabled = true;
 				}
 			} else if ($scope.sectionBfeeTypes[i].value == previousBfeeVal) {
 				$scope.sectionBfeeTypes[i].disabled = false;
@@ -1008,7 +1008,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		for(i=0; i<$scope.sectionCfeeTypes.length; i++){
 			if($scope.sectionCfeeTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.sectionCfeeTypes[i].disabled = true;
+				   //$scope.sectionCfeeTypes[i].disabled = true;
 				}
 			} else if ($scope.sectionCfeeTypes[i].value == previousCfeeVal) {
 				$scope.sectionCfeeTypes[i].disabled = false;
@@ -1021,7 +1021,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		for(i=0; i<$scope.sectionEfeeTypes.length; i++){
 			if($scope.sectionEfeeTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.sectionEfeeTypes[i].disabled = true;
+				   //$scope.sectionEfeeTypes[i].disabled = true;
 				}
 			} else if ($scope.sectionEfeeTypes[i].value == previousEfeeVal) {
 				$scope.sectionEfeeTypes[i].disabled = false;
@@ -1035,7 +1035,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		for(i=0; i<$scope.prepaidItems.length; i++){
 			if($scope.prepaidItems[i].value == value) {
 				if(value!='Other'){
-				   $scope.prepaidItems[i].disabled = true;
+				   //$scope.prepaidItems[i].disabled = true;
 				}
 			} else if ($scope.prepaidItems[i].value == previousFprepaidVal) {
 				$scope.prepaidItems[i].disabled = false;
@@ -1049,7 +1049,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		for(i=0; i<$scope.escrowItemTypes.length; i++){
 			if($scope.escrowItemTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.escrowItemTypes[i].disabled = true;
+				   //$scope.escrowItemTypes[i].disabled = true;
 				}
 			} else if ($scope.escrowItemTypes[i].value == previousGescrowVal) {
 				$scope.escrowItemTypes[i].disabled = false;
@@ -1063,7 +1063,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		for(i=0; i<$scope.sectionHfeeTypes.length; i++){
 			if($scope.sectionHfeeTypes[i].value == value) {
 				if(value!='Other'){
-				   $scope.sectionHfeeTypes[i].disabled = true;
+				   //$scope.sectionHfeeTypes[i].disabled = true;
 				}
 			} else if ($scope.sectionHfeeTypes[i].value == previousHfeeVal) {
 				$scope.sectionHfeeTypes[i].disabled = false;
@@ -1695,7 +1695,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
     });
 
-        $scope.$watchCollection('[leformdata.loanInformation.loanTermYears, leformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){
+    $scope.$watchCollection('[leformdata.loanInformation.loanTermYears, leformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){
     	$scope.leformdata.maturityRule.loanMaturityPeriodCount = 0;
     	if($scope.leformdata.loanInformation.loanTermYears)
     		$scope.leformdata.maturityRule.loanMaturityPeriodCount = parseInt($scope.leformdata.loanInformation.loanTermYears * 12);
@@ -1796,7 +1796,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             for(j=0; j<$scope.sectionAfeeTypes.length; j++){
 				if($scope.sectionAfeeTypes[j].value == $scope.leformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType) {
 					if($scope.leformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType!='Other'){
-					   $scope.sectionAfeeTypes[j].disabled = true;
+					   //$scope.sectionAfeeTypes[j].disabled = true;
 					}
 				} 
 		    }
@@ -1828,7 +1828,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	        for(j=0; j<$scope.sectionBfeeTypes.length; j++){
 				if($scope.sectionBfeeTypes[j].value == $scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType) {
 					if($scope.leformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType!='Other'){
-					   $scope.sectionBfeeTypes[j].disabled = true;
+					   //$scope.sectionBfeeTypes[j].disabled = true;
 					}
 				} 
 		    }
@@ -1861,7 +1861,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	        for(j=0; j<$scope.sectionCfeeTypes.length; j++){
 				if($scope.sectionCfeeTypes[j].value == $scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType) {
 					if($scope.leformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType!='Other'){
-					   $scope.sectionCfeeTypes[j].disabled = true;
+					   //$scope.sectionCfeeTypes[j].disabled = true;
 					}
 				} 
 		    }
@@ -1895,7 +1895,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             for(j=0; j<$scope.sectionEfeeTypes.length; j++){
 				if($scope.sectionEfeeTypes[j].value == $scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType) {
 					if($scope.leformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType!='Other'){
-					   $scope.sectionEfeeTypes[j].disabled = true;
+					   //$scope.sectionEfeeTypes[j].disabled = true;
 					}
 				} 
 		    }
@@ -1926,7 +1926,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
           	for(j=0; j<$scope.prepaidItems.length; j++){
 				if($scope.prepaidItems[j].value == $scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType) {
 					if($scope.leformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType!='Other'){
-					   $scope.prepaidItems[j].disabled = true;
+					   //$scope.prepaidItems[j].disabled = true;
 					}
 				} 
 		    }
@@ -1970,7 +1970,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             for(j=0; j<$scope.escrowItemTypes.length; j++){
 				if($scope.escrowItemTypes[j].value == $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType) {
 					if($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType!='Other'){
-					   $scope.escrowItemTypes[j].disabled = true;
+					   //$scope.escrowItemTypes[j].disabled = true;
 					}
 				} 
 		    }
@@ -2088,7 +2088,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             for(j=0; j<$scope.sectionHfeeTypes.length; j++){
 				if($scope.sectionHfeeTypes[j].value == $scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType) {
 					if($scope.leformdata.closingCostDetailsOtherCosts.otherCostsList[i].feeType!='Other'){
-					   $scope.sectionHfeeTypes[j].disabled = true;
+					   //$scope.sectionHfeeTypes[j].disabled = true;
 					}
 				} 
 		    }
