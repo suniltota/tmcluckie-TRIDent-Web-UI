@@ -1699,8 +1699,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 				$scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount = salePriceValue-(noteAmount-closingCostsfinanced)
 			}
 	    }else if($scope.loanBasicInfo.loanPurposeType == 'refinance'){
-	    	if(totalPayoffAmount-(noteAmount+closingCostsfinanced)){
+	    	if((totalPayoffAmount-(noteAmount+closingCostsfinanced)>0)){
 	    		$scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount = totalPayoffAmount-(noteAmount+closingCostsfinanced);
+	    	}else{
+	    		$scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount = 0;
 	    	}
 	    }
 
