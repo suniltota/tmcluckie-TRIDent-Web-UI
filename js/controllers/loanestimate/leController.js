@@ -103,6 +103,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     var adjustment = {};
 	var prorationObj = {};
 	var etiaSection = {};
+	var cashToCloses = {};
     var payoffsAndPaymentObj = {
           "payOffType":"",
           "displayLabel":"",
@@ -181,22 +182,13 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		mortgageInsurance = angular.copy($scope.leformdata.projectedPayments.mortgageInsurance[0]);
 		estimatedEscrow = angular.copy($scope.leformdata.projectedPayments.estimatedEscrow[0]);
 		estimatedTotal = angular.copy($scope.leformdata.projectedPayments.estimatedTotal[0]);
+		cashTocloses = angular.copy($scope.leformdata.cashToCloses.cashToCloseTotal[0]);
 		$scope.leformdata.closingInformation.propertyValuationDetail.propertyValue = 'Appraised';
         $scope.leformdata.closingInformation.dateIssued = new Date();
 		$scope.leformdata.closingInformationDetail.closingDate = add_business_days($scope.leformdata.closingInformation.dateIssued, 5);
 		$scope.leformdata.integratedDisclosureDetail.integratedDisclosureIssuedDate = $scope.leformdata.closingInformation.dateIssued;
         
-        //Calculating Cash To Closes Default Values
-        $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount=0;
-		$scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount=0;
-		$scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount=0;
-		$scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount=0;
-		$scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount=0;
-		$scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount=0;
-		$scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount=0;
-		$scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount=0;
-
-		if(localStorage.jsonData != undefined) {
+       	if(localStorage.jsonData != undefined) {
 			$scope.leformdata = angular.fromJson(localStorage.jsonData);
 			$scope.leformdata.loanInformation['loanTermYears'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount/12;
 			$scope.leformdata.loanInformation['loanTermMonths'] = $scope.leformdata.maturityRule.loanMaturityPeriodCount%12;
@@ -242,7 +234,18 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             
 		}
 
-		 //Adding Form and Document types for AML & PDF Generation
+		//Calculating Cash To Closes Default Values
+
+        $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount =  $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount ? $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount : +0;
+		$scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount=$scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount ? $scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount : +0;
+		$scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount=$scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount ? $scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemEstimatedAmount : +0;
+		$scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount=$scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount ? $scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemEstimatedAmount : +0;
+		$scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount=$scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount ? $scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemEstimatedAmount : +0;
+		$scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount=$scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount ? $scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemEstimatedAmount : +0;
+		$scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount=$scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount ? $scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount : +0;
+		$scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount=$scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount ? $scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemEstimatedAmount : +0;
+
+		//Adding Form and Document types for AML & PDF Generation
         $scope.leformdata.loanEstimateDocDetails.documentType='LoanEstimate';
 
 		if($scope.loanBasicInfo.loanFormType == 'standard'){
@@ -2186,7 +2189,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	$scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemType='FundsForBorrower';
 	$scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='AdjustmentsAndOtherCredits';
 	$scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemType= 'TotalPayoffsAndPayments';
-    cashToclosesCalculations();
+    
     if($scope.loanBasicInfo.loanFormType == 'standard'){
 	    if($scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount)
 	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount);
@@ -2212,64 +2215,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    if($scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount)
 	    cashToCloseItemEstimatedAmount +=  $scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount == '' ? +0 : parseFloat($scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount);
     }
+    if($scope.leformdata.cashToCloses.cashToCloseTotal.length==0){
+    	$scope.leformdata.cashToCloses.cashToCloseTotal.push(angular.copy(cashTocloses));
+    }
 
     $scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount = Math.round(cashToCloseItemEstimatedAmount);
   
-    //Closng Costs Financed
-    /*var diffClosingCosts = 0;
-    var diffClosingCostsAtClosing = 0;
-    var noteAmountPayOffDiff = 0;
-    var notePersonalAmountDiff = 0;
-    var personalAmountDiff = 0;
-
-    if($scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount && $scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount!=undefined && $scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing && $scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing!=undefined){
-        $scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount = $scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount ? parseFloat($scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount) : +0;
-        $scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing = $scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing ? parseFloat($scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing) : +0;
-        diffClosingCosts = parseFloat($scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount-$scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpB4Closing);
-    }
-
-    if($scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount && $scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount!=undefined && $scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing && $scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing!=undefined){
-        $scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount = $scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount ? parseFloat($scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount) : +0;
-        $scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing = $scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing ? parseFloat($scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing) : +0;
-        diffClosingCostsAtClosing = parseFloat($scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount-$scope.leformdata.closingCostsTotal.closingCostsSubtotal.bpAtClosing);
-    }
-    
-    if($scope.leformdata.termsOfLoan.noteAmount && $scope.leformdata.termsOfLoan.noteAmount!=undefined && $scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount && $scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount!=undefined){
-        noteAmountPayOffDiff = parseFloat($scope.leformdata.termsOfLoan.noteAmount-$scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemEstimatedAmount);
-    }
-    
-    if($scope.leformdata.salesContractDetail.personalPropertyAmount && $scope.leformdata.salesContractDetail.personalPropertyAmount!=undefined){
-    if($scope.leformdata.salesContractDetail.saleContractAmount && $scope.leformdata.salesContractDetail.saleContractAmount!=undefined){
-           personalAmountDiff = parseFloat($scope.leformdata.salesContractDetail.saleContractAmount+$scope.leformdata.salesContractDetail.personalPropertyAmount);
-    }else if($scope.leformdata.salesContractDetail.realPropertyAmount && $scope.leformdata.salesContractDetail.realPropertyAmount!=undefined){
-           personalAmountDiff = parseFloat($scope.leformdata.salesContractDetail.realPropertyAmount+$scope.leformdata.salesContractDetail.personalPropertyAmount);
-    }
-    }
-
-    if($scope.leformdata.termsOfLoan.noteAmount && $scope.leformdata.termsOfLoan.noteAmount!=undefined){
-        notePersonalAmountDiff = $scope.leformdata.termsOfLoan.noteAmount ? parseFloat($scope.leformdata.termsOfLoan.noteAmount-personalAmountDiff) : +0;
-    }
-
-    if($scope.loanBasicInfo.loanFormType == 'alternate'){
-        if(diffClosingCosts<0){
-            $scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount = 0;
-        }else if(noteAmountPayOffDiff > diffClosingCosts){
-            $scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount = parseFloat(diffClosingCosts);
-        }else if(noteAmountPayOffDiff <= diffClosingCosts){
-            $scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount = 0;
-        }else{
-            $scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount = parseFloat(noteAmountPayOffDiff);
-        }
-    }else{
-        if(diffClosingCostsAtClosing<0){
-            $scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount = 0;
-        }else if(notePersonalAmountDiff >= 0){
-            $scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount = parseFloat(notePersonalAmountDiff*-1);
-        }else if(notePersonalAmountDiff < 0){
-            $scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemEstimatedAmount = 0;
-        }
-    }*/
-
     if($scope.loanBasicInfo.loanFormType == 'alternate'){
     	if($scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemEstimatedAmount>=0){
     	    $scope.leformdata.cashToCloses.cashToCloseTotal[0].integratedDisclosureCashToCloseItemPaymentType = 'ToBorrower';
