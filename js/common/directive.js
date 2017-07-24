@@ -920,63 +920,40 @@ app.directive('helpVerbiage', function ($window, $compile, $sce) {
       restrict: 'EA',
       link: function (scope, elem, attr) {
         var currentname = attr.name;
-        var template="";
         var getDynamicTemplate = function(){
           var classTemp="";
           if(attr.title == "help_tooltip"){
-              classTemp ='<span class="helpText tooltip-msg"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "help_tooltip_text"){
-              classTemp ='<span class="helpText tooltip-msg tooltip_text"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg tooltip_text" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "help_tooltip_textLeft"){
-              classTemp ='<span class="helpText tooltip-msg tooltip_textLeft"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg tooltip_textLeft" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "help_tooltip_textTop"){
-              classTemp ='<span class="helpText tooltip-msg tooltip_textTop"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg tooltip_textTop" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "help_tooltip_padding"){
-              classTemp ='<span class="helpText tooltip-msg tooltip_padding"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg tooltip_padding" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "help_tooltip_padding_left"){
-              classTemp ='<span class="helpText tooltip-msg tooltip_padding_left"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg tooltip_padding_left" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "calenderInput"){
-              classTemp ='<span class="helpText tooltip-msg calenderInput"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg calenderInput" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "leftTooltip"){
-              classTemp ='<span class="helpText tooltip-msg left"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg left" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "leftTooltip_select"){
-              classTemp ='<span class="helpText tooltip-msg select_help"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg select_help" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "leftTooltip_selectPadding"){
-              classTemp ='<span class="helpText tooltip-msg select_helpPadding"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg select_helpPadding" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "topTooltip"){
-              classTemp ='<span class="helpText tooltip-msg top"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg top" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "topPaddingTooltip"){
-              classTemp ='<span class="helpText tooltip-msg topPadding"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg topPadding" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }else if(attr.title == "help_tooltip_lg"){
-              classTemp ='<span class="helpText tooltip-msg tooltip_lg"> ? <span>';
+              classTemp ='<span class="helpText tooltip-msg tooltip_lg" ng-mouseover="renderHelpText(\''+currentname+'\')"> ? <span>';
           }
           return classTemp + '<b></b>';
         }
-
-        var template = getDynamicTemplate() + $("#"+attr.name).html() + '</span></span>';
+        var template = getDynamicTemplate() + '</span></span>';
         elem.html(template);
         $compile(elem.contents())(scope);
-
-        elem.on('mouseenter', function (e) {
-          if(navigator.userAgent.indexOf("Chrome") != -1 ){
-            var helpgetid = $("#"+attr.name).html();
-
-            var template = getDynamicTemplate() + helpgetid + '</span></span>';
-            //$sce.trustAsHtml(template);
-            elem.html(template);
-
-            $compile(elem.contents())(scope);
-          }
-        });
-
-        elem.on('mouseleave', function (e) {
-          if(navigator.userAgent.indexOf("Chrome") != -1 ){
-              var template = getDynamicTemplate() + '</span></span>';
-              elem.html(template);
-              $compile(elem.contents())(scope);
-              }
-            });
-
       }
   };
 });
