@@ -5029,7 +5029,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     },true);
 
-    
+    $scope.renderHelpText = function(elementName) {
+    	var helpText = $("#"+elementName).html();
+    	var elementTitle = $("help-verbiage[name='"+elementName+"']").attr('title');
+    	var elementText =  getDynamicTemplate(elementName, elementTitle) +'<span>'+ helpText + '</span></span></span>';
+    	$("help-verbiage[name='"+elementName+"']").html(elementText);
+    }
 });
 //date param of proper format to create date object.
 // ex:- 04/25/2008
@@ -5132,4 +5137,36 @@ function isLeapYear(year) {
 	if (((year % 4 == 0) && !(year % 100 == 0)) || (year % 400 == 0))
 		return true;
 	return false;
+}
+
+function getDynamicTemplate (elemName, elemtitle){
+	var classTemp="";
+	if(elemtitle == "help_tooltip"){
+	  classTemp ='<span class="helpText tooltip-msg" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_text"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_text" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_textLeft"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_textLeft" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_textTop"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_textTop" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_padding"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_padding" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_padding_left"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_padding_left" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "calenderInput"){
+	  classTemp ='<span class="helpText tooltip-msg calenderInput" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "leftTooltip"){
+	  classTemp ='<span class="helpText tooltip-msg left" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "leftTooltip_select"){
+	  classTemp ='<span class="helpText tooltip-msg select_help" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "leftTooltip_selectPadding"){
+	  classTemp ='<span class="helpText tooltip-msg select_helpPadding" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "topTooltip"){
+	  classTemp ='<span class="helpText tooltip-msg top" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "topPaddingTooltip"){
+	  classTemp ='<span class="helpText tooltip-msg topPadding" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_lg"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_lg" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}
+	return classTemp + '<b></b>';
 }

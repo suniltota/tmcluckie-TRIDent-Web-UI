@@ -2598,6 +2598,15 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     // 		LoadXMLString('xmldisplayArea',data);
     // });
 
+    $scope.renderHelpText = function(elementName) {
+    	var helpText = $("#"+elementName).html();
+    	var elementTitle = $("help-verbiage[name='"+elementName+"']").attr('title');
+    	$("help-verbiage[name='"+elementName+"']").empty();
+    	var elementText =  getDynamicTemplate(elementName, elementTitle) +'<span>'+ helpText + '</span></span></span>';
+    	$("help-verbiage[name='"+elementName+"']").html(elementText);
+    	//$('.tooltip-msg > span').css('display', 'block');
+    }
+
 });
 //date param of proper format to create date object.
 // ex:- 04/25/2008
@@ -2623,4 +2632,36 @@ function add_business_days(date, days) {
 
 String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
+}
+
+function getDynamicTemplate (elemName, elemtitle){
+	var classTemp="";
+	if(elemtitle == "help_tooltip"){
+	  classTemp ='<span class="helpText tooltip-msg" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_text"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_text" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_textLeft"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_textLeft" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_textTop"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_textTop" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_padding"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_padding" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_padding_left"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_padding_left" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "calenderInput"){
+	  classTemp ='<span class="helpText tooltip-msg calenderInput" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "leftTooltip"){
+	  classTemp ='<span class="helpText tooltip-msg left" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "leftTooltip_select"){
+	  classTemp ='<span class="helpText tooltip-msg select_help" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "leftTooltip_selectPadding"){
+	  classTemp ='<span class="helpText tooltip-msg select_helpPadding" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "topTooltip"){
+	  classTemp ='<span class="helpText tooltip-msg top" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "topPaddingTooltip"){
+	  classTemp ='<span class="helpText tooltip-msg topPadding" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}else if(elemtitle == "help_tooltip_lg"){
+	  classTemp ='<span class="helpText tooltip-msg tooltip_lg" ng-mouseover="renderHelpText(\''+elemName+'\')"> ? <span>';
+	}
+	return classTemp + '<b></b>';
 }
