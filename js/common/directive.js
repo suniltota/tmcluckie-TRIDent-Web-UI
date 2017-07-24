@@ -465,7 +465,7 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
             }else{ 
               e.target.value = $filter('number')(elementValue, 2);
             }
-              scope.$apply();
+             // scope.$apply();
             }
         });
       }
@@ -547,7 +547,7 @@ app.directive('decimalDigitsWithNumberFormatAllowNegative', function ($compile, 
               }else{ 
                 e.target.value = $filter('number')(elementValue, 2);
               }
-              scope.$apply();
+              //scope.$apply();
             }
         });
       }
@@ -797,7 +797,8 @@ app.directive('minAndMaxCheck', function($sce, $compile) {
        elem.on('blur', function (e) {
         var min = parseFloat(scope.$eval(attr.minVal));
         var max = parseFloat(scope.$eval(attr.maxVal));
-        var value = parseFloat(e.target.value);
+        var targetElemValue = e.target.value ? e.target.value.replace(/[^0-9.]/g, '') : e.target.value;
+        var value = parseFloat(targetElemValue);
         if(!isNaN(value)){
         if(value > max){
            e.currentTarget.style.border="1px solid #f17777"

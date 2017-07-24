@@ -16,7 +16,8 @@
 		        <td>
 		        	<div class="input-group">
   						<span class="input-group-addon input-default">$</span>
-		        		<input class="form-control" ng-model="leformdata.termsOfLoan.noteAmount" decimal-digits-with-number-format></input>
+		        		<actualize-input ng-model="leformdata.termsOfLoan.noteAmount" id="lenoteAmount" ng-blur="checkPrincipalInterest()" name="lenoteAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  min-val="1" dependencies="decimal-digits-with-number-format require-field min-max-value">
+                		</actualize-input>
 		        		<help-verbiage name="LE_LoanAmount_Help" title="help_tooltip_padding"></help-verbiage>
 		        	</div>
 		        </td>
@@ -148,7 +149,8 @@
 		        <td>
 		        	<div class="input-group">
   						<span class="input-group-addon input-default">$</span>
-		        		<input class="form-control" ng-model="leformdata.payment.paymentRule.initialPrincipalAndInterestPaymentAmount" decimal-digits-with-number-format>
+		        		<actualize-input ng-model="leformdata.payment.paymentRule.initialPrincipalAndInterestPaymentAmount" id="leinitialPrincipalAndInterestPaymentAmount" name="leinitialPrincipalAndInterestPaymentAmount" toolTipPos = "top" max-val="leformdata.termsOfLoan.noteAmount" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format min-and-max-check require-field">
+                		</actualize-input>
 		        		<help-verbiage name="LE_PrincipalInterestPaymentAmount_help" title="help_tooltip_padding"></help-verbiage>
 
 		        	</div>
