@@ -197,18 +197,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		if(!$scope.cdformdata.miPremium || $scope.cdformdata.miPremium.length==0) 
 			$scope.cdformdata['miPremium'] = angular.copy(staticData.cdformdata.miPremium);
 
-		for(i=0;i<$scope.cdformdata.miPremium.length;i++){
-			if($scope.cdformdata.miPremium.length==1){
-				$scope.cdformdata.miPremium.push(angular.copy(miPremium));
-				$scope.cdformdata.miPremium.push(angular.copy(miPremium));
-			}else if($scope.cdformdata.miPremium.length==2){
-				$scope.cdformdata.miPremium.push(angular.copy(miPremium));
-			}
-
-			$scope.cdformdata.miPremium[0].miPremiumPeriodType='First';
-            $scope.cdformdata.miPremium[1].miPremiumPeriodType='Second';
-            $scope.cdformdata.miPremium[2].miPremiumPeriodType='Third';
+		for(var i=$scope.cdformdata.miPremium.length; i<3; i++){
+			$scope.cdformdata.miPremium.push(angular.copy(miPremium));
 		}
+
+		$scope.cdformdata.miPremium[0].miPremiumPeriodType='First';
+        $scope.cdformdata.miPremium[1].miPremiumPeriodType='Second';
+        $scope.cdformdata.miPremium[2].miPremiumPeriodType='Third';
 
 		//Calculating Cash To Closes Default Values
         $scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount= $scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount ? $scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount : +0;
