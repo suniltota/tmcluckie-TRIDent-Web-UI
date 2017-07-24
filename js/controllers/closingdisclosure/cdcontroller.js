@@ -2759,7 +2759,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         saveAs(bb, filename);
     }
      $scope.checkPrincipalInterest = function(){
-    		$('#cdinitialPrincipalAndInterestPaymentAmount input').blur();
+    		$("#cdinitialPrincipalAndInterestPaymentAmount input").blur();
     }
      var cashToclosesCalculations = function(){
        //Calculating Cash To Close Calculations

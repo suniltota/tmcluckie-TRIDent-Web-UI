@@ -1661,6 +1661,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
       	viewMenuScope.embeddedPDF=false;
       	$('#ChooseEmbeddedPDF').modal('show');   
     }
+    $scope.checkPrincipalInterest = function(){
+               $("#leinitialPrincipalAndInterestPaymentAmount input").blur();
+    }
 
     var cashToclosesCalculations = function(){
 
