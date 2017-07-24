@@ -2480,17 +2480,29 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.perDiemCalc = function(){
     	for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.length; i++) {
 	    	if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'PrepaidInterest'){
-	    		var prepaidCalMethodType = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemCalculationMethodType;
-				var fromDate = new Date($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidFromDate);
-				var toDate = new Date($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidThroughDate);
-				var diemAmount = 0;
-				var diffDays = 0;
-				if(toDate<fromDate)
-					diffDays = differenceInDays(toDate, fromDate, prepaidCalMethodType) * -1;
-				else 
-					diffDays = differenceInDays(fromDate, toDate, prepaidCalMethodType)
-				diemAmount =  $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount ? $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount : +0;
-				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = parseFloat(diemAmount*diffDays);
+	    		if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidFromDate)
+	    			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidFromDate = 
+	    		$filter('date')(new Date(Date.parse($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidFromDate)), "yyyy-MM-dd");
+	    		if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidThroughDate)
+	    			$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidThroughDate = 
+	    		$filter('date')(new Date(Date.parse($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidThroughDate)), "yyyy-MM-dd");
+		    	var prepaidCalMethodType = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemCalculationMethodType;
+	    		if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidFromDate 
+	    			&& $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidThroughDate
+	    			&& $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidFromDate != 'Invalid Date'
+	    			&& $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidThroughDate != 'Invalid Date' 
+	    			&& prepaidCalMethodType) {
+					var fromDate = new Date($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidFromDate);
+					var toDate = new Date($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPaidThroughDate);
+					var diemAmount = 0;
+					var diffDays = 0;
+					if(toDate<fromDate)
+						diffDays = differenceInDays(toDate, fromDate, prepaidCalMethodType) * -1;
+					else 
+						diffDays = differenceInDays(fromDate, toDate, prepaidCalMethodType)
+					diemAmount =  $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount ? $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemPerDiemAmount : +0;
+					$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].bpAtClosing = parseFloat(diemAmount*diffDays);
+	    		}
 		    }
 	    }
     }

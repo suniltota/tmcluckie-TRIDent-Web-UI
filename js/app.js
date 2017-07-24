@@ -47,7 +47,7 @@ app.config(function ($routeProvider, $locationProvider) {
 
     function logUserOut(){
         loginService.logout();
-        return apiService.request({
+        apiService.request({
           apiMethod: "logout",
           httpMethod: 'POST'
         });
