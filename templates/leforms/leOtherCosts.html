@@ -212,7 +212,7 @@
 		      </tr>
               <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType!='HomeownersInsurancePremium' && prepaidsList.prepaidItemType!='MortgageInsurancePremium' && prepaidsList.prepaidItemType!='PrepaidInterest' && prepaidsList.prepaidItemType!='CountyPropertyTax'">
 		        <td>
-		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" >
+		        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.displayLabel" >
 		        </td>
 		        <td>
 		            <select class="LabelValue form-control" ng-model="prepaidsList.prepaidItemType" ng-change="updateSectionFprepaidTypes(prepaidsList.prepaidItemType, $index)">
