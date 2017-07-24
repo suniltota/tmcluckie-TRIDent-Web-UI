@@ -2658,6 +2658,23 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalPointsAndFeesAmount);
     }
 
+    $scope.calculateLateCharge = function()
+	{
+		$("#spinner").show();
+    	cdService.lateChargeRuleFromJson($scope.cdformdata).success(function(lateChargeResponseData){
+			localStorage.jsonData = JSON.stringify(lateChargeResponseData);
+			initializeCDformData();
+			$("#spinner").hide();
+		}).error( function(data, status){
+			if(data && data.message) 
+				$scope.errorMsg = data.message;
+			else
+				$scope.errorMsg = "We have encountered an error in late charge service.";
+	    	$('#ErrorModalPopup').modal('show');
+    		$("#spinner").hide();
+    	});
+	}
+
     $scope.calculatePayments = function() {
     	$("#spinner").show();
     	cdService.calculatePaymentsFromJson($scope.cdformdata).success(function(calculationsData){
