@@ -607,9 +607,9 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 									<span class="input-group-addon input-default">%</span>
 								</span>
 							</span>
-							<span class="col-sm-2 fieldTitle">Duration</span> 
-							<span class="col-sm-3"> 
-								<actualize-input ng-model="leformdata.miPremium[0].miPremiumRateDurationMonthsCount" name="miFirstFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
+							<span class="col-sm-3 fieldTitle">Duration in Months</span> 
+							<span class="col-sm-2"> 
+								<actualize-input ng-model="leformdata.miPremium[0].miPremiumRateDurationMonthsCount" name="miFirstFactorPercentage" toolTipPos="top" maxlength="3" dependencies="only-digits">
 								</actualize-input>
 							</span>
 					</div>
@@ -623,9 +623,9 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 									class="input-group-addon input-default">%</span>
 							</span>
 							</span>
-							<span class="col-sm-2 fieldTitle">Duration</span> 
-							<span class="col-sm-3"> 
-									<actualize-input ng-model="leformdata.miPremium[1].miPremiumRateDurationMonthsCount" name="miSecondFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
+							<span class="col-sm-3 fieldTitle">Duration in Months</span> 
+							<span class="col-sm-2"> 
+									<actualize-input ng-model="leformdata.miPremium[1].miPremiumRateDurationMonthsCount" name="miSecondFactorPercentage" toolTipPos="top" maxlength="3" dependencies="only-digits">
 								</actualize-input>
 							</span>
 					</div>
@@ -639,9 +639,9 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 									<span class="input-group-addon input-default">%</span>
 								</span>
 						</span>
-						<span class="col-sm-2 fieldTitle">Duration</span> 
-						<span class="col-sm-3">
-							<actualize-input ng-model="leformdata.miPremium[2].miPremiumRateDurationMonthsCount" name="miThirdFactorPercentage" toolTipPos="top" min-val="0" max-val="3" dependencies="min-and-max-check">
+						<span class="col-sm-3 fieldTitle">Duration in Months</span> 
+						<span class="col-sm-2">
+							<actualize-input ng-model="leformdata.miPremium[2].miPremiumRateDurationMonthsCount" name="miThirdFactorPercentage" toolTipPos="top" maxlength="3" dependencies="only-digits">
 								</actualize-input>
 							</span>
 					</div>

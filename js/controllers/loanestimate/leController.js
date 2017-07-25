@@ -240,6 +240,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             
 		}
 
+		$scope.leformdata.loanTerms.prepaymentPenalty['prepaymentPenaltyExpirationInYears'] = '';
+        if($scope.leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount)
+            $scope.leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears = Math.round($scope.leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount/12);
+
 		if(!$scope.leformdata.miPremium || $scope.leformdata.miPremium.length==0) 
 			$scope.leformdata['miPremium'] = angular.copy(staticData.leformdata.miPremium);
 
@@ -949,6 +953,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     			$scope.leformdata.loanDetail.paymentIncreaseIndicator = false;
     		}
     		$scope.leformdata.loanInformation.fixedPeriodMonths = '';
+    		$scope.leformdata.interestRateAdjustment.firstRateChangeMonthsCount = '';
     		$scope.leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = '';
     		$scope.leformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = '';
     		$scope.leformdata.interestRateAdjustment.ceilingRatePercent = '';
