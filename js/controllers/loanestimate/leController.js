@@ -251,6 +251,33 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
         $scope.leformdata.miPremium[1].miPremiumPeriodType='Second';
         $scope.leformdata.miPremium[2].miPremiumPeriodType='Third';
 
+        //Closing Costs Default Values
+        $scope.leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers = parseFloat($scope.leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers ? $scope.leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers : +0);
+	    
+	    $scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers ? $scope.leformdata.closingCostDetailsLoanCosts.tlCosts.paidByOthers : +0);
+        
+	    if(!$scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount || $scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount==null){
+        	$scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount ? $scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount : +0);
+        }else{
+        	$scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount ? $scope.leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount : +0);
+        }
+
+        if(!$scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount || $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount==null){
+        	$scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount : +0); 
+        }else{
+        	$scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount = parseFloat($scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount ? $scope.leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount : +0); 
+        }
+		
+		if(!$scope.leformdata.closingCostsTotal.totalClosingCosts || $scope.leformdata.closingCostsTotal.totalClosingCosts==null){
+           $scope.leformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.leformdata.closingCostsTotal.totalClosingCosts ? $scope.leformdata.closingCostsTotal.totalClosingCosts : +0);
+		}else{
+           $scope.leformdata.closingCostsTotal.totalClosingCosts = parseFloat($scope.leformdata.closingCostsTotal.totalClosingCosts ? $scope.leformdata.closingCostsTotal.totalClosingCosts : +0);
+		}
+
+		if(!$scope.leformdata.closingCostsTotal.lenderCredits){
+           $scope.leformdata.closingCostsTotal.lenderCredits = parseFloat($scope.leformdata.closingCostsTotal.lenderCredits ? $scope.leformdata.closingCostsTotal.lenderCredits : +0);
+		}
+
 		//Calculating Cash To Closes Default Values
 
         $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount =  $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount ? $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount : +0;
