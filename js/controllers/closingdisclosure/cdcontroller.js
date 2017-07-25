@@ -236,6 +236,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         	$scope.cdformdata.closingDisclosureDocDetails.formType = 'AlternateForm';
         }
 
+        if($scope.loanBasicInfo.loanPurposeType=='purchase'){
+        	if($scope.cdformdata.transactionInformation.sellerDetails.length==0){
+        		$scope.cdformdata.transactionInformation.sellerDetails.push(angular.copy(seller));
+        	}
+        }
+
         //Closing Costs Default Values
 
         if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length==0){
