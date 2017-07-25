@@ -1435,6 +1435,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     			$scope.cdformdata.loanDetail.paymentIncreaseIndicator = false;
     		}
     		$scope.cdformdata.loanInformation.fixedPeriodMonths = '';
+    		$scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount = '';
     		$scope.cdformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount = '';
     		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeRateAdjustmentFrequencyMonthsCount = '';
     		$scope.cdformdata.interestRateAdjustment.ceilingRatePercent = '';
