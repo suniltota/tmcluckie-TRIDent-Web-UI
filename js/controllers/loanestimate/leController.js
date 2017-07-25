@@ -243,13 +243,13 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		if(!$scope.leformdata.miPremium || $scope.leformdata.miPremium.length==0) 
 			$scope.leformdata['miPremium'] = angular.copy(staticData.leformdata.miPremium);
 
-		for(var i=$scope.cdformdata.miPremium.length; i<3; i++){
-			$scope.cdformdata.miPremium.push(angular.copy(miPremium));
+		for(var i=$scope.leformdata.miPremium.length; i<3; i++){
+			$scope.leformdata.miPremium.push(angular.copy(miPremium));
 		}
 
-		$scope.cdformdata.miPremium[0].miPremiumPeriodType='First';
-        $scope.cdformdata.miPremium[1].miPremiumPeriodType='Second';
-        $scope.cdformdata.miPremium[2].miPremiumPeriodType='Third';
+		$scope.leformdata.miPremium[0].miPremiumPeriodType='First';
+        $scope.leformdata.miPremium[1].miPremiumPeriodType='Second';
+        $scope.leformdata.miPremium[2].miPremiumPeriodType='Third';
 
 		//Calculating Cash To Closes Default Values
 
