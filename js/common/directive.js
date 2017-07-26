@@ -851,6 +851,10 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
             element.on('blur', function (e) {
                 var dateVal = e.target.value;
                 var minDateVal = scope.$eval(attr.minDate);
+                var targetVal = new Date(dateVal);
+                var targetmindate = new Date(minDateVal);
+                var shortTargetVal = targetVal.toLocaleDateString();
+                var shortTargetmindate = targetmindate.toLocaleDateString();
 
                 if(dateVal) {
                   if(!(regexp.test(dateVal) && !isNaN(Date.parse(dateVal)))) {
@@ -859,7 +863,11 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
                     message = "The date format is not valid. Valid Format is: MM/DD/YYYY";
                     scope.$apply();
                   }else{
-                  if(new Date(dateVal) < new Date(minDateVal)){
+                    if(shortTargetVal < shortTargetmindate && attr.name == "disbursementDate"){
+                    e.currentTarget.style.border="1px solid #f17777"
+                    message = "date cannot occur prior to Closing Date";
+                    scope.$apply();
+                  } else if(shortTargetVal < shortTargetmindate){
                     e.currentTarget.style.border="1px solid #f17777"
                     message = "date cannot occur prior to Issue Date";
                     scope.$apply();
