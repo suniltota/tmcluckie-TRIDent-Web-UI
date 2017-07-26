@@ -309,12 +309,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		}
 
 		if($scope.leformdata.loanDetail.interestRateIncreaseIndicator && $scope.leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount) {
-			$scope.leformdata.interestRateAdjustment['ceilingRatePercentEarliestEffectiveYearCount'] = Math.ceil($scope.leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount/12) + 1;
+			$scope.leformdata.interestRateAdjustment['ceilingRatePercentEarliestEffectiveYearCount'] = Math.ceil((parseInt($scope.leformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount)+1)/12);
 		} else {
 			$scope.leformdata.interestRateAdjustment['ceilingRatePercentEarliestEffectiveYearCount'] = '';
 		}
 		if($scope.leformdata.loanDetail.paymentIncreaseIndicator && $scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount) {
-			$scope.leformdata.principalAndInterestPaymentAdjustment['principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount'] = Math.ceil($scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount/12);
+			$scope.leformdata.principalAndInterestPaymentAdjustment['principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount'] = Math.ceil(parseInt($scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount)/12);
 		} else {
 			$scope.leformdata.principalAndInterestPaymentAdjustment['principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount'] = '';
 		}
