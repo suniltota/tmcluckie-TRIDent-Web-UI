@@ -11,6 +11,7 @@
   <meta content="utf-8" http-equiv="encoding">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel='stylesheet' href='css/actualize.css'>
+  <link href="css/pdf_viewer.css" rel="stylesheet"/>
   <link href="css/pdfSlider.css" rel="stylesheet">
   <link href="css/treeView.css" rel="stylesheet">
   <link href="css/XMLDisplay.css" rel="stylesheet">
@@ -43,6 +44,23 @@
   <script>document.write("<script type='text/javascript' src='js/controllers/homeController.js?v=" + Date.now() + "'><\/script>");</script>
   <script>document.write("<script type='text/javascript' src='js/controllers/closingdisclosure/cdcontroller.js?v=" + Date.now() + "'><\/script>");</script>
   <script>document.write("<script type='text/javascript' src='js/controllers/loanestimate/leController.js?v=" + Date.now() + "'><\/script>");</script>
+
+   <!-- Pdf scripts -->
+    <!-- <script src="https://npmcdn.com/pdfjs-dist/web/compatibility.js"></script> -->
+    <script type="text/javascript">
+      var isIE = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
+        if (isIE == true){
+           document.write("<script type='text/javascript' src='js/externalLib/pdfViewer/pdf.js'><\/script>");
+           document.write("<script type='text/javascript' src='js/externalLib/pdfViewer/pdf_viewer.js'><\/script>");
+        }else{
+            document.write("<script type='text/javascript' src='js/externalLib/pdfViewer/pdfSlider.js'><\/script>");
+        }
+
+    </script>
+    <!--<script src="js/externalLib/pdfViewer/pdfSlider.js"></script>
+    <script src="js/externalLib/pdfViewer/pdf.js"></script>
+    <script src="js/externalLib/pdfViewer/pdf_viewer.js"></script>
+-->
 
     
     <script>

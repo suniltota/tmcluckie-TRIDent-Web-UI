@@ -1,7 +1,7 @@
 /**
  * Controller for transform function
  */
-app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $location, $anchorScroll, staticData, cdService) {
+app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $location, $rootScope, $anchorScroll, staticData, cdService) {
 
 	if(localStorage.loanPurposeType != undefined) {
 		staticData.basicLoanInfo.loanPurposeType = localStorage.loanPurposeType;
@@ -2762,16 +2762,74 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	});
     }
 
-    $scope.generatePDF = function(){
+  //   $scope.generatePDF = function(){
+  //   	$("#spinner").show();
+  //   	cdService.generatePDFFromJson($scope.cdformdata).success(function(pdfData) {
+  //   		if(pdfData!=null && pdfData.length>0){
+		// 		$("#pdfViewerId").show();
+		// 		$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
+		// 		$("#carousel").pdfSlider('init');
+		// 		$("#carousel").show();
+		// 		$(".PDFCloseIcon").show();
+		// 	}
+		// 	$("#spinner").hide();
+  //   	}).error( function(data, status){
+  //   		$("#spinner").hide();
+  //   		$scope.errorMsg = "We have encountered an error in PDF service.";
+	 //    	$('#ErrorModalPopup').modal('show');
+  //   	});
+  //   }
+  //   $scope.closePDF = function(){
+		// $("#carousel").pdfSlider('destroy');
+		// $(".PDFCloseIcon").hide();
+  //   }
+  $scope.generatePDF = function(){
     	$("#spinner").show();
     	cdService.generatePDFFromJson($scope.cdformdata).success(function(pdfData) {
-    		if(pdfData!=null && pdfData.length>0){
-				$("#pdfViewerId").show();
-				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
-				$("#carousel").pdfSlider('init');
+		 $scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
+			if(pdfData!=null){
+    			var isIE = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
+				if (isIE == true){
+					$("#commonPdf").html('');
+				 $("#pdfViewerId").show();
+				 $(".PDFDownloadIcon").show();
+				$rootScope.pdfDataForIE=pdfData[0].responseData;
 				$("#carousel").show();
+				var pdfData1 = atob(''+pdfData[0].responseData+'');
+				var loadingTask = PDFJS.getDocument({data: pdfData1});
+ 				var container = document.getElementById('carousel');
+				loadingTask.promise.then(function(pdf) {
+					var promise = Promise.resolve();
+  					for (var i = 0; i < pdf.numPages; i++) {
+    					promise = promise.then(function (id) {
+     					return pdf.getPage(id + 1).then(function (pdfPage) {
+							var SCALE = 1.0; 
+							var pdfPageView = new PDFJS.PDFPageView({
+						      container: container,
+						      id: id,
+						      scale: SCALE,
+						      defaultViewport: pdfPage.getViewport(SCALE),
+						      textLayerFactory: new PDFJS.DefaultTextLayerFactory(),
+						      annotationLayerFactory: new PDFJS.DefaultAnnotationLayerFactory()
+						    });
+						    pdfPageView.setPdfPage(pdfPage);
+						    return pdfPageView.draw();        
+						      });
+						    }.bind(null, i));
+						  }
+						  return promise;
+					 	}), function (reason) {
+						  console.error(reason);
+						};
 				$(".PDFCloseIcon").show();
 			}
+			else{
+				$("#iePdf").html('');
+				$("#pdfViewerId").show();
+				$("#carousel").pdfSlider('init');
+				$("#carousel").show();
+				$(".PDFCloseIcon").show();}
+	      }
 			$("#spinner").hide();
     	}).error( function(data, status){
     		$("#spinner").hide();
@@ -2780,8 +2838,29 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	});
     }
     $scope.closePDF = function(){
-		$("#carousel").pdfSlider('destroy');
-		$(".PDFCloseIcon").hide();
+    	var isIE = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
+				if (isIE == true){
+						 $("#carousel").html("");
+ 			 			$("#carousel").hide();
+ 			 			$("#closePDFdiv").hide();
+ 			 			$(".PDFDownloadIcon").hide();
+				}else{
+			        $("#carousel").pdfSlider('destroy');
+			        $(".PDFCloseIcon").hide();
+			        }		
+    }
+    $scope.downloadPDF =function(){
+    		    var pdfDataForIE = $rootScope.pdfDataForIE;
+				var fileName = "ClosingDisclosureID";
+				    var byteCharacters = atob(pdfDataForIE);
+				    var byteNumbers = new Array(byteCharacters.length);
+				    for (var i = 0; i < byteCharacters.length; i++) {
+				        byteNumbers[i] = byteCharacters.charCodeAt(i);
+				    }
+				    var byteArray = new Uint8Array(byteNumbers);
+				    var blob = new Blob([byteArray], {type: 'application/pdf'});
+				    window.navigator.msSaveOrOpenBlob(blob, fileName);
+
     }
 
     $scope.generateXML = function(embeddedPDF){
