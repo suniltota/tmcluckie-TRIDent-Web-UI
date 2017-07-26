@@ -294,9 +294,17 @@
     </div>
   </div>
   <div id="pdfViewerId">
-    <span class="glyphicon glyphicon-remove-circle PDFCloseIcon" ng-click="closePDF()"></span>
-    <div id="carousel" style="display: none;">
-      <object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="original"></object>
+    <div id="iePdf">
+        <span  id="downloadPDFdiv" class="glyphicon glyphicon-download PDFDownloadIcon" ng-click="downloadPDF()"></span>
+        <span  id="closePDFdiv" class="glyphicon glyphicon-remove-circle PDFCloseIcon" ng-click="closePDF()"></span>
+        <div id="carousel" style="display: none;overflow-y: scroll;">
+        </div>    
+    </div>
+    <div id="commonPdf">
+        <span class="glyphicon glyphicon-remove-circle PDFCloseIcon" ng-click="closePDF()"></span>
+        <div id="carousel" style="display: none;">
+          <object data="{{pdfAsDataUri}}" type="application/pdf" data-caption="ClosingDisclosure"></object>
+        </div>
     </div>
   </div>
   <div id="xmlView" style="display: none;" dynamic-height>
