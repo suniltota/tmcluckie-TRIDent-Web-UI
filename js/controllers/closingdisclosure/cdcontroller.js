@@ -338,7 +338,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.interestRateAdjustment['ceilingRatePercentEarliestEffectiveYearCount'] = '';
 		}
 		if($scope.cdformdata.loanDetail.paymentIncreaseIndicator && $scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount) {
-			$scope.cdformdata.principalAndInterestPaymentAdjustment['principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount'] = Math.ceil($scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount/12);
+			$scope.cdformdata.principalAndInterestPaymentAdjustment['principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount'] = Math.ceil(parseInt($scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount)/12);
 		} else {
 			$scope.cdformdata.principalAndInterestPaymentAdjustment['principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount'] = '';
 		}
