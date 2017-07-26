@@ -960,6 +960,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     		$scope.leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent = '';
     		$scope.leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent = '';
     		$scope.leformdata.interestRateAdjustment.floorRatePercent = '';
+    		$scope.leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = '';
+    		$scope.leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount='';
+    		$scope.leformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount='';
+
     	} else {
     		if($scope.leformdata.loanInformation.amortizationType == 'Step') {
     			$scope.stepPaymentIndicatorValue = true;

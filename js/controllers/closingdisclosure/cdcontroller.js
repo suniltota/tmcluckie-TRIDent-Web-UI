@@ -1442,6 +1442,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent = '';
     		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent = '';
     		$scope.cdformdata.interestRateAdjustment.floorRatePercent = '';
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = '';
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount='';
+    		$scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount='';
+
     	} else {
     		if($scope.cdformdata.loanInformation.amortizationType == 'Step') {
     			$scope.stepPaymentIndicatorValue = true;
