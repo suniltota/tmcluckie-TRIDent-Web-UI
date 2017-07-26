@@ -333,7 +333,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		    $scope.cdformdata.loanInformation.automatedUnderwritings.push(angular.copy(ausTypeIdentifier));
 		}
 		if($scope.cdformdata.loanDetail.interestRateIncreaseIndicator && $scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount) {
-			$scope.cdformdata.interestRateAdjustment['ceilingRatePercentEarliestEffectiveYearCount'] = Math.ceil($scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount/12) + 1;
+			$scope.cdformdata.interestRateAdjustment['ceilingRatePercentEarliestEffectiveYearCount'] = Math.ceil((parseInt($scope.cdformdata.interestRateAdjustment.ceilingRatePercentEarliestEffectiveMonthsCount)+1)/12);
 		} else {
 			$scope.cdformdata.interestRateAdjustment['ceilingRatePercentEarliestEffectiveYearCount'] = '';
 		}
