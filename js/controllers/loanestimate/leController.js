@@ -2372,7 +2372,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
                   "liabilityHolderFullName": payoffObj.paidToFullName,
                   "payoffAmount": payoffObj.payoffAmount,
                   "partialPayoffIndicator" : (payoffObj.partialPayoffIndicator ? true : false),
-                  "payoffPrepaymentPenaltyAmount": payoffObj.payoffPrepaymentPenaltyAmount
+                  "payoffPrepaymentPenaltyAmount": payoffObj.prepaymentPenaltyAmount
                 };
                 $scope.leformdata.liabilityList.push(liabilityObj);
             } 

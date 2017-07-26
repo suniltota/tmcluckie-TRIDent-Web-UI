@@ -4571,7 +4571,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
                   "liabilityHolderFullName": payoffObj.paidToFullName,
                   "payoffAmount": payoffObj.payoffAmount,
                   "partialPayoffIndicator" : (payoffObj.partialPayoffIndicator ? true : false),
-                  "payoffPrepaymentPenaltyAmount": payoffObj.payoffPrepaymentPenaltyAmount
+                  "payoffPrepaymentPenaltyAmount": payoffObj.prepaymentPenaltyAmount
                 };
                 $scope.cdformdata.liabilityList.push(liabilityObj);
             } 

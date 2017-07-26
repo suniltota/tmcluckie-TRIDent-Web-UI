@@ -65,15 +65,13 @@
 			        </div>
 			        </td>
 			       <td>
-			            <select class="form-control pull-left" ng-model="payoffsAndPayment.securedIndicator" ng-disabled="payoffsAndPayment.payOffType!='Liability'">
-			            <option value="" selected>Select</option>
-			        	<option  ng-repeat="option in dropDownBooleanOptions" value="{{option.id}}">{{option.name}}</option>
+			            <select class="form-control pull-left" ng-model="payoffsAndPayment.securedIndicator" ng-disabled="payoffsAndPayment.payOffType!='Liability'" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+			            	<option value="" selected>Select</option>
 		        	    </select>
 			        </td>
 			        <td>
-			        	<select class="form-control pull-left" ng-model="payoffsAndPayment.payoffPartialIndicator" ng-disabled="payoffsAndPayment.payOffType!='Liability'">
-			        	<option value="" selected>Select</option>
-			        	<option  ng-repeat="option in dropDownBooleanOptions" value="{{option.id}}">{{option.name}}</option>
+			        	<select class="form-control pull-left" ng-model="payoffsAndPayment.payoffPartialIndicator" ng-disabled="payoffsAndPayment.payOffType!='Liability'" ng-options="option.id as option.name for option in dropDownBooleanOptions">
+			        		<option value="" selected>Select</option>
 		        	    </select>
 			        </td>
 			        <td>
