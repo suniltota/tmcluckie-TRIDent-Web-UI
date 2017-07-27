@@ -1683,53 +1683,48 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	leService.generatePDFFromJson($scope.leformdata).success(function(pdfData) {
     		if(pdfData!=null){
     			var isIE = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
-				if (isIE == true){
-					 var pdfDataForIE;
-				    var fileName = "ClosingDisclosureID";
-				    var byteCharacters ;
-				    var byteNumbers;
-				    var byteArray ;
-				    var blob ;
+				if (isIE == true){	
+					$rootScope.pdfDataForIE=''+pdfData.responseData+'';
+					var pdfData1 = atob(''+pdfData.responseData+'');
+					var loadingTask = PDFJS.getDocument({data: pdfData1});
+	 				var container = document.getElementById('carousel');
+					loadingTask.promise.then(function(pdf) {
+						var promise = Promise.resolve();
+	  					for (var i = 0; i < pdf.numPages; i++) {
+	    					promise = promise.then(function (id) {
+		     					return pdf.getPage(id + 1).then(function (pdfPage) {
+									var SCALE = 1.0; 
+									var pdfPageView = new PDFJS.PDFPageView({
+								      container: container,
+								      id: id,
+								      scale: SCALE,
+								      defaultViewport: pdfPage.getViewport(SCALE),
+								      textLayerFactory: new PDFJS.DefaultTextLayerFactory(),
+								      annotationLayerFactory: new PDFJS.DefaultAnnotationLayerFactory()
+								    });
+								    pdfPageView.setPdfPage(pdfPage);
+								    return pdfPageView.draw();        
+								});
+							}.bind(null, i));
+						}
+						return promise;
+					}), function (reason) {
+					  	console.error(reason);
+					};
 					$("#commonPdf").html('');
-				 $("#pdfViewerId").show();
-				 $(".PDFDownloadIcon").show();
-				$rootScope.pdfDataForIE=''+pdfData.responseData+'';
-				$("#carousel").show();
-				var pdfData1 = atob(''+pdfData.responseData+'');
-				var loadingTask = PDFJS.getDocument({data: pdfData1});
- 				var container = document.getElementById('carousel');
-				loadingTask.promise.then(function(pdf) {
-					var promise = Promise.resolve();
-  					for (var i = 0; i < pdf.numPages; i++) {
-    					promise = promise.then(function (id) {
-     					return pdf.getPage(id + 1).then(function (pdfPage) {
-							var SCALE = 1.0; 
-							var pdfPageView = new PDFJS.PDFPageView({
-						      container: container,
-						      id: id,
-						      scale: SCALE,
-						      defaultViewport: pdfPage.getViewport(SCALE),
-						      textLayerFactory: new PDFJS.DefaultTextLayerFactory(),
-						      annotationLayerFactory: new PDFJS.DefaultAnnotationLayerFactory()
-						    });
-						    pdfPageView.setPdfPage(pdfPage);
-						    return pdfPageView.draw();        
-						      });
-						    }.bind(null, i));
-						  }
-						  return promise;
-					 	}), function (reason) {
-						  console.error(reason);
-						};
-				$(".PDFCloseIcon").show();
-			} else{
-				$("#iePdf").html('');
-				$("#pdfViewerId").show();
-				$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData.responseData;
-				$("#carousel").pdfSlider('init');
-				$("#carousel").show();
-				$(".PDFCloseIcon").show();}
-	      }
+					$("#pdfViewerId").show();
+					$(".PDFDownloadIcon").show();
+					$("#carousel").show();
+					$(".PDFCloseIcon").show();
+				} else{
+					$("#iePdf").html('');
+					$("#pdfViewerId").show();
+					$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData.responseData;
+					$("#carousel").pdfSlider('init');
+					$("#carousel").show();
+					$(".PDFCloseIcon").show();
+				}
+		    }
 			$("#spinner").hide();
     	}).error( function(data, status){
     		$("#spinner").hide();
@@ -1740,32 +1735,30 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 
     $scope.closePDF = function(){
     	var isIE = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
-				
-				if (isIE == true){
-						 $("#carousel").html("");
- 			 			$("#carousel").hide();
- 			 			$("#closePDFdiv").hide();
- 			 			$(".PDFDownloadIcon").hide();
-				}else{
-			        $("#carousel").pdfSlider('destroy');
-			        $(".PDFCloseIcon").hide();
-			        }		
+		if (isIE == true){
+			$("#carousel").html("");
+ 			$("#carousel").hide();
+ 			$("#closePDFdiv").hide();
+ 			$(".PDFDownloadIcon").hide();
+		}else{
+        	$("#carousel").pdfSlider('destroy');
+        	$(".PDFCloseIcon").hide();
+        }		
     }
 
-     $scope.downloadPDF =function(){
-				    var blob = new Blob([ _base64ToArrayBuffer()], {type: 'application/pdf'});
-				    var fileName = "LoanEstimate_"+new Date().getTime()+".pdf";
-				    saveAs(blob, fileName); 
-				    var pdfDataForIE = $rootScope.pdfDataForIE;
-				    var byteCharacters = atob(pdfDataForIE);
-				    var byteNumbers = new Array(byteCharacters.length);
-				    for (var i = 0; i < byteCharacters.length; i++) {
-				        byteNumbers[i] = byteCharacters.charCodeAt(i);
-				    }
-				    var byteArray = new Uint8Array(byteNumbers);
-				    var blob = new Blob([byteArray], {type: 'application/pdf'});
-				    window.navigator.msSaveOrOpenBlob(blob, fileName);
-   }
+    $scope.downloadPDF =function(){
+	    var pdfDataForIE = $rootScope.pdfDataForIE;
+		var fileName = "LoanEstimate_"+new Date().getTime()+".pdf";
+	    var byteCharacters = atob(pdfDataForIE);
+	    var byteNumbers = new Array(byteCharacters.length);
+	    for (var i = 0; i < byteCharacters.length; i++) {
+	        byteNumbers[i] = byteCharacters.charCodeAt(i);
+	    }
+	    var byteArray = new Uint8Array(byteNumbers);
+	    var blob = new Blob([byteArray], {type: 'application/pdf'});
+	    window.navigator.msSaveOrOpenBlob(blob, fileName);
+    }
+
     $scope.changePropertyValueAmount = function() {
         if($scope.leformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised') {
             $scope.leformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount = '';

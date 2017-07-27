@@ -2762,28 +2762,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     	});
     }
 
-  //   $scope.generatePDF = function(){
-  //   	$("#spinner").show();
-  //   	cdService.generatePDFFromJson($scope.cdformdata).success(function(pdfData) {
-  //   		if(pdfData!=null && pdfData.length>0){
-		// 		$("#pdfViewerId").show();
-		// 		$scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
-		// 		$("#carousel").pdfSlider('init');
-		// 		$("#carousel").show();
-		// 		$(".PDFCloseIcon").show();
-		// 	}
-		// 	$("#spinner").hide();
-  //   	}).error( function(data, status){
-  //   		$("#spinner").hide();
-  //   		$scope.errorMsg = "We have encountered an error in PDF service.";
-	 //    	$('#ErrorModalPopup').modal('show');
-  //   	});
-  //   }
-  //   $scope.closePDF = function(){
-		// $("#carousel").pdfSlider('destroy');
-		// $(".PDFCloseIcon").hide();
-  //   }
-  $scope.generatePDF = function(){
+  	$scope.generatePDF = function(){
     	$("#spinner").show();
     	cdService.generatePDFFromJson($scope.cdformdata).success(function(pdfData) {
 		 $scope.pdfAsDataUri = "data:application/pdf;base64,"+pdfData[0].responseData;
@@ -2791,8 +2770,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     			var isIE = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
 				if (isIE == true){
 					$("#commonPdf").html('');
-				 $("#pdfViewerId").show();
-				 $(".PDFDownloadIcon").show();
+				 	$("#pdfViewerId").show();
+				 	$(".PDFDownloadIcon").show();
 				$rootScope.pdfDataForIE=pdfData[0].responseData;
 				$("#carousel").show();
 				var pdfData1 = atob(''+pdfData[0].responseData+'');
@@ -2839,28 +2818,27 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
     $scope.closePDF = function(){
     	var isIE = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
-				if (isIE == true){
-						 $("#carousel").html("");
- 			 			$("#carousel").hide();
- 			 			$("#closePDFdiv").hide();
- 			 			$(".PDFDownloadIcon").hide();
-				}else{
-			        $("#carousel").pdfSlider('destroy');
-			        $(".PDFCloseIcon").hide();
-			        }		
+		if (isIE == true){
+		 	$("#carousel").html("");
+ 			$("#carousel").hide();
+ 			$("#closePDFdiv").hide();
+ 			$(".PDFDownloadIcon").hide();
+		} else {
+	        $("#carousel").pdfSlider('destroy');
+	        $(".PDFCloseIcon").hide();
+	    }		
     }
     $scope.downloadPDF =function(){
-    		    var pdfDataForIE = $rootScope.pdfDataForIE;
-				var fileName = "ClosingDisclosureID";
-				    var byteCharacters = atob(pdfDataForIE);
-				    var byteNumbers = new Array(byteCharacters.length);
-				    for (var i = 0; i < byteCharacters.length; i++) {
-				        byteNumbers[i] = byteCharacters.charCodeAt(i);
-				    }
-				    var byteArray = new Uint8Array(byteNumbers);
-				    var blob = new Blob([byteArray], {type: 'application/pdf'});
-				    window.navigator.msSaveOrOpenBlob(blob, fileName);
-
+	    var pdfDataForIE = $rootScope.pdfDataForIE;
+		var fileName = "ClosingDisclosure_"+new Date().getTime()+".pdf";
+	    var byteCharacters = atob(pdfDataForIE);
+	    var byteNumbers = new Array(byteCharacters.length);
+	    for (var i = 0; i < byteCharacters.length; i++) {
+	        byteNumbers[i] = byteCharacters.charCodeAt(i);
+	    }
+	    var byteArray = new Uint8Array(byteNumbers);
+	    var blob = new Blob([byteArray], {type: 'application/pdf'});
+	    window.navigator.msSaveOrOpenBlob(blob, fileName);
     }
 
     $scope.generateXML = function(embeddedPDF){
