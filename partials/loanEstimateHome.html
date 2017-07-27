@@ -53,9 +53,9 @@
                       </li>
                     </ul>
               </li>
-              <li>
+              <!-- <li>
                    <span href="" class="pagenumber" ng-class="{'active': showTab == 'PayoffsAndPayments'}" ng-click="changeTab('PayoffsAndPayments')" ng-show="loanBasicInfo.loanFormType=='alternate'">Payoffs And Payments </span> 
-              </li>
+              </li> -->
               <li class="demoListMenus">Disclosures
                     <ul>
                       <li>
@@ -189,12 +189,12 @@
                       </li>
                   </ul>
           </li>
-          <li>
+          <!-- <li>
               <span class="pageno pageicon" ng-class="{'active': showTab == 'PayoffsAndPayments'}" data-toggle="tooltip" ng-click="showTab = 'PayoffsAndPayments'"  data-placement="right" title="Payoffs And Payments" ng-show="loanBasicInfo.loanFormType=='alternate'">
                 <span class="glyphicon glyphicon-file pull-left"></span>
                 <span class="pull-left noTitle">PP</span>
               </span>
-          </li>
+          </li> -->
           <li>
                   <span class="pageno pageHead active pageicon"  data-toggle="tooltip" ng-class="{'active': showTab == 'PayoffsAndPayments'}"  data-placement="right" title="Disclosures">
                       <span class="glyphicon glyphicon-folder-open pull-left"></span> 
@@ -270,7 +270,7 @@
             <div ng-show="showTab == 'LoanCosts'" ng-include='"templates/leforms/leLoanCosts.html"'></div>
             <div ng-show="showTab == 'OtherCosts'" ng-include='"templates/leforms/leOtherCosts.html"'></div>
             <div ng-show="showTab == 'TotalClosingCosts'" ng-include='"templates/leforms/leTotalClosingCosts.html"'></div>
-            <div ng-show="showTab == 'PayoffsAndPayments'" ng-include='"templates/leforms/lePayoffsAndPaymentsAlternateForm.html"'></div>
+            <!-- <div ng-show="showTab == 'PayoffsAndPayments'" ng-include='"templates/leforms/lePayoffsAndPaymentsAlternateForm.html"'></div> -->
             <div ng-show="showTab == 'LoanCals'" ng-include='"templates/leforms/leLoanCalsOtherDisclosure.html"'></div>
             <div ng-show="showTab == 'LeConfReceipt'" ng-include='"templates/leforms/leConfirmReceipt.html"'></div>
             <div ng-show="showTab == 'ContactInfo'" ng-include='"templates/leforms/leContactInformation.html"'></div>
