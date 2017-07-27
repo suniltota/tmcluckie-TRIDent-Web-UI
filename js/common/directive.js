@@ -851,10 +851,6 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
             element.on('blur', function (e) {
                 var dateVal = e.target.value;
                 var minDateVal = scope.$eval(attr.minDate);
-                var targetVal = new Date(dateVal);
-                var targetmindate = new Date(minDateVal);
-                var shortTargetVal = targetVal.toLocaleDateString();
-                var shortTargetmindate = targetmindate.toLocaleDateString();
 
                 if(dateVal) {
                   if(!(regexp.test(dateVal) && !isNaN(Date.parse(dateVal)))) {
@@ -863,20 +859,27 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
                     message = "The date format is not valid. Valid Format is: MM/DD/YYYY";
                     scope.$apply();
                   }else{
-                    if(shortTargetVal < shortTargetmindate && attr.name == "disbursementDate"){
-                    e.currentTarget.style.border="1px solid #f17777"
-                    message = "date cannot occur prior to Closing Date";
-                    scope.$apply();
-                  } else if(shortTargetVal < shortTargetmindate){
-                    e.currentTarget.style.border="1px solid #f17777"
-                    message = "date cannot occur prior to Issue Date";
-                    scope.$apply();
-                  } else {
-                    $parse(attr.ngModel).assign(scope, $filter('date')(new Date(Date.parse(dateVal)), xmlDateFormat));
-                    e.currentTarget.style.border=""
-                    message = "";
-                    scope.$apply();
-                  }
+                    dateVal = dateVal.replace(/(\d\d)\/(\d\d)\/(\d{4})/, "$3-$1-$2");
+                    var targetVal = new Date(dateVal);
+                    var targetmindate = new Date(minDateVal);
+                    if(targetVal < targetmindate && attr.name == "disbursementDate"){
+                      e.currentTarget.style.border="1px solid #f17777"
+                      message = "date cannot occur prior to Closing Date";
+                      scope.$apply();
+                    } else if(targetVal < targetmindate && attr.name == "closingDate"){
+                      e.currentTarget.style.border="1px solid #f17777"
+                      message = "date cannot occur prior to Issued Date";
+                      scope.$apply();
+                    } else if(targetVal < targetmindate){
+                      e.currentTarget.style.border="1px solid #f17777"
+                      message = "date cannot occur prior to "+$filter('date')(targetmindate, viewDateFormat);
+                      scope.$apply();
+                    } else {
+                      $parse(attr.ngModel).assign(scope, $filter('date')(new Date(Date.parse(dateVal)), xmlDateFormat));
+                      e.currentTarget.style.border=""
+                      message = "";
+                      scope.$apply();
+                    }
                   }
                   scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
                   $compile(element.contents())(scope);
