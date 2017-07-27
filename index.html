@@ -22,7 +22,6 @@
   <script src="js/externalLib/angular/angular-sanitize.min.js"></script>
 	<script src="js/externalLib/bootstrap/bootstrap.min.js"></script>
   <script src="js/externalLib/bootstrap/ui-bootstrap-tpls-0.14.3.min.js"></script>
-  <script src="js/externalLib/pdfViewer/pdfSlider.js"></script>
   <script src="js/externalLib/vkbeautify.0.9.beta.js"></script>
   <script src="js/externalLib/treeView/jquery.sapling.js"></script>
   <script src="js/externalLib/slider/jquery.custom-scrollbar.js"></script>
@@ -46,41 +45,29 @@
   <script>document.write("<script type='text/javascript' src='js/controllers/loanestimate/leController.js?v=" + Date.now() + "'><\/script>");</script>
 
    <!-- Pdf scripts -->
-    <!-- <script src="https://npmcdn.com/pdfjs-dist/web/compatibility.js"></script> -->
-    <script type="text/javascript">
+  <script type="text/javascript">
       var isIE = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
-        if (isIE == true){
-           document.write("<script type='text/javascript' src='js/externalLib/pdfViewer/pdf.js'><\/script>");
-           document.write("<script type='text/javascript' src='js/externalLib/pdfViewer/pdf_viewer.js'><\/script>");
-        }else{
-            document.write("<script type='text/javascript' src='js/externalLib/pdfViewer/pdfSlider.js'><\/script>");
-        }
+      if (isIE == true){
+         document.write("<script type='text/javascript' src='js/externalLib/pdfViewer/pdf.js'><\/script>");
+         document.write("<script type='text/javascript' src='js/externalLib/pdfViewer/pdf_viewer.js'><\/script>");
+      } else {
+          document.write("<script type='text/javascript' src='js/externalLib/pdfViewer/pdfSlider.js'><\/script>");
+      }
 
-    </script>
-    <!--<script src="js/externalLib/pdfViewer/pdfSlider.js"></script>
-    <script src="js/externalLib/pdfViewer/pdf.js"></script>
-    <script src="js/externalLib/pdfViewer/pdf_viewer.js"></script>
--->
+      function openNav() {
+          $("#mySidenav").width("15%");
+          $(".SidebarBtns").hide();
+          $(".PageformHeader").css("left","15%");
+          $(".PageformHeader").width("85%");
+      }
 
-    
-    <script>
-function openNav() {
-    $("#mySidenav").width("15%");
-    //$("#transparent").show();
-    $(".SidebarBtns").hide();
-    $(".PageformHeader").css("left","15%");
-    $(".PageformHeader").width("85%");
-}
-
-function closeNav() {
-    $("#mySidenav").width("0");
-   // $("#transparent").hide();
-    $(".SidebarBtns").show();
-    $(".PageformHeader").width("96%");
-    $(".PageformHeader").css("left","4%");
-}
-
-</script>
+      function closeNav() {
+          $("#mySidenav").width("0");
+          $(".SidebarBtns").show();
+          $(".PageformHeader").width("96%");
+          $(".PageformHeader").css("left","4%");
+      }
+  </script>
 </head>
 <body ng-app="actualizeWebApp" key-capture>
   <div class="col-lg-12 col-md-12 col-sm-12" style="padding: 0px;">
