@@ -30,7 +30,7 @@
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
-		        		<li>This amount (increased or decreased), ensure the word increased or decreased </li>
+		        		<li>{{cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemChangeDescription}}</li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -53,7 +53,7 @@
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
-		        		<li>See Total Loan Costs (D) And Total Other Costs (I)</li>
+		        		<li>{{cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemChangeDescription}}</li>
 		        		<li ng-show="cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount">Increase exceeds legal limits by {{cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount | number:2}}</li>
 		        		<li>See Lender credits  on page 2 for credit of excess amount.</li>
 		        	</ul>
@@ -78,7 +78,7 @@
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
-		        		<li>See Total Loan Costs (D) And Total Other Costs (I)</li>
+		        		<li>{{cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemChangeDescription}}</li>
 		        		<li ng-show="cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount !=0.00 && cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount != '' ">Increase exceeds legal limits by {{cdformdata.closingCostsTotal.lenderCreditToleranceCureAmount | number:2}}</li>
 		        		<li>See Lender credits  on page 2 for credit of excess amount.</li>
 		        	</ul>
@@ -109,7 +109,7 @@
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show=" cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
-		        		<li>You paid these closing costs before closing</li>
+		        		<li>{{cdformdata.cashToCloses.closingCostsPaidBeforeClosing.integratedDisclosureCashToCloseItemChangeDescription}}</li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -136,7 +136,7 @@
 		        </td>
 		        <td>
                     <ul class="ListChain" ng-show="cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
-		        		<li>You included these closing costs in the loan amount, which you (increased or decreased) the loan amount</li>
+		        		<li>{{cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemChangeDescription}}</li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -162,7 +162,7 @@
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemAmountChangedIndicator == true ">
-		        		<li>You (increased or decreased) this payment. See Details in Section K.</li>
+		        		<li>{{cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemChangeDescription}}</li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -185,7 +185,7 @@
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
-		        		<li>You (increased or decreased) this payment. See Details in Section L</li>
+		        		<li>{{cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemChangeDescription}}</li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -211,7 +211,7 @@
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
-		        		<li>Your available funds from the loan amount have (increased or decreased)</li>
+		        		<li>{{cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemChangeDescription}}</li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -234,7 +234,7 @@
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
-		        		<li>See Seller Credits in Section L</li>
+		        		<li>{{cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemChangeDescription}}</li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -260,7 +260,7 @@
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
-		        		<li>See Details in Section K and L</li>
+		        		<li>{{cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemChangeDescription}}</li>
 		        	</ul>
 		        </td>
 		      </tr>
@@ -286,7 +286,7 @@
 		        </td>
 		        <td>
 		        	<ul class="ListChain" ng-show="cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemAmountChangedIndicator == true">
-		        		<li>See requirements to the left for al specified bullet verbiage.</li>
+		        		<li>{{cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemChangeDescription}}</li>
 		        	</ul>
 		        </td>
 		      </tr>
