@@ -1496,6 +1496,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	        }
 	    }
     }
+
+    $scope.amortizationBalloonChange = function(){
+        $scope.cdformdata.loanInformation.loanAmortizationPeriodCount='';
+    }
 	
     $scope.interestOnlyTermMonthsCountChange = function(){
         if($scope.cdformdata.interestOnly.interestOnlyTermMonthsCount){
@@ -1602,6 +1606,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.balloonIndicatorChange = function() {
     	$scope.cdformdata.balloonPeriodType = '';
  		$scope.cdformdata.balloonPeriodCount = '';
+ 		$scope.cdformdata.loanInformation.loanAmortizationPeriodType='';
+ 		$scope.cdformdata.loanInformation.loanAmortizationPeriodCount='';
     }
 
 	$scope.updateETIAComponentTypes = function(value, index) {

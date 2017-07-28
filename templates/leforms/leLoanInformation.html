@@ -405,7 +405,7 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 						<div class="col-sm-2 padding0">
 							<select class="form-control"
 								ng-model="leformdata.loanInformation.loanAmortizationPeriodType"
-								ng-disabled="!leformdata.loanDetail.balloonIndicator">
+								ng-disabled="!leformdata.loanDetail.balloonIndicator" ng-change="amortizationBalloonChange()">
 								<option value="" selected>Select</option>
 								<option ng-repeat="loanMaturityType in loanMaturityPeriodTypes"
 									value="{{loanMaturityType.value}}">{{loanMaturityType.name}}</option>
@@ -424,7 +424,7 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 							<div class="col-sm-2 padding0">
 								<input type="text" class="form-control" name=""
 									ng-model="leformdata.loanInformation.loanAmortizationPeriodCount"
-									only-digits maxlength="3">
+									only-digits maxlength="3" ng-disabled="leformdata.loanInformation.loanAmortizationPeriodType==''">
 							</div>
 						</div>
 					</div>

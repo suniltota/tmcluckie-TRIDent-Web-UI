@@ -1015,6 +1015,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    }
     }
     
+    $scope.amortizationBalloonChange = function(){
+        $scope.leformdata.loanInformation.loanAmortizationPeriodCount='';
+    }
+
     $scope.interestOnlyTermMonthsCountChange = function(){
         if($scope.leformdata.interestOnly.interestOnlyTermMonthsCount){
         	$scope.leformdata.interestOnlyValue = $scope.leformdata.interestOnly.interestOnlyTermMonthsCount%12 == 0 ? ($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12)+1 : Math.ceil($scope.leformdata.interestOnly.interestOnlyTermMonthsCount/12);
@@ -1300,6 +1304,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.balloonIndicatorChange = function() {
     	$scope.leformdata.balloonPeriodType = '';
  		$scope.leformdata.balloonPeriodCount = '';
+ 		$scope.leformdata.loanInformation.loanAmortizationPeriodType='';
+ 		$scope.leformdata.loanInformation.loanAmortizationPeriodCount='';
     }
 
     $scope.stepChange = function(val){
