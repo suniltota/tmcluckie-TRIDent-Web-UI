@@ -221,6 +221,20 @@
   overflow: hidden;
 }
 
+.pdfSlider_rootContainer>div :nth-child(2) {
+        height:0px !important;
+        color:#525659 !important;
+        background-color: #525659 !important;
+}
+#commonPdf>div :nth-child(1) > div :nth-child(2) >div :nth-child(2){
+        height:0px !important;
+        color:#525659 !important;
+        background-color: #525659 !important;
+}
+.pdfSlider_rootContainer>div :nth-child(2) >div :nth-child(1)>li{
+  display: none;
+}
+
 .pdfViewer .page {
   direction: ltr;
   width: 816px;
