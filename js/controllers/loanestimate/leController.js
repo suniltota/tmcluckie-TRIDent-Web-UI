@@ -1891,13 +1891,34 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             }
         }else{
             if(parseInt(hours[0])==12){
-            	_utc.setHours(parseInt(hours[0]) + 12);
+            	_utc.setHours(00);
             }else{
             	_utc.setHours(parseInt(hours[0]));
             }
         }
         _utc.setMinutes(parseInt(hours[1]));
     $scope.leformdata.loanProduct.lock.lockExpirationDatetime=$filter('date')(_utc, "yyyy-MM-ddTHH:mm:ss'Z'");
+    }else if(rateLokedDate1 != undefined && rateLockedTime1 != undefined
+            && rateLokedDate1.length != 0 && rateLockedTime1.length != 0){
+        var hours =rateLockedTime1.split(':');
+        var _utc = new Date(rateLokedDate1);
+        if(rateLockedTimePeriod1 == 'PM'){
+        	if(parseInt(hours[0])!=12){
+            	_utc.setHours(parseInt(hours[0]) + 12);
+            }else{
+            	_utc.setHours(parseInt(hours[0]));
+            }
+        }else{
+            if(parseInt(hours[0])==12){
+            	_utc.setHours(00);
+            }else{
+            	_utc.setHours(parseInt(hours[0]));
+            }
+        }
+        _utc.setMinutes(parseInt(hours[1]));
+    $scope.leformdata.loanProduct.lock.lockExpirationDatetime=$filter('date')(_utc, "yyyy-MM-ddTHH:mm:ss'Z'");
+    }else{
+    	$scope.leformdata.loanProduct.lock.lockExpirationDatetime=$filter('date')(rateLokedDate1, "MM/dd/yyyy");
     }
     $scope.leformdata.loanProduct.lock.lockExpirationTimezoneType=$scope.leformdata.loanInformation.rateLockedTimeZone;
     $scope.leformdata.maturityRule.loanMaturityPeriodType = 'Month';
