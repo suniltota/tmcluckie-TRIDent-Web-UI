@@ -539,6 +539,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[0].displayLabel = 'Loan Amount (Points)';
 				i--;
 	       	}
+	       	if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feePaidToType==''){
+	       		$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feePaidToType='Lender';
+	       	}
 	       	if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.AfeeTypes.indexOf($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType)==-1)
 				$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.AfeeTypes.push($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType);
 		};
@@ -546,11 +549,20 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.length; i++){
 			if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.BfeeTypes.indexOf($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType)==-1)
 				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors.BfeeTypes.push($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feeType);
+		    
+		    if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feePaidToType==''){
+	       		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidNotShopFors[i].feePaidToType='ThirdPartyProvider';
+	       	}
 		};
 
 		for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.length; i++){
 			if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.CfeeTypes.indexOf($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType)==-1)
 				$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors.CfeeTypes.push($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feeType);
+		    
+		    if($scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feePaidToType==''){
+	       		$scope.cdformdata.closingCostDetailsLoanCosts.sbDidShopFors[i].feePaidToType='ThirdPartyProvider';
+	       	}
+   
 		};
 		$scope.recordingFeetotalObj = {
 	        "bpAtClosing": "",
@@ -579,14 +591,23 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType=='') {
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
 				i--;
+				if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToType==''){
+					$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToType='ThirdPartyProvider';
+				}
 			} else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForDeed') {
 				$scope.recordingFeetotalObj.recordingFeeForDeed = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeActualTotalAmount;
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
 				i--;
+				if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToType==''){
+					$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToType='ThirdPartyProvider';
+				}
 			} else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeForMortgage') {
 				$scope.recordingFeetotalObj.recordingFeeForMortgage = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeActualTotalAmount;
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
 				i--;
+				if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToType==''){
+					$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToType='ThirdPartyProvider';
+				}
 			} else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType == 'RecordingFeeTotal') {
 				$scope.recordingFeetotalObj.bpAtClosing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpAtClosing;
 				$scope.recordingFeetotalObj.bpB4Closing = $scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].bpB4Closing;
@@ -604,6 +625,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.recordingFeetotalObj.integratedDisclosureSectionType = 'TaxesAndOtherGovernmentFees';
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.splice(i,1);
 				i--;
+				if($scope.recordingFeetotalObj.feePaidToType==''){
+					$scope.recordingFeetotalObj.feePaidToType='ThirdPartyProvider';
+				}
 			} else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType)==-1) {
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.push($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType);
 			}
@@ -656,18 +680,30 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0] = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
 				i--;
+				if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].feePaidToType==''){
+					$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[0].feePaidToType='Lender';
+				}
 	       	} else if (i!=1 && $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'HomeownersInsurancePremium') {
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1] = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
 				i--;
+				if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1].feePaidToType==''){
+					$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[1].feePaidToType='ThirdPartyProvider';
+				}
 	       	} else if (i!=2 && $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'MortgageInsurancePremium') {
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[2] = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
 				i--;
+				if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[2].feePaidToType==''){
+					$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[2].feePaidToType='ThirdPartyProvider';
+				}
 	       	} else if (i!=3 && $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'CountyPropertyTax') {
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[3] = $scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.splice(i, 1);
 				i--;
+				if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[3].feePaidToType==''){
+					$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[3].feePaidToType='ThirdPartyProvider';
+				}
 	       	}
 
 	       	if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.FprepaidTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType)==-1)
@@ -700,14 +736,23 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[0] = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(i, 1);
 				i--;
+				if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[0].feePaidToType==''){
+					$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[0].feePaidToType='ThirdPartyProvider';
+				}
 	       	} else if (i!=1 && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType == 'MortgageInsurance') {
 				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[1] = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(i, 1);
 				i--;
+				if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[1].feePaidToType==''){
+					$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[1].feePaidToType='ThirdPartyProvider';
+				}
 	       	} else if (i!=2 && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType == 'CountyPropertyTax') {
 				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[2] = $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i];
 				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.splice(i, 1);
 				i--;
+				if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[2].feePaidToType==''){
+					$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[2].feePaidToType='ThirdPartyProvider';
+				}
 	       	}
 	       	if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.GescrowTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType)==-1)
 				$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.GescrowTypes.push($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType);
