@@ -3957,6 +3957,16 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				} 
 		    }
 
+        	if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'MortgageInsurancePremium'){
+		    	if($scope.cdformdata.miDataDetail.miCompanyNameType){
+		    		if($scope.cdformdata.miDataDetail.miCompanyNameType!='Other'){
+        				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidPaidToFullName = $scope.cdformdata.miDataDetail.miCompanyNameType;
+		    		}else{
+        				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidPaidToFullName = $scope.cdformdata.miDataDetail.miCompanyNameTypeOtherDescription;
+		    		}
+        		}
+	        }
+
 		    if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator==null){
             	$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].paymentIncludedInAPRIndicator='';
             }
@@ -5335,6 +5345,20 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
            $scope.cdformdata.contactInformation.settlementAgent.partyRoleType = 'ClosingAgent';
     	}
 
+    },true);
+
+     $scope.$watch('cdformdata.miDataDetail',function(newValue,oldValue){
+        if($scope.cdformdata.miDataDetail.miCompanyNameType){
+        	for(i=0;i<$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList.length;i++){
+        		if($scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidItemType == 'MortgageInsurancePremium'){
+        			if($scope.cdformdata.miDataDetail.miCompanyNameType!='Other'){
+        				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidPaidToFullName = $scope.cdformdata.miDataDetail.miCompanyNameType;
+		    		}else{
+        				$scope.cdformdata.closingCostDetailsOtherCosts.prepaidsList[i].prepaidPaidToFullName = $scope.cdformdata.miDataDetail.miCompanyNameTypeOtherDescription;
+		    		}
+        		}
+        	}
+        }
     },true);
 
     $scope.renderHelpText = function(elementName) {
