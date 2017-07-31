@@ -443,6 +443,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			}
 		};
 
+		if($scope.cdformdata.etiaSection.etiaValues.length>3){
+			for(i=0; i<$scope.cdformdata.etiaSection.etiaValues.length; i++){
+                if($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == ''){
+                	$scope.cdformdata.etiaSection.etiaValues.splice(i, 1);
+                }
+			}
+		}
+
         $scope.insuranceCheck = {"insuranceTaxCheck" :false};
 	    for(i=0;i<$scope.cdformdata.etiaSection.etiaValues.length;i++){
 	    	if($scope.cdformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' 

@@ -438,6 +438,14 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 			}
 		};
 
+		if($scope.leformdata.etiaSection.etiaValues.length>3){
+			for(i=0; i<$scope.leformdata.etiaSection.etiaValues.length; i++){
+                if($scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType == ''){
+                	$scope.leformdata.etiaSection.etiaValues.splice(i, 1);
+                }
+			}
+		}
+
 		$scope.insuranceCheck = {"insuranceTaxCheck" :false};
 	    for(i=0;i<$scope.leformdata.etiaSection.etiaValues.length;i++){
 	    	if($scope.leformdata.etiaSection.etiaValues[i].projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' 
