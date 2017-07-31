@@ -619,7 +619,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				if($scope.recordingFeetotalObj.feePaidToType==''){
 					$scope.recordingFeetotalObj.feePaidToType='ThirdPartyProvider';
 				}
-			} else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType)==-1) {
+			} else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType = 'TransferTaxTotal'){
+                if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToType==''){
+                	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feePaidToType = 'ThirdPartyProvider';
+                }
+			}else if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.indexOf($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType)==-1) {
 				$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.EfeeTypes.push($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType);
 			}
 		}
