@@ -233,7 +233,7 @@ ul li{list-style: none;}
 .panel-body{padding: 0;}
 .CDHeaderSection{width: 100%; margin-top: 10px;}
 .PDFview{background: #adadad; float: left; width: 100%;}
-.PDFview > span{width:98%; margin:10px 1%; padding:20px 0; float: left; min-height: 96%; background: #fff;}
+.PDFview > span{width:98%; margin:10px 1% 20px 1%; padding:20px 0; float: left; background: #fff;}
 .CDHeaderSection .fieldTitle{padding:8px; font-weight: bold;}
 .CDHeaderSection .FieldGroup{padding: 5px 0; width: 100%; float: left;}
 .innerSectionHeader{background:#5bb1dc; padding:7px 10px; color: #fff; border-radius:2px;}

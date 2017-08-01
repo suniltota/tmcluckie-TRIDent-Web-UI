@@ -26,6 +26,19 @@ app.directive('dynamicHeightMin', function ($window) {
     }
 });
 
+app.directive('dynamicHeightMinPageView', function ($window) {
+    return {
+        compile: function (element) {
+            var $e = angular.element(element);
+            var $w = angular.element($window);
+            $e.css("min-height", ($window.innerHeight - 130) + "px");
+            $w.on("resize", function () {
+                $e.css("min-height", ($window.innerHeight) - 130 + "px");
+            })
+        }
+    }
+});
+
 app.directive('pdfWidth', function ($window) {
     return {
         compile: function (element) {
