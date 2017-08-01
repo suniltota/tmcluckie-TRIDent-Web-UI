@@ -21,8 +21,12 @@
 		        </th>
 		      </tr>
 		      <tr>
-		        <td><label>Principal &amp; Interest Payment 
-			</label><help-verbiage name="LE_PrincipalandInterestPayment_Help" title="help_tooltip_text"></help-verbiage></td>
+		        <td>
+		        <span class="pull-left"><label>Principal &amp; Interest Payment </label></span>
+		        <span class="pull-left" style="position: relative; padding-left: 15px;">
+				<help-verbiage name="LE_PrincipalandInterestPayment_Help" title="help_tooltip_padding"></help-verbiage>
+			</span>
+			</td>
 		        <td ng-repeat="principalInterest in leformdata.projectedPayments.principalInterest track by $index">
 		        	<div class="col-sm-6 padding0" style="padding-right:8px;">
 		        			<div class="col-sm-12 text-center" style="position:relative;">Minimum	<span class="pull-right" style="right:-10px; position:absolute; top:-2px;">-</span>
@@ -118,8 +122,10 @@
   				</td>
 		      </tr>
 		      <tr>
-		        <td><label>Escrow Payment Amount
-				</label> <help-verbiage name="LE_EscrowPaymentAmount_help" title="help_tooltip_text"></help-verbiage>
+		        <td><span class="pull-left" ><label>Escrow Payment Amount</label></span> 
+				<span class="pull-left" style="position: relative; padding-left: 15px;">
+				<help-verbiage name="LE_EscrowPaymentAmount_help" title="help_tooltip_padding"></help-verbiage>
+				</span>
 		        </td>
 		        <td ng-repeat="estimatedEscrow in leformdata.projectedPayments.estimatedEscrow track by $index">
 		        	<div class="input-group">
@@ -130,7 +136,10 @@
 		      </tr>
 		      <tr>
 		      <td>
-		        	<label><span class="pull-left margin5tb">Estimated Total</span><help-verbiage name="Le_EstimatedTotalMonthlyPaymentAmount_help" title="help_tooltip_text"></help-verbiage>
+		        	<label><span class="pull-left margin5tb">Estimated Total</span>
+		        	<span class="pull-left" style="position: relative; padding-left: 15px;">
+		        	<help-verbiage name="Le_EstimatedTotalMonthlyPaymentAmount_help" title="help_tooltip_padding"></help-verbiage>
+		        	</span>
 			        		<!-- <select class="form-control"
 			        		ng-model="leformdata.projectedPayments.paymentFrequencyType">
 				        		<option value="" selected>Select</option>
