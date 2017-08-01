@@ -4441,7 +4441,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			  if(estimatedLoanAmount>finalLoanAmount){
 					$scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemChangeDescription='This amount Decreased';
 				}else if(estimatedLoanAmount<finalLoanAmount){
-					$scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemChangeDescription='This amount Increased';
+					$scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemChangeDescription='This amount increased';
 				}
 		    }
 		}else {
