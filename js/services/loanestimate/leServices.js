@@ -70,5 +70,12 @@ app.service('leService', function(apiService){
             httpMethod: 'POST',
             formData:data
         });
+    },
+    this.lateChargeRuleFromJson = function(data) {
+        return apiService.request({
+            apiMethod: "actualize/transformx/le/v1/calculateLateCharge",
+            httpMethod: 'POST',
+            formData:data
+        });
     }
 });

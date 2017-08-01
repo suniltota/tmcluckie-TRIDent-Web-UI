@@ -1664,6 +1664,21 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	}
     }
 
+	$scope.calculateLateCharge = function(){
+		$("#spinner").show();
+    	leService.lateChargeRuleFromJson($scope.leformdata).success(function(lateChargeResponseData){
+			localStorage.jsonData = JSON.stringify(lateChargeResponseData);
+			initializeLEformdata();
+			$("#spinner").hide();
+		}).error( function(data, status){
+			if(data && data.message) 
+				$scope.errorMsg = data.message;
+			else
+				$scope.errorMsg = "We have encountered an error in late charge service.";
+	    	$('#ErrorModalPopup').modal('show');
+    		$("#spinner").hide();
+    	});
+	}
     $scope.calculatePayments = function() {
     	$("#spinner").show();
     	leService.calculatePaymentsFromJson($scope.leformdata).success(function(calculationsData){
