@@ -26,19 +26,6 @@ app.directive('dynamicHeightMin', function ($window) {
     }
 });
 
-app.directive('dynamicHeightMinPageView', function ($window) {
-    return {
-        compile: function (element) {
-            var $e = angular.element(element);
-            var $w = angular.element($window);
-            $e.css("min-height", ($window.innerHeight - 130) + "px");
-            $w.on("resize", function () {
-                $e.css("min-height", ($window.innerHeight) - 130 + "px");
-            })
-        }
-    }
-});
-
 app.directive('pdfWidth', function ($window) {
     return {
         compile: function (element) {
@@ -440,6 +427,76 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
                 var decimalSplitValues = digits.split('.');
                 if(decimalSplitValues[0].length>9)
                   decimalSplitValues[0] = decimalSplitValues[0].substring(0, 9);
+                viewValue = $filter('number')(decimalSplitValues[0]);                           
+                if (decimalSplitValues[1]!="" && decimalSplitValues[1].length > 2) {
+                  decimalSplitValues[1] = decimalSplitValues[1].substring(0, 2);
+                  viewValue = viewValue + "." +decimalSplitValues[1];
+                } else if(decimalSplitValues[1].length == 2 || decimalSplitValues[1].length < 2){
+                   viewValue = viewValue + "." + decimalSplitValues[1];
+                } else {
+                  viewValue = viewValue + ".";
+                }
+                   digits = decimalSplitValues[0] + "." +decimalSplitValues[1];
+            } else {
+              if( digits.length>9)
+                digits = digits.substring(0, 9);
+              viewValue = $filter('number')(digits);
+            }
+            ctrl.$setViewValue(viewValue);
+            ctrl.$render();
+            return parseFloat(digits).toFixed(2);
+          }
+          return undefined;
+        }            
+        ctrl.$parsers.push(inputValue);
+
+        element.on('blur', function (e) {
+            var elementValue = e.target.value;
+            if(elementValue) {
+              elementValue = elementValue.replace(/[^0-9.]/g, '');
+              e.target.value = $filter('number')(elementValue);
+            
+            }
+        });
+      }
+    };
+});
+
+///
+app.directive('decimalDigitsWithNumberFormatRound', function ($compile, $filter) {
+     return {
+      require: 'ngModel',
+      restrict: 'A',
+      link: function (scope, element, attr, ctrl) {
+
+         var allowedInput = false;
+           var message = "";
+        if (!ctrl) {
+            return;
+        }
+  
+        ctrl.$formatters.push(function () {
+            if(ctrl.$modelValue)
+              return $filter('number')(Math.round(ctrl.$modelValue));
+            else
+              return Math.round(ctrl.$modelValue);
+           
+        });
+        function inputValue(val) {
+          if (val) {
+            if(isFloat(val)==true){
+               val=val.toString();
+              var digits = val.replace(/[^0-9.]/g, '');
+            } else{
+              var digits = val.replace(/[^0-9.]/g, '');
+            }
+            
+            var isContainsDecimal = digits.indexOf(".");
+            var viewValue = "";
+            if(isContainsDecimal != -1) {
+                var decimalSplitValues = digits.split('.');
+                if(decimalSplitValues[0].length>9)
+                  decimalSplitValues[0] = decimalSplitValues[0].substring(0, 9);
                 viewValue = $filter('number')(decimalSplitValues[0]);
                             
                 if (decimalSplitValues[1]!="" && decimalSplitValues[1].length > 2) {
@@ -467,7 +524,14 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
           }
           return undefined;
         }            
+        function isFloat(n) {
+          return n === +n && n !== (n|0);
+          }
+          function isInteger(n) {
+            return n === +n && n === (n|0);
+          }
         ctrl.$parsers.push(inputValue);
+        ctrl.$formatters.push(inputValue);
 
         element.on('blur', function (e) {
             var elementValue = e.target.value;
@@ -485,7 +549,7 @@ app.directive('decimalDigitsWithNumberFormat', function ($compile, $filter) {
     };
 });
 
-
+///
 app.directive('decimalDigitsWithNumberFormatAllowNegative', function ($compile, $filter) {
      return {
       require: 'ngModel',

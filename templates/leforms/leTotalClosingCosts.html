@@ -9,7 +9,7 @@
                 	 <help-verbiage name="LE_SectionJHeaderName_help" 
                 	title="help_tooltip_text"></help-verbiage>
                 </th>	  	
-				<th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader col-sm-8" > ${{leformdata.closingCostsTotal.totalClosingCosts | number:2}}
+				<th style="border:1px solid white;" class="innerSectionHeader innerSectionMainHeader col-sm-8" > ${{leformdata.closingCostsTotal.totalClosingCosts | round}}
 				<help-verbiage name="LE_SectionJTotalAmount_help" 
                 	title="help_tooltip_text"></help-verbiage>
 				</th>
@@ -19,7 +19,7 @@
                 <help-verbiage name="LE_SectionJSubSectionHeaderName_help" 
                 	title="help_tooltip_text"></help-verbiage>
 				</td>
-				<td>${{leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers | number:2}}</td>
+				<td>${{leformdata.closingCostsTotal.closingCostsSubtotal.paidByOthers | round}}</td>
 			  </tr>
               <tr>
                 <td class="col-sm-2"><strong>Lender Credits</strong>

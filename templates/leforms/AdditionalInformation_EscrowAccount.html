@@ -18,7 +18,7 @@
 		        	Escrowed Property Costs over Year 1
 		        </td>
 		        <td>
-		        	<label>${{leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount | number:2}}</label>
+		        	<label>${{leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount | round}}</label>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> Escrowed Property Costs includes </span>
@@ -32,7 +32,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control" name="" ng-model="leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control" name="" ng-model="leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentAmount" decimal-digits-with-number-format-round>
 		        </div>
 		        </td>
 		        <td>
@@ -44,7 +44,7 @@
 		        	Escrow waiver Fee
 		        </td>
 		        <td>
-		        	<label>${{escrowWaiverFeeAmount | number:2}}</label>
+		        	<label>${{escrowWaiverFeeAmount | round}}</label>
 		        	<!-- <label ng-repeat="ShopFors in leformdata.closingCostDetailsLoanCosts.sbDidShopFors" ng-if="ShopFors.feeType=='EscrowWaiverFee' && ShopFors.feeActualTotalAmount!=''">${{ShopFors.feeActualTotalAmount}}</label> -->
 		        </td>
 		        <td>
@@ -58,7 +58,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control" name="" ng-model="leformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount" decimal-digits-with-number-format ng-keyup="nonEscrowCalc(leformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount)" ng-blur="nonEscrowCalc(leformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount)">
+		        	<input type="text" class="form-control" name="" ng-model="leformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount" decimal-digits-with-number-format-round ng-keyup="nonEscrowCalc(leformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount)" ng-blur="nonEscrowCalc(leformdata.integratedDisclosureDetail.firstYearTotalNonEscrowPaymentAmount)">
 		        </div>
 		        </td>
 		        <td>
@@ -71,7 +71,7 @@
 		        	Initial Escrow Payment  
 		        </td>
 		        <td>
-		        	<label>${{leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount | number:2}}</label>
+		        	<label>${{leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount | round}}</label>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> A cushion for the escrow account see </span>
@@ -83,7 +83,7 @@
 		        	Monthly Escrow Payment  
 		        </td>
 		        <td>
-		        	<label>${{leformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount | number:2}}</label>
+		        	<label>${{leformdata.projectedPayments.estimatedEscrow[0].projectedPaymentEstimatedEscrowPaymentAmount | round}}</label>
 		        </td>
 		        <td>
 		        	<span class="col-sm-12"> The amount included in your total monthly payment, see </span>

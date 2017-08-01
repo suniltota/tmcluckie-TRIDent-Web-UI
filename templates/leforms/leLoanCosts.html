@@ -7,7 +7,7 @@
 				<help-verbiage name="LEClosingCostOriginationChargesSectionHeaderName" title="help_tooltip_text"></help-verbiage>
 
 				</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsLoanCosts.ocTotalAmount | number:2}}
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsLoanCosts.ocTotalAmount | round}}
 				<help-verbiage name="LEClosingCostOriginationChargesSectionTotalAmount" title="help_tooltip_text"></help-verbiage>
 				 </th>				
 			  </tr>
@@ -58,7 +58,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.feeEstimatedTotalAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.feeEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        </div>
 		        </td>
 		        <td>
@@ -94,7 +94,7 @@
 					<help-verbiage name="LEBServicesApplicantDidNotShopForSectionHeaderNameHelp" title="help_tooltip_text"></help-verbiage>
 				</th>
 				
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount | number:2}} 
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsLoanCosts.sbDidNotShopTotalAmount | round}} 
 					<help-verbiage name="LEBServicesApplicantDidNotShopSectionTotalAmountApplicantPaidForHelp" title="help_tooltip_text"></help-verbiage>
 					</th>
 			  </tr>
@@ -132,14 +132,14 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.feeEstimatedTotalAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidNotShopFor.feeEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        </div>
 		        </td>
 		        <td><span class="col-sm-12 padding0">
 		        	<select class="form-control padding0" ng-model="sbDidNotShopFor.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
-					<help-verbiage name="LEBServicesApplicantDidNotShopForIncludeAPRCalculationHelp" title="help_tooltip_padding"></help-verbiage>
+					<help-verbiage name="LEBServicesApplicantDidNotShopForIncludeAPRCalculationHelp" title="help_tooltip_padding_left"></help-verbiage>
 					</span>
 		        </td>
 		        <td>
@@ -167,7 +167,7 @@
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section C. Services Borrower Can Shop For
 				<help-verbiage name="LEServicesApplicantDidShopForSectionheaderNameHelp" title="help_tooltip_text"></help-verbiage>
 				</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | number:2}}
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsLoanCosts.sbDidShopTotalAmount | round}}
 				<help-verbiage name="LEServicesApplicantDidShopForSectionTotalAmountApplicantPaidHelp" title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
@@ -209,7 +209,7 @@
 		        <td>
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
-		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.feeEstimatedTotalAmount" decimal-digits-with-number-format>
+		        	<input type="text" class="form-control"  name="" ng-model="sbDidShopFor.feeEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        </div>
 		        </td>
 		       
@@ -218,7 +218,7 @@
 		        	<select class="form-control padding0" ng-model="sbDidShopFor.paymentIncludedInAPRIndicator"
 		        		ng-options="option.id as option.name for option in dropDownBooleanOptions">
 		        	</select>
-					<help-verbiage name="LEServicesApplicantDidShopForAPRHelp" title="help_tooltip_padding"></help-verbiage>
+					<help-verbiage name="LEServicesApplicantDidShopForAPRHelp" title="help_tooltip_padding_left"></help-verbiage>
 					</span>
 		        </td>
 		        <td>
@@ -242,7 +242,7 @@
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="1" style="width: 56%;">Section D. Total Loan Costs (A + B + C)
 				<help-verbiage name="LETotalLoanCostTotalAmountHelp" title="help_tooltip_text"></help-verbiage>
 				</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1" style="width: 23%;">${{leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | number:2}}
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1" style="width: 23%;">${{leformdata.closingCostDetailsLoanCosts.tlCostsTotalAmount | round}}
 				<help-verbiage name="LETotalLoanCostABCAmountHelp" title="help_tooltip_text"></help-verbiage>
 			</th>
 				<th colspan="3" style="border:none;"></th>

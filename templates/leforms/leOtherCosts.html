@@ -6,7 +6,7 @@
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="1">Section E. Taxes and Other Government Fees 
 				<help-verbiage name="LE_SectionESectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount | number:2}}
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsOtherCosts.tOGovtFeesTotalAmount | round}}
 				<help-verbiage name="LE_SectionESectionTotalAmountApplicantPaid_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
@@ -28,7 +28,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.feeEstimatedTotalAmount" decimal-digits-with-number-format>
+			        	<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.feeEstimatedTotalAmount" decimal-digits-with-number-format-round>
 			        </div>
 		        </td>
 		        <td>
@@ -49,7 +49,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.feeEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="tOGovtFee.feeEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        	</div>
 		        </td>
 		        <td>
@@ -70,7 +70,7 @@
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="3">Section F. Prepaids	
 				<help-verbiage name="LE_SectionFSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount | number:2}}
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsOtherCosts.prepaidsTotalAmount | round}}
 				<help-verbiage name="LE_SectionFSectionTotalAmountPaid_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
@@ -105,7 +105,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        	</div>
 		        </td>
 		        <td>
@@ -131,7 +131,7 @@
 		         <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        	</div>	
 		        </td>
 		      
@@ -156,7 +156,7 @@
                     <div class="col-sm-5 padding0 input-group">
                     <span class="input-group-addon input-default">$</span>
                     <!-- <input type="text" class="form-control width50" name="" ng-model="prepaidsList.prepaidItemPerDiemAmount" ng-blur="perDiemCalc()" ng-keyup="perDiemCalc()"> -->
-                    <actualize-input  ng-model="prepaidsList.prepaidItemPerDiemAmount" name="prepaidItemPerDiemAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format" ng-blur="perDiemCalc()" ng-keyup="perDiemCalc()" style="width: 60px;"></actualize-input>
+                    <actualize-input  ng-model="prepaidsList.prepaidItemPerDiemAmount" name="prepaidItemPerDiemAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format-round" ng-blur="perDiemCalc()" ng-keyup="perDiemCalc()" style="width: 60px;"></actualize-input>
                     </div>
                     </div>
                     <div class="row col-sm-12 paddingtop5">
@@ -170,7 +170,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        	</div>	
 		        </td>
 		        <td>
@@ -198,7 +198,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        	</div>	
 		        </td>
 		        <td>
@@ -235,7 +235,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        	</div>
 		        </td>
 		        <td>
@@ -265,7 +265,7 @@
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="4" id="sectionG_Ecsrow">Section G. Initial Escrow Payment At Closing
 				<help-verbiage name="LE_SectionGSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount | number:2}}
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsOtherCosts.escrowItemsTotalAmount | round}}
 				<help-verbiage name="LE_SectionGSectionTotalAmountPaid_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
@@ -301,7 +301,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" ng-blur="amountPerMonth('0')" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" ng-blur="amountPerMonth('0')" decimal-digits-with-number-format-round>
 		        	</div>
 		        </td>
 		        
@@ -315,7 +315,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        	</div>	
 		        </td>
 		        
@@ -338,7 +338,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('1')">
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format-round ng-blur="amountPerMonth('1')">
 		        	</div>
 		        </td>
 		        <td>
@@ -349,7 +349,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        	</div>
 		        </td>
 		        <td>
@@ -371,7 +371,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth('2')">
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format-round ng-blur="amountPerMonth('2')">
 		        	</div>
 		        </td>
 		        <td>
@@ -383,7 +383,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        	</div>
 		        </td>
 		        <td>
@@ -413,7 +413,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format ng-blur="amountPerMonth($index)">
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowMonthlyPaymentAmount" decimal-digits-with-number-format-round ng-blur="amountPerMonth($index)">
 		        	</div>
 		        </td>
 		        <td>
@@ -425,7 +425,7 @@
 		        <td>
 		        	<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        	</div>
 		        </td>
 		        
@@ -455,7 +455,7 @@
 				<th class="innerSectionHeader innerSectionMainHeader" colspan="2">Section H. Other	
 				<help-verbiage name="LE_SectionHSectionHeaderName_help" title="help_tooltip_text"></help-verbiage>
 				</th>
-				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsOtherCosts.otherTotalAmount | number:2}}
+				<th class="innerSectionHeader innerSectionMainHeader text-center border_left" colspan="1">${{leformdata.closingCostDetailsOtherCosts.otherTotalAmount | round}}
 				<help-verbiage name="LE_SectionHSectionTotalAmountPaid_help" title="help_tooltip_text"></help-verbiage>
 				</th>
 			  </tr>
@@ -504,7 +504,7 @@
 		        <td>
 		       		<div class="input-group">
 						<span class="input-group-addon input-default" style="padding: 3px 3px;">$</span>
-		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.feeEstimatedTotalAmount" decimal-digits-with-number-format>
+		        		<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.feeEstimatedTotalAmount" decimal-digits-with-number-format-round>
 		        	</div>
 		        </td>
 		        <td>
@@ -533,7 +533,7 @@
 				
 				</th>
 				
-				<th class="innerSectionHeader innerSectionMainHeader text-center" >${{leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount | number:2 }}
+				<th class="innerSectionHeader innerSectionMainHeader text-center" >${{leformdata.closingCostDetailsOtherCosts.totalOtherCostsTotalAmount | round }}
 				
 				</th>
 			  </tr>

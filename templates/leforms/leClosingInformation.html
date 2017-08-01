@@ -121,7 +121,7 @@
 	              	<div class="col-sm-7 radioGroup">
 					   	 <div class="input-group">
 							<span class="input-group-addon input-default">$</span>
-	        				<actualize-input name="saleContractAmount" ng-model="leformdata.salesContractDetail.saleContractAmount" dependencies="decimal-digits-with-number-format" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ></actualize-input>
+	        				<actualize-input name="saleContractAmount" ng-model="leformdata.salesContractDetail.saleContractAmount" dependencies="decimal-digits-with-number-format-round" toolTipPos = "top" custommessage="Please enter a valid dollar amount." ></actualize-input>
 	        			</div>
 	        				<help-verbiage name="LE_salesPrice_Help" title="topTooltip"></help-verbiage>
 					</div>
@@ -143,8 +143,8 @@
 		              	<div class="col-sm-5">
 		              		<div class="input-group">
 		  						<span class="input-group-addon input-default">$</span>
-				        		<actualize-input ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'" ng-model="leformdata.closingInformation.propertyValuationDetail.propertyValuationAmount" toolTipPos = "top" name="propertyValuationAmount" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format"></actualize-input>
-				        		<actualize-input ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated'" ng-model="leformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount" name="propertyEstimatedValueAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format"></actualize-input>
+				        		<actualize-input ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Appraised'" ng-model="leformdata.closingInformation.propertyValuationDetail.propertyValuationAmount" toolTipPos = "top" name="propertyValuationAmount" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format-round"></actualize-input>
+				        		<actualize-input ng-show="leformdata.closingInformation.propertyValuationDetail.propertyValue=='Estimated'" ng-model="leformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount" name="propertyEstimatedValueAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount." dependencies="decimal-digits-with-number-format-round"></actualize-input>
 				        		</div>
 				        		<help-verbiage name="LE_AmountOfValue_Help" title="topTooltip"></help-verbiage>
 				        		
