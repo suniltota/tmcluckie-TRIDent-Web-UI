@@ -82,6 +82,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.toleranceCureDrpdwn = false;
     $scope.loanMaturityPeriodTypes = angular.copy(staticData.loanMaturityPeriodTypes);
     $scope.leApplicantAddress = {"slectedPropertyStatus":false};
+    $rootScope.lenderIDForHeader='';
+    $rootScope.applicantLastnameforHeader='';
+    $rootScope.FormTypeForHeader='';
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -157,7 +160,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    	$scope.LoanType = 'Refinance'
 	    }
     }
-
+    $rootScope.FormTypeForHeader=$scope.FormType;
 	var initializeLEformdata = function() {
 
 		$scope.leformdata = angular.copy(staticData.leformdata);
@@ -2621,7 +2624,20 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.$watch('leformdata.salesContractDetail',function(newValue,oldValue){
         cashToclosesCalculations();
     },true);
+    /// Start for Header meta data ///
+    $rootScope.applicantLastnameforHeader=$scope.leformdata.transactionInformation.borrowerDetails[0].nameModel.lastName;
+    $rootScope.lenderIDForHeader=$scope.leformdata.loanInformation.loanIdentifiers[0].loanIdentifier;
 
+    $scope.$watch('leformdata.transactionInformation.borrowerDetails[0].nameModel.lastName',function(newValue,oldValue){
+    	 $rootScope.applicantLastnameforHeader=$scope.leformdata.transactionInformation.borrowerDetails[0].nameModel.lastName;
+    	 $rootScope.lenderIDForHeader=$scope.leformdata.loanInformation.loanIdentifiers[0].loanIdentifier;
+    },true);
+
+    $scope.$watch('leformdata.loanInformation.loanIdentifiers',function(newValue,oldValue){
+    	 $rootScope.lenderIDForHeader=$scope.leformdata.loanInformation.loanIdentifiers[0].loanIdentifier;
+    },true);
+
+    /// End for Header meta data ///
      $scope.SameAsPropertyInformation = function () {     
        if ($scope.leApplicantAddress.slectedPropertyStatus) {
         	this.borrower.address.addressLineText=$scope.leformdata.closingInformation.property.addressLineText;

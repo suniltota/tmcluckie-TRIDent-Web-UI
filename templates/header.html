@@ -19,6 +19,39 @@
                 </span>
             </div>
         </header>
+        <!-- for CD Screen -->
+<div ng-show="documentType=='closingdisclosure'" class="col-sm-6 pull-right" style="color: #b5b5b5 ;cursor: default;margin-top: -21px;">
+    <span class="pull-right" style="margin-left: 15px;">
+        <span style=" font-weight: bold; font-size: 14px;">Borrower Last Name : </span>
+        <span style="">{{applicantLastnameforHeader}}</span>
+    </span>
+    <span class="pull-right" style="margin-left: 15px;">
+        <span style="font-weight: bold;font-size: 14px;">Purpose Type : </span>
+        <span>{{FormTypeForHeader}}</span>
+    </span>
+    
+    <span class="pull-right">
+        <span style="font-weight: bold;font-size: 14px;">Lender ID : </span>
+        <span>{{lenderIDForHeader}}</span>
+    </span>
+</div>
+            <!-- for LE Screen-->
+<div  ng-show="documentType !='closingdisclosure'" class="col-sm-6 pull-right" style="color: #b5b5b5 ;cursor: default;margin-top: -21px;">
+    <span class="pull-right" style="margin-left: 15px;">
+        <span style=" font-weight: bold; font-size: 14px;">Applicant Last Name : </span>
+        <span style="">{{applicantLastnameforHeader}}</span>
+    </span>
+    <span class="pull-right" style="margin-left: 15px;">
+        <span style="font-weight: bold;font-size: 14px;">Purpose Type : </span>
+        <span>{{FormTypeForHeader}}</span>
+    </span>
+    
+    <span class="pull-right">
+        <span style="font-weight: bold;font-size: 14px;">Lender ID : </span>
+        <span>{{lenderIDForHeader}}</span>
+    </span>
+</div>
+        <!-- -->
         <nav class="PageNavigation">
             <ul>
                 <li>

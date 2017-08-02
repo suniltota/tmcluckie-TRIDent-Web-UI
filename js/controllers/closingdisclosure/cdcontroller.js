@@ -82,7 +82,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.results = false;
     $scope.adjustmentsAndProrationsAmountsKSection = 0;
     $scope.adjustmentsAndProrationsAmountsLSection = 0;
-
+    $rootScope.lenderIDForHeader='';
+    $rootScope.applicantLastnameforHeader='';
+    $rootScope.FormTypeForHeader='';
     var cashTocloses = {};
 	var borrower ={};
 	var seller ={};
@@ -249,6 +251,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         	}
         }
 
+        $rootScope.FormTypeForHeader=$scope.cdformdata.closingDisclosureDocDetails.formType;
         //Closing Costs Default Values
 
         if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length==0){
@@ -5471,6 +5474,21 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         	}
         }
     },true);
+
+     /// Start for Header meta data ///
+		    $rootScope.applicantLastnameforHeader=$scope.cdformdata.transactionInformation.borrowerDetails[0].nameModel.lastName;
+		    $rootScope.lenderIDForHeader=$scope.cdformdata.loanInformation.loanIdentifiers[0].loanIdentifier;
+
+		    $scope.$watch('cdformdata.transactionInformation.borrowerDetails[0].nameModel.lastName',function(newValue,oldValue){
+		    	 $rootScope.applicantLastnameforHeader=$scope.cdformdata.transactionInformation.borrowerDetails[0].nameModel.lastName;
+		    	 $rootScope.lenderIDForHeader=$scope.cdformdata.loanInformation.loanIdentifiers[0].loanIdentifier;
+		    },true);
+
+		    $scope.$watch('cdformdata.loanInformation.loanIdentifiers',function(newValue,oldValue){
+		    	 $rootScope.lenderIDForHeader=$scope.cdformdata.loanInformation.loanIdentifiers[0].loanIdentifier;
+		    },true);
+
+    /// End for Header meta data ///
 
     $scope.renderHelpText = function(elementName) {
     	var helpText = $("#"+elementName).html();
