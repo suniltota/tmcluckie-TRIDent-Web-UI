@@ -490,9 +490,9 @@ app.directive('decimalDigitsWithNumberFormatRound', function ($compile, $filter)
   
         ctrl.$formatters.push(function () {
             if(ctrl.$modelValue)
-              return $filter('number')(Math.round(ctrl.$modelValue));
+              return $filter('number')(Math.round(ctrl.$modelValue).toFixed(2));
             else
-              return Math.round(ctrl.$modelValue);
+              return ctrl.$modelValue;
            
         });
         function inputValue(val) {
@@ -756,7 +756,7 @@ app.directive('months2years', function() {
 app.filter('round', function() {
     return function(input) {
       if(input)
-        return Math.round(input);
+        return Math.round(input).toFixed(2);
       else
         return input;
     };
