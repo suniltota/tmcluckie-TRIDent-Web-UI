@@ -241,6 +241,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             
 		}
 
+		$scope.leformdata.contactInformation.lender.name.fullName = $scope.leformdata.contactInformation.lender.name.fullName  ? $scope.leformdata.contactInformation.lender.name.fullName  : $scope.leformdata.contactInformation.lender.name.firstName+' '+$scope.leformdata.contactInformation.lender.name.lastName;
+
 		$scope.leformdata.loanTerms.prepaymentPenalty['prepaymentPenaltyExpirationInYears'] = '';
         if($scope.leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount)
             $scope.leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationInYears = Math.round($scope.leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount/12);
