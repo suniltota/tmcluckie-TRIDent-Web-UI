@@ -2305,7 +2305,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
             }else{
             	//$scope.leformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='NotEscrowed';
             	$scope.leformdata.etiaSection.etiaValues[0].insuranceTaxCheck = false;
-            	$scope.cdformdata.etiaSection.propertyTaxesCheck = false; 
+            	$scope.leformdata.etiaSection.propertyTaxesCheck = false; 
             }
 
              if($scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1){

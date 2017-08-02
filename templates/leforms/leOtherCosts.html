@@ -223,7 +223,7 @@
 	              		<span class="margin10t padding5t col-sm-5 padding0">Description
 	              		<help-verbiage name="LE_SectionFPrepaidTypeOtherDescription_help" title="help_tooltip_text"></help-verbiage>
 					</span>
-			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.feePaidToTypeOtherDescription" >
+			        	<input type="text" class="form-control padding0" name="" ng-model="prepaidsList.prepaidItemTypeOtherDescription" >
 			        </span>
 		        </td>
 		        <td>
@@ -410,6 +410,12 @@
 		        		<option value="" selected>Select</option>
              			<option ng-repeat="escrowItemType in escrowItemTypes" ng-disabled="escrowItemType.disabled" value="{{escrowItemType.value}}">{{escrowItemType.name}}</option>
 		        	</select>
+		        	<span ng-show="escrowItemsList.escrowItemType =='Other'">
+	              		<span class="margin10t padding5t col-sm-5 padding0">Description
+	              		<help-verbiage name="LE_SectionHEscrowItemTypeOtherDescription_help" title="help_tooltip_text"></help-verbiage>
+					</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="escrowItemsList.escrowItemTypeOtherDescription" >
+			        </span>
 		        </td>
 		        <td>
 		        	<div class="input-group">
@@ -492,9 +498,9 @@
 		        	</span>
 		        	<span ng-show="otherCostsList.feeType=='Other'">
 	              		<span class="ValueText col-sm-10">Description
-	              		<help-verbiage name="LE_SectionHSectionFeeTypeOtherDescription_help" title="help_tooltip_text"></help-verbiage>
-					</span>
-			        	<input type="text" class="form-control padding0" name="" name="otherCostsList.feeTypeOtherDescription">
+	              			<help-verbiage name="LE_SectionHSectionFeeTypeOtherDescription_help" title="help_tooltip_text"></help-verbiage>
+						</span>
+			        	<input type="text" class="form-control padding0" name="" ng-model="otherCostsList.feeTypeOtherDescription">
 		        	</span>
 		        	<span class="ValueText col-sm-7">Optional Fee Flag:</span>
 		        	<span class="ValueValue col-sm-5">
