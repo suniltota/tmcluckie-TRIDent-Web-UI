@@ -10,7 +10,7 @@
 						<div class="col-sm-7 padding0 paddingtop7">No. Years</div>
 						<div class="col-sm-5 padding0">
 							<actualize-input name="loanTermYears"
-								ng-model="leformdata.loanInformation.loanTermYears"
+								ng-model="leformdata.loanInformation.loanTermYears" maxlength="2"
 								custommessage="Please enter a valid whole number" min-val="1" max-val="40"
 								dependencies="only-digits min-max-value"> </actualize-input>
 							<help-verbiage name="LE_LoanTermNoOfYears_help"
@@ -22,7 +22,7 @@
 						<div class="col-sm-5 padding0 form-group">
 							<actualize-input name="loanTermMonths"
 								ng-model="leformdata.loanInformation.loanTermMonths"
-								toolTipPos="top"
+								toolTipPos="top" maxlength="3"
 								custommessage="Please enter a valid whole number"
 								dependencies="only-digits"> </actualize-input>
 							<help-verbiage name="LE_LoanTermNoOfMonths_help"
@@ -175,8 +175,8 @@
 						Product Description <span class="required">*</span>
 					</div>
 					<div class="col-sm-7">
-						<input type="text" class="form-control" name=""
-							ng-model="leformdata.integratedDisclosureDetail.integratedDisclosureLoanProductDescription">
+							<actualize-input name="integratedDisclosureLoanProductDescription" ng-model="leformdata.integratedDisclosureDetail.integratedDisclosureLoanProductDescription"  toolTipPos = "top" dependencies="require-field" >
+               				 </actualize-input>
 						<help-verbiage name="LE_ProductDescription_help"
 							title="help_tooltip"></help-verbiage>
 					</div>
@@ -421,11 +421,15 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 						<div class="FieldGroup">
 							<div class="col-sm-10 fieldTitle">Provide the Amortization
 								Period Count :</div>
-							<div class="col-sm-2 padding0">
-								<input type="text" class="form-control" name=""
-									ng-model="leformdata.loanInformation.loanAmortizationPeriodCount"
-									only-digits maxlength="3" ng-disabled="leformdata.loanInformation.loanAmortizationPeriodType==''">
-							</div>
+									<div class="col-sm-2 padding0" ng-if="leformdata.loanInformation.loanAmortizationPeriodType == 'Month'">
+										<actualize-input name="loanAmortizationPeriodCount" toolTipPos = "top" dependencies="only-digits" maxlength="3" ng-model="leformdata.loanInformation.loanAmortizationPeriodCount" ng-disabled="leformdata.loanInformation.loanAmortizationPeriodType==''">
+		                			</actualize-input>
+									</div>
+									<div class="col-sm-2 padding0" ng-if="leformdata.loanInformation.loanAmortizationPeriodType != 'Month'">
+										<actualize-input name="loanAmortizationPeriodCount" ng-model="leformdata.loanInformation.loanAmortizationPeriodCount" toolTipPos = "top" dependencies="only-digits min-max-value" min-val="1" max-val="40" maxlength="3" ng-disabled="leformdata.loanInformation.loanAmortizationPeriodType==''">
+		                			</actualize-input>
+									</div>
+							
 						</div>
 					</div>
 				</span>
@@ -749,10 +753,10 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 						<div class="FieldGroup">
 							<div class="col-sm-10 fieldTitle">What is the negative
 								amortization limit in months count?</div>
-							<div class="col-sm-2 padding0">
-								<input type="text" class="form-control" name=""
-									ng-model="leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount"
-									only-digits maxlength="3" ng-blur="updateOptionalPaymentMonthsCount()">
+							<div class="col-sm-2 padding0">							
+									<actualize-input ng-model="leformdata.negativeAmortization.negativeAmortizationLimitMonthsCount" name="negativeAmortizationLimitMonthsCount" toolTipPos = "top" custommessage="Please enter a valid whole number"  dependencies="only-digits min-max-value" min-val="1" max-val="40" maxlength="3" ng-blur="updateOptionalPaymentMonthsCount()">
+                					</actualize-input>
+
 								<help-verbiage
 									name="LE_WhatNegativeAmortizationLimiinMonthsCount_help"
 									title="help_tooltip_padding_left"></help-verbiage>
@@ -828,10 +832,8 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 						<div class="col-sm-10 fieldTitle">If yes, provide the no. of
 							months in which the Step feature will be in affect</div>
 						<div class="col-sm-2 padding0">
-							<input type="text" class="form-control" name=""
-								ng-model="leformdata.payment.paymentRule.totalStepPaymentCount"
-								only-digits maxlength="3"
-								ng-disabled="!stepPaymentIndicatorValue">
+								<actualize-input ng-model="leformdata.payment.paymentRule.totalStepPaymentCount" name="totalStepPaymentCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-disabled="!stepPaymentIndicatorValue"  dependencies="only-digits min-max-value" min-val="1" max-val="480" maxlength="3">
+                				</actualize-input>
 							<help-verbiage
 								name="LE_YesProvideNoOfMoonthsStepFeaturewillAffect_help"
 								title="help_tooltip_padding_left"></help-verbiage>
@@ -860,10 +862,8 @@ leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymen
 						<div class="col-sm-10 fieldTitle">If yes, provide the no. of
 							months in which the Optional payment will be in affect</div>
 						<div class="col-sm-2 padding0">
-							<input type="text" class="form-control" name=""
-								ng-model="leformdata.payment.paymentRule.totalOptionalPaymentCount"
-								ng-disabled="!leformdata.payment.paymentRule.paymentOptionIndicator"
-								only-digits maxlength="3">
+								<actualize-input ng-model="leformdata.payment.paymentRule.totalOptionalPaymentCount" name="totalOptionalPaymentCount" toolTipPos = "top" custommessage="Please enter a valid whole number" ng-disabled="!leformdata.payment.paymentRule.paymentOptionIndicator"  dependencies="only-digits min-max-value" min-val="1" max-val="480" maxlength="3">
+                				</actualize-input>
 							<help-verbiage
 								name="LE_YesProvideLoanHaveOptionalPaymentFeaturesQuestions_help"
 								title="help_tooltip_padding_left"></help-verbiage>

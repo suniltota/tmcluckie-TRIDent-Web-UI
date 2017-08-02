@@ -501,6 +501,7 @@ app.directive('decimalDigitsWithNumberFormatRound', function ($compile, $filter)
                val=val.toString();
               var digits = val.replace(/[^0-9.]/g, '');
             } else{
+              val=val.toString();
               var digits = val.replace(/[^0-9.]/g, '');
             }
             
