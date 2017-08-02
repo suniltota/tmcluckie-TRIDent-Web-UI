@@ -19,7 +19,9 @@
 		        			<span class="pull-left margin5tb">+</span>
 		        			<span class="pull-left col-sm-2">
 		        				<div class="input-group">
-									<input type="text" class="form-control" name="" ng-model="leformdata.interestRateAdjustment.marginRatePercent" percentage-format>
+									<!-- <input type="text" class="form-control" name="" ng-model="leformdata.interestRateAdjustment.marginRatePercent" percentage-format> -->
+									<actualize-input ng-model="leformdata.interestRateAdjustment.marginRatePercent" name="feeTotalPercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format min-max-value"  min-val="0" max-val="25">
+                					</actualize-input>
 									<span class="input-group-addon input-default">%</span>
 		        				</div>
 		        			</span>		        			
@@ -45,13 +47,19 @@
 		        	<span class="pull-left col-sm-2">
         				<div class="input-group">
 	        				<span ng-show="leformdata.loanInformation.amortizationType !='Step' && leformdata.loanInformation.amortizationType!='GraduatedPaymentARM' && leformdata.loanInformation.amortizationType!='AdjustableRate'">
-								<input type="text" class="form-control" name="" ng-disabled="true" ng-model="leformdata.termsOfLoan.noteRatePercent">
+								<!-- <input type="text" class="form-control" name="" ng-disabled="true" ng-model="leformdata.termsOfLoan.noteRatePercent"> -->
+								<actualize-input ng-model="leformdata.termsOfLoan.noteRatePercent" ng-disabled="true" name="noteRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format min-max-value"  min-val="0" max-val="25">
+                				</actualize-input>
 						    </span>
 						    <span ng-show="leformdata.loanInformation.amortizationType=='GraduatedPaymentARM' || leformdata.loanInformation.amortizationType=='AdjustableRate'">
-								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.termsOfLoan.disclosedFullyIndexedRatePercent">
+								<!-- <input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.termsOfLoan.disclosedFullyIndexedRatePercent"> -->
+								<actualize-input ng-model="leformdata.termsOfLoan.disclosedFullyIndexedRatePercent"  ng-disabled="true" name="disclosedFullyIndexedRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format min-max-value"  min-val="0" max-val="25">
+                					</actualize-input>
 							</span>
 							<span ng-show="leformdata.loanInformation.amortizationType =='Step'">
-								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.termsOfLoan.noteRatePercent">
+								<!-- <input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.termsOfLoan.noteRatePercent"> -->
+								<actualize-input ng-model="leformdata.termsOfLoan.noteRatePercent" ng-disabled="true" name="noteRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format min-max-value"  min-val="0" max-val="25">
+                				</actualize-input>
 							</span>
 							<span class="input-group-addon input-default">%</span>
         				</div>
@@ -76,14 +84,18 @@
 		        	<span ng-if="leformdata.loanInformation.amortizationType !='Step'">
 			            <span class="pull-left col-sm-2">
 	        				<div class="input-group">
-								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.floorRatePercent">
+								<!-- <input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.floorRatePercent"> -->
+								<actualize-input ng-model="leformdata.interestRateAdjustment.floorRatePercent" ng-disabled="true" name="floorRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format min-max-value"  min-val="0" max-val="25">
+                				</actualize-input>
 								<span class="input-group-addon input-default">%</span>
 	        				</div>
 		        		</span>
 			        	<span class="pull-left margin5lr margin5t"> Floor Rate </span>
 			        	<span class="pull-left col-sm-2">
 	        				<div class="input-group">
-								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent">
+								<!-- <input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent"> -->
+								<actualize-input ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" ng-disabled="true" name="ceilingRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format min-max-value"  min-val="0" max-val="25">
+                				</actualize-input>
 								<span class="input-group-addon input-default">%</span>
 	        				</div>
 		        		</span>
@@ -93,14 +105,18 @@
 		        	<span ng-if="leformdata.loanInformation.amortizationType =='Step'">
 		        	    <span class="pull-left col-sm-2">
 	        				<div class="input-group">
-		        				<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.termsOfLoan.noteRatePercent">
+		        				<!-- <input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.termsOfLoan.noteRatePercent"> -->
+		        				<actualize-input ng-model="leformdata.termsOfLoan.noteRatePercent" ng-disabled="true" name="noteRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format min-max-value"  min-val="0" max-val="25">
+                				</actualize-input>
 								<span class="input-group-addon input-default">%</span>
 	        				</div>
 		        		</span>
 		        		<span class="pull-left margin5lr margin5t"> / </span>
 		        		<span class="pull-left col-sm-2">
 	        				<div class="input-group">
-								<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" >
+								<!-- <input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" > -->
+								<actualize-input ng-model="leformdata.interestRateAdjustment.ceilingRatePercent" ng-disabled="true" name="ceilingRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format min-max-value"  min-val="0" max-val="25">
+                				</actualize-input>
 								<span class="input-group-addon input-default">%</span>
 	        				</div>
 		        		</span>
@@ -153,7 +169,9 @@
 		        <td>
 		        	<span class="pull-left margin5lr"><!-- {{leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent | round}}%  -->
 		                <div class="input-group">
-							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent">
+							<!-- <input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent"> -->
+							<actualize-input ng-model="leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent" ng-disabled="true" name="firstPerChangeMaximumIncreaseRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format min-max-value"  min-val="0" max-val="25">
+                			</actualize-input>
 							<span class="input-group-addon input-default">%</span>
         				</div>
 		        	</span>
@@ -167,7 +185,9 @@
 		        	<span class="pull-left margin5lr">
 		        	<!-- {{leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent | round}}%  -->
 		        		<div class="input-group">
-							<input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent">
+							<!-- <input type="text" class="form-control" name=""  ng-disabled="true" ng-model="leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent"> -->
+							<actualize-input ng-model="leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent" ng-disabled="true" name="subsequentPerChangeMaximumIncreaseRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format min-max-value"  min-val="0" max-val="25">
+                			</actualize-input>
 							<span class="input-group-addon input-default">%</span>
         				</div>
 		        	</span>

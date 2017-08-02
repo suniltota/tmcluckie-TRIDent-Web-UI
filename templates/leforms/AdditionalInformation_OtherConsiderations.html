@@ -33,7 +33,11 @@
 		        <td>
 		        	<span class="col-sm-12 margin5tb padding0">
 		        			<span class="pull-left margin5tb col-sm-3">Number of Grace Period</span>
-		        			<span class="pull-left col-sm-2"><input type="text" class="form-control" name="" ng-model="leformdata.lateChargeRule.lateChargeGracePeriodDaysCount"></span>
+		        			<span class="pull-left col-sm-2">
+		        			<!-- <input type="text" class="form-control" name="" ng-model="leformdata.lateChargeRule.lateChargeGracePeriodDaysCount"> -->
+		        			<actualize-input ng-model="leformdata.lateChargeRule.lateChargeGracePeriodDaysCount" name="lateChargeGracePeriodDaysCount" toolTipPos = "top" custommessage="Please enter a valid whole number"   dependencies="min-max-value" min-val="1" max-val="480" maxlength="3">
+                			</actualize-input>
+		        			</span>
 		        			<span class="pull-left margin5tb">
 		        				Days 
 		        			</span>
@@ -45,7 +49,9 @@
 		        			<span class="pull-left margin5tb col-sm-3">Late Fee if a Percent</span>
 		        			<span class="pull-left col-sm-3">
 		        				<div class="input-group">
-									<input type="text" class="form-control" name="" ng-model="leformdata.lateChargeRule.lateChargeRatePercent" percentage-format>
+									<!-- <input type="text" class="form-control" name="" ng-model="leformdata.lateChargeRule.lateChargeRatePercent" percentage-format> -->
+									<actualize-input ng-model="leformdata.lateChargeRule.lateChargeRatePercent" name="lateChargeRatePercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format">
+                					</actualize-input>
 									<span class="input-group-addon input-default">%</span>
 		        				</div>
 		        			</span>
@@ -55,7 +61,9 @@
 		        			<span class="pull-left col-sm-3">
 		        				<div class="input-group">
 									<span class="input-group-addon input-default">$</span>
-		        					<input type="text" class="form-control" name="" ng-model="leformdata.lateChargeRule.lateChargeAmount" decimal-digits-with-number-format>
+		        					<!-- <input type="text" class="form-control" name="" ng-model="leformdata.lateChargeRule.lateChargeAmount" decimal-digits-with-number-format> -->
+		        					<actualize-input ng-model="leformdata.lateChargeRule.lateChargeAmount" name="lateChargeAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount"  dependencies="decimal-digits-with-number-format-round">
+                					</actualize-input>
 		        				</div>
 		        			</span>
 		        	</span>

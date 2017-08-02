@@ -26,7 +26,8 @@
 		      <tr ng-repeat="originationCharge in leformdata.closingCostDetailsLoanCosts.originationCharges track by $index">		      	
 		        <td ng-show="originationCharge.feeType == 'LoanDiscountPoints'">
 		        	 <span class="input-group">
-		        	 <input type="text" class="form-control" ng-model="originationCharge.feeTotalPercent" percentage-format ng-blur="loanDiscount($index)" ng-keyup="loanDiscount($index)">
+		        	 <actualize-input ng-model="originationCharge.feeTotalPercent" name="feeTotalPercent" toolTipPos = "top" custommessage="Please enter a valid percent"  dependencies="percentage-format min-max-value"  min-val="0" max-val="25" ng-blur="loanDiscount($index)" ng-keyup="loanDiscount($index)">
+                	</actualize-input>
 		        	 <span class="input-group-addon input-default">% of Loan Amount (Points)
 					</span>
 					<help-verbiage name="LEClosingCostOriginationChargesLoanAmountPercent" title="help_tooltip_padding"></help-verbiage>
