@@ -42,7 +42,7 @@
 			</div>
 			<div class="col-sm-7">
 				<span class="col-sm-10 padding0">
-				<actualize-input name="disbursementDate" id="disbursementDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.disbursementDate" min-date-var="cdformdata.closingInformationDetail.closingDate"  max-date="12/31/2045" is-open="isDisbursementDate" ng-required="true"  toolTipPos = "top" custommessage="Please enter a vaild date. Disbursement Date cannot occur before the Closing Date." placeholder="MM/DD/YYYY"  dependencies="actualize-date require-field" type="date">
+				<actualize-input name="disbursementDate" id="disbursementDate" dateFormat="{{dateFormat}}" ng-model="cdformdata.closingInformationDetail.disbursementDate" min-date-var="cdformdata.disbursementMinDate"  max-date="12/31/2045" is-open="isDisbursementDate" ng-required="true"  toolTipPos = "top" custommessage="Please enter a vaild date. Disbursement Date cannot occur before the Closing Date." placeholder="MM/DD/YYYY"  dependencies="actualize-date require-field" type="date">
                 </actualize-input>
 				 <help-verbiage name="CD_DisbursementDate_Help"  title="calenderInput" ></help-verbiage>
 				</span>

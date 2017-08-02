@@ -174,7 +174,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    $scope.cdformdata.etiaSection['otherCheck'] = false;
 	    $scope.cdformdata['nonEscrowArray'] = [];	
 	    $scope.cdformdata['escrowArray'] = [];		
-		
+		$scope.cdformdata['disbursementMinDate'] = '';
+
 		if($scope.loanBasicInfo.loanPurposeType == 'purchase') {
 			$scope.cdformdata.salesContractDetail.personalPropertyIndicator = false;
 		} else {
@@ -196,6 +197,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			}
 
 		}
+		//Disbursement Date Calculation
+        $scope.cdformdata.disbursementMinDate = $scope.cdformdata.disbursementMinDate ? $scope.cdformdata.disbursementMinDate : $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
+        $scope.cdformdata.closingInformationDetail.disbursementDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
 
 		if(!$scope.cdformdata.miPremium || $scope.cdformdata.miPremium.length==0) 
 			$scope.cdformdata['miPremium'] = angular.copy(staticData.cdformdata.miPremium);
@@ -3086,13 +3090,17 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         $scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType = 'AdjustmentsAndOtherCredits';
     }
 
-    $scope.$watchCollection('[cdformdata.loanInformation.loanTermYears, cdformdata.loanInformation.loanTermMonths]', function(newValues, oldValues){
+    $scope.$watchCollection('[cdformdata.loanInformation.loanTermYears, cdformdata.loanInformation.loanTermMonths, cdformdata.closingInformationDetail.closingDate]', function(newValues, oldValues){
     	$scope.cdformdata.maturityRule.loanMaturityPeriodCount = 0;
     	if($scope.cdformdata.loanInformation.loanTermYears)
     		$scope.cdformdata.maturityRule.loanMaturityPeriodCount = parseInt($scope.cdformdata.loanInformation.loanTermYears * 12);
     	if($scope.cdformdata.loanInformation.loanTermMonths)
     		$scope.cdformdata.maturityRule.loanMaturityPeriodCount = $scope.cdformdata.maturityRule.loanMaturityPeriodCount + parseInt($scope.cdformdata.loanInformation.loanTermMonths);
     	$scope.cdformdata.maturityRule.loanMaturityPeriodType = 'Month';
+        
+        $scope.cdformdata.disbursementMinDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
+        $scope.cdformdata.closingInformationDetail.disbursementDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
+
     });
 
     $scope.$watch('cdformdata.loanDetail.negativeAmortizationIndicator', function(newValue, oldValue){
@@ -4425,9 +4433,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     	//Total Closing Costs(J)
     	if($scope.loanBasicInfo.loanFormType == 'alternate'){
-            $scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount = Math.round(parseFloat($scope.cdformdata.closingCostsTotal.totalClosingCosts*-1));    		
+            $scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.cdformdata.closingCostsTotal.totalClosingCosts*-1);    		
         }else{
-        	$scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount = Math.round(parseFloat($scope.cdformdata.closingCostsTotal.totalClosingCosts));
+        	$scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemFinalAmount = parseFloat($scope.cdformdata.closingCostsTotal.totalClosingCosts);
         }
     	$scope.cdformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemType='TotalClosingCosts';
     	
@@ -5474,6 +5482,25 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 //date param of proper format to create date object.
 // ex:- 04/25/2008
 function add_business_days(date, days) {
+  var now = new Date(date);
+  var dayOfTheWeek = now.getDay();
+  var calendarDays = days;
+  var deliveryDay = dayOfTheWeek + days;
+  if (deliveryDay >= 6) {
+    //deduct this-week days
+    days -= 6 - dayOfTheWeek;
+    //count this coming weekend
+    calendarDays += 2;
+    //how many whole weeks?
+    deliveryWeeks = Math.floor(days / 5);
+    //two days per weekend per week
+    calendarDays += deliveryWeeks * 2;
+  }
+  now.setTime(now.getTime() + calendarDays * 24 * 60 * 60 * 1000); 
+  return now;
+}
+
+function add_business_days_disbursement(date, days) {
   var now = new Date(date);
   var dayOfTheWeek = now.getDay();
   var calendarDays = days;
