@@ -67,11 +67,13 @@
 		      			<select class="form-control" ng-options="option.id as option.name for option in escrowDropDownBooleanOptions" ng-model="etia.projectedPaymentEscrowedType" ng-disabled="true" ng-show="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
 		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance'">
 		      			</select> -->
-		      			<select class="form-control" ng-options="option.id as option.name for option in dropDownBooleanOptions" ng-model="etia.insuranceTaxCheck" ng-disabled="true" ng-show="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' ||
+		      			<select class="form-control" ng-options="option.id as option.name for option in escrowDropDownBooleanOptions" ng-model="etia.projectedPaymentEscrowedType" ng-disabled="true" ng-show="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='PropertyTaxes' ||
 		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType=='HomeownersInsurance'">
+		      				<option value="" selected>Select</option>
 		      			</select>
 		      			<select class="form-control" ng-options="option.id as option.name for option in escrowDropDownBooleanOptions" ng-model="etia.projectedPaymentEscrowedType" ng-disabled="true" ng-show="etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='PropertyTaxes' &&
 		      		etia.projectedPaymentEstimatedTaxesInsuranceAssessmentComponentType!='HomeownersInsurance'">
+		      				<option value="" selected>Select</option>
 		      			</select>
 		      		</td>
 		      		<td>
