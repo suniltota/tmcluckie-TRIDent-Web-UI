@@ -84,7 +84,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.leApplicantAddress = {"slectedPropertyStatus":false};
     $rootScope.lenderIDForHeader='';
     $rootScope.applicantLastnameforHeader='';
-    $rootScope.FormTypeForHeader='';
+    $rootScope.PurposeTypeForHeader='';
 	var borrower ={};
 	var seller ={};
 	var ausTypeIdentifier = {};
@@ -160,7 +160,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    	$scope.LoanType = 'Refinance'
 	    }
     }
-    $rootScope.FormTypeForHeader=$scope.FormType;
+    $rootScope.PurposeTypeForHeader=$scope.LoanType;
 	var initializeLEformdata = function() {
 
 		$scope.leformdata = angular.copy(staticData.leformdata);

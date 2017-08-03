@@ -84,7 +84,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.adjustmentsAndProrationsAmountsLSection = 0;
     $rootScope.lenderIDForHeader='';
     $rootScope.applicantLastnameforHeader='';
-    $rootScope.FormTypeForHeader='';
+    $rootScope.PurposeTypeForHeader='';
     var cashTocloses = {};
 	var borrower ={};
 	var seller ={};
@@ -143,6 +143,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    }
     }
 
+    $rootScope.PurposeTypeForHeader=$scope.LoanType;//.cdformdata.closingDisclosureDocDetails.formType;
 	var initializeCDformData = function() {
 		$scope.cdformdata = angular.copy(staticData.cdformdata);
 		$scope.cdformdata.termsOfLoan.loanPurposeType = $scope.loanBasicInfo.loanPurposeType.capitalizeFirstLetter();
@@ -251,7 +252,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         	}
         }
 
-        $rootScope.FormTypeForHeader=$scope.cdformdata.closingDisclosureDocDetails.formType;
+        
         //Closing Costs Default Values
 
         if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length==0){
