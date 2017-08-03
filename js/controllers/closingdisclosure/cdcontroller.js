@@ -201,9 +201,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
 		}
 		//Disbursement Date Calculation
-        $scope.cdformdata.disbursementMinDate = $scope.cdformdata.disbursementMinDate ? $scope.cdformdata.disbursementMinDate : $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
-        $scope.cdformdata.closingInformationDetail.disbursementDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
-
+		if($scope.cdformdata.closingInformationDetail.closingDate!=undefined){
+	        $scope.cdformdata.disbursementMinDate = $scope.cdformdata.disbursementMinDate ? $scope.cdformdata.disbursementMinDate : $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
+	        $scope.cdformdata.closingInformationDetail.disbursementDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
+        }
+        
 		if(!$scope.cdformdata.miPremium || $scope.cdformdata.miPremium.length==0) 
 			$scope.cdformdata['miPremium'] = angular.copy(staticData.cdformdata.miPremium);
 
@@ -3102,8 +3104,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.maturityRule.loanMaturityPeriodCount = $scope.cdformdata.maturityRule.loanMaturityPeriodCount + parseInt($scope.cdformdata.loanInformation.loanTermMonths);
     	$scope.cdformdata.maturityRule.loanMaturityPeriodType = 'Month';
         
-        $scope.cdformdata.disbursementMinDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
-        $scope.cdformdata.closingInformationDetail.disbursementDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
+        if($scope.cdformdata.closingInformationDetail.closingDate!=undefined){
+			$scope.cdformdata.disbursementMinDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
+			$scope.cdformdata.closingInformationDetail.disbursementDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
+		}
 
     });
 
@@ -5520,22 +5524,33 @@ function add_business_days(date, days) {
 }
 
 function add_business_days_disbursement(date, days) {
-  var now = new Date(date);
-  var dayOfTheWeek = now.getDay();
-  var calendarDays = days;
-  var deliveryDay = dayOfTheWeek + days;
-  if (deliveryDay >= 6) {
-    //deduct this-week days
-    days -= 6 - dayOfTheWeek;
-    //count this coming weekend
-    calendarDays += 2;
-    //how many whole weeks?
-    deliveryWeeks = Math.floor(days / 5);
-    //two days per weekend per week
-    calendarDays += deliveryWeeks * 2;
-  }
-  now.setTime(now.getTime() + calendarDays * 24 * 60 * 60 * 1000); 
-  return now;
+    var now = new Date(date);
+    var dayOfTheWeek = now.getDay();
+    var calendarDays = days;
+    var deliveryDay = dayOfTheWeek + days;
+
+    if(dayOfTheWeek!=6){
+	    if (deliveryDay >= 6) {
+	        //deduct this-week days
+	    	days -= 6 - dayOfTheWeek;
+	    	//count this coming weekend
+	    	calendarDays += 2;
+	    	//how many whole weeks?
+	    	deliveryWeeks = Math.floor(days / 5);
+	    	//two days per weekend per week
+	    	calendarDays += deliveryWeeks * 2;
+	    }
+    }else if(dayOfTheWeek==6){
+            days -= 6 - dayOfTheWeek;
+	    	//count this coming weekend
+	    	calendarDays += 1;
+	    	//how many whole weeks?
+	    	deliveryWeeks = Math.floor(days / 5);
+	    	//two days per weekend per week
+	    	calendarDays += deliveryWeeks * 2;
+    }
+    now.setTime(now.getTime() + calendarDays * 24 * 60 * 60 * 1000); 
+    return now;
 }
 
 
