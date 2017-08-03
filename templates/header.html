@@ -55,6 +55,9 @@
         <nav class="PageNavigation">
             <ul>
                 <li ng-show="documentType =='closingdisclosure' ||  documentType =='loanestimate'">
+                    <a class="glyphicon glyphicon-home cursor" ng-click="postLogin()"></a>
+                </li>
+                <li ng-show="documentType =='closingdisclosure' ||  documentType =='loanestimate'">
                     <a href="" class="dir">File</a>
                     <ul>
                         <li><a href="" ng-click="fileNew()">New Transaction</a></li>

@@ -177,6 +177,9 @@ app.controller('menuCtrl', function ($scope, loginService, apiService, $routePar
       apiService.request({apiMethod: "logout",httpMethod: 'POST'});
       $window.location.href="login.html" + $window.location.search;
   }
+  $scope.postLogin = function() {
+      $window.location.href="postLogin.html" + $window.location.search;
+  }
 });
 app.controller('fileMenuCtrl', function($scope, $window, loginService, apiService, cdService,leService, $log){
 
