@@ -40,7 +40,7 @@ input, select, textarea, .form-control{font-size: 12px;}
 .padding5lr{padding-left:5px; padding-right: 5px;}
 .fontBold{font-weight: bold;}
 .margin5tb{margin-top: 5px; margin-bottom: 5px;}
-.margin5t{margin-top: 5px; }
+.margin5t{margin-top: 5px !important; }
 .margin4t{margin-top: 4px; }
 .margin50r{margin-right: 50px !important;}
 .marginnegative4t{margin-top: -4px !important; }
@@ -59,6 +59,7 @@ input, select, textarea, .form-control{font-size: 12px;}
 .white{color:#fff;}
 .green{color:#009688;}
 .cursor{cursor: pointer;}
+#pdfViewerId{display: none;}
 .PDFCloseIcon{right:21px; cursor: pointer; top: 14px; z-index: 243; margin-left: 0px; position: absolute; color: #fff; font-size: 19px; display: none;}
 .PDFDownloadIcon{right:50px; cursor: pointer; top: 14px; z-index: 243; margin-left: 0px; position: absolute; color: #fff; font-size: 19px; display: none;}
 #iePdf #carousel{background:#555; text-align: center;}

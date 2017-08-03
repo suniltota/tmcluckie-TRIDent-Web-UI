@@ -2888,11 +2888,13 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		if (isIE == true){
 		 	$("#carousel").html("");
  			$("#carousel").hide();
+ 			$("#pdfViewerId").hide();
  			$("#closePDFdiv").hide();
  			$(".PDFDownloadIcon").hide();
 		} else {
 	        $("#carousel").pdfSlider('destroy');
 	        $(".PDFCloseIcon").hide();
+	        $("#pdfViewerId").hide();
 	    }		
     }
     $scope.downloadPDF =function(){

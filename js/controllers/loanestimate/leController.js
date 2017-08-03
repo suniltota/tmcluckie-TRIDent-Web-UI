@@ -1778,11 +1778,13 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 		if (isIE == true){
 			$("#carousel").html("");
  			$("#carousel").hide();
+ 			$("#pdfViewerId").hide();
  			$("#closePDFdiv").hide();
  			$(".PDFDownloadIcon").hide();
 		}else{
         	$("#carousel").pdfSlider('destroy');
         	$(".PDFCloseIcon").hide();
+        	$("#pdfViewerId").hide();
         }		
     }
 
