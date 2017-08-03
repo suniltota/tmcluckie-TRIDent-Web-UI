@@ -86,7 +86,8 @@
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Choose Form type and Loan purpose Type</h4>
+          <h4 class="modal-title" ng-show="transactionType == 'new'">Choose Form Type and Loan purpose Type</h4>
+          <h4 class="modal-title" ng-show="transactionType != 'new'">Choose Document Type and Upload</h4>
         </div>
         <div class="modal-body">
           <div class="row margin5tb" style="margin-bottom: 10px;">
