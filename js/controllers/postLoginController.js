@@ -6,7 +6,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
     $scope.documentType = 'closingdisclosure';
     $scope.formType = 'standard';
 
-    $('#SelectTransaction').modal('show');
+    //$('#SelectTransaction').modal('show');
 
     $scope.logUserOut = function() {
     	loginService.logout();

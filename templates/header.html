@@ -36,7 +36,7 @@
     </span>
 </div>
             <!-- for LE Screen-->
-<div  ng-show="documentType !='closingdisclosure'" class="col-sm-6 pull-right" style="color: #b5b5b5 ;cursor: default;margin-top: -21px;">
+<div  ng-show="documentType =='loanestimate'" class="col-sm-6 pull-right" style="color: #b5b5b5 ;cursor: default;margin-top: -21px;">
     <span class="pull-right" style="margin-left: 15px;">
         <span style=" font-weight: bold; font-size: 14px;">Applicant Last Name : </span>
         <span style="">{{applicantLastnameforHeader}}</span>
@@ -54,7 +54,7 @@
         <!-- -->
         <nav class="PageNavigation">
             <ul>
-                <li>
+                <li ng-show="documentType =='closingdisclosure' ||  documentType =='loanestimate'">
                     <a href="" class="dir">File</a>
                     <ul>
                         <li><a href="" ng-click="fileNew()">New Transaction</a></li>
@@ -62,14 +62,14 @@
                         <li><a href="" ng-click="importFile()">Upload Template</a></li>
                     </ul>
                 </li>
-                <li>
+                <li ng-show="documentType =='closingdisclosure' ||  documentType =='loanestimate'">
                     <a href="" class="dir">Tools</a>
                      <ul ng-show="documentType!='loanestimate'">
                         <li><a href="" ng-click="validateUCD()">Validate UCD</a></li>
                         <!-- <li><a href="#/home" ng-click="closePdfView()">Submit to GSE's</a></li> -->
                     </ul>
                 </li>
-                <li>
+                <li ng-show="documentType =='closingdisclosure' ||  documentType =='loanestimate'">
                     <a href="" class="dir">View</a>
                     <ul>
                         <li><a href="" ng-click="generateXML()">XML</a></li>
@@ -81,6 +81,8 @@
                     <a href="" ng-click="renderHelp()" class="dir">Help</a>
                 </li>
             </ul>
-            <div class="pull-right" style="color: #fff; padding-right: 15px; margin-top: -5px; cursor: pointer;" ><a style="color: #fff; text-decoration: none;" ng-click="logout()">Logout</a></div>
+            <div ng-show="documentType =='closingdisclosure' ||  documentType =='loanestimate'">
+                <div class="pull-right" style="color: #fff; padding-right: 15px; margin-top: -5px; cursor: pointer;" ><a style="color: #fff; text-decoration: none;" ng-click="logout()">Logout</a></div>
+            </div>
         </nav>
     </div>

@@ -29,39 +29,103 @@
             <div ng-include='"templates/header.html"'></div>
         </div>
         <div style="top:80px; clear:both;" ng-controller="postLoginCtrl">
-            <div class="bodySection col-sm-12 padding0" style="position: relative; ">
-              <div id="transparent"></div>
+            <div class="bodySection col-sm-12 padding0" style="position: relative; margin-top: 20px;  ">
+              <div id="transparent" style="display: none;"></div>
+                <div class="col-sm-6" dynamic-height-min-page-view >
+                      <div class="col-sm-12">
+                            <h4 class="modal-title">Select transaction</h4>
+                            <div class="row margin5tb" style="margin-bottom: 10px;">
+                              <div class=" col-sm-11 col-sm-offset-1" style="font-size: 14px;">
+                                <div class="col-sm-12  radioGroup margin5tb">
+                                  <input type="radio" name="transaction" ng-model="transactionType" value="new" class="margin5t">
+                                  <strong>Start New Transaction</strong>
+                                </div>
+                                <div class="col-sm-12  radioGroup  margin5tb">
+                                  <input type="radio"  name="transaction" ng-model="transactionType" value="existing" class="margin5t">
+                                  <strong>Open Existing Transaction</strong>
+                                </div>
+                                <div class="col-sm-12  radioGroup  margin5tb">
+                                  <input type="radio"  name="transaction" ng-model="transactionType" value="textTemplate" class="margin5t">
+                                  <strong>Upload Template File</strong>
+                                </div>
+                                <div class="col-sm-12  radioGroup  margin5tb">
+                                  <input type="radio"  name="transaction" ng-model="transactionType" value="pdf" disabled class="margin5t">
+                                  <strong>Upload Closing Disclosure PDF</strong>
+                                </div>
+                                <!--<div class="col-sm-12  radioGroup  margin5tb">
+                                  <input type="radio"  name="transaction" ng-model="transactionType.name" value="search"><strong>Search Transactions</strong>
+                                </div>-->
+                              </div>
+                            </div>
+                          <span class="pull-right col-sm-offset-1" style="padding-left:23px;">
+                              <button type="button" class="btn btn-default" ng-click="logUserOut();">Log Out</button>
+                              <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#ChooseFormType">Next</button>
+                          </span>
+                    </div>
+                </div>
+                <div class="col-sm-6" style="border-left:1px solid #aaa;">
+                    <div class="col-sm-12 margin10t">
+                        <div class="col-sm-1">
+                            <img src="images/admin.png">
+                        </div>
+                        <div class="col-sm-11">
+                            <span class="col-sm-12"><a>Administration User</a></span>
+                            <span class="col-sm-12">
+                                Click the page when the user role is the administrator to set up new users, change users credentials and to remove users
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 margin10t">
+                        <div class="col-sm-1">
+                            <img src="images/training.png">
+                        </div>
+                        <div class="col-sm-11">
+                            <span class="col-sm-12 cursor"><a>Training Center </a></span>
+                            <span class="col-sm-12">
+                                Click the page to view all recorded instruction videos to use the TRIDen Toolkit functionality
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 margin10t">
+                        <div class="col-sm-1">
+                            <img src="images/userguide.png">
+                        </div>
+                        <div class="col-sm-11">
+                            <span class="col-sm-12"><a>User Guide</a></span>
+                            <span class="col-sm-12">
+                                Click the page to view the on line user guide, this allows a user to open the Word Document that provides a step by step usage of the TRIDen Toolkit
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 margin10t">
+                        <div class="col-sm-1">
+                            <img src="images/reference.png">
+                        </div>
+                        <div class="col-sm-11">
+                            <span class="col-sm-12"><a>References</a></span>
+                            <span class="col-sm-12">
+                                Click the page to view a list of helpful references such as the CFPB website, Freddie Mac UMDP and Fannie Mae UMDP
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 newsSection margintop30">
+                        <h4 class="modal-title">News : </h4>
+                        <span class="col-sm-12 margin10t">
+                            Upcoming release on 8/14 to provide the end to end TRID form solution and create / submit the UCD xml file to the GSEs
+                        </span>
+                </div>
             </div>
+            <!--
             <div class="modal fade" id="SelectTransaction" role="dialog"  data-keyboard="false" data-backdrop="static">
               <div class="modal-dialog modal-md">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h4 class="modal-title">Select transaction</h4>
+                    
                   </div>
                   <div class="modal-body">
-                    <div class="row margin5tb" style="margin-bottom: 10px;">
-                      <div class=" col-sm-12">
-                        <div class="col-sm-12  radioGroup margin5tb">
-                          <input type="radio" name="transaction" ng-model="transactionType" value="new">
-                          <strong>Start New Transaction</strong>
-                        </div>
-                        <div class="col-sm-12  radioGroup  margin5tb">
-                          <input type="radio"  name="transaction" ng-model="transactionType" value="existing">
-                          <strong>Open Existing Transaction</strong>
-                        </div>
-                        <div class="col-sm-12  radioGroup  margin5tb">
-                          <input type="radio"  name="transaction" ng-model="transactionType" value="textTemplate">
-                          <strong>Upload Template File</strong>
-                        </div>
-                        <div class="col-sm-12  radioGroup  margin5tb">
-                          <input type="radio"  name="transaction" ng-model="transactionType" value="pdf" disabled>
-                          <strong>Upload Closing Disclosure PDF</strong>
-                        </div>
-                        <!--<div class="col-sm-12  radioGroup  margin5tb">
-                          <input type="radio"  name="transaction" ng-model="transactionType.name" value="search"><strong>Search Transactions</strong>
-                        </div>-->
-                      </div>
-                    </div>
+                    
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" ng-click="logUserOut();">Log Out</button>
@@ -70,12 +134,13 @@
                 </div>
               </div>
             </div>
+            -->
             <div class="modal fade" id="ChooseFormType" role="dialog" data-keyboard="false" data-backdrop="static">
               <div class="modal-dialog modal-md">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h4 class="modal-title" ng-show="transactionType == 'new'">Choose Form type and Loan purpose Type</h4>
-                    <h4 class="modal-title" ng-show="transactionType != 'new'">Choose Document Type and Upload</h4>
+                     <h4 class="modal-title" ng-show="transactionType != 'new'">Choose Document Type and Upload</h4>
                   </div>
                   <div class="modal-body">
                     <div class="row margin5tb" style="margin-bottom: 10px;">
@@ -136,7 +201,7 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-				          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#SelectTransaction">Back</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Back</button>
                   <button type="button" class="btn btn-primary"
                       ng-click="submit()">Next</button>
                     
