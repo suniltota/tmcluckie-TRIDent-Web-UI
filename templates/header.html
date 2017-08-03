@@ -20,35 +20,35 @@
             </div>
         </header>
         <!-- for CD Screen -->
-<div ng-show="documentType=='closingdisclosure'" class="col-sm-6 pull-right" style="color: #b5b5b5 ;cursor: default;margin-top: -21px;">
+<div ng-show="documentType=='closingdisclosure'" class="col-sm-7 pull-right" style="color: #b5b5b5 ;cursor: default;margin-top: -21px;">
     <span class="pull-right" style="margin-left: 15px;">
-        <span style=" font-weight: bold; font-size: 14px;">Borrower Last Name : </span>
-        <span style="">{{applicantLastnameforHeader}}</span>
+        <span class="headerLenderHead">Borrower Last Name : </span>
+        <span class="headerLendertitle">{{applicantLastnameforHeader}}</span>
     </span>
     <span class="pull-right" style="margin-left: 15px;">
-        <span style="font-weight: bold;font-size: 14px;">Purpose Type : </span>
-        <span>{{PurposeTypeForHeader}}</span>
+        <span class="headerLenderHead">Purpose Type : </span>
+        <span class="headerLendertitle">{{PurposeTypeForHeader}}</span>
     </span>
     
     <span class="pull-right">
-        <span style="font-weight: bold;font-size: 14px;">Lender ID : </span>
-        <span>{{lenderIDForHeader}}</span>
+        <span  class="headerLenderHead">Lender ID : </span>
+        <span class="headerLendertitle">{{lenderIDForHeader}}</span>
     </span>
 </div>
             <!-- for LE Screen-->
-<div  ng-show="documentType =='loanestimate'" class="col-sm-6 pull-right" style="color: #b5b5b5 ;cursor: default;margin-top: -21px;">
+<div  ng-show="documentType =='loanestimate'" class="col-sm-7 pull-right" style="color: #b5b5b5 ;cursor: default;margin-top: -21px;">
     <span class="pull-right" style="margin-left: 15px;">
-        <span style=" font-weight: bold; font-size: 14px;">Applicant Last Name : </span>
-        <span style="">{{applicantLastnameforHeader}}</span>
+        <span class="headerLenderHead">Applicant Last Name : </span>
+        <span class="headerLendertitle">{{applicantLastnameforHeader}}</span>
     </span>
-    <span class="pull-right" style="margin-left: 15px;">
-        <span style="font-weight: bold;font-size: 14px;">Purpose Type : </span>
-        <span>{{PurposeTypeForHeader}}</span>
+    <span class="pull-right" style="margin-left: 15px; float: left;">
+        <span class="headerLenderHead">Purpose Type : </span>
+        <span class="headerLendertitle">{{PurposeTypeForHeader}}</span>
     </span>
     
     <span class="pull-right">
-        <span style="font-weight: bold;font-size: 14px;">Lender ID : </span>
-        <span>{{lenderIDForHeader}}</span>
+        <span class="headerLenderHead">Lender ID : </span>
+        <span class="headerLendertitle">{{lenderIDForHeader}}</span>
     </span>
 </div>
         <!-- -->
