@@ -14,11 +14,13 @@
 		        <th class="innerSectionHeader col-sm-7">Fee Label</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		        <th class="innerSectionHeader col-sm-1">Include in APR?
-		        <help-verbiage name="LE_SectionEAPRCalculation_help" title="help_tooltip_text"></help-verbiage>
+		        <help-verbiage name="LE_SectionEAPRCalculation_help" title="help_tooltip_textLeft"></help-verbiage>
 			</th>
-		        <th class="innerSectionHeader col-sm-1">Delete
-		        <help-verbiage name="LE_SectionETrashSymbol_help" title="help_tooltip_text"></help-verbiage> / <br> Clear
-		        <help-verbiage name="LE_SectionEClearSymbol_help" title="help_tooltip_text"></help-verbiage></th>
+		        <th class="innerSectionHeader col-sm-1">Delete /<br> Clear
+		       <!--  <help-verbiage name="LE_SectionETrashSymbol_help" title="help_tooltip_textLeft"></help-verbiage> / <br> Clear
+		        <help-verbiage name="LE_SectionEClearSymbol_help" title="help_tooltip_textLeft"></help-verbiage -->>
+		        	
+		        </th>
 		      </tr>
 		      <tr ng-repeat="tOGovtFee in leformdata.closingCostDetailsOtherCosts.tOGovtFeesList track by $index" ng-if="tOGovtFee.feeType == 'RecordingFeeTotal'">		      	
 		        <td>
@@ -42,8 +44,8 @@
 		      </tr>
 		      <tr ng-repeat="tOGovtFee in leformdata.closingCostDetailsOtherCosts.tOGovtFeesList  track by $index" ng-show="tOGovtFee.feeType!='RecordingFeeTotal' && tOGovtFee.feeType!='RecordingFee'">		         
 		        <td>
-		            <span class="col-sm-12 margin5tb padding0" ng-show="tOGovtFee.feeType =='TransferTaxTotal'">Transfer Taxes
-		            <help-verbiage name="LE_SectionETransferTaxes_help" title="help_tooltip_text"></help-verbiage>
+		            <span class="col-sm-2 margin5tb padding0" ng-show="tOGovtFee.feeType =='TransferTaxTotal'">Transfer Taxes
+		            <help-verbiage name="LE_SectionETransferTaxes_help" title="help_tooltip_padding"></help-verbiage>
 				</span>
 		        </td>
 		        <td>
@@ -84,11 +86,12 @@
 		        <th class="innerSectionHeader  col-sm-2">No.of Months(Except for prepaid interest)</th>
 		        <th class="innerSectionHeader  col-sm-2">Amount</th>
 		        <th class="innerSectionHeader col-sm-1" >Include in APR?
-		        <help-verbiage name="LE_SectionFIncludeAPRCalculation_help" title="help_tooltip_text"></help-verbiage>
+		        <help-verbiage name="LE_SectionFIncludeAPRCalculation_help" title="help_tooltip_textLeft"></help-verbiage>
 				</th>
-		        <th class="innerSectionHeader col-sm-1">Delete <help-verbiage name="LE_SectionFTrashSymbol_help" title="help_tooltip_text"></help-verbiage>
+		        <th class="innerSectionHeader col-sm-1">Delete /<br> Clear
+		        <!-- <help-verbiage name="LE_SectionFTrashSymbol_help" title="help_tooltip_text"></help-verbiage>
 			  / <br> Clear 
-			  <help-verbiage name="LE_SectionFClearSymbol_help" title="help_tooltip_text"></help-verbiage>
+			  <help-verbiage name="LE_SectionFClearSymbol_help" title="help_tooltip_text"></help-verbiage> -->
 				</th>
 		      </tr>
 		      <tr ng-repeat="prepaidsList in leformdata.closingCostDetailsOtherCosts.prepaidsList track by $index" ng-if="prepaidsList.prepaidItemType =='HomeownersInsurancePremium'">
@@ -285,11 +288,11 @@
 				</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
 		        <th class="innerSectionHeader col-sm-1">Include in APR?
-		        <help-verbiage name="LE_SectionGIncludeAPRCalculation_help" title="help_tooltip_text"></help-verbiage>
+		        <help-verbiage name="LE_SectionGIncludeAPRCalculation_help" title="help_tooltip_textLeft"></help-verbiage>
 				</th>
-		        <th class="innerSectionHeader col-sm-1">Delete 
-		        <help-verbiage name="LE_SectionGTrashSymbol_help" title="help_tooltip_text"></help-verbiage>
-				/ <br> Clear <help-verbiage name="LE_SectionGTrashClear_help" title="help_tooltip_text"></help-verbiage>
+		        <th class="innerSectionHeader col-sm-1">Delete /<br> Clear 
+		       <!--  <help-verbiage name="LE_SectionGTrashSymbol_help" title="help_tooltip_text"></help-verbiage>
+				/ <br> Clear <help-verbiage name="LE_SectionGTrashClear_help" title="help_tooltip_text"></help-verbiage> -->
 				</th>
 		      </tr>
 		      <tr ng-repeat="escrowItemsList in leformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'HomeownersInsurance'}">
@@ -476,10 +479,11 @@
 				</th>
 		        <th class="innerSectionHeader col-sm-2">Amount</th>
                 <th class="innerSectionHeader col-sm-1">Include in APR?
-                <help-verbiage name="LE_SectionHSectionAPRCalculation_help" title="help_tooltip_text"></help-verbiage>
+                <help-verbiage name="LE_SectionHSectionAPRCalculation_help" title="help_tooltip_textLeft"></help-verbiage>
 				</th>
-		        <th class="innerSectionHeader col-sm-1">Delete <help-verbiage name="LE_SectionHSectionTrashSymbol_help" title="help_tooltip_text"></help-verbiage>
-				/ <br> Clear <help-verbiage name="LE_SectionHSectionClearSymbol_help" title="help_tooltip_text"></help-verbiage>
+		        <th class="innerSectionHeader col-sm-1">Delete /<br> Clear
+		        <!-- <help-verbiage name="LE_SectionHSectionTrashSymbol_help" title="help_tooltip_text"></help-verbiage>
+				/ <br> Clear <help-verbiage name="LE_SectionHSectionClearSymbol_help" title="help_tooltip_text"></help-verbiage> -->
 				</th>
 		      </tr>
 		      <tr ng-repeat="otherCostsList in leformdata.closingCostDetailsOtherCosts.otherCostsList track by $index">
