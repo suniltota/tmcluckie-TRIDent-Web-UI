@@ -1,10 +1,11 @@
 <div class="col-sm-12">
 	<h4>Projected Payments</h4>
 	<span class="col-sm-12 LoanTermsTable">
-		<div class="margin5tb projectpaymentAddlink" ng-show="leformdata.projectedPayments.paymentCalculation.length<=3">
-			<a class="pull-right cursor" ng-click="addProjectedPayments()">+ Add Additional Columns </a>
+		<div class="margin5tb pull-right" ng-show="leformdata.projectedPayments.paymentCalculation.length<=3">
+			<a class="pull-left cursor" ng-click="addProjectedPayments()">+ Add Additional Columns </a>
+			<help-verbiage ng-show="leformdata.projectedPayments.paymentCalculation.length<=3" name="LE_AddAdditionalColumnLink_help" title="help_tooltip_textLeft"></help-verbiage>
 		</div>
-		<help-verbiage ng-show="leformdata.projectedPayments.paymentCalculation.length<=3" name="LE_AddAdditionalColumnLink_help" title="help_tooltip_textLeft"></help-verbiage>
+		
 		<table class="table" style="margin-top:15px;">
 		      <tr>
 		        <th class="col-sm-3 innerSectionHeader">Payment Calculations</th>
@@ -33,7 +34,7 @@
 							</div>
 		        			<div class="input-group">
   								<span class="input-group-addon input-default" ng-style="{ 'padding' : leformdata.projectedPayments.paymentCalculation.length == 4 ? '3px 6px' : ''}">$</span>
-		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" name="projectedPaymentPrincipalAndInterestMinimumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount" name="projectedPaymentPrincipalAndInterestMinimumPaymentAmount" max-val="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format min-and-max-check">
                 				</actualize-input>
 		        			</div>
 		        	</div>
@@ -42,7 +43,7 @@
 		        			<div class="input-group">
   								<span class="input-group-addon input-default" ng-style="{ 'padding' : leformdata.projectedPayments.paymentCalculation.length == 4 ? '3px 6px' : ''}">$</span>
 		        				<!-- <input class="form-control width50" ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" decimal-digits-with-number-format> -->
-		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" name="projectedPaymentPrincipalAndInterestMaximumPaymentAmount" toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format">
+		        				<actualize-input ng-model="principalInterest.projectedPaymentPrincipalAndInterestMaximumPaymentAmount" name="projectedPaymentPrincipalAndInterestMaximumPaymentAmount" min-val="principalInterest.projectedPaymentPrincipalAndInterestMinimumPaymentAmount"  toolTipPos = "top" custommessage="Please enter a valid dollar amount."  dependencies="decimal-digits-with-number-format min-and-max-check">
                 				</actualize-input>
 		        			</div>
 		        	</div>
