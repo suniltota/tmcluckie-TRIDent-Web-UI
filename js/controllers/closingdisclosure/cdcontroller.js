@@ -1286,10 +1286,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	initializeCDformData();
 
 	$scope.checkPropertyRadio = function() {
-		if(!$scope.cdformdata.closingInformation.property.legalDescription){
-			$scope.cdformdata.closingInformation.property.unparsedLegalDescription = "";
-			$scope.cdformdata.closingInformation.property.addressLineText = '';
-		}
+		$scope.cdformdata.closingInformation.property.unparsedLegalDescription = "";
+		$scope.cdformdata.closingInformation.property.addressLineText = '';
 	}
 	
 	$scope.changePropertyPrice = function() {
