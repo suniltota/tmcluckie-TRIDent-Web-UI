@@ -210,6 +210,7 @@
 		        	</select>
 		        </td>
 		        <td>
+		            <span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Close" ng-click="deletePrepaidInfo(prepaidsList.prepaidItemType,$index)" ng-show="$index!=3 && prepaidsList.prepaidItemType == 'CountyPropertyTax'"></span>
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearPrepaidInfo($index)"></span>
 		        </td>
 		      </tr>
@@ -295,7 +296,7 @@
 				/ <br> Clear <help-verbiage name="LE_SectionGTrashClear_help" title="help_tooltip_text"></help-verbiage> -->
 				</th>
 		      </tr>
-		      <tr ng-repeat="escrowItemsList in leformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'HomeownersInsurance'}">
+		      <tr ng-repeat="escrowItemsList in leformdata.closingCostDetailsOtherCosts.escrowItemsList track by $index" ng-if="escrowItemsList.escrowItemType == 'HomeownersInsurance'">
 		        <td>
 		        	<span class="LabelValue col-sm-10">Homeowners Insurance</span>
 		        </td>
@@ -332,7 +333,7 @@
 		      	    <span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('0')"></span>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="escrowItemsList in leformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType:'MortgageInsurance'}">
+		      <tr ng-repeat="escrowItemsList in leformdata.closingCostDetailsOtherCosts.escrowItemsList track by $index" ng-if="escrowItemsList.escrowItemType == 'MortgageInsurance'">
 		        <td>
 		        	<span class="LabelValue col-sm-10">Mortgage Insurance</span>
 		        </td>
@@ -366,7 +367,7 @@
 		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('1')"></span>
 		        </td>
 		      </tr>
-		      <tr ng-repeat="escrowItemsList in leformdata.closingCostDetailsOtherCosts.escrowItemsList | filter :{escrowItemType: 'CountyPropertyTax'}">
+		      <tr ng-repeat="escrowItemsList in leformdata.closingCostDetailsOtherCosts.escrowItemsList track by $index" ng-if="escrowItemsList.escrowItemType == 'CountyPropertyTax'">
 		        <td>
 		        	<span class="LabelValue col-sm-10">Property Taxes</span>
 		        </td>
@@ -397,6 +398,7 @@
 		        </td>
 		        
 		        <td>
+		            <span class="glyphicon glyphicon-trash iconTooltip red margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Close" ng-click="deleteEscrowsList(escrowItemsList.escrowItemType,$index)" ng-show="$index!=2 && escrowItemsList.escrowItemType == 'CountyPropertyTax'"></span>
 		        	<span class="glyphicon glyphicon-refresh iconTooltip margin5tb col-sm-12 padding0 text-center" data-toggle="tooltip" title="Clear" ng-click="clearEscrow('2')"></span>
 		        </td>
 		      </tr>

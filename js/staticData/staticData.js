@@ -3895,6 +3895,7 @@ this.cdformdata={
 		    }
 		},
 		"closingInformationDetail": {
+			"dateIssued": "",
 		    "cashFromBorrowerAtClosingAmount": "",
 		    "cashFromSellerAtClosingAmount": "",
 		    "cashToBorrowerAtClosingAmount": "",

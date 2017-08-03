@@ -739,13 +739,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[2].escrowItemType = 'CountyPropertyTax';
 			$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[2].displayLabel = 'Property Taxes';
 		     
-		    for(i=0;i<$scope.escrowItemTypes.length;i++){
-            	if($scope.escrowItemTypes[i].value=='CountyPropertyTax'){
-                   //$scope.escrowItemTypes[i].disabled=true;
-            	}
-            }
-
-		}
+    	}
 
 		for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length; i++){
 			if (i!=0 && $scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType == 'HomeownersInsurance') {
