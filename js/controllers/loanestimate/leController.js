@@ -800,10 +800,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	}
 
 	$scope.checkRadio = function() {
-		if(!$scope.leformdata.closingInformation.property.legalDescription){
-			$scope.leformdata.closingInformation.property.unparsedLegalDescription = "";
-			$scope.leformdata.closingInformation.property.addressLineText = '';
-		}
+		$scope.leformdata.closingInformation.property.unparsedLegalDescription = "";
+		$scope.leformdata.closingInformation.property.addressLineText = '';
 	}
 
 	$scope.applicantCheck = function(index){
