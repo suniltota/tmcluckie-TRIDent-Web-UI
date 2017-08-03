@@ -107,6 +107,7 @@ help-verbiage{z-index: 3;}
 .helpText.tooltip_lg:hover span{width:1000px;}
 .helpText.tooltip_lg span{left:-240px;}
 .helpText.tooltip_lg > span > b{margin-left:310px;}
+.helpText.tooltip_lg > span > span{max-height: 150px; padding: 5px 10px; overflow: auto; display: block;}
 .helpText.select_helpPadding{right:17px;}
 .helpText.select_helpPadding > span{left:-240px;}
 .helpText.select_helpPadding > span > b{margin-left:310px;}
