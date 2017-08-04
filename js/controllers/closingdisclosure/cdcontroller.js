@@ -201,7 +201,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
 		}
 		//Disbursement Date Calculation
-		if($scope.cdformdata.closingInformationDetail.closingDate!=undefined){
+		if($scope.cdformdata.closingInformationDetail.closingDate && $scope.cdformdata.closingInformationDetail.closingDate!=undefined){
 	        $scope.cdformdata.disbursementMinDate = $scope.cdformdata.disbursementMinDate ? $scope.cdformdata.disbursementMinDate : $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
 	        $scope.cdformdata.closingInformationDetail.disbursementDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
         }
@@ -3098,7 +3098,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.maturityRule.loanMaturityPeriodCount = $scope.cdformdata.maturityRule.loanMaturityPeriodCount + parseInt($scope.cdformdata.loanInformation.loanTermMonths);
     	$scope.cdformdata.maturityRule.loanMaturityPeriodType = 'Month';
         
-        if($scope.cdformdata.closingInformationDetail.closingDate!=undefined){
+        if($scope.cdformdata.closingInformationDetail.closingDate && $scope.cdformdata.closingInformationDetail.closingDate!=undefined){
 			$scope.cdformdata.disbursementMinDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
 			$scope.cdformdata.closingInformationDetail.disbursementDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
 		}
