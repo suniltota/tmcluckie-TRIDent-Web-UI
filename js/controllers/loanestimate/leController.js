@@ -2285,7 +2285,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
                 if($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='CityPropertyTax' || $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='CountyPropertyTax' ||
                 	$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='DistrictPropertyTax' || $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='SchoolPropertyTax' ||
                 	$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='StatePropertyTax' || $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='TownshipPropertyTax' || 
-                	$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='VillagePropertyTax' || $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='TownPropertyTax')
+                	$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='VillagePropertyTax' || $scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='TownPropertyTax' ||
+                	$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType=='PropertyTax')
                 {
                 	 if($scope.leformdata.escrowArray.indexOf('PropertyTaxes')==-1){
                 	    $scope.leformdata.escrowArray.push('PropertyTaxes');
@@ -2303,22 +2304,19 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	            	return value;
 	            }).join(",").replace(/([A-Z]+)/g, " $1");
 
-            if($scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Property Taxes')!=-1){
+            if($scope.leformdata.escrowArray.indexOf('PropertyTaxes')!=-1){
             	$scope.leformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='Escrowed';
             	$scope.leformdata.etiaSection.propertyTaxesCheck = true;
             	$scope.leformdata.etiaSection.etiaValues[0].insuranceTaxCheck = true; 
             }else{
-            	//$scope.leformdata.etiaSection.etiaValues[0].projectedPaymentEscrowedType='NotEscrowed';
             	$scope.leformdata.etiaSection.etiaValues[0].insuranceTaxCheck = false;
-            	$scope.leformdata.etiaSection.propertyTaxesCheck = false; 
             }
 
-             if($scope.leformdata.integratedDisclosureDetail.firstYearTotalEscrowPaymentDescription.trim().indexOf('Homeowners Insurance')!=-1){
+             if($scope.leformdata.escrowArray.indexOf('HomeownersInsurance')!=-1){
             	$scope.leformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='Escrowed';
             	$scope.leformdata.etiaSection.HomeownersInsuranceCheck = true;
             	$scope.leformdata.etiaSection.etiaValues[1].insuranceTaxCheck = true; 
             }else{
-            	//$scope.leformdata.etiaSection.etiaValues[1].projectedPaymentEscrowedType='NotEscrowed';
             	$scope.leformdata.etiaSection.etiaValues[1].insuranceTaxCheck = false; 
             }
         }
