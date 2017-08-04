@@ -1356,15 +1356,15 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
     $scope.backtoTopborrower = function(){
     	$location.hash();
-    	$anchorScroll('borrowerinfo');
+    	$anchorScroll('transactioninfo');
     }
     $scope.backtoTopSeller = function(){
     	$location.hash();
-    	$anchorScroll('Sellerinfo');
+    	$anchorScroll('transactioninfo');
     }
     $scope.backtoTopLender = function(){
     	$location.hash();
-    	$anchorScroll('lenderinfo');
+    	$anchorScroll('transactioninfo');
     }
 
     $scope.addSeller = function(){
