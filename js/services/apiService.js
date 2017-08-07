@@ -186,7 +186,7 @@ httpServiceModule.factory('apiService', ['$http', '$q', '$rootScope', function($
 					  return $http({
 							cache: caching,
 							method: bundle.httpMethod,
-							headers:{"Content-Type":contentType},
+							headers:{"Content-Type":contentType,"Authorization":(bundle.basicAuth) ? "Basic " + btoa(bundle.basicAuth) : "Bearer " + JSON.parse(localStorage.userDetails).access_token},
 							url:basePath+bundle.apiMethod, 
 							data:dataStr,					
 							transformResponse:bundle.transformResponse,

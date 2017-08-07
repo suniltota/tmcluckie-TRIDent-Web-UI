@@ -42,8 +42,21 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 			pwd = pwd.replace("%","%25");
 			pwd = pwd.replace("&","%26");
 			//login submission logic here
-			var params={username:username, password:pwd};
-			apiService.request({apiMethod:'login',params:params,httpMethod:'POST'}).success(function(data, status) {
+			/*
+			//Below code snippet for password encryption
+			var xorKey = 129; /// you can have other numeric values also.
+		    var result = "";
+		    for (var i = 0; i < pwd.length; ++i) {
+		        result += String.fromCharCode(xorKey ^ pwd.charCodeAt(i));
+		    }*/
+			//var params={username:username, password:result};
+			$scope.params = {
+		        grant_type:"password", 
+		        username: username, 
+		        password: pwd, 
+		        client_id: "TRIDENTOOLKITAPP"
+		    };
+			apiService.request({apiMethod:'oauth/token',params:$scope.params,httpMethod:'POST',basicAuth:"TRIDENTOOLKITAPP:exc9ll9ntapp"}).success(function(data, status) {
 				$scope.waitingForLoginResponse=false;
 				$scope.loginFailure=false;
 				localStorage.userDetails = JSON.stringify(data);
