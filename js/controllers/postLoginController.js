@@ -9,9 +9,9 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
     //$('#SelectTransaction').modal('show');
 
     $scope.logUserOut = function() {
-    	loginService.logout();
         apiService.request({apiMethod: "logout",httpMethod: 'POST'});
     	$window.location.href="login.html" + $window.location.search;
+    	loginService.logout();
     }
 
     $scope.$watch('uploadfile', function(newValue, oldValue) {
