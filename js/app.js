@@ -173,8 +173,8 @@ app.controller('menuCtrl', function ($scope, loginService, apiService, $routePar
     }
   }
   $scope.logout = function() {
-      loginService.logout();
       apiService.request({apiMethod: "logout",httpMethod: 'POST'});
+      loginService.logout();
       $window.location.href="login.html" + $window.location.search;
   }
   $scope.postLogin = function() {
