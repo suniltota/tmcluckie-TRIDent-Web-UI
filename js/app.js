@@ -181,7 +181,7 @@ app.controller('menuCtrl', function ($scope, loginService, apiService, $routePar
       $window.location.href="postLogin.html" + $window.location.search;
   }
 });
-app.controller('fileMenuCtrl', function($scope, $window, loginService, apiService, cdService,leService, $log){
+app.controller('fileMenuCtrl', function($scope, $window, $location, loginService, apiService, cdService,leService, $log){
 
     $scope.transactionType = 'new';
     $scope.purposeType = 'purchase';
@@ -222,7 +222,7 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
         $("#spinner").show();
         if($scope.transactionType == 'new') {
             $scope.docDetails();
-            location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+            $location.path("index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType);
         } else if($scope.transactionType == 'existing') {
             if($scope.uploadfile != undefined && $scope.uploadfile != null) {
                  if($scope.documentType=='closingdisclosure') { 
@@ -242,7 +242,7 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
                     }
                     localStorage.jsonData = JSON.stringify(data);
                     //console.log(localStorage.jsonData);
-                    location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+                    $location.path("index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType);
                 }).error(function(data, status) {
                     $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
                     $("#spinner").hide();
@@ -265,7 +265,7 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
                     }
                     localStorage.jsonData = JSON.stringify(data);
                     
-                    location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+                    $location.path("index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType);
                 }).error(function(data, status) {
                     $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
                     $("#spinner").hide();
@@ -293,7 +293,7 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
                         }
                     }
                     localStorage.jsonData = JSON.stringify(jsondata);
-                    location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+                    $location.path("index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType);
                 }).error(function(data, status) {
                     $scope.fileerror = 'There is a problem with template file. Please select valid template file';
                     $("#spinner").hide();
@@ -314,7 +314,7 @@ app.controller('fileMenuCtrl', function($scope, $window, loginService, apiServic
                           }
                       }
                       localStorage.jsonData = JSON.stringify(jsondata);
-                      location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+                      $location.path( "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType);
                   }).error(function(data, status) {
                       $scope.fileerror = 'There is a problem with template file. Please select valid template file';
                       $("#spinner").hide();
