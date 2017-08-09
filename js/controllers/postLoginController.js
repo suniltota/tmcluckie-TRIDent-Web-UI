@@ -94,8 +94,8 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                             $scope.formType = 'standard';
                         }
                     }
-                    localStorage.jsonData = JSON.stringify(data);
                     $scope.docDetails();
+                    localStorage.jsonData = JSON.stringify(data);
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                 }).error(function(data, status) {
                     $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
