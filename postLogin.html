@@ -29,7 +29,7 @@
             <div ng-include='"templates/header.html"'></div>
         </div>
         <div style="top:80px; clear:both;" ng-controller="postLoginCtrl">
-            <div class="bodySection col-sm-12 padding0" style="position: relative; margin-top: 20px;  ">
+            <div class="bodySection col-sm-12 padding0" style="position: relative; margin-top: 20px;">
               <div id="transparent" style="display: none;"></div>
                 <div class="col-sm-6" dynamic-height-min-page-view >
                       <div class="col-sm-12">
@@ -69,7 +69,7 @@
                             <img src="images/admin.png">
                         </div>
                         <div class="col-sm-11">
-                            <span class="col-sm-12"><a>Administration User</a></span>
+                            <span class="col-sm-12 cursor" ng-click="adminUser()"><a>Administration User</a></span>
                             <span class="col-sm-12">
                                 Click the page when the user role is the administrator to set up new users, change users credentials and to remove users
                             </span>

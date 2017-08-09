@@ -27,6 +27,10 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
         }
     }
     
+    $scope.adminUser = function(){
+        location.href = "index.html#/admin";
+    }
+
     $scope.clear = function() {
         if($scope.transactionType == 'new')
             $scope.purposeType = 'purchase';

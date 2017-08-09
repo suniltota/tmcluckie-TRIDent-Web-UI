@@ -17,6 +17,7 @@ app.config(function ($routeProvider, $locationProvider) {
     .when("/home", {cache:false, templateUrl: "partials/home.html", controller: "homeCtrl"})
     .when("/closingDisclosure", {cache:false, templateUrl: "partials/closingDisclosureHome.html", controller: "closingDisclosureCtrl"})
     .when("/loanEstimate", {cache:false, templateUrl: "partials/loanEstimateHome.html", controller: "loanEstimateCtrl"})
+    .when("/admin", {cache:false, templateUrl: "partials/adminHome.html", controller: "adminCtrl"})
     .otherwise({ redirectTo: '/home' });
   $locationProvider.hashPrefix('');
 }).run(['loginService', 'apiService', '$rootScope', '$window', function(loginService, apiService, $rootScope, $location, $window){
