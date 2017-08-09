@@ -182,7 +182,7 @@ app.controller('menuCtrl', function ($scope, loginService, apiService, $routePar
       $window.location.href="postLogin.html" + $window.location.search;
   }
 });
-app.controller('fileMenuCtrl', function($scope, $window, $location, loginService, apiService, cdService,leService, $log){
+app.controller('fileMenuCtrl', function($scope, $window, $location, $timeout, loginService, apiService, cdService,leService, $log){
 
     $scope.transactionType = 'new';
     $scope.purposeType = 'purchase';
@@ -223,7 +223,9 @@ app.controller('fileMenuCtrl', function($scope, $window, $location, loginService
         $("#spinner").show();
         if($scope.transactionType == 'new') {
             $scope.docDetails();
-            $location.path("index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType);
+			$timeout( function(){            
+				location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+			}, 500 );
         } else if($scope.transactionType == 'existing') {
             if($scope.uploadfile != undefined && $scope.uploadfile != null) {
                  if($scope.documentType=='closingdisclosure') { 
@@ -242,8 +244,10 @@ app.controller('fileMenuCtrl', function($scope, $window, $location, loginService
                         }
                     }
                     localStorage.jsonData = JSON.stringify(data);
-                    //console.log(localStorage.jsonData);
-                    $location.path("index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType);
+                    //console.log(localStorage.jsonData
+					$timeout( function(){            
+						location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+					}, 500 );
                 }).error(function(data, status) {
                     $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
                     $("#spinner").hide();
@@ -265,8 +269,9 @@ app.controller('fileMenuCtrl', function($scope, $window, $location, loginService
                         }
                     }
                     localStorage.jsonData = JSON.stringify(data);
-                    
-                    $location.path("index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType);
+					$timeout( function(){            
+						location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+					}, 500 );
                 }).error(function(data, status) {
                     $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
                     $("#spinner").hide();
@@ -294,7 +299,9 @@ app.controller('fileMenuCtrl', function($scope, $window, $location, loginService
                         }
                     }
                     localStorage.jsonData = JSON.stringify(jsondata);
-                    $location.path("index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType);
+					$timeout( function(){            
+						location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+					}, 500 );
                 }).error(function(data, status) {
                     $scope.fileerror = 'There is a problem with template file. Please select valid template file';
                     $("#spinner").hide();
@@ -315,7 +322,9 @@ app.controller('fileMenuCtrl', function($scope, $window, $location, loginService
                           }
                       }
                       localStorage.jsonData = JSON.stringify(jsondata);
-                      $location.path( "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType);
+					$timeout( function(){            
+						location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
+					}, 500 );
                   }).error(function(data, status) {
                       $scope.fileerror = 'There is a problem with template file. Please select valid template file';
                       $("#spinner").hide();
