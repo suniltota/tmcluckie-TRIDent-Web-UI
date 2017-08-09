@@ -2,27 +2,28 @@ app.controller('adminCtrl', function ($scope) {
 
 	$scope.showTab = 'adminDashboard';
     $scope.viewContent = 'viewClient';
-    $scope.addEditClient = [
-                              {"clientInfo": {
+    $scope.addEditClient = {
+                              "clientInfo": {
                                 "name": "Full name",
                                 "address": "Full mailing address",
                                 "pno": "Phone Number",
                                 "webPage": "Web URL"
-                              }},
-                              {"bussContactInfo": {
+                              },
+                              "bussContactInfo": {
                                 "name": "Full name",
                                 "email": "Email address",
                                 "pno": "Phone Number"
-                              }},
-                              {"techContactInfo": {
+                              },
+                              "techContactInfo": {
                                 "name": "Full name",
                                 "email": "Email address",
                                 "pno": "Phone Number"
-                              }},
-                              {"passwordExpDate":"30 days"},
-                              {"expirationDate":"12052017"},
-                              {"sessionTimeout":"30 Mins"}
-                            ];
+                              },
+                              "passwordExpDate": "30 days",
+                              "expirationDate": "12052017",
+                              "sessionTimeout": "30 Mins"
+                            }
+        
 
 	$scope.addClient = function(){
         //location.href = "index.html#/admin";
