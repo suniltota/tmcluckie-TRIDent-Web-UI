@@ -156,12 +156,12 @@
 		        	<span class="col-sm-12">No Subsequent Changes</span>
 		        	</li>
 		        	<li ng-if="cdformdata.loanDetail.interestOnlyIndicator == false || cdformdata.loanInformation.amortizationType!='Fixed'">
-		        	<span class="col-sm-12" ng-show="!cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">No Subsequent Changes</span>
+		        	<span class="col-sm-12" ng-show="!cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">No Subsequent Changes</span>
 
-		        	<span class="col-sm-12" ng-show="cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">
+		        	<span class="col-sm-12" ng-show="cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount">
 		        	    <span class="pull-left margin5tb">Every</span>
 		        		<span class="pull-left col-sm-2">
-		        			<input type="text" class="form-control" name="" value="{{cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount/12}}" ng-disabled="true">
+		        			<input type="text" class="form-control" name="" value="{{cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount/12 |ceil | ceil}}" ng-disabled="true">
 		        		</span>
 		        		<span class="pull-left margin5tb">Years</span>
 		        	</span>
