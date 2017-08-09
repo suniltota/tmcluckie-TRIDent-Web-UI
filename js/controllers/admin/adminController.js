@@ -22,12 +22,16 @@ app.controller('adminCtrl', function ($scope) {
                               "passwordExpDate": "30 days",
                               "expirationDate": "12052017",
                               "sessionTimeout": "30 Mins"
-                            }
+                            };
+    $scope.pwdExpList = ["10 days", "20 days", "30 days"];
+    $scope.pwdExp = $scope.pwdExpList[2];
+    $scope.sessTOutList = ["10 Minutes", "20 Minutes", "30 Minutes", "40 Minutes", "50 Minutes", "60 Minutes"];
+    $scope.sessTOut = $scope.sessTOutList[2];
         
 
-	$scope.addClient = function(){
+	$scope.addClient = function(content){
         //location.href = "index.html#/admin";
-        $scope.viewContent = 'addClient';
+        $scope.viewContent = content;//'addClient';
     }
 
 	$scope.clientList = [

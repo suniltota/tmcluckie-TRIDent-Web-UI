@@ -16,7 +16,7 @@
 						  	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewClient'" style="padding: 0px;">
 						    		<div class="col-sm-12">
 											<span class="col-sm-6 padding0 pull-right margin5tb margintop30">
-												<a class="pull-right margin5lr cursor" ng-click="addClient()" ng-class="{'active': showTab == 'addClient'}" ><span class="glyphicon glyphicon-plus"></span> Add Client</a>
+												<a class="pull-right margin5lr cursor" ng-click="addClient('addClient')" ng-class="{'active': showTab == 'addClient'}" ><span class="glyphicon glyphicon-plus"></span> Add Client</a>
 											</span>
 									</div>
 									<div class="table-responsive administratorDiv col-sm-12">
@@ -55,8 +55,17 @@
 									</div>
 						  	</div>
 						  	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='addClient'" style="padding: 0px;">
-							  	<div class="col-lg-12 col-md-12 col-sm-12">
-							  		<h4 class="col-sm-3 padding0">Add/Edit Client</h4>
+							  	<div class="col-lg-12 col-md-12 col-sm-12" style="padding:5px;background:aliceblue;margin: 8px 0;">
+							  		<span class="col-lg-10 col-md-10 col-sm-10">
+								  		<h4 class="col-sm-3 padding0">Add/Edit Client</h4>
+								  	</span>
+								  	<span class="col-lg-1 col-md-1 col-sm-1">
+								  		<button style="margin: 10px">Save</button>
+
+								  	</span>
+								  	<span class="col-lg-1 col-md-1 col-sm-1">
+								  		<button style="margin: 10px" ng-click="addClient('viewClient')">X</button>
+								  	</span>
 							  	</div>
 							  	<div class="col-lg-12 col-md-12 col-sm-12">
 							  		<h3 class="col-sm-12 padding0">Client Information</h3>
@@ -165,7 +174,32 @@
 									  	</div>
 								  	</div>		
 								  	<div class="col-lg-6 col-md-6 col-sm-6">
-								  		
+									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<label>Password Expiration : </label>
+										  	</div>
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<select ng-model="pwdExp" ng-options="x for x in pwdExpList">
+												</select>
+										  	</div>
+									  	</div>
+									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<label>Expiration Date : </label>
+										  	</div>
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<input type="text" name="input" ng-model="addEditClient.techContactInfo.email" >
+										  	</div>
+									  	</div>
+									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<label>Session Timeout : </label>
+										  	</div>
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<select ng-model="sessTOut" ng-options="x for x in sessTOutList">
+												</select>
+										  	</div>
+									  	</div>
 								  	</div>	
 							  	</div>
 							  </div>
