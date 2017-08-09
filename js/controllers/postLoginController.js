@@ -10,8 +10,8 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
 
     $scope.logUserOut = function() {
         apiService.request({apiMethod: "logout",httpMethod: 'POST'});
-    	$window.location.href="login.html" + $window.location.search;
-    	loginService.logout();
+        $window.location.href="login.html" + $window.location.search;
+        loginService.logout();
     }
 
     $scope.$watch('uploadfile', function(newValue, oldValue) {
@@ -40,9 +40,20 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
         $scope.uploadfile = undefined;
     }
 
+    $scope.docDetails = function(){
+
+        $('#ChooseFormType').modal('hide');
+        localStorage.removeItem("jsonData");
+        localStorage.documentType = $scope.documentType;
+        localStorage.loanPurposeType = $scope.purposeType;
+        localStorage.loanFormType = $scope.formType;
+        angular.element($("#menuCtrlId")).scope().documentType = $scope.documentType;
+    }
+
     $scope.submit = function() {
         $("#spinner").show();
         if($scope.transactionType == 'new') {
+            $scope.docDetails();
             location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
         } else if($scope.transactionType == 'existing') {
             if($scope.uploadfile != undefined && $scope.uploadfile != null) {
@@ -60,6 +71,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                             $scope.formType = 'standard';
                         }
                     }
+                    $scope.docDetails();
                     localStorage.jsonData = JSON.stringify(data);
                     console.log(localStorage.jsonData);
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
@@ -83,7 +95,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                         }
                     }
                     localStorage.jsonData = JSON.stringify(data);
-                    
+                    $scope.docDetails();
                     location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                 }).error(function(data, status) {
                     $scope.fileerror = 'There is a problem with xml file. Please select valid xml file';
@@ -109,6 +121,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                                 $scope.formType = 'standard';
                             }
                         }
+                        $scope.docDetails();
                         localStorage.jsonData = JSON.stringify(jsondata);
                         console.log(localStorage.jsonData);
                         location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
@@ -130,6 +143,7 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
                                 $scope.formType = 'standard';
                             }
                         }
+                        $scope.docDetails();
                         localStorage.jsonData = JSON.stringify(jsondata);
                         location.href = "index.html#/home?documentType="+$scope.documentType+"&purposeType="+$scope.purposeType+"&formType="+$scope.formType;
                     }).error(function(data, status) {
