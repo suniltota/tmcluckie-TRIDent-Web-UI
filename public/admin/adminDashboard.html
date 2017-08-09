@@ -4,48 +4,65 @@
           	<span dynamic-height-min-page-view>
 				<div class="CDHeaderSection col-lg-12">
 					<div class="col-sm-12">
-						<div class="col-sm-12">
-								<h4 class="col-sm-3 padding0">Clients List</h4>
-								<span class="col-sm-9">
-									<a class="pull-right margin5lr cursor"><span class="glyphicon glyphicon-briefcase"></span> investor List</a>
-									<a class="pull-right margin5lr cursor" ng-class="{'active': showTab == 'addClient'}" ><span class="glyphicon glyphicon-plus"></span> Add Client</a>
-									<a class="pull-right margin5lr cursor"><span class="glyphicon glyphicon-plus"></span> Add investor</a>
-								</span>
-						</div>
-						<div class="table-responsive administratorDiv col-sm-12">
-						  <table class="table table-bordered table-hover">
-						  	<thead class="innerSectionHeader">
-							  <tr>
-								<th class="col-sm-1"><input type="checkbox"></th>
-								<th>Title</th>
-								<th>News</th>
-								<th class="col-sm-1">Actions</th>
-							  </tr>
-							</thead>
-							
-							<tbody>
-								<tr ng-repeat="item in clientList">
-									<td scope="row"><input type="checkbox"></td>
-							       <td>{{item.keycolumn1}}</td>
-							       <td>{{item.originkey1}}</td>
-							       <td>
-										<a href="#"><span class="glyphicon glyphicon-pencil"></span></a> 
-										<a href="#"><span class="glyphicon glyphicon-trash"></span></a>
-									</td>
-							     </tr>
-							</tbody>
-						  </table>
-						  <ul class="pagination pagination-lg pull-right">
-							<li><a>&laquo;</a></li>
-							<li><a >1</a></li>
-							<li><a >2</a></li>
-							<li><a >3</a></li>
-							<li><a >4</a></li>
-							<li><a >5</a></li>
-							<li><a >&raquo;</a></li>
+
+						<ul class="nav nav-tabs">
+						  <li class="active"><a class="cursor" data-toggle="tab" data-target="#clientContainer">Client List</a></li>
+						  <li><a class="cursor" data-toggle="tab" data-target="#investorContainer">Investor List</a></li>
+						  <li><a class="cursor" data-toggle="tab" data-target="#userContainer">User List</a></li>
 						</ul>
-						  
+
+						<div class="tab-content">
+						  <div id="clientContainer" class="tab-pane fade in active">
+						    		<div class="col-sm-12">
+											<span class="col-sm-6 padding0 pull-right margin5tb margintop30">
+												<a class="pull-right margin5lr cursor" ng-class="{'active': showTab == 'addClient'}" ><span class="glyphicon glyphicon-plus"></span> Add Client</a>
+											</span>
+									</div>
+									<div class="table-responsive administratorDiv col-sm-12">
+									  <table class="table table-bordered table-hover">
+									  	<thead class="innerSectionHeader">
+										  <tr>
+											<th class="col-sm-1"><input type="checkbox"></th>
+											<th>Title</th>
+											<th>News</th>
+											<th class="col-sm-1">Actions</th>
+										  </tr>
+										</thead>
+										
+										<tbody>
+											<tr ng-repeat="item in clientList">
+												<td scope="row"><input type="checkbox"></td>
+										       <td>{{item.keycolumn1}}</td>
+										       <td>{{item.originkey1}}</td>
+										       <td>
+													<a href="#"><span class="glyphicon glyphicon-pencil"></span></a> 
+													<a href="#"><span class="glyphicon glyphicon-trash"></span></a>
+												</td>
+										     </tr>
+										</tbody>
+									  </table>
+									  <ul class="pagination pagination-lg pull-right">
+										<li><a>&laquo;</a></li>
+										<li><a >1</a></li>
+										<li><a >2</a></li>
+										<li><a >3</a></li>
+										<li><a >4</a></li>
+										<li><a >5</a></li>
+										<li><a >&raquo;</a></li>
+									</ul>
+									  
+									</div>
+						  </div>
+						  <div id="investorContainer" class="tab-pane fade">
+						    <h3>Menu 1</h3>
+						    <p>Some content in menu 1.</p>
+						  </div>
+						  <div id="userContainer" class="tab-pane fade">
+						    <h3>Menu 2</h3>
+						    <p>Some content in menu 2.</p>
+						  </div>
 						</div>
+
 					</div>
 				</div>
           	</span>
