@@ -212,6 +212,7 @@ help-verbiage{z-index: 3;}
 
 .backtotop{padding-right  : 15px; color:#fff;}
 .LeBackToTop{cursor: pointer;}
+.CdBackToTop{cursor: pointer;}
 ul li{list-style: none;}
 .popup_innerHeader{background:#eee; padding:7px 10px; margin: 5px 0px;}
 .notificationIcons{margin:8px 10px; color:#5bb1dc;}

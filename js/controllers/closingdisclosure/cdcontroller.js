@@ -1346,6 +1346,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
      	}, 500)
 
      }
+
+    $scope.backToTop = function(){
+    	//console.log("i am here");
+    	$('#PDFviewContainer').scrollTop(0);
+    }
     
 	$scope.addBorrower = function(){
     	$scope.cdformdata.transactionInformation.borrowerDetails.push(angular.copy(borrower));
