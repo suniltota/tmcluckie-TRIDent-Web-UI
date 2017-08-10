@@ -64,8 +64,8 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
         //location.href = "index.html#/admin";
         $scope.viewContent = content;//'addClient';
         if(content == 'viewClient' && $scope.clientList && !$scope.clientList.length){
-            $("#spinner").show();
-            $scope.getClientData();
+           // $("#spinner").show();
+           // $scope.getClientData();
         }else if(content == 'addClient'){
             $scope.addEditClient = {};
         }
@@ -75,8 +75,8 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
         }else if(content == 'addGroup'){
             $scope.addEditGroup = {};
         }else if(content == 'viewUser'){
-            $("#spinner").show();
-            $scope.getUserData();
+            //$("#spinner").show();
+           // $scope.getUserData();
         }else if(content == 'addUser'){
             $scope.addEditUser = {};
         }
@@ -274,7 +274,14 @@ $scope.parentGroupChange = function(selectedGroup){
         }
         
     }
-
+    //$scope.copyEmailAsUsernameStatus=false;
+     $scope.sameAsUserName = function () {     
+       if ($scope.addEditUser.sameAsUserName) {
+           $scope.addEditUser.username=$scope.addEditUser.email;
+        }else{
+           $scope.addEditUser.username='';
+        }
+     };
         //// User End
 
         $scope.getClientData = function() {
