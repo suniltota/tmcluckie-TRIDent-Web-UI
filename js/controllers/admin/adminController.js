@@ -77,9 +77,15 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
         return GrantedGroupPermission.serviceDisplayName;
     };
 
-    $scope.addClient = function(content){
+    $scope.newAdminTab = function(content){
         //location.href = "index.html#/admin";
         $scope.viewContent = content;//'addClient';
+        if(content == 'viewClient'){
+            $("#spinner").show();
+            $scope.getClientData();
+        }else if(content == 'addClient'){
+            $scope.addEditClient = {};
+        }
         if(content == 'viewGroup' && $scope.groupList && !$scope.groupList.length){
             $("#spinner").show();
             $scope.getGroupData();
@@ -143,7 +149,7 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
 
     $scope.editGroup = function(groupId) {
             $("#spinner").show();
-            $scope.addClient('addGroup');
+            $scope.newAdminTab('addGroup');
         apiService.request({apiMethod:'actualize/transformx/groups/'+groupId,httpMethod:'GET'}).success(function(data, status) {
             $scope.addEditGroup = data;
             $("#spinner").hide();
@@ -155,7 +161,7 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
 
     $scope.updateGroup = function(groupId) {
             $("#spinner").show();
-            $scope.addClient('addGroup');
+            $scope.newAdminTab('addGroup');
         apiService.request({apiMethod:'actualize/transformx/groups/'+groupId,httpMethod:'GET'}).success(function(data, status) {
             $scope.addEditGroup = data;
             $("#spinner").hide();
@@ -262,3 +268,19 @@ app.directive('ngConfirmClick', [
                 }
             };
     }])
+
+
+$scope.getClientData = function() {
+        apiService.request({apiMethod:'actualize/transformx/clients',httpMethod:'GET'}).success(function(data, status) {
+            $scope.clientList = data;
+            $scope.parentClientListUnderAdmin = [];
+            for(var i=0;i<data.length;i++){
+                $scope.parentClientListUnderAdmin.push({"clientId":data[i].clientId, "clientName":data[i].clientName});
+            }
+            $scope.prntClient = $scope.parentClientListUnderAdmin[0];
+            $("#spinner").hide();
+        }).error(function(data, status) {
+            $("#spinner").hide();
+            console.log("API  'actualize/transformx/clients' Error: "+data);
+        });
+    }

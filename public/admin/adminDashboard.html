@@ -6,8 +6,8 @@
 					<div class="col-sm-12">
 
 						<ul class="nav nav-tabs">
-						  <li class="active"><a class="cursor" data-toggle="tab" data-target="#clientContainer" ng-click="addClient('viewClient')">Client List</a></li>
-						  <li><a class="cursor" data-toggle="tab" data-target="#groupContainer" ng-click="addClient('viewGroup')">Group List</a></li>
+						  <li class="active"><a class="cursor" data-toggle="tab" data-target="#clientContainer" ng-click="newAdminTab('viewClient')">Client List</a></li>
+						  <li><a class="cursor" data-toggle="tab" data-target="#groupContainer" ng-click="newAdminTab('viewGroup')">Group List</a></li>
 						  <li><a class="cursor" data-toggle="tab" data-target="#investorContainer">Investor List</a></li>
 						  <li><a class="cursor" data-toggle="tab" data-target="#userContainer">User List</a></li>
 						</ul>
@@ -17,7 +17,7 @@
 						  	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewClient'" style="padding: 0px;">
 						    		<div class="col-sm-12">
 											<span class="col-sm-6 padding0 pull-right margin5tb margintop30">
-												<a class="pull-right margin5lr cursor" ng-click="addClient('addClient')" ng-class="{'active': showTab == 'addClient'}" ><span class="glyphicon glyphicon-plus"></span> Add Client</a>
+												<a class="pull-right margin5lr cursor" ng-click="newAdminTab('addClient')" ng-class="{'active': showTab == 'addClient'}" ><span class="glyphicon glyphicon-plus"></span> Add Client</a>
 											</span>
 									</div>
 									<div class="table-responsive administratorDiv col-sm-12">
@@ -61,7 +61,7 @@
 								  		<h5 class="col-sm-3 padding0 margin0">Add / Edit Client</h5>
 								  	</span>
 								  	<span class="col-lg-2 col-md-2 col-sm-2">
-								  		<span class="glyphicon glyphicon-remove-circle cursor pull-right margin5lr" style="font-size: 15px;" ng-click="addClient('viewClient')"></span>
+								  		<span class="glyphicon glyphicon-remove-circle cursor pull-right margin5lr" style="font-size: 15px;" ng-click="newAdminTab('viewClient')"></span>
 								  		<span class="pull-right margin5lr">Save</span>
 								  	</span>
 							  	</div>
@@ -257,7 +257,7 @@
 						    	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewGroup'" style="padding: 0px;">
 						    		<div class="col-sm-12">
 											<span class="col-sm-6 padding0 pull-right margin5tb margintop30">
-												<a class="pull-right margin5lr cursor" ng-click="addClient('addGroup')" ng-class="{'active': showTab == 'addGroup'}" ><span class="glyphicon glyphicon-plus"></span> Add Group</a>
+												<a class="pull-right margin5lr cursor" ng-click="newAdminTab('addGroup')" ng-class="{'active': showTab == 'addGroup'}" ><span class="glyphicon glyphicon-plus"></span> Add Group</a>
 											</span>
 									</div>
 									<div class="table-responsive administratorDiv col-sm-12">
@@ -307,7 +307,7 @@
 								  		<h5 class="col-sm-3 padding0 margin0">Add / Edit Group</h5>
 								  	</span>
 								  	<span class="col-lg-2 col-md-2 col-sm-2">
-								  		<span class="glyphicon glyphicon-remove-circle cursor pull-right margin5lr" style="font-size: 15px;" ng-click="addClient('viewGroup')"></span>
+								  		<span class="glyphicon glyphicon-remove-circle cursor pull-right margin5lr" style="font-size: 15px;" ng-click="newAdminTab('viewGroup')"></span>
 								  		<span class="pull-right margin5lr" ng-click="saveGroup()">Save</span>
 								  	</span>
 							  	</div
