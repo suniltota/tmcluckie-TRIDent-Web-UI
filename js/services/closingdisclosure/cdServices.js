@@ -31,7 +31,7 @@ app.service('cdService', function(apiService){
     },
     this.validateUCDXml = function(data){
         return apiService.request({
-            apiMethod: "actualize/transformx/services/ucd/cd/validate",
+            apiMethod: "actualize/transformx/services/ucd/cd/WebUI/validate",
             httpMethod: 'POST',
             formData:data
         });
