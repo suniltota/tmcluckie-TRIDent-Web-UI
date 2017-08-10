@@ -27,6 +27,13 @@ app.service('staticData', function($filter){
 		{ name: "Yes", id: "Escrowed" },
 		{ name: "No", id: "NotEscrowed" }
 	];
+	this.signatureTypes = [
+		{ name: "Digital", id: "Digital" },
+		{ name: "Image", id: "Image" },
+		{ name: "Other", id: "Other" },
+		{ name: "Text", id: "Text" },
+		{ name: "Wet", id: "Wet" },
+	];
     this.rateLokedTime = [
 	    {
 	    	"period":"1:00",

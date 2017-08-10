@@ -65,6 +65,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     $scope.escrowAbsenceReasons = angular.copy(staticData.escrowAbsenceReasons);
     $scope.paymentFrequencyTypes = angular.copy(staticData.paymentFrequencyTypes);
     $scope.stateProperty = angular.copy(staticData.stateProperty);
+    $scope.signatureTypes = angular.copy(staticData.signatureTypes);
     $scope.payoffsAndPaymentsTotalAmount = 0;
     $scope.showLenderTolerance = false;
     $scope.toleranceSelection = false;
@@ -178,7 +179,8 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    $scope.cdformdata['nonEscrowArray'] = [];	
 	    $scope.cdformdata['escrowArray'] = [];		
 		$scope.cdformdata['disbursementMinDate'] = '';
-
+		$scope.cdformdata['signatureDate'] = '';
+        $scope.cdformdata.documentClassification.documentSignatureRequiredIndicator=true;
 		if($scope.loanBasicInfo.loanPurposeType == 'purchase') {
 			$scope.cdformdata.salesContractDetail.personalPropertyIndicator = false;
 		} else {
@@ -204,6 +206,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		if($scope.cdformdata.closingInformationDetail.closingDate && $scope.cdformdata.closingInformationDetail.closingDate!=undefined){
 	        $scope.cdformdata.disbursementMinDate = $scope.cdformdata.disbursementMinDate ? $scope.cdformdata.disbursementMinDate : $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
 	        $scope.cdformdata.closingInformationDetail.disbursementDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
+        }
+
+        if($scope.cdformdata.closingInformationDetail.closingDate && $scope.cdformdata.closingInformationDetail.closingDate!=undefined){
+	        $scope.cdformdata.signatureDate = $scope.cdformdata.signatureDate ? $scope.cdformdata.signatureDate : $scope.cdformdata.closingInformationDetail.closingDate;
         }
         
 		if(!$scope.cdformdata.miPremium || $scope.cdformdata.miPremium.length==0) 

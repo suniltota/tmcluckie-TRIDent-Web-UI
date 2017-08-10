@@ -97,6 +97,9 @@
                       <li>
                           <span href="" class="pagenumber" ng-class="{'active': showTab == 'LoanCals'}" ng-click="changeTab('LoanCals')" >Loan Calcs OtherDisclosure</span>
                       </li>
+                      <li>
+                          <span href="" class="pagenumber" ng-class="{'active': showTab == 'CdConfReceipt'}" ng-click="showTab = 'CdConfReceipt'" >Confirm Receipt</span>
+                      </li>
                       
                     </ul>
               </li>
@@ -288,6 +291,12 @@
                             <span class="pull-left noTitle">LC</span>
                           </span>
                       </li>
+                      <li>
+                          <span class="pageno pageicon" ng-class="{'active': showTab == 'CdConfReceipt'}" data-toggle="tooltip" ng-click="showTab = 'CdConfReceipt'"  data-placement="right" title="Confirm Receipt">
+                            <span class="glyphicon glyphicon-file pull-left"></span>
+                            <span class="pull-left noTitle">CR</span>
+                          </span>
+                      </li>
                   </ul>
               </li>
 
@@ -332,6 +341,7 @@
             <div ng-show="showTab == 'TotalClosingCosts'" ng-include='"templates/cdforms/cdTotalClosingCosts.html"'></div>
             <div ng-show="showTab == 'PayoffsAndPayments'" ng-include='"templates/cdforms/cdPayoffsAndPaymentsAlternateForm.html"'></div>
             <div ng-show="showTab == 'LoanCals'" ng-include='"templates/cdforms/cdLoanCalsOtherDisclosure.html"'></div>
+            <div ng-show="showTab == 'CdConfReceipt'" ng-include='"templates/cdforms/cdConfirmReceipt.html"'></div>
             <div ng-show="showTab == 'ContactInfo'" ng-include='"templates/cdforms/cdContactInformation.html"'></div>
             <div ng-show="showTab == 'CalculatingCashtoClose'" ng-include='"templates/cdforms/cdCalculatingCashtoClose.html"'></div>
             <div ng-show="showTab == 'SummariesofTransaction_K'" ng-include='"templates/cdforms/cdSummariesofTransaction_K_DuefromBorrower.html"'></div>
