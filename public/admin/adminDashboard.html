@@ -107,11 +107,8 @@
 								  			<div class="row">
 												<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
 												<h5 class="innerSectionHeader">Granted Permissions</h5>
-													<select id="GrantedPermissions" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-													  <option value="a">Administration</option>
-													  <option value="c">OCR</option>
-													  <option value="d">Submit to GSE</option>
-													</select>
+													<select id="GrantedPermissions" ng-model="GrantedNmaes" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission as GrantedPermissionsName(Permission) for Permission in GrantedPermissions">
+											        </select>
 												</div>
 												<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 margintop30">
 													<a class="btn btn-default  col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="listbox_moveacross('GrantedPermissions', 'AvailablePermissions')"><strong> <span class="glyphicon glyphicon-chevron-right"></span> </strong></a>
@@ -119,11 +116,8 @@
 												</div>
 												<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
 												<h5 class="innerSectionHeader">Available Permissions</h5>
-													<select id="AvailablePermissions" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-													  <option value="a">Closing Disclosure PDF</option>
-													  <option value="c">Loan Estimate PDF</option>
-													  <option value="d">USD Validation</option>
-													</select>
+													<select id="AvailablePermissions" ng-model="AvailableNmaes.owner" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission as AvailablePermissionsName(Permission) for Permission in AvailablePermissions">
+											        </select>
 												</div>
 
 											</div>

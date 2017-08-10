@@ -33,7 +33,25 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
     $scope.groupList = {};
     $scope.parentGroupListUnderAdmin = [];
 
-        
+    $scope.GrantedPermissions = [
+            { name: "Administration"}, 
+            { name: "OCR"},
+            { name: "Submit to GSE"}
+          ];
+    $scope.GrantedNmaes = { owner: $scope.GrantedPermissions[0] };
+    $scope.GrantedPermissionsName = function( GrantedPermission ) {
+    	return GrantedPermission.name;
+  	};
+
+    $scope.AvailablePermissions = [
+            { name: "Closing Disclosure PDF"}, 
+            { name: "Loan Estimate PDF"},
+            { name: "USD Validation"}
+          ];
+    $scope.AvailableNmaes = { owner: $scope.AvailablePermissions[0] };
+    $scope.AvailablePermissionsName = function( AvailablePermission ) {
+    	return AvailablePermission.name;
+  	};
 
 	$scope.addClient = function(content){
         //location.href = "index.html#/admin";
