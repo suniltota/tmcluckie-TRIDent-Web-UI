@@ -1,4 +1,4 @@
-app.controller('adminCtrl', function ($scope) {
+app.controller('adminCtrl', function ($scope, $window, apiService) {
 
 	$scope.showTab = 'adminDashboard';
     $scope.viewContent = 'viewClient';
@@ -23,15 +23,27 @@ app.controller('adminCtrl', function ($scope) {
                               "expirationDate": "12052017",
                               "sessionTimeout": "30 Mins"
                             };
-    $scope.pwdExpList = ["10 days", "20 days", "30 days"];
+    $scope.pwdExpList = [{"value":10,"label":"10 days"}, {"value":20,"label":"20 days"}, {"value":30,"label":"30 days"}];
     $scope.pwdExp = $scope.pwdExpList[2];
-    $scope.sessTOutList = ["10 Minutes", "20 Minutes", "30 Minutes", "40 Minutes", "50 Minutes", "60 Minutes"];
+    $scope.sessTOutList = [{"value":10,"label":"10 Minutes"}, {"value":20,"label":"20 Minutes"}, {"value":30,"label":"30 Minutes"},{"value":40,"label":"40 Minutes"}, {"value":50,"label":"50 Minutes"}, {"value":60,"label":"60 Minutes"}];
     $scope.sessTOut = $scope.sessTOutList[2];
+    $scope.addEditGroup = {};
+    // $scope.parentGroupList = ["USB Bank", "YES Bank", "ICICI"];
+    // $scope.prntGrp = $scope.parentGroupList[0];
+    $scope.groupList = {};
+    $scope.parentGroupListUnderAdmin = [];
+
         
 
 	$scope.addClient = function(content){
         //location.href = "index.html#/admin";
         $scope.viewContent = content;//'addClient';
+        if(content == 'viewGroup' && $scope.groupList && !$scope.groupList.length){
+            $("#spinner").show();
+            $scope.getGroupData();
+        }else if(content == 'addGroup'){
+            $scope.addEditGroup = {};
+        }
     }
 
 	$scope.clientList = [
@@ -47,8 +59,75 @@ app.controller('adminCtrl', function ($scope) {
         {"keycolumn1":15,"originkey1":15,"datafield1":15}
     ];
 
+    $scope.getGroupData = function() {
+        apiService.request({apiMethod:'actualize/transformx/groups',httpMethod:'GET'}).success(function(data, status) {
+            $scope.groupList = data;
+            $scope.parentGroupListUnderAdmin = [];
+            for(var i=0;i<data.length;i++){
+                $scope.parentGroupListUnderAdmin.push({"groupId":data[i].groupId, "groupName":data[i].groupName});
+            }
+            $scope.prntGrp = $scope.parentGroupListUnderAdmin[0];
+            $("#spinner").hide();
+        }).error(function(data, status) {
+            $("#spinner").hide();
+            console.log("API  'actualize/transformx/groups' Error: "+data);
+        });
+    }
 
-    
+    $scope.saveGroup = function() {
+        if(!$scope.addEditGroup.length){
+            $scope.groupDetails = {"groupName":$scope.addEditGroup.groupName,"groupParentId":$scope.prntGrp.groupId,"sessionTimeOut":$scope.addEditGroup.groupName,"sessionTimeOut":$scope.addEditGroup.groupName};
+                $("#spinner").show();
+        }
+        // apiService.request({apiMethod:'actualize/transformx/groups/',httpMethod:'PUT'}).success(function(data, status) {
+        //     console.log("API actualize/transformx/groups : "+data);
+        //     //$scope.groupList = data;
+        //     $window.alert(data);
+        //     $("#spinner").hide();
+        // }).error(function(data, status) {
+        //     $("#spinner").hide();
+        //     console.log("API  'actualize/transformx/groups' Error: "+data);
+        // });
+    }
+
+    $scope.editGroup = function(groupId) {
+            $("#spinner").show();
+            $scope.addClient('addGroup');
+        apiService.request({apiMethod:'actualize/transformx/groups/'+groupId,httpMethod:'GET'}).success(function(data, status) {
+            $scope.addEditGroup = data;
+            $("#spinner").hide();
+        }).error(function(data, status) {
+            $("#spinner").hide();
+            console.log("API  editGroup Error: "+data);
+        });
+    }
+
+    $scope.updateGroup = function(groupId) {
+            $("#spinner").show();
+            $scope.addClient('addGroup');
+        apiService.request({apiMethod:'actualize/transformx/groups/'+groupId,httpMethod:'GET'}).success(function(data, status) {
+            $scope.addEditGroup = data;
+            $("#spinner").hide();
+        }).error(function(data, status) {
+            $("#spinner").hide();
+            console.log("API  editGroup Error: "+data);
+        });
+    }
+
+    $scope.deleteGroup = function(groupId) {
+            $("#spinner").show();
+        apiService.request({apiMethod:'actualize/transformx/groups/'+groupId,httpMethod:'DELETE'}).success(function(data, status) {
+            console.log("API actualize/transformx/groups : "+data);
+            //$scope.groupList = data;
+            $window.alert(data);
+            $("#spinner").hide();
+        }).error(function(data, status) {
+            $("#spinner").hide();
+            console.log("API  'actualize/transformx/groups' Error: "+data);
+        });
+    }
+
+
 		$scope.listbox_move = function(listID, direction) {
 
 			var listbox = document.getElementById(listID);
@@ -118,3 +197,17 @@ app.controller('adminCtrl', function ($scope) {
 			}
 		}
 	});
+app.directive('ngConfirmClick', [
+        function(){
+            return {
+                link: function (scope, element, attr) {
+                    var msg = attr.ngConfirmClick || "Are you sure?";
+                    var clickAction = attr.confirmedClick;
+                    element.bind('click',function (event) {
+                        if ( window.confirm(msg) ) {
+                            scope.$eval(clickAction)
+                        }
+                    });
+                }
+            };
+    }])

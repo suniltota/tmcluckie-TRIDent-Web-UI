@@ -6,8 +6,8 @@
 					<div class="col-sm-12">
 
 						<ul class="nav nav-tabs">
-						  <li class="active"><a class="cursor" data-toggle="tab" data-target="#clientContainer">Client List</a></li>
-						  <li><a class="cursor" data-toggle="tab" data-target="#groupContainer">Group List</a></li>
+						  <li class="active"><a class="cursor" data-toggle="tab" data-target="#clientContainer" ng-click="addClient('viewClient')">Client List</a></li>
+						  <li><a class="cursor" data-toggle="tab" data-target="#groupContainer" ng-click="addClient('viewGroup')">Group List</a></li>
 						  <li><a class="cursor" data-toggle="tab" data-target="#investorContainer">Investor List</a></li>
 						  <li><a class="cursor" data-toggle="tab" data-target="#userContainer">User List</a></li>
 						</ul>
@@ -260,10 +260,10 @@
 							  </div>
 						  </div>
 						  <div id="groupContainer" class="tab-pane fade">
-						    	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewClient'" style="padding: 0px;">
+						    	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewGroup'" style="padding: 0px;">
 						    		<div class="col-sm-12">
 											<span class="col-sm-6 padding0 pull-right margin5tb margintop30">
-												<a class="pull-right margin5lr cursor" ng-click="addGroup('addGroup')" ng-class="{'active': showTab == 'addGroup'}" ><span class="glyphicon glyphicon-plus"></span> Add Group</a>
+												<a class="pull-right margin5lr cursor" ng-click="addClient('addGroup')" ng-class="{'active': showTab == 'addGroup'}" ><span class="glyphicon glyphicon-plus"></span> Add Group</a>
 											</span>
 									</div>
 									<div class="table-responsive administratorDiv col-sm-12">
@@ -271,20 +271,25 @@
 									  	<thead class="innerSectionHeader">
 										  <tr>
 											<th class="col-sm-1"><input type="checkbox"></th>
-											<th>Title</th>
-											<th>News</th>
+											<th>Group Name</th>
+											<th>Parent Group Name</th>
+											<th>Last modified by</th>
+											<th>Permissions</th>
 											<th class="col-sm-1">Actions</th>
 										  </tr>
 										</thead>
 										
 										<tbody>
-											<tr ng-repeat="item in clientList">
+											<tr ng-repeat="item in groupList">
 												<td scope="row"><input type="checkbox"></td>
-										       <td>{{item.keycolumn1}}</td>
-										       <td>{{item.originkey1}}</td>
+										       <td>{{item.groupName}}</td>
+										       <td>{{item.parenGroupName}}</td>
+										       <td>{{item.updatedBy}}</td>
+										       <td>{{item.groupPermissions}}</td>
 										       <td>
-													<a href="#"><span class="glyphicon glyphicon-pencil"></span></a> 
-													<a href="#"><span class="glyphicon glyphicon-trash"></span></a>
+													<a ng-click="editGroup(item.groupId)"><span class="glyphicon glyphicon-pencil"></span></a> 
+													<a confirmed-click="deleteGroup(item.groupId)" 
+    													ng-confirm-click="Would you like to delete {{ item.groupName }}"><span class="glyphicon glyphicon-trash"></span></a>
 												</td>
 										     </tr>
 										</tbody>
@@ -301,6 +306,84 @@
 									  
 									</div>
 						  	</div>
+							  	
+						  	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='addGroup'" style="padding: 0px;">
+						  		<div class="col-lg-12 col-md-12 col-sm-12 innerSectionHeader margin10t">
+							  		<span class="col-lg-10 col-md-10 col-sm-10">
+								  		<h5 class="col-sm-3 padding0 margin0">Add / Edit Group</h5>
+								  	</span>
+								  	<span class="col-lg-2 col-md-2 col-sm-2">
+								  		<span class="glyphicon glyphicon-remove-circle cursor pull-right margin5lr" style="font-size: 15px;" ng-click="addClient('viewGroup')"></span>
+								  		<span class="pull-right margin5lr">Save</span>
+								  	</span>
+							  	</div
+							  	<div class="col-lg-12 col-md-12 col-sm-12">
+							  		<h5 class="col-sm-12 padding0 blue">Group Information</h5>
+							  	</div>
+							  	<div id="ClientInfoContainer" ng-show="viewContent=='addGroup'" class="col-lg-12 col-md-12 col-sm-12">	
+								  	<div class="col-lg-6 col-md-6 col-sm-6">
+									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<label>Name : </label>
+										  	</div>
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<input type="text" class="form-control" name="input" ng-model="addEditGroup.groupName" >
+										  	</div>
+									  	</div>
+									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<label>ParentGroup : </label>
+										  	</div>
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<select ng-model="prntGrp" ng-options="x.groupName for x in parentGroupListUnderAdmin">
+												</select>
+										  	</div>
+									  	</div>
+									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<label>Session Timeout : </label>
+										  	</div>
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<select ng-model="sessTOut" ng-options="x.label for x in sessTOutList">
+												</select>
+										  	</div>
+									  	</div>
+									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<label>Password Expiration : </label>
+										  	</div>
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<select ng-model="pwdExp" ng-options="x.label for x in pwdExpList">
+												</select>
+										  	</div>
+									  	</div>
+								  	</div>		
+								  	<div class="col-lg-6 col-md-6 col-sm-6">
+								  			<div class="row">
+												<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
+												<h5 class="innerSectionHeader">Granted Permissions</h5>
+													<select id="GrantedPermissions" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													  <option value="a">Administration</option>
+													  <option value="c">OCR</option>
+													  <option value="d">Submit to GSE</option>
+													</select>
+												</div>
+												<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 margintop30">
+													<a class="btn btn-default  col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="listbox_moveacross('GrantedPermissions', 'AvailablePermissions')"><strong> <span class="glyphicon glyphicon-chevron-right"></span> </strong></a>
+													<a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12 mt20" ng-click="listbox_moveacross('AvailablePermissions', 'GrantedPermissions')"><strong> <span class="glyphicon glyphicon-chevron-left"></span> </strong></a>
+												</div>
+												<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
+												<h5 class="innerSectionHeader">Available Permissions</h5>
+													<select id="AvailablePermissions" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													  <option value="a">Closing Disclosure PDF</option>
+													  <option value="c">Loan Estimate PDF</option>
+													  <option value="d">USD Validation</option>
+													</select>
+												</div>
+
+											</div>
+								  	</div>	
+							  	</div>
 						  </div>
 						  <div id="investorContainer" class="tab-pane fade">
 						    <h3>Menu 1</h3>
