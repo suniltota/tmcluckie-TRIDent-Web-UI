@@ -58,6 +58,7 @@ input, select, textarea, .form-control{font-size: 12px;}
 .red{color:#e21414;}
 .white{color:#fff;}
 .green{color:#009688;}
+.blue{color: #337ab7;}
 .cursor{cursor: pointer;}
 #pdfViewerId{display: none;}
 .PDFCloseIcon{right:21px; cursor: pointer; top: 14px; z-index: 243; margin-left: 0px; position: absolute; color: #fff; font-size: 19px; display: none;}
@@ -447,9 +448,9 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .protectMargin{margin-right: -13px;}
 
 
-
-.permissionsDiv select { border: 1px solid #e0e0e0; border-radius: 4px; padding: 0;}
-.permissionsDiv select option { padding:8px 10px; font-size: 14px;}
+.PermissionsSelect .innerSectionHeader{margin-bottom: 0px;}
+.PermissionsSelect select { border: 1px solid #e0e0e0; border-radius: 4px; padding: 0; overflow: auto; max-height: 120px;}
+.PermissionsSelect select option { padding:4px 10px; font-size: 14px;}
 .mt20{ margin-top: 20px;}
 .mt10{ margin-top:10px;}
 .mt80{ margin-top: 80px}
