@@ -2794,6 +2794,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.closingCostDetailsOtherCosts.otherCostsList.RegulationZTotalPointsAndFeesAmount);
     }
 
+    $scope.signatureChange = function(){
+    	$scope.signatureTypeOtherDescription='';
+    }
+
     $scope.calculateLateCharge = function()
 	{
 		$("#spinner").show();
@@ -5214,6 +5218,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			}
 		}
 		$scope.cdformdata.summariesofTransactions.sellerTransaction.fromSellerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionTotalAmount = $scope.summariesOfTransaction_NSection.sectionTotalAmount;
+		$scope.cdformdata.summariesofTransactions.sellerTransaction.fromSellerAtClosing.integratedDisclosureSectionSummaryDetailModel.integratedDisclosureSectionType = 'DueFromSellerAtClosing';
 		$scope.sotSellerTransactionTotalAmount = parseFloat($scope.summariesOfTransaction_MSection.sectionTotalAmount) +(- parseFloat($scope.summariesOfTransaction_NSection.sectionTotalAmount));
 		}
     }, true);
