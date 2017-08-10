@@ -1,6 +1,6 @@
 app.controller('adminCtrl', function ($scope, $window, apiService) {
 
-	$scope.showTab = 'adminDashboard';
+    $scope.showTab = 'adminDashboard';
     $scope.viewContent = 'viewClient';
     $scope.addEditClient = {
                               "clientInfo": {
@@ -40,8 +40,8 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
           ];
     $scope.GrantedNmaes = $scope.GrantedPermissions;
     $scope.GrantedPermissionsName = function( GrantedPermission ) {
-    	return GrantedPermission.name;
-  	};
+        return GrantedPermission.name;
+    };
 
     $scope.AvailablePermissions = [
             { name: "Closing Disclosure PDF", id:1, label: ''}, 
@@ -50,10 +50,34 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
           ];
     $scope.AvailableNmaes = $scope.AvailablePermissions;
     $scope.AvailablePermissionsName = function( AvailablePermission ) {
-    	return AvailablePermission.name;
-  	};
+        return AvailablePermission.name;
+    };
+    //For Group
+    $scope.availableGroupPermissions = [{
+            serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
+            serviceName: "JSONTOCDPDF",
+            serviceDisplayName: "JSON to CD PDF"        
+        },{
+            serviceId: "a041d11a-7c22-11e7-bb31-be2e44b06b34",
+            serviceName: "JSONTOLEPDF",
+            serviceDisplayName: "JSON to LE PDF"        
+        },{
+            serviceId: "a041d2d2-7c22-11e7-bb31-be2e44b06b34",
+            serviceName: "JSONTOCDJSONWithCalculations",
+            serviceDisplayName: "JSON to CD JSON with Calculations"        
+        }];
+    $scope.availableGroupNmaes = $scope.availableGroupPermissions;
+    $scope.availableGroupPermissionsName = function( availableGroupPermissions ) {
+        return availableGroupPermissions.serviceDisplayName;
+    };
 
-	$scope.addClient = function(content){
+    $scope.GrantedGroupPermissions = [];
+    $scope.GrantedGroupNmaes = $scope.GrantedGroupPermissions;
+    $scope.GrantedGroupPermissionsName = function( GrantedGroupPermission ) {
+        return GrantedGroupPermission.serviceDisplayName;
+    };
+
+    $scope.addClient = function(content){
         //location.href = "index.html#/admin";
         $scope.viewContent = content;//'addClient';
         if(content == 'viewGroup' && $scope.groupList && !$scope.groupList.length){
@@ -64,7 +88,7 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
         }
     }
 
-	$scope.clientList = [
+    $scope.clientList = [
         {"keycolumn1":1,"originkey1":1,"datafield1":1},
         {"keycolumn1":2,"originkey1":2,"datafield1":2},
         {"keycolumn1":3,"originkey1":3,"datafield1":3},
@@ -94,8 +118,17 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
 
     $scope.saveGroup = function() {
         if(!$scope.addEditGroup.length){
-            $scope.groupDetails = {"groupName":$scope.addEditGroup.groupName,"groupParentId":$scope.prntGrp.groupId,"sessionTimeOut":$scope.addEditGroup.groupName,"sessionTimeOut":$scope.addEditGroup.groupName};
+             $scope.groupDetails = {"groupName":$scope.addEditGroup.groupName,"groupParentId":$scope.prntGrp.groupId,"sessionTimeOut":$scope.sessTOut.value,"passwordExpireDays":$scope.pwdExp.value,"services":$scope.availableGroupPermissions};
                 $("#spinner").show();
+                apiService.request({apiMethod:'actualize/transformx/groups',params:$scope.groupDetails, httpMethod:'POST'}).success(function(data, status) {
+                        console.log("API actualize/transformx/groups : "+data);
+                        //$scope.groupList = data;
+                        $window.alert(data);
+                        $("#spinner").hide();
+                    }).error(function(data, status) {
+                        $("#spinner").hide();
+                        console.log("API  'actualize/transformx/groups' Error: "+data);
+                    });
         }
         // apiService.request({apiMethod:'actualize/transformx/groups/',httpMethod:'PUT'}).success(function(data, status) {
         //     console.log("API actualize/transformx/groups : "+data);
@@ -146,75 +179,75 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
     }
 
 
-		$scope.listbox_move = function(listID, direction) {
+        $scope.listbox_move = function(listID, direction) {
 
-			var listbox = document.getElementById(listID);
-			var selIndex = listbox.selectedIndex;
+            var listbox = document.getElementById(listID);
+            var selIndex = listbox.selectedIndex;
 
-			if(-1 == selIndex) {
-				alert("Please select an option to move.");
-				return;
-			}
+            if(-1 == selIndex) {
+                alert("Please select an option to move.");
+                return;
+            }
 
-			var increment = -1;
-			if(direction == 'up')
-				increment = -1;
-			else
-				increment = 1;
+            var increment = -1;
+            if(direction == 'up')
+                increment = -1;
+            else
+                increment = 1;
 
-			if((selIndex + increment) < 0 ||
-				(selIndex + increment) > (listbox.options.length-1)) {
-				return;
-			}
+            if((selIndex + increment) < 0 ||
+                (selIndex + increment) > (listbox.options.length-1)) {
+                return;
+            }
 
-			var selValue = listbox.options[selIndex].value;
-			var selText = listbox.options[selIndex].text;
-			listbox.options[selIndex].value = listbox.options[selIndex + increment].value
-			listbox.options[selIndex].text = listbox.options[selIndex + increment].text
+            var selValue = listbox.options[selIndex].value;
+            var selText = listbox.options[selIndex].text;
+            listbox.options[selIndex].value = listbox.options[selIndex + increment].value
+            listbox.options[selIndex].text = listbox.options[selIndex + increment].text
 
-			listbox.options[selIndex + increment].value = selValue;
-			listbox.options[selIndex + increment].text = selText;
+            listbox.options[selIndex + increment].value = selValue;
+            listbox.options[selIndex + increment].text = selText;
 
-			listbox.selectedIndex = selIndex + increment;
-		}
+            listbox.selectedIndex = selIndex + increment;
+        }
 
-		$scope.listbox_moveacross = function(sourceID, destID) {
-			var src = document.getElementById(sourceID);
-			var dest = document.getElementById(destID);
+        $scope.listbox_moveacross = function(sourceID, destID) {
+            var src = document.getElementById(sourceID);
+            var dest = document.getElementById(destID);
 
-			for(var count=0; count < src.options.length; count++) {
+            for(var count=0; count < src.options.length; count++) {
 
-				if(src.options[count].selected == true) {
-						var option = src.options[count];
+                if(src.options[count].selected == true) {
+                        var option = src.options[count];
 
-						var newOption = document.createElement("option");
-						newOption.value = option.value;
-						newOption.text = option.text;
-						newOption.selected = true;
-						try {
-								 dest.add(newOption, null); //Standard
-								 src.remove(count, null);
-						 }catch(error) {
-								 dest.add(newOption); // IE only
-								 src.remove(count);
-						 }
-						count--;
+                        var newOption = document.createElement("option");
+                        newOption.value = option.value;
+                        newOption.text = option.text;
+                        newOption.selected = true;
+                        try {
+                                 dest.add(newOption, null); //Standard
+                                 src.remove(count, null);
+                         }catch(error) {
+                                 dest.add(newOption); // IE only
+                                 src.remove(count);
+                         }
+                        count--;
 
-				}
+                }
 
-			}
+            }
 
-		}
-		$scope.listbox_selectall = function(listID, isSelect) {
+        }
+        $scope.listbox_selectall = function(listID, isSelect) {
 
-			var listbox = document.getElementById(listID);
-			for(var count=0; count < listbox.options.length; count++) {
+            var listbox = document.getElementById(listID);
+            for(var count=0; count < listbox.options.length; count++) {
 
-				listbox.options[count].selected = isSelect;
+                listbox.options[count].selected = isSelect;
 
-			}
-		}
-	});
+            }
+        }
+    });
 app.directive('ngConfirmClick', [
         function(){
             return {
