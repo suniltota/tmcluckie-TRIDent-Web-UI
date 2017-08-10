@@ -174,7 +174,20 @@
 									  	</div>
 								  	</div>		
 								  	<div class="col-lg-6 col-md-6 col-sm-6">
-									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
+								  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<label>Client Active : </label>
+										  	</div>
+										  	<div class="col-lg-6 col-md-6 col-sm-6" ng-init="clientActiveState='active'">
+										  		<input type="radio" id="act" ng-model="clientActiveState" value="active" selected>
+										  			<label for="act">Active</label>
+										  		</input>
+  												<input type="radio" id="inAct" ng-model="clientActiveState" value="inActive">
+  													<label for="inAct">In-Active</label>
+  												</input>
+										  	</div>
+									  	</div>
+									  	<!-- <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
 										  	<div class="col-lg-6 col-md-6 col-sm-6">
 										  		<label>Password Expiration : </label>
 										  	</div>
@@ -199,7 +212,7 @@
 										  		<select ng-model="sessTOut" ng-options="x for x in sessTOutList">
 												</select>
 										  	</div>
-									  	</div>
+									  	</div> -->
 								  	</div>	
 							  	</div>
 							  </div>
