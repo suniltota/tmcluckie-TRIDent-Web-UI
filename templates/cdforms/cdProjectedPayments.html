@@ -10,14 +10,19 @@
 		        <th class="col-sm-3 innerSectionHeader">Payment Calculations</th>
 		        <th class="innerSectionHeader" ng-class="{'col-sm-9': cdformdata.projectedPayments.paymentCalculation.length == 1, 'col-sm-4': cdformdata.projectedPayments.paymentCalculation.length == 2, 'col-sm-3': cdformdata.projectedPayments.paymentCalculation.length == 3, 'col-sm-2': cdformdata.projectedPayments.paymentCalculation.length == 4 }"
 		        	ng-repeat="paymentCalculation in cdformdata.projectedPayments.paymentCalculation track by $index">
-		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years</span>
-		        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Year</span>
-		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodStartNumber" style="text-align: center">
-		        	<help-verbiage name="CD_projectedYears_Help" title="help_tooltip_padding" background-color="0,0,0"></help-verbiage>
+		        	<span ng-show="paymentCalculation.projectedPaymentCalculationPeriodTermType!='Other'">
+			        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber!=paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Years</span>
+			        	<span class="pull-left margin5tb" ng-show="paymentCalculation.projectedPaymentCalculationPeriodStartNumber==paymentCalculation.projectedPaymentCalculationPeriodEndNumber">Year</span>
+			        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodStartNumber" style="text-align: center">
+			        	<help-verbiage name="CD_projectedYears_Help" title="help_tooltip_padding" background-color="0,0,0"></help-verbiage>
+			        	</span>
+			        	<span class="pull-left" style="margin:5px;">-</span>
+			        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodEndNumber" style="text-align: center"></span>
+			        	<span class="glyphicon glyphicon-trash iconTooltip red margin5tb pull-right padding0 text-center" title="Delete" ng-show="$index != 0" ng-click="deleteProjectedPayments($index)"></span>
 		        	</span>
-		        	<span class="pull-left" style="margin:5px;">-</span>
-		        	<span class="col-sm-3" style="padding:0 5px;"><input type="text" class="form-control" name="" ng-model="paymentCalculation.projectedPaymentCalculationPeriodEndNumber" style="text-align: center"></span>
-		        	<span class="glyphicon glyphicon-trash iconTooltip red margin5tb pull-right padding0 text-center" title="Delete" ng-show="$index != 0" ng-click="deleteProjectedPayments($index)"></span>
+		        	<span ng-show="paymentCalculation.projectedPaymentCalculationPeriodTermType=='Other' && cdformdata.loanDetail.balloonIndicator">
+		        		Final Payment
+		        	</span>
 		        </th>
 		      </tr>
 		      <tr>
