@@ -26,7 +26,8 @@
 										  <tr>
 											<th class="col-sm-1"><input type="checkbox"></th>
 											<th>Title</th>
-											<th>News</th>
+											<th>Address</th>
+											<th>Contact</th>
 											<th class="col-sm-1">Actions</th>
 										  </tr>
 										</thead>
@@ -34,11 +35,14 @@
 										<tbody>
 											<tr ng-repeat="item in clientList">
 												<td scope="row"><input type="checkbox"></td>
-										       <td>{{item.keycolumn1}}</td>
-										       <td>{{item.originkey1}}</td>
+										       <td>{{item.clientName}}</td>
+										       <td>{{item.address}}</td>
+										       <td>{{item.phoneNumber}}</td>
 										       <td>
-													<a href="#"><span class="glyphicon glyphicon-pencil"></span></a> 
-													<a href="#"><span class="glyphicon glyphicon-trash"></span></a>
+													<a ng-click="editClient(item.clientId)"><span class="glyphicon glyphicon-pencil cursor"></span></a> 
+													<a confirmed-click="deleteClient(item.clientId)" 
+    													ng-confirm-click="Would you like to delete {{ item.clientName }}"><span class="glyphicon glyphicon-trash cursor"></span>
+    												</a>
 												</td>
 										     </tr>
 										</tbody>
@@ -62,7 +66,7 @@
 								  	</span>
 								  	<span class="col-lg-2 col-md-2 col-sm-2">
 								  		<span class="glyphicon glyphicon-remove-circle cursor pull-right margin5lr" style="font-size: 15px;" ng-click="newAdminTab('viewClient')"></span>
-								  		<span class="pull-right margin5lr">Save</span>
+								  		<span class="pull-right margin5lr cursor" ng-click="saveClient()">Save</span>
 								  	</span>
 							  	</div>
 							  	<div class="col-lg-12 col-md-12 col-sm-12">
@@ -75,7 +79,7 @@
 										  		<label>Name : </label>
 										  	</div>
 										  	<div class="col-lg-6 col-md-6 col-sm-6">
-										  		<input type="text" class="form-control" name="input" ng-model="addEditClient.clientInfo.name" >
+										  		<input type="text" class="form-control" name="input" ng-model="addEditClient.clientName" >
 										  	</div>
 									  	</div>
 									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
@@ -83,7 +87,7 @@
 										  		<label>Address : </label>
 										  	</div>
 										  	<div class="col-lg-6 col-md-6 col-sm-6">
-										  		<input type="text" class="form-control" name="input" ng-model="addEditClient.clientInfo.address" >
+										  		<input type="text" class="form-control" name="input" ng-model="addEditClient.address" >
 										  	</div>
 									  	</div>
 									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
@@ -91,7 +95,7 @@
 										  		<label>Phone Number : </label>
 										  	</div>
 										  	<div class="col-lg-6 col-md-6 col-sm-6">
-										  		<input type="text" class="form-control" name="input" ng-model="addEditClient.clientInfo.pno" >
+										  		<input type="text" class="form-control" name="input" ng-model="addEditClient.phoneNumber" >
 										  	</div>
 									  	</div>
 									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
@@ -99,7 +103,7 @@
 										  		<label>Web Page : </label>
 										  	</div>
 										  	<div class="col-lg-6 col-md-6 col-sm-6">
-										  		<input type="text" class="form-control" name="input" ng-model="addEditClient.clientInfo.webPage" >
+										  		<input type="text" class="form-control" name="input" >
 										  	</div>
 									  	</div>
 								  	</div>		

@@ -2,35 +2,18 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
 
     $scope.showTab = 'adminDashboard';
     $scope.viewContent = 'viewClient';
-    $scope.addEditClient = {
-                              "clientInfo": {
-                                "name": "Full name",
-                                "address": "Full mailing address",
-                                "pno": "Phone Number",
-                                "webPage": "Web URL"
-                              },
-                              "bussContactInfo": {
-                                "name": "Full name",
-                                "email": "Email address",
-                                "pno": "Phone Number"
-                              },
-                              "techContactInfo": {
-                                "name": "Full name",
-                                "email": "Email address",
-                                "pno": "Phone Number"
-                              },
-                              "passwordExpDate": "30 days",
-                              "expirationDate": "12052017",
-                              "sessionTimeout": "30 Mins"
-                            };
+    
     $scope.pwdExpList = [{"value":10,"label":"10 days"}, {"value":20,"label":"20 days"}, {"value":30,"label":"30 days"}];
     $scope.pwdExp = $scope.pwdExpList[2];
     $scope.sessTOutList = [{"value":10,"label":"10 Minutes"}, {"value":20,"label":"20 Minutes"}, {"value":30,"label":"30 Minutes"},{"value":40,"label":"40 Minutes"}, {"value":50,"label":"50 Minutes"}, {"value":60,"label":"60 Minutes"}];
     $scope.sessTOut = $scope.sessTOutList[2];
     $scope.addEditGroup = {};
+    $scope.addEditClient = {};
     // $scope.parentGroupList = ["USB Bank", "YES Bank", "ICICI"];
     // $scope.prntGrp = $scope.parentGroupList[0];
+    $scope.clientList = {};
     $scope.groupList = {};
+    $scope.parentClientListUnderAdmin = [];
     $scope.parentGroupListUnderAdmin = [];
 
     $scope.GrantedPermissions = [
@@ -80,7 +63,7 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
     $scope.newAdminTab = function(content){
         //location.href = "index.html#/admin";
         $scope.viewContent = content;//'addClient';
-        if(content == 'viewClient'){
+        if(content == 'viewClient' && $scope.clientList && !$scope.clientList.length){
             $("#spinner").show();
             $scope.getClientData();
         }else if(content == 'addClient'){
@@ -94,19 +77,7 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
         }
     }
 
-    $scope.clientList = [
-        {"keycolumn1":1,"originkey1":1,"datafield1":1},
-        {"keycolumn1":2,"originkey1":2,"datafield1":2},
-        {"keycolumn1":3,"originkey1":3,"datafield1":3},
-        {"keycolumn1":4,"originkey1":4,"datafield1":4},
-        {"keycolumn1":5,"originkey1":5,"datafield1":5},
-        {"keycolumn1":11,"originkey1":11,"datafield1":11},
-        {"keycolumn1":12,"originkey1":12,"datafield1":12},
-        {"keycolumn1":13,"originkey1":13,"datafield1":13},
-        {"keycolumn1":14,"originkey1":14,"datafield1":14},
-        {"keycolumn1":15,"originkey1":15,"datafield1":15}
-    ];
-
+   
     $scope.getGroupData = function() {
         apiService.request({apiMethod:'actualize/transformx/groups',httpMethod:'GET'}).success(function(data, status) {
             $scope.groupList = data;
@@ -258,6 +229,87 @@ $scope.parentGroupChange = function(selectedGroup){
 
             }
         }
+
+        $scope.getClientData = function() {
+		        apiService.request({apiMethod:'actualize/transformx/clients',httpMethod:'GET'}).success(function(data, status) {
+		            $scope.clientList = data;
+		            $scope.parentClientListUnderAdmin = [];
+		            for(var i=0;i<data.length;i++){
+		                $scope.parentClientListUnderAdmin.push({"clientId":data[i].clientId, "clientName":data[i].clientName});
+		            }
+		            $scope.prntClient = $scope.parentClientListUnderAdmin[0];
+		            $("#spinner").hide();
+		        }).error(function(data, status) {
+		            $("#spinner").hide();
+		            console.log("API  'actualize/transformx/clients' Error: "+data);
+		        });
+		    }
+
+		    $scope.saveClient = function() {
+		        if(!$scope.addEditClient.length){
+		             $scope.clientDetails = {"clientName":$scope.addEditClient.clientName, "address":$scope.addEditClient.address, "phoneNumber":$scope.addEditClient.phoneNumber, "clientContactInfo":$scope.addEditClient.clientContactInfo, "clientId":$scope.addEditClient.clientId, "creationDate":$scope.addEditClient.creationDate, "modificationDate":$scope.addEditClient.modificationDate, "srevicesModel":$scope.addEditClient.srevicesModel, "enabled":true, "sessionTimeOut":$scope.sessTOut.value,"passwordExpireDays":$scope.pwdExp.value,"services":$scope.availableClientPermissions};
+		                $("#spinner").show();
+		                apiService.request({apiMethod:'actualize/transformx/clients',formData:$scope.clientDetails, httpMethod:'POST'}).success(function(data, status) {
+		                        console.log("API actualize/transformx/clients : "+data);
+		                        //$scope.groupList = data;
+		                        $window.alert(data);
+		                        $scope.getClientData();
+		                        $("#spinner").hide();
+		                        $scope.newAdminTab('viewClient');
+		                    }).error(function(data, status) {
+		                        $("#spinner").hide();
+		                        console.log("API  'actualize/transformx/clients' Error: "+data);
+		                    });
+		        }
+		    }
+
+		    $scope.editClient = function(clientId) {
+		            $("#spinner").show();
+		            $scope.newAdminTab('addClient');
+		        apiService.request({apiMethod:'actualize/transformx/clients/'+clientId,httpMethod:'GET'}).success(function(data, status) {
+		            $scope.addEditClient = data;
+		            $("#spinner").hide();
+		        }).error(function(data, status) {
+		            $("#spinner").hide();
+		            console.log("API  editClient Error: "+data);
+		        });
+		    }
+
+		    $scope.deleteClient = function(clientId) {
+			            $("#spinner").show();
+			        apiService.request({apiMethod:'actualize/transformx/clients/'+clientId,httpMethod:'DELETE'}).success(function(data, status) {
+			            console.log("API actualize/transformx/clients : "+data);
+			            //$scope.groupList = data;
+			            $window.alert(data);
+			            $scope.getClientData();
+			            $("#spinner").hide();
+			        }).error(function(data, status) {
+			            $("#spinner").hide();
+			            console.log("API  'actualize/transformx/clients' Error: "+data);
+			        });
+			    }
+
+		    $scope.availableClientPermissions = [{
+	            serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
+	            serviceName: "JSONTOCDPDF",
+	            serviceDisplayName: "JSON to CD PDF"        
+	        },{
+	            serviceId: "a041d11a-7c22-11e7-bb31-be2e44b06b34",
+	            serviceName: "JSONTOLEPDF",
+	            serviceDisplayName: "JSON to LE PDF"        
+	        },{
+	            serviceId: "a041d2d2-7c22-11e7-bb31-be2e44b06b34",
+	            serviceName: "JSONTOCDJSONWithCalculations",
+	            serviceDisplayName: "JSON to CD JSON with Calculations"        
+	        }];
+	    $scope.availableClientNmaes = $scope.availableClientPermissions;
+	    $scope.availableClientPermissionsName = function( availableClientPermissions ) {
+	        return availableClientPermissions.serviceDisplayName;
+	    };
+
+		    $scope.getClientData();
+		    $("#spinner").show();
+
     });
 app.directive('ngConfirmClick', [
         function(){
