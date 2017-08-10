@@ -74,6 +74,11 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
             $scope.getGroupData();
         }else if(content == 'addGroup'){
             $scope.addEditGroup = {};
+        }else if(content == 'viewUser'){
+            $("#spinner").show();
+            $scope.getUserData();
+        }else if(content == 'addUser'){
+            $scope.addEditUser = {};
         }
     }
 
@@ -229,6 +234,48 @@ $scope.parentGroupChange = function(selectedGroup){
 
             }
         }
+
+/// User Start
+
+    $scope.UsersList=[];
+    $scope.getUserData = function() {
+               apiService.request({apiMethod:'actualize/transformx/users',httpMethod:'GET'}).success(function(data, status) {
+                    $scope.userList = data;
+                    for(var i=0;i<data.length;i++){
+                        $scope.UsersList.push({"username":data[i].username, "firstName":data[i].firstName,
+                            "lastName":data[i].lastName, "email":data[i].email, "passwordExpiryDate":data[i].passwordExpiryDate});
+                    }
+                    $scope.prntGrp = $scope.parentGroupListUnderAdmin[0];
+                   $("#spinner").hide();
+                }).error(function(data, status) {
+                    $("#spinner").hide();
+                    console.log("API  'actualize/transformx/groups' Error: "+data);
+                });
+            }
+
+    $scope.saveUser = function() {
+        if(!$scope.addEditUser.length){
+          $scope.UsersListdata={"firstName":$scope.addEditUser.firstName, "lastName":$scope.addEditUser.lastName,
+                         "username":$scope.addEditUser.username,  "email":$scope.addEditUser.email, 
+                         "password":$scope.addEditUser.password,  "accountNonLocked":true,"credentialsNonExpired":true, 
+                       "failedLoginAttempts":0, "resetPassword":true,"enabled":true,
+                           "group": {"groupId":'9a93bb62-d57b-488e-8d61-ed1f6d01b621'},
+                           "role": {"roleId": "416373c2-75c6-11e7-b5a5-be2e44b06b34"},
+                           "lastSuccessfulLogin":"09-08-2017 23:34:43", "lastSuccessfulLogout":"09-08-2017 23;45:23",
+                           "authorities": ["abc"]};
+                $("#spinner").show();
+               apiService.request({apiMethod:'actualize/transformx/users',formData:$scope.UsersListdata, httpMethod:'POST'}).success(function(data, status) {
+                        $window.alert(data);
+                        $("#spinner").hide();
+                    }).error(function(data, status) {
+                        $("#spinner").hide();
+                        console.log("API  'actualize/transformx/users' Error: "+data);
+                    });
+        }
+        
+    }
+
+        //// User End
 
         $scope.getClientData = function() {
 		        apiService.request({apiMethod:'actualize/transformx/clients',httpMethod:'GET'}).success(function(data, status) {
