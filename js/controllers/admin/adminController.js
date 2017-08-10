@@ -34,21 +34,21 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
     $scope.parentGroupListUnderAdmin = [];
 
     $scope.GrantedPermissions = [
-            { name: "Administration"}, 
-            { name: "OCR"},
-            { name: "Submit to GSE"}
+            { name: "Administration", id:1, label: ''}, 
+            { name: "OCR", id:2, label: ''},
+            { name: "Submit to GSE", id:3, label: ''}
           ];
-    $scope.GrantedNmaes = { owner: $scope.GrantedPermissions[0] };
+    $scope.GrantedNmaes = $scope.GrantedPermissions;
     $scope.GrantedPermissionsName = function( GrantedPermission ) {
     	return GrantedPermission.name;
   	};
 
     $scope.AvailablePermissions = [
-            { name: "Closing Disclosure PDF"}, 
-            { name: "Loan Estimate PDF"},
-            { name: "USD Validation"}
+            { name: "Closing Disclosure PDF", id:1, label: ''}, 
+            { name: "Loan Estimate PDF", id:2, label: ''},
+            { name: "USD Validation", id:3, label: ''}
           ];
-    $scope.AvailableNmaes = { owner: $scope.AvailablePermissions[0] };
+    $scope.AvailableNmaes = $scope.AvailablePermissions;
     $scope.AvailablePermissionsName = function( AvailablePermission ) {
     	return AvailablePermission.name;
   	};
