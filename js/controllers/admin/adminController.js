@@ -121,30 +121,35 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
             console.log("API  'actualize/transformx/groups' Error: "+data);
         });
     }
-
+$scope.parentGroupChange = function(selectedGroup){
+    $scope.prntGrp = selectedGroup;
+}
     $scope.saveGroup = function() {
         if(!$scope.addEditGroup.length){
-             $scope.groupDetails = {"groupName":$scope.addEditGroup.groupName,"groupParentId":$scope.prntGrp.groupId,"sessionTimeOut":$scope.sessTOut.value,"passwordExpireDays":$scope.pwdExp.value,"services":$scope.availableGroupPermissions};
+              $scope.groupDetails = {"groupId":($scope.addEditGroup.groupId)?$scope.addEditGroup.groupId:"","groupName":$scope.addEditGroup.groupName,"groupParentId":$scope.prntGrp.groupId,"sessionTimeOut":$scope.sessTOut.value,"passwordExpireDays":$scope.pwdExp.value,"services":$scope.availableGroupPermissions,"clientId"  : "a00deb64-7832-11e7-b5a5-be2e44b06b34"};
                 $("#spinner").show();
-                apiService.request({apiMethod:'actualize/transformx/groups',params:$scope.groupDetails, httpMethod:'POST'}).success(function(data, status) {
-                        console.log("API actualize/transformx/groups : "+data);
-                        //$scope.groupList = data;
-                        $window.alert(data);
-                        $("#spinner").hide();
-                    }).error(function(data, status) {
-                        $("#spinner").hide();
-                        console.log("API  'actualize/transformx/groups' Error: "+data);
-                    });
+            if($scope.addEditGroup.groupId){
+                apiService.request({apiMethod:'actualize/transformx/groups',formData:$scope.groupDetails,httpMethod:'PUT'}).success(function(data, status) {
+                    $window.alert(data);
+                    $("#spinner").hide();
+                    $scope.getGroupData();
+                    $scope.newAdminTab('viewGroup');
+                }).
+                error(function(data, status) {
+                    console.log("API actualize/transformx/groups : "+data);
+                });
+            }else{
+                apiService.request({apiMethod:'actualize/transformx/groups',formData:$scope.groupDetails,httpMethod:'POST'}).success(function(data, status) {
+                    $window.alert(data);
+                    $("#spinner").hide();
+                    $scope.getGroupData();
+                    $scope.newAdminTab('viewGroup');
+                }).
+                error(function(data, status) {
+                    console.log("API actualize/transformx/groups : "+data);
+                });
+            }
         }
-        // apiService.request({apiMethod:'actualize/transformx/groups/',httpMethod:'PUT'}).success(function(data, status) {
-        //     console.log("API actualize/transformx/groups : "+data);
-        //     //$scope.groupList = data;
-        //     $window.alert(data);
-        //     $("#spinner").hide();
-        // }).error(function(data, status) {
-        //     $("#spinner").hide();
-        //     console.log("API  'actualize/transformx/groups' Error: "+data);
-        // });
     }
 
     $scope.editGroup = function(groupId) {
@@ -268,19 +273,3 @@ app.directive('ngConfirmClick', [
                 }
             };
     }])
-
-
-$scope.getClientData = function() {
-        apiService.request({apiMethod:'actualize/transformx/clients',httpMethod:'GET'}).success(function(data, status) {
-            $scope.clientList = data;
-            $scope.parentClientListUnderAdmin = [];
-            for(var i=0;i<data.length;i++){
-                $scope.parentClientListUnderAdmin.push({"clientId":data[i].clientId, "clientName":data[i].clientName});
-            }
-            $scope.prntClient = $scope.parentClientListUnderAdmin[0];
-            $("#spinner").hide();
-        }).error(function(data, status) {
-            $("#spinner").hide();
-            console.log("API  'actualize/transformx/clients' Error: "+data);
-        });
-    }

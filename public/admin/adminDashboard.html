@@ -329,7 +329,7 @@
 										  		<label>ParentGroup : </label>
 										  	</div>
 										  	<div class="col-lg-6 col-md-6 col-sm-6">
-										  		<select ng-model="prntGrp" ng-options="x.groupName for x in parentGroupListUnderAdmin">
+										  		<select ng-model="prntGrp" ng-change="parentGroupChange(prntGrp)" ng-options="x.groupName for x in parentGroupListUnderAdmin">
 												</select>
 										  	</div>
 									  	</div>
