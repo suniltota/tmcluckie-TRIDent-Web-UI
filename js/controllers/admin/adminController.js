@@ -64,8 +64,8 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
         //location.href = "index.html#/admin";
         $scope.viewContent = content;//'addClient';
         if(content == 'viewClient' && $scope.clientList && !$scope.clientList.length){
-           // $("#spinner").show();
-           // $scope.getClientData();
+           $("#spinner").show();
+          $scope.getClientData();
         }else if(content == 'addClient'){
             $scope.addEditClient = {};
         }
@@ -75,8 +75,8 @@ app.controller('adminCtrl', function ($scope, $window, apiService) {
         }else if(content == 'addGroup'){
             $scope.addEditGroup = {};
         }else if(content == 'viewUser'){
-            //$("#spinner").show();
-           // $scope.getUserData();
+            $("#spinner").show();
+            $scope.getUserData();
         }else if(content == 'addUser'){
             $scope.addEditUser = {};
         }
@@ -274,6 +274,18 @@ $scope.parentGroupChange = function(selectedGroup){
         }
         
     }
+     $scope.editUser = function(userId) {
+            $scope.addEditUser.userId="416373c2-75c6-11e7-b5a5-be2e44b06b34";
+                    $("#spinner").show();
+                    $scope.newAdminTab('addUser');
+                apiService.request({apiMethod:'actualize/transformx/users/'+userId,httpMethod:'GET'}).success(function(data, status) {
+                    $scope.addEditUser = data;
+                    $("#spinner").hide();
+                }).error(function(data, status) {
+                    $("#spinner").hide();
+                    console.log("API  editClient Error: "+data);
+                });
+            }
     //$scope.copyEmailAsUsernameStatus=false;
      $scope.sameAsUserName = function () {     
        if ($scope.addEditUser.sameAsUserName) {
