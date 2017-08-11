@@ -99,7 +99,19 @@ $scope.parentGroupChange = function(selectedGroup){
 
         
         $scope.GrantedGroupPermissions = item;
-        $scope.availableGroupPermissions =  $scope.originalAvailableGroupPermissions;
+        $scope.availableGroupPermissions =  [{
+            serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
+            serviceName: "JSONTOCDPDF",
+            serviceDisplayName: "JSON to CD PDF"        
+        },{
+            serviceId: "a041d11a-7c22-11e7-bb31-be2e44b06b34",
+            serviceName: "JSONTOLEPDF",
+            serviceDisplayName: "JSON to LE PDF"        
+        },{
+            serviceId: "a041d2d2-7c22-11e7-bb31-be2e44b06b34",
+            serviceName: "JSONTOCDJSONWithCalculations",
+            serviceDisplayName: "JSON to CD JSON with Calculations"        
+        }];
         for( var i=$scope.availableGroupPermissions.length - 1; i>=0; i--){
             for( var j=0; j<item.length; j++){
                 if($scope.availableGroupPermissions[i] && ($scope.availableGroupPermissions[i].serviceId === item[j].serviceId)){
