@@ -10,12 +10,15 @@ app.controller('adminCtrl', function ($rootScope, $scope, $window, apiService) {
     $scope.sessTOut = $scope.sessTOutList[2];
     $scope.addEditGroup = {};
     $scope.addEditClient = {};
+    $scope.addEditInvestor = {};
     // $scope.parentGroupList = ["USB Bank", "YES Bank", "ICICI"];
     // $scope.prntGrp = $scope.parentGroupList[0];
     $scope.clientList = {};
     $scope.groupList = {};
+    $scope.investorList = {};
     $scope.parentClientListUnderAdmin = [];
     $scope.parentGroupListUnderAdmin = [];
+    $scope.parentInvestorListUnderAdmin = [];
 
     $scope.GrantedPermissions = [
             { name: "Administration", id:1, label: ''}, 
@@ -58,7 +61,12 @@ app.controller('adminCtrl', function ($rootScope, $scope, $window, apiService) {
             $scope.getRoles();
         }else if(content == 'addUser'){
             $scope.addEditUser = {};
-        }
+        }else if(content == 'viewInvestor' && $scope.investorList && !$scope.investorList.length){
+            $("#spinner").show();
+            $rootScope.$emit("loadInvestorData", {});
+        }else if(content == 'addInvestor'){
+            $scope.addEditInvestor = {};
+		}
     }
 
    

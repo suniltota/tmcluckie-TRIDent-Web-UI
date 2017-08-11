@@ -8,7 +8,7 @@
 						<ul class="nav nav-tabs">
 						  <li class="active"><a class="cursor" data-toggle="tab" data-target="#clientContainer" ng-click="newAdminTab('viewClient')">Client List</a></li>
 						  <li><a class="cursor" data-toggle="tab" data-target="#groupContainer" ng-click="newAdminTab('viewGroup')">Group List</a></li>
-						  <li><a class="cursor" data-toggle="tab" data-target="#investorContainer">Investor List</a></li>
+						  <li><a class="cursor" data-toggle="tab" data-target="#investorContainer" ng-click="newAdminTab('viewInvestor')">Investor List</a></li>
 						  <li><a class="cursor" data-toggle="tab" data-target="#userContainer" ng-click="newAdminTab('viewUser')">User List</a></li>
 						</ul>
 
@@ -262,8 +262,7 @@
 						    	
 						  </div>
 						  <div id="investorContainer" class="tab-pane fade">
-						    <h3>Menu 1</h3>
-						    <p>Some content in menu 1.</p>
+						    	<div ng-include='"public/admin/adminInvestor.html"'></div>
 						  </div>
 						  <div id="userContainer" class="tab-pane fade">
 						    			     <!--Added User UI  Naresh   -->
