@@ -180,7 +180,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    $scope.cdformdata['escrowArray'] = [];		
 		$scope.cdformdata['disbursementMinDate'] = '';
 		$scope.cdformdata['signatureDate'] = '';
-        $scope.cdformdata.documentClassification.documentSignatureRequiredIndicator=true;
+        $scope.cdformdata.closingDisclosureDocDetails.documentSignatureRequiredIndicator=true;
 		if($scope.loanBasicInfo.loanPurposeType == 'purchase') {
 			$scope.cdformdata.salesContractDetail.personalPropertyIndicator = false;
 		} else {
@@ -207,9 +207,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	        $scope.cdformdata.disbursementMinDate = $scope.cdformdata.disbursementMinDate ? $scope.cdformdata.disbursementMinDate : $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
 	        $scope.cdformdata.closingInformationDetail.disbursementDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
         }
-
+        
+        //Confirm Receipt Execution Date
         if($scope.cdformdata.closingInformationDetail.closingDate && $scope.cdformdata.closingInformationDetail.closingDate!=undefined){
-	        $scope.cdformdata.signatureDate = $scope.cdformdata.signatureDate ? $scope.cdformdata.signatureDate : $scope.cdformdata.closingInformationDetail.closingDate;
+	        $scope.cdformdata.closingDisclosureDocDetails.executionDate = $scope.cdformdata.closingDisclosureDocDetails.executionDate ? $scope.cdformdata.closingDisclosureDocDetails.executionDate : $scope.cdformdata.closingInformationDetail.closingDate;
         }
         
 		if(!$scope.cdformdata.miPremium || $scope.cdformdata.miPremium.length==0) 
@@ -2795,7 +2796,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }
 
     $scope.signatureChange = function(){
-    	$scope.signatureTypeOtherDescription='';
+    	$scope.cdformdata.closingDisclosureDocDetails.actualSignatureTypeOtherDescription='';
     }
 
     $scope.calculateLateCharge = function()
@@ -3117,6 +3118,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.disbursementMinDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
 			$scope.cdformdata.closingInformationDetail.disbursementDate = $filter('date')(add_business_days_disbursement($scope.cdformdata.closingInformationDetail.closingDate, 1), 'yyyy-MM-dd');
 		}
+        //Confirm Receipt Execution Date
+		if($scope.cdformdata.closingInformationDetail.closingDate && $scope.cdformdata.closingInformationDetail.closingDate!=undefined){
+	        $scope.cdformdata.closingDisclosureDocDetails.executionDate = $scope.cdformdata.closingDisclosureDocDetails.executionDate ? $scope.cdformdata.closingDisclosureDocDetails.executionDate : $scope.cdformdata.closingInformationDetail.closingDate;
+        }
 
     });
 
@@ -5488,6 +5493,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		    		}
         		}
         	}
+        }
+    },true);
+
+    $scope.$watch('cdformdata.closingDisclosureDocDetails',function(newValue,oldValue){
+        if(!$scope.cdformdata.closingDisclosureDocDetails.documentSignatureRequiredIndicator){
+        	$scope.cdformdata.closingDisclosureDocDetails.actualSignatureType = '';
+        	$scope.cdformdata.closingDisclosureDocDetails.actualSignatureTypeOtherDescription = '';
+        	$scope.cdformdata.closingDisclosureDocDetails.executionDate = $scope.cdformdata.closingInformationDetail.closingDate;
         }
     },true);
 

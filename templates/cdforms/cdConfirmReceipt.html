@@ -8,28 +8,28 @@
                   <help-verbiage name="LE_ConfirmReceipt_Help" title="help_tooltip_text"></help-verbiage></td>
             <td>
                 <span class="col-sm-12">
-                  <span class="pull-left"><input type="checkbox" name="" ng-model="cdformdata.documentClassification.documentSignatureRequiredIndicator" ng-checked="cdformdata.documentClassification.documentSignatureRequiredIndicator == true" ng-true-value="true" ng-false-value="false"></span>
+                  <span class="pull-left"><input type="checkbox" name="" ng-model="cdformdata.closingDisclosureDocDetails.documentSignatureRequiredIndicator" ng-checked="cdformdata.closingDisclosureDocDetails.documentSignatureRequiredIndicator == true" ng-true-value="true" ng-false-value="false"></span>
                   <span class="col-sm-11 pull-left margin5tb">
                     Will Display the Confirm Receipt Signature and Date Line
                   </span>
-                  <span ng-show="cdformdata.documentClassification.documentSignatureRequiredIndicator">
+                  <span ng-show="cdformdata.closingDisclosureDocDetails.documentSignatureRequiredIndicator">
                     <div class="col-sm-8">
                       <div class="FieldGroup">
                         <div class="col-sm-10">Provide the type of signature expected                                               </div>
                         <div class="col-sm-2 padding0">
-                          <select class="form-control ng-pristine ng-untouched ng-valid" ng-model="signatureType" ng-change="signatureChange()">
+                          <select class="form-control ng-pristine ng-untouched ng-valid" ng-model="cdformdata.closingDisclosureDocDetails.actualSignatureType" ng-change="signatureChange()">
                             <option value="" selected="">Select</option>
                             <option ng-repeat="types in signatureTypes" value="{{types.id}}">{{types.name}}</option>
                           </select>
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-12 padding0" ng-show="signatureType=='Other'">
+                    <div class="col-sm-12 padding0" ng-show="cdformdata.closingDisclosureDocDetails.actualSignatureType=='Other'">
                       <div class="col-sm-8">
                         <div class="FieldGroup">
                           <div class="col-sm-10">Provide the description value</div>
                           <div class="col-sm-2 padding0">
-                            <input type="text" class="form-control ng-pristine ng-valid ng-valid-maxlength ng-touched" name="signatureTypeOtherDescription" ng-model="signatureTypeOtherDescription">
+                            <input type="text" class="form-control ng-pristine ng-valid ng-valid-maxlength ng-touched" name="actualSignatureTypeOtherDescription" ng-model="cdformdata.closingDisclosureDocDetails.actualSignatureTypeOtherDescription">
                           </div>
                         </div>
                       </div>
@@ -41,11 +41,11 @@
                           <div class="col-sm-9">Provide the date in which the signature Is expected</div>
                           <div class="col-sm-3 padding0">
                             <span class="col-sm-10 padding0">
-                                  <actualize-input name="SignatureDate" id="SignatureDate" dateformat="MM/dd/yyyy" ng-model="cdformdata.signatureDate" min-date="10/03/2015" max-date="12/31/2045" is-open="isSignatureDate" ng-required="true" tooltippos="top" placeholder="MM/DD/YYYY" dependencies="actualize-date" type="date" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" required="required"><div class="ng-scope"><input type="text" id="input_SignatureDate" uib-datepicker-popup="MM/dd/yyyy" ng-change="undefined" ng-blur="undefined" ng-model="cdformdata.signatureDate" max-date="dateValidate.SignatureDate.maxDate" is-open="isSignatureDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" name="SignatureDate" class="form-control InputTooltip calenderInput ng-pristine ng-untouched ng-isolate-scope ng-valid-date ng-invalid ng-invalid-required" tooltip-placement="top" tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.SignatureDate" min-date="cdformdata.closingInformationDetail.closingDate" actualize-date="" required="required">
+                                  <actualize-input name="executionDate" id="executionDate" dateformat="MM/dd/yyyy" ng-model="cdformdata.closingDisclosureDocDetails.executionDate" min-date="10/03/2015" max-date="12/31/2045" is-open="isexecutionDate" ng-required="true" tooltippos="top" placeholder="MM/DD/YYYY" dependencies="actualize-date" type="date" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" required="required"><div class="ng-scope"><input type="text" id="input_executionDate" uib-datepicker-popup="MM/dd/yyyy" ng-change="undefined" ng-blur="undefined" ng-model="cdformdata.closingDisclosureDocDetails.executionDate" max-date="dateValidate.executionDate.maxDate" is-open="isexecutionDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" name="executionDate" class="form-control InputTooltip calenderInput ng-pristine ng-untouched ng-isolate-scope ng-valid-date ng-invalid ng-invalid-required" tooltip-placement="top" tooltip-trigger="focus" uib-tooltip-html="htmlTooltip.executionDate" min-date="cdformdata.closingInformationDetail.closingDate" actualize-date="" required="required">
                                   </div></actualize-input>
                             </span>
                             <span class="input-group-btn col-sm-2 padding0">
-                            <button type="button" class="btn btn-default calenderBtn" ng-click="isSignatureDate = !isSignatureDate"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default calenderBtn" ng-click="isexecutionDate = !isexecutionDate"><i class="glyphicon glyphicon-calendar"></i></button>
                             </span>
                           </div>
                         </div>
@@ -55,7 +55,7 @@
                   </span>
                 </span>
                 <span class="col-sm-12">
-                    <span class="pull-left"><input type="checkbox" name="" ng-model="cdformdata.documentClassification.documentSignatureRequiredIndicator" ng-checked="cdformdata.documentClassification.documentSignatureRequiredIndicator == false" ng-true-value="false" ng-false-value="true"></span>
+                    <span class="pull-left"><input type="checkbox" name="" ng-model="cdformdata.closingDisclosureDocDetails.documentSignatureRequiredIndicator" ng-checked="cdformdata.closingDisclosureDocDetails.documentSignatureRequiredIndicator == false" ng-true-value="false" ng-false-value="true"></span>
                     <span class="col-sm-11 pull-left margin5tb">
                       Will Not Display the Confirm Receipt Signature and Date Line
                     </span>
@@ -67,7 +67,7 @@
 </div>
 
   <div class="col-sm-12 margin10t">
-      <span class="pull-left"><a class="btn btn-default" ng-click="changeTab('Comparison')">Back</a></span>
+      <span class="pull-left"><a class="btn btn-default" ng-click="changeTab('ContactInfo')">Back</a></span>
       <span class="pull-right col-sm-6 padding0">
           <span class="col-sm-6"><h4 class="pull-right" >Data entry Completed</h4></span>
           <span class="col-sm-3"><button class="btn btn-success pull-right" ng-click="generatePDF()">Generate PDF</button></span>
