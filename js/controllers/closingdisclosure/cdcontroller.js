@@ -3228,9 +3228,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         
         for(i=0; i<$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges.length; i++) {
             
-            if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints'){
+            /*if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType == 'LoanDiscountPoints'){
             	 $scope.loanDiscount(i);
-            }
+            }*/
 
         	if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeType=='EscrowWaiverFee'){
         		if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeActualTotalAmount!=undefined && $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeActualTotalAmount)
