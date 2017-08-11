@@ -128,7 +128,7 @@ app.controller('menuCtrl', function ($scope, loginService, apiService, $routePar
     //if(!localStorage.documentType){
       var viewMenuScope = angular.element($("#ChooseEmbeddedPDF")).scope();
       viewMenuScope.xmlTitle = "UCD XML";
-      viewMenuScope.embeddedPDF=false;
+      viewMenuScope.embeddedPDF=true;
       $('#ChooseEmbeddedPDF').modal('show');
     //}
   }
