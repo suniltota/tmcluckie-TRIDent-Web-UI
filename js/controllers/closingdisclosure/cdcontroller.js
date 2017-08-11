@@ -5506,43 +5506,6 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     /// End for Header meta data ///
 
-    /// Start to enable dirty flag
-/*$scope.$watch('cdformdata',function(newValue,oldValue){
-console.log($scope.cdformdata.loanDetail.miRequiredIndicator); 
-$scope.dirtyFlagEnable=false;
-    if($scope.cdformdata.loanDetail.interestOnlyIndicator==true && $scope.cdformdata.interestOnly.interestOnlyTermMonthsCount !=''
-    && ($scope.cdformdata.loanInformation.loanTermYears !='' || $scope.cdformdata.loanInformation.loanTermMonths !='') 
-    && $scope.cdformdata.loanDetail.balloonIndicator==true && $scope.cdformdata.loanInformation.loanAmortizationPeriodType !=''
-    && $scope.cdformdata.loanInformation.loanAmortizationPeriodCount !=''
-    && $scope.cdformdata.termsOfLoan.noteAmount !=''
-    && $scope.cdformdata.loanInformation.amortizationType !='' 
-    && ($scope.cdformdata.termsOfLoan.noteRatePercent !='' || $scope.cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent !='')
-    ){ $scope.dirtyFlagEnable=false;
-    if($scope.cdformdata.loanInformation.amortizationType !='Fixed'){
-    console.log("entered into not fixed  condition");
-    $scope.dirtyFlagEnable=false;
-    if($scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount !='' && $scope.cdformdata.interestRateAdjustment.ceilingRatePercent !=''
-    && $scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent !='' 
-    && $scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent !=''
-    && $scope.cdformdata.interestRateAdjustment.floorRatePercent !="")
-    {
-    if($scope.cdformdata.loanDetail.miRequiredIndicator==true){
-     if($scope.cdformdata.projectedPayments.miPaymentAmount !=''){
-    if($scope.cdformdata.miDataDetail.miScheduledTerminationDate !=''){
-    if($scope.cdformdata.closingInformationDetail.closingDate!='' && $scope.cdformdata.termsOfLoan.noteRatePercent !=''){
-    $scope.dirtyFlagEnable=true;} }
-    }
-  }
-  else if($scope.cdformdata.loanDetail.miRequiredIndicator==false && $scope.cdformdata.termsOfLoan.noteRatePercent !='' ){$scope.dirtyFlagEnable=true; }
-    }
-    }
-    if($scope.cdformdata.loanInformation.amortizationType=='Fixed'){
-    $scope.dirtyFlagEnable=false;
-    if($scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemFinalAmount !='' && $scope.cdformdata.termsOfLoan.noteRatePercent !=''){
-    $scope.dirtyFlagEnable=true; }
-    }  
-    }
-},true); */
 
 /// Start to enable dirty flag
 $scope.$watch('cdformdata',function(newValue,oldValue){
@@ -5550,57 +5513,46 @@ $scope.dirtyFlagEnable=false;
     if($scope.cdformdata.loanDetail.interestOnlyIndicator==true && $scope.cdformdata.interestOnly.interestOnlyTermMonthsCount !=''
     && ($scope.cdformdata.loanInformation.loanTermYears !='' || $scope.cdformdata.loanInformation.loanTermMonths !='') 
     && $scope.cdformdata.loanDetail.balloonIndicator==true && $scope.cdformdata.loanInformation.loanAmortizationPeriodType !=''
-    && $scope.cdformdata.loanInformation.loanAmortizationPeriodCount !=''
-    && $scope.cdformdata.termsOfLoan.noteAmount !=''
-    && $scope.cdformdata.loanInformation.amortizationType !='' 
-    && $scope.cdformdata.termsOfLoan.noteRatePercent !=''
+    && $scope.cdformdata.loanInformation.loanAmortizationPeriodCount !=""
+    && $scope.cdformdata.termsOfLoan.noteAmount !=""
+    && $scope.cdformdata.loanInformation.amortizationType !=""
     ){
     $scope.dirtyFlagEnable=false;
     ///nested if start
     if($scope.cdformdata.loanInformation.amortizationType =='AdjustableRate' || $scope.cdformdata.loanInformation.amortizationType !='Fixed'){
-    
-    $scope.dirtyFlagEnable=false;
-    if($scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount !='' && $scope.cdformdata.interestRateAdjustment.ceilingRatePercent !=''
-    && $scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent !='' 
-    && $scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent !=''
-    && $scope.cdformdata.interestRateAdjustment.floorRatePercent !=""  && $scope.cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent !=''
-    && $scope.cdformdata.termsOfLoan.noteRatePercent !='' && $scope.cdformdata.termsOfLoan.noteRatePercent !=undefined
-    && $scope.cdformdata.termsOfLoan.noteAmount !=undefined){
-    if($scope.cdformdata.loanDetail.miRequiredIndicator==true){
-     if($scope.cdformdata.projectedPayments.miPaymentAmount !=''){
-    if($scope.cdformdata.miDataDetail.miScheduledTerminationDate !=''){
-    if($scope.cdformdata.closingInformationDetail.closingDate!=''){
-    $scope.dirtyFlagEnable=true;} } } }
-    else if($scope.cdformdata.loanDetail.miRequiredIndicator==false){
-    $scope.dirtyFlagEnable=true;
-    }
-    ///
-   
-    }
-    }
-    ///nested if end
-    // if($scope.cdformdata.loanDetail.miRequiredIndicator==true){
-    // if(cdformdata.projectedPayments.miPaymentAmount !=''){
-
-    // }
-    // if($scope.cdformdata.miDataDetail.miScheduledTerminationDate !=''){
-    // if($scope.cdformdata.closingInformationDetail.closingDate!=''){
-    // $scope.dirtyFlagEnable=true;
-    // }
-    // }
-    // }
-    ///another nested if end
-    else if($scope.cdformdata.loanInformation.amortizationType=='Fixed'){
-    $scope.dirtyFlagEnable=false;
-    if($scope.cdformdata.termsOfLoan.noteRatePercent !='' && $scope.cdformdata.termsOfLoan.noteRatePercent !=undefined
-    && $scope.cdformdata.termsOfLoan.noteAmount !=undefined){
-    $scope.dirtyFlagEnable=true; }
-    } else if($scope.cdformdata.loanInformation.amortizationType!=undefined) {
-    $scope.dirtyFlagEnable=false;
-    } 
-    }
-},true);
-    /// End to enable dirty flat
+	    $scope.dirtyFlagEnable=false;
+	    if($scope.cdformdata.interestRateAdjustment.firstRateChangeMonthsCount !='' && $scope.cdformdata.interestRateAdjustment.ceilingRatePercent !=''
+			    && $scope.cdformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent !='' 
+			    && $scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent !=''
+			    && $scope.cdformdata.interestRateAdjustment.floorRatePercent !=""  && $scope.cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent !=''
+			    && $scope.cdformdata.termsOfLoan.noteAmount !=undefined && $scope.cdformdata.termsOfLoan.disclosedFullyIndexedRatePercent !=undefined){
+	    			$scope.dirtyFlagEnable=false;
+				    if($scope.cdformdata.loanDetail.miRequiredIndicator==true){
+					    if($scope.cdformdata.projectedPayments.miPaymentAmount !='' && $scope.cdformdata.miDataDetail.miScheduledTerminationDate !=''
+					     && $scope.cdformdata.closingInformationDetail.closingDate!=''){
+						   
+							        $scope.dirtyFlagEnable=true;
+							     
+					    } 
+				 }  
+				else if($scope.cdformdata.loanDetail.miRequiredIndicator==false){
+				   		 $scope.dirtyFlagEnable=true;
+			    		}
+			   	 }
+		    }
+		    else if($scope.cdformdata.loanInformation.amortizationType=='Fixed' && $scope.cdformdata.termsOfLoan.noteRatePercent !="" ){
+			    $scope.dirtyFlagEnable=false;
+			    if($scope.cdformdata.termsOfLoan.noteRatePercent !='' && $scope.cdformdata.termsOfLoan.noteRatePercent !=undefined
+			   		 && $scope.cdformdata.termsOfLoan.noteAmount !=undefined){
+			    	$scope.dirtyFlagEnable=true; 
+			    }
+		     } 
+		    else if($scope.cdformdata.loanInformation.amortizationType!=undefined || $scope.cdformdata.loanInformation.amortizationType !='') {
+		    	$scope.dirtyFlagEnable=false;
+		   	 } 
+    	}
+	},true);
+ /// End to enable dirty flag
 
     $scope.renderHelpText = function(elementName) {
     	var helpText = $("#"+elementName).html();
