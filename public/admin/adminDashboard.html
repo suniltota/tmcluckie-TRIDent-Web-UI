@@ -266,7 +266,7 @@
 						    <p>Some content in menu 1.</p>
 						  </div>
 						  <div id="userContainer" class="tab-pane fade">
-						     <!--Added User UI  Naresh   -->
+						    			     <!--Added User UI  Naresh   -->
 						    	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewUser'" style="padding: 0px;">
 						    		<div class="col-sm-12">
 											<span class="col-sm-6 padding0 pull-right margin5tb margintop30">
@@ -296,7 +296,7 @@
 										       <td>{{user.email}}</td>
 										       <td>{{user.passwordExpiryDate}}</td>
 										       <td>
-													<a ng-click="editUser(user.userId)"><span class="glyphicon glyphicon-pencil"></span></a> 
+													<a ng-click="editUser(user)"><span class="glyphicon glyphicon-pencil"></span></a> 
 													<a confirmed-click="deleteUser(user.userId)" 
     													ng-confirm-click="Would you like to delete {{ user.client.clientName }}"><span class="glyphicon glyphicon-trash"></span></a>
 												</td>
@@ -352,7 +352,8 @@
 										  		<label>Email address : </label>
 										  	</div>
 										  	<div class="col-lg-6 col-md-6 col-sm-6">
-										  		<input type="text" class="form-control" name="input" ng-model="addEditUser.email" >
+										  		<input type="text" class="form-control" name="input" ng-model="addEditUser.email" 
+										  		ng-disabled="usernameFiledDisabled==true">
 										  	</div>
 									  	</div>
 									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
@@ -360,7 +361,7 @@
 										  		<label>User Name : </label>
 										  	</div>
 										  	<div class="col-lg-6 col-md-6 col-sm-6">
-										  		<input type="text" class="form-control" name="input" ng-model="addEditUser.username" >
+										  		<input type="text" class="form-control" name="input" ng-model="addEditUser.username" ng-disabled="usernameFiledDisabled==true" >
 										  	</div>
 									  	</div>
 									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin:10px">							  		
@@ -377,7 +378,8 @@
 										  		<label>Initial Password : </label>
 										  	</div>
 										  	<div class="col-lg-6 col-md-6 col-sm-6">
-										  		<input type="text" class="form-control" name="input" ng-model="addEditUser.password" >
+										  		<input type="text" class="form-control" name="input" ng-model="addEditUser.password"
+										  		ng-disabled="usernameFiledDisabled==true" >
 										  	</div>
 									  	</div>
 									  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
@@ -385,9 +387,10 @@
 										  		<label>Parent Group: </label>
 										  	</div>
 										  	<div class="col-lg-6 col-md-6 col-sm-6">
-										  		<select class="form-control" ng-model="addEditUser.role.roleId">
-								              			<option value="" selected="selected">US Bank</option>
-								              			<option value="">Fosucus bank</option>
+										  		<select class="form-control" ng-model="addEditUser.group.groupId">
+										  		        <option value="" selected>Select</option>
+								              			<option value="9a93bb62-d57b-488e-8d61-ed1f6d01b621" selected="selected">US Bank</option>
+								              			<option value="9a93bb62-d57b-488e-8d61-ed1f6d01b621">Fosucus bank</option>
 								              		</select>
 										  	</div>
 									  	</div>
@@ -397,10 +400,12 @@
 												<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 PermissionsSelect">
 									              <div class="col-sm-3 fieldTitle">Role</div>
 									              	<div class="col-sm-7">
-									              		<select class="form-control" ng-model="addEditUser.role.roleId">
-									              			<option value="" selected="selected">Client Admin</option>
-									              			<option value="">Admin</option>
-									              		</select>
+		                     
+									              	<select class="form-control" ng-model="addEditUser.role.roleId">
+									              		<option ng-repeat="userRole in userRoles" value="{{userRole.roleId}}">
+													      {{userRole.displayName}}
+													    </option>
+													 </select>
 										            </div>
 									            </div>
 		            						 </div>

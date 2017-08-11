@@ -2,6 +2,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $window, apiService) {
 
     $scope.showTab = 'adminDashboard';
     $scope.viewContent = 'viewClient';
+    $scope.usernameFiledDisabled=false;
     
     $scope.pwdExpList = [{"value":10,"label":"10 days"}, {"value":20,"label":"20 days"}, {"value":30,"label":"30 days"}];
     $scope.pwdExp = $scope.pwdExpList[2];
@@ -54,6 +55,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $window, apiService) {
         }else if(content == 'viewUser'){
             $("#spinner").show();
             $scope.getUserData();
+            $scope.getRoles();
         }else if(content == 'addUser'){
             $scope.addEditUser = {};
         }
@@ -133,13 +135,11 @@ app.controller('adminCtrl', function ($rootScope, $scope, $window, apiService) {
 /// User Start
 
     $scope.UsersList=[];
+
     $scope.getUserData = function() {
+        $scope.usernameFiledDisabled=false;
                apiService.request({apiMethod:'actualize/transformx/users',httpMethod:'GET'}).success(function(data, status) {
-                    $scope.userList = data;
-                    for(var i=0;i<data.length;i++){
-                        $scope.UsersList.push({"username":data[i].username, "firstName":data[i].firstName,
-                            "lastName":data[i].lastName, "email":data[i].email, "passwordExpiryDate":data[i].passwordExpiryDate});
-                    }
+                    $scope.UsersList = data;
                     $scope.prntGrp = $scope.parentGroupListUnderAdmin[0];
                    $("#spinner").hide();
                 }).error(function(data, status) {
@@ -149,39 +149,55 @@ app.controller('adminCtrl', function ($rootScope, $scope, $window, apiService) {
             }
 
     $scope.saveUser = function() {
-        if(!$scope.addEditUser.length){
-          $scope.UsersListdata={"firstName":$scope.addEditUser.firstName, "lastName":$scope.addEditUser.lastName,
-                         "username":$scope.addEditUser.username,  "email":$scope.addEditUser.email, 
-                         "password":$scope.addEditUser.password,  "accountNonLocked":true,"credentialsNonExpired":true, 
-                       "failedLoginAttempts":0, "resetPassword":true,"enabled":true,
-                           "group": {"groupId":'9a93bb62-d57b-488e-8d61-ed1f6d01b621'},
-                           "role": {"roleId": "416373c2-75c6-11e7-b5a5-be2e44b06b34"},
-                           "lastSuccessfulLogin":"09-08-2017 23:34:43", "lastSuccessfulLogout":"09-08-2017 23;45:23",
-                           "authorities": ["abc"]};
+        $scope.usernameFiledDisabled=false;
+            if($scope.addEditUser){
                 $("#spinner").show();
-               apiService.request({apiMethod:'actualize/transformx/users',formData:$scope.UsersListdata, httpMethod:'POST'}).success(function(data, status) {
+               if($scope.addEditUser.userId){  
+               apiService.request({apiMethod:'actualize/transformx/users',formData:$scope.addEditUser, httpMethod:'PUT'}).success(function(data, status) {
                         $window.alert(data);
                         $("#spinner").hide();
+                        $scope.getUserData();
+                       $scope.newAdminTab('viewUser');
                     }).error(function(data, status) {
                         $("#spinner").hide();
-                        console.log("API  'actualize/transformx/users' Error: "+data);
                     });
-        }
-        
+                }else{
+                    apiService.request({apiMethod:'actualize/transformx/users',formData:$scope.addEditUser, httpMethod:'POST'}).success(function(data, status) {
+                        $window.alert(data);
+                        $("#spinner").hide();
+                        $scope.getUserData();
+                       $scope.newAdminTab('viewUser');
+                    }).error(function(data, status) {
+                        $("#spinner").hide();
+                    });
+                }  
+            }
     }
-     $scope.editUser = function(userId) {
-            $scope.addEditUser.userId="416373c2-75c6-11e7-b5a5-be2e44b06b34";
+
+     $scope.editUser = function(user) {
+           $scope.usernameFiledDisabled=true;
                     $("#spinner").show();
                     $scope.newAdminTab('addUser');
-                apiService.request({apiMethod:'actualize/transformx/users/'+userId,httpMethod:'GET'}).success(function(data, status) {
+                apiService.request({apiMethod:'actualize/transformx/users/'+user.userId,httpMethod:'GET'}).success(function(data, status) {
                     $scope.addEditUser = data;
                     $("#spinner").hide();
                 }).error(function(data, status) {
                     $("#spinner").hide();
-                    console.log("API  editClient Error: "+data);
                 });
-            }
-    //$scope.copyEmailAsUsernameStatus=false;
+        }
+
+    $scope.deleteUser = function(userId) {
+            $("#spinner").show();
+        apiService.request({apiMethod:'actualize/transformx/users/'+userId,httpMethod:'DELETE'}).success(function(data, status) {
+           $window.alert(data);
+            $("#spinner").hide();
+            $scope.getUserData();
+            $scope.newAdminTab('viewUser');
+        }).error(function(data, status) {
+            $("#spinner").hide();
+        });
+     }
+
      $scope.sameAsUserName = function () {     
        if ($scope.addEditUser.sameAsUserName) {
            $scope.addEditUser.username=$scope.addEditUser.email;
@@ -189,6 +205,17 @@ app.controller('adminCtrl', function ($rootScope, $scope, $window, apiService) {
            $scope.addEditUser.username='';
         }
      };
+     
+     $scope.userRoles=[];
+     $scope.getRoles=function(){
+        var roleId="416373c2-75c6-11e7-b5a5-be2e44b06b34";
+        apiService.request({apiMethod:'actualize/transformx/roles',formData:roleId,httpMethod:'GET'}).success(function(data, status) {
+                   $scope.userRoles=data;
+                    $("#spinner").hide();
+                }).error(function(data, status) {
+                    $("#spinner").hide();
+                });
+     }
         //// User End
 
         $scope.getClientData = function() {
