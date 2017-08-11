@@ -207,34 +207,69 @@ app.controller('adminCtrl', function ($rootScope, $scope, $window, apiService) {
 		    }
 
 		    $scope.saveClient = function() {
-		        if(!$scope.addEditClient.length){
-		             $scope.clientDetails = {"clientName":$scope.addEditClient.clientName, "address":$scope.addEditClient.address, "phoneNumber":$scope.addEditClient.phoneNumber, "clientContactInfo":$scope.addEditClient.clientContactInfo, "clientId":$scope.addEditClient.clientId, "creationDate":$scope.addEditClient.creationDate, "modificationDate":$scope.addEditClient.modificationDate, "srevicesModel":$scope.addEditClient.srevicesModel, "enabled":true, "sessionTimeOut":$scope.sessTOut.value,"passwordExpireDays":$scope.pwdExp.value,"services":$scope.availableClientPermissions};
-		                $("#spinner").show();
-		                apiService.request({apiMethod:'actualize/transformx/clients',formData:$scope.clientDetails, httpMethod:'POST'}).success(function(data, status) {
-		                        console.log("API actualize/transformx/clients : "+data);
-		                        //$scope.groupList = data;
-		                        $window.alert(data);
-		                        $scope.getClientData();
-		                        $("#spinner").hide();
-		                        $scope.newAdminTab('viewClient');
-		                    }).error(function(data, status) {
-		                        $("#spinner").hide();
-		                        console.log("API  'actualize/transformx/clients' Error: "+data);
-		                    });
-		        }
-		    }
+                if($scope.addEditClient){
+                    var clientContactDetails = [];
+                    var contactInfo = {
+                        "contactType": "TECNICAL",
+                        "name": $scope.addEditClient.techContactInfo.name,
+                        "email": $scope.addEditClient.techContactInfo.email,
+                        "phone": $scope.addEditClient.techContactInfo.pno
+                    };
+                    clientContactDetails.push(contactInfo);
+                    var businessContactInfo = {
+                        "contactType": "BUSINESS",
+                        "name": $scope.addEditClient.bussContactInfo.name,
+                        "email": $scope.addEditClient.bussContactInfo.email,
+                        "phone": $scope.addEditClient.bussContactInfo.pno
+                    };
+                    clientContactDetails.push(businessContactInfo);
+                    $scope.clientDetails = {
+                        "clientId": $scope.addEditClient.clientId,
+                        "clientName":$scope.addEditClient.clientName, 
+                        "address":$scope.addEditClient.address, 
+                        "phoneNumber":$scope.addEditClient.phoneNumber,
+                        "clientContactInfo": clientContactDetails,
+                        "servicesModel": [],
+                        "enabled":$scope.addEditClient.enabled
+                    };
+                    $("#spinner").show();
+                    var httpMethod = $scope.addEditClient.clientId ? 'PUT' : 'POST';
+                    apiService.request({apiMethod:'actualize/transformx/clients',formData:$scope.clientDetails, httpMethod:httpMethod}).success(function(data, status) {
+                        $scope.getClientData();
+                        $("#spinner").hide();
+                        $scope.newAdminTab('viewClient');
+                    }).error(function(data, status) {
+                        $("#spinner").hide();
+                        console.log("API  'actualize/transformx/clients' Error: "+data);
+                    });
+                }
+            }
 
-		    $scope.editClient = function(clientId) {
-		            $("#spinner").show();
-		            $scope.newAdminTab('addClient');
-		        apiService.request({apiMethod:'actualize/transformx/clients/'+clientId,httpMethod:'GET'}).success(function(data, status) {
-		            $scope.addEditClient = data;
-		            $("#spinner").hide();
-		        }).error(function(data, status) {
-		            $("#spinner").hide();
-		            console.log("API  editClient Error: "+data);
-		        });
-		    }
+            $scope.editClient = function(clientId) {
+                    $("#spinner").show();
+                    $scope.newAdminTab('addClient');
+                apiService.request({apiMethod:'actualize/transformx/clients/'+clientId,httpMethod:'GET'}).success(function(data, status) {
+                    $scope.addEditClient = data;
+                    $scope.addEditClient['techContactInfo'] = {};
+                    $scope.addEditClient['bussContactInfo'] = {};
+                    for(var i=0; i<$scope.addEditClient.clientContactInfo.length; i++) {
+                        var contactInfo = $scope.addEditClient.clientContactInfo[i];
+                        if(contactInfo.contactType == 'TECNICAL') {
+                            $scope.addEditClient.techContactInfo.name = contactInfo.name;
+                            $scope.addEditClient.techContactInfo.email = contactInfo.email;
+                            $scope.addEditClient.techContactInfo.pno = contactInfo.phone;
+                        } else if(contactInfo.contactType == 'BUSINESS') {
+                            $scope.addEditClient.bussContactInfo.name = contactInfo.name;
+                            $scope.addEditClient.bussContactInfo.email = contactInfo.email;
+                            $scope.addEditClient.bussContactInfo.pno = contactInfo.phone;
+                        }
+                    }
+                    $("#spinner").hide();
+                }).error(function(data, status) {
+                    $("#spinner").hide();
+                    console.log("API  editClient Error: "+data);
+                });
+            }
 
 		    $scope.deleteClient = function(clientId) {
 			            $("#spinner").show();

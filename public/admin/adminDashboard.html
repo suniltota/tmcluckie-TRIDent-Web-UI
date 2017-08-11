@@ -218,11 +218,11 @@
 										  	<div class="col-lg-6 col-md-6 col-sm-6">
 										  		<label>Client Active : </label>
 										  	</div>
-										  	<div class="col-lg-6 col-md-6 col-sm-6" ng-init="clientActiveState='active'">
-										  		<input type="radio" id="act" ng-model="clientActiveState" value="active" selected>
+										  	<div class="col-lg-6 col-md-6 col-sm-6">
+										  		<input type="radio" name="clientActive" ng-model="addEditClient.enabled" data-ng-value="true">
 										  			<label for="act">Active</label>
 										  		</input>
-  												<input type="radio" id="inAct" ng-model="clientActiveState" value="inActive">
+  												<input type="radio" name="clientActive" ng-model="addEditClient.enabled" data-ng-value="false">
   													<label for="inAct">In-Active</label>
   												</input>
 										  	</div>
