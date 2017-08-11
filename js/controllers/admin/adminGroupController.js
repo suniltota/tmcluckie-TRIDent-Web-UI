@@ -1,9 +1,7 @@
-
-//Below controller is for Group tab
 app.controller('groupCtrl', function ($rootScope, $scope, $window, apiService) {
     $scope.viewContent='viewGroup';
     //For Group
-    $scope.availableGroupPermissions = [{
+    $scope.originalAvailableGroupPermissions = [{
             serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
             serviceName: "JSONTOCDPDF",
             serviceDisplayName: "JSON to CD PDF"        
@@ -16,6 +14,7 @@ app.controller('groupCtrl', function ($rootScope, $scope, $window, apiService) {
             serviceName: "JSONTOCDJSONWithCalculations",
             serviceDisplayName: "JSON to CD JSON with Calculations"        
         }];
+    $scope.availableGroupPermissions = $scope.originalAvailableGroupPermissions;
     $scope.availableGroupNmaes = $scope.availableGroupPermissions;
     $scope.availableGroupPermissionsName = function( availableGroupPermissions ) {
         return availableGroupPermissions.serviceDisplayName;
@@ -83,16 +82,32 @@ $scope.parentGroupChange = function(selectedGroup){
         }
     }
 
-    $scope.editGroup = function(groupId) {
-            $("#spinner").show();
-            $scope.newAdminTab('addGroup');
-        apiService.request({apiMethod:'actualize/transformx/groups/'+groupId,httpMethod:'GET'}).success(function(data, status) {
-            $scope.addEditGroup = data;
-            $("#spinner").hide();
-        }).error(function(data, status) {
-            $("#spinner").hide();
-            console.log("API  editGroup Error: "+data);
-        });
+    $scope.editGroup = function(selectedGroup) {
+        $("#spinner").show();
+        $scope.newAdminTab('addGroup');
+        $scope.verifyExistedPermissions(selectedGroup.services);
+        // apiService.request({apiMethod:'actualize/transformx/groups/'+groupId,httpMethod:'GET'}).success(function(data, status) {
+        //     $scope.addEditGroup = data;
+        //     $("#spinner").hide();
+        // }).error(function(data, status) {
+        //     $("#spinner").hide();
+        //     console.log("API  editGroup Error: "+data);
+        // });
+    }
+
+    $scope.verifyExistedPermissions = function(item) {
+
+        
+        $scope.GrantedGroupPermissions = item;
+        $scope.availableGroupPermissions =  $scope.originalAvailableGroupPermissions;
+        for( var i=$scope.availableGroupPermissions.length - 1; i>=0; i--){
+            for( var j=0; j<item.length; j++){
+                if($scope.availableGroupPermissions[i] && ($scope.availableGroupPermissions[i].serviceId === item[j].serviceId)){
+                    $scope.availableGroupPermissions.splice(i, 1);
+                }
+            }
+        }
+        $("#spinner").hide();
     }
 
     $scope.updateGroup = function(groupId) {
@@ -216,18 +231,4 @@ $scope.parentGroupChange = function(selectedGroup){
         }
 
 });
-app.directive('ngConfirmClick', [
-        function(){
-            return {
-                link: function (scope, element, attr) {
-                    var msg = attr.ngConfirmClick || "Are you sure?";
-                    var clickAction = attr.confirmedClick;
-                    element.bind('click',function (event) {
-                        if ( window.confirm(msg) ) {
-                            scope.$eval(clickAction)
-                        }
-                    });
-                }
-            };
-    }]);
 
