@@ -260,7 +260,7 @@
 		        			</span>
 		        			<span class="pull-left margin5tb">at the end of year</span>
 		        			<span class="col-sm-2">
-		        				<input type="text" class="form-control" name="" value="{{(leformdata.maturityRule.loanMaturityPeriodCount ? leformdata.maturityRule.loanMaturityPeriodCount/12 : '') | round}}" maxlength="3" ng-disabled="true">
+		        				<input type="text" class="form-control" name="" value="{{(leformdata.maturityRule.loanMaturityPeriodCount ? leformdata.maturityRule.loanMaturityPeriodCount/12 : '') | ceil | ceil}}" maxlength="3" ng-disabled="true">
 		        			</span>
 		        		</li>
 		        	</ul>
