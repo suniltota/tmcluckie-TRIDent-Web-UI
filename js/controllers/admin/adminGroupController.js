@@ -155,6 +155,14 @@ $scope.parentGroupChange = function(selectedGroup){
         });
     }
 
+    $scope.permissionDisplay = function(item) {
+        var str = "";
+        for(var i=0;i<item.length;i++){
+            str += (i>0) ? ", "+item[i].serviceDisplayName : item[i].serviceDisplayName;
+        }
+        return str;
+    }
+
 
 
         $scope.listbox_moveRight = function(sourceID, destID) {

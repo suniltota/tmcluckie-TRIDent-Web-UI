@@ -28,7 +28,7 @@
                         <td>{{item.groupName}}</td>
                         <td>{{item.parentGroupName}}</td>
                         <td>{{item.updatedBy}}</td>
-                        <td>{{item.services}}</td>
+                        <td>{{permissionDisplay(item.services)}}</td>
                         <td>
                             <a ng-click="editGroup(item)"><span class="glyphicon glyphicon-pencil"></span></a>
                             <a confirmed-click="deleteGroup(item.groupId)" ng-confirm-click="Would you like to delete {{ item.groupName }}"><span class="glyphicon glyphicon-trash"></span></a>
