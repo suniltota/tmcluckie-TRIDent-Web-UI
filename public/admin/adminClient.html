@@ -2,11 +2,14 @@
     <div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewClient'" style="padding: 0px;">
         <div class="col-sm-12">
             <span class="col-sm-6 padding0 pull-right margin5tb margintop30">
-                                                <a class="pull-right margin5lr cursor" ng-click="newAdminTab('addClient')" ng-class="{'active': showTab == 'addClient'}" ><span class="glyphicon glyphicon-plus"></span> Add Client</a>
+                    <a class="pull-right margin5lr margin5tb cursor" ng-click="newAdminTab('addClient')" ng-class="{'active': showTab == 'addClient'}" ><span class="glyphicon glyphicon-plus"></span> Add Client</a>
+                    <span class="pull-right col-sm-6">
+                    <input type="text" id="clientSearch" class="form-control" placeholder="Client Search ..." ng-keyup="adminTableSearch()" name="">
+                    </span>
             </span>
         </div>
         <div class="table-responsive administratorDiv col-sm-12">
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered table-hover" id="clientTable">
                 <thead class="innerSectionHeader">
                     <tr>
                         <th class="col-sm-1">

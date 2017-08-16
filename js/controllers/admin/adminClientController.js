@@ -134,6 +134,25 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
         });
     }
 
+    $scope.adminTableSearch = function() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("clientSearch");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("clientTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i];
+              if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }       
+            }
+
+        }
+
     $scope.availableClientPermissions = [{
         serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
         serviceName: "JSONTOCDPDF",
@@ -155,3 +174,5 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
     $scope.getClientData();
     $("#spinner").show();
 });
+
+
