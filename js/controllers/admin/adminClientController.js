@@ -3,12 +3,65 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
     $scope.addEditClient = {};
     $scope.clientList = {};
     $scope.parentClientListUnderAdmin = [];
+    $scope.originalavailableClientPermissions = [{
+        serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
+        serviceName: "JSONTOCDPDF",
+        serviceDisplayName: "JSON to CD PDF"
+    }, {
+        serviceId: "a041d11a-7c22-11e7-bb31-be2e44b06b34",
+        serviceName: "JSONTOLEPDF",
+        serviceDisplayName: "JSON to LE PDF"
+    }, {
+        serviceId: "a041d2d2-7c22-11e7-bb31-be2e44b06b34",
+        serviceName: "JSONTOCDJSONWithCalculations",
+        serviceDisplayName: "JSON to CD JSON with Calculations"
+    }];
+
+    $scope.originalavailableBussinessPermissions = [{
+        serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
+        serviceName: "JSONTOCDPDF",
+        serviceDisplayName: "JSON to CD PDF"
+    }, {
+        serviceId: "a041d11a-7c22-11e7-bb31-be2e44b06b34",
+        serviceName: "JSONTOLEPDF",
+        serviceDisplayName: "JSON to LE PDF"
+    }, {
+        serviceId: "a041d2d2-7c22-11e7-bb31-be2e44b06b34",
+        serviceName: "JSONTOCDJSONWithCalculations",
+        serviceDisplayName: "JSON to CD JSON with Calculations"
+    }];
+    
+    $scope.availableClientPermissions = $scope.originalavailableClientPermissions;
+    $scope.availableClientNmaes = $scope.availableClientPermissions;
+    $scope.availableClientPermissionsName = function(availableClientPermissions) {
+        return availableClientPermissions.serviceDisplayName;
+    };
+
+    $scope.GrantedClientPermissions = [];
+    $scope.GrantedClientNmaes = $scope.GrantedClientPermissions;
+    $scope.GrantedClientPermissionsName = function(GrantedGroupPermission) {
+        return GrantedGroupPermission.serviceDisplayName;
+    };
+
+
+    $scope.availableBussinessPermissions = $scope.originalavailableBussinessPermissions;
+    $scope.availableBussinessNmaes = $scope.availableBussinessPermissions;
+    $scope.availableBussinessPermissionsName = function(availableBussinessPermissions) {
+        return availableBussinessPermissions.serviceDisplayName;
+    };
+
+    $scope.GrantedBussinessPermissions = [];
+    $scope.GrantedBussinessNmaes = $scope.GrantedBussinessPermissions;
+    $scope.GrantedBussinessPermissionsName = function(GrantedBussinessPermission) {
+        return GrantedBussinessPermission.serviceDisplayName;
+    };
+    
 
     $scope.newAdminTab = function(content) {
         $scope.viewContent = content; //'addClient';        
         if (content == 'viewClient' && $scope.clientList && !$scope.clientList.length) {
             $("#spinner").show();
-            $scope.getClientData();
+            $scope.getClientData(true);
         } else if (content == 'addClient') {
             $scope.addEditClient = {
                 'enabled': true
@@ -16,27 +69,31 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
         }
     }
     $rootScope.$on("loadClientData", function() {
-        $scope.getClientData();
+        $scope.getClientData(false);
     });
-    $scope.getClientData = function() {
-        apiService.request({
-            apiMethod: 'actualize/transformx/clients',
-            httpMethod: 'GET'
-        }).success(function(data, status) {
-            $scope.clientList = data;
-            $scope.parentClientListUnderAdmin = [];
-            for (var i = 0; i < data.length; i++) {
-                $scope.parentClientListUnderAdmin.push({
-                    "clientId": data[i].clientId,
-                    "clientName": data[i].clientName
-                });
-            }
-            $scope.prntClient = $scope.parentClientListUnderAdmin[0];
-            $("#spinner").hide();
-        }).error(function(data, status) {
-            $("#spinner").hide();
-            console.log("API  'actualize/transformx/clients' Error: " + data);
-        });
+    $scope.getClientData = function(reLoad) {
+        if(reLoad || ($scope.clientList && !$scope.clientList.length)){
+            $("#spinner").show();
+            apiService.request({
+                apiMethod: 'actualize/transformx/clients',
+                httpMethod: 'GET'
+            }).success(function(data, status) {
+                $scope.clientList = data;
+                $scope.parentClientListUnderAdmin = [];
+                for (var i = 0; i < data.length; i++) {
+                    $scope.parentClientListUnderAdmin.push({
+                        "clientId": data[i].clientId,
+                        "clientName": data[i].clientName
+                    });
+                }
+                $scope.prntClient = $scope.parentClientListUnderAdmin[0];
+                $("#spinner").hide();
+            }).error(function(data, status) {
+                $("#spinner").hide();
+                console.log("API  'actualize/transformx/clients' Error: " + data);
+            });
+        } else
+            $("#spinner").hide();      
     }
 
     $scope.saveClient = function() {
@@ -76,7 +133,7 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
                 formData: $scope.clientDetails,
                 httpMethod: httpMethod
             }).success(function(data, status) {
-                $scope.getClientData();
+                $scope.getClientData(true);
                 $("#spinner").hide();
                 $scope.newAdminTab('viewClient');
             }).error(function(data, status) {
@@ -126,7 +183,7 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
             console.log("API actualize/transformx/clients : " + data);
             //$scope.groupList = data;
             $window.alert(data);
-            $scope.getClientData();
+            $scope.getClientData(true);
             $("#spinner").hide();
         }).error(function(data, status) {
             $("#spinner").hide();
@@ -134,45 +191,216 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
         });
     }
 
-    $scope.adminTableSearch = function() {
-            var input, filter, table, tr, td, i;
-            input = document.getElementById("clientSearch");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("clientTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 1; i < tr.length; i++) {
-              td = tr[i];
-              if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                  tr[i].style.display = "";
-                } else {
-                  tr[i].style.display = "none";
+    $scope.listbox_moveRight_clientInfo = function(sourceID, destID) {
+        var src = document.getElementById(sourceID);
+        var dest = document.getElementById(destID);
+
+        for (var count = 0; count < src.options.length; count++) {
+
+            if (src.options[count].selected == true) {
+                var option = src.options[count];
+
+                var newOption = document.createElement("option");
+                newOption.value = option.value;
+                newOption.text = option.text;
+                newOption.selected = true;
+                try {
+                    dest.add(newOption, null); //Standard
+                    src.remove(count, null);
+                } catch (error) {
+                    dest.add(newOption); // IE only
+                    src.remove(count);
                 }
-              }       
+                count--;
+
             }
 
         }
+        $scope.availableClientPermissions = [];
+        $scope.GrantedClientPermissions = [];
+        for (var i = 0; i < src.options.length; i++) {
+            $scope.availableClientPermissions.push({
+                "serviceId": src.options[i].value.replace("string:", ""),
+                "serviceDisplayName": src.options[i].text
+            });
+        }
 
-    $scope.availableClientPermissions = [{
-        serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
-        serviceName: "JSONTOCDPDF",
-        serviceDisplayName: "JSON to CD PDF"
-    }, {
-        serviceId: "a041d11a-7c22-11e7-bb31-be2e44b06b34",
-        serviceName: "JSONTOLEPDF",
-        serviceDisplayName: "JSON to LE PDF"
-    }, {
-        serviceId: "a041d2d2-7c22-11e7-bb31-be2e44b06b34",
-        serviceName: "JSONTOCDJSONWithCalculations",
-        serviceDisplayName: "JSON to CD JSON with Calculations"
-    }];
-    $scope.availableClientNmaes = $scope.availableClientPermissions;
-    $scope.availableClientPermissionsName = function(availableClientPermissions) {
-        return availableClientPermissions.serviceDisplayName;
-    };
+        for (var j = 0; j < dest.options.length; j++) {
+            $scope.GrantedClientPermissions.push({
+                "serviceId": dest.options[j].value.replace("string:", ""),
+                "serviceDisplayName": dest.options[j].text
+            });
+        }
+        $scope.availableClientNmaes = $scope.availableClientPermissions;
+        $scope.availableClientPermissionsName = function(availableClientPermissions) {
+            return availableClientPermissions.serviceDisplayName;
+        };
 
-    $scope.getClientData();
+        $scope.GrantedClientNmaes = $scope.GrantedClientPermissions;
+        $scope.GrantedClientPermissionsName = function(GrantedGroupPermission) {
+            return GrantedGroupPermission.serviceDisplayName;
+        };
+
+    }
+
+
+    $scope.listbox_moveLeft_clientInfo = function(sourceID, destID) {
+        var src = document.getElementById(sourceID);
+        var dest = document.getElementById(destID);
+
+        for (var count = 0; count < src.options.length; count++) {
+
+            if (src.options[count].selected == true) {
+                var option = src.options[count];
+
+                var newOption = document.createElement("option");
+                newOption.value = option.value;
+                newOption.text = option.text;
+                newOption.selected = true;
+                try {
+                    dest.add(newOption, null); //Standard
+                    src.remove(count, null);
+                } catch (error) {
+                    dest.add(newOption); // IE only
+                    src.remove(count);
+                }
+                count--;
+
+            }
+
+        }
+        $scope.availableClientPermissions = [];
+        $scope.GrantedClientPermissions = [];
+        for (var i = 0; i < src.options.length; i++) {
+            $scope.GrantedClientPermissions.push({
+                "serviceId": src.options[i].value.replace("string:", ""),
+                "serviceDisplayName": src.options[i].text
+            });
+        }
+
+        for (var j = 0; j < dest.options.length; j++) {
+            $scope.availableClientPermissions.push({
+                "serviceId": dest.options[j].value.replace("string:", ""),
+                "serviceDisplayName": dest.options[j].text
+            });
+        }
+        $scope.availableClientNmaes = $scope.availableClientPermissions;
+        $scope.availableClientPermissionsName = function(availableClientPermissions) {
+            return availableClientPermissions.serviceDisplayName;
+        };
+
+        $scope.GrantedClientNmaes = $scope.GrantedClientPermissions;
+        $scope.GrantedClientPermissionsName = function(GrantedGroupPermission) {
+            return GrantedGroupPermission.serviceDisplayName;
+        };
+
+    }
+
+    $scope.listbox_moveRight_bussinessInfo = function(sourceID, destID) {
+        var src = document.getElementById(sourceID);
+        var dest = document.getElementById(destID);
+
+        for (var count = 0; count < src.options.length; count++) {
+
+            if (src.options[count].selected == true) {
+                var option = src.options[count];
+
+                var newOption = document.createElement("option");
+                newOption.value = option.value;
+                newOption.text = option.text;
+                newOption.selected = true;
+                try {
+                    dest.add(newOption, null); //Standard
+                    src.remove(count, null);
+                } catch (error) {
+                    dest.add(newOption); // IE only
+                    src.remove(count);
+                }
+                count--;
+
+            }
+
+        }
+        $scope.availableBussinessPermissions = [];
+        $scope.GrantedBussinessPermissions = [];
+        for (var i = 0; i < src.options.length; i++) {
+            $scope.availableBussinessPermissions.push({
+                "serviceId": src.options[i].value.replace("string:", ""),
+                "serviceDisplayName": src.options[i].text
+            });
+        }
+
+        for (var j = 0; j < dest.options.length; j++) {
+            $scope.GrantedBussinessPermissions.push({
+                "serviceId": dest.options[j].value.replace("string:", ""),
+                "serviceDisplayName": dest.options[j].text
+            });
+        }
+        $scope.availableBussinessNmaes = $scope.availableBussinessPermissions;
+        $scope.availableBussinessPermissionsName = function(availableBussinessPermissions) {
+            return availableBussinessPermissions.serviceDisplayName;
+        };
+
+        $scope.GrantedBussinessNmaes = $scope.GrantedBussinessPermissions;
+        $scope.GrantedBussinessPermissionsName = function(GrantedBussinessPermission) {
+            return GrantedBussinessPermission.serviceDisplayName;
+        };
+
+    }
+
+
+    $scope.listbox_moveLeft_bussinessInfo = function(sourceID, destID) {
+        var src = document.getElementById(sourceID);
+        var dest = document.getElementById(destID);
+
+        for (var count = 0; count < src.options.length; count++) {
+
+            if (src.options[count].selected == true) {
+                var option = src.options[count];
+
+                var newOption = document.createElement("option");
+                newOption.value = option.value;
+                newOption.text = option.text;
+                newOption.selected = true;
+                try {
+                    dest.add(newOption, null); //Standard
+                    src.remove(count, null);
+                } catch (error) {
+                    dest.add(newOption); // IE only
+                    src.remove(count);
+                }
+                count--;
+
+            }
+
+        }
+        $scope.availableBussinessPermissions = [];
+        $scope.GrantedBussinessPermissions = [];
+        for (var i = 0; i < src.options.length; i++) {
+            $scope.GrantedBussinessPermissions.push({
+                "serviceId": src.options[i].value.replace("string:", ""),
+                "serviceDisplayName": src.options[i].text
+            });
+        }
+
+        for (var j = 0; j < dest.options.length; j++) {
+            $scope.availableBussinessPermissions.push({
+                "serviceId": dest.options[j].value.replace("string:", ""),
+                "serviceDisplayName": dest.options[j].text
+            });
+        }
+        $scope.availableBussinessNmaes = $scope.availableBussinessPermissions;
+        $scope.availableBussinessPermissionsName = function(availableBussinessPermissions) {
+            return availableBussinessPermissions.serviceDisplayName;
+        };
+
+        $scope.GrantedBussinessNmaes = $scope.GrantedBussinessPermissions;
+        $scope.GrantedBussinessPermissionsName = function(GrantedBussinessPermission) {
+            return GrantedBussinessPermission.serviceDisplayName;
+        };
+
+    }
+
+    $scope.getClientData(true);
     $("#spinner").show();
 });
-
-

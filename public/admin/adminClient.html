@@ -2,8 +2,9 @@
     <div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewClient'" style="padding: 0px;">
         <div class="col-sm-12">
             <span class="col-sm-6 padding0 pull-right margin5tb margintop30">
-                    <a class="pull-right margin5lr margin5tb cursor" ng-click="newAdminTab('addClient')" ng-class="{'active': showTab == 'addClient'}" ><span class="glyphicon glyphicon-plus"></span> Add Client</a>
-                    <span class="pull-right col-sm-6">
+                                                <a class="pull-right margin5lr cursor" ng-click="newAdminTab('addClient')" ng-class="{'active': showTab == 'addClient'}" ><span class="glyphicon glyphicon-plus"></span> Add Client</a>
+            <a class="pull-right margin5lr cursor" ng-click="getClientData('false')" ng-class="{'active': showTab == 'addClient'}"><span class="glyphicon glyphicon-refresh"></span> Refresh </a>
+            <span class="pull-right col-sm-6">
                     <input type="text" id="clientSearch" class="form-control" placeholder="Client Search ..." ng-keyup="adminTableSearch()" name="">
                     </span>
             </span>
@@ -79,7 +80,7 @@
                         <label>Address : </label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
-                        <input type="text" class="form-control" name="clientaddr" ng-model="addEditClient.address" >
+                        <input type="text" class="form-control" name="clientaddr" ng-model="addEditClient.address">
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">
@@ -95,24 +96,24 @@
                         <label>Web Page : </label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
-                        <input type="text" class="form-control" name="input">
+                        <input type="text" class="form-control" name="input" ng-model="addEditClient.webSite">
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
-                        <h5 class="innerSectionHeader">Granted Permissions</h5>
-                        <select id="GrantedPermissions" ng-model="GrantedNmaes" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission.id as Permission.name for Permission in GrantedPermissions">
+                        <h5 class="innerSectionHeader">Available Permissions</h5>
+                        <select id="AvailableCPermissions" ng-model="availableClientNmaes" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission.serviceId as Permission.serviceDisplayName for Permission in availableClientPermissions">
                         </select>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 margintop30">
-                        <a class="btn btn-default  col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="listbox_moveacross('GrantedPermissions', 'AvailablePermissions')"><strong> <span class="glyphicon glyphicon-chevron-right"></span> </strong></a>
-                        <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12 mt20" ng-click="listbox_moveacross('AvailablePermissions', 'GrantedPermissions')"><strong> <span class="glyphicon glyphicon-chevron-left"></span> </strong></a>
+                        <a class="btn btn-default  col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="listbox_moveRight_clientInfo('AvailableCPermissions','GrantedCPermissions')"><strong> <span class="glyphicon glyphicon-chevron-right"></span> </strong></a>
+                        <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12 mt20" ng-click="listbox_moveLeft_clientInfo('GrantedCPermissions','AvailableCPermissions')"><strong> <span class="glyphicon glyphicon-chevron-left"></span> </strong></a>
                     </div>
                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
-                        <h5 class="innerSectionHeader">Available Permissions</h5>
-                        <select id="AvailablePermissions" ng-model="AvailableNmaes" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission.id as Permission.name for Permission in AvailablePermissions">
+                        <h5 class="innerSectionHeader">Granted Permissions</h5>
+                        <select id="GrantedCPermissions" ng-model="GrantedClientNmaes" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission.serviceId as Permission.serviceDisplayName for Permission in GrantedClientPermissions">
                         </select>
                     </div>
 
@@ -152,23 +153,17 @@
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
-                        <h5 class="innerSectionHeader">Granted Permissions</h5>
-                        <select id="GrantedPermissionsBussiness" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <option value="a">Administration</option>
-                            <option value="c">OCR</option>
-                            <option value="d">Submit to GSE</option>
+                        <h5 class="innerSectionHeader">Available Investors</h5>
+                        <select id="AvailableBPermissions" ng-model="availableBussinessNmaes" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission.serviceId as Permission.serviceDisplayName for Permission in availableBussinessPermissions">
                         </select>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 margintop30">
-                        <a class="btn btn-default  col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="listbox_moveacross('GrantedPermissionsBussiness', 'AvailablePermissionsBussiness')"><strong> <span class="glyphicon glyphicon-chevron-right"></span> </strong></a>
-                        <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12 mt20" ng-click="listbox_moveacross('AvailablePermissionsBussiness', 'GrantedPermissionsBussiness')"><strong><span class="glyphicon glyphicon-chevron-left"></span></strong></a>
+                        <a class="btn btn-default  col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="listbox_moveRight_bussinessInfo('AvailableBPermissions','GrantedBPermissions')"><strong> <span class="glyphicon glyphicon-chevron-right"></span> </strong></a>
+                        <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12 mt20" ng-click="listbox_moveLeft_bussinessInfo('GrantedBPermissions','AvailableBPermissions')"><strong> <span class="glyphicon glyphicon-chevron-left"></span> </strong></a>
                     </div>
                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
-                        <h5 class="innerSectionHeader">Available Permissions</h5>
-                        <select id="AvailablePermissionsBussiness" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <option value="a">Closing Disclosure PDF</option>
-                            <option value="c">Loan Estimate PDF</option>
-                            <option value="d">USD Validation</option>
+                        <h5 class="innerSectionHeader">Granted Investors</h5>
+                        <select id="GrantedBPermissions" ng-model="GrantedBussinessNmaes" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission.serviceId as Permission.serviceDisplayName for Permission in GrantedBussinessPermissions">
                         </select>
                     </div>
 
