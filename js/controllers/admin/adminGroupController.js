@@ -201,13 +201,27 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
         });
     }
 
+    $scope.activateGroup = function(groupId){
+        $("#spinner").show();
+        apiService.request({
+                    apiMethod: 'actualize/transformx/groups/activate/' + groupId,
+                    httpMethod: 'POST'
+                }).success(function(data, status) {
+                    $window.alert(data);
+                    $("#spinner").hide();
+                    $scope.getGroupData(true);
+                }).error(function(data, status) {
+                    $("#spinner").hide();
+                    console.log("API  activateGroup Error: " + data);
+                });
+    }
+
     $scope.deleteGroup = function(groupId) {
         $("#spinner").show();
         apiService.request({
             apiMethod: 'actualize/transformx/groups/' + groupId,
             httpMethod: 'DELETE'
         }).success(function(data, status) {
-            console.log("API actualize/transformx/groups : " + data);
             $scope.getGroupData(true);
             $window.alert(data);
             $("#spinner").hide();

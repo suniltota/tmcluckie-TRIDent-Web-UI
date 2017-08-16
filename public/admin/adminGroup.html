@@ -2,7 +2,8 @@
     <div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewGroup'" style="padding: 0px;">
         <div class="col-sm-12">
             <span class="col-sm-6 padding0 pull-right margin5tb margintop30">
-												<a class="pull-right margin5lr cursor" ng-click="newAdminTab('addGroup')" ng-class="{'active': showTab == 'addGroup'}" ><span class="glyphicon glyphicon-plus"></span> Add Group</a>
+                                                <a class="pull-right margin5lr cursor" ng-click="newAdminTab('addGroup')" ng-class="{'active': showTab == 'addGroup'}" ><span class="glyphicon glyphicon-plus"></span> Add Group</a>
+                                                <a class="pull-right margin5lr cursor" ng-click="getGroupData('false')" ng-class="{'active': showTab == 'addGroup'}" ><span class="glyphicon glyphicon-refresh"></span> Refresh </a>
             </span>
         </div>
         <div class="table-responsive administratorDiv col-sm-12">
@@ -15,7 +16,8 @@
                         <th>Group Name</th>
                         <th>Parent Group Name</th>
                         <th>Last modified by</th>
-                        <th>PermissionsUnil</th>
+                        <th>Permission</th>
+                        <th>Status</th>
                         <th class="col-sm-1">Actions</th>
                     </tr>
                 </thead>
@@ -29,9 +31,11 @@
                         <td>{{item.parentGroupName}}</td>
                         <td>{{item.updatedBy}}</td>
                         <td>{{permissionDisplay(item.services)}}</td>
+                        <td>{{item.enabled ? 'Active' : 'De-activated'}}</td>
                         <td>
-                            <a ng-click="editGroup(item)"><span class="glyphicon glyphicon-pencil"></span></a>
-                            <a confirmed-click="deleteGroup(item.groupId)" ng-confirm-click="Would you like to delete {{ item.groupName }}"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a ng-show="item.enabled" ng-click="editGroup(item)"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a ng-show="item.enabled" confirmed-click="deleteGroup(item.groupId)" ng-confirm-click="Would you like to delete {{ item.groupName }}"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a ng-show="!item.enabled" class="btn btn-default  col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="activateGroup(item.groupId)"><strong> <span class="glyphicon">Active</span> </strong></a>
                         </td>
                     </tr>
                 </tbody>
