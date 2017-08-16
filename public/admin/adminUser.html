@@ -1,0 +1,182 @@
+<!--Added User UI  Naresh   -->
+<div ng-controller="userCtrl">
+    <div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewUser'" style="padding: 0px;">
+        <div class="col-sm-12">
+            <span class="col-sm-6 padding0 pull-right margin5tb margintop30">
+                                                <a class="pull-right margin5lr cursor" ng-click="newAdminTab('addUser')" ng-class="{'active': showTab == 'addClient'}" ><span class="glyphicon glyphicon-plus"></span> Add User</a>
+            </span>
+        </div>
+        <div class="table-responsive administratorDiv col-sm-12">
+            <table class="table table-bordered table-hover">
+                <thead class="innerSectionHeader">
+                    <tr>
+                        <th class="col-sm-1">
+                            <input type="checkbox">
+                        </th>
+                        <th>User Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Password Expire Date</th>
+                        <th>User Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in UsersList">
+                        <td scope="row">
+                            <input type="checkbox">
+                        </td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.passwordExpiryDate}}</td>
+                        <td>
+                            <a ng-click="editUser(user)"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a confirmed-click="deleteUser(user.userId)" ng-confirm-click="Would you like to delete {{ user.client.clientName }}"><span class="glyphicon glyphicon-trash"></span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="pagination pagination-lg pull-right">
+                <li><a>&laquo;</a></li>
+                <li><a>1</a></li>
+                <li><a>2</a></li>
+                <li><a>3</a></li>
+                <li><a>4</a></li>
+                <li><a>5</a></li>
+                <li><a>&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='addUser'" style="padding: 0px;">
+        <div class="col-lg-12 col-md-12 col-sm-12 innerSectionHeader margin10t">
+            <span class="col-lg-10 col-md-10 col-sm-10">
+                                        <h5 class="col-sm-3 padding0 margin0">Add / Edit User</h5>
+                                    </span>
+            <span class="col-lg-2 col-md-2 col-sm-2">
+                                        <span class="glyphicon glyphicon-remove-circle cursor pull-right margin5lr" style="font-size: 15px;"  ng-click="newAdminTab('viewUser')"></span>
+            <span class="pull-right margin5lr" ng-click="saveUser()">Save</span>
+            </span>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <h5 class="col-sm-12 padding0 blue">User Information</h5>
+        </div>
+        <div id="userInfoContainer" class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <label>First Name : </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <input type="text" class="form-control" name="input" ng-model="addEditUser.firstName">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <label>Last Name : </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <input type="text" class="form-control" name="input" ng-model="addEditUser.lastName">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <label>Email address : </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <input type="text" class="form-control" name="input" ng-model="addEditUser.email" ng-disabled="usernameFiledDisabled==true">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <label>User Name : </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <input type="text" class="form-control" name="input" ng-model="addEditUser.username" ng-disabled="usernameFiledDisabled==true">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin:10px">
+
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <label style="float: right;">
+                            <input type="checkbox" name="" ng-model="addEditUser.sameAsUserName" ng-true-value="true" ng-false-value="false" ng-click="sameAsUserName()"> </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6" style="padding-top: 2px;">
+                        <span style="margin-left: -15px;">Email Address As User name</span>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <label>Initial Password : </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <input type="text" class="form-control" name="input" ng-model="addEditUser.password" ng-disabled="usernameFiledDisabled==true">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <label>Parent Group: </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <select class="form-control" ng-model="addEditUser.group.groupId">
+                            <option value="" selected>Select</option>
+                            <option value="9a93bb62-d57b-488e-8d61-ed1f6d01b621" selected="selected">US Bank</option>
+                            <option value="9a93bb62-d57b-488e-8d61-ed1f6d01b621">Fosucus bank</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 PermissionsSelect">
+                        <div class="col-sm-3 fieldTitle">Role</div>
+                        <div class="col-sm-7">
+
+                            <select class="form-control" ng-model="addEditUser.role.roleId">
+                                <option ng-repeat="userRole in userRoles" value="{{userRole.roleId}}">
+                                    {{userRole.displayName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
+                        <h5 class="innerSectionHeader">Granted Permissions</h5>
+                        <select id="GrantedPermissionsBussiness2" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <option value="a">Administration</option>
+                            <option value="c">OCR</option>
+                            <option value="d">Submit to GSE</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 margintop30">
+                        <a class="btn btn-default  col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="listbox_moveacross('GrantedPermissionsBussiness2', 'AvailablePermissionsBussiness2')"><strong> <span class="glyphicon glyphicon-chevron-right"></span> </strong></a>
+                        <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12 mt20" ng-click="listbox_moveacross('AvailablePermissionsBussiness2', 'GrantedPermissionsBussiness2')"><strong><span class="glyphicon glyphicon-chevron-left"></span></strong></a>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
+                        <h5 class="innerSectionHeader">Available Permissions</h5>
+                        <select id="AvailablePermissionsBussiness2" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <option value="a">Closing Disclosure PDF</option>
+                            <option value="c">Loan Estimate PDF</option>
+                            <option value="d">USD Validation</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <div class="col-lg-10 col-md-10 col-sm-12" style="margin: 20px 0;">
+                        <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 5px;">
+                            <label>User Active : </label>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8" ng-init="userActiveState='active'" style="margin-top: 3px;">
+                            <input type="radio" id="act" ng-model="userActiveState" value="active" selected="" class="ng-valid ng-dirty ng-valid-parse ng-touched" name="38">
+                            <label for="act" style="font-size: 16px;font-weight: 100;">Active</label>
+                            <input type="radio" id="inAct" ng-model="userActiveState" value="inActive" class="ng-valid ng-dirty ng-touched" name="39" style="margin-left: 10px;">
+                            <label for="inAct" style="font-size: 16px;font-weight: 100;">In-Active</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

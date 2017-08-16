@@ -1,358 +1,183 @@
-app.controller('adminCtrl', function ($rootScope, $scope, $window, apiService) {
+app.controller('adminCtrl', function($rootScope, $scope, $window, apiService) {
 
     $scope.showTab = 'adminDashboard';
     $scope.viewContent = 'viewClient';
-    $scope.usernameFiledDisabled=false;
-    
-    $scope.pwdExpList = [{"value":10,"label":"10 days"}, {"value":20,"label":"20 days"}, {"value":30,"label":"30 days"}];
-    $scope.pwdExp = $scope.pwdExpList[2];
-    $scope.sessTOutList = [{"value":10,"label":"10 Minutes"}, {"value":20,"label":"20 Minutes"}, {"value":30,"label":"30 Minutes"},{"value":40,"label":"40 Minutes"}, {"value":50,"label":"50 Minutes"}, {"value":60,"label":"60 Minutes"}];
-    $scope.sessTOut = $scope.sessTOutList[2];
-    $scope.addEditGroup = {};
-    $scope.addEditClient = {};
-    $scope.addEditInvestor = {};
+    $scope.usernameFiledDisabled = false;
+
+    // $scope.pwdExpList = [{"value":10,"label":"10 days"}, {"value":20,"label":"20 days"}, {"value":30,"label":"30 days"}];
+    // $scope.pwdExp = $scope.pwdExpList[2];
+    // $scope.sessTOutList = [{"value":10,"label":"10 Minutes"}, {"value":20,"label":"20 Minutes"}, {"value":30,"label":"30 Minutes"},{"value":40,"label":"40 Minutes"}, {"value":50,"label":"50 Minutes"}, {"value":60,"label":"60 Minutes"}];
+    // $scope.sessTOut = $scope.sessTOutList[2];
+    //$scope.addEditGroup = {};
+    //$scope.addEditClient = {};
+    //$scope.addEditInvestor = {};
     // $scope.parentGroupList = ["USB Bank", "YES Bank", "ICICI"];
     // $scope.prntGrp = $scope.parentGroupList[0];
-    $scope.clientList = {};
-    $scope.groupList = {};
-    $scope.investorList = {};
-    $scope.parentClientListUnderAdmin = [];
-    $scope.parentGroupListUnderAdmin = [];
-    $scope.parentInvestorListUnderAdmin = [];
+    //$scope.clientList = {};
+    //$scope.groupList = {};
+    //$scope.investorList = {};
+    //$scope.parentClientListUnderAdmin = [];
+    //$scope.parentGroupListUnderAdmin = [];
+    //$scope.parentInvestorListUnderAdmin = [];
 
-    $scope.GrantedPermissions = [
-            { name: "Administration", id:1, label: ''}, 
-            { name: "OCR", id:2, label: ''},
-            { name: "Submit to GSE", id:3, label: ''}
-          ];
+    $scope.GrantedPermissions = [{
+            name: "Administration",
+            id: 1,
+            label: ''
+        },
+        {
+            name: "OCR",
+            id: 2,
+            label: ''
+        },
+        {
+            name: "Submit to GSE",
+            id: 3,
+            label: ''
+        }
+    ];
     $scope.GrantedNmaes = $scope.GrantedPermissions;
-    $scope.GrantedPermissionsName = function( GrantedPermission ) {
+    $scope.GrantedPermissionsName = function(GrantedPermission) {
         return GrantedPermission.name;
     };
 
-    $scope.AvailablePermissions = [
-            { name: "Closing Disclosure PDF", id:1, label: ''}, 
-            { name: "Loan Estimate PDF", id:2, label: ''},
-            { name: "USD Validation", id:3, label: ''}
-          ];
+    $scope.AvailablePermissions = [{
+            name: "Closing Disclosure PDF",
+            id: 1,
+            label: ''
+        },
+        {
+            name: "Loan Estimate PDF",
+            id: 2,
+            label: ''
+        },
+        {
+            name: "USD Validation",
+            id: 3,
+            label: ''
+        }
+    ];
     $scope.AvailableNmaes = $scope.AvailablePermissions;
-    $scope.AvailablePermissionsName = function( AvailablePermission ) {
+    $scope.AvailablePermissionsName = function(AvailablePermission) {
         return AvailablePermission.name;
     };
-    
-    $scope.newAdminTab = function(content){
+
+    $scope.newAdminTab = function(content) {
         //location.href = "index.html#/admin";
-        $scope.viewContent = content;//'addClient';
-        if(content == 'viewClient' && $scope.clientList && !$scope.clientList.length){
-           $("#spinner").show();
-          $scope.getClientData();
-        }else if(content == 'addClient'){
+        $scope.viewContent = content; //'addClient';
+        if (content == 'viewClient') { // && $scope.clientList && !$scope.clientList.length
+            $("#spinner").show();
+            //$scope.getClientData();
+            $rootScope.$emit("loadClientData", {});
+        } else if (content == 'addClient') {
             $scope.addEditClient = {};
         }
-        if(content == 'viewGroup' && $scope.groupList && !$scope.groupList.length){
+        if (content == 'viewGroup') {
             $("#spinner").show();
             $rootScope.$emit("loadGroupData", {});
             //$scope.getGroupData();
-        }else if(content == 'addGroup'){
+        } else if (content == 'addGroup') {
             $scope.addEditGroup = {};
-        }else if(content == 'viewUser'){
+        } else if (content == 'viewUser') {
             $("#spinner").show();
-            $scope.getUserData();
-            $scope.getRoles();
-        }else if(content == 'addUser'){
+            $rootScope.$emit("loadUserData", {});
+            //$scope.getUserData();
+            //$scope.getRoles();
+        } else if (content == 'addUser') {
             $scope.addEditUser = {};
-        }else if(content == 'viewInvestor' && $scope.investorList && !$scope.investorList.length){
+        } else if (content == 'viewInvestor') { // && $scope.investorList && !$scope.investorList.length
             $("#spinner").show();
             $rootScope.$emit("loadInvestorData", {});
-        }else if(content == 'addInvestor'){
+        } else if (content == 'addInvestor') {
             $scope.addEditInvestor = {};
-		}
+        }
     }
 
-   
 
-        $scope.listbox_move = function(listID, direction) {
 
-            var listbox = document.getElementById(listID);
-            var selIndex = listbox.selectedIndex;
+    $scope.listbox_move = function(listID, direction) {
 
-            if(-1 == selIndex) {
-                alert("Please select an option to move.");
-                return;
-            }
+        var listbox = document.getElementById(listID);
+        var selIndex = listbox.selectedIndex;
 
-            var increment = -1;
-            if(direction == 'up')
-                increment = -1;
-            else
-                increment = 1;
-
-            if((selIndex + increment) < 0 ||
-                (selIndex + increment) > (listbox.options.length-1)) {
-                return;
-            }
-
-            var selValue = listbox.options[selIndex].value;
-            var selText = listbox.options[selIndex].text;
-            listbox.options[selIndex].value = listbox.options[selIndex + increment].value
-            listbox.options[selIndex].text = listbox.options[selIndex + increment].text
-
-            listbox.options[selIndex + increment].value = selValue;
-            listbox.options[selIndex + increment].text = selText;
-
-            listbox.selectedIndex = selIndex + increment;
+        if (-1 == selIndex) {
+            alert("Please select an option to move.");
+            return;
         }
 
-        $scope.listbox_moveacross = function(sourceID, destID) {
-            var src = document.getElementById(sourceID);
-            var dest = document.getElementById(destID);
+        var increment = -1;
+        if (direction == 'up')
+            increment = -1;
+        else
+            increment = 1;
 
-            for(var count=0; count < src.options.length; count++) {
-
-                if(src.options[count].selected == true) {
-                        var option = src.options[count];
-
-                        var newOption = document.createElement("option");
-                        newOption.value = option.value;
-                        newOption.text = option.text;
-                        newOption.selected = true;
-                        try {
-                                 dest.add(newOption, null); //Standard
-                                 src.remove(count, null);
-                         }catch(error) {
-                                 dest.add(newOption); // IE only
-                                 src.remove(count);
-                         }
-                        count--;
-
-                }
-
-            }
-
-        }
-        $scope.listbox_selectall = function(listID, isSelect) {
-
-            var listbox = document.getElementById(listID);
-            for(var count=0; count < listbox.options.length; count++) {
-
-                listbox.options[count].selected = isSelect;
-
-            }
+        if ((selIndex + increment) < 0 ||
+            (selIndex + increment) > (listbox.options.length - 1)) {
+            return;
         }
 
-/// User Start
+        var selValue = listbox.options[selIndex].value;
+        var selText = listbox.options[selIndex].text;
+        listbox.options[selIndex].value = listbox.options[selIndex + increment].value
+        listbox.options[selIndex].text = listbox.options[selIndex + increment].text
 
-    $scope.UsersList=[];
+        listbox.options[selIndex + increment].value = selValue;
+        listbox.options[selIndex + increment].text = selText;
 
-    $scope.getUserData = function() {
-        $scope.usernameFiledDisabled=false;
-               apiService.request({apiMethod:'actualize/transformx/users',httpMethod:'GET'}).success(function(data, status) {
-                    $scope.UsersList = data;
-                    $scope.prntGrp = $scope.parentGroupListUnderAdmin[0];
-                   $("#spinner").hide();
-                }).error(function(data, status) {
-                    $("#spinner").hide();
-                    console.log("API  'actualize/transformx/groups' Error: "+data);
-                });
-            }
-
-    $scope.saveUser = function() {
-        $scope.usernameFiledDisabled=false;
-            if($scope.addEditUser){
-                $("#spinner").show();
-               if($scope.addEditUser.userId){  
-               apiService.request({apiMethod:'actualize/transformx/users',formData:$scope.addEditUser, httpMethod:'PUT'}).success(function(data, status) {
-                        $window.alert(data);
-                        $("#spinner").hide();
-                        $scope.getUserData();
-                       $scope.newAdminTab('viewUser');
-                    }).error(function(data, status) {
-                        $("#spinner").hide();
-                    });
-                }else{
-                    apiService.request({apiMethod:'actualize/transformx/users',formData:$scope.addEditUser, httpMethod:'POST'}).success(function(data, status) {
-                        $window.alert(data);
-                        $("#spinner").hide();
-                        $scope.getUserData();
-                       $scope.newAdminTab('viewUser');
-                    }).error(function(data, status) {
-                        $("#spinner").hide();
-                    });
-                }  
-            }
+        listbox.selectedIndex = selIndex + increment;
     }
 
-     $scope.editUser = function(user) {
-           $scope.usernameFiledDisabled=true;
-                    $("#spinner").show();
-                    $scope.newAdminTab('addUser');
-                apiService.request({apiMethod:'actualize/transformx/users/'+user.userId,httpMethod:'GET'}).success(function(data, status) {
-                    $scope.addEditUser = data;
-                    $("#spinner").hide();
-                }).error(function(data, status) {
-                    $("#spinner").hide();
-                });
-        }
+    $scope.listbox_moveacross = function(sourceID, destID) {
+        var src = document.getElementById(sourceID);
+        var dest = document.getElementById(destID);
 
-    $scope.deleteUser = function(userId) {
-            $("#spinner").show();
-        apiService.request({apiMethod:'actualize/transformx/users/'+userId,httpMethod:'DELETE'}).success(function(data, status) {
-           $window.alert(data);
-            $("#spinner").hide();
-            $scope.getUserData();
-            $scope.newAdminTab('viewUser');
-        }).error(function(data, status) {
-            $("#spinner").hide();
-        });
-     }
+        for (var count = 0; count < src.options.length; count++) {
 
-     $scope.sameAsUserName = function () {     
-       if ($scope.addEditUser.sameAsUserName) {
-           $scope.addEditUser.username=$scope.addEditUser.email;
-        }else{
-           $scope.addEditUser.username='';
-        }
-     };
-     
-     $scope.userRoles=[];
-     $scope.getRoles=function(){
-        var roleId="416373c2-75c6-11e7-b5a5-be2e44b06b34";
-        apiService.request({apiMethod:'actualize/transformx/roles',formData:roleId,httpMethod:'GET'}).success(function(data, status) {
-                   $scope.userRoles=data;
-                    $("#spinner").hide();
-                }).error(function(data, status) {
-                    $("#spinner").hide();
-                });
-     }
-        //// User End
+            if (src.options[count].selected == true) {
+                var option = src.options[count];
 
-        $scope.getClientData = function() {
-		        apiService.request({apiMethod:'actualize/transformx/clients',httpMethod:'GET'}).success(function(data, status) {
-		            $scope.clientList = data;
-		            $scope.parentClientListUnderAdmin = [];
-		            for(var i=0;i<data.length;i++){
-		                $scope.parentClientListUnderAdmin.push({"clientId":data[i].clientId, "clientName":data[i].clientName});
-		            }
-		            $scope.prntClient = $scope.parentClientListUnderAdmin[0];
-		            $("#spinner").hide();
-		        }).error(function(data, status) {
-		            $("#spinner").hide();
-		            console.log("API  'actualize/transformx/clients' Error: "+data);
-		        });
-		    }
-
-		    $scope.saveClient = function() {
-                if($scope.addEditClient){
-                    var clientContactDetails = [];
-                    var contactInfo = {
-                        "contactType": "TECNICAL",
-                        "name": $scope.addEditClient.techContactInfo.name,
-                        "email": $scope.addEditClient.techContactInfo.email,
-                        "phone": $scope.addEditClient.techContactInfo.pno
-                    };
-                    clientContactDetails.push(contactInfo);
-                    var businessContactInfo = {
-                        "contactType": "BUSINESS",
-                        "name": $scope.addEditClient.bussContactInfo.name,
-                        "email": $scope.addEditClient.bussContactInfo.email,
-                        "phone": $scope.addEditClient.bussContactInfo.pno
-                    };
-                    clientContactDetails.push(businessContactInfo);
-                    $scope.clientDetails = {
-                        "clientId": $scope.addEditClient.clientId,
-                        "clientName":$scope.addEditClient.clientName, 
-                        "address":$scope.addEditClient.address, 
-                        "phoneNumber":$scope.addEditClient.phoneNumber,
-                        "clientContactInfo": clientContactDetails,
-                        "servicesModel": [],
-                        "enabled":$scope.addEditClient.enabled
-                    };
-                    $("#spinner").show();
-                    var httpMethod = $scope.addEditClient.clientId ? 'PUT' : 'POST';
-                    apiService.request({apiMethod:'actualize/transformx/clients',formData:$scope.clientDetails, httpMethod:httpMethod}).success(function(data, status) {
-                        $scope.getClientData();
-                        $("#spinner").hide();
-                        $scope.newAdminTab('viewClient');
-                    }).error(function(data, status) {
-                        $("#spinner").hide();
-                        console.log("API  'actualize/transformx/clients' Error: "+data);
-                    });
+                var newOption = document.createElement("option");
+                newOption.value = option.value;
+                newOption.text = option.text;
+                newOption.selected = true;
+                try {
+                    dest.add(newOption, null); //Standard
+                    src.remove(count, null);
+                } catch (error) {
+                    dest.add(newOption); // IE only
+                    src.remove(count);
                 }
+                count--;
+
             }
 
-            $scope.editClient = function(clientId) {
-                    $("#spinner").show();
-                    $scope.newAdminTab('addClient');
-                apiService.request({apiMethod:'actualize/transformx/clients/'+clientId,httpMethod:'GET'}).success(function(data, status) {
-                    $scope.addEditClient = data;
-                    $scope.addEditClient['techContactInfo'] = {};
-                    $scope.addEditClient['bussContactInfo'] = {};
-                    for(var i=0; i<$scope.addEditClient.clientContactInfo.length; i++) {
-                        var contactInfo = $scope.addEditClient.clientContactInfo[i];
-                        if(contactInfo.contactType == 'TECNICAL') {
-                            $scope.addEditClient.techContactInfo.name = contactInfo.name;
-                            $scope.addEditClient.techContactInfo.email = contactInfo.email;
-                            $scope.addEditClient.techContactInfo.pno = contactInfo.phone;
-                        } else if(contactInfo.contactType == 'BUSINESS') {
-                            $scope.addEditClient.bussContactInfo.name = contactInfo.name;
-                            $scope.addEditClient.bussContactInfo.email = contactInfo.email;
-                            $scope.addEditClient.bussContactInfo.pno = contactInfo.phone;
-                        }
-                    }
-                    $("#spinner").hide();
-                }).error(function(data, status) {
-                    $("#spinner").hide();
-                    console.log("API  editClient Error: "+data);
-                });
-            }
+        }
 
-		    $scope.deleteClient = function(clientId) {
-			            $("#spinner").show();
-			        apiService.request({apiMethod:'actualize/transformx/clients/'+clientId,httpMethod:'DELETE'}).success(function(data, status) {
-			            console.log("API actualize/transformx/clients : "+data);
-			            //$scope.groupList = data;
-			            $window.alert(data);
-			            $scope.getClientData();
-			            $("#spinner").hide();
-			        }).error(function(data, status) {
-			            $("#spinner").hide();
-			            console.log("API  'actualize/transformx/clients' Error: "+data);
-			        });
-			    }
+    }
+    $scope.listbox_selectall = function(listID, isSelect) {
 
-		    $scope.availableClientPermissions = [{
-	            serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
-	            serviceName: "JSONTOCDPDF",
-	            serviceDisplayName: "JSON to CD PDF"        
-	        },{
-	            serviceId: "a041d11a-7c22-11e7-bb31-be2e44b06b34",
-	            serviceName: "JSONTOLEPDF",
-	            serviceDisplayName: "JSON to LE PDF"        
-	        },{
-	            serviceId: "a041d2d2-7c22-11e7-bb31-be2e44b06b34",
-	            serviceName: "JSONTOCDJSONWithCalculations",
-	            serviceDisplayName: "JSON to CD JSON with Calculations"        
-	        }];
-	    $scope.availableClientNmaes = $scope.availableClientPermissions;
-	    $scope.availableClientPermissionsName = function( availableClientPermissions ) {
-	        return availableClientPermissions.serviceDisplayName;
-	    };
+        var listbox = document.getElementById(listID);
+        for (var count = 0; count < listbox.options.length; count++) {
 
-		    $scope.getClientData();
-		    $("#spinner").show();
+            listbox.options[count].selected = isSelect;
 
-    });
+        }
+    }
+
+
+});
 app.directive('ngConfirmClick', [
-        function(){
-            return {
-                link: function (scope, element, attr) {
-                    var msg = attr.ngConfirmClick || "Are you sure?";
-                    var clickAction = attr.confirmedClick;
-                    element.bind('click',function (event) {
-                        if ( window.confirm(msg) ) {
-                            scope.$eval(clickAction)
-                        }
-                    });
-                }
-            };
-    }]);
+    function() {
+        return {
+            link: function(scope, element, attr) {
+                var msg = attr.ngConfirmClick || "Are you sure?";
+                var clickAction = attr.confirmedClick;
+                element.bind('click', function(event) {
+                    if (window.confirm(msg)) {
+                        scope.$eval(clickAction)
+                    }
+                });
+            }
+        };
+    }
+]);
