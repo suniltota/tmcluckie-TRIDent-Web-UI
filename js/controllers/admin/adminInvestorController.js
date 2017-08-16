@@ -33,7 +33,7 @@ app.controller('investorCtrl', function ($rootScope, $scope, $window, apiService
 
 		    $scope.saveInvestor = function() {
 		        if(!$scope.addEditInvestor.length){
-		             $scope.investorDetails = {"investorName":$scope.addEditInvestor.investorName, "investorUrl":$scope.addEditInvestor.investorUrl, "srevicesModel":$scope.addEditInvestor.srevicesModel, "enabled":true, "sessionTimeOut":$scope.sessTOut.value,"passwordExpireDays":$scope.pwdExp.value,"services":$scope.availableClientPermissions};
+		             $scope.investorDetails = {"investorName":$scope.addEditInvestor.investorName, "investorUrl":$scope.addEditInvestor.investorUrl, "srevicesModel":$scope.addEditInvestor.srevicesModel};
 		                $("#spinner").show();
 		                	apiService.request({apiMethod:'actualize/transformx/investors',formData:$scope.investorDetails, httpMethod:'POST'}).success(function(data, status) {
 		                        
