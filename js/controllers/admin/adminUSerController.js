@@ -19,6 +19,7 @@ app.controller('userCtrl', function($rootScope, $scope, $window, apiService) {
     });
     $scope.getUserData = function() {
         $scope.usernameFiledDisabled = false;
+        $scope.getRoles();
         apiService.request({
             apiMethod: 'actualize/transformx/users',
             httpMethod: 'GET'
@@ -68,6 +69,7 @@ app.controller('userCtrl', function($rootScope, $scope, $window, apiService) {
 
     $scope.editUser = function(user) {
         $scope.usernameFiledDisabled = true;
+        $scope.getRoles();
         $("#spinner").show();
         $scope.newAdminTab('addUser');
         apiService.request({

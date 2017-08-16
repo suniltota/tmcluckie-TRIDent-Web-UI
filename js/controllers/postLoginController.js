@@ -5,7 +5,8 @@ postLoginApp.controller('postLoginCtrl', function ($scope, $window, loginService
     $scope.purposeType = 'purchase';
     $scope.documentType = 'closingdisclosure';
     $scope.formType = 'standard';
-
+    $scope.userRole = JSON.parse(localStorage.userDetails).user.role.roleName;
+    console.log($scope.userRole);
     //$('#SelectTransaction').modal('show');
 
     $scope.logUserOut = function() {
