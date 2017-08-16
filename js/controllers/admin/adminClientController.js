@@ -140,7 +140,7 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
             filter = input.value.toUpperCase();
             table = document.getElementById("clientTable");
             tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
+            for (i = 1; i < tr.length; i++) {
               td = tr[i];
               if (td) {
                 if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
