@@ -105,6 +105,7 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
                 "sessionTimeOut": $scope.sessTOut.value,
                 "passwordExpireDays": $scope.pwdExp.value,
                 "services": $scope.GrantedGroupPermissions,
+                "enabled": true,
                 "clientId": "a00deb64-7832-11e7-b5a5-be2e44b06b34"
             };
             $("#spinner").show();
