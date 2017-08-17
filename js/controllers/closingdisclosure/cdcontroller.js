@@ -4685,11 +4685,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 		}else{
             $scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemType='LoanAmount';
 			$scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemType= 'TotalPayoffsAndPayments';
-			$scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemType='';
+			$scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemType='ClosingCostsFinanced';
 			$scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemType='';
 			$scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemType='';
 			$scope.cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemType='';
-			$scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='';
+			$scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='AdjustmentsAndOtherCredits';
 			$scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemType= '';
 		}
 
