@@ -135,7 +135,8 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
                 "clientContactInfo": clientContactDetails,
                 "servicesModel": ($scope.GrantedClientPermissions && $scope.GrantedClientPermissions.length > 0) ? $scope.GrantedClientPermissions : [],
                 "investorModels": ($scope.GrantedBussinessPermissions && $scope.GrantedBussinessPermissions.length > 0) ? $scope.GrantedBussinessPermissions : [],
-                "enabled": true
+                "enabled": true,
+                "webSite": ($scope.addEditClient.webSite) ? $scope.addEditClient.webSite : null
             };
             $("#spinner").show();
             var httpMethod = $scope.addEditClient.clientId ? 'PUT' : 'POST';
