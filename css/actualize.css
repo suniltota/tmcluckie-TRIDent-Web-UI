@@ -462,3 +462,17 @@ th.innerSectionHeader{padding: 8px!important; vertical-align: middle!important;}
 .administratorDiv .pagination { border-radius:0; margin: 0; }
 .administratorDiv .pagination>li>a, .administratorDiv .pagination>li>span { border-radius:0; border: none; color: #333; padding: 5px 12px; margin: 0 5px}
 .administratorDiv .pagination>li>a:focus, .administratorDiv .pagination>li>a:hover, .administratorDiv .pagination>li>span:focus, .administratorDiv .pagination>li>span:hover { border-radius:50px; color: #337ab7; }
+
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    cursor: not-allowed !important;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
+    background-color: #b4b4b4 !important;
+    border:2px #b4b4b4 !important;
+    font: inherit !important;
+    font-family: inherit !important;
+    color: #000000 !important;
+}

@@ -14,6 +14,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	$scope.rateLockedTimePeriod=["AM","PM"];
 	$scope.rateLockedTimeZone=["EST","CST","MST","PST","IST"];
 	$scope.originationChargeDisplayLabelStatus=false;
+	$scope.dirtyFlagEnable=false;
 	$scope.originationChargeDisplayLabelValue;
 	$rootScope.xmlStringData= '';
 	$scope.loanBasicInfo = angular.copy(staticData.basicLoanInfo);
@@ -2797,6 +2798,45 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	}
 
     },true);
+
+    /// Start to enable dirty flag
+$scope.$watch('leformdata',function(newValue,oldValue){
+$scope.dirtyFlagEnable=false;
+    if(($scope.leformdata.salesContractDetail.saleContractAmount|| $scope.leformdata.salesContractDetail.realPropertyAmount || 
+    	$scope.leformdata.closingInformation.propertyValuationDetail.propertyValuationAmount  || 
+    	$scope.leformdata.closingInformation.propertyValuationDetail.propertyEstimatedValueAmount )
+    && $scope.leformdata.loanInformation.loanTermYears 
+    && ($scope.leformdata.termsOfLoan.noteRatePercent  || $scope.leformdata.termsOfLoan.disclosedFullyIndexedRatePercent )
+    && $scope.leformdata.termsOfLoan.noteAmount 
+    && $scope.leformdata.loanInformation.amortizationType 
+    ){
+    $scope.dirtyFlagEnable=true;
+    ///nested if start
+     if($scope.leformdata.loanInformation.amortizationType =='AdjustableRate' || $scope.leformdata.loanInformation.amortizationType !='Fixed'){
+	    $scope.dirtyFlagEnable=false;
+	    if($scope.leformdata.interestRateAdjustment.firstRateChangeMonthsCount && $scope.leformdata.interestRateAdjustment.ceilingRatePercent
+			    && $scope.leformdata.interestRateAdjustment.firstPerChangeRateAdjustmentFrequencyMonthsCount
+			    && $scope.leformdata.interestRateAdjustment.firstPerChangeMaximumIncreaseRatePercent &&
+			    $scope.leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount
+			    && $scope.leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount){
+	    			$scope.dirtyFlagEnable=true;
+				    if($scope.leformdata.loanDetail.miRequiredIndicator==true){
+				    	$scope.dirtyFlagEnable=false;
+					    if($scope.leformdata.projectedPayments.miPaymentAmount  && $scope.leformdata.miDataDetail.miScheduledTerminationDate 
+					     && $scope.leformdata.closingInformationDetail.closingDate){
+					    	$scope.dirtyFlagEnable=true;  } 
+				   }  else if($scope.leformdata.loanDetail.miRequiredIndicator==false){
+				   	$scope.dirtyFlagEnable=true;
+				   }
+				
+			   	 }
+		    }
+		    else if($scope.leformdata.loanInformation.amortizationType=='Fixed' && $scope.leformdata.termsOfLoan.noteRatePercent){
+			    	$scope.dirtyFlagEnable=true; 
+		     }
+    	}
+	},true);
+ /// End to enable dirty flag
    
     // $rootScope.leformdataSendToJsonService=$scope.leformdata;
     // leService.generateXML($rootScope.leformdataSendToJsonService).success(function(data){
