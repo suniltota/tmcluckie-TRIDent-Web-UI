@@ -95,6 +95,16 @@
           </div>
         </div>
         <div class="col-sm-6">
+        <div class="row col-sm-12 margin5tb" ng-show="loanBasicInfo.loanPurposeType == 'refinance' && $index == 0">
+              <div class="col-sm-5 fieldTitle">
+              </div>
+              <div class="col-sm-7">
+                 <span style="margin: 0px 0px 0px 0px;" >
+                    <input type="checkbox" id="checkBorrowerpropertyInformation" name="checkBorrowerpropertyInformation" 
+                    ng-model="cdApplicantAddressPropertyStatus" ng-true-value="true" ng-false-value="false" ng-click="SameAsPropertyInformation()"> Same as Property Information Address 
+                    </span>
+              </div>
+          </div> 
         	<div class="row col-sm-12 margin5tb">
             <div class="col-sm-5 fieldTitle">Street Address (Mailing)
             </div>

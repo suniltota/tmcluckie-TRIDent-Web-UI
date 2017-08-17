@@ -5519,6 +5519,16 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 
     /// End for Header meta data ///
 
+    $scope.SameAsPropertyInformation = function () {    
+    	
+        	this.borrower.address.addressLineText=$scope.cdformdata.closingInformation.property.addressLineText;
+        	this.borrower.address.cityName=$scope.cdformdata.closingInformation.property.cityName;
+        	this.borrower.address.countryCode='US';
+        	this.borrower.address.stateCode=$scope.cdformdata.closingInformation.property.stateCode;
+        	this.borrower.address.postalCode=$scope.cdformdata.closingInformation.property.postalCode;
+        
+     };
+
 
 /// Start to enable dirty flag
 $scope.$watch('cdformdata',function(newValue,oldValue){
