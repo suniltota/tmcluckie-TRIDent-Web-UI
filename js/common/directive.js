@@ -918,6 +918,49 @@ app.directive('minAndMaxCheck', function($sce, $compile) {
   };
 });
 
+
+app.directive('checkLoanTermBalloon', function ($sce, $compile)
+{ 
+  return {
+        require: 'ngModel',
+        link: function (scope, element, attr, ngModel)
+        {
+           element.on('blur', function (e) {
+              var years = scope.cdformdata.loanInformation.loanTermYears;
+              var months = scope.cdformdata.loanInformation.loanTermMonths;
+              if(years == undefined){
+                years = 0;
+              }
+              if(months == undefined){
+                months = 0;
+              }
+              var loanYears = Number(years);
+              var loanMonths = Number(months);
+              var targetVal = Number(e.target.value);
+              var finalMonths = (loanYears*12) + loanMonths;
+              var finalYears = loanYears + (loanMonths/12);
+              if(targetVal <  finalMonths && e.target.name =='loanAmortizationPeriodMonthCount'){
+                    e.currentTarget.style.border="1px solid #f17777"
+                    message = "Amortization Period Count should be greater than loan term (" + finalMonths + " months)";
+                    scope.$apply();
+              }
+              else if(targetVal <  finalYears && e.target.name =='loanAmortizationPeriodYearCount'){
+                    e.currentTarget.style.border="1px solid #f17777"
+                    message = "Amortization Period Count should be greater than loan term (" + finalYears + " years)";
+                    scope.$apply();
+              }else{
+                e.currentTarget.style.border=""
+                    message = "";
+                    scope.$apply();
+              }
+              scope.htmlTooltip[e.target.name.toLocaleLowerCase()]=$sce.trustAsHtml(message);
+              $compile(element.contents())(scope);
+          });
+
+        }
+    }
+});
+
 app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, $sce, $compile)
 {
     return {
