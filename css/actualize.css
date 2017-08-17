@@ -123,8 +123,8 @@ help-verbiage{z-index: 3;}
 .helpIcon span{color: #555; width: 200px;}
 .helpIcon span ul{float: left; padding-left:15px;}
 .helpIcon span ul li{list-style-type:circle; float: left; padding:3px 0;}
-.headerLenderHead{font-weight: bold; font-size: 14px; float: left;}
-.headerLendertitle{min-width: 50px; float: left; padding: 3px; color: #666;}
+.headerLenderHead{float: left; color: #666;}
+.headerLendertitle{min-width: 50px; float: left; padding:0 3px; color: #5bb1dc;}
 .tooltip-msg{
     outline: none;
 }
