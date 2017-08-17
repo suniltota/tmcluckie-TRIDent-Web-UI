@@ -148,7 +148,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     $scope.DocumentType = 'LoanEstimate';
     if($scope.loanBasicInfo!=undefined){
 	    if($scope.loanBasicInfo.loanFormType == 'standard'){
-	    	$scope.FormType = 'StandardForm'
+	    	$scope.FormType = 'ModelForm'
 	    }
 	    else if($scope.loanBasicInfo.loanFormType == 'alternate'){
 	    	$scope.FormType = 'AlternateForm'
@@ -304,7 +304,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
         $scope.leformdata.loanEstimateDocDetails.documentType='LoanEstimate';
 
 		if($scope.loanBasicInfo.loanFormType == 'standard'){
-        	$scope.leformdata.loanEstimateDocDetails.formType = 'StandardForm';
+        	$scope.leformdata.loanEstimateDocDetails.formType = 'ModelForm';
         }else if($scope.loanBasicInfo.loanFormType == 'alternate'){
         	$scope.leformdata.loanEstimateDocDetails.formType = 'AlternateForm';
         }
@@ -1714,7 +1714,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	$scope.leformdata.loanEstimateDocDetails.documentType="LoanEstimate";
     	if($scope.leformdata.loanEstimateDocDetails.formType=='StandardForm')
 		{
-			$scope.leformdata.loanEstimateDocDetails.formType="StandardForm";
+			$scope.leformdata.loanEstimateDocDetails.formType="ModelForm";
 		} else{
 			$scope.leformdata.loanEstimateDocDetails.formType="AlternateForm";
 	    }
@@ -1811,7 +1811,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     	$scope.leformdata.loanEstimateDocDetails.documentType="LoanEstimate";
     	if($scope.leformdata.loanEstimateDocDetails.formType=='StandardForm')
 		{
-			$scope.leformdata.loanEstimateDocDetails.formType="StandardForm";
+			$scope.leformdata.loanEstimateDocDetails.formType="ModelForm";
 		}else{
 			$scope.leformdata.loanEstimateDocDetails.formType="AlternateForm";
 	    }

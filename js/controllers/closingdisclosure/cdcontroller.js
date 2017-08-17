@@ -250,7 +250,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         $scope.cdformdata.closingDisclosureDocDetails.documentType='ClosingDisclosure';
 
 		if($scope.loanBasicInfo.loanFormType == 'standard'){
-        	$scope.cdformdata.closingDisclosureDocDetails.formType = 'StandardForm';
+        	$scope.cdformdata.closingDisclosureDocDetails.formType = 'ModelForm';
         }else if($scope.loanBasicInfo.loanFormType == 'alternate'){
         	$scope.cdformdata.closingDisclosureDocDetails.formType = 'AlternateForm';
         }
