@@ -2446,26 +2446,24 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	        $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemEstimatedAmount = $scope.leformdata.termsOfLoan.noteAmount ? parseFloat($scope.leformdata.termsOfLoan.noteAmount) : +0;
 	    }
 	}
-
 	if($scope.loanBasicInfo.loanFormType == 'standard'){
-		$scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemType='ClosingCostsFinanced';
-		$scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemType='DownPayment';
-		$scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemType='Deposit';
-		$scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemType='FundsForBorrower';
-		$scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='AdjustmentsAndOtherCredits';
-		$scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemType= 'SellerCredits';
-		$scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemType='';
-		$scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemType= '';
-	}else{
-        $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemType='LoanAmount';
-		$scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemType= 'TotalPayoffsAndPayments';
-		$scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemType='';
-		$scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemType='';
-		$scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemType='';
-		$scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemType='';
-		$scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='';
-		$scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemType= '';
-	}
+			$scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemType='ClosingCostsFinanced';
+			$scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemType='DownPayment';
+			$scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemType='Deposit';
+			$scope.cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemType='FundsForBorrower';
+			$scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='AdjustmentsAndOtherCredits';
+			$scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemType='';
+			$scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemType= '';
+		}else{
+            $scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemType='LoanAmount';
+			$scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemType= 'TotalPayoffsAndPayments';
+			$scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemType='';
+			$scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemType='';
+			$scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemType='';
+			$scope.cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemType='';
+			$scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='';
+			$scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemType= '';
+		}
     
     if($scope.loanBasicInfo.loanFormType == 'standard'){
 	    if($scope.leformdata.cashToCloses.totalClosingCosts.integratedDisclosureCashToCloseItemEstimatedAmount)
