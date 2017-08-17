@@ -31,11 +31,11 @@
                         <td>{{item.parentGroupName}}</td>
                         <td>{{item.updatedBy}}</td>
                         <td>{{permissionDisplay(item.services)}}</td>
-                        <td>{{item.enabled ? 'Active' : 'De-activated'}}</td>
+                        <td>{{item.enabled ? 'Enable' : 'Disabled'}}</td>
                         <td>
                             <a ng-show="item.enabled" ng-click="editGroup(item)"><span class="glyphicon glyphicon-pencil"></span></a>
                             <a ng-show="item.enabled" confirmed-click="deleteGroup(item.groupId)" ng-confirm-click="Would you like to delete {{ item.groupName }}"><span class="glyphicon glyphicon-trash"></span></a>
-                            <a ng-show="!item.enabled" class="btn btn-default  col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="activateGroup(item.groupId)"><strong> <span class="glyphicon">Active</span> </strong></a>
+                            <a ng-show="!item.enabled" class="btn btn-default  col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="activateGroup(item.groupId)"><strong> <span class="glyphicon">Enable</span> </strong></a>
                         </td>
                     </tr>
                 </tbody>

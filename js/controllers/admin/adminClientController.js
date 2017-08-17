@@ -3,52 +3,15 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
     $scope.addEditClient = {};
     $scope.clientList = {};
     $scope.parentClientListUnderAdmin = [];
-    $scope.originalavailableClientPermissions = [{
-        serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
-        serviceName: "JSONTOCDPDF",
-        serviceDisplayName: "JSON to CD PDF"
-    }, {
-        serviceId: "a041d11a-7c22-11e7-bb31-be2e44b06b34",
-        serviceName: "JSONTOLEPDF",
-        serviceDisplayName: "JSON to LE PDF"
-    }, {
-        serviceId: "a041d2d2-7c22-11e7-bb31-be2e44b06b34",
-        serviceName: "JSONTOCDJSONWithCalculations",
-        serviceDisplayName: "JSON to CD JSON with Calculations"
-    }];
+    $scope.originalavailableClientPermissions = [];
 
-    $scope.originalavailableBussinessPermissions = [{
-        serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
-        serviceName: "JSONTOCDPDF",
-        serviceDisplayName: "JSON to CD PDF"
-    }, {
-        serviceId: "a041d11a-7c22-11e7-bb31-be2e44b06b34",
-        serviceName: "JSONTOLEPDF",
-        serviceDisplayName: "JSON to LE PDF"
-    }, {
-        serviceId: "a041d2d2-7c22-11e7-bb31-be2e44b06b34",
-        serviceName: "JSONTOCDJSONWithCalculations",
-        serviceDisplayName: "JSON to CD JSON with Calculations"
-    }];
-    
-    $scope.availableClientPermissions = $scope.originalavailableClientPermissions;
-    $scope.availableClientNmaes = $scope.availableClientPermissions;
-    $scope.availableClientPermissionsName = function(availableClientPermissions) {
-        return availableClientPermissions.serviceDisplayName;
-    };
+    $scope.originalavailableBussinessPermissions = [];
 
     $scope.GrantedClientPermissions = [];
     $scope.GrantedClientNmaes = $scope.GrantedClientPermissions;
     $scope.GrantedClientPermissionsName = function(GrantedGroupPermission) {
         return GrantedGroupPermission.serviceDisplayName;
-    };
-
-
-    $scope.availableBussinessPermissions = $scope.originalavailableBussinessPermissions;
-    $scope.availableBussinessNmaes = $scope.availableBussinessPermissions;
-    $scope.availableBussinessPermissionsName = function(availableBussinessPermissions) {
-        return availableBussinessPermissions.serviceDisplayName;
-    };
+    };    
 
     $scope.GrantedBussinessPermissions = [];
     $scope.GrantedBussinessNmaes = $scope.GrantedBussinessPermissions;
@@ -66,11 +29,57 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
             $scope.addEditClient = {
                 'enabled': true
             };
+            $scope.resetAddEditClientData();
         }
     }
     $rootScope.$on("loadClientData", function() {
         $scope.getClientData(false);
     });
+
+    $scope.resetAddEditClientData = function(){
+        $scope.availableClientPermissions = $scope.originalavailableClientPermissions;
+        $scope.GrantedClientPermissions = [];
+        $scope.availableBussinessPermissions = $scope.originalavailableBussinessPermissions;
+        $scope.GrantedBussinessPermissions = [];
+    }
+
+    $scope.getPermissionsData = function() {
+            $("#spinner").show();
+            apiService.request({
+                apiMethod: 'actualize/transformx/services',
+                httpMethod: 'GET'
+            }).success(function(data, status) {
+                $scope.originalavailableClientPermissions = data;
+                $scope.availableClientPermissions = data;
+                $scope.availableClientNmaes = $scope.availableClientPermissions;
+                $scope.availableClientPermissionsName = function(availableClientPermissions) {
+                    return availableClientPermissions.serviceDisplayName;
+                };
+                //$("#spinner").hide();
+            }).error(function(data, status) {
+                $("#spinner").hide();
+                console.log("API  'actualize/transformx/services' Error: " + data);
+            });
+
+            apiService.request({
+                apiMethod: 'actualize/transformx/investors',
+                httpMethod: 'GET'
+            }).success(function(data, status) {
+                $scope.originalavailableBussinessPermissions = data;
+                $scope.availableBussinessPermissions = data;
+                $scope.availableBussinessNmaes = $scope.availableBussinessPermissions;
+                $scope.availableBussinessPermissionsName = function(availableBussinessPermissions) {
+                    return availableBussinessPermissions.investorName;
+                };
+                //$("#spinner").hide();
+            }).error(function(data, status) {
+                $("#spinner").hide();
+                console.log("API  'actualize/transformx/investors' Error: " + data);
+            });
+    }
+
+    
+    $scope.getPermissionsData();
     $scope.getClientData = function(reLoad) {
         if(reLoad || ($scope.clientList && !$scope.clientList.length)){
             $("#spinner").show();
@@ -123,7 +132,8 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
                 "address": $scope.addEditClient.address,
                 "phoneNumber": $scope.addEditClient.phoneNumber,
                 "clientContactInfo": clientContactDetails,
-                "servicesModel": [],
+                "servicesModel": ($scope.GrantedClientPermissions && $scope.GrantedClientPermissions.length > 0) ? $scope.GrantedClientPermissions : [],
+                "investorModels": ($scope.GrantedBussinessPermissions && $scope.GrantedBussinessPermissions.length > 0) ? $scope.GrantedBussinessPermissions : [],
                 "enabled": $scope.addEditClient.enabled
             };
             $("#spinner").show();
@@ -145,11 +155,11 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
         }
     }
 
-    $scope.editClient = function(clientId) {
+    $scope.editClient = function(selectedClient) {
         $("#spinner").show();
         $scope.newAdminTab('addClient');
         apiService.request({
-            apiMethod: 'actualize/transformx/clients/' + clientId,
+            apiMethod: 'actualize/transformx/clients/' + selectedClient.clientId,
             httpMethod: 'GET'
         }).success(function(data, status) {
             $scope.addEditClient = data;
@@ -167,6 +177,8 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
                     $scope.addEditClient.bussContactInfo.pno = contactInfo.phone;
                 }
             }
+            $scope.verifyExistedClientInfoPermissions(data.servicesModel);
+            $scope.verifyExistedBussinessInfoPermissions(data.investorModels);
             $("#spinner").hide();
         }).error(function(data, status) {
             $("#spinner").hide();
@@ -189,6 +201,21 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
             $("#spinner").hide();
             console.log("API  'actualize/transformx/clients' Error: " + data);
         });
+    }
+
+    $scope.activateClient = function(clientId){
+        $("#spinner").show();
+        apiService.request({
+                    apiMethod: 'actualize/transformx/clients/active/' + clientId,
+                    httpMethod: 'POST'
+                }).success(function(data, status) {
+                    $window.alert(data);
+                    $("#spinner").hide();
+                    $scope.getGroupData(true);
+                }).error(function(data, status) {
+                    $("#spinner").hide();
+                    console.log("API  activateClient Error: " + data);
+                });
     }
 
     $scope.listbox_moveRight_clientInfo = function(sourceID, destID) {
@@ -241,6 +268,20 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
             return GrantedGroupPermission.serviceDisplayName;
         };
 
+    }
+
+    $scope.verifyExistedClientInfoPermissions = function(item) {
+
+
+        $scope.GrantedClientPermissions = item;
+        for (var i = $scope.availableClientPermissions.length - 1; i >= 0; i--) {
+            for (var j = 0; j < item.length; j++) {
+                if ($scope.availableClientPermissions[i] && ($scope.availableClientPermissions[i].serviceId === item[j].serviceId)) {
+                    $scope.availableClientPermissions.splice(i, 1);
+                }
+            }
+        }
+        $("#spinner").hide();
     }
 
 
@@ -325,29 +366,41 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
         $scope.GrantedBussinessPermissions = [];
         for (var i = 0; i < src.options.length; i++) {
             $scope.availableBussinessPermissions.push({
-                "serviceId": src.options[i].value.replace("string:", ""),
-                "serviceDisplayName": src.options[i].text
+                "investorId": src.options[i].value.replace("string:", ""),
+                "investorName": src.options[i].text
             });
         }
 
         for (var j = 0; j < dest.options.length; j++) {
             $scope.GrantedBussinessPermissions.push({
-                "serviceId": dest.options[j].value.replace("string:", ""),
-                "serviceDisplayName": dest.options[j].text
+                "investorId": dest.options[j].value.replace("string:", ""),
+                "investorName": dest.options[j].text
             });
         }
         $scope.availableBussinessNmaes = $scope.availableBussinessPermissions;
         $scope.availableBussinessPermissionsName = function(availableBussinessPermissions) {
-            return availableBussinessPermissions.serviceDisplayName;
+            return availableBussinessPermissions.investorName;
         };
 
         $scope.GrantedBussinessNmaes = $scope.GrantedBussinessPermissions;
         $scope.GrantedBussinessPermissionsName = function(GrantedBussinessPermission) {
-            return GrantedBussinessPermission.serviceDisplayName;
+            return GrantedBussinessPermission.investorName;
         };
 
     }
 
+    $scope.verifyExistedBussinessInfoPermissions = function(item) {
+
+            $scope.GrantedBussinessPermissions = item;
+            for (var i = $scope.availableBussinessPermissions.length - 1; i >= 0; i--) {
+                for (var j = 0; j < item.length; j++) {
+                    if ($scope.availableBussinessPermissions[i] && ($scope.availableBussinessPermissions[i].investorId === item[j].investorId)) {
+                        $scope.availableBussinessPermissions.splice(i, 1);
+                    }
+                }
+            }
+            $("#spinner").hide();
+        }
 
     $scope.listbox_moveLeft_bussinessInfo = function(sourceID, destID) {
         var src = document.getElementById(sourceID);
@@ -378,25 +431,25 @@ app.controller('clientCtrl', function($rootScope, $scope, $window, apiService) {
         $scope.GrantedBussinessPermissions = [];
         for (var i = 0; i < src.options.length; i++) {
             $scope.GrantedBussinessPermissions.push({
-                "serviceId": src.options[i].value.replace("string:", ""),
-                "serviceDisplayName": src.options[i].text
+                "investorId": src.options[i].value.replace("string:", ""),
+                "investorName": src.options[i].text
             });
         }
 
         for (var j = 0; j < dest.options.length; j++) {
             $scope.availableBussinessPermissions.push({
-                "serviceId": dest.options[j].value.replace("string:", ""),
-                "serviceDisplayName": dest.options[j].text
+                "investorId": dest.options[j].value.replace("string:", ""),
+                "investorName": dest.options[j].text
             });
         }
         $scope.availableBussinessNmaes = $scope.availableBussinessPermissions;
         $scope.availableBussinessPermissionsName = function(availableBussinessPermissions) {
-            return availableBussinessPermissions.serviceDisplayName;
+            return availableBussinessPermissions.investorName;
         };
 
         $scope.GrantedBussinessNmaes = $scope.GrantedBussinessPermissions;
         $scope.GrantedBussinessPermissionsName = function(GrantedBussinessPermission) {
-            return GrantedBussinessPermission.serviceDisplayName;
+            return GrantedBussinessPermission.investorName;
         };
 
     }

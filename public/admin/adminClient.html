@@ -19,6 +19,7 @@
                         <th>Title</th>
                         <th>Address</th>
                         <th>Contact</th>
+                        <th>Status</th>
                         <th class="col-sm-1">Actions</th>
                     </tr>
                 </thead>
@@ -31,10 +32,12 @@
                         <td>{{item.clientName}}</td>
                         <td>{{item.address}}</td>
                         <td>{{item.phoneNumber}}</td>
+                        <td>{{item.enabled ? 'Enable' : 'Disabled'}}</td>
                         <td>
-                            <a ng-click="editClient(item.clientId)"><span class="glyphicon glyphicon-pencil cursor"></span></a>
-                            <a confirmed-click="deleteClient(item.clientId)" ng-confirm-click="Would you like to delete {{ item.clientName }}"><span class="glyphicon glyphicon-trash cursor"></span>
+                            <a ng-show="item.enabled" ng-click="editClient(item)"><span class="glyphicon glyphicon-pencil cursor"></span></a>
+                            <a ng-show="item.enabled" confirmed-click="deleteClient(item.clientId)" ng-confirm-click="Would you like to delete {{ item.clientName }}"><span class="glyphicon glyphicon-trash cursor"></span>
                                                     </a>
+                            <a ng-show="!item.enabled" class="btn btn-default  col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="activateClient(item.clientId)"><strong> <span class="glyphicon">Enable</span> </strong></a>
                         </td>
                     </tr>
                 </tbody>
@@ -154,7 +157,7 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
                         <h5 class="innerSectionHeader">Available Investors</h5>
-                        <select id="AvailableBPermissions" ng-model="availableBussinessNmaes" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission.serviceId as Permission.serviceDisplayName for Permission in availableBussinessPermissions">
+                        <select id="AvailableBPermissions" ng-model="availableBussinessNmaes" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission.investorId as Permission.investorName for Permission in availableBussinessPermissions">
                         </select>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 margintop30">
@@ -163,7 +166,7 @@
                     </div>
                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 PermissionsSelect">
                         <h5 class="innerSectionHeader">Granted Investors</h5>
-                        <select id="GrantedBPermissions" ng-model="GrantedBussinessNmaes" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission.serviceId as Permission.serviceDisplayName for Permission in GrantedBussinessPermissions">
+                        <select id="GrantedBPermissions" ng-model="GrantedBussinessNmaes" size="6" multiple="" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="Permission.investorId as Permission.investorName for Permission in GrantedBussinessPermissions">
                         </select>
                     </div>
 
