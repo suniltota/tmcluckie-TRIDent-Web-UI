@@ -3,23 +3,23 @@
           <div class="PDFview" data-anchor="Page1" style="padding: 0px;">
           	<span dynamic-height-min-page-view>
 				<div class="CDHeaderSection col-lg-12">
-					<div class="col-sm-12">
+					<div class="col-sm-12" data-ng-init="activeTab()">
 
 						<ul class="nav nav-tabs">
-						  <li class="active"><a class="cursor" data-toggle="tab" data-target="#clientContainer" ng-click="newAdminTab('viewClient')">Client List</a></li>
-						  <li><a class="cursor" data-toggle="tab" data-target="#groupContainer" ng-click="newAdminTab('viewGroup')">Group List</a></li>
-						  <li><a class="cursor" data-toggle="tab" data-target="#investorContainer" ng-click="newAdminTab('viewInvestor')">Investor List</a></li>
-						  <li><a class="cursor" data-toggle="tab" data-target="#userContainer" ng-click="newAdminTab('viewUser')">User List</a></li>
+						  <li ng-hide="userRole!='SUPER_ADMIN'" id="clientTab"><a class="cursor" data-toggle="tab" data-target="#clientContainer" ng-click="newAdminTab('viewClient')">Client List</a></li>
+						  <li id="GroupTab"><a class="cursor" data-toggle="tab" data-target="#groupContainer" ng-click="newAdminTab('viewGroup')">Group List</a></li>
+						  <li id="InvestorTab" ng-hide="userRole=='GROUP_ADMIN'"><a class="cursor" data-toggle="tab" data-target="#investorContainer" ng-click="newAdminTab('viewInvestor')">Investor List</a></li>
+						  <li id="UserTab"><a class="cursor" data-toggle="tab" data-target="#userContainer" ng-click="newAdminTab('viewUser')">User List</a></li>
 						</ul>
 
 						<div class="tab-content">
-						  <div id="clientContainer" class="tab-pane fade in active">
+						  <div id="clientContainer" ng-hide="userRole!='SUPER_ADMIN'" class="tab-pane fade">
 						  		<div ng-include='"public/admin/adminClient.html"'></div>
 						  </div>
 						  <div id="groupContainer" class="tab-pane fade">
 						  		<div ng-include='"public/admin/adminGroup.html"'></div>						    	
 						  </div>
-						  <div id="investorContainer" class="tab-pane fade">
+						  <div id="investorContainer" class="tab-pane fade" ng-hide="userRole=='GROUP_ADMIN'">
 						    	<div ng-include='"public/admin/adminInvestor.html"'></div>
 						  </div>
 						  <div id="userContainer" class="tab-pane fade">

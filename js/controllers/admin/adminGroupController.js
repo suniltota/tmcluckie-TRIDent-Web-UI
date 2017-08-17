@@ -347,4 +347,6 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
 
     }
 
+    $scope.getGroupData(true);
+
 });

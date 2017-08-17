@@ -3,6 +3,8 @@ app.controller('adminCtrl', function($rootScope, $scope, $window, apiService) {
     $scope.showTab = 'adminDashboard';
     $scope.viewContent = 'viewClient';
     $scope.usernameFiledDisabled = false;
+    $scope.userRole = JSON.parse(localStorage.userDetails).user.role.roleName;
+
 
     // $scope.pwdExpList = [{"value":10,"label":"10 days"}, {"value":20,"label":"20 days"}, {"value":30,"label":"30 days"}];
     // $scope.pwdExp = $scope.pwdExpList[2];
@@ -19,6 +21,22 @@ app.controller('adminCtrl', function($rootScope, $scope, $window, apiService) {
     //$scope.parentClientListUnderAdmin = [];
     //$scope.parentGroupListUnderAdmin = [];
     //$scope.parentInvestorListUnderAdmin = [];
+
+    $scope.activeTab = function() {
+        if($scope.userRole == 'SUPER_ADMIN'){
+            $('#clientContainer').addClass('in active');
+            $('#clientTab').addClass('active');
+        }
+        if($scope.userRole == 'CLIENT_ADMIN'){
+            $('#groupContainer').addClass('in active')
+            $('#GroupTab').addClass('active');
+        }
+        if($scope.userRole == 'GROUP_ADMIN'){
+            $('#groupContainer').addClass('in active')
+            $('#GroupTab').addClass('active');
+        }
+    };
+
 
     $scope.GrantedPermissions = [{
             name: "Administration",
@@ -94,7 +112,6 @@ app.controller('adminCtrl', function($rootScope, $scope, $window, apiService) {
     }
 
 
-
     $scope.listbox_move = function(listID, direction) {
 
         var listbox = document.getElementById(listID);
@@ -126,6 +143,7 @@ app.controller('adminCtrl', function($rootScope, $scope, $window, apiService) {
 
         listbox.selectedIndex = selIndex + increment;
     }
+
 
     $scope.listbox_moveacross = function(sourceID, destID) {
         var src = document.getElementById(sourceID);
