@@ -97,7 +97,7 @@
 		        	<help-verbiage name="CD_OriginationChargesBorrowerPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
-		        <td>
+		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
 		        <div class="input-group">
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.spAtClosing" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
@@ -111,7 +111,7 @@
 		        	<help-verbiage name="CD_OriginationChargesSellerPaidBeforeClosing_Help" title="help_tooltip_padding"></help-verbiage>
 		        </div>
 		        </td>
-		        <td ng-hide="loanBasicInfo.loanPurposeType == 'refinance'">
+		        <td>
 		        <div class="input-group" >
 					<span class="input-group-addon input-default">$</span>
 		        	<input type="text" class="form-control"  name="" ng-model="originationCharge.paidByOthers" decimal-digits-with-number-format ng-blur="sectionAZIndicator($index)" ng-keyup="sectionAZIndicator($index)">
