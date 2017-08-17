@@ -942,6 +942,7 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
             element.on('blur', function (e) {
                 var dateVal = e.target.value;
                 var minDateVal = scope.$eval(attr.minDate);
+                var maxDateVal = scope.$eval(attr.maxDate);
 
                 if(dateVal) {
                   if(!(regexp.test(dateVal) && !isNaN(Date.parse(dateVal)))) {
@@ -953,6 +954,7 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
                     dateVal = dateVal.replace(/(\d\d)\/(\d\d)\/(\d{4})/, "$3-$1-$2");
                     var targetVal = new Date(dateVal);
                     var targetmindate = new Date(minDateVal);
+                    var targetmaxdate = new Date(maxDateVal);
                     if(targetVal < targetmindate && attr.name == "disbursementDate"){
                       e.currentTarget.style.border="1px solid #f17777"
                       message = "date cannot occur prior to Closing Date";
@@ -964,6 +966,10 @@ app.directive('actualizeDate', function ($timeout, $filter, staticData, $parse, 
                     } else if(targetVal < targetmindate){
                       e.currentTarget.style.border="1px solid #f17777"
                       message = "date cannot occur prior to "+$filter('date')(targetmindate, viewDateFormat);
+                      scope.$apply();
+                    } else if(targetVal > targetmaxdate){
+                      e.currentTarget.style.border="1px solid #f17777"
+                      message = "date cannot occur after to "+$filter('date')(targetmaxdate, viewDateFormat);
                       scope.$apply();
                     } else {
                       $parse(attr.ngModel).assign(scope, $filter('date')(new Date(Date.parse(dateVal)), xmlDateFormat));
