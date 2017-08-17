@@ -1,6 +1,7 @@
 app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
     $scope.viewContent = 'viewGroup';
     $scope.groupList = {};
+    $scope.userRole = JSON.parse(localStorage.userDetails).user.role.roleName;
 
     $scope.originalAvailableGroupPermissions = [{
         serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
@@ -46,11 +47,11 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
         "label": "60 Minutes"
     }];
     $scope.sessTOut = $scope.sessTOutList[2];
-    $scope.availableGroupPermissions = $scope.originalAvailableGroupPermissions;
+    /*$scope.availableGroupPermissions = $scope.originalAvailableGroupPermissions;
     $scope.availableGroupNmaes = $scope.availableGroupPermissions;
     $scope.availableGroupPermissionsName = function(availableGroupPermissions) {
         return availableGroupPermissions.serviceDisplayName;
-    };
+    };*/
 
     $scope.GrantedGroupPermissions = [];
     $scope.GrantedGroupNmaes = $scope.GrantedGroupPermissions;
@@ -69,6 +70,32 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
     $rootScope.$on("loadGroupData", function() {
         $scope.getGroupData(false);
     });
+    $scope.getPermissions = function(type, id){
+        var apiServiceStr = "";
+        if(!id) 
+          apiServiceStr = 'actualize/transformx/services';
+        else if(type == "client")
+          apiServiceStr = 'clients/services/'+id;
+        else if(type == "parent")
+          apiServiceStr = 'groups/services/'+id;
+
+        apiService.request({
+            apiMethod: apiServiceStr,
+            httpMethod: 'GET'
+        }).success(function(data, status) {               
+            $scope.originalAvailableGroupPermissions = data;
+            $scope.availableGroupPermissions = data;
+            $scope.availableGroupNmaes = $scope.availableGroupPermissions;
+            $scope.availableGroupPermissionsName = function(availableGroupPermissions) {
+                return availableGroupPermissions.serviceDisplayName;
+            };  
+            //$("#spinner").hide();
+        }).error(function(data, status) {
+            $("#spinner").hide();
+            console.log("getPermissions clients Error: " + data);
+        });
+    }
+    //$scope.getPermissions("client");
     $scope.getGroupData = function(reLoad) {
         if (reLoad || ($scope.groupList && !$scope.groupList.length)) {
             $("#spinner").show();
@@ -78,6 +105,10 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
             }).success(function(data, status) {
                 $scope.groupList = data;
                 $scope.parentGroupListUnderAdmin = [];
+                $scope.parentGroupListUnderAdmin.push({
+                    "groupId": JSON.parse(localStorage.userDetails).user.clientId,
+                    "groupName": "---Select---"
+                });
                 for (var i = 0; i < data.length; i++) {
                     $scope.parentGroupListUnderAdmin.push({
                         "groupId": data[i].groupId,
@@ -95,6 +126,10 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
     }
     $scope.parentGroupChange = function(selectedGroup) {
         $scope.prntGrp = selectedGroup;
+        /*if(selectedGroup.groupId == JSON.parse(localStorage.userDetails).user.clientId)
+            $scope.getPermissions("client", selectedGroup.groupId);
+        else
+            $scope.getPermissions("parent", selectedGroup.groupId);*/
     }
     $scope.saveGroup = function() {
         if (!$scope.addEditGroup.length) {
@@ -106,7 +141,7 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
                 "passwordExpireDays": $scope.pwdExp.value,
                 "services": $scope.GrantedGroupPermissions,
                 "enabled": true,
-                "clientId": "a00deb64-7832-11e7-b5a5-be2e44b06b34"
+                "clientId": "a00deb64-7832-11e7-b5a5-be2e44b06b34"//JSON.parse(localStorage.userDetails).user.clientId
             };
             $("#spinner").show();
             if ($scope.addEditGroup.groupId) {
@@ -346,7 +381,9 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
         };
 
     }
-
-    $scope.getGroupData(true);
+    if($scope.userRole == 'CLIENT_ADMIN' || $scope.userRole == 'GROUP_ADMIN'){
+        $scope.getGroupData(true);
+    }
+    
 
 });
