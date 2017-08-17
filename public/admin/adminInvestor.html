@@ -1,83 +1,87 @@
-	<div  ng-controller="investorCtrl">
-			<div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewInvestor'" style="padding: 0px;">
-								    		<div class="col-sm-12">
-													<span class="col-sm-6 padding0 pull-right margin5tb margintop30">
+<div ng-controller="investorCtrl">
+    <div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent=='viewInvestor'" style="padding: 0px;">
+        <div class="col-sm-12">
+            <span class="col-sm-6 padding0 pull-right margin5tb margintop30">
 														<a class="pull-right margin5lr cursor" ng-click="newAdminTab('addInvestor')" ng-class="{'active': showTab == 'addInvestor'}"><span class="glyphicon glyphicon-plus"></span> Add Investor</a>
-													</span>
-											</div>
-											<div class="table-responsive administratorDiv col-sm-12">
-											  <table class="table table-bordered table-hover">
-											  	<thead class="innerSectionHeader">
-												  <tr>
-													<th class="col-sm-1"><input type="checkbox"></th>
-													<th>Title</th>
-													<th>URL</th>
-													<th>Creation Date</th>
-													<th>Modification Date</th>
-													<th class="col-sm-1">Actions</th>
-												  </tr>
-												</thead>
-												
-												<tbody>
-													<tr ng-repeat="item in investorList">
-														<td scope="row"><input type="checkbox"></td>
-												       <td>{{item.investorName}}</td>
-												       <td>{{item.investorUrl}}</td>
-												       <td>{{item.creationDate}}</td>
-												       <td>{{item.modificationDate}}</td>
-												       <td>
-															<a confirmed-click="deleteInvestor(item.investorId)" 
-		    													ng-confirm-click="Would you like to delete {{ item.investorName }}"><span class="glyphicon glyphicon-trash cursor"></span>
+            <a class="pull-right margin5lr cursor" ng-click="getInvestorData('false')" ng-class="{'active': showTab == 'addInvestor'}"><span class="glyphicon glyphicon-refresh"></span> Refresh </a>
+            </span>
+        </div>
+        <div class="table-responsive administratorDiv col-sm-12">
+            <table class="table table-bordered table-hover">
+                <thead class="innerSectionHeader">
+                    <tr>
+                        <th class="col-sm-1">
+                            <input type="checkbox">
+                        </th>
+                        <th>Title</th>
+                        <th>URL</th>
+                        <th>Creation Date</th>
+                        <th>Modification Date</th>
+                        <th class="col-sm-1">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="item in investorList">
+                        <td scope="row">
+                            <input type="checkbox">
+                        </td>
+                        <td>{{item.investorName}}</td>
+                        <td>{{item.investorUrl}}</td>
+                        <td>{{item.creationDate}}</td>
+                        <td>{{item.modificationDate}}</td>
+                        <td>
+                            <a confirmed-click="deleteInvestor(item.investorId)" ng-confirm-click="Would you like to delete {{ item.investorName }}"><span class="glyphicon glyphicon-trash cursor"></span>
 		    												</a>
-														</td>
-												     </tr>
-												</tbody>
-											  </table>
-											  <ul class="pagination pagination-lg pull-right">
-												<li><a>&laquo;</a></li>
-												<li><a >1</a></li>
-												<li><a >2</a></li>
-												<li><a >3</a></li>
-												<li><a >4</a></li>
-												<li><a >5</a></li>
-												<li><a >&raquo;</a></li>
-											</ul>
-											  
-											</div>
-								  	</div>
-								  	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent =='addInvestor'" style="padding: 0px;">
-									  		<div class="col-lg-12 col-md-12 col-sm-12 innerSectionHeader margin10t">
-										  		<span class="col-lg-10 col-md-10 col-sm-10">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="pagination pagination-lg pull-right">
+                <li><a>&laquo;</a></li>
+                <li><a>1</a></li>
+                <li><a>2</a></li>
+                <li><a>3</a></li>
+                <li><a>4</a></li>
+                <li><a>5</a></li>
+                <li><a>&raquo;</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12" ng-show="viewContent =='addInvestor'" style="padding: 0px;">
+        <div class="col-lg-12 col-md-12 col-sm-12 innerSectionHeader margin10t">
+            <span class="col-lg-10 col-md-10 col-sm-10">
 											  		<h5 class="col-sm-3 padding0 margin0">Add / Edit Investor</h5>
 											  	</span>
-											  	<span class="col-lg-2 col-md-2 col-sm-2">
+            <span class="col-lg-2 col-md-2 col-sm-2">
 											  		<span class="glyphicon glyphicon-remove-circle cursor pull-right margin5lr" style="font-size: 15px;" ng-click="newAdminTab('viewInvestor')"></span>
-											  		<span class="pull-right margin5lr cursor" ng-click="saveInvestor()">Save</span>
-											  	</span>
-										  	</div>
-										  	<div class="col-lg-12 col-md-12 col-sm-12">
-										  		<h5 class="col-sm-12 padding0 blue">Investor Information</h5>
-										  	</div>
-										  	<div id="InvestorInfoContainer" ng-show="viewContent=='addInvestor'" class="col-lg-12 col-md-12 col-sm-12">	
-											  	<div class="col-lg-6 col-md-6 col-sm-6">
-												  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
-													  	<div class="col-lg-6 col-md-6 col-sm-6">
-													  		<label>Investor Name : </label>
-													  	</div>
-													  	<div class="col-lg-6 col-md-6 col-sm-6">
-													  		<input type="text" class="form-control" name="input" ng-model="addEditInvestor.investorName" >
-													  	</div>
-												  	</div>
-												  	<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">							  		
-													  	<div class="col-lg-6 col-md-6 col-sm-6">
-													  		<label>Investor Web Page : </label>
-													  	</div>
-													  	<div class="col-lg-6 col-md-6 col-sm-6">
-													  		<input type="text" class="form-control" name="input" ng-model="addEditInvestor.investorUrl" >
-													  	</div>
-												  	</div>
-											  	</div>		
-											  		
-										  	</div>
-									  </div>
-	</div>
+            <span class="pull-right margin5lr cursor" ng-click="saveInvestor()">Save</span>
+            </span>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <h5 class="col-sm-12 padding0 blue">Investor Information</h5>
+        </div>
+        <div id="InvestorInfoContainer" ng-show="viewContent=='addInvestor'" class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <label>Investor Name : </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <input type="text" class="form-control" name="input" ng-model="addEditInvestor.investorName">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 5px 0">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <label>Investor Web Page : </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <input type="text" class="form-control" name="input" ng-model="addEditInvestor.investorUrl">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

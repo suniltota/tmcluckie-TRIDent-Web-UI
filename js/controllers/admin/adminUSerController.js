@@ -7,30 +7,33 @@ app.controller('userCtrl', function($rootScope, $scope, $window, apiService) {
 
     $scope.newAdminTab = function(content) {
         $scope.viewContent = content; //'addClient';        
-        if (content == 'viewUser') {
+        if (content == 'viewUser' && $scope.UsersList && !$scope.UsersList.length) {
             $("#spinner").show();
-            $scope.getUserData();
+            $scope.getUserData(true);
         } else if (content == 'addUser') {
             $scope.addEditUser = {};
         }
     }
     $rootScope.$on("loadUserData", function() {
-        $scope.getUserData();
+        $scope.getUserData('false');
     });
-    $scope.getUserData = function() {
-        $scope.usernameFiledDisabled = false;
-        $scope.getRoles();
-        apiService.request({
-            apiMethod: 'actualize/transformx/users',
-            httpMethod: 'GET'
-        }).success(function(data, status) {
-            $scope.UsersList = data;
-            //$scope.prntGrp = $scope.parentGroupListUnderAdmin[0];
+    $scope.getUserData = function(reLoad) {
+        if (reLoad || ($scope.UsersList && !$scope.UsersList.length)) {
+            $scope.usernameFiledDisabled = false;
+            $scope.getRoles();
+            apiService.request({
+                apiMethod: 'actualize/transformx/users',
+                httpMethod: 'GET'
+            }).success(function(data, status) {
+                $scope.UsersList = data;
+                //$scope.prntGrp = $scope.parentGroupListUnderAdmin[0];
+                //$("#spinner").hide();
+            }).error(function(data, status) {
+                $("#spinner").hide();
+                console.log("API  'actualize/transformx/groups' Error: " + data);
+            });
+        }else
             $("#spinner").hide();
-        }).error(function(data, status) {
-            $("#spinner").hide();
-            console.log("API  'actualize/transformx/groups' Error: " + data);
-        });
     }
 
     $scope.saveUser = function() {
@@ -45,7 +48,7 @@ app.controller('userCtrl', function($rootScope, $scope, $window, apiService) {
                 }).success(function(data, status) {
                     $window.alert(data);
                     $("#spinner").hide();
-                    $scope.getUserData();
+                    $scope.getUserData(true);
                     $scope.newAdminTab('viewUser');
                 }).error(function(data, status) {
                     $("#spinner").hide();
@@ -58,7 +61,7 @@ app.controller('userCtrl', function($rootScope, $scope, $window, apiService) {
                 }).success(function(data, status) {
                     $window.alert(data);
                     $("#spinner").hide();
-                    $scope.getUserData();
+                    $scope.getUserData(true);
                     $scope.newAdminTab('viewUser');
                 }).error(function(data, status) {
                     $("#spinner").hide();
@@ -77,7 +80,7 @@ app.controller('userCtrl', function($rootScope, $scope, $window, apiService) {
             httpMethod: 'GET'
         }).success(function(data, status) {
             $scope.addEditUser = data;
-            $("#spinner").hide();
+            //$("#spinner").hide();
         }).error(function(data, status) {
             $("#spinner").hide();
         });
@@ -91,7 +94,7 @@ app.controller('userCtrl', function($rootScope, $scope, $window, apiService) {
         }).success(function(data, status) {
             $window.alert(data);
             $("#spinner").hide();
-            $scope.getUserData();
+            $scope.getUserData(true);
             $scope.newAdminTab('viewUser');
         }).error(function(data, status) {
             $("#spinner").hide();
