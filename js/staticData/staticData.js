@@ -5494,100 +5494,70 @@ this.cdformdata={
     {
         "loanAmount":
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-            "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-            "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
             "integratedDisclosureCashToCloseItemType": "LoanAmount",
             "index": ""
         },
         "totalClosingCosts":
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-            "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-            "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
             "integratedDisclosureCashToCloseItemType": "TotalClosingCosts",
             "index": ""
         },
         "closingCostsPaidBeforeClosing":
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-            "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-            "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
             "integratedDisclosureCashToCloseItemType": "ClosingCostsPaidBeforeClosing",
             "index": ""
         },
         "closingCostsFinanced":
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-            "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-            "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
             "integratedDisclosureCashToCloseItemType": "ClosingCostsFinanced",
             "index": ""
         },
         "downPayment":
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-            "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-            "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
             "integratedDisclosureCashToCloseItemType": "DownPayment",
             "index": ""
         },
         "totalPayoffsAndPayments": 
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-            "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-            "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
             "integratedDisclosureCashToCloseItemType": "TotalPayoffsAndPayments",
             "index": ""
         },
         "deposit":
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-            "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-            "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
             "integratedDisclosureCashToCloseItemType": "Deposit",
             "index": ""
         },
         "fundsForBorrower":
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-            "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-            "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
             "integratedDisclosureCashToCloseItemType": "FundsForBorrower",
             "index": ""
         },
         "sellerCredits":
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-            "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-            "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
             "integratedDisclosureCashToCloseItemType": "SellerCredits",
             "index": ""
         },
         "adjustmentsAndOtherCredits":
         {
-            "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-            "integratedDisclosureCashToCloseItemChangeDescription": "",
             "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-            "integratedDisclosureCashToCloseItemFinalAmount": "",
             "integratedDisclosureCashToCloseItemPaymentType": "",
             "integratedDisclosureCashToCloseItemType": "AdjustmentsAndOtherCredits",
             "index": ""
@@ -5595,19 +5565,7 @@ this.cdformdata={
         "cashToCloseTotal":
         [
             {
-                "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-                "integratedDisclosureCashToCloseItemChangeDescription": "",
                 "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-                "integratedDisclosureCashToCloseItemFinalAmount": "",
-                "integratedDisclosureCashToCloseItemPaymentType": "",
-                "integratedDisclosureCashToCloseItemType": "CashToCloseTotal",
-                "index": ""
-            },
-            {
-                "integratedDisclosureCashToCloseItemAmountChangedIndicator": false,
-                "integratedDisclosureCashToCloseItemChangeDescription": "",
-                "integratedDisclosureCashToCloseItemEstimatedAmount": "",
-                "integratedDisclosureCashToCloseItemFinalAmount": "",
                 "integratedDisclosureCashToCloseItemPaymentType": "",
                 "integratedDisclosureCashToCloseItemType": "CashToCloseTotal",
                 "index": ""
