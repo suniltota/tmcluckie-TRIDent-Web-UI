@@ -2,6 +2,8 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
     $scope.viewContent = 'viewGroup';
     $scope.groupList = {};
     $scope.userRole = JSON.parse(localStorage.userDetails).user.role.roleName;
+    $scope.groupNameExisted = true;
+    $scope.selectedEditGroupName = "";
 
     $scope.originalAvailableGroupPermissions = [{
         serviceId: "a041cfee-7c22-11e7-bb31-be2e44b06b34",
@@ -63,7 +65,9 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
         if (content == 'viewGroup' && $scope.groupList && !$scope.groupList.length) {
             $("#spinner").show();
             $scope.getGroupData();
-        } else if (content == 'addGroup') {
+        } else if (content == 'addGroup') {     
+            $scope.selectedEditGroupName = "";       
+            $scope.groupNameExisted = true;
             $scope.addEditGroup = {};
         }
     }
@@ -95,7 +99,7 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
             console.log("getPermissions clients Error: " + data);
         });
     }
-    //$scope.getPermissions("client");
+    $scope.getPermissions("client");
     $scope.getGroupData = function(reLoad) {
         if (reLoad || ($scope.groupList && !$scope.groupList.length)) {
             $("#spinner").show();
@@ -159,19 +163,24 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
                     console.log("API actualize/transformx/groups : " + data);
                 });
             } else {
-                apiService.request({
-                    apiMethod: 'actualize/transformx/groups',
-                    formData: $scope.groupDetails,
-                    httpMethod: 'POST'
-                }).success(function(data, status) {
-                    $window.alert(data);
+                if($scope.groupNameExisted){
+                    apiService.request({
+                        apiMethod: 'actualize/transformx/groups',
+                        formData: $scope.groupDetails,
+                        httpMethod: 'POST'
+                    }).success(function(data, status) {
+                        $window.alert(data);
+                        $("#spinner").hide();
+                        $scope.getGroupData(true);
+                        $scope.newAdminTab('viewGroup');
+                    }).
+                    error(function(data, status) {
+                        console.log("API actualize/transformx/groups : " + data);
+                    });
+                }else{
+                    $window.alert("Please provide unique group name");
                     $("#spinner").hide();
-                    $scope.getGroupData(true);
-                    $scope.newAdminTab('viewGroup');
-                }).
-                error(function(data, status) {
-                    console.log("API actualize/transformx/groups : " + data);
-                });
+                }
             }
         }
     }
@@ -193,6 +202,21 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
         }).indexOf(selectedGroup.parentGroupName);
         $scope.prntGrp = $scope.parentGroupListUnderAdmin[(parentPos >= 0) ? parentPos : 0];
         $scope.verifyExistedPermissions(selectedGroup.services);
+        $scope.selectedEditGroupName = selectedGroup.groupName;
+    }
+
+    $scope.checkGroupNameExistRnot = function(){
+        if($scope.addEditGroup.groupName != $scope.selectedEditGroupName){
+            apiService.request({
+                    apiMethod: 'actualize/transformx/group/isGroupNameAvailable/'+$scope.addEditGroup.groupName,
+                    httpMethod: 'GET'
+                }).success(function(data, status) {
+                    $scope.groupNameExisted = data;
+                }).
+                error(function(data, status) {
+                    console.log("API group/isGroupNameAvailable : " + data);
+                });
+        }
     }
 
     $scope.verifyExistedPermissions = function(item) {
@@ -381,6 +405,7 @@ app.controller('groupCtrl', function($rootScope, $scope, $window, apiService) {
         };
 
     }
+
     if($scope.userRole == 'CLIENT_ADMIN' || $scope.userRole == 'GROUP_ADMIN'){
         $scope.getGroupData(true);
     }
