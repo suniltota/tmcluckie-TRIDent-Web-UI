@@ -3258,6 +3258,11 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
             	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].feeTypeOtherDescription='';
             }
 
+            if($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers==''|| $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers==null 
+            	|| $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers=='0' || $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].paidByOthers=='0.00'){
+            	$scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].lenderStatus=false;
+            }
+
          	bpAtClosing.originationChargeTotalbpAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpAtClosing) : +0;
          	bpB4Closing.originationChargeTotalbpB4Closing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].bpB4Closing) : +0;
          	spAtClosing.originationChargeTotalspAtClosing += $scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing ? parseFloat($scope.cdformdata.closingCostDetailsLoanCosts.originationCharges[i].spAtClosing) : +0;
