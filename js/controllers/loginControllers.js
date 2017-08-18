@@ -14,7 +14,7 @@ loginApp.controller('loginCtrl', ['$scope', 'apiService', 'loginService',
 		//$scope.purposes = [{"displayName":"Purchase","value":"Purchase"},{"displayName":"Refinance","value":"Refinance"},{"displayName":"HomeEquity","value":"HomeEquity"}];;
 
 		
-		$scope.selectedApiServer = "http://localhost:8090/trident/";
+		$scope.selectedApiServer = "http://localhost:8080/trident/";
 		//$scope.selectedApiServer = "http://transformx.solutions/trident/";
 		$scope.$watch('selectedApiServer', function(newValue, oldValue){
 			apiService.setBasePath(newValue);
