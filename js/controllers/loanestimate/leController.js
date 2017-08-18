@@ -196,7 +196,8 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    $scope.leformdata.etiaSection['propertyTaxesCheck'] = false;
 	    $scope.leformdata.etiaSection['HomeownersInsuranceCheck'] = false;
 	    $scope.leformdata.etiaSection['otherData'] = '';
-	    $scope.leformdata.etiaSection['otherCheck'] = false;       	
+	    $scope.leformdata.etiaSection['otherCheck'] = false; 
+	    $scope.leformdata['principalAndInterestMonthsCount']='';
 	    $scope.leformdata['escrowArray'] = [];	
 
 	    if(localStorage.jsonData != undefined) {
@@ -241,6 +242,10 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 				    	$scope.leformdata.termsOfLoan.noteRatePercent='';
 				    }
 			    }
+			}
+
+			if($scope.leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount && $scope.leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount!=undefined){
+				$scope.leformdata.principalAndInterestMonthsCount = $scope.leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount-1;
 			}
             
 		}
@@ -974,6 +979,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     		$scope.leformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent = '';
     		$scope.leformdata.interestRateAdjustment.floorRatePercent = '';
     		$scope.leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = '';
+    		$scope.leformdata.principalAndInterestMonthsCount='';
     		$scope.leformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount='';
     		$scope.leformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount='';
 
@@ -1311,6 +1317,7 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
        $scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount = '';
        $scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount = '';
        $scope.leformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount = '';
+       $scope.leformdata.principalAndInterestMonthsCount='';
     }
     
     $scope.prepaymentPenaltyChange = function(){
@@ -2447,22 +2454,22 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
 	    }
 	}
 	if($scope.loanBasicInfo.loanFormType == 'standard'){
-			$scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemType='ClosingCostsFinanced';
-			$scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemType='DownPayment';
-			$scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemType='Deposit';
-			$scope.cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemType='FundsForBorrower';
-			$scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='AdjustmentsAndOtherCredits';
-			$scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemType='';
-			$scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemType= '';
+			$scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemType='ClosingCostsFinanced';
+			$scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemType='DownPayment';
+			$scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemType='Deposit';
+			$scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemType='FundsForBorrower';
+			$scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='AdjustmentsAndOtherCredits';
+			$scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemType='';
+			$scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemType= '';
 		}else{
-            $scope.cdformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemType='LoanAmount';
-			$scope.cdformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemType= 'TotalPayoffsAndPayments';
-			$scope.cdformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemType='ClosingCostsFinanced';
-			$scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemType='';
-			$scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemType='';
-			$scope.cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemType='';
-			$scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='';
-			$scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemType= '';
+            $scope.leformdata.cashToCloses.loanAmount.integratedDisclosureCashToCloseItemType='LoanAmount';
+			$scope.leformdata.cashToCloses.totalPayoffsAndPayments.integratedDisclosureCashToCloseItemType= 'TotalPayoffsAndPayments';
+			$scope.leformdata.cashToCloses.closingCostsFinanced.integratedDisclosureCashToCloseItemType='ClosingCostsFinanced';
+			$scope.leformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemType='';
+			$scope.leformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemType='';
+			$scope.leformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemType='';
+			$scope.leformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='';
+			$scope.leformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemType= '';
 		}
     
     if($scope.loanBasicInfo.loanFormType == 'standard'){
@@ -2683,6 +2690,9 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
      };
 
     $scope.$watch('leformdata.micIdentifier',function(newValue,oldValue){
+    	for(i=1;i<$scope.leformdata.loanInformation.loanIdentifiers.length;i++){
+    		$scope.leformdata.loanInformation.loanIdentifiers.splice(i,1);
+    	}
     	if($scope.leformdata.micIdentifier) {
     		$scope.leformdata.loanDetail.miRequiredIndicator = true;
     		if($scope.leformdata.termsOfLoan.mortgageType!='Conventional') {
@@ -2691,6 +2701,26 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
                 	"loanIdentifier": $scope.leformdata.micIdentifier
 	        	};
 	        	$scope.leformdata.loanInformation.loanIdentifiers.push(loanIdentifier);
+	        	$scope.leformdata.miDataDetail.miCertificateIdentifier='';
+    		} else {
+    			$scope.leformdata.miDataDetail.miCertificateIdentifier = $scope.leformdata.micIdentifier;
+    		}
+	   	}
+    }, true);
+
+    $scope.$watch('leformdata.termsOfLoan.mortgageType',function(newValue,oldValue){
+    	for(i=1;i<$scope.leformdata.loanInformation.loanIdentifiers.length;i++){
+    		$scope.leformdata.loanInformation.loanIdentifiers.splice(i,1);
+    	}
+    	if($scope.leformdata.micIdentifier) {
+    		$scope.leformdata.loanDetail.miRequiredIndicator = true;
+    		if($scope.leformdata.termsOfLoan.mortgageType!='Conventional') {
+    			var loanIdentifier = {
+                	"loanIdentifierType": "AgencyCase",
+                	"loanIdentifier": $scope.leformdata.micIdentifier
+	        	};
+	        	$scope.leformdata.loanInformation.loanIdentifiers.push(loanIdentifier);
+	        	$scope.leformdata.miDataDetail.miCertificateIdentifier='';
     		} else {
     			$scope.leformdata.miDataDetail.miCertificateIdentifier = $scope.leformdata.micIdentifier;
     		}
@@ -2870,6 +2900,10 @@ $scope.dirtyFlagEnable=false;
 			    	$scope.dirtyFlagEnable=true; 
 		     }
     	}
+
+    	if($scope.leformdata.principalAndInterestMonthsCount && $scope.leformdata.principalAndInterestMonthsCount!=undefined){
+		   $scope.leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = $scope.leformdata.principalAndInterestMonthsCount+1;
+		}
 	},true);
  /// End to enable dirty flag
    

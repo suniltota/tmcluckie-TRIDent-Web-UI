@@ -180,6 +180,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 	    $scope.cdformdata['escrowArray'] = [];		
 		$scope.cdformdata['disbursementMinDate'] = '';
 		$scope.cdformdata['signatureDate'] = '';
+		$scope.cdformdata['principalAndInterestMonthsCount']='';
         $scope.cdformdata.closingDisclosureDocDetails.documentSignatureRequiredIndicator=true;
 		if($scope.loanBasicInfo.loanPurposeType == 'purchase') {
 			$scope.cdformdata.salesContractDetail.personalPropertyIndicator = false;
@@ -199,6 +200,10 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 				    	$scope.cdformdata.termsOfLoan.noteRatePercent='';
 				    }
 			    }
+			}
+
+			if($scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount && $scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount!=undefined){
+				$scope.cdformdata.principalAndInterestMonthsCount = $scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount-1;
 			}
 
 		}
@@ -1508,6 +1513,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.interestRateAdjustment.subsequentPerChangeMaximumIncreaseRatePercent = '';
     		$scope.cdformdata.interestRateAdjustment.floorRatePercent = '';
     		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = '';
+    		$scope.cdformdata.principalAndInterestMonthsCount='';
     		$scope.cdformdata.principalAndInterestPaymentAdjustment.firstPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount='';
     		$scope.cdformdata.principalAndInterestPaymentAdjustment.subsequentPerChangePrincipalAndInterestPaymentAdjustmentFrequencyMonthsCount='';
 
@@ -1660,6 +1666,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
        $scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmount = '';
        $scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveMonthsCount = '';
        $scope.cdformdata.principalAndInterestPaymentAdjustment.principalAndInterestPaymentMaximumAmountEarliestEffectiveYearCount = '';
+       $scope.cdformdata.principalAndInterestMonthsCount = '';
     }
 
     $scope.prepaymentPenaltyChange = function(){
@@ -3896,7 +3903,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
         }
 
          for(i=0; i<$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList.length; i++) {
-         	
+
          	if($scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeType!='Other'){
             	$scope.cdformdata.closingCostDetailsOtherCosts.tOGovtFeesList[i].feeTypeOtherDescription='';
             }
@@ -4689,7 +4696,7 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
 			$scope.cdformdata.cashToCloses.downPayment.integratedDisclosureCashToCloseItemType='';
 			$scope.cdformdata.cashToCloses.deposit.integratedDisclosureCashToCloseItemType='';
 			$scope.cdformdata.cashToCloses.fundsForBorrower.integratedDisclosureCashToCloseItemType='';
-			$scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='AdjustmentsAndOtherCredits';
+			$scope.cdformdata.cashToCloses.adjustmentsAndOtherCredits.integratedDisclosureCashToCloseItemType='';
 			$scope.cdformdata.cashToCloses.sellerCredits.integratedDisclosureCashToCloseItemType= '';
 		}
 
@@ -5373,6 +5380,9 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }, true);
 
     $scope.$watch('cdformdata.micIdentifier',function(newValue,oldValue){
+    	for(i=1;i<$scope.cdformdata.loanInformation.loanIdentifiers.length;i++){
+    		$scope.cdformdata.loanInformation.loanIdentifiers.splice(i,1);
+    	}
     	if($scope.cdformdata.micIdentifier) {
     		$scope.cdformdata.loanDetail.miRequiredIndicator = true;
     		if($scope.cdformdata.termsOfLoan.mortgageType!='Conventional') {
@@ -5381,6 +5391,26 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
                 	"loanIdentifier": $scope.cdformdata.micIdentifier
 	        	};
 	        	$scope.cdformdata.loanInformation.loanIdentifiers.push(loanIdentifier);
+	        	$scope.cdformdata.miDataDetail.miCertificateIdentifier='';
+    		} else {
+    			$scope.cdformdata.miDataDetail.miCertificateIdentifier = $scope.cdformdata.micIdentifier;
+    		}
+	   	}
+    }, true);
+
+    $scope.$watch('cdformdata.termsOfLoan.mortgageType',function(newValue,oldValue){
+    	for(i=1;i<$scope.cdformdata.loanInformation.loanIdentifiers.length;i++){
+    		$scope.cdformdata.loanInformation.loanIdentifiers.splice(i,1);
+    	}
+    	if($scope.cdformdata.micIdentifier) {
+    		$scope.cdformdata.loanDetail.miRequiredIndicator = true;
+    		if($scope.cdformdata.termsOfLoan.mortgageType!='Conventional') {
+    			var loanIdentifier = {
+                	"loanIdentifierType": "AgencyCase",
+                	"loanIdentifier": $scope.cdformdata.micIdentifier
+	        	};
+	        	$scope.cdformdata.loanInformation.loanIdentifiers.push(loanIdentifier);
+	        	$scope.cdformdata.miDataDetail.miCertificateIdentifier='';
     		} else {
     			$scope.cdformdata.miDataDetail.miCertificateIdentifier = $scope.cdformdata.micIdentifier;
     		}
@@ -5599,6 +5629,10 @@ $scope.dirtyFlagEnable=false;
 			    	$scope.dirtyFlagEnable=true; 
 		     }
     	}
+
+    	if($scope.cdformdata.principalAndInterestMonthsCount && $scope.cdformdata.principalAndInterestMonthsCount!=undefined){
+		   $scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = $scope.cdformdata.principalAndInterestMonthsCount+1;
+		}
 	},true);
  /// End to enable dirty flag
 
