@@ -1919,6 +1919,12 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		for(var i=0; i<$scope.cdformdata.projectedPayments.mortgageInsurance.length;i++) {
     			$scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount = '0';
     		}
+    	}else{
+    		for(var i=0; i<$scope.cdformdata.projectedPayments.mortgageInsurance.length;i++) {
+    			if($scope.cdformdata.projectedPayments.mortgageInsurance[0].projectedPaymentMIPaymentAmount && $scope.cdformdata.projectedPayments.mortgageInsurance[0].projectedPaymentMIPaymentAmount!=undefined){
+    				$scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount = $scope.cdformdata.projectedPayments.mortgageInsurance[0].projectedPaymentMIPaymentAmount ? $scope.cdformdata.projectedPayments.mortgageInsurance[0].projectedPaymentMIPaymentAmount : '0';
+    			}
+    		}
     	}
     }
     $scope.deleteProjectedPayments = function(index){
@@ -5380,12 +5386,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }, true);
 
     $scope.$watch('cdformdata.micIdentifier',function(newValue,oldValue){
-    	for(i=1;i<$scope.cdformdata.loanInformation.loanIdentifiers.length;i++){
-    		$scope.cdformdata.loanInformation.loanIdentifiers.splice(i,1);
-    	}
     	if($scope.cdformdata.micIdentifier) {
     		$scope.cdformdata.loanDetail.miRequiredIndicator = true;
     		if($scope.cdformdata.termsOfLoan.mortgageType!='Conventional') {
+    			for(i=0;i<$scope.cdformdata.loanInformation.loanIdentifiers.length;i++){
+		    		if($scope.cdformdata.loanInformation.loanIdentifiers[i].loanIdentifierType=='AgencyCase'){
+		    			$scope.cdformdata.loanInformation.loanIdentifiers.splice(i,1);
+		    		}
+		    	}
     			var loanIdentifier = {
                 	"loanIdentifierType": "AgencyCase",
                 	"loanIdentifier": $scope.cdformdata.micIdentifier
@@ -5399,12 +5407,14 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     }, true);
 
     $scope.$watch('cdformdata.termsOfLoan.mortgageType',function(newValue,oldValue){
-    	for(i=1;i<$scope.cdformdata.loanInformation.loanIdentifiers.length;i++){
-    		$scope.cdformdata.loanInformation.loanIdentifiers.splice(i,1);
-    	}
     	if($scope.cdformdata.micIdentifier) {
     		$scope.cdformdata.loanDetail.miRequiredIndicator = true;
     		if($scope.cdformdata.termsOfLoan.mortgageType!='Conventional') {
+    			for(i=0;i<$scope.cdformdata.loanInformation.loanIdentifiers.length;i++){
+		    		if($scope.cdformdata.loanInformation.loanIdentifiers[i].loanIdentifierType=='AgencyCase'){
+		    			$scope.cdformdata.loanInformation.loanIdentifiers.splice(i,1);
+		    		}
+		    	}
     			var loanIdentifier = {
                 	"loanIdentifierType": "AgencyCase",
                 	"loanIdentifier": $scope.cdformdata.micIdentifier
@@ -5424,6 +5434,26 @@ app.controller('closingDisclosureCtrl', function ($scope, $sce, $filter, $locati
     		$scope.cdformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount = '';
     	}
 	}, true);
+
+	$scope.$watch('cdformdata.projectedPayments.miPaymentAmount',function(newValue,oldValue){
+        if($scope.cdformdata.projectedPayments.miPaymentAmount && $scope.cdformdata.projectedPayments.miPaymentAmount!=undefined){
+        	for(i=0;i<$scope.cdformdata.projectedPayments.paymentCalculation.length;i++){
+        	 	$scope.cdformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount = $scope.cdformdata.projectedPayments.miPaymentAmount ? $scope.cdformdata.projectedPayments.miPaymentAmount : 0.00;
+            }
+            for(i=0;i<$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList.length;i++){
+            	if($scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType == 'MortgageInsurance'){
+            		$scope.cdformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount = $scope.cdformdata.projectedPayments.miPaymentAmount ? $scope.cdformdata.projectedPayments.miPaymentAmount : 0.00;
+            		$scope.amountPerMonth('1');
+            	}
+            }
+        }
+	},true);
+ 
+    $scope.$watch('cdformdata.principalAndInterestMonthsCount',function(newValue,oldValue){
+		if($scope.cdformdata.principalAndInterestMonthsCount && $scope.cdformdata.principalAndInterestMonthsCount!=undefined){
+		   $scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = $scope.cdformdata.principalAndInterestMonthsCount+1;
+		}
+	},true);
     
     //Total closing Costs
     $scope.$watch('cdformdata.closingCostsTotal.totalClosingCosts',function(newValue,oldValue){
@@ -5630,9 +5660,6 @@ $scope.dirtyFlagEnable=false;
 		     }
     	}
 
-    	if($scope.cdformdata.principalAndInterestMonthsCount && $scope.cdformdata.principalAndInterestMonthsCount!=undefined){
-		   $scope.cdformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = $scope.cdformdata.principalAndInterestMonthsCount+1;
-		}
 	},true);
  /// End to enable dirty flag
 

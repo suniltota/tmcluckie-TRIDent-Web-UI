@@ -1234,6 +1234,12 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     		for(var i=0; i<$scope.leformdata.projectedPayments.mortgageInsurance.length;i++) {
     			$scope.leformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount = '0';
     		}
+    	}else{
+    		for(var i=0; i<$scope.leformdata.projectedPayments.mortgageInsurance.length;i++) {
+    			if($scope.leformdata.projectedPayments.mortgageInsurance[0].projectedPaymentMIPaymentAmount && $scope.leformdata.projectedPayments.mortgageInsurance[0].projectedPaymentMIPaymentAmount!=undefined){
+    				$scope.leformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount = $scope.leformdata.projectedPayments.mortgageInsurance[0].projectedPaymentMIPaymentAmount ? $scope.leformdata.projectedPayments.mortgageInsurance[0].projectedPaymentMIPaymentAmount : '0';
+    			}
+    		}
     	}
     }
     $scope.deleteProjectedPayments = function(index){ 
@@ -2690,12 +2696,14 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
      };
 
     $scope.$watch('leformdata.micIdentifier',function(newValue,oldValue){
-    	for(i=1;i<$scope.leformdata.loanInformation.loanIdentifiers.length;i++){
-    		$scope.leformdata.loanInformation.loanIdentifiers.splice(i,1);
-    	}
     	if($scope.leformdata.micIdentifier) {
     		$scope.leformdata.loanDetail.miRequiredIndicator = true;
     		if($scope.leformdata.termsOfLoan.mortgageType!='Conventional') {
+    			for(i=0;i<$scope.cdformdata.loanInformation.loanIdentifiers.length;i++){
+		    		if($scope.cdformdata.loanInformation.loanIdentifiers[i].loanIdentifierType=='AgencyCase'){
+		    			$scope.cdformdata.loanInformation.loanIdentifiers.splice(i,1);
+		    		}
+		    	}
     			var loanIdentifier = {
                 	"loanIdentifierType": "AgencyCase",
                 	"loanIdentifier": $scope.leformdata.micIdentifier
@@ -2709,12 +2717,14 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     }, true);
 
     $scope.$watch('leformdata.termsOfLoan.mortgageType',function(newValue,oldValue){
-    	for(i=1;i<$scope.leformdata.loanInformation.loanIdentifiers.length;i++){
-    		$scope.leformdata.loanInformation.loanIdentifiers.splice(i,1);
-    	}
     	if($scope.leformdata.micIdentifier) {
     		$scope.leformdata.loanDetail.miRequiredIndicator = true;
     		if($scope.leformdata.termsOfLoan.mortgageType!='Conventional') {
+    			for(i=0;i<$scope.cdformdata.loanInformation.loanIdentifiers.length;i++){
+		    		if($scope.cdformdata.loanInformation.loanIdentifiers[i].loanIdentifierType=='AgencyCase'){
+		    			$scope.cdformdata.loanInformation.loanIdentifiers.splice(i,1);
+		    		}
+		    	}
     			var loanIdentifier = {
                 	"loanIdentifierType": "AgencyCase",
                 	"loanIdentifier": $scope.leformdata.micIdentifier
@@ -2734,6 +2744,26 @@ app.controller('loanEstimateCtrl', function ($scope, $sce,$rootScope, $filter,$l
     		$scope.leformdata.loanTerms.prepaymentPenalty.prepaymentPenaltyExpirationMonthsCount = '';
     	}
 	}, true);
+
+	$scope.$watch('leformdata.miDataDetail.miMonthlyAmount',function(newValue,oldValue){
+        if($scope.leformdata.miDataDetail.miMonthlyAmount && $scope.leformdata.miDataDetail.miMonthlyAmount!=undefined){
+        	for(i=0;i<$scope.leformdata.projectedPayments.paymentCalculation.length;i++){
+        	 	$scope.leformdata.projectedPayments.mortgageInsurance[i].projectedPaymentMIPaymentAmount = $scope.leformdata.miDataDetail.miMonthlyAmount ? $scope.leformdata.miDataDetail.miMonthlyAmount : 0.00;
+            }
+            for(i=0;i<$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList.length;i++){
+            	if($scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowItemType == 'MortgageInsurance'){
+            		$scope.leformdata.closingCostDetailsOtherCosts.escrowItemsList[i].escrowMonthlyPaymentAmount = $scope.leformdata.miDataDetail.miMonthlyAmount ? $scope.leformdata.miDataDetail.miMonthlyAmount : 0.00;
+            		$scope.amountPerMonth('1');
+            	}
+            }
+        }
+	},true);
+
+	$scope.$watch('leformdata.principalAndInterestMonthsCount',function(newValue,oldValue){
+		if($scope.leformdata.principalAndInterestMonthsCount && $scope.leformdata.principalAndInterestMonthsCount!=undefined){
+		   $scope.leformdata.principalAndInterestPaymentAdjustment.firstPrincipalAndInterestPaymentChangeMonthsCount = $scope.leformdata.principalAndInterestMonthsCount+1;
+		}
+	},true);
     
     //Total closing Costs
     $scope.$watch('leformdata.closingCostsTotal.totalClosingCosts',function(newValue,oldValue){
